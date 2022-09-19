@@ -71,16 +71,16 @@ while i <= len(sheetrange['A']):
     try:
         WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
         time.sleep(2)
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(A)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(Instansi)
         # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/div/div/div").send_keys(instansi_Diatasnya)
         time.sleep(2)
-        driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(B)
+        driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(instansi_Diatasnya)
         time.sleep(6)
         driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
         time.sleep(5)
         driver.find_element(By.XPATH, "//form/div[3]/div/div/span").click()
                                     
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[8]/div/div/textarea").send_keys(C)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[8]/div/div/textarea").send_keys(Keterangan)
         time.sleep(2)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[9]/div/div/button[2]").click()
         
