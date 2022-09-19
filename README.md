@@ -1,4 +1,4 @@
-# automationpython
+# Automationpython
 Automation Web testing using python &amp; selenium Web driver
 
 ## Using Selenium Web Driver for testing application SDP
