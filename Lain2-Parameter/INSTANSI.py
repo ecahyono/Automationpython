@@ -16,13 +16,13 @@ import time
 
 #target halaman excel ada dimana , wb = variablenya
 # wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
-wb = load_workbook(filename="C:\Users\user\Documents\TRCH\Automationpython\Filexel\Book.xlsx")
+wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Book.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Instansi']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome('C:\Users\user\Documents\TRCH\chromedriver.exe')
+driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -74,7 +74,7 @@ while i <= len(sheetrange['A']):
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(Instansi)
         # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/div/div/div").send_keys(instansi_Diatasnya)
         time.sleep(2)
-        driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(instansi_Diatasnya)
+        driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(Instansi_Diatasnya)
         time.sleep(6)
         driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
         time.sleep(5)
