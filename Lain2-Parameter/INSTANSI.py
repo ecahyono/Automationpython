@@ -16,7 +16,7 @@ import time
 
 #target halaman excel ada dimana , wb = variablenya
 # wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
-wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Book.xlsx")
+wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Instansi']
