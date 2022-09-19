@@ -6,3 +6,9 @@ Automation Web testing using python &amp; selenium Web driver
 
 ## Access Web 
 - http://kumbang.torche.id:32400/
+
+
+## Extrack chromedriver and save to antoher folder
+exemple :
+>  'webdriver.Chrome('C:\chromedriver\chromedriver.exe')'
+.

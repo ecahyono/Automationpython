@@ -16,13 +16,13 @@ import time
 
 #target halaman excel ada dimana , wb = variablenya
 # wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
-wb = load_workbook(filename="C:\chromedriver\Instansi.xlsx")
+wb = load_workbook(filename="C:\Users\user\Documents\TRCH\Automationpython\Filexel\Book.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
-sheetrange = wb['Sheet1']
+sheetrange = wb['Instansi']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome()
+driver = webdriver.Chrome('C:\Users\user\Documents\TRCH\chromedriver.exe')
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -35,9 +35,9 @@ driver.find_element(By.XPATH, "//div/span").click()
 # ini masuk ke form input username
 driver.find_element(By.ID, "username").click()
 # masukin input username
-driver.find_element(By.ID, "username").send_keys("wildan")
+driver.find_element(By.ID, "username").send_keys("rono")
 # masukin input password
-driver.find_element(By.ID, "password").send_keys("wildan")
+driver.find_element(By.ID, "password").send_keys("rene")
 # click button login
 driver.find_element(By.ID, "kc-login").click()
 time.sleep(5)
@@ -58,11 +58,11 @@ i =2
 
 while i <= len(sheetrange['A']):
     # deklarasi bahwa NIP itu ada di A 
-    A = sheetrange['A'+str(i)].value
+    Instansi = sheetrange['A'+str(i)].value
     # deklarasi bahwa NAMA itu ada di B 
-    B = sheetrange['B'+str(i)].value
+    Instansi_Diatasnya = sheetrange['B'+str(i)].value
     # deklarasi bahwa NAMA itu ada di B 
-    C = sheetrange['C'+str(i)].value
+    Keterangan = sheetrange['C'+str(i)].value
     
     time.sleep(1)
 
@@ -76,7 +76,7 @@ while i <= len(sheetrange['A']):
         time.sleep(2)
         driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(B)
         time.sleep(6)
-        driver.find_element(By.XPATH, "//li[contains(.,'POLD A JABAR')]").click()
+        driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
         time.sleep(5)
         driver.find_element(By.XPATH, "//form/div[3]/div/div/span").click()
                                     
@@ -90,4 +90,4 @@ while i <= len(sheetrange['A']):
         pass
     time.sleep(7)   
     i = i + 1
-print ("WES")
+print ("Success Created")
