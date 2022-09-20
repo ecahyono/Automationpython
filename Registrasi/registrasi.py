@@ -55,9 +55,9 @@ i = 2
 # nge baca mulai dari tabel A
 while i <= len(sheetrange['A']):
     # deklarasi bahwa NIP itu ada di A 
-    nip = sheetrange['A'+str(i)].value
+    NoInduk = sheetrange['A'+str(i)].value
     # deklarasi bahwa NAMA itu ada di B 
-    nama = sheetrange['B'+str(i)].value
+    noregis = sheetrange['B'+str(i)].value
     # deklarasi bahwa NAMA itu ada di B 
     tempatlahir = sheetrange['C'+str(i)].value
     tanggallahir = sheetrange['D'+str(i)].value
@@ -84,7 +84,7 @@ while i <= len(sheetrange['A']):
    
     try:
 
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/div[2]/div/div/div/div/input").send_keys(nip)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/div[2]/div/div/div/div/input").send_keys(NoInduk)
         time.sleep(2)
         driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
         time.sleep(2)
@@ -93,6 +93,7 @@ while i <= len(sheetrange['A']):
         WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/div[2]')))
         driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
 
+        driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(noregis)
 
     except TimeoutException:
         print("ga muncul")
