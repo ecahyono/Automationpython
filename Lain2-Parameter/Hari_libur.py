@@ -19,7 +19,7 @@ import time
 wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
-sheetrange = wb['Instansi']
+sheetrange = wb['Harilibur']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
 driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
@@ -52,42 +52,45 @@ time.sleep(3)
 element2 = driver.find_element(By.XPATH, "//div[9]/div/ul/li/div")
 actions2 = ActionChains(driver)
 actions2.move_to_element(element2).perform()
-driver.find_element(By.LINK_TEXT, "Instansi").click()
 
-i =2 
+
+time.sleep(2)
+driver.find_element(By.LINK_TEXT, "Hari Libur").click()
+
+i = 2 
 
 while i <= len(sheetrange['A']):
-    # deklarasi bahwa NIP itu ada di A 
-    Instansi = sheetrange['A'+str(i)].value
-    # deklarasi bahwa NAMA itu ada di B 
-    Instansi_Diatasnya = sheetrange['B'+str(i)].value
-    # deklarasi bahwa NAMA itu ada di B 
+    # deklarasi per colom pada sheet
+    Tanggal = sheetrange['A'+str(i)].value
+    Nama = sheetrange['B'+str(i)].value
     Keterangan = sheetrange['C'+str(i)].value
     
-    time.sleep(1)
-
+    time.sleep(4)
+    #button +Tambah
     driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()
+                                  
 
     try:
-        WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
+        # WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
+        #Input
         time.sleep(2)
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(Instansi)
-        # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/div/div/div").send_keys(instansi_Diatasnya)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(Tanggal)                                     
         time.sleep(2)
-        driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(Instansi_Diatasnya)
-        time.sleep(6)
-        driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
-        time.sleep(5)
-        driver.find_element(By.XPATH, "//form/div[3]/div/div/span").click()
-                                    
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[8]/div/div/textarea").send_keys(Keterangan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div[1]/input").send_keys(Nama)                                      
+        time.sleep(2)                                
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/textarea").send_keys(Keterangan)
+                                      
         time.sleep(2)
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[9]/div/div/button[2]").click()
-        
-        
+        #Submit
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
+                            
+
+    
+                                        
+
     except TimeoutException:
         # print("d")
         pass
-    time.sleep(7)   
+    time.sleep(5)   
     i = i + 1
 print ("Success Created")
