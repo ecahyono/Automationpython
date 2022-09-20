@@ -84,10 +84,6 @@ while i <= len(sheetrange['A']):
         #Submit
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
                             
-
-    
-                                        
-
     except TimeoutException:
         # print("d")
         pass
