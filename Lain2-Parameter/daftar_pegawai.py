@@ -15,13 +15,13 @@ from openpyxl import load_workbook
 import time
 
 #target halaman excel ada dimana , wb = variablenya
-wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\lainlain.xlsx")
+wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Pegawai']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome(r"C:\chromedriver\chromedriver.exe")
+driver = webdriver.Chrome(r"/Users/will/Downloads/chromedriver")
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -34,16 +34,16 @@ driver.find_element(By.XPATH, "//div/span").click()
 # ini masuk ke form input username
 driver.find_element(By.ID, "username").click()
 # masukin input username
-driver.find_element(By.ID, "username").send_keys("rono")
+driver.find_element(By.ID, "username").send_keys("wildan")
 # masukin input password
-driver.find_element(By.ID, "password").send_keys("rene")
+driver.find_element(By.ID, "password").send_keys("wildan")
 # click button login
 driver.find_element(By.ID, "kc-login").click()
 time.sleep(5)
 # variable element nyari dimana letak menu lain lain
 element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[7]/div")
                                         
-time.sleep(3)
+time.sleep(5)
 # lib buat deklarasi element
 actions = ActionChains(driver)
 # mouse pindah ke variable element yaitu lain lain
