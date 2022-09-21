@@ -45,7 +45,15 @@ element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")
 time.sleep(2)
 actions = ActionChains(driver)
 actions.move_to_element(element).perform()
+time.sleep(2)
+#WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"el-popper-container-7971\"]/div[3]/div/ul/li[2]")))
+time.sleep(2)
+
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx anak ke 2
 element2 = driver.find_element(By.XPATH, "//div/ul/li[2]/div")
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx anak ke 2
+
+time.sleep(2)
 actions2 = ActionChains(driver)
 actions2.move_to_element(element2).perform()
 driver.find_element(By.LINK_TEXT, "Registrasi Tahanan/ Narapidana").click()
