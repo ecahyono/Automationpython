@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-
+from selenium.webdriver.common.keys import Keys 
 
 from openpyxl import load_workbook
 import time
@@ -100,15 +100,26 @@ while i <= len(sheetrange['A']):
         
         WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/div[2]')))
         driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
-
+# input sesuai excell
         driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(noregis)
-
+        #driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(TglSuratPenahanan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NomorSuratPenahanan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
+        #driver.find_element(By.XPATH, "").send_keys(Kejaksaan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Penyidik)
+        time.sleep(5)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.DOWN)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(5)
     except TimeoutException:
         print("ga muncul")
         pass
     time.sleep(5)
     i = i + 1
 print("done")
+
 
 
     
