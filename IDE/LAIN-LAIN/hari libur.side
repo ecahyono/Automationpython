@@ -1,0 +1,148 @@
+{
+  "id": "ec6a549c-ddc9-469e-afa9-838822b25135",
+  "version": "2.0",
+  "name": "hari libur",
+  "url": "http://kumbang.torche.id:32400",
+  "tests": [{
+    "id": "fd6d8edc-9269-4de5-a929-00b9e0273627",
+    "name": "input",
+    "commands": [{
+      "id": "1664e9b0-150f-400f-bf6c-a03df068a801",
+      "comment": "",
+      "command": "open",
+      "target": "/lain-lain/hari-libur",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1c6e204-df03-4e62-a6c9-6d7f9e1fd36d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e3096d88-872b-4ea6-aca0-8f52bf2f4f7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2) svg",
+      "targets": [
+        ["css=.is-plain:nth-child(2) svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb5cfb2e-a20e-42b3-99cb-57ad97be8578",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input",
+      "targets": [
+        ["css=.el-input--prefix > .el-input__inner", "css:finder"],
+        ["xpath=//input[@name='']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "880fdf86-1b09-4580-81c0-adcc87d3e2ce",
+      "comment": "",
+      "command": "type",
+      "target": "css=.el-input--prefix > .el-input__inner",
+      "targets": [
+        ["css=.el-input--prefix > .el-input__inner", "css:finder"],
+        ["xpath=//input[@name='']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "22/04/2021"
+    }, {
+      "id": "92be4c92-0c4c-4f5d-9beb-eefc35dab06e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item:nth-child(2) .el-input__inner",
+      "targets": [
+        ["css=.el-form-item:nth-child(2) .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79dcbe04-8532-42f6-8123-068940f98c55",
+      "comment": "",
+      "command": "type",
+      "target": "css=.el-form-item:nth-child(2) .el-input__inner",
+      "targets": [
+        ["css=.el-form-item:nth-child(2) .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Test1"
+    }, {
+      "id": "c996897e-288e-4276-a04b-d5320b8ea8a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-textarea__inner",
+      "targets": [
+        ["css=.el-textarea__inner", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "336c3f90-037c-4126-9867-bf936ee16245",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,200)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a5940e9-c4e9-4966-bbcb-816635a7b7ae",
+      "comment": "",
+      "command": "type",
+      "target": "css=.el-textarea__inner",
+      "targets": [
+        ["css=.el-textarea__inner", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "testyaaaw"
+    }, {
+      "id": "cd5f5209-9d6d-42c4-a83a-89d1986b1557",
+      "comment": "",
+      "command": "pause",
+      "target": "",
+      "targets": [],
+      "value": "4000"
+    }, {
+      "id": "04dd70d3-c39d-4589-8680-a5bcbc79243a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[4]/div/template/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c2de786-f479-48e5-8a42-7c0799e188f1",
+      "comment": "",
+      "command": "pause",
+      "target": "",
+      "targets": [],
+      "value": "4000"
+    }]
+  }],
+  "suites": [{
+    "id": "62400902-0606-4f39-a953-c89461c339a4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fd6d8edc-9269-4de5-a929-00b9e0273627"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/"],
+  "plugins": []
+}

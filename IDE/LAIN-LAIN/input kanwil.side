@@ -1,0 +1,440 @@
+{
+  "id": "4568d815-ec6f-4c92-9fb0-a007947f40e8",
+  "version": "2.0",
+  "name": "input kanwil",
+  "url": "http://kumbang.torche.id:32400/lain-lain/kanwil",
+  "tests": [{
+    "id": "8c96350d-3ddd-488f-93a4-b8117b37bf2a",
+    "name": "Untitled",
+    "commands": [{
+      "id": "f4d9719a-3029-4a49-9e35-5c21db66576a",
+      "comment": "",
+      "command": "open",
+      "target": "http://kumbang.torche.id:32400/lain-lain/kanwil",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e71ccf52-f000-4545-8dde-986403b96f45",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1190x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b30b0c2d-3517-4572-8f72-68505f73a74c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2)",
+      "targets": [
+        ["css=.is-plain:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84d35a11-22fc-4b1c-9834-7f7996337c88",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,214)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "20984d5c-a73d-4b7b-9f9b-605a6f4378f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=uraian",
+      "targets": [
+        ["id=uraian", "id"],
+        ["css=#uraian", "css:finder"],
+        ["xpath=//input[@id='uraian']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18b754b4-da56-4347-9942-706be61a6c68",
+      "comment": "",
+      "command": "type",
+      "target": "id=uraian",
+      "targets": [
+        ["id=uraian", "id"],
+        ["css=#uraian", "css:finder"],
+        ["xpath=//input[@id='uraian']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "TEST"
+    }, {
+      "id": "7ac44a09-ddd5-42dd-91be-4c9f2127b316",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-col:nth-child(1)",
+      "targets": [
+        ["css=.el-col:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f10efc71-8290-4a02-9e32-30bb6ed40d23",
+      "comment": "",
+      "command": "click",
+      "target": "id=alamat",
+      "targets": [
+        ["id=alamat", "id"],
+        ["css=#alamat", "css:finder"],
+        ["xpath=//input[@id='alamat']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fb67ccc-7902-49ec-ba06-3a7fb320e252",
+      "comment": "",
+      "command": "type",
+      "target": "id=alamat",
+      "targets": [
+        ["id=alamat", "id"],
+        ["css=#alamat", "css:finder"],
+        ["xpath=//input[@id='alamat']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "TESTING"
+    }, {
+      "id": "6534903f-011f-4b9c-a1b1-157236cc5f4b",
+      "comment": "",
+      "command": "click",
+      "target": "id=telpon",
+      "targets": [
+        ["id=telpon", "id"],
+        ["css=#telpon", "css:finder"],
+        ["xpath=//input[@id='telpon']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58af25ff-dee0-4c13-b9d3-7e9da8959aec",
+      "comment": "",
+      "command": "type",
+      "target": "id=telpon",
+      "targets": [
+        ["id=telpon", "id"],
+        ["css=#telpon", "css:finder"],
+        ["xpath=//input[@id='telpon']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "0891228912"
+    }, {
+      "id": "3d31641c-1015-46e8-b620-9ae210026c07",
+      "comment": "",
+      "command": "click",
+      "target": "id=fax",
+      "targets": [
+        ["id=fax", "id"],
+        ["css=#fax", "css:finder"],
+        ["xpath=//input[@id='fax']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[4]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c6f542f-ffb3-4ba8-8065-cb1442637f7a",
+      "comment": "",
+      "command": "type",
+      "target": "id=fax",
+      "targets": [
+        ["id=fax", "id"],
+        ["css=#fax", "css:finder"],
+        ["xpath=//input[@id='fax']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[4]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": "0812923981"
+    }, {
+      "id": "1324fa75-7b5a-4fd8-acd9-7eea38169b3a",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_provinsi",
+      "targets": [
+        ["id=id_provinsi", "id"],
+        ["css=#id_provinsi", "css:finder"],
+        ["xpath=//input[@id='id_provinsi']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[5]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91357573-d308-4f9f-bcb4-759463b78acc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hover",
+      "targets": [
+        ["css=.hover", "css:finder"],
+        ["xpath=//div[@id='el-popper-container-2818']/div[10]/div/div/div/ul/li[4]", "xpath:idRelative"],
+        ["xpath=//div[10]/div/div/div/ul/li[4]", "xpath:position"],
+        ["xpath=//li[contains(.,'Jawa Barat')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f567202-ad83-4599-b067-4595f844b063",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_dati2",
+      "targets": [
+        ["id=id_dati2", "id"],
+        ["css=#id_dati2", "css:finder"],
+        ["xpath=//input[@id='id_dati2']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[6]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "951d1784-5706-474a-9ae4-f915be69b5cb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-popper:nth-child(11) .el-select-dropdown__item:nth-child(4)",
+      "targets": [
+        ["css=.el-popper:nth-child(11) .el-select-dropdown__item:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='el-popper-container-2818']/div[11]/div/div/div/ul/li[4]", "xpath:idRelative"],
+        ["xpath=//div[11]/div/div/div/ul/li[4]", "xpath:position"],
+        ["xpath=//li[contains(.,'Bandung')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f46dc90-6472-404d-9841-a7c3f16cda07",
+      "comment": "",
+      "command": "click",
+      "target": "id=kepala_kanwil",
+      "targets": [
+        ["id=kepala_kanwil", "id"],
+        ["css=#kepala_kanwil", "css:finder"],
+        ["xpath=//input[@id='kepala_kanwil']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "994c3c37-2f70-4a1c-9d41-edd38396702c",
+      "comment": "",
+      "command": "type",
+      "target": "id=kepala_kanwil",
+      "targets": [
+        ["id=kepala_kanwil", "id"],
+        ["css=#kepala_kanwil", "css:finder"],
+        ["xpath=//input[@id='kepala_kanwil']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "ALYA"
+    }, {
+      "id": "5ee0abf8-b847-4bb8-b679-30d042267dd1",
+      "comment": "",
+      "command": "click",
+      "target": "id=jabatan_kw",
+      "targets": [
+        ["id=jabatan_kw", "id"],
+        ["css=#jabatan_kw", "css:finder"],
+        ["xpath=//input[@id='jabatan_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b586acf-a3a3-4d6d-a9a6-80bfaad911ce",
+      "comment": "",
+      "command": "type",
+      "target": "id=jabatan_kw",
+      "targets": [
+        ["id=jabatan_kw", "id"],
+        ["css=#jabatan_kw", "css:finder"],
+        ["xpath=//input[@id='jabatan_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "TESTER"
+    }, {
+      "id": "6cecb997-e578-42dc-bfad-6d5f6e1ed8e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=pangkat_kw",
+      "targets": [
+        ["id=pangkat_kw", "id"],
+        ["css=#pangkat_kw", "css:finder"],
+        ["xpath=//input[@id='pangkat_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6d5201d-6683-4db0-b6a5-bbd8f43c610c",
+      "comment": "",
+      "command": "type",
+      "target": "id=pangkat_kw",
+      "targets": [
+        ["id=pangkat_kw", "id"],
+        ["css=#pangkat_kw", "css:finder"],
+        ["xpath=//input[@id='pangkat_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "TEST"
+    }, {
+      "id": "7028d2ba-b478-4994-979a-39d9c6b9e526",
+      "comment": "",
+      "command": "click",
+      "target": "id=nip_kw",
+      "targets": [
+        ["id=nip_kw", "id"],
+        ["css=#nip_kw", "css:finder"],
+        ["xpath=//input[@id='nip_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0e50ee5-121f-4fc2-a105-3ba87b9c2b3c",
+      "comment": "",
+      "command": "type",
+      "target": "id=nip_kw",
+      "targets": [
+        ["id=nip_kw", "id"],
+        ["css=#nip_kw", "css:finder"],
+        ["xpath=//input[@id='nip_kw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "230981298102"
+    }, {
+      "id": "de1160cb-6057-45e1-9dcf-73aa08647b57",
+      "comment": "",
+      "command": "click",
+      "target": "id=pejabat_kanwil",
+      "targets": [
+        ["id=pejabat_kanwil", "id"],
+        ["css=#pejabat_kanwil", "css:finder"],
+        ["xpath=//input[@id='pejabat_kanwil']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[4]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ba6b5f7-a180-4948-965b-e94d6ae85d82",
+      "comment": "",
+      "command": "type",
+      "target": "id=pejabat_kanwil",
+      "targets": [
+        ["id=pejabat_kanwil", "id"],
+        ["css=#pejabat_kanwil", "css:finder"],
+        ["xpath=//input[@id='pejabat_kanwil']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[4]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": "-"
+    }, {
+      "id": "b38f507a-1d27-4d37-8b76-609bff5d1c33",
+      "comment": "",
+      "command": "click",
+      "target": "id=jabatan_pw",
+      "targets": [
+        ["id=jabatan_pw", "id"],
+        ["css=#jabatan_pw", "css:finder"],
+        ["xpath=//input[@id='jabatan_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[5]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "83588bbf-2bba-496f-853a-ba79ec09ac2d",
+      "comment": "",
+      "command": "type",
+      "target": "id=jabatan_pw",
+      "targets": [
+        ["id=jabatan_pw", "id"],
+        ["css=#jabatan_pw", "css:finder"],
+        ["xpath=//input[@id='jabatan_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[5]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": "-"
+    }, {
+      "id": "c1900fc9-b428-4364-873d-f99b6818dcc1",
+      "comment": "",
+      "command": "click",
+      "target": "id=pangkat_pw",
+      "targets": [
+        ["id=pangkat_pw", "id"],
+        ["css=#pangkat_pw", "css:finder"],
+        ["xpath=//input[@id='pangkat_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27fde412-16d2-4fa5-a766-a3176362ad70",
+      "comment": "",
+      "command": "type",
+      "target": "id=pangkat_pw",
+      "targets": [
+        ["id=pangkat_pw", "id"],
+        ["css=#pangkat_pw", "css:finder"],
+        ["xpath=//input[@id='pangkat_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": "-"
+    }, {
+      "id": "12f5c144-ce75-4878-a006-2b4c95b41875",
+      "comment": "",
+      "command": "click",
+      "target": "id=nip_pw",
+      "targets": [
+        ["id=nip_pw", "id"],
+        ["css=#nip_pw", "css:finder"],
+        ["xpath=//input[@id='nip_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0dc979a-191c-4770-abbf-3ec00a069ac9",
+      "comment": "",
+      "command": "type",
+      "target": "id=nip_pw",
+      "targets": [
+        ["id=nip_pw", "id"],
+        ["css=#nip_pw", "css:finder"],
+        ["xpath=//input[@id='nip_pw']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "2109810281"
+    }, {
+      "id": "e556d36b-b52a-42f3-a3c3-838b7178d5db",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900 > span",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900 > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8fcc41d1-77ac-47ab-a262-18f5a9bfc733",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8c96350d-3ddd-488f-93a4-b8117b37bf2a"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/", "http://kumbang.torche.id:32400/lain-lain/kanwil"],
+  "plugins": []
+}

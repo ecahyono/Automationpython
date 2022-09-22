@@ -1,0 +1,171 @@
+{
+  "id": "e8fc8db5-6bd1-4892-9c8b-a28d0450b00a",
+  "version": "2.0",
+  "name": "lain-lain",
+  "url": "http://kumbang.torche.id:32400/lain-lain/daftar-referensi",
+  "tests": [{
+    "id": "f24716f9-fd81-49c3-80be-45887183be19",
+    "name": "input",
+    "commands": [{
+      "id": "84d9e7ea-55a3-41cc-95b9-8e265a7d28a3",
+      "comment": "",
+      "command": "open",
+      "target": "http://kumbang.torche.id:32400/lain-lain/daftar-referensi",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "667bdf1b-5611-46fb-bf87-9451504756f9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1190x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cdb8f673-1ea7-410b-ba7d-5b12be756081",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2) > span",
+      "targets": [
+        ["css=.is-plain:nth-child(2) > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2cb6e12a-4e36-4751-ad03-31913f671c67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-required > .el-form-item__content > .el-input > .el-input__inner",
+      "targets": [
+        ["css=.is-required > .el-form-item__content > .el-input > .el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc890767-6ee4-4cc2-be39-ff5e6478b03a",
+      "comment": "",
+      "command": "type",
+      "target": "css=.is-required > .el-form-item__content > .el-input > .el-input__inner",
+      "targets": [
+        ["css=.is-required > .el-form-item__content > .el-input > .el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0002"
+    }, {
+      "id": "c19bd7d7-07ca-44c0-8355-4bacc718eecf",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div/div/div/div/input",
+      "targets": [
+        ["css=.is-focus > .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "22645f77-9cbc-44e4-bdf6-137af61c0f5e",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[10]/div/div/div/ul/li",
+      "targets": [
+        ["css=.hover", "css:finder"],
+        ["xpath=//div[@id='el-popper-container-9689']/div[10]/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//div[10]/div/div/div/ul/li", "xpath:position"],
+        ["xpath=//li[contains(.,'Absen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d0328e4-8983-4c52-a185-5d8c924667f1",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[3]/div/div/input",
+      "targets": [
+        ["css=.el-form-item:nth-child(3) .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01cf2999-9f65-44fb-a3e8-dfdca468f474",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@type='text'])[3]",
+      "targets": [
+        ["css=.el-form-item:nth-child(3) .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/input", "xpath:position"]
+      ],
+      "value": "Test"
+    }, {
+      "id": "9c210925-745c-4fd2-9042-1e597bc37a67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-textarea__inner",
+      "targets": [
+        ["css=.el-textarea__inner", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[4]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bec5c730-3d9b-4323-ba40-7c3e165d6d89",
+      "comment": "",
+      "command": "type",
+      "target": "css=.el-textarea__inner",
+      "targets": [
+        ["css=.el-textarea__inner", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[4]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Testing"
+    }, {
+      "id": "66d5101f-7d88-449d-b676-fb9771f74772",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item__content > .w-full",
+      "targets": [
+        ["css=.el-form-item__content > .w-full", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[5]/div/div", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ca753ae-89a2-4b14-8a18-b84da4514145",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,203.3333282470703)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c3dbd88-ac12-453a-bfac-29b5a61bcc1a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900 > span",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900 > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[5]/div/div/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3c0e36bb-874e-4515-b17f-3e1c26b372ad",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f24716f9-fd81-49c3-80be-45887183be19"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/lain-lain/daftar-referensi"],
+  "plugins": []
+}

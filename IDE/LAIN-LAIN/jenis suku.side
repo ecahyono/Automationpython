@@ -1,0 +1,110 @@
+{
+  "id": "cba4768c-1e80-4d5a-8bd5-f4e05f68a731",
+  "version": "2.0",
+  "name": "jenis suku",
+  "url": "http://kumbang.torche.id:32400/lain-lain/suku",
+  "tests": [{
+    "id": "203a0231-1bc4-435f-98d5-a7174d1b4adb",
+    "name": "input",
+    "commands": [{
+      "id": "39512e01-7162-4bc5-b0be-3f81f6c09839",
+      "comment": "",
+      "command": "open",
+      "target": "http://kumbang.torche.id:32400/lain-lain/suku",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea9e6037-b0d4-4fda-9a85-6c6f1cf239fa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "683x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab6fc2fd-bff3-494c-b9bc-40130073ed26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2) svg",
+      "targets": [
+        ["css=.is-plain:nth-child(2) svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "e03e0d55-43b1-42f9-9c14-8f941e960a4f",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "764375e3-d2c2-4bbf-8189-e3d6157efb6c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86b9372a-350a-410b-935e-50dab3447edb",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@type='text']",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "testing4"
+    }, {
+      "id": "1db07198-1b45-40b3-bdca-42e8327d4987",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item__content > .w-full",
+      "targets": [
+        ["css=.el-form-item__content > .w-full", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6ea69c7-5ac5-4dae-8ba6-374ca990a6c5",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.justify-between > .el-button > span",
+      "targets": [
+        ["css=.justify-between > .el-button > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Kembali')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1a931a0-cbf4-4fd9-889a-e6b311c6248c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900 > span",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900 > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "81d320f6-6ab6-421b-8367-13b4ee23fc83",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["203a0231-1bc4-435f-98d5-a7174d1b4adb"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/lain-lain/suku"],
+  "plugins": []
+}

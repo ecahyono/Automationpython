@@ -1,0 +1,175 @@
+{
+  "id": "d99a5abb-a0fb-4c52-90da-1dee63e0d560",
+  "version": "2.0",
+  "name": "provinsi",
+  "url": "http://kumbang.torche.id:32400",
+  "tests": [{
+    "id": "879b7693-0ac1-4063-a9b2-f256719c7bcb",
+    "name": "input",
+    "commands": [{
+      "id": "316adbd3-2735-4161-bd9e-ffae9d938997",
+      "comment": "",
+      "command": "open",
+      "target": "/lain-lain/provinsi",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a8ac40e-ffc1-4c26-8aa9-e781e6cc14d7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1190x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b1a7695-aa92-42fd-b956-86b1d45773df",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2) > span",
+      "targets": [
+        ["css=.is-plain:nth-child(2) > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "10e32524-4c82-41af-8c6a-d597975a6ac8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.justify-between > .el-button",
+      "targets": [
+        ["css=.justify-between > .el-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kembali')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b44f3ece-0e5b-4de3-ba35-cf1525509023",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.justify-between > .el-button",
+      "targets": [
+        ["css=.justify-between > .el-button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Kembali')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e67bd5d7-14dd-48c9-90eb-920c74d0b5ee",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input",
+      "targets": [
+        ["css=.el-input--suffix > .el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7717003d-3feb-42f9-9a6b-26cd78d6f053",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@type='text']",
+      "targets": [
+        ["css=.el-input--suffix > .el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "indonesia"
+    }, {
+      "id": "0c043dcc-a301-4c94-914a-fa1384111c06",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//li[149]",
+      "targets": [
+        ["css=.hover", "css:finder"],
+        ["xpath=//div[@id='el-popper-container-5737']/div[10]/div/div/div/ul/li[149]", "xpath:idRelative"],
+        ["xpath=//li[149]", "xpath:position"],
+        ["xpath=//li[contains(.,'Indonesia')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5be7329e-0ff7-4451-8637-d3a080ce5a0f",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[2]/div/div/input",
+      "targets": [
+        ["css=.el-form-item__content > .el-input > .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2740f141-3032-4b5c-8970-f1541db43808",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@type='text'])[2]",
+      "targets": [
+        ["css=.el-form-item__content > .el-input > .el-input__inner", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Testing"
+    }, {
+      "id": "d514e785-308a-470b-869c-c4ee88b4a9d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item__content > .w-full",
+      "targets": [
+        ["css=.el-form-item__content > .w-full", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[3]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee48e5b6-5123-4a13-909d-3c5d94925ad7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[3]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6bff210-a949-47e6-9922-10b5dd14855e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.el-table__row:nth-child(1) .el-space__item:nth-child(2) .h-5",
+      "targets": [
+        ["css=.el-table__row:nth-child(1) .el-space__item:nth-child(2) .h-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3ba80d5-166e-49b1-ab21-f50f45dc6c0f",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.el-table__row:nth-child(1) .el-space__item:nth-child(2) .h-5",
+      "targets": [
+        ["css=.el-table__row:nth-child(1) .el-space__item:nth-child(2) .h-5", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ab79a617-f7df-4db9-a588-f03570b157b4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["879b7693-0ac1-4063-a9b2-f256719c7bcb"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/"],
+  "plugins": []
+}
