@@ -12,6 +12,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 import time 
 from openpyxl import load_workbook
+import pyautogui
 
 
 #target halaman excel ada dimana , wb = variablenya
@@ -57,30 +58,30 @@ i = 2
 while i <= len(sheetrange['A']):
     # deklarasi per colom pada sheet
     #--------------------------------------------------------------
-    # Residivis               = sheetrange['A'+str(i)].value
-    # Nama_Lengkap            = sheetrange['B'+str(i)].value
-    # Nama_Alias1             = sheetrange['C'+str(i)].value
-    # Nama_Alias2             = sheetrange['D'+str(i)].value
-    # Nama_Alias3             = sheetrange['E'+str(i)].value
-    # Nama_Kecil1             = sheetrange['F'+str(i)].value
-    # Nama_Kecil2             = sheetrange['G'+str(i)].value
-    # Nama_Kecil3             = sheetrange['H'+str(i)].value
-    # Kewarganegaraan         = sheetrange['I'+str(i)].value
-    # nik                     = sheetrange['J'+str(i)].value
-    # Tempat_Asal             = sheetrange['K'+str(i)].value
-    # Tempat_lahir            = sheetrange['L'+str(i)].value
-    # Tanggal_lahir           = sheetrange['M'+str(i)].value
-    # Jenis_kelamin           = sheetrange['N'+str(i)].value
-    # Negara                  = sheetrange['O'+str(i)].value
-    # Agama                   = sheetrange['P'+str(i)].value
-    # suku                    = sheetrange['Q'+str(i)].value
-    # Status_perkawinan       = sheetrange['R'+str(i)].value
-    # Provinsi                = sheetrange['S'+str(i)].value
-    # Kota                    = sheetrange['T'+str(i)].value
-    # Alamat_rumah            = sheetrange['U'+str(i)].value
-    # Telepon                 = sheetrange['V'+str(i)].value
-    # Kode_pos                = sheetrange['W'+str(i)].value
-    # Alamat_lain             = sheetrange['X'+str(i)].value
+    Residivis               = sheetrange['A'+str(i)].value
+    Nama_Lengkap            = sheetrange['B'+str(i)].value
+    Nama_Alias1             = sheetrange['C'+str(i)].value
+    Nama_Alias2             = sheetrange['D'+str(i)].value
+    Nama_Alias3             = sheetrange['E'+str(i)].value
+    Nama_Kecil1             = sheetrange['F'+str(i)].value
+    Nama_Kecil2             = sheetrange['G'+str(i)].value
+    Nama_Kecil3             = sheetrange['H'+str(i)].value
+    Kewarganegaraan         = sheetrange['I'+str(i)].value
+    nik                     = sheetrange['J'+str(i)].value
+    Tempat_Asal             = sheetrange['K'+str(i)].value
+    Tempat_lahir            = sheetrange['L'+str(i)].value
+    Tanggal_lahir           = sheetrange['M'+str(i)].value
+    Jenis_kelamin           = sheetrange['N'+str(i)].value
+    Negara                  = sheetrange['O'+str(i)].value
+    Agama                   = sheetrange['P'+str(i)].value
+    suku                    = sheetrange['Q'+str(i)].value
+    Status_perkawinan       = sheetrange['R'+str(i)].value
+    Provinsi                = sheetrange['S'+str(i)].value
+    Kota                    = sheetrange['T'+str(i)].value
+    Alamat_rumah            = sheetrange['U'+str(i)].value
+    Telepon                 = sheetrange['V'+str(i)].value
+    Kode_pos                = sheetrange['W'+str(i)].value
+    Alamat_lain             = sheetrange['X'+str(i)].value
     #--------------------------------------------------------------
     # Jenis_Pekerjaan         = sheetrange['Y'+str(i)].value
     # Bekerjadi               = sheetrange['Z'+str(i)].value
@@ -98,26 +99,26 @@ while i <= len(sheetrange['A']):
     # Nama_ibu                = sheetrange['AK'+str(i)].value
     # Alamat_ibu              = sheetrange['AL'+str(i)].value
     #--------------------------------------------------------------
-    Tinggi_badan            = sheetrange['AM'+str(i)].value
-    Berat_badan             = sheetrange['AN'+str(i)].value
-    Bentuk_rambut           = sheetrange['AO'+str(i)].value
-    Warna_rambut            = sheetrange['AP'+str(i)].value
-    Bentuk_bibir            = sheetrange['AQ'+str(i)].value
-    Berkacamata             = sheetrange['AR'+str(i)].value
-    Bentuk_mata             = sheetrange['AS'+str(i)].value
-    Warna_mata              = sheetrange['AT'+str(i)].value
-    Hidung                  = sheetrange['AU'+str(i)].value
-    Raut_muka               = sheetrange['AV'+str(i)].value
-    Telinga                 = sheetrange['AW'+str(i)].value
-    Mulut                   = sheetrange['AX'+str(i)].value
-    Lengan                  = sheetrange['AY'+str(i)].value
-    Tangan                  = sheetrange['AZ'+str(i)].value
-    Kaki                    = sheetrange['BA'+str(i)].value
-    Warna_kulit             = sheetrange['BB'+str(i)].value
-    Cacat_tubuh             = sheetrange['BC'+str(i)].value
-    Catatancirikhusus1      = sheetrange['BD'+str(i)].value
-    Catatancirikhusus2      = sheetrange['BE'+str(i)].value
-    Catatancirikhusus3      = sheetrange['BF'+str(i)].value
+    # Tinggi_badan            = sheetrange['AM'+str(i)].value
+    # Berat_badan             = sheetrange['AN'+str(i)].value
+    # Bentuk_rambut           = sheetrange['AO'+str(i)].value
+    # Warna_rambut            = sheetrange['AP'+str(i)].value
+    # Bentuk_bibir            = sheetrange['AQ'+str(i)].value
+    # Berkacamata             = sheetrange['AR'+str(i)].value
+    # Bentuk_mata             = sheetrange['AS'+str(i)].value
+    # Warna_mata              = sheetrange['AT'+str(i)].value
+    # Hidung                  = sheetrange['AU'+str(i)].value
+    # Raut_muka               = sheetrange['AV'+str(i)].value
+    # Telinga                 = sheetrange['AW'+str(i)].value
+    # Mulut                   = sheetrange['AX'+str(i)].value
+    # Lengan                  = sheetrange['AY'+str(i)].value
+    # Tangan                  = sheetrange['AZ'+str(i)].value
+    # Kaki                    = sheetrange['BA'+str(i)].value
+    # Warna_kulit             = sheetrange['BB'+str(i)].value
+    # Cacat_tubuh             = sheetrange['BC'+str(i)].value
+    # Catatancirikhusus1      = sheetrange['BD'+str(i)].value
+    # Catatancirikhusus2      = sheetrange['BE'+str(i)].value
+    # Catatancirikhusus3      = sheetrange['BF'+str(i)].value
     #--------------------------------------------------------------
     # Nopaspor                = sheetrange['BG'+str(i)].value
     # Rumus                   = sheetrange['BH'+str(i)].value
@@ -141,7 +142,15 @@ while i <= len(sheetrange['A']):
         # driver.find_element(By.ID, "btn_residivis").send_keys(Keys.DOWN)
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_residivis").send_keys(Keys.ENTER)
-        # #--------------------------------------------------------------        time.sleep(3)                              
+        driver.find_element(By.ID, "btn_residivis").click()
+        time.sleep(2)
+        pyautogui.typewrite(Residivis)
+        time.sleep(2)
+        pyautogui.keyDown('enter') 
+        
+        
+        # #--------------------------------------------------------------        
+        # time.sleep(3)                              
         # driver.find_element(By.ID, "btn_nama_lengkap").send_keys(Nama_Lengkap)
         # #----------------------------------------------------------------
         # time.sleep(3)
@@ -280,7 +289,6 @@ while i <= len(sheetrange['A']):
         # time.sleep(3)        
         # driver.find_element(By.ID, "btn_alamat_alternatif").send_keys(Alamat_lain)
         # time.sleep(3)
-        
         # #======================================================================
         # driver.find_element(By.ID, "tab-2").click()
         # #========================Input Tab Pekerjaan===========================
@@ -377,137 +385,139 @@ while i <= len(sheetrange['A']):
         # driver.find_element(By.ID, "nm_ayah").click()
         # time.sleep(3)        
         # driver.find_element(By.ID, "nm_ayah").send_keys(Alamat_ibu)
-        #======================================================================
-        driver.find_element(By.ID, "tab-4").click()
-        #========================Input Tab Data Fisik========================== 
-        #------------------------------------------------------------------------------
-        driver.find_element(By.ID, "btn_id_jenis_warganegara").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "btn_id_jenis_warganegara").send_keys(Tinggi_badan) 
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "btn_id_jenis_warganegara").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "btn_id_jenis_warganegara").send_keys(Berat_badan) 
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_bentukrambut").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukrambut").send_keys(Bentuk_rambut) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukrambut").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukrambut").send_keys(Keys.ENTER) 
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_jenis_rambut").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_rambut").send_keys(Warna_rambut) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_rambut").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_rambut").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_bentukbibir").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukbibir").send_keys(Bentuk_bibir) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukbibir").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentukbibir").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_kacamata").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_kacamata").send_keys(Berkacamata) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_kacamata").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_kacamata").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_bentuk_mata").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentuk_mata").send_keys(Bentuk_mata) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentuk_mata").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_bentuk_mata").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_warna_mata").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warna_mata").send_keys(Warna_mata) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warna_mata").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warna_mata").send_keys(Keys.ENTER) 
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_jenis_hidung").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_hidung").send_keys(Hidung) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_hidung").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_hidung").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_jenis_muka").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_muka").send_keys(Raut_muka) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_muka").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_muka").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_telinga").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_telinga").send_keys(Telinga) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_telinga").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_telinga").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_jenis_mulut").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_mulut").send_keys(Mulut) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_mulut").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_mulut").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_lengan").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_lengan").send_keys(Lengan) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_lengan").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_lengan").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_jenis_kaki").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_kaki").send_keys(Kaki) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_kaki").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_jenis_kaki").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "id_warnakulit").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warnakulit").send_keys(Warna_kulit) 
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warnakulit").send_keys(Keys.DOWN)
-        time.sleep(3)
-        driver.find_element(By.ID, "id_warnakulit").send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "cacat").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "cacat").send_keys(Cacat_tubuh)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "ciri").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "ciri").send_keys(Catatancirikhusus1)  
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "ciri2").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "ciri2").send_keys(Catatancirikhusus2) 
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "ciri3").click()
-        time.sleep(3)
-        driver.find_element(By.ID, "ciri3").send_keys(Catatancirikhusus3) 
+        # #======================================================================
+        # driver.find_element(By.ID, "tab-4").click()
+        # #========================Input Tab Data Fisik========================== 
+        # #------------------------------------------------------------------------------
+        # driver.find_element(By.ID, "tinggi").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "tinggi").send_keys(Tinggi_badan) 
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "berat").click()        
+        # time.sleep(3)
+        # # driver.find_element(By.ID, "berat").clear_field() 
+        # # time.sleep(3)
+        # driver.find_element(By.ID, "berat").send_keys(Berat_badan) 
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_bentukrambut").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukrambut").send_keys(Bentuk_rambut) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukrambut").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukrambut").send_keys(Keys.ENTER) 
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_jenis_rambut").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_rambut").send_keys(Warna_rambut) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_rambut").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_rambut").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_bentukbibir").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukbibir").send_keys(Bentuk_bibir) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukbibir").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentukbibir").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_kacamata").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_kacamata").send_keys(Berkacamata) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_kacamata").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_kacamata").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_bentuk_mata").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentuk_mata").send_keys(Bentuk_mata) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentuk_mata").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_bentuk_mata").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_warna_mata").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warna_mata").send_keys(Warna_mata) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warna_mata").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warna_mata").send_keys(Keys.ENTER) 
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_jenis_hidung").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_hidung").send_keys(Hidung) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_hidung").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_hidung").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_jenis_muka").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_muka").send_keys(Raut_muka) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_muka").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_muka").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_telinga").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_telinga").send_keys(Telinga) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_telinga").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_telinga").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_jenis_mulut").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_mulut").send_keys(Mulut) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_mulut").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_mulut").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_lengan").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_lengan").send_keys(Lengan) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_lengan").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_lengan").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_jenis_kaki").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_kaki").send_keys(Kaki) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_kaki").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_jenis_kaki").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "id_warnakulit").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warnakulit").send_keys(Warna_kulit) 
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warnakulit").send_keys(Keys.DOWN)
+        # time.sleep(3)
+        # driver.find_element(By.ID, "id_warnakulit").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "cacat").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "cacat").send_keys(Cacat_tubuh)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "ciri").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "ciri").send_keys(Catatancirikhusus1)  
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "ciri2").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "ciri2").send_keys(Catatancirikhusus2) 
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "ciri3").click()
+        # time.sleep(3)
+        # driver.find_element(By.ID, "ciri3").send_keys(Catatancirikhusus3) 
         #Submit
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
         
