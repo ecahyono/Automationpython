@@ -1,4 +1,3 @@
-import imp
 from json import load
 from lib2to3.pgen2 import driver
 import string
@@ -9,19 +8,24 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 
 from openpyxl import load_workbook
 import time
 
 #target halaman excel ada dimana , wb = variablenya
-wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
+#macbook
+#wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
+wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Pegawai']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome(r"/Users/will/Downloads/chromedriver")
+driver = webdriver.Chrome()
+
+#mb driver = webdriver.Chrome(r"/Users/will/Downloads/chromedriver")
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -91,7 +95,7 @@ while i <= len(sheetrange['A']):
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/div[2]/div/div[1]/input").send_keys(nama)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/div[3]/div/div/input").send_keys(tempatlahir)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div[1]/div[4]/div/div/input").send_keys(tanggallahir)
-                                      
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div[1]/div[4]/div/div/input").send_keys(Keys.ENTER)
         # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/div[3]/div/div/input").send_keys(jeniskelamin)
         
         #click dropdown laki laki

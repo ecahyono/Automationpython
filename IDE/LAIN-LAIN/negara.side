@@ -1,0 +1,103 @@
+{
+  "id": "fffd3035-a1d4-49e1-b2eb-91b3f9a45ead",
+  "version": "2.0",
+  "name": "negara",
+  "url": "http://kumbang.torche.id:32400/lain-lain/negara",
+  "tests": [{
+    "id": "bec3b1a6-43ce-422e-985c-6dad69f7c0ee",
+    "name": "input",
+    "commands": [{
+      "id": "714f246f-0fa1-4131-b81b-bd9436f43449",
+      "comment": "",
+      "command": "open",
+      "target": "http://kumbang.torche.id:32400/lain-lain/negara",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb01b43b-652d-40dc-824f-c297ffeb11d5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1190x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "44340365-ae48-49a9-93ba-b257486f68d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2)",
+      "targets": [
+        ["css=.is-plain:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4ac04f8-7f7e-41e0-be13-7b6b5da437a4",
+      "comment": "",
+      "command": "pause",
+      "target": "2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f0df8b3-41b0-4e7a-8006-82ff4a63ee36",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4bf468e-f11a-430e-8cad-d485c75b71d9",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@type='text']",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "testing3"
+    }, {
+      "id": "8696e3f1-9a22-404e-ab69-02b88016d6f9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item__content > .w-full",
+      "targets": [
+        ["css=.el-form-item__content > .w-full", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14fec786-0ff8-4db8-9004-ee82d4ef424b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "880c2995-874f-44bf-9614-a5db77771a0c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["bec3b1a6-43ce-422e-985c-6dad69f7c0ee"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/lain-lain/negara"],
+  "plugins": []
+}

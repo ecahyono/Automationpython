@@ -1,4 +1,3 @@
-import imp
 from json import load
 from lib2to3.pgen2 import driver
 import string
@@ -9,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-
+from selenium.webdriver.common.keys import Keys 
 
 from openpyxl import load_workbook
 import time
@@ -34,9 +33,9 @@ driver.find_element(By.XPATH, "//div/span").click()
 # ini masuk ke form input username
 driver.find_element(By.ID, "username").click()
 # masukin input username
-driver.find_element(By.ID, "username").send_keys("wildan")
+driver.find_element(By.ID, "username").send_keys("rono")
 # masukin input password
-driver.find_element(By.ID, "password").send_keys("wildan")
+driver.find_element(By.ID, "password").send_keys("rene")
 # click button login
 driver.find_element(By.ID, "kc-login").click()
 time.sleep(2)
@@ -67,16 +66,17 @@ while i <= len(sheetrange['A']):
     # deklarasi bahwa NAMA itu ada di B 
     noregis = sheetrange['B'+str(i)].value
     # deklarasi bahwa NAMA itu ada di B 
-    tempatlahir = sheetrange['C'+str(i)].value
-    tanggallahir = sheetrange['D'+str(i)].value
-    jeniskelamin = sheetrange['E'+str(i)].value
-    alamat = sheetrange['F'+str(i)].value
-    jabatan = sheetrange['G'+str(i)].value
-    pangkat = sheetrange['H'+str(i)].value
-    golongan = sheetrange['I'+str(i)].value
-    bagian = sheetrange['J'+str(i)].value
-    email = sheetrange['K'+str(i)].value
-    telepon = sheetrange['L'+str(i)].value
+    TglSuratPenahanan = sheetrange['C'+str(i)].value
+    NomorSuratPenahanan = sheetrange['D'+str(i)].value
+    NamaPetugasInstansi = sheetrange['E'+str(i)].value
+    Kejaksaan = sheetrange['F'+str(i)].value
+    AsalInstansi = sheetrange['G'+str(i)].value
+    Keterangan = sheetrange['H'+str(i)].value
+    Penyidik = sheetrange['I'+str(i)].value
+    menahan10 = sheetrange['J'+str(i)].value
+    menahan3 = sheetrange['K'+str(i)].value
+    menahan1 = sheetrange['L'+str(i)].value
+    LokasiDokumen = sheetrange['M'+str(i)].value
     time.sleep(1)
 
     driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[3]").click()
@@ -93,15 +93,91 @@ while i <= len(sheetrange['A']):
     try:
 
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/div[2]/div/div/div/div/input").send_keys(NoInduk)
-        time.sleep(2)
+        time.sleep(1)
         driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
-        time.sleep(2)
+        time.sleep(1)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
         
         WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/div[2]')))
         driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
-
+# input sesuai excell
         driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(noregis)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(TglSuratPenahanan)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(1)
+        #driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(TglSuratPenahanan)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NomorSuratPenahanan)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
+        time.sleep(1)
+
+
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").send_keys(Kejaksaan)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(1)
+
+
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
+
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Penyidik)
+        WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="el-popper-container-5040"]/div[7]')))
+        
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.DOWN)
+        
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(3)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[1]/div/div/input").send_keys(menahan10)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[1]/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[1]/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(1)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(menahan3)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(1)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[3]/div/div/input").send_keys(menahan1)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[3]/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[3]/div/div/input").send_keys(Keys.ENTER)
+        time.sleep(1)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/textarea").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+        driver.find_element(By.XPATH, "").send_keys(LokasiDokumen)
+        #xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 
     except TimeoutException:
         print("ga muncul")
@@ -109,6 +185,7 @@ while i <= len(sheetrange['A']):
     time.sleep(5)
     i = i + 1
 print("done")
+
 
 
     

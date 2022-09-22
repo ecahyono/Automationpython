@@ -1,0 +1,95 @@
+{
+  "id": "4c4c0526-cedd-4fa0-8c36-de5dd73f65e1",
+  "version": "2.0",
+  "name": "jenis pekerjaan",
+  "url": "http://kumbang.torche.id:32400/lain-lain/pekerjaan",
+  "tests": [{
+    "id": "86fbfb1d-21a2-45dc-9554-e2e15823781a",
+    "name": "pekerjaan",
+    "commands": [{
+      "id": "5208990f-0188-4fc7-9dc4-d3bf216486e4",
+      "comment": "",
+      "command": "open",
+      "target": "http://kumbang.torche.id:32400/lain-lain/pekerjaan",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37a1ac39-796c-4d14-a6d7-de8bc6d1236e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1190x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "005bd62a-6eda-4108-94d8-1056035f544e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.is-plain:nth-child(2)",
+      "targets": [
+        ["css=.is-plain:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Tambah')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f524c8e-f99a-4ff1-abf6-2b9a51ed4178",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//input",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84331042-cc80-4b7d-8299-1f2d0688851a",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=//input[@type='text']",
+      "targets": [
+        ["css=.el-input__inner", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Testing2"
+    }, {
+      "id": "2c9b4ea3-373e-4a04-89bf-d0aa22fe3085",
+      "comment": "",
+      "command": "click",
+      "target": "css=.el-form-item__content > .w-full",
+      "targets": [
+        ["css=.el-form-item__content > .w-full", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//form/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f72be62f-a8a1-4d50-b266-07206e3920a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.w-full > .text-light-blue-900 > span",
+      "targets": [
+        ["css=.w-full > .text-light-blue-900 > span", "css:finder"],
+        ["xpath=//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/button[2]/span", "xpath:idRelative"],
+        ["xpath=//button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Simpan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "156ab400-b7ea-4b1f-964e-04c6ffcbdde4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["86fbfb1d-21a2-45dc-9554-e2e15823781a"]
+  }],
+  "urls": ["http://kumbang.torche.id:32400/lain-lain/pekerjaan"],
+  "plugins": []
+}
