@@ -12,10 +12,9 @@ from selenium.webdriver.common.keys import Keys
 
 from openpyxl import load_workbook
 import time
-
+import pyautogui
 
 wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/lainlain.xlsx")
-
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['DaftarUpt']
 
@@ -32,9 +31,9 @@ driver.find_element(By.XPATH, "//div/span").click()
 # ini masuk ke form input username
 driver.find_element(By.ID, "username").click()
 # masukin input username
-driver.find_element(By.ID, "username").send_keys("rono")
+driver.find_element(By.ID, "username").send_keys("wildan")
 # masukin input password
-driver.find_element(By.ID, "password").send_keys("rene")
+driver.find_element(By.ID, "password").send_keys("wildan")
 # click button login
 driver.find_element(By.ID, "kc-login").click()
 time.sleep(2)
@@ -75,26 +74,100 @@ while i <= len(sheetrange['A']):
     Pangkat2 = sheetrange['P'+str(i)].value
     Nip2 = sheetrange['Q'+str(i)].value
     time.sleep(1)
-
+    driver.find_element(By.XPATH, "//span[contains(.,\'Tambah\')]").click()
     try:
-        driver.find_element(By.XPATH, "//span[contains(.,\'Tambah\')]").click()
-    
+        
         WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div")))
         driver.execute_script("window.scrollTo(0,258)")
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[1]/div[2]/div/div[1]/input").send_keys(NamaUPT)
-        time.sleep(3)
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Kanwil)
-        time.sleep(10)
-        ds
+        time.sleep(1)
+
+        #kanwil
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").click()
+        time.sleep(2)
+        pyautogui.typewrite(Kanwil)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Keys.ENTER)
         
-        #driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Kanwil)
-        #driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Keys.DOWN)
-       # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[1]/div[3]/div/div/div/div/input").send_keys(Keys.ENTER)
+        #wilayah
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[2]/div[4]/div/div[1]/div/div/input").click()
+        time.sleep(2)
+        pyautogui.typewrite(wilayah)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[2]/div[4]/div/div[1]/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div[2]/div[4]/div/div[1]/div/div/input").send_keys(Keys.ENTER)
+        
+        #alamat
+        driver.find_element(By.CSS_SELECTOR, ".el-textarea__inner").click()
+        driver.find_element(By.CSS_SELECTOR, ".el-textarea__inner").send_keys(AlamatUPT)
 
+        #telpon
+        driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[5]/div/div/input").send_keys(Telpon)
+        
+        #kelas upt
+        driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").click()
+        time.sleep(2)
+        pyautogui.typewrite(KelasUPT)
+        driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").send_keys(Keys.ENTER)
+        
+        #JENIS UPT
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[2]/div[1]/div/div/div/div/input").click()
+        time.sleep(2)
+        pyautogui.typewrite(JenisUPT)
+        time.sleep(1)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[2]/div[1]/div/div/div/div/input").send_keys(Keys.DOWN)
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div/div[2]/div[1]/div/div/div/div/input").send_keys(Keys.ENTER)
+        
+        #KapasitasUPT
+        driver.find_element(By.CSS_SELECTOR, ".el-input:nth-child(3) > .el-input__inner").click()
+        driver.find_element(By.CSS_SELECTOR, ".el-input:nth-child(3) > .el-input__inner").send_keys(KapasitasUPT)
 
+        #FAX
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) .el-form-item__content > .el-input > .el-input__inner").click()
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) .el-form-item__content > .el-input > .el-input__inner").send_keys(Fax)
+        
+        #BUTTON SELANJUTNYA
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2)").click()
+        driver.find_element(By.CSS_SELECTOR, ".text-cyan-500:nth-child(2) > span").click()
+        
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(1) > .el-form-item:nth-child(1) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//input").send_keys("KepalaUPT")
+        
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(1) > .el-form-item:nth-child(2) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[2]/div/div/input").send_keys(NamaJabatan1)
+        
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(1) > .el-form-item:nth-child(3) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[3]/div/div/input").send_keys(Pangkat1)
+        
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(1) > .el-form-item:nth-child(4) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[4]/div/div/input").send_keys(Nip1)
+
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) > .el-form-item:nth-child(1) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[2]/div/div/div/input").send_keys(PejabatUPT)
+
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) > .el-form-item:nth-child(2) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[2]/div[2]/div/div/input").send_keys(NamaJabatan2)
+
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) > .el-form-item:nth-child(3) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[2]/div[3]/div/div/input").send_keys(Pangkat2)
+
+        driver.find_element(By.CSS_SELECTOR, ".el-col:nth-child(2) > .el-form-item:nth-child(4) .el-input__inner").click()
+        driver.find_element(By.XPATH, "//div[2]/div[4]/div/div/input").send_keys(Nip2)
+
+        driver.find_element(By.CSS_SELECTOR, "body").click()
+        driver.execute_script("window.scrollTo(0,0)")
+        driver.find_element(By.CSS_SELECTOR, "div:nth-child(2) > .text-light-blue-900 > span").click()
+        
     except TimeoutException:
         print("ga muncul")
         pass
     time.sleep(5)
     i = i + 1
-print("done")
+print("SELESAI PAK WILDAN KHAUSTARA SEBATS DULU")
