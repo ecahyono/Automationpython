@@ -57,31 +57,31 @@ i = 2
 
 while i <= len(sheetrange['A']):
     # deklarasi per colom pada sheet
-    #--------------------------------------------------------------
-    Residivis               = sheetrange['A'+str(i)].value
-    Nama_Lengkap            = sheetrange['B'+str(i)].value
-    Nama_Alias1             = sheetrange['C'+str(i)].value
-    Nama_Alias2             = sheetrange['D'+str(i)].value
-    Nama_Alias3             = sheetrange['E'+str(i)].value
-    Nama_Kecil1             = sheetrange['F'+str(i)].value
-    Nama_Kecil2             = sheetrange['G'+str(i)].value
-    Nama_Kecil3             = sheetrange['H'+str(i)].value
-    Kewarganegaraan         = sheetrange['I'+str(i)].value
-    nik                     = sheetrange['J'+str(i)].value
-    Tempat_Asal             = sheetrange['K'+str(i)].value
-    Tempat_lahir            = sheetrange['L'+str(i)].value
-    Tanggal_lahir           = sheetrange['M'+str(i)].value
-    Jenis_kelamin           = sheetrange['N'+str(i)].value
-    Negara                  = sheetrange['O'+str(i)].value
-    Agama                   = sheetrange['P'+str(i)].value
-    suku                    = sheetrange['Q'+str(i)].value
-    Status_perkawinan       = sheetrange['R'+str(i)].value
-    Provinsi                = sheetrange['S'+str(i)].value
-    Kota                    = sheetrange['T'+str(i)].value
-    Alamat_rumah            = sheetrange['U'+str(i)].value
-    Telepon                 = sheetrange['V'+str(i)].value
-    Kode_pos                = sheetrange['W'+str(i)].value
-    Alamat_lain             = sheetrange['X'+str(i)].value
+    # #--------------------------------------------------------------
+    # Residivis               = sheetrange['A'+str(i)].value
+    # Nama_Lengkap            = sheetrange['B'+str(i)].value
+    # Nama_Alias1             = sheetrange['C'+str(i)].value
+    # Nama_Alias2             = sheetrange['D'+str(i)].value
+    # Nama_Alias3             = sheetrange['E'+str(i)].value
+    # Nama_Kecil1             = sheetrange['F'+str(i)].value
+    # Nama_Kecil2             = sheetrange['G'+str(i)].value
+    # Nama_Kecil3             = sheetrange['H'+str(i)].value
+    # Kewarganegaraan         = sheetrange['I'+str(i)].value
+    # nik                     = sheetrange['J'+str(i)].value
+    # Tempat_Asal             = sheetrange['K'+str(i)].value
+    # Tempat_lahir            = sheetrange['L'+str(i)].value
+    # Tanggal_lahir           = sheetrange['M'+str(i)].value
+    # Jenis_kelamin           = sheetrange['N'+str(i)].value
+    # Negara                  = sheetrange['O'+str(i)].value
+    # Agama                   = sheetrange['P'+str(i)].value
+    # suku                    = sheetrange['Q'+str(i)].value
+    # Status_perkawinan       = sheetrange['R'+str(i)].value
+    # Provinsi                = sheetrange['S'+str(i)].value
+    # Kota                    = sheetrange['T'+str(i)].value
+    # Alamat_rumah            = sheetrange['U'+str(i)].value
+    # Telepon                 = sheetrange['V'+str(i)].value
+    # Kode_pos                = sheetrange['W'+str(i)].value
+    # Alamat_lain             = sheetrange['X'+str(i)].value
     #--------------------------------------------------------------
     # Jenis_Pekerjaan         = sheetrange['Y'+str(i)].value
     # Bekerjadi               = sheetrange['Z'+str(i)].value
@@ -120,13 +120,13 @@ while i <= len(sheetrange['A']):
     # Catatancirikhusus2      = sheetrange['BE'+str(i)].value
     # Catatancirikhusus3      = sheetrange['BF'+str(i)].value
     #--------------------------------------------------------------
-    # Nopaspor                = sheetrange['BG'+str(i)].value
-    # Rumus                   = sheetrange['BH'+str(i)].value
-    # Nodaktolskopi           = sheetrange['BI'+str(i)].value
-    # Pengambilansidikjari    = sheetrange['BJ'+str(i)].value
-    # Tanggalpengambilan      = sheetrange['BK'+str(i)].value
+    Nopaspor                = sheetrange['BG'+str(i)].value
+    Rumus                   = sheetrange['BH'+str(i)].value
+    Nodaktolskopi           = sheetrange['BI'+str(i)].value
+    Pengambilansidikjari    = sheetrange['BJ'+str(i)].value
+    Tanggalpengambilan      = sheetrange['BK'+str(i)].value
 
-    time.sleep(5)
+    time.sleep(4)
     #button +Tambah
     driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()                                 
 
@@ -136,19 +136,10 @@ while i <= len(sheetrange['A']):
         #========================Input Tab Biodata ============================
         #--------------------------------------------------------------
         # driver.find_element(By.ID, "btn_residivis").click()
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_residivis").send_keys(Residivis)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_residivis").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_residivis").send_keys(Keys.ENTER)
-        driver.find_element(By.ID, "btn_residivis").click()
-        time.sleep(2)
-        pyautogui.typewrite(Residivis)
-        time.sleep(2)
-        pyautogui.keyDown('enter') 
-        
-        
+        # time.sleep(2)
+        # pyautogui.typewrite(Residivis)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #--------------------------------------------------------------        
         # time.sleep(3)                              
         # driver.find_element(By.ID, "btn_nama_lengkap").send_keys(Nama_Lengkap)
@@ -173,122 +164,99 @@ while i <= len(sheetrange['A']):
         # #--------------------------------------------------------------
         # driver.find_element(By.ID, "btn_id_jenis_warganegara").click()
         # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_warganegara").send_keys(Kewarganegaraan) 
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_warganegara").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_warganegara").send_keys(Keys.ENTER) 
-        # #--------------------------------------------------------------
+        # pyautogui.typewrite(Kewarganegaraan)
+        # time.sleep(2)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
+        # # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_nik").send_keys(nik) 
+        # #--------------------------------------------------------------                                
+        # driver.find_element(By.XPATH, "//*[@id=\"pane-1\"]/form/div[1]/div[2]/div[3]/div/div").click()   
+        # time.sleep(2)
+        # pyautogui.typewrite(Tempat_Asal)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #--------------------------------------------------------------
-        # driver.find_element(By.ID, "btn_id_tempat_asal").click()                                    
-        # time.sleep(3)                                
-        # driver.find_element(By.ID, "btn_id_tempat_asal").send_keys(Tempat_Asal)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_tempat_asal").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_tempat_asal").send_keys(Keys.ENTER) 
-        # #--------------------------------------------------------------
-        # driver.find_element(By.ID, "btn_id_tempat_lahir").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_tempat_lahir").send_keys(Tempat_lahir)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_tempat_lahir").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_tempat_lahir").send_keys(Keys.ENTER)
+        # driver.find_element(By.XPATH, "//*[@id=\"pane-1\"]/form/div[1]/div[2]/div[4]/div/div").click()          
+        # time.sleep(2)
+        # pyautogui.typewrite(Tempat_lahir)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #----------------------------------------------------------------
-        # time.sleep(3)
         # driver.find_element(By.XPATH, "//div[5]/div/div/div/div/div/input").click()
-        # time.sleep(3)
-        # driver.find_element(By.XPATH, "//div[5]/div/div/div/div/div/input").send_keys(Tanggal_lahir) 
-        # time.sleep(3)
-        # driver.find_element(By.XPATH, "//div[5]/div/div/div/div/div/input").send_keys(Keys.ENTER)  
-        # #--------------------------------------------------------------
+        # time.sleep(2)
+        # pyautogui.typewrite(Tanggal_lahir)
+        # pyautogui.press('enter') 
+        # # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_jenis_kelamin").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_jenis_kelamin").send_keys(Jenis_kelamin)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_kelamin").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_kelamin").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(Jenis_kelamin)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_negara_asing").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_negara_asing").send_keys(Negara)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_negara_asing").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_negara_asing").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(Negara)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_jenis_agama").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_jenis_agama").send_keys(Agama)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_agama").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_agama").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(Agama)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_jenis_suku").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_jenis_suku").send_keys(suku)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_suku").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_suku").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(suku)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_jenis_status_perkawinan").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_jenis_status_perkawinan").send_keys(Status_perkawinan)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_status_perkawinan").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_jenis_status_perkawinan").send_keys(Keys.ENTER)
-        
+        # time.sleep(2)
+        # pyautogui.typewrite(Status_perkawinan)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_propinsi").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_propinsi").send_keys(Provinsi)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_propinsi").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_propinsi").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(Provinsi)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_id_kota").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_id_kota").send_keys(Kota)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_kota").send_keys(Keys.DOWN)
-        # time.sleep(3)
-        # driver.find_element(By.ID, "btn_id_kota").send_keys(Keys.ENTER)
+        # time.sleep(2)
+        # pyautogui.typewrite(Kota)
+        # pyautogui.keyDown('down')
+        # pyautogui.press('enter')
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_alamat").click()
         # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_alamat").send_keys(Alamat_rumah)
+        # pyautogui.typewrite(Alamat_rumah)
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_telepon").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_telepon").send_keys(Telepon)
+        # time.sleep(2)
+        # pyautogui.typewrite(Telepon)
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_kodepos").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_kodepos").send_keys(Kode_pos)
+        # time.sleep(2)
+        # pyautogui.typewrite(Kode_pos)
         # #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_alamat_alternatif").click()
-        # time.sleep(3)        
-        # driver.find_element(By.ID, "btn_alamat_alternatif").send_keys(Alamat_lain)
-        # time.sleep(3)
+        # time.sleep(2)
+        # pyautogui.typewrite(Alamat_lain)
         # #======================================================================
         # driver.find_element(By.ID, "tab-2").click()
         # #========================Input Tab Pekerjaan===========================
@@ -390,14 +358,14 @@ while i <= len(sheetrange['A']):
         # #========================Input Tab Data Fisik========================== 
         # #------------------------------------------------------------------------------
         # driver.find_element(By.ID, "tinggi").click()
-        # time.sleep(3)
-        # driver.find_element(By.ID, "tinggi").send_keys(Tinggi_badan) 
+        # pyautogui.hotkey("backspace")
+        # time.sleep(2)
+        # driver.find_element(By.XPATH, "//*[@id=\"tinggi\"]/div/input" ).send_keys(Tinggi_badan) 
         # #--------------------------------------------------------------
-        # driver.find_element(By.ID, "berat").click()        
-        # time.sleep(3)
-        # # driver.find_element(By.ID, "berat").clear_field() 
-        # # time.sleep(3)
-        # driver.find_element(By.ID, "berat").send_keys(Berat_badan) 
+        # driver.find_element(By.ID, "berat").click()
+        # pyautogui.hotkey("backspace")
+        # time.sleep(2)
+        # driver.find_element(By.ID, "//*[@id=\"berat\"]/div/input").send_keys(Berat_badan) 
         # #--------------------------------------------------------------
         # driver.find_element(By.ID, "id_bentukrambut").click()
         # time.sleep(3)
@@ -517,7 +485,22 @@ while i <= len(sheetrange['A']):
         # #--------------------------------------------------------------
         # driver.find_element(By.ID, "ciri3").click()
         # time.sleep(3)
-        # driver.find_element(By.ID, "ciri3").send_keys(Catatancirikhusus3) 
+        # driver.find_element(By.ID, "ciri3").send_keys(Catatancirikhusus3)
+        #======================================================================
+        driver.find_element(By.ID, "tab-5").click()
+        #========================Input Tab Sidik Jari========================== 
+        # #--------------------------------------------------------------
+        driver.find_element(By.ID, "no_paspor").click()
+        pyautogui.typewrite(no_paspor)
+        # #--------------------------------------------------------------
+        driver.find_element(By.ID, "Rumus").click()
+        pyautogui.typewrite(Rumus)
+        #--------------------------------------------------------------
+        driver.find_element(By.ID, "nomor_daktil").click()
+        pyautogui.typewrite(Nodaktolskopi)
+        #--------------------------------------------------------------
+        driver.find_element(By.ID, "pengambil_sj").click()
+        pyautogui.typewrite(Pengambilansidikjari)
         #Submit
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
         
