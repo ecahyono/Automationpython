@@ -1,4 +1,4 @@
-# Folder Bacupan code yang telah di explorasi sejak dini
+# Folder Bacupan code yang telah di explorasi sejak dini HINGGA MIMISAN
 .
 .
 .
