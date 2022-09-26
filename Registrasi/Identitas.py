@@ -10,20 +10,36 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.options import Options
+
 import time 
 from openpyxl import load_workbook
 import pyautogui
 
 
+
 #target halaman excel ada dimana , wb = variablenya
 # wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
 wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Registrasi.xlsx")
-
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Identitas']
 
+#permition of camera and mic
+options = webdriver.ChromeOptions()
+options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 1,     # 1:allow, 2:block 
+    "profile.default_content_setting_values.media_stream_camera": 1,  # 1:allow, 2:block 
+    "profile.default_content_setting_values.geolocation": 1,          # 1:allow, 2:block 
+    "profile.default_content_setting_values.notifications": 1         # 1:allow, 2:block 
+    })
+
+driver = webdriver.Chrome(chrome_options=options)  
+
+
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
+driver = webdriver.Chrome(chrome_options=options, executable_path=r'C:\Users\user\Documents\TRCH\chromedriver.exe')
+# driver = webdriver.Chrome(executable_path=r'C:\Users\user\Documents\TRCH\chromedriver.exe')
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -47,11 +63,11 @@ time.sleep(3)
 element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")                                   
 actions = ActionChains(driver)
 actions.move_to_element(element).perform()
-time.sleep(3)
+time.sleep(1)
 
 #Identitas
 driver.find_element(By.LINK_TEXT, "Daftar Identitas").click()
-time.sleep(3)
+time.sleep(1)
 
 i = 2 
 
@@ -65,7 +81,8 @@ while i <= len(sheetrange['A']):
     # Nama_Alias3             = sheetrange['E'+str(i)].value
     # Nama_Kecil1             = sheetrange['F'+str(i)].value
     # Nama_Kecil2             = sheetrange['G'+str(i)].value
-    # Nama_Kecil3             = sheetrange['H'+str(i)].value
+    # Nama_Kecil3               = sheetrange['H'+str(i)].value
+    # chcktab1                = sheetrange['BN'+str(i)].value
     # Kewarganegaraan         = sheetrange['I'+str(i)].value
     # nik                     = sheetrange['J'+str(i)].value
     # Tempat_Asal             = sheetrange['K'+str(i)].value
@@ -82,6 +99,7 @@ while i <= len(sheetrange['A']):
     # Telepon                 = sheetrange['V'+str(i)].value
     # Kode_pos                = sheetrange['W'+str(i)].value
     # Alamat_lain             = sheetrange['X'+str(i)].value
+
     #--------------------------------------------------------------
     # Jenis_Pekerjaan         = sheetrange['Y'+str(i)].value
     # Bekerjadi               = sheetrange['Z'+str(i)].value
@@ -93,11 +111,14 @@ while i <= len(sheetrange['A']):
     # Keahlian2               = sheetrange['AF'+str(i)].value
     # Levelkeahlian2          = sheetrange['AG'+str(i)].value
     # Minat                   = sheetrange['AH'+str(i)].value
+    # chcktab2                = sheetrange['BL'+str(i)].value
     # #--------------------------------------------------------------
     # Nama_ayah               = sheetrange['AI'+str(i)].value
     # Alamat_ayah             = sheetrange['AJ'+str(i)].value
     # Nama_ibu                = sheetrange['AK'+str(i)].value
     # Alamat_ibu              = sheetrange['AL'+str(i)].value
+
+    
     #--------------------------------------------------------------
     # Tinggi_badan            = sheetrange['AM'+str(i)].value
     # Berat_badan             = sheetrange['AN'+str(i)].value
@@ -120,19 +141,20 @@ while i <= len(sheetrange['A']):
     # Catatancirikhusus2      = sheetrange['BE'+str(i)].value
     # Catatancirikhusus3      = sheetrange['BF'+str(i)].value
     #--------------------------------------------------------------
-    Nopaspor                = sheetrange['BG'+str(i)].value
-    Rumus                   = sheetrange['BH'+str(i)].value
-    Nodaktolskopi           = sheetrange['BI'+str(i)].value
-    Pengambilansidikjari    = sheetrange['BJ'+str(i)].value
-    Tanggalpengambilan      = sheetrange['BK'+str(i)].value
+    # Nopaspor                = sheetrange['BG'+str(i)].value
+    # Rumus                   = sheetrange['BH'+str(i)].value
+    # Nodaktolskopi           = sheetrange['BI'+str(i)].value
+    # Pengambilansidikjari    = sheetrange['BJ'+str(i)].value
+    # Tanggalpengambilan      = sheetrange['BK'+str(i)].value
 
-    time.sleep(4)
+    time.sleep(3)
     #button +Tambah
     driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()                                 
 
     try:
         WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
         #======================================================================
+        # driver.find_element(By.ID, "tab-1").click()
         #========================Input Tab Biodata ============================
         #--------------------------------------------------------------
         # driver.find_element(By.ID, "btn_residivis").click()
@@ -140,7 +162,7 @@ while i <= len(sheetrange['A']):
         # pyautogui.typewrite(Residivis)
         # pyautogui.keyDown('down')
         # pyautogui.press('enter')
-        # #--------------------------------------------------------------        
+        #--------------------------------------------------------------        
         # time.sleep(3)                              
         # driver.find_element(By.ID, "btn_nama_lengkap").send_keys(Nama_Lengkap)
         # #----------------------------------------------------------------
@@ -161,6 +183,14 @@ while i <= len(sheetrange['A']):
         # #----------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_nama_kecil3").send_keys(Nama_Kecil3)
+        # #--------------------------------------------------------------
+        # cekbocktab1 = driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+        # if chcktab1 == True :
+        #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+        #     print ("uncheckh")
+        # else: 
+        #     print ("Masih default")
+
         # #--------------------------------------------------------------
         # driver.find_element(By.ID, "btn_id_jenis_warganegara").click()
         # time.sleep(3)
@@ -252,15 +282,21 @@ while i <= len(sheetrange['A']):
         # driver.find_element(By.ID, "btn_kodepos").click()
         # time.sleep(2)
         # pyautogui.typewrite(Kode_pos)
-        # #------------------------------------------------------------------------------
+        #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "btn_alamat_alternatif").click()
         # time.sleep(2)
         # pyautogui.typewrite(Alamat_lain)
-        # #======================================================================
+
+        # if chck == True:
+        #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+        # elif chck == False :
+        #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+        
+        #======================================================================
         # driver.find_element(By.ID, "tab-2").click()
-        # #========================Input Tab Pekerjaan===========================
-        # #------------------------------------------------------------------------------
+        #========================Input Tab Pekerjaan===========================
+        #------------------------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "id_jenis_pekerjaan").click()
         # time.sleep(3)        
@@ -324,6 +360,12 @@ while i <= len(sheetrange['A']):
         # driver.find_element(By.ID, "id_jenis_keahlian_2").send_keys(Keys.DOWN)
         # time.sleep(3)
         # driver.find_element(By.ID, "id_jenis_keahlian_2").send_keys(Keys.ENTER)
+        # #--------------------------------------------------------------
+        # if chcktab2 == 'ya' :
+        #     driver.find_element(By.XPATH, "//*[@id=\"is_baca_quran\"]/span[1]/span").click()
+        #     print (chcktab2)
+        # elif chcktab2 == 'Tidak':
+        #     print ("tidak di check")
         # #--------------------------------------------------------------
         # time.sleep(3)
         # driver.find_element(By.ID, "minat").click()
@@ -487,21 +529,51 @@ while i <= len(sheetrange['A']):
         # time.sleep(3)
         # driver.find_element(By.ID, "ciri3").send_keys(Catatancirikhusus3)
         #======================================================================
-        driver.find_element(By.ID, "tab-5").click()
+        # driver.find_element(By.ID, "tab-5").click()
         #========================Input Tab Sidik Jari========================== 
         # #--------------------------------------------------------------
-        driver.find_element(By.ID, "no_paspor").click()
-        pyautogui.typewrite(no_paspor)
+        # driver.find_element(By.ID, "no_paspor").click()
+        # driver.find_element(By.ID, "no_paspor").send_keys(Nopaspor)
+        # # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "rumus_daktil").click()
+        # driver.find_element(By.ID, "rumus_daktil").send_keys(Rumus)
         # #--------------------------------------------------------------
-        driver.find_element(By.ID, "Rumus").click()
-        pyautogui.typewrite(Rumus)
+        # driver.find_element(By.ID, "nomor_daktil").click()
+        # driver.find_element(By.ID, "nomor_daktil").send_keys(Nopaspor)
+        # #--------------------------------------------------------------
+        # driver.find_element(By.ID, "pengambil_sj").click()
+        # driver.find_element(By.ID, "pengambil_sj").send_keys(Pengambilansidikjari)
+        # #--------------------------------------------------------------
+        # time.sleep(1)
+        # driver.find_element(By.XPATH, "//*[@id=\"pane-5\"]/div/form/div/div[2]/div[2]/div/div/input").click()
+        # driver.find_element(By.XPATH, "//*[@id=\"pane-5\"]/div/form/div/div[2]/div[2]/div/div/input").send_keys(Tanggalpengambilan)
+        #======================================================================
+        driver.find_element(By.ID, "tab-6").click()
+        #========================Input Tab Foto========================== 
         #--------------------------------------------------------------
-        driver.find_element(By.ID, "nomor_daktil").click()
-        pyautogui.typewrite(Nodaktolskopi)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, "pengambil_sj").click()
-        pyautogui.typewrite(Pengambilansidikjari)
+        driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/button[1]").click()
+
+
+        # desired_cap = {
+        #     'version': 'latest',
+        #     'platform': 'WIN10',
+        #     'browserName': 'chrome',
+
+        #     'chromeOptions': {
+        #         'args': ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"]
+        #     }
+        # }
+        # driver = webdriver.Remote(command_executor='https://API_KEY:API_SECRET@hub.testingbot.com/wd/hub', desired_capabilities=desired_cap)
+        # time.sleep(2)
+        # driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/button[1]").click()
+        # chrome_opt.add_argument("use-fake-ui-for-media-stream")
+        # driver.find_element(By.XPATH, "//div[6]/form/div/div[1]/div/div/div/div/div[1]/button").click()
+        # driver.find_element(By.XPATH, "//div[6]/form/div/div[1]/div/div/div/div/div[1]/button").send_keys(r"C:\Users\user\Pictures\Screenshots\lim.jpg")
+        # //*[@id="pane-6"]/form/div/div[1]/div/div/div/button[1]   
+
+
         #Submit
+        time.sleep(2)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
         
     except TimeoutException:

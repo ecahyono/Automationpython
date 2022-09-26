@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-
+import pyautogui
 
 from openpyxl import load_workbook
 import time
@@ -29,7 +29,7 @@ driver.get("http://kumbang.torche.id:32400/")
 # seting windows nya jadi max   
 driver.maximize_window()
 # script gakan di eksekusi kalo web ga muncul. kalo lebih dari 10 detik ga muncul error
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 # ini letak xpath icon login
 driver.find_element(By.XPATH, "//div/span").click()
 # ini masuk ke form input username
@@ -57,28 +57,59 @@ driver.find_element(By.LINK_TEXT, "Instansi").click()
 i =2 
 
 while i <= len(sheetrange['A']):
-    # deklarasi bahwa NIP itu ada di A 
     Instansi = sheetrange['A'+str(i)].value
-    # deklarasi bahwa NAMA itu ada di B 
     Instansi_Diatasnya = sheetrange['B'+str(i)].value
-    # deklarasi bahwa NAMA itu ada di B 
     Keterangan = sheetrange['C'+str(i)].value
-    
+    Penyidik = sheetrange['D'+str(i)].value
+    Penuntut = sheetrange['E'+str(i)].value
+    Pengadilan_Negeri = sheetrange['F'+str(i)].value
+    Pengadilan_Tinggi = sheetrange['G'+str(i)].value
+    Mahkamah_Agung = sheetrange['H'+str(i)].value
+
     time.sleep(1)
 
     driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()
 
     try:
-        WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
+        WebDriverWait(driver,6).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
         time.sleep(2)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input").send_keys(Instansi)
         # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/div/div/div").send_keys(instansi_Diatasnya)
         time.sleep(2)
         driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(Instansi_Diatasnya)
-        time.sleep(6)
-        driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
-        time.sleep(5)
-        driver.find_element(By.XPATH, "//form/div[3]/div/div/span").click()
+        time.sleep(4)
+        pyautogui.typewrite(Instansi_Diatasnya)
+        pyautogui.keyDown('down')
+        pyautogui.press('enter')
+        # driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
+        time.sleep(3)
+        if Penyidik  == 'ya' :
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div/div/span").click()
+            print (Penyidik)
+        elif Penyidik == 'Tidak':
+            print ("tidak di check")
+        if Penuntut  == 'ya' :
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/div/span").click()
+            print (Penuntut)
+        elif Penuntut == 'Tidak':
+            print ("tidak di check")
+        if Pengadilan_Negeri  == 'ya' :
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div/div/span").click()
+            print (Pengadilan_Negeri)
+        elif Pengadilan_Negeri == 'Tidak':
+            print ("tidak di check")
+        if Pengadilan_Tinggi  == 'ya' :
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[6]/div/div/span").click()
+            print (Pengadilan_Tinggi)
+        elif Pengadilan_Tinggi == 'Tidak':
+            print ("tidak di check")
+        if Mahkamah_Agung  == 'ya' :
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div/div/span").click()
+            print (Mahkamah_Agung)
+        elif Mahkamah_Agung == 'Tidak':
+            print ("tidak di check")
+        
+        # driver.find_element(By.XPATH, "//form/div[3]/div/div/span").click()
                                     
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[8]/div/div/textarea").send_keys(Keterangan)
         time.sleep(2)
@@ -88,6 +119,6 @@ while i <= len(sheetrange['A']):
     except TimeoutException:
         # print("d")
         pass
-    time.sleep(7)   
+    time.sleep(5)   
     i = i + 1
 print ("Success Created")

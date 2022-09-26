@@ -17,7 +17,7 @@ import time
 #target halaman excel ada dimana , wb = variablenya
 #macbook
 #wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
-wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/lainlain.xlsx")
+wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel\lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['Pegawai']
@@ -96,6 +96,15 @@ while i <= len(sheetrange['A']):
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/div[3]/div/div/input").send_keys(tempatlahir)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div[1]/div[4]/div/div/input").send_keys(tanggallahir)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div[1]/div[4]/div/div/input").send_keys(Keys.ENTER)
+        #Jenis Kelamin
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div/div[1]/div[5]/div/div/div/div/input").click()
+        if jeniskelamin == 'Laki-lai': 
+            driver.find_element(By.XPATH, "//*[@id=\"el-popper-container-1683\"]/div[11]/div/div/div[1]/ul/li[1]").click()
+            print(jeniskelamin)
+        elif jeniskelamin == 'Perampuan':
+            driver.find_element(By.XPATH, "//*[@id=\"el-popper-container-1683\"]/div[11]/div/div/div[1]/ul/li[2]").click()
+            print(jeniskelamin)
+        time.sleep(2)
         # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/div[3]/div/div/input").send_keys(jeniskelamin)
         
         #click dropdown laki laki
