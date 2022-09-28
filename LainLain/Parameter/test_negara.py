@@ -1,6 +1,3 @@
-# from json import load
-# from lib2to3.pgen2 import driver
-
 from turtle import rt
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
