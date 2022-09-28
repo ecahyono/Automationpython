@@ -17,7 +17,7 @@ import time
 @pytest.fixture()
 def test_setup():
     global driver
-    
+    #s = Service('/Users/will/Downloads/chromedriver')
     s = Service('location chromedriver')
     driver = webdriver.Chrome(service=s)
     url = "http://kumbang.torche.id:32400/"
@@ -30,6 +30,7 @@ def test_setup():
     driver.quit()
 
 def test_negara(test_setup):
+    #wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
     wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\lainlain.xlsx")
     sheetrange = wb['NamaNegara']
     driver.find_element(By.XPATH, "//div/span").click()
