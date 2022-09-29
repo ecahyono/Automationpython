@@ -79,6 +79,9 @@ def test_negara(test_setup):
         
         try:      
             #======================== Halaman Cari ============================
+
+            WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[2]")))
+        
             
             driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) .el-input__inner").click()
             time.sleep(2)
