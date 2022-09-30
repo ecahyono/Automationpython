@@ -7,11 +7,12 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from openpyxl import load_workbook
+from selenium.webdriver.chrome.service import Service
 import pyautogui
-import pytes
+import pytest
 import time 
 
-@pytes.fixture()
+@pytest.fixture()
 def test_setup():
     global driver
 
@@ -21,7 +22,7 @@ def test_setup():
     driver.get(url)
     # seting windows nya jadi max   
     driver.maximize_window()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
     yield
     driver.close()
     driver.quit()
@@ -49,90 +50,118 @@ def test_Web(test_setup):
     time.sleep(3)
     #Registrasi
     element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")                                   
+    time.sleep(1)
     actions = ActionChains(driver)
+    time.sleep(1)
     actions.move_to_element(element).perform()
     time.sleep(1)
     #Identitas
     driver.find_element(By.LINK_TEXT, "Daftar Identitas").click()
     time.sleep(1)
 
-    i = 2 
+    i = 3 
 
     while i <= len(sheetrange['A']):
         # deklarasi per colom pada sheet
         # #--------------------------------------------------------------
-        # Residivis               = sheetrange['A'+str(i)].value
-        # Nama_Lengkap            = sheetrange['B'+str(i)].value
-        # Nama_Alias1             = sheetrange['C'+str(i)].value
-        # Nama_Alias2             = sheetrange['D'+str(i)].value
-        # Nama_Alias3             = sheetrange['E'+str(i)].value
-        # Nama_Kecil1             = sheetrange['F'+str(i)].value
-        # Nama_Kecil2             = sheetrange['G'+str(i)].value
-        # Nama_Kecil3             = sheetrange['H'+str(i)].value
-        # chcktab1                = sheetrange['BN'+str(i)].value
-        # Kewarganegaraan         = sheetrange['I'+str(i)].value
-        # nik                     = sheetrange['J'+str(i)].value
-        # Tempat_Asal             = sheetrange['K'+str(i)].value
-        # Tempat_lahir            = sheetrange['L'+str(i)].value
-        # Tanggal_lahir           = sheetrange['M'+str(i)].value
-        # Jenis_kelamin           = sheetrange['N'+str(i)].value
-        # Negara                  = sheetrange['O'+str(i)].value
-        # Agama                   = sheetrange['P'+str(i)].value
-        # suku                    = sheetrange['Q'+str(i)].value
-        # Status_perkawinan       = sheetrange['R'+str(i)].value
-        # Provinsi                = sheetrange['S'+str(i)].value
-        # Kota                    = sheetrange['T'+str(i)].value
-        # Alamat_rumah            = sheetrange['U'+str(i)].value
-        # Telepon                 = sheetrange['V'+str(i)].value
-        # Kode_pos                = sheetrange['W'+str(i)].value
-        # Alamat_lain             = sheetrange['X'+str(i)].value
-
-        #--------------------------------------------------------------
-        # Jenis_Pekerjaan         = sheetrange['Y'+str(i)].value
-        # Bekerjadi               = sheetrange['Z'+str(i)].value
-        # Keterangan_pekerjaan    = sheetrange['AA'+str(i)].value
-        # Tingkat_penghasilan     = sheetrange['AB'+str(i)].value
-        # Tingkat_pendidikan      = sheetrange['AC'+str(i)].value
-        # Keahlian1               = sheetrange['AD'+str(i)].value
-        # Level_keahlian1         = sheetrange['AE'+str(i)].value
-        # Keahlian2               = sheetrange['AF'+str(i)].value
-        # Levelkeahlian2          = sheetrange['AG'+str(i)].value
-        # Minat                   = sheetrange['AH'+str(i)].value
-        # chcktab2                = sheetrange['BL'+str(i)].value
+        # #Tab Biodata---------------------------------------------------
         # #--------------------------------------------------------------
-        # Nama_ayah               = sheetrange['AI'+str(i)].value
-        # Alamat_ayah             = sheetrange['AJ'+str(i)].value
-        # Nama_ibu                = sheetrange['AK'+str(i)].value
-        # Alamat_ibu              = sheetrange['AL'+str(i)].value
-
-        
+        # Residivis               = sheetrange['A'+str(i)].value
+        # Rke                     = sheetrange['B'+str(i)].value
+        # Nama_Lengkap            = sheetrange['C'+str(i)].value
+        # Nama_Alias1             = sheetrange['D'+str(i)].value
+        # Nama_Alias2             = sheetrange['E'+str(i)].value
+        # Nama_Alias3             = sheetrange['F'+str(i)].value
+        # Nama_Kecil1             = sheetrange['G'+str(i)].value
+        # Nama_Kecil2             = sheetrange['H'+str(i)].value
+        # Nama_Kecil3             = sheetrange['I'+str(i)].value
+        # chcktab1                = sheetrange['J'+str(i)].value
+        # chcktab2                = sheetrange['K'+str(i)].value
+        # Kewarganegaraan         = sheetrange['L'+str(i)].value
+        # nik                     = sheetrange['M'+str(i)].value
+        # Tempat_Asal             = sheetrange['N'+str(i)].value
+        # Tempat_lahir            = sheetrange['O'+str(i)].value
+        # Tanggal_lahir           = sheetrange['P'+str(i)].value
+        # Jenis_kelamin           = sheetrange['Q'+str(i)].value
+        # Negara                  = sheetrange['R'+str(i)].value
+        # Agama                   = sheetrange['S'+str(i)].value
+        # Agama_lain              = sheetrange['T'+str(i)].value
+        # suku                    = sheetrange['U'+str(i)].value
+        # Status_perkawinan       = sheetrange['F'+str(i)].value
+        # Provinsi                = sheetrange['W'+str(i)].value
+        # Kota                    = sheetrange['X'+str(i)].value
+        # Alamat_rumah            = sheetrange['Y'+str(i)].value
+        # Telepon                 = sheetrange['Z'+str(i)].value
+        # Kode_pos                = sheetrange['AA'+str(i)].value
+        # Alamat_lain             = sheetrange['AB'+str(i)].value
         #--------------------------------------------------------------
-        # Tinggi_badan            = sheetrange['AM'+str(i)].value
-        # Berat_badan             = sheetrange['AN'+str(i)].value
-        # Bentuk_rambut           = sheetrange['AO'+str(i)].value
-        # Warna_rambut            = sheetrange['AP'+str(i)].value
-        # Bentuk_bibir            = sheetrange['AQ'+str(i)].value
-        # Berkacamata             = sheetrange['AR'+str(i)].value
-        # Bentuk_mata             = sheetrange['AS'+str(i)].value
-        # Warna_mata              = sheetrange['AT'+str(i)].value
-        # Hidung                  = sheetrange['AU'+str(i)].value
-        # Raut_muka               = sheetrange['AV'+str(i)].value
-        # Telinga                 = sheetrange['AW'+str(i)].value
-        # Mulut                   = sheetrange['AX'+str(i)].value
-        # Lengan                  = sheetrange['AY'+str(i)].value
-        # Tangan                  = sheetrange['AZ'+str(i)].value
-        # Kaki                    = sheetrange['BA'+str(i)].value
-        # Warna_kulit             = sheetrange['BB'+str(i)].value
-        # Cacat_tubuh             = sheetrange['BC'+str(i)].value
-        # Catatancirikhusus1      = sheetrange['BD'+str(i)].value
-        # Catatancirikhusus2      = sheetrange['BE'+str(i)].value
-        # Catatancirikhusus3      = sheetrange['BF'+str(i)].value
+        # #Tab Pekerjaan------------------------------------------------
+        # #--------------------------------------------------------------
+        # Jenis_Pekerjaan         = sheetrange[''+str(i)].value
+        # namaipemerintah         = sheetrange[''+str(i)].value
+        # noindpegawai            = sheetrange[''+str(i)].value
+        # Bekerjadi               = sheetrange[''+str(i)].value
+        # Keterangan_pekerjaan    = sheetrange[''+str(i)].value
+        # Tingkat_penghasilan     = sheetrange[''+str(i)].value
+        # Tingkat_pendidikan      = sheetrange[''+str(i)].value
+        # Keahlian1               = sheetrange[''+str(i)].value
+        # Level_keahlian1         = sheetrange[''+str(i)].value
+        # Keahlian2               = sheetrange[''+str(i)].value
+        # Levelkeahlian2          = sheetrange[''+str(i)].value
+        # Minat                   = sheetrange[''+str(i)].value
+        # latin                   = sheetrange[''+str(i)].value
+        # quran                   = sheetrange[''+str(i)].value
+        # #--------------------------------------------------------------
+        # # #Tab Keluarga------------------------------------------------
+        # #--------------------------------------------------------------
+        # Nama_ayah               = sheetrange[''+str(i)].value
+        # Alamat_ayah             = sheetrange[''+str(i)].value
+        # Nama_ibu                = sheetrange[''+str(i)].value
+        # Alamat_ibu              = sheetrange[''+str(i)].value
+        # Anak_ke                 = sheetrange[''+str(i)].value
+        # Dari                    = sheetrange[''+str(i)].value
+        # Nama_saudara1           = sheetrange[''+str(i)].value
+        # Nama_saudara2           = sheetrange[''+str(i)].value
+        # Nama_saudara3           = sheetrange[''+str(i)].value
+        # Nama_saudara4           = sheetrange[''+str(i)].value
+        # jml_istr/suam           = sheetrange[''+str(i)].value
+        # Nm_istr/suam            = sheetrange[''+str(i)].value
+        # alm_istr/suam           = sheetrange[''+str(i)].value
+        # jumlah_anak             = sheetrange[''+str(i)].value
+        # Nama_anak1              = sheetrange[''+str(i)].value
+        # Nama_anak2              = sheetrange[''+str(i)].value
+        # Telepon_keluarga        = sheetrange[''+str(i)].value
         #--------------------------------------------------------------
-        # Nopaspor                = sheetrange['BG'+str(i)].value
-        # Rumus                   = sheetrange['BH'+str(i)].value
-        # Nodaktolskopi           = sheetrange['BI'+str(i)].value
-        # Pengambilansidikjari    = sheetrange['BJ'+str(i)].value
-        # Tanggalpengambilan      = sheetrange['BK'+str(i)].value
+        # #Tab Data Fisik----------------------------------------------
+        # --------------------------------------------------------------
+        # Tinggi_badan            = sheetrange[''+str(i)].value
+        # Berat_badan             = sheetrange[''+str(i)].value
+        # Bentuk_rambut           = sheetrange[''+str(i)].value
+        # Warna_rambut            = sheetrange[''+str(i)].value
+        # Bentuk_bibir            = sheetrange[''+str(i)].value
+        # Berkacamata             = sheetrange[''+str(i)].value
+        # Bentuk _mata             = sheetrange[''+str(i)].value
+        # Warna_mata              = sheetrange[''+str(i)].value
+        # Hidung                  = sheetrange[''+str(i)].value
+        # Raut_muka               = sheetrange[''+str(i)].value
+        # Telinga                 = sheetrange[''+str(i)].value
+        # Mulut                   = sheetrange[''+str(i)].value
+        # Lengan                  = sheetrange[''+str(i)].value
+        # Tangan                  = sheetrange[''+str(i)].value
+        # Kaki                    = sheetrange[''+str(i)].value
+        # Warna_kulit             = sheetrange[''+str(i)].value
+        # Cacat_tubuh             = sheetrange[''+str(i)].value
+        # Catatancirikhusus1      = sheetrange[''+str(i)].value
+        # Catatancirikhusus2      = sheetrange[''+str(i)].value
+        # Catatancirikhusus3      = sheetrange[''+str(i)].value
+        #--------------------------------------------------------------
+        #Tab Sidik Jari------------------------------------------------
+        # --------------------------------------------------------------
+        # Nopaspor                = sheetrange[''+str(i)].value
+        # Rumus                   = sheetrange[''+str(i)].value
+        # Nodaktolskopi           = sheetrange[''+str(i)].value
+        # Pengambilansidikjari    = sheetrange[''+str(i)].value
+        # Tanggalpengambilan      = sheetrange[''+str(i)].value
 
         time.sleep(3)
         #button +Tambah
@@ -145,67 +174,100 @@ def test_Web(test_setup):
             #========================Input Tab Biodata ============================
             #--------------------------------------------------------------
             # driver.find_element(By.ID, "btn_residivis").click()
-            # time.sleep(2)
+            # time.sleep(5)
             # pyautogui.typewrite(Residivis)
             # pyautogui.keyDown('down')
             # pyautogui.press('enter')
-            #--------------------------------------------------------------        
-            # time.sleep(3)                              
+            # time.sleep(3)
+            # if Residivis == 'Ya':
+            #     driver.find_element(By.ID, "btn_residivis_counter").click()
+            #     time.sleep(1)
+            #     pyautogui.hotkey("backspace")
+            #     time.sleep(1)
+            #     driver.find_element(By.XPATH, "//*[@id=\"btn_residivis_counter\"]/div/input").send_keys(Rke)
+            # elif Residivis == 'Tidak':
+            #     print ('Residivis done')
+            # time.sleep(2)
+            # #--------------------------------------------------------------        
+            # # time.sleep(3)                              
             # driver.find_element(By.ID, "btn_nama_lengkap").send_keys(Nama_Lengkap)
             # #----------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_alias1").send_keys(Nama_Alias1)
             # #--------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_alias2").send_keys(Nama_Alias2)
             # #--------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_alias3").send_keys(Nama_Alias3)
             # #--------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_kecil1").send_keys(Nama_Kecil1)
             # #---------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_kecil2").send_keys(Nama_Kecil2)
             # #----------------------------------------------------------------
-            # time.sleep(3)
+            # # time.sleep(3)
             # driver.find_element(By.ID, "btn_nama_kecil3").send_keys(Nama_Kecil3)
             # #--------------------------------------------------------------
-            # cekbocktab1 = driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
-            # if chcktab1 == True :
+            # # cekbocktab1 = driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+            # if chcktab1 == 'Tidak' :
             #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
             #     print ("uncheckh")
-            # else: 
+            # elif chcktab1 == 'ya' :
             #     print ("Masih default")
-
-            # #--------------------------------------------------------------
+            # time.sleep(2)
+            # if chcktab2 == 'Tidak' :
+            #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
+            #     print ("uncheckh")
+            # elif chcktab2 == 'ya' :
+            #     print ("Masih default")
+            #--------------------------------------------------------------
+            # time.sleep(3)
             # driver.find_element(By.ID, "btn_id_jenis_warganegara").click()
-            # time.sleep(3)
-            # pyautogui.typewrite(Kewarganegaraan)
-            # time.sleep(2)
-            # pyautogui.keyDown('down')
-            # pyautogui.press('enter')
+            # time.sleep(4)
+            # if Kewarganegaraan == 'WNI':
+            #     pyautogui.typewrite(Kewarganegaraan)
+            #     # driver.find_element(By.XPATH, "//*[@id=\"el-popper-container-6249\"]/div[12]/div/div/div[1]/ul/li[2]").click()
+            #     time.sleep(2)
+            #     pyautogui.keyDown('down')
+            #     pyautogui.press('enter')
+            # elif Kewarganegaraan == 'WNA':
+            #     pyautogui.typewrite(Kewarganegaraan)
+            #     # driver.find_element(By.XPATH, "//*[@id=\"el-popper-container-6249\"]/div[12]/div/div/div[1]/ul/li[1]").click()
+            #     pyautogui.keyDown('down')
+            #     pyautogui.press('enter')
             # # #--------------------------------------------------------------
+            # # time.sleep(3)
+            # # driver.find_element(By.ID, "btn_nik").send_keys(nik) 
+            # # #-------------------------------------------------------------- 
             # time.sleep(3)
-            # driver.find_element(By.ID, "btn_nik").send_keys(nik) 
-            # #--------------------------------------------------------------                                
             # driver.find_element(By.XPATH, "//*[@id=\"pane-1\"]/form/div[1]/div[2]/div[3]/div/div").click()   
-            # time.sleep(2)
-            # pyautogui.typewrite(Tempat_Asal)
-            # pyautogui.keyDown('down')
-            # pyautogui.press('enter')
+            # if Kewarganegaraan == 'WNI':
+            #     time.sleep(2)                               
+            #     pyautogui.typewrite(Tempat_Asal)
+            #     pyautogui.keyDown('down')
+            #     pyautogui.press('enter')
+            # elif Kewarganegaraan == 'WNA':
+            #     pyautogui.typewrite(Tempat_Asal)
             # #--------------------------------------------------------------
+            # time.sleep(3)
             # driver.find_element(By.XPATH, "//*[@id=\"pane-1\"]/form/div[1]/div[2]/div[4]/div/div").click()          
-            # time.sleep(2)
-            # pyautogui.typewrite(Tempat_lahir)
-            # pyautogui.keyDown('down')
-            # pyautogui.press('enter')
+            # if Kewarganegaraan == 'WNI':
+            #     time.sleep(2)  
+            #     pyautogui.typewrite(Tempat_lahir)
+            #     pyautogui.keyDown('down')
+            #     pyautogui.press('enter')
+            # elif Kewarganegaraan == 'WNA':
+            #     pyautogui.typewrite(Tempat_lahir)
             # #----------------------------------------------------------------
+            # # untuk tanggal Data format exel di sesuaikan-------------------
+            # time.sleep(2)  
             # driver.find_element(By.XPATH, "//div[5]/div/div/div/div/div/input").click()
             # time.sleep(2)
             # pyautogui.typewrite(Tanggal_lahir)
             # pyautogui.press('enter') 
-            # # #--------------------------------------------------------------
+            # #--------------------------------------------------------------
             # time.sleep(3)
             # driver.find_element(By.ID, "btn_id_jenis_kelamin").click()
             # time.sleep(2)
@@ -215,7 +277,7 @@ def test_Web(test_setup):
             # #--------------------------------------------------------------
             # time.sleep(3)
             # driver.find_element(By.ID, "btn_id_negara_asing").click()
-            # time.sleep(2)
+            # time.sleep(4)
             # pyautogui.typewrite(Negara)
             # pyautogui.keyDown('down')
             # pyautogui.press('enter')
@@ -269,17 +331,11 @@ def test_Web(test_setup):
             # driver.find_element(By.ID, "btn_kodepos").click()
             # time.sleep(2)
             # pyautogui.typewrite(Kode_pos)
-            #------------------------------------------------------------------------------
+            # # ------------------------------------------------------------------------------
             # time.sleep(3)
             # driver.find_element(By.ID, "btn_alamat_alternatif").click()
             # time.sleep(2)
             # pyautogui.typewrite(Alamat_lain)
-
-            # if chck == True:
-            #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
-            # elif chck == False :
-            #     driver.find_element(By.ID, "btn_is_pengaruh_terhadap_masyarakat").click()
-            
             #======================================================================
             # driver.find_element(By.ID, "tab-2").click()
             #========================Input Tab Pekerjaan===========================
@@ -538,26 +594,8 @@ def test_Web(test_setup):
             driver.find_element(By.ID, "tab-6").click()
             #========================Input Tab Foto========================== 
             #--------------------------------------------------------------
-            driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/button[1]").click()
-
-
-            # desired_cap = {
-            #     'version': 'latest',
-            #     'platform': 'WIN10',
-            #     'browserName': 'chrome',
-
-            #     'chromeOptions': {
-            #         'args': ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"]
-            #     }
-            # }
-            # driver = webdriver.Remote(command_executor='https://API_KEY:API_SECRET@hub.testingbot.com/wd/hub', desired_capabilities=desired_cap)
-            # time.sleep(2)
-            # driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/button[1]").click()
-            # chrome_opt.add_argument("use-fake-ui-for-media-stream")
-            # driver.find_element(By.XPATH, "//div[6]/form/div/div[1]/div/div/div/div/div[1]/button").click()
-            # driver.find_element(By.XPATH, "//div[6]/form/div/div[1]/div/div/div/div/div[1]/button").send_keys(r"C:\Users\user\Pictures\Screenshots\lim.jpg")
-            # //*[@id="pane-6"]/form/div/div[1]/div/div/div/button[1]   
-
+            driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/div").click()
+            driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/div").send_keys(r"C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg")
 
             #Submit
             time.sleep(2)

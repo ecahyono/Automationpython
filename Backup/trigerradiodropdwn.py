@@ -1,7 +1,7 @@
 # ==================================================================================================
 # Radio buton
 # Dropdown 
-# Triger field Input
+# Triger dari radio field Input
 #===================================================================================================
 from json import load
 from lib2to3.pgen2 import driver
@@ -20,13 +20,15 @@ import time
 
 #target halaman excel ada dimana , wb = variablenya
 # wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
-wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Backup\contohkasus.xlsx")
+# wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Backup\contohkasus.xlsx")
+# wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['manausr']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
-driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
+# driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
+# driver = webdriver.Chrome(r'/Users/will/Downloads/chromedriver')
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
@@ -51,10 +53,7 @@ actions = ActionChains(driver)
 actions.move_to_element(element).perform()
 time.sleep(3)
 
-# WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, "XPATH LAIN LAIN PARAMETER "))) ## OPSIONAL
-
 element2 = driver.find_element(By.XPATH, "//div[10]/div/ul/li/div")
-                                        #  "//div[10]/div/ul/li[1]/div[1]"
 actions2 = ActionChains(driver)
 actions2.move_to_element(element2).perform()
 driver.find_element(By.LINK_TEXT, "Manajemen Pengguna").click()
