@@ -14,7 +14,7 @@ from openpyxl import load_workbook
 import time
 import pyautogui
 
-wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel\demoqa.xlsx")
+wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Backup\contohkasus.xlsx")
 sheetrange = wb['drpif']
 drpif = sheetrange['A2'].value
 
@@ -23,6 +23,10 @@ driver.maximize_window()
 driver.implicitly_wait(10)
 
 driver.get('https://demoqa.com/select-menu')
+
+driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
+time.sleep(5)
+driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
 
 if drpif == 'Black' :
             dropdown = driver.find_element(By.ID, "oldSelectMenu")
