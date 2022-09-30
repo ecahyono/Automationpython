@@ -1,4 +1,4 @@
-# Install
+# HOW TO INSTALL
 -  pip install selenium
 -  pip3 install openpyxl
 -  pip install pandas
