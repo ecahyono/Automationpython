@@ -24,14 +24,43 @@ driver.implicitly_wait(10)
 
 driver.get('https://demoqa.com/select-menu')
 
+ #======================== AKSI lain ============================
+
 driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
 time.sleep(5)
 driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
 
+ #======================== Dropdown If ============================
+
 if drpif == 'Black' :
             dropdown = driver.find_element(By.ID, "oldSelectMenu")
             dropdown.find_element(By.XPATH, "//option[. = 'Black']").click()
-elif drpif == 'blue' :
+elif drpif == 'Red' :
             dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Blue']").click()
+            dropdown.find_element(By.XPATH, "//option[. = 'Red']").click()
+elif drpif == 'Green' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'Green']").click()
+elif drpif == 'White' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'White']").click()
+elif drpif == 'Violet' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'Violet']").click()
+elif drpif == 'Indigo' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'Indigo']").click()
+elif drpif == 'Aque' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'Aque']").click()
+elif drpif == 'Yellow' :
+            dropdown = driver.find_element(By.ID, "oldSelectMenu")
+            dropdown.find_element(By.XPATH, "//option[. = 'Yellow']").click()
+ #======================== Dropdown If END ============================
+
+ #======================== AKSI lain ============================
+
+driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
+time.sleep(5)
+driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
 
