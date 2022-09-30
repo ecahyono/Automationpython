@@ -1,9 +1,9 @@
 # Install
-> pip install selenium
-> pip3 install openpyxl
-> pip install pandas
-> pip3 install xlrd
-> chrome driver must be new version or same as chrome
+-  pip install selenium
+-  pip3 install openpyxl
+-  pip install pandas
+-  pip3 install xlrd
+-  chrome driver must be new version or same as chrome
 
 # Automationpython
 Automation Web testing using python &amp; selenium Web driver
