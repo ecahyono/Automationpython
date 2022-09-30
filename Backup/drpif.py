@@ -14,7 +14,7 @@ from openpyxl import load_workbook
 import time
 import pyautogui
 
-wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Backup\contohkasus.xlsx")
+wb = load_workbook(filename=r"XXX\contohkasus.xlsx")
 sheetrange = wb['drpif']
 drpif = sheetrange['A2'].value
 
