@@ -1,6 +1,3 @@
-from json import load
-from lib2to3.pgen2 import driver
-import string
 from turtle import rt
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,59 +5,136 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys 
-
+from selenium.webdriver.chrome.service import Service
+import pytest
 from openpyxl import load_workbook
 import time
 import pyautogui
+from selenium.webdriver.common.keys import Keys 
+@pytest.fixture()
+def test_setup():
+    global driver
+    #s = Service('/Users/will/Downloads/chromedriver')
+    s = Service()
+    driver = webdriver.Chrome(service=s)
+    url = "http://kumbang.torche.id:32400/"
+    driver.get(url)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    yield
+    #driver.close()
+    #driver.quit()
+def test_negara(test_setup):
+    
+    #wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
+    wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
+    
+    sheetrange = wb['PenerimaanTahanan']
+    WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
+        
+    driver.find_element(By.XPATH, "//div/span").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    # masukin input username
+    driver.find_element(By.ID, "username").send_keys("test-user")
+    # masukin input password
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    time.sleep(1)
+    WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div/div[1]/div/div[1]")))
+    
+    #======================== Menu Registrasi ============================
+    element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")
+    time.sleep(1)
+    actions = ActionChains(driver)
+    time.sleep(1)
+    actions.move_to_element(element).perform()
+    time.sleep(1)
+    #======================== menu Penerimaan dan Penolakan ============================
+    element2 = driver.find_element(By.XPATH, "//div/ul/li/div")
+    time.sleep(1)
+    actions2 = ActionChains(driver)
+    time.sleep(1)
+    actions2.move_to_element(element2).perform()
+    time.sleep(1)
+    driver.find_element(By.LINK_TEXT, "Penerimaan").click()
 
-wb = load_workbook(filename=r"XXX\contohkasus.xlsx")
-sheetrange = wb['drpif']
-drpif = sheetrange['A2'].value
+    #======================== Halaman Create ============================
 
-driver = webdriver.Chrome()
-driver.maximize_window()
-driver.implicitly_wait(10)
+    WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1")))
+    
+    i = 2
 
-driver.get('https://demoqa.com/select-menu')
+    # nge baca mulai dari tabel A
+    while i <= len(sheetrange['A']):
+        # deklarasi bahwa NIP itu ada di A 
+        TanggalPenerimaan = sheetrange['A'+str(i)].value
+        AsalInstansi = sheetrange['B'+str(i)].value
+        NoSurat = sheetrange['C'+str(i)].value
+        TanggalSurat = sheetrange['D'+str(i)].value
+        Keterangan = sheetrange['E'+str(i)].value
+        Nama = sheetrange['F'+str(i)].value
+        JenisKelamin = sheetrange['G'+str(i)].value
+        Umur = sheetrange['H'+str(i)].value
+        TempatLahir = sheetrange['I'+str(i)].value
+        TempatTinggal = sheetrange['J'+str(i)].value
+        Agama = sheetrange['K'+str(i)].value
+        Pekerjaan = sheetrange['L'+str(i)].value
+        PerkaraPasal = sheetrange['M'+str(i)].value
+        DasarPenahananPidana = sheetrange['N'+str(i)].value
+        LamaPenahananPidanaHari = sheetrange['O'+str(i)].value
+        LamaPenahananPidanaBulan = sheetrange['P'+str(i)].value
+        LamaPenahananPidanaTahun = sheetrange['Q'+str(i)].value
+        Tempat = sheetrange['R'+str(i)].value
+        DasarPenahananPidana = sheetrange['S'+str(i)].value
+        LamaPenahananPidanaHari = sheetrange['T'+str(i)].value
+        LamaPenahananPidanaBulan = sheetrange['U'+str(i)].value
+        LamaPenahananPidanaTahun = sheetrange['V'+str(i)].value
+        HasilPemeriksaanKesehatan = sheetrange['W'+str(i)].value
+        Keterangan1 = sheetrange['X'+str(i)].value
+        
 
- #======================== AKSI lain ============================
+        #======================== Halaman Index ============================
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[2]").click()
+        time.sleep(2)
+        
+        try:     
+            #======================== INPUT TANGGAL PENERIMAAN ============================
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").click()
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").send_keys(TanggalPenerimaan)
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").send_keys(Keys.ENTER)
+            #======================== INPUT ASAL AsalInstansi ============================
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(AsalInstansi)
+            #======================== INPUT ASAL NoSurat ============================
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NoSurat)
+            #======================== INPUT TanggalPenerimaan ============================
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div/div/div/input").click()
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div/div/div/input").send_keys(TanggalSurat)
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div/div/div/input").send_keys(Keys.ENTER)
+            #======================== INPUT Keterangan ============================
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div[2]/div[2]/div/div/textarea").send_keys(Keterangan)
+            
+            #======================== INPUT Nama ============================
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div[1]/div/div/input").send_keys(Nama)
+            #======================== INPUT JENIS KELAMIN ============================
+            driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").click()
+            
+            if JenisKelamin == 'Perempuan' :
+                dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]")
+                dropdown.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]").click()
+            elif JenisKelamin == 'Laki-Laki' :
+                dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]")
+                dropdown.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]").click()
+                
+            
 
-driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
-time.sleep(5)
-driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
 
- #======================== Dropdown If ============================
 
-if drpif == 'Black' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Black']").click()
-elif drpif == 'Red' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Red']").click()
-elif drpif == 'Green' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Green']").click()
-elif drpif == 'White' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'White']").click()
-elif drpif == 'Violet' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Violet']").click()
-elif drpif == 'Indigo' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Indigo']").click()
-elif drpif == 'Aque' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Aque']").click()
-elif drpif == 'Yellow' :
-            dropdown = driver.find_element(By.ID, "oldSelectMenu")
-            dropdown.find_element(By.XPATH, "//option[. = 'Yellow']").click()
- #======================== Dropdown If END ============================
-
- #======================== AKSI lain ============================
-
-driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
-time.sleep(5)
-driver.find_element(By.XPATH, "//div[2]/div[2]/div[2]/div[2]/div/div/div/div").click()
-
+        except TimeoutException:
+            print("MASIH ADA ERROR, CEK LAGI PAK WIL")
+            pass
+        time.sleep(5)
+        i = i + 1
+    print("DONE PAK WILDAN, SEBATS DULU")
