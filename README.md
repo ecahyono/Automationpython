@@ -3,9 +3,11 @@
 -  pip3 install openpyxl
 -  pip install pandas
 -  pip3 install xlrd
--  pytest -v  -s --html=.\namafolder\report.html -contained-html test_gg.py
 -  pip3 install pytest-html
 -  chrome driver must be new version or same as chrome
+
+# Report test 
+- pytest -v  -s --html=.\namafolder\report.html -contained-html test_gg.py
 
 # Automationpython
 Automation Web testing using python &amp; selenium Web driver
