@@ -118,6 +118,18 @@ def test_negara(test_setup):
             
             #======================== INPUT Nama ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div[1]/div/div/input").send_keys(Nama)
+            #======================== INPUT JENIS KELAMIN ============================
+            driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").click()
+            
+            if JenisKelamin == 'Perempuan' :
+                dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]")
+                dropdown.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]").click()
+            elif JenisKelamin == 'Laki-Laki' :
+                dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]")
+                dropdown.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]").click()
+
+            
+                
             
 
 
