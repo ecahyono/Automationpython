@@ -17,12 +17,14 @@ import time
 import pyautogui
 
 wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/lainlain.xlsx")
+#wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/lainlain.xlsx")
 
 # jadi ini bisa read sheet yang dibawah itu yang di excel
 sheetrange = wb['DaerahTingkatII']
 
 # ini web driver disimpen dimana, kalo disimpen di path kosongin aja
 driver = webdriver.Chrome()
+#driver = webdriver.Chrome('/Users/will/Downloads/chromedriver') 
 
 
 driver.get("http://kumbang.torche.id:32400/")
