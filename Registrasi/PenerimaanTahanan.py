@@ -18,6 +18,7 @@ def test_setup():
     s = Service()
     driver = webdriver.Chrome(service=s)
     url = "http://kumbang.torche.id:32400/"
+    #url = "http://192.168.2.11:32400/"
     driver.get(url)
     driver.maximize_window()
     driver.implicitly_wait(10)
