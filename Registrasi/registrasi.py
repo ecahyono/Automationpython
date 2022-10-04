@@ -24,6 +24,7 @@ driver = webdriver.Chrome(r"/Users/will/Downloads/chromedriver")
 
 # link nya ini dimana
 driver.get("http://kumbang.torche.id:32400/")
+#url = "http://192.168.2.11:32400/"
 # seting windows nya jadi max   
 driver.maximize_window()
 # script gakan di eksekusi kalo web ga muncul. kalo lebih dari 10 detik ga muncul error
