@@ -8,18 +8,22 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from openpyxl import load_workbook
 from selenium.webdriver.chrome.service import Service
+import os
 import pyautogui
 import pytest
-import time 
+import time
+import autoit 
 
 @pytest.fixture()
 def test_setup():
     global driver
-
     s = Service(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
     driver = webdriver.Chrome(service=s)
     url = "http://kumbang.torche.id:32400/"
+    # url = "http://192.168.2.11:32400/"
+
     #url = "http://192.168.2.11:32400/"
+
     driver.get(url)
     # seting windows nya jadi max   
     driver.maximize_window()
@@ -27,20 +31,14 @@ def test_setup():
     yield
     driver.close()
     driver.quit()
+    
 
 def test_Web(test_setup):
+
     wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Registrasi.xlsx")
     # jadi ini bisa read sheet yang dibawah itu yang di excel
     sheetrange = wb['Identitas']
 
-    #permition of camera and mic
-    # options = webdriver.ChromeOptions()
-    # options.add_experimental_option("prefs", { \
-    #     "profile.default_content_setting_values.media_stream_mic": 1,     # 1:allow, 2:block 
-    #     "profile.default_content_setting_values.media_stream_camera": 1,  # 1:allow, 2:block 
-    #     "profile.default_content_setting_values.geolocation": 1,          # 1:allow, 2:block 
-    #     "profile.default_content_setting_values.notifications": 1         # 1:allow, 2:block 
-    #     })
     # Menuju login
     driver.find_element(By.XPATH, "//div/span").click()
     driver.find_element(By.ID, "username").click()
@@ -48,6 +46,7 @@ def test_Web(test_setup):
     driver.find_element(By.ID, "password").send_keys("rene")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
+
     time.sleep(3)
     #Registrasi
     element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")                                   
@@ -61,7 +60,6 @@ def test_Web(test_setup):
     time.sleep(1)
 
     i = 3 
-
     while i <= len(sheetrange['A']):
         # deklarasi per colom pada sheet
         # #--------------------------------------------------------------
@@ -595,12 +593,38 @@ def test_Web(test_setup):
             driver.find_element(By.ID, "tab-6").click()
             #========================Input Tab Foto========================== 
             #--------------------------------------------------------------
-            driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/div").click()
-            driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/div").send_keys(r"C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg")
+            # driver.find_element(By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/button[1]").click()
+            
+            # element_present = EC.presence_of_element_located((By.XPATH, "//*[@id=\"pane-6\"]/form/div/div[1]/div/div/div/div"))
+            
+            # WebDriverWait(driver, 10).until(element_present).click()
+            # pyautogui.write("\Filefoto\lim.jpg") 
+            # pyautogui.press('enter')
+            # driver.find_element(By.XPATH, "//div[6]/form/div/div/div/div/div/div/div/button/span").click()
+            # pyautogui.write(r"C:\Users\user\Documents\lim.jpg")
+            # pyautogui.press("enter")
+            # upload_photo = driver.find_element_by_xpath("//*div[@id=':f']/div")
+            # upload_photo.send_keys(r"C:\Users\user\Documents\lim.jpg")
+            upload = driver.find_element(By.XPATH, "//div[6]/form/div/div[2]/div/div/div/div/div/button/span")
+            upload.send_keys("C:/Users/user/Documents/lim.jpg")
+            # pyautogui.typewriter('C:\Users\user\Pictures\Saved_Pictures\limvo.png')
+            # autoit.win_activate("Open")
+            # autoit.control_send("Open","Edit1",r"C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg")
+            # autoit.control_send("Open","Edit1","{ENTER}")
+            # driver.find_element(By.ID,"pane-6").send_keys(os.getcwd()+ "/lim.jpg")
+            # WinActivate("open")
+            # send('C:\Users\user\Documents\lim.jpg')
+            # src = 'C:\Users\user\Documents\lim.jpg'
+            # driver.find_element_by_id("pane-6").get_attribute("src")
+            time.sleep(5)    
+            #======================================================================
+            # driver.find_element(By.ID, "tab-7").click()
+            #========================Input Tab Foto========================== 
+            #--------------------------------------------------------------
 
             #Submit
-            time.sleep(2)
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
+            # time.sleep(2)
+            # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[4]/div/template/button[2]").click()
             
         except TimeoutException:
             print(ERROR)
