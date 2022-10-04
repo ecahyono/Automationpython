@@ -19,6 +19,7 @@ def test_setup():
     s = Service(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
     driver = webdriver.Chrome(service=s)
     url = "http://kumbang.torche.id:32400/"
+    #url = "http://192.168.2.11:32400/"
     driver.get(url)
     # seting windows nya jadi max   
     driver.maximize_window()
