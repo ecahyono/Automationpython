@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.service import Service
 import pytest
 from openpyxl import load_workbook
 import time
+from selenium.webdriver.common.keys import Keys 
+import pyautogui
 
 @pytest.fixture()
 def test_setup():
@@ -16,15 +18,14 @@ def test_setup():
     #s = Service('/Users/will/Downloads/chromedriver')
     s = Service()
     driver = webdriver.Chrome(service=s)
-    url = "http://192.168.2.11:32400/"
-    #url = "http://kumbang.torche.id:32400/" 
+    url = "http://kumbang.torche.id:32400/"
     driver.get(url)
     driver.maximize_window()
     driver.implicitly_wait(10)
     yield
     #driver.close()
     #driver.quit()
-def test_registrasi(test_setup):
+def test_Registrasi(test_setup):
     
     #wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
     wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
@@ -60,7 +61,7 @@ def test_registrasi(test_setup):
     while i <= len(sheetrange['A']):
         # deklarasi bahwa NIP itu ada di A 
         NoInduk = sheetrange['A'+str(i)].value
-        noregis = sheetrange['B'+str(i)].value
+        NoRegistrasi = sheetrange['B'+str(i)].value
         TglSuratPenahanan = sheetrange['C'+str(i)].value
         NomorSuratPenahanan = sheetrange['D'+str(i)].value
         NamaPetugasInstansi = sheetrange['E'+str(i)].value
@@ -68,11 +69,70 @@ def test_registrasi(test_setup):
         AsalInstansi = sheetrange['G'+str(i)].value
         Keterangan = sheetrange['H'+str(i)].value
         Penyidik = sheetrange['I'+str(i)].value
-        menahan10 = sheetrange['J'+str(i)].value
-        menahan3 = sheetrange['K'+str(i)].value
-        menahan1 = sheetrange['L'+str(i)].value
+        Menahan10hari = sheetrange['J'+str(i)].value
+        Menahan3hari = sheetrange['K'+str(i)].value
+        Menahan1hari = sheetrange['L'+str(i)].value
         LokasiDokumen = sheetrange['M'+str(i)].value
-
+        AsalTahanan = sheetrange['N'+str(i)].value
+        Kepolisian = sheetrange['O'+str(i)].value
+        JenisPutusan = sheetrange['P'+str(i)].value
+        NamaLengkap= sheetrange['Q'+str(i)].value
+        TanggalLahir = sheetrange['R'+str(i)].value
+        PutusSidang = sheetrange['S'+str(i)].value
+        TerhitungSejakPertamaDitangkap= sheetrange['T'+str(i)].value
+        EksekusiJaksa= sheetrange['U'+str(i)].value
+        TanggalBA8 = sheetrange['V'+str(i)].value
+        TglMenjalaniPutusanAkhir = sheetrange['W'+str(i)].value
+        TglPertamaKaliDitahan = sheetrange['X'+str(i)].value
+        TglPertamaKaliDitahan1 = sheetrange['Y'+str(i)].value
+        TglPertamaDitahanGolonganBI = sheetrange['Z'+str(i)].value
+        TglEkspirasiAwal = sheetrange['AA'+str(i)].value
+        TglEkspirasiAkhir = sheetrange['AB'+str(i)].value
+        TanggalmenjalaniPidanaPencabutanPB = sheetrange['AC'+str(i)].value
+        #======================== PERKARA ============================
+        TidakAdaTanggalKejadian = sheetrange['AD'+str(i)].value # switch
+        TempatRisalahKejadian = sheetrange['AE'+str(i)].value
+        RisalahKejadianPerkara = sheetrange['AF'+str(i)].value
+        TanggalKejadian = sheetrange['AG'+str(i)].value
+        JamKejadian = sheetrange['AH'+str(i)].value # switch
+        KejahatanUtama = sheetrange['AI'+str(i)].value
+        UraianKejahatan = sheetrange['AJ'+str(i)].value
+        Undangundang = sheetrange['AK'+str(i)].value
+        PasalUtama = sheetrange['AL'+str(i)].value
+        PasalTambahan = sheetrange['AM'+str(i)].value
+        JenisKejahatan = sheetrange['AN'+str(i)].value
+        TempatPenangkapan = sheetrange['AO'+str(i)].value
+        #======================== Putusan Pengadilan Negeri ============================
+        KetersediaanVonis = sheetrange['AP'+str(i)].value # switch
+        TanggalPutusan = sheetrange['AQ'+str(i)].value
+        NomorPutusan = sheetrange['AR'+str(i)].value
+        Pasal = sheetrange['AS'+str(i)].value
+        NamaHakimKetua = sheetrange['AT'+str(i)].value
+        NamaHakimAnggota1 = sheetrange['AU'+str(i)].value
+        NamaHakimAnggota2 = sheetrange['AV'+str(i)].value
+        NamaPaniteraPengganti = sheetrange['AW'+str(i)].value
+        NamaJaksa = sheetrange['AX'+str(i)].value
+        PengadilanNegeri = sheetrange['AY'+str(i)].value
+        TanggalPutusanDijalankan = sheetrange['AZ'+str(i)].value
+        PeranDalamKejahatan = sheetrange['BA'+str(i)].value
+        JenisHukuman = sheetrange['BC'+str(i)].value
+        PidanaTahun = sheetrange['BC'+str(i)].value
+        PidanaBulan = sheetrange['BD'+str(i)].value
+        PidanaHari = sheetrange['BE'+str(i)].value
+        KategoriRemisi = sheetrange['BF'+str(i)].value
+        Denda = sheetrange['BG'+str(i)].value
+        PidanaKurunganTahun1= sheetrange['BH'+str(i)].value
+        PidanaKurunganBulan1= sheetrange['BI'+str(i)].value
+        PidanaKurunganHari1= sheetrange['BJ'+str(i)].value
+        UangPengganti= sheetrange['BK'+str(i)].value
+        PidanaKurunganTahun2= sheetrange['BL'+str(i)].value
+        PidanaKurunganBulan2= sheetrange['BM'+str(i)].value
+        PidanaKurunganHari2= sheetrange['BN'+str(i)].value
+        Restitusi= sheetrange['BO'+str(i)].value
+        PidanaKurunganTahun3= sheetrange['BP'+str(i)].value
+        PidanaKurunganBulan3= sheetrange['BQ'+str(i)].value
+        PidanaKurunganHari3= sheetrange['BR'+str(i)].value
+        TanggalEkspirasiPerkiraan= sheetrange['BS'+str(i)].value
         #======================== Halaman Index ============================
         time.sleep(2)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[3]/i").click()
@@ -90,43 +150,171 @@ def test_registrasi(test_setup):
             driver.find_element(By.XPATH, "//li[contains(.,\'B I\')]").click()
             driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").click()
             driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(NoInduk)
+            time.sleep(3)
             driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
             #======================== Button Cari ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
             #======================== masuk ke halaman input ============================
+            
+            
             WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/div[2]')))
+            
             driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
+            WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[10]/div/button[1]")))
         
             
-            """
-            driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(noregis)
-            #driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(TglSuratPenahanan)
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NomorSuratPenahanan)
-
+            driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(NoRegistrasi)
+           
+            
+            
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(TglSuratPenahanan)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(Keys.ENTER)
+           
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NomorSuratPenahanan)
+
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
-            #driver.find_element(By.XPATH, "").send_keys(Kejaksaan)
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
-
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").click()
+            time.sleep(1)
             pyautogui.typewrite(Kejaksaan)
+            time.sleep(1)
+            pyautogui.keyDown('down')
+            pyautogui.press('enter')
+            
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").click()
+            time.sleep(2)
+            pyautogui.typewrite(Penyidik)
             time.sleep(2)
             pyautogui.keyDown('down')
+            time.sleep(1)
+            pyautogui.press('enter')
+
+            
+            
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(Menahan3hari)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[3]/div/div/input").send_keys(Menahan1hari)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[3]/div/div/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[1]/div/div/input").send_keys(Menahan10hari)
+            time.sleep(5)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[1]/div/div/input").send_keys(Keys.ENTER)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/textarea").send_keys(LokasiDokumen)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[6]/div/div[1]/input").send_keys(AsalTahanan)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[7]/div/div/input").send_keys(Kepolisian)
+
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[1]/div/div/div/div/input").click()
+            time.sleep(2)
+            pyautogui.typewrite(JenisPutusan)
+            time.sleep(2)
+            pyautogui.keyDown('down')
+            time.sleep(1)
+            pyautogui.press('enter')
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[2]/div/div[1]/div/input").send_keys(NamaLengkap)
+            
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/input").send_keys(TanggalLahir)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[5]/div/div/div/div/input").click()
+            time.sleep(2)
+            pyautogui.typewrite(PutusSidang)
+            time.sleep(2)
+            pyautogui.keyDown('down')
+            time.sleep(1)
+            pyautogui.press('enter')
+
+            
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[3]/div/div/input").send_keys(TerhitungSejakPertamaDitangkap)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[3]/div/div/input").send_keys(Keys.ENTER)
+
+            
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[7]/div/div/div/div/input").click()
+            time.sleep(2)
+            pyautogui.typewrite(EksekusiJaksa)
+            time.sleep(2)
+            pyautogui.keyDown('down')
+            time.sleep(1)
             pyautogui.press('enter')
 
 
-        
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[4]/div/div/input").send_keys(TanggalBA8)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[4]/div/div/input").send_keys(Keys.ENTER)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[5]/div/div/input").send_keys(TglMenjalaniPutusanAkhir)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[5]/div/div/input").send_keys(Keys.ENTER)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[3]/div[1]/div/div/div[1]/input").send_keys(TglPertamaKaliDitahan)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[3]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[4]/div[1]/div/div/div[1]/input").send_keys(TglPertamaKaliDitahan1)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[4]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[5]/div[1]/div/div/div[1]/input").send_keys(TglPertamaDitahanGolonganBI)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[5]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
 
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Penyidik)
-            time.sleep(5)
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.DOWN)
-            time.sleep(5)
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").send_keys(Keys.ENTER)
-            time.sleep(5)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[6]/div[1]/div/div/div[1]/input").send_keys(TglEkspirasiAwal)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[6]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[6]/div[2]/div/div/div[1]/input").send_keys(TglEkspirasiAkhir)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[6]/div[2]/div/div/div[1]/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[22]/div/div/input").send_keys(TanggalmenjalaniPidanaPencabutanPB)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[22]/div/div/input").send_keys(Keys.ENTER)
+
+            #======================== Tab Perkara ============================
+            driver.find_element(By.XPATH, "//*[@id=\"tab-perkara\"]").click()
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[1]/div[1]/div/div/input").send_keys(TempatRisalahKejadian)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[1]/div[2]/div/div/textarea").send_keys(RisalahKejadianPerkara)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[2]/div/div[1]/div/div[1]/input").send_keys(TanggalKejadian)
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[2]/div/div[1]/div/div[1]/input").send_keys(Keys.ENTER)
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[2]/div/div[2]/div/div/input").send_keys(JamKejadian)
+            
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[2]/div/div[2]/div/div/input").send_keys(Keys.ENTER)
+
+            #======================== Hukuman ============================
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[2]/div/div[1]/input").send_keys(UraianKejahatan)
+            driver.find_element(By.XPATH, " //*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[3]/div/div[1]/input").send_keys(Undangundang)
+            driver.find_element(By.XPATH, " //*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[4]/div/div[1]/input").send_keys(PasalUtama)
+            driver.find_element(By.XPATH, " //*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[5]/div/div/input").send_keys(PasalTambahan)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[6]/div/div[1]/div/div/input").click()
+            time.sleep(2)
+            pyautogui.typewrite(JenisKejahatan)
+            time.sleep(2)
+            pyautogui.keyDown('down')
+            time.sleep(1)
+            pyautogui.press('enter')
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[7]/div/div[1]/input").send_keys(TempatPenangkapan)
+            #======================== tab-putusan_pengadilan_negeri ============================
+            driver.find_element(By.XPATH,"//*[@id=\"tab-putusan_pengadilan_negeri\"]").click()
+            
+            """
             """
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
