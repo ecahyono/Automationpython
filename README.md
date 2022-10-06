@@ -7,7 +7,8 @@
 -  chrome driver must be new version or same as chrome
 
 # Report test 
-- pytest -v  -s --html=.\namafolder\report.html -contained-html test_gg.py / python3 -m pytest -v -s --html=.\namefolder\report.html -contained-html name.py
+- pytest -v  -s --html=.\namafolder\report.html -contained-html test_gg.py 
+- python3 -m pytest -v -s --html=.\namefolder\report.html -contained-html name.py
 - python3 -m pytest file.py
 
 # Automationpython
