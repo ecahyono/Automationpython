@@ -1,4 +1,4 @@
-from turtle import rt
+
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,16 +9,16 @@ from selenium.webdriver.chrome.service import Service
 import pytest
 from openpyxl import load_workbook
 import time
-import pyautogui
+
 from selenium.webdriver.common.keys import Keys 
 @pytest.fixture()
 def test_setup():
     global driver
-    #s = Service('/Users/will/Downloads/chromedriver')
-    s = Service()
-    driver = webdriver.Chrome(service=s)
-    url = "http://kumbang.torche.id:32400/"
-    #url = "http://192.168.2.11:32400/"
+    LokasiChromeDriver = Service('/Users/will/Downloads/chromedriver')
+    #LokasiChromeDriver = Service()
+    driver = webdriver.Chrome(service=LokasiChromeDriver)
+    #url = "http://kumbang.torche.id:32400/"
+    url = "http://192.168.2.11:32400/"
     driver.get(url)
     driver.maximize_window()
     driver.implicitly_wait(10)
@@ -27,8 +27,8 @@ def test_setup():
     #driver.quit()
 def test_negara(test_setup):
     
-    #wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
-    wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
+    wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
+    #wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
     
     sheetrange = wb['PenerimaanTahanan']
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
@@ -54,11 +54,11 @@ def test_negara(test_setup):
     time.sleep(1)
     #======================== menu Penerimaan dan Penolakan ============================
     element2 = driver.find_element(By.XPATH, "//div/ul/li/div")
-    time.sleep(1)
+    time.sleep(0.5)
     actions2 = ActionChains(driver)
-    time.sleep(1)
+    time.sleep(0.5)
     actions2.move_to_element(element2).perform()
-    time.sleep(1)
+    time.sleep(0.5)
     driver.find_element(By.LINK_TEXT, "Penerimaan").click()
 
     #======================== Halaman Create ============================
@@ -100,11 +100,13 @@ def test_negara(test_setup):
         time.sleep(2)
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[2]").click()
         time.sleep(2)
-        
+        WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/h2")))
+       
         try:     
             #======================== INPUT TANGGAL PENERIMAAN ============================
             driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").click()
             driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").send_keys(TanggalPenerimaan)
+            time.sleep(2)
             driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div/div/div/div/div/input").send_keys(Keys.ENTER)
             #======================== INPUT ASAL AsalInstansi ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(AsalInstansi)
@@ -119,21 +121,26 @@ def test_negara(test_setup):
             
             #======================== INPUT Nama ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div[1]/div/div/input").send_keys(Nama)
+            #======================== INPUT Nama ============================
             #======================== INPUT JENIS KELAMIN ============================
             driver.find_element(By.XPATH, "//div[2]/div/div/div/div/input").click()
+            time.sleep(1)
             
             if JenisKelamin == 'Perempuan' :
+                time.sleep(1)
                 dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]")
                 dropdown.find_element(By.XPATH, "//span[contains(.,\'Perempuan\')]").click()
+                time.sleep(1)
             elif JenisKelamin == 'Laki-Laki' :
+                time.sleep(1)
                 dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]")
                 dropdown.find_element(By.XPATH, "//span[contains(.,\'Laki-Laki\')]").click()
 
-            
-                
-            
-
-
+            time.sleep(1)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div[3]/div/div/div/input").send_keys(Keys.DELETE)
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div[3]/div/div/div/input").send_keys(Umur)
+            time.sleep(2)
+            driver.find_element(By.XPATH,  "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div/div/button[2]").click()
 
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
