@@ -12,7 +12,7 @@ import os
 import pyautogui
 import pytest
 import time
-import autoit 
+
 from pathlib import Path
 
 @pytest.fixture()
