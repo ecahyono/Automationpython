@@ -22,3 +22,8 @@ exemple :
 - s = Service('C:\chromedriver\chromedriver.exe')
 - driver = webdriver.Chrome(service=s)
 .
+
+# document test 
+
+https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.support.expected_conditions
+https://www.selenium.dev/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.expected_conditions.html
