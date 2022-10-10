@@ -1,5 +1,3 @@
-from socket import send_fds
-from turtle import rt
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -29,19 +27,19 @@ def test_setup():
     #driver.quit()
 def test_Registrasi(test_setup):
     
-    wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Registrasi.xlsx")
     #wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
     
     sheetrange = wb['reg']
-    WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
         
     driver.find_element(By.XPATH, "//div/span").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     # masukin input username
-    driver.find_element(By.ID, "username").send_keys("rono")
+    driver.find_element(By.ID, "username").send_keys("wildan")
     # masukin input password
-    driver.find_element(By.ID, "password").send_keys("rene")
+    driver.find_element(By.ID, "password").send_keys("wildan")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
     time.sleep(1)
@@ -155,19 +153,21 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").click()
             driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(NoInduk)
             time.sleep(3)
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)")))
             driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
             time.sleep(1)
             #======================== Button Cari ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
             #======================== masuk ke halaman input ============================
             
-        
+            WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.el-dialog__close > svg')))
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.el-dialog__close > svg')))
             
             driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
             WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[10]/div/button[1]")))
             
-        
+            
+       
             
             driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(NoRegistrasi)
            
@@ -183,7 +183,7 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").click()
-            time.sleep(1)
+            time.sleep(2)
             pyautogui.typewrite(Kejaksaan)
             time.sleep(1)
             pyautogui.keyDown('down')
@@ -261,13 +261,13 @@ def test_Registrasi(test_setup):
             
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[7]/div/div/div/div/input").click()
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.typewrite(EksekusiJaksa)
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.keyDown('down')
             time.sleep(1)
             pyautogui.press('enter')
-
+            
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[4]/div/div/input").send_keys(TanggalBA8)
             time.sleep(1)
@@ -280,7 +280,8 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[3]/div[1]/div/div/div[1]/input").send_keys(TglPertamaKaliDitahan)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[3]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
-            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[4]/div[1]/div/div/div[1]/input')))
+            time.sleep(1)
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-perkara"]')))
             
 
 
@@ -306,6 +307,8 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[22]/div/div/input").send_keys(Keys.ENTER)
          
             #======================== Tab Perkara ============================
+
+            
             driver.find_element(By.XPATH, "//*[@id=\"tab-perkara\"]").click()
         
             
@@ -337,9 +340,9 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[7]/div/div[1]/input").send_keys(TempatPenangkapan)
             #======================== tab-putusan_pengadilan_negeri ============================
             
+            
             driver.find_element(By.XPATH,"//*[@id=\"tab-putusan_pengadilan_negeri\"]").click()
-
-        
+                    
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[2]/div/div/input").send_keys(TanggalPutusan)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[2]/div/div/input").send_keys(Keys.ENTER)
@@ -373,16 +376,18 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[12]/div/div/input").send_keys(PeranDalamKejahatan)
             
 
+            
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").click()
+            time.sleep(1)
             pyautogui.typewrite(JenisHukuman)
-            time.sleep(2)
             pyautogui.keyDown('down')
-            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").send_keys(Keys.DOWN)
+            time.sleep(1)
+            #pyautogui.press('enter')
+            #driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").send_keys(Keys.DOWN)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").send_keys(Keys.ENTER)
             time.sleep(2)
 
          
-            
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[15]/div/div/div/div/input").send_keys(KategoriRemisi)
             time.sleep(2)
@@ -391,6 +396,7 @@ def test_Registrasi(test_setup):
             time.sleep(2)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[15]/div/div/div/div/input").send_keys(Keys.ENTER)
 
+            
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div[2]/div/div/div[1]/div/div/div/input").send_keys(Keys.DELETE)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div[2]/div/div/div[1]/div/div/div/input").send_keys(PidanaTahun)
             
