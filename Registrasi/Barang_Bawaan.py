@@ -1,4 +1,5 @@
-from lib2to3.pgen2 import driver
+
+from lib2to3.pgen2.driver import Driver
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -49,13 +50,13 @@ def test_BarangBawaan(test_setup):
     actions.move_to_element(element).perform()
 
     time.sleep(0.5)
-    element2 = driver.find_element(By.XPATH, "//div/ul/li[4]/div")
+    element2 = driver.find_element(By.XPATH, "//div[3]/div/ul/li[4]/div")
     time.sleep(0.5)
     actions2 = ActionChains(driver)
     actions2.move_to_element(element2).perform()
     time.sleep(0.5)
     driver.find_element(By.LINK_TEXT, "Barang Bawaan").click()
-    WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1")))
+    #WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1")))
        
     i = 2
 
@@ -74,30 +75,55 @@ def test_BarangBawaan(test_setup):
         
         #======================== Halaman Index ============================
         time.sleep(2)
-        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[3]/i").click()
+        driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()
         #WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div/div/h1")))
         time.sleep(2)
         
         try:      
             #======================== Halaman Cari ============================
 
-            WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[2]")))
+
         
             
-            driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) .el-input__inner").click()
-            time.sleep(2)
-            driver.find_element(By.XPATH, "//li[contains(.,\'B I\')]").click()
-            driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").click()
-            driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys(NoInduk)
+            driver.find_element(By.CSS_SELECTOR, ".el-input__inner").click()
+            time.sleep(1)
+            driver.find_element(By.CSS_SELECTOR, ".el-input__inner").send_keys(NoInduk)
             time.sleep(3)
             driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
             time.sleep(1)
             #======================== Button Cari ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
             #======================== masuk ke halaman input ============================
-            
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[1]/div/div[1]/div/div[1]/input").send_keys(Tanggal)
+            pyautogui.press('enter')
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[1]/div/div[2]/div/div/textarea").send_keys(Deskripsi)
 
-    
+            driver.find_element(By.CSS_SELECTOR, ".w-8 > svg").click()
+
+            driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/div/div[1]/input").send_keys(NamaBarang)
+
+            driver.find_element(By.XPATH, "(//input[@type=\'text\'])[3]").click()
+            """
+            time.sleep(2)
+            pyautogui.typewrite(Jenis)
+            time.sleep(1)
+            pyautogui.keyDown('down')
+            time.sleep(1)
+            pyautogui.press('enter')
+            """
+            time.sleep(3)
+            if Jenis == 'Barang biasa' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Barang biasa')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'Barang biasa')]").click()
+            elif Jenis == 'Barang berharga' :
+                dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Barang berharga\')]")
+                dropdown.find_element(By.XPATH, "//span[contains(.,\'Barang berharga\')]").click()
+            
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[5]/div/div/div/div[1]/input').send_keys(satuan)
+
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[6]/div/div/textarea').send_keys(keterangan)
+            time.sleep(1)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[3]/div/template/button[2]').click()
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
             pass
