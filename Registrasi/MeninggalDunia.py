@@ -88,6 +88,7 @@ def test_Meningal_Dunia(test_setup):
             #======================== Button Cari ============================
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
             #======================== masuk ke halaman input ============================
+            """
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[1]/div/div/div/div/input').click()
             if JenisCatatan == 'Catatan Kesehatan' :
                 dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Catatan Kesehatan')]")
@@ -107,13 +108,8 @@ def test_Meningal_Dunia(test_setup):
             elif JenisCatatan == 'Catatan Lain-Lain' :
                 dropdown = driver.find_element(By.XPATH, "//span[contains(.,\'Catatan Lain-Lain\')]")
                 dropdown.find_element(By.XPATH, "//span[contains(.,\'Catatan Lain-Lain\')]").click()
-
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[2]/div/div[1]/input').send_keys(TanggalKejadian)
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[2]/div/div[1]/input').send_keys(Keys.ENTER)
-
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[3]/div/div/textarea').send_keys(Deskripsi)
+            """
             
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[4]/button[2]').click()
            
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
