@@ -29,9 +29,9 @@ def test_setup():
     # seting windows nya jadi max   
     driver.maximize_window()
     driver.implicitly_wait(5)
-    # yield
-    # driver.close()
-    # driver.quit()
+    yield
+    driver.close()
+    driver.quit()
     
 def test_Web(test_setup):
     wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Registrasi.xlsx")
@@ -94,16 +94,19 @@ def test_Web(test_setup):
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[4]/div/div[1]/input').send_keys(nosrtpgntr)
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[5]/div/div[1]/input').click()
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[5]/div/div[1]/input').send_keys(tglsrtpngtr)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[5]/div/div[1]/input').send_keys(Keys.ENTER)
+
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[6]/div/div/div/div/input').click()
             if sbanhum == 'Diajukan':
-                driver.find_element(By.XPATH, '//*[@id="el-popper-container-6666"]/div[13]/div/div/div[1]/ul/li[1]').click()
+                driver.find_element(By.XPATH, '//li[contains(.,\'Diajukan\')]').click()
             elif sbanhum == 'Ditolak':
-                driver.find_element(By.XPATH, '//*[@id="el-popper-container-6666"]/div[13]/div/div/div[1]/ul/li[2]').click()
+                driver.find_element(By.XPATH, '//li[contains(.,\'Ditolak\')]').click()
             elif sbanhum == 'Disetujui':
-                driver.find_element(By.XPATH, '//*[@id="el-popper-container-6666"]/div[13]/div/div/div[1]/ul/li[3]').click()
+                driver.find_element(By.XPATH, '//span[contains(.,\'Disetujui\')]').click()
             print('sesuai data di seheet')
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[7]/div/div/textarea').click()
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[7]/div/div/textarea').send_keys(ket)
+
             if  jmlhdoc == 1:
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').click()
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(ketdoc)
@@ -222,6 +225,9 @@ def test_Web(test_setup):
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[4]/div/div/textarea').click()
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[4]/div/div/textarea').send_keys(ketdoc)
             print('done')
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[11]/button[2]').click()
+            time.sleep(4)
+            WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[1]/div')))
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
             pass
