@@ -181,24 +181,28 @@ def test_Registrasi(test_setup):
 
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
-
+            
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[5]/div/div/div/div/input").click()
-            time.sleep(2)
-            pyautogui.typewrite(Kejaksaan)
-            time.sleep(1)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            if Kejaksaan == 'Kejaksaan Negeri Bandung' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Bandung')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Bandung')]").click()
+            elif Kejaksaan == 'Kejaksaan Negeri Jakarta Pusat' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Jakarta Pusat')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Jakarta Pusat')]").click()
+
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[8]/div/div/div/div/input").click()
-            time.sleep(2)
-            pyautogui.typewrite(Penyidik)
-            time.sleep(2)
-            pyautogui.keyDown('down')
-            time.sleep(1)
-            pyautogui.press('enter')
+
+            if Penyidik == 'POLDA JABAR' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'POLDA JABAR')]").click()
+            elif Penyidik == 'POLRES BANDUNG' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'POLRES BANDUNG')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'POLRES BANDUNG')]").click()
+            
 
             
             
@@ -245,12 +249,13 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[2]/div/div[2]/div/input").send_keys(Keys.ENTER)
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[5]/div/div/div/div/input").click()
-            time.sleep(2)
-            pyautogui.typewrite(PutusSidang)
-            time.sleep(2)
-            pyautogui.keyDown('down')
             time.sleep(1)
-            pyautogui.press('enter')
+            if PutusSidang == 'Sudah' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Sudah')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'Sudah')]").click()
+            elif PutusSidang == 'Belum' :
+                dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Belum')]")
+                dropdown.find_element(By.XPATH, "//li[contains(.,'Belum')]").click()
 
             
 
@@ -261,12 +266,13 @@ def test_Registrasi(test_setup):
             
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[7]/div/div/div/div/input").click()
-            time.sleep(1)
-            pyautogui.typewrite(EksekusiJaksa)
-            time.sleep(1)
-            pyautogui.keyDown('down')
-            time.sleep(1)
-            pyautogui.press('enter')
+            
+            if EksekusiJaksa == 'Sudah' :
+                driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(2)").click()
+        
+            elif EksekusiJaksa == 'Belum' :
+                driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(1)").click()
+        
             
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[4]/div/div/input").send_keys(TanggalBA8)
@@ -332,6 +338,7 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, " //*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[5]/div/div/input").send_keys(PasalTambahan)
             time.sleep(2)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[6]/div/div[1]/div/div/input").send_keys(JenisKejahatan)
+            
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[6]/div/div[1]/div/div/input").send_keys(Keys.DOWN)
             time.sleep(1)
