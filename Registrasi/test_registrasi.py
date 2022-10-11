@@ -1,3 +1,4 @@
+from lib2to3.pgen2.driver import Driver
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -368,6 +369,15 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[9]/div/div/input").send_keys(NamaJaksa)
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[10]/div/div/div/div/input").send_keys(PengadilanNegeri)
+            if PengadilanNegeri == 'Pengadilan Negeri Bandung' :
+                Driver.find_element(By.XPATH, "//li[contains(.,'Pengadilan Negeri Bandung')]").click()
+        
+            elif PengadilanNegeri == 'Pengadilan Negeri Jakarta Utara' :
+                driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(1)").click()
+
+
+
+
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[10]/div/div/div/div/input").send_keys(Keys.DOWN)
             time.sleep(1)
