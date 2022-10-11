@@ -61,7 +61,7 @@ def test_Web(test_setup):
     driver.find_element(By.LINK_TEXT, "Surat Sidang").click()
     time.sleep(1)
 
-    i = 3
+    i = 4
     while i <= len(sheetrange['A']):
         Lokasi_Sidang       = sheetrange['A'+str(i)].value
         NoS_jaksa           = sheetrange['B'+str(i)].value
@@ -113,31 +113,44 @@ def test_Web(test_setup):
             time.sleep(5)
             #tambah Peserta
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[2]/div/form/button').click()
-            # WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]')))
-            WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/button[2]')))
-            #kondisi
             
-            if jlmpsrt == 1 :
-                
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span/span').click()
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]')))
+            time.sleep(3)
+            #kondisi
+            # driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span').click()
+            # time.sleep(1)
+            # driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[1]/div/div/label/span').click()
+            # time.sleep(1)
+            # driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[1]/div/div/label/span').click()
+            # time.sleep(1)
+            # driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[1]/div/div/label/span').click()
+            # time.sleep(1)
+            # driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[5]/td[1]/div/div/label/span').click()
+            # time.sleep(1)
+            if jlmpsrt == 1 and peserta == 'HOHOi BIN ^':
+                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[1]/div/div/label/span/span').click()
             elif jlmpsrt == 2 :
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[1]/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[2]/td/div/div/label/span/span').click()
             elif jlmpsrt == 3 :
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[1]/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[2]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[3]/td/div/div/label/span/span').click()
             elif jlmpsrt == 4 :
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[1]/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[2]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[3]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[4]/td/div/div/label/span/span').click()
             elif jlmpsrt == 5 :
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[4]/td[1]/div/div/label/span/span').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div[1]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[5]/td[1]/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[2]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[3]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[4]/td/div/div/label/span/span').click()
+                driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/table/tbody/tr[5]/td/div/div/label/span/span').click()
+            print('wprk')
+            driver.find_element(By.XPATH, '//div[@id="app"]/div/div[2]/div/div[2]/div/div/div/div[2]/div[2]/div[3]/button[2]/span').click()
+            time.sleep(5)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[2]/div/form/div[4]/button[2]').click()
         except TimeoutException:
                 print('ERROR')
                 pass

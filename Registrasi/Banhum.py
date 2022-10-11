@@ -109,7 +109,7 @@ def test_Web(test_setup):
 
             if  jmlhdoc == 1:
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(ketdoc)
+                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(namadoc)
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[3]/div/div/div/button').click()
                 time.sleep(2)
                 pyautogui.typewrite(r"C:\Users\user\Documents\TRCH\Automationpython\FilePDF\conoth.pdf")
@@ -119,7 +119,7 @@ def test_Web(test_setup):
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[4]/div/div/textarea').send_keys(ketdoc)
             elif jmlhdoc == 2:  
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(ketdoc)
+                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(namadoc)
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[3]/div/div/div/button').click()
                 time.sleep(2)
                 pyautogui.typewrite(r"C:\Users\user\Documents\TRCH\Automationpython\FilePDF\conoth.pdf")
@@ -142,7 +142,7 @@ def test_Web(test_setup):
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[4]/div/div/textarea').send_keys(ketdoc)
             elif jmlhdoc == 3:
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(ketdoc)
+                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(namadoc)
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[3]/div/div/div/button').click()
                 time.sleep(2)
                 pyautogui.typewrite(r"C:\Users\user\Documents\TRCH\Automationpython\FilePDF\conoth.pdf")
@@ -178,7 +178,7 @@ def test_Web(test_setup):
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[3]/td[4]/div/div/textarea').send_keys(ketdoc)
             elif jmlhdoc == 4:
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').click()
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(ketdoc)
+                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[2]/div/div/input').send_keys(namadoc)
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/form/div/div/div[10]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[3]/div/div/div/button').click()
                 time.sleep(2)
                 pyautogui.typewrite(r"C:\Users\user\Documents\TRCH\Automationpython\FilePDF\conoth.pdf")
