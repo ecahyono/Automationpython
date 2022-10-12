@@ -53,10 +53,7 @@ def test_setup():
         driver.quit()
         
 def test_PenerimaanTahanan(test_setup):
-    
-    wb = load_workbook(filename=r"/Users/will/Documents/Automationpython/Filexel/Registrasi.xlsx")
-    #wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
-    
+   
     sheetrange = wb['PenerimaanTahanan']
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
         
