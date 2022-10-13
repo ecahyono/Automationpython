@@ -394,7 +394,7 @@ def test_Registrasi(test_setup):
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[10]/div/div/div/div/input").send_keys(PengadilanNegeri)
             if PengadilanNegeri == 'Pengadilan Negeri Bandung' :
-                Driver.find_element(By.XPATH, "//li[contains(.,'Pengadilan Negeri Bandung')]").click()
+                driver.find_element(By.XPATH, "//li[contains(.,'Pengadilan Negeri Bandung')]").click()
         
             elif PengadilanNegeri == 'Pengadilan Negeri Jakarta Utara' :
                 driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(1)").click()
