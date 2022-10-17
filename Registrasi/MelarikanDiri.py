@@ -53,7 +53,7 @@ def test_setup():
         driver.quit()
         
 def test_Meningal_Dunia(test_setup):
-    
+    driver.implicitly_wait(10)
     sheetrange = wb['MeninggalDunia']
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
         
