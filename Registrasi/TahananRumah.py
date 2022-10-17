@@ -54,7 +54,7 @@ def test_setup():
         
 def test_Tahanan_Rumah(test_setup):
     #wb = load_workbook(filename=r"C:\Users\wilda\Documents\Automationpython\Filexel/Registrasi.xlsx")
-    
+    driver.implicitly_wait(5)
     sheetrange = wb['TahananRumah']
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
         
