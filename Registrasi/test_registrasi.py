@@ -54,7 +54,7 @@ def test_setup():
         
 def test_Registrasi(test_setup):
     
-    
+    driver.implicitly_wait(5)
     sheetrange = wb['reg']
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
         
