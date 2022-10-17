@@ -54,7 +54,7 @@ def test_setup():
         
 def test_Penolakan(test_setup):
     
-    
+    driver.implicitly_wait(5)
     sheetrange = wb['PenolakannTahanan']
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
         
