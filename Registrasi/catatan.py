@@ -53,7 +53,7 @@ def test_setup():
         driver.quit()
         
 def test_BarangBawaan(test_setup):
-    
+    driver.implicitly_wait(5)
     sheetrange = wb['Catatan']
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//div/span')))
         
