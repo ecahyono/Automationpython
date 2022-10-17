@@ -54,7 +54,8 @@ def test_setup():
         
     
 def test_Web(test_setup):
-
+    driver.implicitly_wait(10)
+    
     # read excel
     sheetrange = wb['Identitas']
     # Menuju login
