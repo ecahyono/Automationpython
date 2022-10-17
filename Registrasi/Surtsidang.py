@@ -55,6 +55,7 @@ def test_setup():
     
 def test_Web(test_setup):
     # jadi ini bisa read sheet yang dibawah itu yang di excel
+    driver.implicitly_wait(5)
     sheetrange = wb['sursidang']
     # Menuju login
     driver.find_element(By.XPATH, "//div/span").click()
