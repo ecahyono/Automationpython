@@ -74,10 +74,16 @@ def test_DaftarLaluLintas(test_setup):
     time.sleep(1)
 
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+       
     
     i = 2
 
-    while i == len(sheetrange['A']):
+    
+    while i <= len(sheetrange['A']):
+
         Drpdownsearch                         = sheetrange['A'+str(i)].value
         Nama                                  = sheetrange['B'+str(i)].value
         JenisKeluar                           = sheetrange['C'+str(i)].value
@@ -86,10 +92,6 @@ def test_DaftarLaluLintas(test_setup):
         deskripsi                             = sheetrange['F'+str(i)].value
 
 
-
-        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
-        driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-       
             
         try:
             time.sleep(1)
@@ -112,9 +114,9 @@ def test_DaftarLaluLintas(test_setup):
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[4]/div/div/input').send_keys(TanggalHarusKembali)
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[4]/div/div/input').send_keys(Keys.ENTER)
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[5]/div/div/textarea').send_keys(deskripsi)
-            
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[1]/div/div/div/div/input')))
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[1]/div/div/div/div/input').click()
-            
+            time.sleep(1)
             if JenisKeluar == 'Cuti Bersyarat' :
                 driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
             elif JenisKeluar == 'Bebas dari Tuntutan' :
@@ -123,11 +125,12 @@ def test_DaftarLaluLintas(test_setup):
                 driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
             
             driver.find_element(By.XPATH, '//*[@id="submitButton"]').click()
+            time.sleep(5)
 
+    
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
             pass
-        time.sleep(5)
         i = i + 1
     print("DONE PAK WILDAN, SEBATS DULU")
 
