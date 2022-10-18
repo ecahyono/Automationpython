@@ -1,5 +1,4 @@
-from codecs import namereplace_errors
-from turtle import rt
+from socket import send_fds
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -79,13 +78,51 @@ def test_DaftarLaluLintas(test_setup):
     i = 2
 
     while i == len(sheetrange['A']):
-        nama                        = sheetrange['A'+str(i)].value
+        Drpdownsearch                         = sheetrange['A'+str(i)].value
+        Nama                                  = sheetrange['B'+str(i)].value
+        JenisKeluar                           = sheetrange['C'+str(i)].value
+        TanggalKeluar                         = sheetrange['D'+str(i)].value
+        TanggalHarusKembali                   = sheetrange['E'+str(i)].value
+        deskripsi                             = sheetrange['F'+str(i)].value
 
 
 
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+        driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+       
+            
         try:
             time.sleep(1)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()         
+            if Drpdownsearch == 'Nama' :
+                driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+                
+            elif Drpdownsearch == 'NoRegistrasi' :
+                driver.find_element(By.XPATH, "//li[contains(.,'No. Registrasi')]").click()
 
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys(Nama)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
+            time.sleep(2)
+            driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
+
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
+            
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[2]/div/div/input').send_keys(TanggalKeluar)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[2]/div/div/input').send_keys(Keys.ENTER) 
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[4]/div/div/input').send_keys(TanggalHarusKembali)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[4]/div/div/input').send_keys(Keys.ENTER)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[5]/div/div/textarea').send_keys(deskripsi)
+            
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[2]/form/div[1]/div/div/div/div/input').click()
+            
+            if JenisKeluar == 'Cuti Bersyarat' :
+                driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
+            elif JenisKeluar == 'Bebas dari Tuntutan' :
+                driver.find_element(By.XPATH, "//li[contains(.,\'Bebas dari Tuntutan\')]").click()
+            elif JenisKeluar == 'Cuti Menjelang Bebas':
+                driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
+            
+            driver.find_element(By.XPATH, '//*[@id="submitButton"]').click()
 
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
