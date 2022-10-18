@@ -190,8 +190,8 @@ def test_Web(test_setup):
             
 
             if Residivis == 'Ya':
-                driver.find_element(By.ID, 'btn_residivis_counter').click()
-                driver.find_element(By.ID, 'btn_residivis_counter').send_keys(Keys.BACKSPACE)
+                driver.find_element(By.XPATH, '//*[@id="btn_residivis_counter"]/div/input').click()
+                pyautogui.hotkey('backspace')
                 driver.find_element(By.XPATH, '//*[@id="btn_residivis_counter"]/div/input').send_keys(Rke)
             elif Residivis == 'Tidak':
                 print ('Residivis yang ke', Rke)
@@ -235,98 +235,99 @@ def test_Web(test_setup):
             driver.find_element(By.ID, 'btn_nik').send_keys(nik) 
             #-------------------------------------------------------------- 
             if Kewarganegaraan == 'WNI':
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[3]/div/div').click()   
-                time.sleep(2)                                
-                pyautogui.typewrite(Tempat_Asal)
-                pyautogui.keyDown('down')
-                pyautogui.press('enter')
+                driver.find_element(By.ID, 'btn_id_tempat_asal').click()   
+                time.sleep(2)
+                driver.find_element(By.ID, 'btn_id_tempat_asal').send_keys(Tempat_Asal)                                
+                driver.find_element(By.ID, 'btn_id_tempat_asal').send_keys(Keys.DOWN)                                
+                driver.find_element(By.ID, 'btn_id_tempat_asal').send_keys(Keys.ENTER)
             elif Kewarganegaraan == 'WNA':
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[3]/div/div').click()   
-                pyautogui.typewrite(Tempat_Asal)
+                # driver.find_element(By.ID, 'btn_id_tempat_asal_lain').click()   
+                driver.find_element(By.ID, 'btn_id_tempat_asal_lain').send_keys(Tempat_Asal)
+                                        
             # --------------------------------------------------------------
             time.sleep(2) 
             if Kewarganegaraan == 'WNI':
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[4]/div/div').click()          
+                driver.find_element(By.ID, 'btn_id_tempat_lahir').click()          
                 time.sleep(2)   
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[4]/div/div').send_keys(Tempat_lahir)          
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[4]/div/div').send_keys(Keys.DOWN)        
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[4]/div/div').send_keys(Keys.ENTER)          
+                driver.find_element(By.ID, 'btn_id_tempat_lahir').send_keys(Tempat_lahir)          
+                driver.find_element(By.ID, 'btn_id_tempat_lahir').send_keys(Keys.DOWN)        
+                driver.find_element(By.ID, 'btn_id_tempat_lahir').send_keys(Keys.ENTER)          
             elif Kewarganegaraan == 'WNA':
-                driver.find_element(By.XPATH, '//*[@id="pane-1"]/form/div[1]/div[2]/div[4]/div/div').click()          
-                pyautogui.typewrite(Tempat_lahir)
+                # driver.find_element(By.ID, '').click()          
+                driver.find_element(By.ID, 'btn_id_tempat_lahir_lain').send_keys(Tempat_lahir)
             #------untuk tanggal Data format exel di sesuaikan-----------------------------
             driver.find_element(By.XPATH, '//div[5]/div/div/div/div/div/input').click()
             time.sleep(2) 
-            pyautogui.typewrite(Tanggal_lahir)
-            pyautogui.press('enter') 
+            driver.find_element(By.XPATH, '//div[5]/div/div/div/div/div/input').send_keys(Tanggal_lahir)
+            driver.find_element(By.XPATH, '//div[5]/div/div/div/div/div/input').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_kelamin').click()
             time.sleep(2) 
-            pyautogui.typewrite(Jenis_kelamin)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            driver.find_element(By.ID, 'btn_id_jenis_kelamin').send_keys(Jenis_kelamin)
+            driver.find_element(By.ID, 'btn_id_jenis_kelamin').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'btn_id_jenis_kelamin').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_negara_asing').click()
             time.sleep(2)
-            pyautogui.typewrite(Negara)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            driver.find_element(By.ID, 'btn_id_negara_asing').send_keys(Negara)
+            driver.find_element(By.ID, 'btn_id_negara_asing').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'btn_id_negara_asing').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_agama').click()
             time.sleep(2)
-            pyautogui.typewrite(Agama)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            driver.find_element(By.ID, 'btn_id_jenis_agama').send_keys(Agama)
+            driver.find_element(By.ID, 'btn_id_jenis_agama').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'btn_id_jenis_agama').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
             if Agama == 'Lain-lain':
                 driver.find_element(By.ID, 'btn_id_jenis_agama_lain').click()
-                pyautogui.typewrite(Agama_lain)
+                driver.find_element(By.ID, 'btn_id_jenis_agama_lain').send_keys(Agama_lain)
             elif Agama == Agama:
                 print ('agama masih default')
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_suku').click()
-            time.sleep(2) 
-            pyautogui.typewrite(suku)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            time.sleep(2)
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(suku) 
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.DOWN) 
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.ENTER) 
             #------------------------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_status_perkawinan').click()
             time.sleep(2) 
-            pyautogui.typewrite(Status_perkawinan)
-            pyautogui.keyDown('down')
-            pyautogui.press('enter')
+            driver.find_element(By.ID, 'btn_id_jenis_status_perkawinan').send_keys(Status_perkawinan)
+            driver.find_element(By.ID, 'btn_id_jenis_status_perkawinan').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'btn_id_jenis_status_perkawinan').send_keys(Keys.ENTER)
             #------------------------------------------------------------------------------
             if Kewarganegaraan == 'WNI':
                 driver.find_element(By.ID, 'btn_id_propinsi').click()
                 time.sleep(2)
-                pyautogui.typewrite(Provinsi)
-                pyautogui.keyDown('down')
-                pyautogui.press('enter')
+                driver.find_element(By.ID, 'btn_id_propinsi').send_keys(Provinsi)
+                driver.find_element(By.ID, 'btn_id_propinsi').send_keys(Keys.DOWN)
+                driver.find_element(By.ID, 'btn_id_propinsi').send_keys(Keys.ENTER)
             elif Kewarganegaraan == 'WNA':
-                driver.find_element(By.ID, 'btn_id_propinsi_lain').click()
-                pyautogui.typewrite(Provinsi)
+                # driver.find_element(By.ID, 'btn_id_propinsi_lain').click()
+                driver.find_element(By.ID, 'btn_id_propinsi_lain').send_keys(Provinsi)
             #------------------------------------------------------------------------------
             if Kewarganegaraan == 'WNI':
                 driver.find_element(By.ID, 'btn_id_kota').click()
                 time.sleep(2) 
-                pyautogui.typewrite(Kota)
-                pyautogui.keyDown('down')
-                pyautogui.press('enter')
+                driver.find_element(By.ID, 'btn_id_kota').send_keys(Kota)
+                driver.find_element(By.ID, 'btn_id_kota').send_keys(Keys.DOWN)
+                driver.find_element(By.ID, 'btn_id_kota').send_keys(Keys.ENTER)
             elif Kewarganegaraan == 'WNA':
-                driver.find_element(By.ID, 'btn_id_kota_lain').click()
-                pyautogui.typewrite(Kota)
+                # driver.find_element(By.ID, 'btn_id_kota_lain').click()
+                driver.find_element(By.ID, 'btn_id_kota_lain').send_keys(Kota)
             #------------------------------------------------------------------------------
             driver.find_element(By.ID, 'btn_alamat').click()       
             pyautogui.typewrite(Alamat_rumah)
             # # ------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'btn_telepon').click()
+            # driver.find_element(By.ID, 'btn_telepon').click()
             driver.find_element(By.ID, 'btn_telepon').send_keys(Telepon)
             # #------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'btn_kodepos').click()
+            # driver.find_element(By.ID, 'btn_kodepos').click()
             driver.find_element(By.ID, 'btn_kodepos').send_keys(Kode_pos)
             # # ------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'btn_alamat_alternatif').click()
-            pyautogui.typewrite(Alamat_lain)
+            # driver.find_element(By.ID, 'btn_alamat_alternatif').click()
+            driver.find_element(By.ID, 'btn_alamat_alternatif').send_keys(Alamat_lain)
             # ======================================================================
             driver.find_element(By.ID, 'tab-2').click()
             # ========================Input Tab Pekerjaan===========================
@@ -337,18 +338,18 @@ def test_Web(test_setup):
             driver.find_element(By.ID, 'id_jenis_pekerjaan').send_keys(Keys.ENTER)
             # --------------------------------------------------------------
             if Jenis_Pekerjaan == 'pegawai negeri sipil':
-                driver.find_element(By.ID, 'nama_instansi_pns').click()
-                pyautogui.typewrite(namaipemerintah)
-                driver.find_element(By.ID, 'nip').click()
-                pyautogui.typewrite(noindpegawai)        
+                # driver.find_element(By.ID, 'nama_instansi_pns').click()
+                driver.find_element(By.ID, 'nama_instansi_pns').send_keys(namaipemerintah)
+                # driver.find_element(By.ID, 'nip').click()
+                driver.find_element(By.ID, 'nip').send_keys(noindpegawai)        
             elif Jenis_Pekerjaan == 'lain-lain':
                 driver.find_element(By.ID, 'id_jenis_pekerjaan_lain').click()
-                pyautogui.typewrite(Jenis_Pekerjaan_Lain)
+                driver.find_element(By.ID, 'id_jenis_pekerjaan_lain').send_keys(Jenis_Pekerjaan_Lain)
             # -----------------------------------------------------------
-            driver.find_element(By.ID, 'alamat_pekerjaan').click()
+            # driver.find_element(By.ID, 'alamat_pekerjaan').click()
             driver.find_element(By.ID, 'alamat_pekerjaan').send_keys(Bekerjadi)
             #--------------------------------------------------------------
-            driver.find_element(By.ID, 'keterangan_pekerjaan').click()
+            # driver.find_element(By.ID, 'keterangan_pekerjaan').click()
             driver.find_element(By.ID, 'keterangan_pekerjaan').send_keys(Keterangan_pekerjaan)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'id_tingkat_penghasilan').click()        
@@ -399,22 +400,22 @@ def test_Web(test_setup):
             elif latin == 'Tidak':
                 print ('tidak di check')
             #----------------------------------------------------------------------
-            driver.find_element(By.ID, 'minat').click()
+            # driver.find_element(By.ID, 'minat').click()
             driver.find_element(By.ID, 'minat').send_keys(Minat)
             #======================================================================
             driver.find_element(By.ID, 'tab-3').click()
             #========================Input Tab Keluarga============================ 
             #------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'nm_ayah').click()        
+            # driver.find_element(By.ID, 'nm_ayah').click()        
             driver.find_element(By.ID, 'nm_ayah').send_keys(Nama_ayah)
             #------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'tmp_tgl_ayah').click()      
+            # driver.find_element(By.ID, 'tmp_tgl_ayah').click()      
             driver.find_element(By.ID, 'tmp_tgl_ayah').send_keys(Alamat_ayah)
             #------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'nm_ibu').click()
+            # driver.find_element(By.ID, 'nm_ibu').click()
             driver.find_element(By.ID, 'nm_ibu').send_keys(Nama_ibu)
             #------------------------------------------------------------------------------
-            driver.find_element(By.ID, 'tmp_tgl_ibu').click()        
+            # driver.find_element(By.ID, 'tmp_tgl_ibu').click()        
             driver.find_element(By.ID, 'tmp_tgl_ibu').send_keys(Alamat_ibu)
             #------------------------------------------------------------------------------
             driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input').click()
@@ -426,28 +427,28 @@ def test_Web(test_setup):
             driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input').send_keys(Dari)
             pyautogui.press('enter')
             if Dari == 2:
-                driver.find_element(By.ID, 'nm_saudara_1').click()    
+                # driver.find_element(By.ID, 'nm_saudara_1').click()    
                 driver.find_element(By.ID, 'nm_saudara_1').send_keys(Nama_saudara1)
             elif Dari == 3:
-                driver.find_element(By.ID, 'nm_saudara_1').click()    
+                # driver.find_element(By.ID, 'nm_saudara_1').click()    
                 driver.find_element(By.ID, 'nm_saudara_1').send_keys(Nama_saudara1)
-                driver.find_element(By.ID, 'nm_saudara_2').click()    
+                # driver.find_element(By.ID, 'nm_saudara_2').click()    
                 driver.find_element(By.ID, 'nm_saudara_2').send_keys(Nama_saudara2)
             elif Dari == 4:
-                driver.find_element(By.ID, 'nm_saudara_1').click()    
+                # driver.find_element(By.ID, 'nm_saudara_1').click()    
                 driver.find_element(By.ID, 'nm_saudara_1').send_keys(Nama_saudara1)
-                driver.find_element(By.ID, 'nm_saudara_2').click()    
+                # driver.find_element(By.ID, 'nm_saudara_2').click()    
                 driver.find_element(By.ID, 'nm_saudara_2').send_keys(Nama_saudara2)
-                driver.find_element(By.ID, 'nm_saudara_3').click()    
+                # driver.find_element(By.ID, 'nm_saudara_3').click()    
                 driver.find_element(By.ID, 'nm_saudara_3').send_keys(Nama_saudara3)
             elif Dari == 5:
-                driver.find_element(By.ID, 'nm_saudara_1').click()    
+                # driver.find_element(By.ID, 'nm_saudara_1').click()    
                 driver.find_element(By.ID, 'nm_saudara_1').send_keys(Nama_saudara1)
-                driver.find_element(By.ID, 'nm_saudara_2').click()    
+                # driver.find_element(By.ID, 'nm_saudara_2').click()    
                 driver.find_element(By.ID, 'nm_saudara_2').send_keys(Nama_saudara2)
-                driver.find_element(By.ID, 'nm_saudara_3').click()    
+                # driver.find_element(By.ID, 'nm_saudara_3').click()    
                 driver.find_element(By.ID, 'nm_saudara_3').send_keys(Nama_saudara3)
-                driver.find_element(By.ID, 'nm_saudara_4').click()    
+                # driver.find_element(By.ID, 'nm_saudara_4').click()    
                 driver.find_element(By.ID, 'nm_saudara_4').send_keys(Nama_saudara4)
             elif Dari == 1 :
                 print ('anak satu satunya')
@@ -467,19 +468,19 @@ def test_Web(test_setup):
                 jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(jumlah_anak) 
                 pyautogui.press('enter')
                 if jumlah_anak == 1:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)
                 elif jumlah_anak == 2:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
                 elif jumlah_anak == 3:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
-                    driver.find_element(By.ID, 'nm_anak_3').click()    
+                    # driver.find_element(By.ID, 'nm_anak_3').click()    
                     driver.find_element(By.ID, 'nm_anak_3').send_keys(Nama_anak3)
                 elif  jumlah_anak == 0: 
                     print('masa ga punya anak')
@@ -499,19 +500,19 @@ def test_Web(test_setup):
                 jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(jumlah_anak) 
                 pyautogui.press('enter')
                 if jumlah_anak == 1:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)
                 elif jumlah_anak == 2:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
                 elif jumlah_anak == 3:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
-                    driver.find_element(By.ID, 'nm_anak_3').click()    
+                    # driver.find_element(By.ID, 'nm_anak_3').click()    
                     driver.find_element(By.ID, 'nm_anak_3').send_keys(Nama_anak3)
                 elif  jumlah_anak == 0: 
                     print('masa ga punya anak')
@@ -531,19 +532,19 @@ def test_Web(test_setup):
                 jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(jumlah_anak) 
                 pyautogui.press('enter')
                 if jumlah_anak == 1:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)
                 elif jumlah_anak == 2:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
                 elif jumlah_anak == 3:
-                    driver.find_element(By.ID, 'nm_anak_1').click()    
+                    # driver.find_element(By.ID, 'nm_anak_1').click()    
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(Nama_anak1)        
-                    driver.find_element(By.ID, 'nm_anak_2').click()    
+                    # driver.find_element(By.ID, 'nm_anak_2').click()    
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(Nama_anak2)
-                    driver.find_element(By.ID, 'nm_anak_3').click()    
+                    # driver.find_element(By.ID, 'nm_anak_3').click()    
                     driver.find_element(By.ID, 'nm_anak_3').send_keys(Nama_anak3)
                 elif  jumlah_anak == 0: 
                     print('masa ga punya anak')
@@ -644,7 +645,7 @@ def test_Web(test_setup):
             driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.DOWN)
             driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
-            driver.find_element(By.ID, 'cacat').click()
+            # driver.find_element(By.ID, 'cacat').click()
             driver.find_element(By.ID, 'cacat').send_keys(Cacat_tubuh)
             # #--------------------------------------------------------------
             # time.sleep(2)
@@ -664,13 +665,13 @@ def test_Web(test_setup):
             # pyautogui.press('enter')
             # time.sleep(2)
             # #--------------------------------------------------------------
-            driver.find_element(By.ID, 'ciri').click()
+            # driver.find_element(By.ID, 'ciri').click()
             driver.find_element(By.ID, 'ciri').send_keys(Catatancirikhusus1)  
             # #--------------------------------------------------------------
-            driver.find_element(By.ID, 'ciri2').click()
+            # driver.find_element(By.ID, 'ciri2').click()
             driver.find_element(By.ID, 'ciri2').send_keys(Catatancirikhusus2) 
             # #--------------------------------------------------------------
-            driver.find_element(By.ID, 'ciri3').click()
+            # driver.find_element(By.ID, 'ciri3').click()
             driver.find_element(By.ID, 'ciri3').send_keys(Catatancirikhusus3)
             # # ======================================================================
             # driver.find_element(By.ID, 'tab-5').click()
@@ -715,7 +716,7 @@ def test_Web(test_setup):
             #Submit
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div/button[2]').click()
             WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
-            
+            time.sleep(4)
         except TimeoutException:
             print('ERROR')
             pass
