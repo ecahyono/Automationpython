@@ -32,8 +32,11 @@ class TestDaftarLaluLintas_Input():
             driver.maximize_window()
             driver.implicitly_wait(5)
             yield
+            print(' ===== done pak will berhasil uyeee =====')
+            time.sleep(5)
             driver.close()
             driver.quit()
+
         elif platform.system() == 'Windows':
             driver = webdriver.Chrome(service=swin)
             # url = "http://kumbang.torche.id:32400/"
@@ -45,6 +48,8 @@ class TestDaftarLaluLintas_Input():
             driver.maximize_window()
             driver.implicitly_wait(5)
             yield
+            print(' ===== done pak will berhasil uyeee =====')
+            time.sleep(5)
             driver.close()
             driver.quit()
 
@@ -59,7 +64,7 @@ class TestDaftarLaluLintas_Input():
         driver.find_element(By.ID, "username").send_keys("wildan")
         driver.find_element(By.ID, "password").send_keys("wildan")
         driver.find_element(By.ID, "kc-login").click()
-
+        print('login done')
         nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
         actions = ActionChains(driver)
         actions.move_to_element(nav1).perform()
