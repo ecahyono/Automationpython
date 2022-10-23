@@ -53,16 +53,16 @@ class TestDaftarLaluLintas_Input():
             driver.close()
             driver.quit()
 
-    def test_DaftarLaluLintas(self,test_setup):
+    def test_DaftarLaluLintas_Input(self,test_setup):
         driver.implicitly_wait(10)
-        sheetrange = wb ['DaftarLaluLintas']
+        sheetrange = wb ['DaftarLaluLintas_Input']
         WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
 
         driver.find_element(By.XPATH, "//div/span").click()
 
         driver.find_element(By.ID, "username").click()
-        driver.find_element(By.ID, "username").send_keys("wildan")
-        driver.find_element(By.ID, "password").send_keys("wildan")
+        driver.find_element(By.ID, "username").send_keys("test-user")
+        driver.find_element(By.ID, "password").send_keys("password")
         driver.find_element(By.ID, "kc-login").click()
         print('login done')
         nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')

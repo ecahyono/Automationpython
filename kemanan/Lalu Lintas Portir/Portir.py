@@ -74,7 +74,7 @@ def test_DaftarLaluLintas(test_setup):
     actions2.move_to_element(element2).perform()
     time.sleep(1)
 
-    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+    driver.find_element(By.LINK_TEXT, 'Portir').click()
     
     i = 2
 

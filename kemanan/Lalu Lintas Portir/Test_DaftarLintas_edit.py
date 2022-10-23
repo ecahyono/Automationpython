@@ -1,4 +1,6 @@
 
+from re import A
+from tkinter import W
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,8 +14,9 @@ import pytest
 import time
 import platform
 import os
+import pyautogui
 
-class TestDaftarLaluLintas_Input():
+class TestDaftarLaluLintas_Edit():
     @pytest.fixture()
     def test_setup(self):
         global driver
@@ -53,7 +56,7 @@ class TestDaftarLaluLintas_Input():
             driver.close()
             driver.quit()
 
-    def test_DaftarLaluLintas_Input(self,test_setup):
+    def test_DaftarLaluLintas_Edit(self,test_setup):
         driver.implicitly_wait(10)
         sheetrange = wb ['DaftarLaluLintas_ubah']
         WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
@@ -61,8 +64,8 @@ class TestDaftarLaluLintas_Input():
         driver.find_element(By.XPATH, "//div/span").click()
 
         driver.find_element(By.ID, "username").click()
-        driver.find_element(By.ID, "username").send_keys("wildan")
-        driver.find_element(By.ID, "password").send_keys("wildan")
+        driver.find_element(By.ID, "username").send_keys("test-user")
+        driver.find_element(By.ID, "password").send_keys("password")
         driver.find_element(By.ID, "kc-login").click()
         
         nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
@@ -105,22 +108,38 @@ class TestDaftarLaluLintas_Input():
                     driver.find_element(By.XPATH, "//li[contains(.,'No. Registrasi')]").click()
 
                 driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Nama)
-
+                
+                time.sleep(1)
+                
                 driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button').click()
-                time.sleep(3)
-               
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
+                time.sleep(6)
+                WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
+                WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
                 driver.find_element(By.CSS_SELECTOR, ".text-green-500 .h-5").click()
-                time.sleep(5)
-                driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys(deskripsi)
+                time.sleep(15)
+
+
+                WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonReset"]')))
+                driver.find_element(By.XPATH, '//*[@id="buttonReset"]').click()
+                driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[3]/button[2]').click()    
+
+                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="deskripsi"]')))
+                driver.find_element(By.XPATH, '//*[@id="deskripsi"]').clear()
+
+                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').clear()
+                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
 
                 WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "keluarKeamanan")))
-                driver.find_element(By.ID, "keluarKeamanan").send_keys(TanggalKeluar)
+                driver.find_element(By.ID, "keluarKeamanan").clear()
                 driver.find_element(By.ID, "keluarKeamanan").send_keys(Keys.ENTER)
 
+                time.sleep(10)
+                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
+                driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').clear()
+
+                time.sleep(10)
                 """
-                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(TanggalHarusKembali)
-                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
+
                 
                 WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
                 driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').click()
@@ -148,3 +167,4 @@ class TestDaftarLaluLintas_Input():
                 pass
             i = i + 1
         print("DONE PAK WILDAN, SEBATS DULU")
+
