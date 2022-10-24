@@ -62,9 +62,9 @@ def test_Registrasi(test_setup):
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     # masukin input username
-    driver.find_element(By.ID, "username").send_keys("wildan")
+    driver.find_element(By.ID, "username").send_keys("waru")
     # masukin input password
-    driver.find_element(By.ID, "password").send_keys("wildan")
+    driver.find_element(By.ID, "password").send_keys("waru")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
     time.sleep(1)
@@ -80,85 +80,85 @@ def test_Registrasi(test_setup):
     time.sleep(2)
     driver.find_element(By.LINK_TEXT, "Registrasi Tahanan/ Narapidana").click()
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1")))
-       
-    i = 2
+    
+    i = 10
 
     # nge baca mulai dari tabel A
     while i <= len(sheetrange['A']):
         # deklarasi bahwa NIP itu ada di A 
-        NoInduk = sheetrange['A'+str(i)].value
-        NoRegistrasi = sheetrange['B'+str(i)].value
-        TglSuratPenahanan = sheetrange['C'+str(i)].value
-        NomorSuratPenahanan = sheetrange['D'+str(i)].value
-        NamaPetugasInstansi = sheetrange['E'+str(i)].value
-        Kejaksaan = sheetrange['F'+str(i)].value
-        AsalInstansi = sheetrange['G'+str(i)].value
-        Keterangan = sheetrange['H'+str(i)].value
-        Penyidik = sheetrange['I'+str(i)].value
-        Menahan10hari = sheetrange['J'+str(i)].value
-        Menahan3hari = sheetrange['K'+str(i)].value
-        Menahan1hari = sheetrange['L'+str(i)].value
-        LokasiDokumen = sheetrange['M'+str(i)].value
-        AsalTahanan = sheetrange['N'+str(i)].value
-        Kepolisian = sheetrange['O'+str(i)].value
-        JenisPutusan = sheetrange['P'+str(i)].value
-        NamaLengkap= sheetrange['Q'+str(i)].value
-        TanggalLahir = sheetrange['R'+str(i)].value
-        PutusSidang = sheetrange['S'+str(i)].value
-        TerhitungSejakPertamaDitangkap= sheetrange['T'+str(i)].value
-        EksekusiJaksa= sheetrange['U'+str(i)].value
-        TanggalBA8 = sheetrange['V'+str(i)].value
-        TglMenjalaniPutusanAkhir = sheetrange['W'+str(i)].value
-        TglPertamaKaliDitahan = sheetrange['X'+str(i)].value
-        TglPertamaKaliDitahan1 = sheetrange['Y'+str(i)].value
-        TglPertamaDitahanGolonganBI = sheetrange['Z'+str(i)].value
-        TglEkspirasiAwal = sheetrange['AA'+str(i)].value
-        TglEkspirasiAkhir = sheetrange['AB'+str(i)].value
-        TanggalmenjalaniPidanaPencabutanPB = sheetrange['AC'+str(i)].value
+        NoInduk                             = sheetrange['A'+str(i)].value
+        NoRegistrasi                        = sheetrange['B'+str(i)].value
+        TglSuratPenahanan                   = sheetrange['C'+str(i)].value
+        NomorSuratPenahanan                 = sheetrange['D'+str(i)].value
+        NamaPetugasInstansi                 = sheetrange['E'+str(i)].value
+        Kejaksaan                           = sheetrange['F'+str(i)].value
+        AsalInstansi                        = sheetrange['G'+str(i)].value
+        Keterangan                          = sheetrange['H'+str(i)].value
+        Penyidik                            = sheetrange['I'+str(i)].value
+        Menahan10hari                       = sheetrange['J'+str(i)].value
+        Menahan3hari                        = sheetrange['K'+str(i)].value
+        Menahan1hari                        = sheetrange['L'+str(i)].value
+        LokasiDokumen                       = sheetrange['M'+str(i)].value
+        AsalTahanan                         = sheetrange['N'+str(i)].value
+        Kepolisian                          = sheetrange['O'+str(i)].value
+        JenisPutusan                        = sheetrange['P'+str(i)].value
+        NamaLengkap                         = sheetrange['Q'+str(i)].value
+        TanggalLahir                        = sheetrange['R'+str(i)].value
+        PutusSidang                         = sheetrange['S'+str(i)].value
+        TerhitungSejakPertamaDitangkap      = sheetrange['T'+str(i)].value
+        EksekusiJaksa                       = sheetrange['U'+str(i)].value
+        TanggalBA8                          = sheetrange['V'+str(i)].value
+        TglMenjalaniPutusanAkhir            = sheetrange['W'+str(i)].value
+        TglPertamaKaliDitahan               = sheetrange['X'+str(i)].value
+        TglPertamaKaliDitahan1              = sheetrange['Y'+str(i)].value
+        TglPertamaDitahanGolonganBI         = sheetrange['Z'+str(i)].value
+        TglEkspirasiAwal                    = sheetrange['AA'+str(i)].value
+        TglEkspirasiAkhir                   = sheetrange['AB'+str(i)].value
+        TanggalmenjalaniPidanaPencabutanPB  = sheetrange['AC'+str(i)].value
         #======================== PERKARA ============================
-        TidakAdaTanggalKejadian = sheetrange['AD'+str(i)].value # switch
-        TempatRisalahKejadian = sheetrange['AE'+str(i)].value
-        RisalahKejadianPerkara = sheetrange['AF'+str(i)].value
-        TanggalKejadian = sheetrange['AG'+str(i)].value
-        JamKejadian = sheetrange['AH'+str(i)].value 
-        KejahatanUtama = sheetrange['AI'+str(i)].value # switch
-        UraianKejahatan = sheetrange['AJ'+str(i)].value
-        Undangundang = sheetrange['AK'+str(i)].value
-        PasalUtama = sheetrange['AL'+str(i)].value
-        PasalTambahan = sheetrange['AM'+str(i)].value
-        JenisKejahatan = sheetrange['AN'+str(i)].value
-        TempatPenangkapan = sheetrange['AO'+str(i)].value
+        TidakAdaTanggalKejadian             = sheetrange['AD'+str(i)].value # switch
+        TempatRisalahKejadian               = sheetrange['AE'+str(i)].value
+        RisalahKejadianPerkara              = sheetrange['AF'+str(i)].value
+        TanggalKejadian                     = sheetrange['AG'+str(i)].value
+        JamKejadian                         = sheetrange['AH'+str(i)].value 
+        KejahatanUtama                      = sheetrange['AI'+str(i)].value # switch
+        UraianKejahatan                     = sheetrange['AJ'+str(i)].value
+        Undangundang                        = sheetrange['AK'+str(i)].value
+        PasalUtama                          = sheetrange['AL'+str(i)].value
+        PasalTambahan                       = sheetrange['AM'+str(i)].value
+        JenisKejahatan                      = sheetrange['AN'+str(i)].value
+        TempatPenangkapan                   = sheetrange['AO'+str(i)].value
         #======================== Putusan Pengadilan Negeri ============================
-        KetersediaanVonis = sheetrange['AP'+str(i)].value # switch
-        TanggalPutusan = sheetrange['AQ'+str(i)].value
-        NomorPutusan = sheetrange['AR'+str(i)].value
-        Pasal = sheetrange['AS'+str(i)].value
-        NamaHakimKetua = sheetrange['AT'+str(i)].value
-        NamaHakimAnggota1 = sheetrange['AU'+str(i)].value
-        NamaHakimAnggota2 = sheetrange['AV'+str(i)].value
-        NamaPaniteraPengganti = sheetrange['AW'+str(i)].value
-        NamaJaksa = sheetrange['AX'+str(i)].value
-        PengadilanNegeri = sheetrange['AY'+str(i)].value
-        TanggalPutusanDijalankan = sheetrange['AZ'+str(i)].value
-        PeranDalamKejahatan = sheetrange['BA'+str(i)].value
-        JenisHukuman = sheetrange['BB'+str(i)].value
-        PidanaTahun = sheetrange['BC'+str(i)].value
-        PidanaBulan = sheetrange['BD'+str(i)].value
-        PidanaHari = sheetrange['BE'+str(i)].value
-        KategoriRemisi = sheetrange['BF'+str(i)].value
-        Denda = sheetrange['BG'+str(i)].value
-        PidanaKurunganTahun1= sheetrange['BH'+str(i)].value
-        PidanaKurunganBulan1= sheetrange['BI'+str(i)].value
-        PidanaKurunganHari1= sheetrange['BJ'+str(i)].value
-        UangPengganti= sheetrange['BK'+str(i)].value
-        PidanaKurunganTahun2= sheetrange['BL'+str(i)].value
-        PidanaKurunganBulan2= sheetrange['BM'+str(i)].value
-        PidanaKurunganHari2= sheetrange['BN'+str(i)].value
-        Restitusi= sheetrange['BO'+str(i)].value
-        PidanaKurunganTahun3= sheetrange['BP'+str(i)].value
-        PidanaKurunganBulan3= sheetrange['BQ'+str(i)].value
-        PidanaKurunganHari3= sheetrange['BR'+str(i)].value
-        TanggalEkspirasiPerkiraan= sheetrange['BS'+str(i)].value
+        KetersediaanVonis                   = sheetrange['AP'+str(i)].value # switch
+        TanggalPutusan                      = sheetrange['AQ'+str(i)].value
+        NomorPutusan                        = sheetrange['AR'+str(i)].value
+        Pasal                               = sheetrange['AS'+str(i)].value
+        NamaHakimKetua                      = sheetrange['AT'+str(i)].value
+        NamaHakimAnggota1                   = sheetrange['AU'+str(i)].value
+        NamaHakimAnggota2                   = sheetrange['AV'+str(i)].value
+        NamaPaniteraPengganti               = sheetrange['AW'+str(i)].value
+        NamaJaksa                           = sheetrange['AX'+str(i)].value
+        PengadilanNegeri                    = sheetrange['AY'+str(i)].value
+        TanggalPutusanDijalankan            = sheetrange['AZ'+str(i)].value
+        PeranDalamKejahatan                 = sheetrange['BA'+str(i)].value
+        JenisHukuman                        = sheetrange['BB'+str(i)].value
+        PidanaTahun                         = sheetrange['BC'+str(i)].value
+        PidanaBulan                         = sheetrange['BD'+str(i)].value
+        PidanaHari                          = sheetrange['BE'+str(i)].value
+        KategoriRemisi                      = sheetrange['BF'+str(i)].value
+        Denda                               = sheetrange['BG'+str(i)].value
+        PidanaKurunganTahun1                = sheetrange['BH'+str(i)].value
+        PidanaKurunganBulan1                = sheetrange['BI'+str(i)].value
+        PidanaKurunganHari1                 = sheetrange['BJ'+str(i)].value
+        UangPengganti                       = sheetrange['BK'+str(i)].value
+        PidanaKurunganTahun2                = sheetrange['BL'+str(i)].value
+        PidanaKurunganBulan2                = sheetrange['BM'+str(i)].value
+        PidanaKurunganHari2                 = sheetrange['BN'+str(i)].value
+        Restitusi                           = sheetrange['BO'+str(i)].value
+        PidanaKurunganTahun3                = sheetrange['BP'+str(i)].value
+        PidanaKurunganBulan3                = sheetrange['BQ'+str(i)].value
+        PidanaKurunganHari3                 = sheetrange['BR'+str(i)].value
+        TanggalEkspirasiPerkiraan           = sheetrange['BS'+str(i)].value
         
         #======================== Halaman Index ============================
         time.sleep(2)
@@ -191,19 +191,13 @@ def test_Registrasi(test_setup):
             driver.find_element(By.CSS_SELECTOR, ".el-dialog__close > svg").click()
             WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[10]/div/button[1]")))
             
-            
-       
-            
             driver.find_element(By.CSS_SELECTOR, ".el-col-lg-12 > .is-required:nth-child(1) .el-input__inner").send_keys(NoRegistrasi)
-           
-            
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(TglSuratPenahanan)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[2]/div/div/input").send_keys(Keys.ENTER)
-           
+            
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[3]/div/div/input").send_keys(NomorSuratPenahanan)
-
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[4]/div/div/input").send_keys(NamaPetugasInstansi)
             
@@ -214,7 +208,6 @@ def test_Registrasi(test_setup):
             elif Kejaksaan == 'Kejaksaan Negeri Jakarta Pusat' :
                 dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Jakarta Pusat')]")
                 dropdown.find_element(By.XPATH, "//li[contains(.,'Kejaksaan Negeri Jakarta Pusat')]").click()
-
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[6]/div/div/input").send_keys(AsalInstansi)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[1]/div[7]/div/div/textarea").send_keys(Keterangan)
@@ -227,9 +220,6 @@ def test_Registrasi(test_setup):
             elif Penyidik == 'POLRES BANDUNG' :
                 dropdown = driver.find_element(By.XPATH, "//li[contains(.,'POLRES BANDUNG')]")
                 dropdown.find_element(By.XPATH, "//li[contains(.,'POLRES BANDUNG')]").click()
-            
-
-            
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[2]/div/div/input").send_keys(Menahan3hari)
             time.sleep(1)
@@ -247,7 +237,6 @@ def test_Registrasi(test_setup):
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[6]/div/div[1]/input").send_keys(AsalTahanan)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[1]/div[2]/div[7]/div/div/input").send_keys(Kepolisian)
-
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[1]/div/div/div/div/input").click()
             
@@ -281,24 +270,17 @@ def test_Registrasi(test_setup):
             elif PutusSidang == 'Belum' :
                 dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Belum')]")
                 dropdown.find_element(By.XPATH, "//li[contains(.,'Belum')]").click()
-
             
-
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[3]/div/div/input").send_keys(TerhitungSejakPertamaDitangkap)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[3]/div/div/input").send_keys(Keys.ENTER)
-
             
-
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[1]/div[7]/div/div/div/div/input").click()
             
             if EksekusiJaksa == 'Sudah' :
                 driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(2)").click()
-        
             elif EksekusiJaksa == 'Belum' :
                 driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(1)").click()
-        
-            
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[2]/div[2]/div[4]/div/div/input").send_keys(TanggalBA8)
             time.sleep(1)
@@ -313,10 +295,7 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[3]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
             time.sleep(1)
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-perkara"]')))
-            
 
-
-               
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[4]/div[1]/div/div/div[1]/input").send_keys(TglPertamaKaliDitahan1)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[3]/div[4]/div[1]/div/div/div[1]/input").send_keys(Keys.ENTER)
@@ -336,14 +315,10 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[22]/div/div/input").send_keys(TanggalmenjalaniPidanaPencabutanPB)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[2]/div[22]/div/div/input").send_keys(Keys.ENTER)
-         
             #======================== Tab Perkara ============================
 
-            
             driver.find_element(By.XPATH, "//*[@id=\"tab-perkara\"]").click()
-        
-            
-            
+
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[1]/div[1]/div/div/input").send_keys(TempatRisalahKejadian)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[2]/div[1]/div[2]/div/div/textarea").send_keys(RisalahKejadianPerkara)
 
@@ -371,8 +346,6 @@ def test_Registrasi(test_setup):
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[4]/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[7]/div/div[1]/input").send_keys(TempatPenangkapan)
             #======================== tab-putusan_pengadilan_negeri ============================
-            
-            
             driver.find_element(By.XPATH,"//*[@id=\"tab-putusan_pengadilan_negeri\"]").click()
                     
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[2]/div/div/input").send_keys(TanggalPutusan)
@@ -381,8 +354,6 @@ def test_Registrasi(test_setup):
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[3]/div/div/input").send_keys(NomorPutusan)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[4]/div/div/input").send_keys(Pasal)
-            
-            
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[5]/div/div/input").send_keys(NamaHakimKetua)
 
@@ -399,24 +370,17 @@ def test_Registrasi(test_setup):
             elif PengadilanNegeri == 'Pengadilan Negeri Jakarta Utara' :
                 driver.find_element(By.CSS_SELECTOR, ".el-popper:nth-child(22) .el-select-dropdown__item:nth-child(1)").click()
 
-
-
-
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[10]/div/div/div/div/input").send_keys(Keys.DOWN)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[10]/div/div/div/div/input").send_keys(Keys.ENTER)
             time.sleep(2)
-    
-
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[11]/div/div/input").send_keys(TanggalPutusanDijalankan)
             time.sleep(1)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[11]/div/div/input").send_keys(Keys.ENTER)
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[12]/div/div/input").send_keys(PeranDalamKejahatan)
-            
-
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").click()
             time.sleep(1)
@@ -428,15 +392,12 @@ def test_Registrasi(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div/div/div/div/div/input").send_keys(Keys.ENTER)
             time.sleep(2)
 
-         
-
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[15]/div/div/div/div/input").send_keys(KategoriRemisi)
             time.sleep(2)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[15]/div/div/div/div/input").send_keys(Keys.DOWN)
             
             time.sleep(2)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[15]/div/div/div/div/input").send_keys(Keys.ENTER)
-
             
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div[2]/div/div/div[1]/div/div/div/input").send_keys(Keys.DELETE)
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[14]/div/div[2]/div/div/div[1]/div/div/div/input").send_keys(PidanaTahun)
@@ -444,14 +405,9 @@ def test_Registrasi(test_setup):
 
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/div/form/div[5]/div[18]/div/div[1]/input").click()
             
-
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//div/button[2]/span')))
             driver.find_element(By.XPATH, "//div/button[2]/span").click()
 
-            
-            
-
-    
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
             pass
