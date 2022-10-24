@@ -11,7 +11,7 @@ from selenium.webdriver.support.select import Select
 import platform
 from pytest import mark
 import time
-
+from pytest_html_reporter import attach
 @mark.fixture_test()
 def test_setup():
     global driver
@@ -43,6 +43,7 @@ def test_login():
     WebDriverWait(driver, 10)
     print('.')
     print('==========Login berhasil==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_akses_menu():
@@ -59,6 +60,7 @@ def test_akses_menu():
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     print('xxx')
     print('==========akses menu daftar lalu lintas==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_button_tambah ():
@@ -67,6 +69,7 @@ def test_button_tambah ():
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     print('.')
     print('==========Click Button Tambah Berhasil==========')
+    attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()
@@ -77,6 +80,7 @@ def test_Dropdown_Nama():
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('.')
     print('========== Memilih Dropdown Nama Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Input_Search_Nama():
@@ -85,6 +89,7 @@ def test_Input_Search_Nama():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('WILLLD BINTI eko cah cah ge')
     print('.')
     print('========== Input Nama Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Click_Button_Cari():
@@ -93,6 +98,7 @@ def test_Click_Button_Cari():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
     print('.')
     print('==========Click Button Cari Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Click_Button_Update():
@@ -103,6 +109,7 @@ def test_Click_Button_Update():
     driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
     print('.')
     print('==========Click Button Update Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Click_Button_Tambah_WBP():
@@ -111,6 +118,7 @@ def test_Click_Button_Tambah_WBP():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
     print('.')
     print('==========Click Button Tambah WBP Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Input_Tanggal_Keluar():
@@ -121,6 +129,7 @@ def test_Input_Tanggal_Keluar():
 
     print('.')
     print('========== Input Tanggal Keluar Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Input_Tanggal_Harus_Kembali():
@@ -129,6 +138,7 @@ def test_Input_Tanggal_Harus_Kembali():
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('.')
     print('========== Input Tanggal Harus Kembali Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Input_Jenis_Keluar():
@@ -138,6 +148,7 @@ def test_Input_Jenis_Keluar():
     driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
     print('.')
     print('========== Input Jenis Keluar Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_Input_Deskripsi():
@@ -145,8 +156,26 @@ def test_Input_Deskripsi():
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys('deskripsi')
     print('.')
     print('========== Input Deskripsi Behasil ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_Button_Submit():
+    driver.implicitly_wait(10)
+    time.sleep(3)
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
+    print('.')
+    print('========== Menekan Button Submit Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
+@mark.fixture_test()
+def test_Halaman_index():
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    print('========== Data Berhasil Disimpan ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 def teardown():
+    print('.')
     print('====================================================================================================== TEST BERHASIL  ======================================================================================================')
     time.sleep(10)
     driver.close()
