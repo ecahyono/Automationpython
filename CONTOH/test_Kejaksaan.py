@@ -13,6 +13,7 @@ from selenium.webdriver.support.select import Select
 import platform
 from pytest import mark
 import time
+from pytest_html_reporter import attach
 
 @mark.fixture_test()
 def test_setup():
@@ -29,7 +30,7 @@ def test_setup():
         driver.get("http://192.168.2.11:32400/")
         driver.maximize_window()
         driver.implicitly_wait(5)
-
+    attach(data=driver.get_screenshot_as_png())
     print('setupberhasil')
 
 @mark.fixture_test()
@@ -42,7 +43,7 @@ def test_login():
     # click button login
     driver.find_element(By.ID, "kc-login").click()
     WebDriverWait(driver, 10)
-
+    attach(data=driver.get_screenshot_as_png())
     print('Login berhasil')
 
 @mark.fixture_test()
@@ -64,24 +65,27 @@ def test_akses_menu():
     driver.find_element(By.LINK_TEXT, 'Kejaksaan').click()
 
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-
+    attach(data=driver.get_screenshot_as_png())
     print('akses menu')
 
 @mark.fixture_test()
 def test_imput():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input').send_keys('Kejaksaan Agung Bandung')
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[5]/div/div[1]/input').send_keys('Masukkan Fax')
+    attach(data=driver.get_screenshot_as_png())
     print('input berhasil')
 
 @mark.fixture_test()
 def test_imput_text_area():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div[1]/textarea').send_keys('Deskripsi di dalam text area Kejaksaan Agung Bandung')
+    attach(data=driver.get_screenshot_as_png())
     print('area berhasil')
 
 @mark.fixture_test()
 def test_imput_number():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[3]/div/div[1]/input').send_keys('40151')
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[4]/div/div[1]/input').send_keys('08765456765')
+    attach(data=driver.get_screenshot_as_png())
     print('NUMBER berhasil')
 
 @mark.fixture_test()
@@ -98,10 +102,11 @@ def test_dropdown():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div/div/div/div/input').send_keys('Yogyakarta')
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div/div/div/div/input').send_keys(Keys.DOWN)
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div/div/div/div/input').send_keys(Keys.ENTER) 
+    attach(data=driver.get_screenshot_as_png())
     print('dropdown berhasil')
 
 @mark.fixture_test()
 def test_submit():
     driver.find_element(By.ID, 'submitButton').click()
-
+    attach(data=driver.get_screenshot_as_png())
     print('ditambah sudah')
