@@ -59,30 +59,30 @@ def test_akses_menu():
     actions2.move_to_element(element2).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
-    print('xxx')
+    print('.')
     print('==========akses menu daftar lalu lintas==========')
     attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()
 def test_search_data_kategori():
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterColumn"]')))
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('nama')
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
-    time.sleep(4)
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    time.sleep(5)
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('keluar')
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').click()
-    time.sleep(10)
+
     print('.')
     print('=================================================================================Search Data Form Kategori Berhasil================================================================================= ')
     attach(data=driver.get_screenshot_as_png())
 
-"""
 @mark.fixture_test()
 def test_clik_clear_value():
     driver.implicitly_wait(10)
@@ -99,6 +99,7 @@ def test_clik_clear_value():
     print('=================================================================================Click Clear Value Button  Berhasil================================================================================= ')
     attach(data=driver.get_screenshot_as_png())
 
+"""
 @mark.fixture_test()
 def test_search_data_kategori_sesuai():
     driver.implicitly_wait(10)
@@ -192,6 +193,5 @@ def test_back_to_top():
 
 
 def teardown():
-    time.sleep(10)
     driver.close()
     driver.quit()
