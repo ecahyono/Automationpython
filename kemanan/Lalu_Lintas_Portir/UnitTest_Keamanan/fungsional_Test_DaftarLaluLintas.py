@@ -1,4 +1,5 @@
 
+from os import PRIO_PGRP
 from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -31,6 +32,14 @@ def test_setup():
         driver.implicitly_wait(5)
     print('.')
     print('==========setup OS ==========')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▓▒▒▒▒▒▒▒▒▓▒')
+    print('▒▒▓▓▓▓▓▓▓▓▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+
 
 @mark.fixture_test()
 def test_login():
@@ -45,6 +54,7 @@ def test_login():
     WebDriverWait(driver, 10)
     print('.')
     print('==========Login ==========')
+    
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -386,6 +396,73 @@ def test_search_residivis_HALCAR():
     print('================================================================================= Search Residivis  ')
     attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_sortir_5_Halaman_HALCAR():
+    #5 HALAMAN
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    time.sleep(1)
+    print('.')
+    print('================================================================================= Menampilkan 5 halaman cari  ')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_sortir_10_Halaman_HALCAR():
+    #5 HALAMAN
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    time.sleep(1)
+    print('.')
+    print('================================================================================= Menampilkan 10 halaman cari ')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_sortir_20_Halaman_HALCAR():
+    #5 HALAMAN
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    time.sleep(1)
+    print('.')
+    print('================================================================================= Menampilkan 20 halaman cari ')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_sortir_50_Halaman_HALCAR():
+    #5 HALAMAN
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    time.sleep(1)
+    print('.')
+    print('================================================================================= Menampilkan 50 halaman cari ')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_sortir_100_Halaman_HALCAR():
+    #5 HALAMAN
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    time.sleep(1)
+    print('.')
+    print('================================================================================= Menampilkan 100 halaman cari ')
+    attach(data=driver.get_screenshot_as_png())
+
+
 # END HALAMAN CARI
 
 @mark.fixture_test()
@@ -467,11 +544,38 @@ def test_cetak_HALDEX():
     print('.')
     print('================================================================================= Cetak    ')
     attach(data=driver.get_screenshot_as_png())
-
-
-
+    
 
 def teardown():
-    time.sleep(20)
+    time.sleep(10)
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▓▒▒▒▒▒▒▒▒▓▒')
+    print('▒▒▓▓▓▓▓▓▓▓▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+
+    print('░░▄███▄███▄')
+    print('░░█████████')
+    print('░░▒▀█████▀░')
+    print('░░▒░░▀█▀')
+    print('░░▒░░█░')
+    print('░░▒░█')
+    print('░░░█')
+    print('░░█░░░░███████')
+    print('░██░░░██▓▓███▓██▒')
+    print('██░░░█▓▓▓▓▓▓▓█▓████')
+    print('██░░██▓▓▓(◐)▓█▓█▓█')
+    print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
+    print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
+    print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
+    print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
+    print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
+    print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
+    print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
+    print('░▒░░▒░░██▓██░░░██▓▓██')
     driver.close()
     driver.quit()
+
+    
