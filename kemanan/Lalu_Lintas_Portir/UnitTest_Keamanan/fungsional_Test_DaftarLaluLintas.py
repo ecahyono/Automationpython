@@ -67,7 +67,7 @@ def test_akses_menu():
 
 
 @mark.fixture_test()
-def test_search_data_kategori_nama(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_search_data_kategori_nama_HALDEX(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
@@ -87,7 +87,7 @@ def test_search_data_kategori_nama(): #Melakukan pencarian data berdasarkan kate
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_search_data_kategori_NoInduk(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_search_data_kategori_NoInduk_HALDEX(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
@@ -170,9 +170,9 @@ def test_search_data_kategori_tglkembali():
 
 
 
-
+#Mengosongkan kata kunci dan kategori dengan klik button clear value
 @mark.fixture_test()
-def test_clik_clear_value(): #Mengosongkan kata kunci dan kategori dengan klik button clear value
+def test_clik_clear_value_HALDEX(): 
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.XPATH, '//*[@id="filterColumn"]')
     actions = ActionChains(driver)
@@ -207,20 +207,25 @@ def test_clik_clear_value(): #Mengosongkan kata kunci dan kategori dengan klik b
 
 
 
-
+#SORTIR TABLE HALAMAN INDEX
 @mark.fixture_test()
-def test_sortir_data_table():
+def test_sortir_data_table_HALDEX():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, "//span/i[2]").click()
+
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, "//th[3]/div/span").click()
+
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, "//th[4]/div").click()
+
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, "//th[5]/div/span/i").click()
+
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, "//th[6]/div/span/i").click()
+
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     #5 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
@@ -267,18 +272,17 @@ def test_sortir_data_table():
 
 
 
-
-
+ #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
 @mark.fixture_test()
-def test_membuka_halaman_tambah(): #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
+def test_membuka_halaman_tambah_HALDEX():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    #WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     print('================================================================================= Membuka Halaman Tambah Berhasil ')
     attach(data=driver.get_screenshot_as_png())
@@ -287,9 +291,95 @@ def test_membuka_halaman_tambah(): #Membuka halaman Tambah Data / Cari Identitas
 
 
 
+#Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai 
+#Halaman Manajemen Administrasi Keamanan - Cari Identitas
+@mark.fixture_test()
+def test_sortir_table_cari_nama_HALCAR():
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    print('.')
+    print('================================================================================= Memilih Dropdown Nama Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('WILLLD BINTI eko cah cah ge')
+    print('.')
+    print('================================================================================= Input Nama Berhasil ')
+
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    print('.')
+    print('================================================================================= Memilih Dropdown Nama Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('WILLLD BINTI eko cah cah ge')
+    print('.')
+    print('================================================================================= Input Nama Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
+    print('.')
+    print('==========Click Button Cari Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_membuka_halaman_ubah(): #Membuka halaman detail melalui klik tombol aksi icon detail
+def test_sortir_table_cari_nama_HALCAR():
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    print('.')
+    print('================================================================================= Memilih Dropdown Nama Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('WILLLD BINTI eko cah cah ge')
+    print('.')
+    print('================================================================================= Input Nama Berhasil ')
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    print('.')
+    print('==========Click Button Cari Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_sortir_table_cari_noreg_HALCAR():
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'nomorReg\')]").click()
+    print('.')
+    print('================================================================================= Memilih Dropdown No Regis Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('123')
+    print('.')
+    print('================================================================================= Input No Regis Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    print('.')
+    print('==========Click Button Cari Berhasil ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+
+    
+
+@mark.fixture_test()
+def test_back():
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    print('.')
+    print('========================================================== Back Ke Halaman Index Berhasil ')
+
+#Membuka halaman detail melalui klik tombol aksi icon detail
+@mark.fixture_test()
+def test_membuka_halaman_ubah_HALDEX(): 
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
@@ -303,9 +393,9 @@ def test_membuka_halaman_ubah(): #Membuka halaman detail melalui klik tombol aks
 
 
 
-
+#Membuka form ubah melalui klik tombol aksi icon ubah
 @mark.fixture_test()
-def test_membuka_halaman_detail(): #Membuka form ubah melalui klik tombol aksi icon ubah
+def test_membuka_halaman_detail_HALDEX(): 
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
@@ -318,9 +408,9 @@ def test_membuka_halaman_detail(): #Membuka form ubah melalui klik tombol aksi i
 
 
 
-
+#Melakukan export data tabel ke excel
 @mark.fixture_test()
-def test_export_exel():#Melakukan export data tabel ke excel
+def test_export_exel_HALDEX():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button').click()
@@ -332,9 +422,9 @@ def test_export_exel():#Melakukan export data tabel ke excel
 
 
 
-
+#Melakukan export data tabel ke pdf
 @mark.fixture_test()
-def test_export_pdf(): #Melakukan export data tabel ke pdf
+def test_export_pdf_HALDEX(): 
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/button').click()
@@ -345,9 +435,9 @@ def test_export_pdf(): #Melakukan export data tabel ke pdf
 
 
 
-
+#Melakukan cetak
 @mark.fixture_test()
-def test_cetak(): #Melakukan cetak
+def test_cetak_HALDEX(): 
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
