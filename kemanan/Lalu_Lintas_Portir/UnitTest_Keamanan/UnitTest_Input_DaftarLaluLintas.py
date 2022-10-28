@@ -28,7 +28,7 @@ def test_setup():
         driver.maximize_window()
         driver.implicitly_wait(5)
     print('.')
-    print('==========setup OS berhasil==========')
+    print('==========setup OS ==========')
 
 @mark.fixture_test()
 def test_login():
@@ -42,7 +42,7 @@ def test_login():
     driver.find_element(By.ID, "kc-login").click()
     WebDriverWait(driver, 10)
     print('.')
-    print('==========Login berhasil==========')
+    print('==========Login ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -68,7 +68,7 @@ def test_button_tambah ():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     print('.')
-    print('==========Click Button Tambah Berhasil==========')
+    print('==========Click Button Tambah ==========')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -79,7 +79,7 @@ def test_Dropdown_Nama():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('.')
-    print('========== Memilih Dropdown Nama Berhasil ==========')
+    print('========== Memilih Dropdown Nama  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -88,7 +88,7 @@ def test_Input_Search_Nama():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys('WILLLD BINTI eko cah cah ge')
     print('.')
-    print('========== Input Nama Berhasil ==========')
+    print('========== Input Nama  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -97,7 +97,7 @@ def test_Click_Button_Cari():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
     print('.')
-    print('==========Click Button Cari Berhasil ==========')
+    print('==========Click Button Cari  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -108,7 +108,7 @@ def test_Click_Button_Update():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
     print('.')
-    print('==========Click Button Update Berhasil ==========')
+    print('==========Click Button Update  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -117,7 +117,7 @@ def test_Click_Button_Tambah_WBP():
     time.sleep(2)
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
     print('.')
-    print('==========Click Button Tambah WBP Berhasil ==========')
+    print('==========Click Button Tambah WBP  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -128,7 +128,7 @@ def test_Input_Tanggal_Keluar():
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(Keys.ENTER)
 
     print('.')
-    print('========== Input Tanggal Keluar Berhasil ==========')
+    print('========== Input Tanggal Keluar  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -137,7 +137,7 @@ def test_Input_Tanggal_Harus_Kembali():
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2018')
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('.')
-    print('========== Input Tanggal Harus Kembali Berhasil ==========')
+    print('========== Input Tanggal Harus Kembali  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -147,7 +147,7 @@ def test_Input_Jenis_Keluar():
     driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
     print('.')
-    print('========== Input Jenis Keluar Berhasil ==========')
+    print('========== Input Jenis Keluar  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -165,18 +165,18 @@ def test_Button_Submit():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
     print('.')
-    print('========== Menekan Button Submit Berhasil ==========')
+    print('========== Menekan Button Submit  ==========')
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 def test_Halaman_index():
     driver.implicitly_wait(10)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
-    print('========== Data Berhasil Disimpan ==========')
+    print('========== Data  Disimpan ==========')
     attach(data=driver.get_screenshot_as_png())
 
 def teardown():
     print('.')
-    print('====================================================================================================== TEST BERHASIL  ======================================================================================================')
+    print('====================================================================================================== TEST   ======================================================================================================')
     time.sleep(10)
     driver.close()
     driver.quit
