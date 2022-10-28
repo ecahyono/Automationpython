@@ -1,4 +1,5 @@
 
+from gettext import find
 from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -166,6 +167,10 @@ def test_search_data_kategori_tglkembali():
     attach(data=driver.get_screenshot_as_png())
 """
 
+
+
+
+
 @mark.fixture_test()
 def test_clik_clear_value(): #Mengosongkan kata kunci dan kategori dengan klik button clear value
     driver.implicitly_wait(10)
@@ -197,6 +202,10 @@ def test_clik_clear_value(): #Mengosongkan kata kunci dan kategori dengan klik b
     print('.')
     print('================================================================================= Click Clear Value Button Kata Kunci dan inputan data tidak sesuai Berhasil ')
     attach(data=driver.get_screenshot_as_png())
+
+
+
+
 
 
 @mark.fixture_test()
@@ -257,53 +266,59 @@ def test_sortir_data_table():
 
 
 
-"""
 
-
-
-
-@mark.fixture_test()
-def test_jumlah_perhalaman(): next
-    driver.implicitly_wait(10)
-
-@mark.fixture_test() next
-def test_data_table_sesudah_dan_sebelum(): 
-    driver.implicitly_wait(10)
 
 
 @mark.fixture_test()
 def test_membuka_halaman_tambah(): #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
     driver.implicitly_wait(10)
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
-    print('=================================================================================Click Button Tambah Berhasil=================================================================================')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_membuka_halaman_detail(): #Membuka halaman detail melalui klik tombol aksi icon detail
-    driver.implicitly_wait(10)
-
-@mark.fixture_test()
-def test_membuka_halaman_ubah(): #Membuka form ubah melalui klik tombol aksi icon ubah
-    driver.implicitly_wait(10)
-    WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    driver.find_element(By.CSS_SELECTOR, ".text-green-500 .h-5").click()
-    print('.')
-    print('=================================================================================Click Button Update Berhasil================================================================================= ')
+    print('================================================================================= Membuka Halaman Tambah Berhasil ')
     attach(data=driver.get_screenshot_as_png())
 
 
+
+
+
+
 @mark.fixture_test()
-def test_back_to_top(): #Button back to top berfungsi
+def test_membuka_halaman_ubah(): #Membuka halaman detail melalui klik tombol aksi icon detail
     driver.implicitly_wait(10)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[2]').click()
-    print('.')
-    print('=================================================================================Click Button Back To Top Berhasil=================================================================================')
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
+    driver.find_element(By.CSS_SELECTOR, ".text-green-500 path").click()
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
+    time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    print('================================================================================= Membuka Halaman Ubah Berhasil ')
     attach(data=driver.get_screenshot_as_png())
-"""
+
+
+
+
+
+@mark.fixture_test()
+def test_membuka_halaman_detail(): #Membuka form ubah melalui klik tombol aksi icon ubah
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
+    driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div/div[3]/button')))
+    time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    print('================================================================================= Membuka Halaman Detail Berhasil ')
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+
 @mark.fixture_test()
 def test_export_exel():#Melakukan export data tabel ke excel
     driver.implicitly_wait(10)
@@ -315,6 +330,9 @@ def test_export_exel():#Melakukan export data tabel ke excel
     attach(data=driver.get_screenshot_as_png())
 
 
+
+
+
 @mark.fixture_test()
 def test_export_pdf(): #Melakukan export data tabel ke pdf
     driver.implicitly_wait(10)
@@ -324,6 +342,8 @@ def test_export_pdf(): #Melakukan export data tabel ke pdf
     print('.')
     print('================================================================================= Export PDF Berhasil   ')
     attach(data=driver.get_screenshot_as_png())
+
+
 
 
 @mark.fixture_test()
