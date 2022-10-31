@@ -1,6 +1,7 @@
 
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP
+from re import T
 from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -507,14 +508,45 @@ def test_Click_Button_Tambah_WBP_HALCAR():
 def test_sortir_detil_wbp_HALCAR():
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-0"]')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-0"]')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div[3]/div').click()
     driver.find_element(By.XPATH, '//*[@id="tab-1"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-2"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-3"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-4"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-5"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-6"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="tab-7"]').click()
 
+    print('.')
+    print('================================================================================= Detile WBP')
+
+@mark.fixture_test()
+def test_detile_perkara_HALCAR():
+
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-registrasi"]')))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-registrasi"]')))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div[3]/div').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-registrasi"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-sidang"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-tahanan_rumah"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-meninggal_dunia"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-mutasi_upt"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-pm"]').click()
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="tab-pembebasan"]').click()
+    print('.')
+    print('================================================================================= Detile Perkara')
 
 
 
@@ -525,6 +557,8 @@ def test_sortir_detil_wbp_HALCAR():
 def test_back():
     driver.implicitly_wait(10)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     print('========================================================== Back Ke Halaman Index  ')
