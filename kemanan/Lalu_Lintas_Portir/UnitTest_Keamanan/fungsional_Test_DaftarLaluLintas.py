@@ -19,7 +19,7 @@ from pytest_html_reporter import attach
 def test_setup():
     global driver
     swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
-    smac = Service('/Users/will/Downloads/chromedriver')
+    smac = Service('/Users/will/Documents/chromedriver')
     if platform.system() == 'Darwin':
         driver = webdriver.Chrome(service=smac)
         driver.get("http://192.168.2.11:32400/")
@@ -59,20 +59,29 @@ def test_login():
 
 @mark.fixture_test()
 def test_akses_menu():
-    driver.implicitly_wait(10)
-    nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
-    actions = ActionChains(driver)
-    actions.move_to_element(nav1).perform()
+    vars = {}
+    vars["x"] = driver.execute_script("return 1")
+    # 4 | do |  | 
+    condition = True
+    while condition:
+        driver.implicitly_wait(10)
+        nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
+        actions = ActionChains(driver)
+        actions.move_to_element(nav1).perform()
 
-    element2 = driver.find_element(By.XPATH, "//div[4]/div/ul/li/div")
-    time.sleep(1)
-    actions2 = ActionChains(driver)
-    actions2.move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
-    print('.')
-    print('==========akses menu daftar lalu lintas==========')
-    attach(data=driver.get_screenshot_as_png())
+        element2 = driver.find_element(By.XPATH, "//div[4]/div/ul/li/div")
+        time.sleep(1)
+        actions2 = ActionChains(driver)
+        actions2.move_to_element(element2).perform()
+        time.sleep(1)
+        driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+        print('.')
+        print('==========akses menu daftar lalu lintas==========')
+        vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
+      # 17 | repeatIf | ${x}<15 | 
+        condition = driver.execute_script("return (arguments[0]<1)", vars["x"])
+        attach(data=driver.get_screenshot_as_png())
+
 
 
 @mark.fixture_test()
@@ -296,10 +305,20 @@ def test_membuka_halaman_tambah_HALDEX():
 
 #==============++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===================
 
-
 #HALAMAN CARI
 #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai 
 #Halaman Manajemen Administrasi Keamanan - Cari Identitas
+
+@mark.fixture_test()
+def test_Button_Next_Prev():
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.CSS_SELECTOR, ".btn-next svg").click()
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
+    time.sleep(1)
+    driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
+
+
 @mark.fixture_test()
 def test_sortir_table_cari_nama_HALCAR():
     driver.implicitly_wait(10)
@@ -410,6 +429,7 @@ def test_sortir_5_Halaman_HALCAR():
     attach(data=driver.get_screenshot_as_png())
 
 
+
 @mark.fixture_test()
 def test_sortir_10_Halaman_HALCAR():
     #5 HALAMAN
@@ -461,6 +481,8 @@ def test_sortir_100_Halaman_HALCAR():
     print('.')
     print('================================================================================= Menampilkan 100 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
+
+
 
 
 # END HALAMAN CARI
@@ -544,7 +566,8 @@ def test_cetak_HALDEX():
     print('.')
     print('================================================================================= Cetak    ')
     attach(data=driver.get_screenshot_as_png())
-    
+
+
 
 def teardown():
     time.sleep(10)
