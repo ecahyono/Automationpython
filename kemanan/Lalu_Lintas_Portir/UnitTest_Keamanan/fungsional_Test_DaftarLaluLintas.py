@@ -1,4 +1,5 @@
 
+from distutils.archive_util import make_archive
 from os import PRIO_PGRP
 from threading import TIMEOUT_MAX
 from selenium import webdriver
@@ -432,7 +433,7 @@ def test_sortir_5_Halaman_HALCAR():
 
 @mark.fixture_test()
 def test_sortir_10_Halaman_HALCAR():
-    #5 HALAMAN
+    #10 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
@@ -445,7 +446,7 @@ def test_sortir_10_Halaman_HALCAR():
 
 @mark.fixture_test()
 def test_sortir_20_Halaman_HALCAR():
-    #5 HALAMAN
+    #20 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
@@ -458,7 +459,7 @@ def test_sortir_20_Halaman_HALCAR():
 
 @mark.fixture_test()
 def test_sortir_50_Halaman_HALCAR():
-    #5 HALAMAN
+    #50 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
@@ -471,7 +472,7 @@ def test_sortir_50_Halaman_HALCAR():
 
 @mark.fixture_test()
 def test_sortir_100_Halaman_HALCAR():
-    #5 HALAMAN
+    #100 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
@@ -481,6 +482,39 @@ def test_sortir_100_Halaman_HALCAR():
     print('.')
     print('================================================================================= Menampilkan 100 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_Click_Button_Detile_HALCAR():
+    driver.implicitly_wait(10)
+    time.sleep(2)
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
+    print('.')
+    print('==========Click Button Update  ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_Click_Button_Tambah_WBP_HALCAR():
+    driver.implicitly_wait(10)
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
+    print('.')
+    print('==========Click Button Tambah WBP  ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_sortir_detil_wbp_HALCAR():
+    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-0"]')))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-0"]')))
+    driver.find_element(By.XPATH, '//*[@id="tab-1"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-2"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-3"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-4"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-5"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-6"]').click()
+    driver.find_element(By.XPATH, '//*[@id="tab-7"]').click()
+
 
 
 
