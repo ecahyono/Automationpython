@@ -85,7 +85,7 @@ def test_3_akses_menu_index():
         actions2 = ActionChains(driver)
         actions2.move_to_element(element2).perform()
         time.sleep(1)
-        driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+        driver.find_element(By.LINK_TEXT, 'Akses Pintu P2U').click()
         print('.')
         print('==========akses menu daftar lalu lintas==========')
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
@@ -94,27 +94,44 @@ def test_3_akses_menu_index():
         attach(data=driver.get_screenshot_as_png())
 
 
+@mark.fixture_test()
+def test_1_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+    driver.implicitly_wait(20) 
+    time.sleep(1)
+    WebDriverWait(driver,20).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button'))) 
+    #BUTTON CARI
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button'))) 
+    #BUTTON CARI
+    time.sleep(1)
+    driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama') 
+    #KETIK NAMA
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click() 
+    #PILIH DROPDOWN NAMA LENGKAP
+    driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys("galih") 
+    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button').click() 
+    #KLIK BUTTON CARI
 
 @mark.fixture_test()
-def test_4_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(20)
+def test_1_search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+    driver.implicitly_wait(20) 
     time.sleep(1)
-    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
-    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterColumn"]')))
+    WebDriverWait(driver,20).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button'))) 
+    #BUTTON CARI
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button'))) 
+    #BUTTON CARI
     time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('nama')
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('EYONO BIN CAS')
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button').click()
-    WebDriverWait(driver,5).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    print('.')
-    print('=================================================================================Search Data Form Kategori Nama ')
-    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('Nomor') 
+    #KETIK NAMA
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click() 
+    #PILIH DROPDOWN NAMA LENGKAP
+    driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys("31") 
+    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button').click() 
+    #KLIK BUTTON CARI
 
+
+"""
 @mark.fixture_test()
 def test_5_search_data_kategori_NoInduk_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
@@ -393,11 +410,11 @@ def test_23_cetak_Index():
     print('.')
     print('================================================================================= Cetak    ')
     attach(data=driver.get_screenshot_as_png())
-
+"""
 
 
 def teardown():
-
+    time.sleep(9)
     print('.')
     print('▒▒▒▒▒▒▒▒▒▒▒▒')
     print('▒▒▒▒▓▒▒▓▒▒▒▒')

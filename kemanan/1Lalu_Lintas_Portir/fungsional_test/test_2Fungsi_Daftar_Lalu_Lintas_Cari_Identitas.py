@@ -18,7 +18,7 @@ import time
 from pytest_html_reporter import attach
 
 @mark.fixture_test()
-def test_setup_cari_identitas():
+def test_1_setup_cari_identitas():
     global driver
     swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
     smac = Service('/Users/will/Documents/chromedriver')
@@ -52,7 +52,7 @@ def test_setup_cari_identitas():
 
 
 @mark.fixture_test()
-def test_login():
+def test_2_login():
     driver.implicitly_wait(10)
     driver.find_element(By.XPATH, "//div/span").click()
     # ini masuk ke form input username
@@ -68,7 +68,7 @@ def test_login():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_akses_menu():
+def test_3_akses_menu():
     vars = {}
     vars["x"] = driver.execute_script("return 1")
     # 4 | do |  | 
@@ -101,7 +101,7 @@ def test_akses_menu():
 
  #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
 @mark.fixture_test()
-def test_membuka_halaman_tambah_index():
+def test_4_membuka_halaman_tambah_index():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
@@ -116,7 +116,7 @@ def test_membuka_halaman_tambah_index():
 
 
 @mark.fixture_test()
-def test_Button_Next_Prev():
+def test_5_Button_Next_Prev():
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.CSS_SELECTOR, ".btn-next svg").click()
@@ -127,7 +127,7 @@ def test_Button_Next_Prev():
 
 
 @mark.fixture_test()
-def test_sortir_table_cari_noreg_cari_identitas():
+def test_6_sortir_table_cari_noreg_cari_identitas():
 
     driver.implicitly_wait(10)
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
@@ -149,7 +149,7 @@ def test_sortir_table_cari_noreg_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_table_cari_nama_cari_identitas():
+def test_7_sortir_table_cari_nama_cari_identitas():
     driver.implicitly_wait(10)
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
@@ -170,7 +170,7 @@ def test_sortir_table_cari_nama_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_table_cari_JenisKejahatan_cari_identitas():
+def test_8_sortir_table_cari_JenisKejahatan_cari_identitas():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
@@ -191,7 +191,7 @@ def test_sortir_table_cari_JenisKejahatan_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
-def test_search_data_aktif_cari_identitas():
+def test_9_search_data_aktif_cari_identitas():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
@@ -207,7 +207,7 @@ def test_search_data_aktif_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
-def test_search_residivis_cari_identitas():
+def test_10_search_residivis_cari_identitas():
     driver.implicitly_wait(10)
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
@@ -223,7 +223,7 @@ def test_search_residivis_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_5_Halaman_cari_identitas():
+def test_11_Sortir_5_Halaman_cari_identitas():
     #5 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
@@ -238,7 +238,7 @@ def test_sortir_5_Halaman_cari_identitas():
 
 
 @mark.fixture_test()
-def test_sortir_10_Halaman_cari_identitas():
+def test_12_sortir_10_Halaman_cari_identitas():
     #10 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
@@ -251,7 +251,7 @@ def test_sortir_10_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_20_Halaman_cari_identitas():
+def test_13_sortir_20_Halaman_cari_identitas():
     #20 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
@@ -264,7 +264,7 @@ def test_sortir_20_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_50_Halaman_cari_identitas():
+def test_14_sortir_50_Halaman_cari_identitas():
     #50 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
@@ -277,7 +277,7 @@ def test_sortir_50_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_sortir_100_Halaman_cari_identitas():
+def test_15_sortir_100_Halaman_cari_identitas():
     #100 HALAMAN
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
@@ -294,7 +294,7 @@ def test_sortir_100_Halaman_cari_identitas():
 
 
 def teardown():
-    time.sleep(10)
+    
     print('▒▒▒▒▒▒▒▒▒▒▒▒')
     print('▒▒▒▒▓▒▒▓▒▒▒▒')
     print('▒▒▒▒▓▒▒▓▒▒▒▒')

@@ -19,7 +19,7 @@ class TestDaftarLaluLintas_Input():
         global driver
         global wb
         swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
-        smac = Service('/Users/will/Downloads/chromedriver')
+        smac = Service('/Users/will/Documents/chromedriver')
 
         if platform.system() == 'Darwin':
             driver = webdriver.Chrome(service=smac)
