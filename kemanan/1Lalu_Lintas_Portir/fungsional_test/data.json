@@ -1,0 +1,26 @@
+{
+    "AksesMenu": {
+        "Registrasi": {
+            "MainText": "",
+            "child": {
+                "Catatan": ""
+            }
+        },
+        "Keamanan": {
+            "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[4]/div/ul/li/div"
+                }
+            }
+        },
+        "Integrasi": {}
+    },
+    "id": {
+        "createButton": "//*[@id=\"createButton\"]",
+        "backButton": "//*[@id=\"backButton\"]"
+    },
+    "other": {
+
+    }
+}

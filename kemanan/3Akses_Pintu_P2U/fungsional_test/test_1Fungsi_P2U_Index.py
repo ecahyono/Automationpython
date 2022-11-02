@@ -122,9 +122,9 @@ def test_1_search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdas
     #BUTTON CARI
     time.sleep(1)
     driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('Nomor') 
-    #KETIK NAMA
+    #KETIK NOMOR
     driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click() 
-    #PILIH DROPDOWN NAMA LENGKAP
+    #PILIH DROPDOWN NOMOR IDENTITAS
     driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys("31") 
     #KETIK GALIH DI FORM MASUKAN KATA KUNCI
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button').click() 

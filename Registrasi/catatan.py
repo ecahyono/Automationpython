@@ -107,6 +107,7 @@ def test_BarangBawaan(test_setup):
             driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[1]").click()
             #======================== masuk ke halaman input ============================
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[1]/div/div/div/div/input').click()
+            time.sleep(1)
             if JenisCatatan == 'Catatan Kesehatan' :
                 dropdown = driver.find_element(By.XPATH, "//li[contains(.,'Catatan Kesehatan')]")
                 dropdown.find_element(By.XPATH, "//li[contains(.,'Catatan Kesehatan')]").click()
