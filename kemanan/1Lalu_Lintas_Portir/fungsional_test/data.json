@@ -15,12 +15,21 @@
             }
         },
         "Integrasi": {}
+        
     },
-    "id": {
+    "id button": {
         "createButton": "//*[@id=\"createButton\"]",
         "backButton": "//*[@id=\"backButton\"]"
     },
-    "other": {
+    "id search": {
+        "createButton": "//*[@id=\"createButton\"]",
+        "filter Column": "//*[@id=\"filterColumn\"]",
+        "Dropdown Nama Lengkap": "//*[@id=\"filterColumn\"]"
+
+       
+    },
+    "other search": {
+        "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button"
 
     }
 }
