@@ -10,20 +10,6 @@
         
 
     },
-    "Id Even Button": {
-        "Delete Button": "",
-        "Export To Excel Button": "",
-        "Export To Pdf Button" : "",
-        "Print Button" : "",
-        "Button Search": "",
-        "Button Submit": "",
-        "Button Ubah": "",
-        "Button Muat Ulang":"",
-        "Button Muat Ulang Ya":"",
-        "Button Muat Ulang Tidak":"",
-        "Button Halaman Ini Saja":"",
-        "Button Seluruh Halaman":""
-    },
     "id form": {
         "Input Text": "",
         "Input Text Area": "",
