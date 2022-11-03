@@ -17,14 +17,57 @@
         "Integrasi": {}
         
     },
-    "id button": {
-        "createButton": "//*[@id=\"createButton\"]",
-        "backButton": "//*[@id=\"backButton\"]"
+    "Id Navigate Button": {
+        "Create Button": "//*[@id=\"createButton\"]",
+        "Back Button": "//*[@id=\"backButton\"]",
+        "Detail Button" : "",
+        "Update Button" : "",
+        "Custom Button" : ""
+        
+
     },
+    "Id Even Button": {
+        "Delete Button": "",
+        "Export To Excel Button": "",
+        "Export To Pdf Button" : "",
+        "Print Button" : "",
+        "Button Search": "",
+        "Button Submit": "",
+        "Button Ubah": "",
+        "Button Muat Ulang":"",
+        "Button Muat Ulang Ya":"",
+        "Button Muat Ulang Tidak":"",
+        "Button Halaman Ini Saja":"",
+        "Button Seluruh Halaman":""
+    },
+    "id form": {
+        "Input Text": "",
+        "Input Text Area": "",
+        "Input Number": "",
+        "Input Time": "",
+        "Input Date": "",
+        "Input Date Time": "",
+        "Input Check Box": "",
+        "Input Radio": "",
+        "input Dropdown": "",
+        "Input Switch": ""
+       
+    },
+
     "id search": {
-        "createButton": "//*[@id=\"createButton\"]",
         "filter Column": "//*[@id=\"filterColumn\"]",
-        "Dropdown Nama Lengkap": "//*[@id=\"filterColumn\"]"
+        "Input Text": "//*[@id=\"filterColumn\"]",
+        "Input Time": "",
+        "Input Date": "",
+        "Input Date Time":"",
+        "Input Text Area":"",
+        "Input Number":"",
+        "Input Check Box":"",
+        "Input Radio":"",
+        "Input Switch":"",
+        "Input Select":""
+        
+
 
        
     },
