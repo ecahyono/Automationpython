@@ -1,5 +1,5 @@
 from distutils.archive_util import make_archive
-from os import PRIO_PGRP
+from os import PRIO_PGRP, environ
 from re import S, T
 from threading import TIMEOUT_MAX
 from selenium import webdriver
@@ -16,80 +16,37 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 
+from dotenv import load_dotenv
+load_dotenv()
+#file modul
+from module.setup import initDriver, loadDataPath
+from module.login import login
+
+import json
+
 @mark.fixture_test()
-def test_1_setup_Tambah():
-    global driver
-    swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
-    smac = Service('/Users/will/Documents/chromedriver')
-    if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(service=smac)
-        driver.get("http://192.168.2.11:32400/")
-        driver.maximize_window()
-        driver.implicitly_wait(5)
-        print('.')
-        print('▒▒▒▒▒▒▒▒▒▒▒▒')
-        print('▒▓▓▓▒▒▒▒▓▓▓▒')
-        print('▒▓▒▒▓▒▒▓▒▒▓▒')
-        print('▒▓▒▒▒▓▓▒▒▒▓▒')
-        print('▒▓▒▒▒▒▒▒▒▒▓▒')
-        print('▒▓▒▒▒▒▒▒▒▒▓▒')
-        print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    elif platform.system() == 'Windows':
-        driver = webdriver.Chrome(service=swin)
-        driver.get("http://192.168.2.11:32400/")
-        driver.maximize_window()
-        driver.implicitly_wait(5)
-        print('▒▒▒▒▒▒▒▒▒▒▒▒')
-        print('▒▓▒▒▒▒▒▒▒▒▓▒')
-        print('▒▓▒▒▒▒▒▒▒▒▓▒')
-        print('▒▓▒▒▒▓▓▒▒▒▓▒')
-        print('▒▓▒▒▓▒▒▓▒▒▓▒')
-        print('▒▓▓▓▒▒▒▒▓▓▓▒')
-        print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('.')
-    print('==========setup OS ==========')
-
-
+def test_1_setupOS():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
 
 @mark.fixture_test()
 def test_2_login():
-    driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
-    # ini masuk ke form input username
-    driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("test-user")
-    driver.find_element(By.ID, "password").send_keys("password")
-    # click button login
-    driver.find_element(By.ID, "kc-login").click()
-    WebDriverWait(driver, 10)
-    print('.')
-    print('==========Login ==========')
+    login(driver)
+
+def test_3_akses_menu_index():
     
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
+    ActionChains(driver).move_to_element(nav1).perform()
+    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
+    time.sleep(1)
+    ActionChains(driver).move_to_element(element2).perform()
+    time.sleep(1)
+    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+    print('.')
+    print('==========akses menu daftar lalu lintas==========')
     attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_3_akses_menu():
-    vars = {}
-    vars["x"] = driver.execute_script("return 1")
-    # 4 | do |  | 
-    condition = True
-    while condition:
-        driver.implicitly_wait(10)
-        nav1 = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
-        actions = ActionChains(driver)
-        actions.move_to_element(nav1).perform()
-
-        element2 = driver.find_element(By.XPATH, "//div[4]/div/ul/li/div")
-        time.sleep(1)
-        actions2 = ActionChains(driver)
-        actions2.move_to_element(element2).perform()
-        time.sleep(1)
-        driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
-        print('.')
-        print('==========akses menu daftar lalu lintas==========')
-        vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
-        condition = driver.execute_script("return (arguments[0]<1)", vars["x"])
-        attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()
