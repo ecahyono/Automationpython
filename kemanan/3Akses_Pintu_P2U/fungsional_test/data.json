@@ -41,7 +41,7 @@
     "id search": {
         "filter Column": "//*[@id=\"filterColumn\"]",
         "Input Kata Kunci": "//*[@id=\"kataKunci\"]",
-        
+        "Button Search":"//*[@id=\"searchButton\"]",
         "Input Time": "",
         "Input Date": "",
         "Input Date Time":"",
