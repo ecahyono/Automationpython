@@ -55,9 +55,8 @@ def test_akses(test_setup):
     attach(data=driver.get_screenshot_as_png())
     print('Login Berhasil')
 
-    #Registrasi
+    #Ruobasan
     element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[5]/div')                                   
-    driver.implicitly_wait(10)
     ActionChains(driver).move_to_element(element).perform()
     
     #Penerimaan
@@ -107,7 +106,7 @@ def test_akses(test_setup):
         
         try:
             WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
-
+            #Jenis Registrasi
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[1]/div/div/div/div').click()
             if jenis_registrasi == 'Register Barang Rampasan Negara':
                 driver.find_element(By.ID, 'RBR').click()
@@ -131,13 +130,16 @@ def test_akses(test_setup):
                 driver.find_element(By.ID, 'RBSK4').click()
             elif jenis_registrasi == 'Register Khusus Tingkat Mahkamah Agung':
                 driver.find_element(By.ID, 'RBSK5').click()
-
+            
+            #Tanggal Penerimaan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input').click()
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input').send_keys(tgl_penerimaan)
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input').send_keys(Keys.ENTER)
 
+            #Nomor Registrasi Rupbasan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div[1]/input').send_keys(No_Reg_Rupbasan)
 
+            #Instansi
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[4]/div/div/div/div/input').click()
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[4]/div/div/div/div/input').send_keys(instansi)
             if instansi == 'POLDA JABAR':
@@ -151,10 +153,16 @@ def test_akses(test_setup):
             elif instansi == 'POLRES KUNINGAN':
                 driver.find_element(By.ID, '201507090025').click()
             
+            #Nomor Registrasi Instansi
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div/input').send_keys(No_Reg_instansi)
+
+            #Nomor Surat Izin Penyitaan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[6]/div/div[1]/input').send_keys(Noizin_penyitaan)
+
+            #Tanggal Surat Izin Penyitaan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[7]/div/div[1]/input').send_keys(Tg_surat)
             
+            #Pengadilan Penyita
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[1]/div/div/div/div/input').click()
             if Pengadilan_Penyita == 'Pengadilan Negeri Bandung':
                 driver.find_element(By.ID, '10').click()
@@ -167,33 +175,36 @@ def test_akses(test_setup):
             elif Pengadilan_Penyita == 'Pengadilan Negeri Yogyakarta':
                 driver.find_element(By.ID, '156').click()
 
+            #Nomor Surat Penyitaan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[2]/div/div/input').send_keys(NoS_enyitaan)
 
+            #Tanggal Surat Penyitaan
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div/input').click()
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div/input').send_keys(Tgl_S_Penyitaan)
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div/input').send_keys(Keys.ENTER)
 
+            #Pasal
             driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/input').send_keys(Pasal)
-
+            
+            #No. BA Serah Terima
             driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[5]/div/div/input').send_keys(No_BA_sertrima)
 
+            # Keterangan
             driver.find_element(By. XPATH, '//textarea').send_keys(Keterangan)
 
             #Petugas Penerima
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div[1]/div/form/div/div/div/div/div/input').click()
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div[1]/div/form/div/div/div/div/div/input').send_keys(Petugas_Penerima)
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input').click()
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input').send_keys(Petugas_Penerima)
             WebDriverWait(driver, 10)
             driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
 
             #Petugas yang Menyerahkan (Jaksa, Polisi, PPNS, Pengadilan)
-            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/div[1]/div/form/div/div/div/div/div/input').click()
-            if Petugas_Menyerahkan == 'Galih':
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/div[1]/div/form/div/div/div/div/div/input').send_keys(Petugas_Menyerahkan)
-                WebDriverWait(driver, 10)
-                driver.find_element(By.XPATH, '//td[contains(.,"Galih")]').click()
-            elif Petugas_Menyerahkan == 'Dicky':
-                print('.')
-
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input').click()
+            driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input').send_keys(Petugas_Menyerahkan)
+            WebDriverWait(driver, 10)
+            # driver.find_element(By.XPATH, '//td[contains(.,"Galih")]').click()
+            driver.find_element(By.CSS_SELECTOR, ".el-select-dropdown__item:nth-child(1) tr:nth-child(2) > .el-descriptions__cell:nth-child(1)").click()
+            
             #Tab Identitas
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[1]/div/div/div/div/input').click()
             WebDriverWait(driver, 10)
