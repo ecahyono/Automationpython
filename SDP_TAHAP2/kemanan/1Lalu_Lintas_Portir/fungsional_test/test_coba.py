@@ -75,6 +75,7 @@ def test_4_membuka_halaman_tambah():
     print('================================================================================= Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
+
 @mark.fixture_test()
 def test_5_sortir_table_cari_nama_Tambah():
     driver.implicitly_wait(20)

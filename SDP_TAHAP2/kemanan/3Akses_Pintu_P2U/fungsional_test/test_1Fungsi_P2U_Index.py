@@ -51,7 +51,7 @@ def test_3_akses_menu_index():
 
 
 @mark.fixture_test()
-def test_1_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_4_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(30) 
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
@@ -63,13 +63,13 @@ def test_1_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasar
     #KETIK NAMA
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click() 
     #PILIH DROPDOWN NAMA LENGKAP
-    driver.find_element(By.XPATH, pathData['Other Search'['']]).send_keys("galih") 
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("galih") 
     #KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, pathData['Id Search']['Button Search']).click() 
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()  
     #KLIK BUTTON CARI
 
 @mark.fixture_test()
-def test_1_search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_5_search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(30) 
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
@@ -81,31 +81,52 @@ def test_1_search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdas
     #KETIK NOMOR
     driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click() 
     #PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, "(//input[@type=\'text\'])[2]").send_keys("31") 
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("31") 
     #KETIK GALIH DI FORM MASUKAN KATA KUNCI
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click() 
     #KLIK BUTTON CARI
 
-
-"""
 @mark.fixture_test()
-def test_5_search_data_kategori_NoInduk_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(30)
+def test_6_search_data_kategori_kategori_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+    driver.implicitly_wait(30) 
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterColumn"]')))
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('induk')
-    driver.find_element(By.XPATH, '//*[@id="nomorInduk"]').click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('50120')
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button').click()
-    WebDriverWait(driver,5).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
-    print('.')
-    print('================================================================================= Search Data Form Kategori No Induk  ')
+    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
+    #BUTTON CARI
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
+    #BUTTON CARI
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori') 
+    #KETIK NOMOR
+    driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click() 
+    #PILIH DROPDOWN NOMOR IDENTITAS
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("pegawai") 
+    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click() 
+    #KLIK BUTTON CARI
     attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_6_search_data_kategori_kategori_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+    driver.implicitly_wait(30) 
+    time.sleep(1)
+    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
+    #BUTTON CARI
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
+    #BUTTON CARI
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Keperluan') 
+    #KETIK NOMOR
+    driver.find_element(By.XPATH, "//li[contains(.,\'Keperluan\')]").click() 
+    #PILIH DROPDOWN NOMOR IDENTITAS
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("Test")
+    
+    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click() 
+    #KLIK BUTTON CARI
+    attach(data=driver.get_screenshot_as_png())
+
+
+
 
 #Mengosongkan kata kunci dan kategori dengan klik button clear value
 @mark.fixture_test()
@@ -139,8 +160,6 @@ def test_6_clik_clear_value_Index():
     print('.')
     print('================================================================================= Click Clear Value Button Kata Kunci dan inputan data tidak sesuai  ')
     attach(data=driver.get_screenshot_as_png())
-
-
 
 
 
@@ -272,6 +291,7 @@ def test_16_sortir_100_Halaman_Index():
     print('================================================================================= Menampilkan 100  ')
     attach(data=driver.get_screenshot_as_png())
 
+
  #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
 @mark.fixture_test()
 def test_17_membuka_halaman_tambah_Index():
@@ -294,31 +314,20 @@ def test_18_back_index():
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     print('========================================================== Back Ke Halaman Index  ')
-
 #Membuka halaman detail melalui klik tombol aksi icon detail
-@mark.fixture_test()
-def test_19_membuka_halaman_ubah_Index(): 
-    driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
-    driver.find_element(By.CSS_SELECTOR, ".text-green-500 path").click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
-    time.sleep(3)
-    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
-    print('================================================================================= Membuka Halaman Ubah  ')
-    attach(data=driver.get_screenshot_as_png())
+
 
 
 
 
 #Membuka form ubah melalui klik tombol aksi icon ubah
 @mark.fixture_test()
-def test_20_membuka_halaman_detail_Index(): 
+def test_19_membuka_halaman_detail_Index(): 
     driver.implicitly_wait(30)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button')))
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
     driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div/div[3]/button')))
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     time.sleep(3)
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('================================================================================= Membuka Halaman Detail  ')
@@ -366,7 +375,7 @@ def test_23_cetak_Index():
     print('.')
     print('================================================================================= Cetak    ')
     attach(data=driver.get_screenshot_as_png())
-"""
+
 
 
 def teardown():
