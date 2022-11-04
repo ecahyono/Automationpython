@@ -36,7 +36,6 @@ def test_2_login():
 
 @mark.fixture_test()
 def test_3_akses_menu_index():
-    
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
