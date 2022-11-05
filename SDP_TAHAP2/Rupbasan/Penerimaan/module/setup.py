@@ -2,12 +2,15 @@ import platform, sys, json
 from os import environ, path
 from selenium import webdriver
 from pytest import mark
+from selenium.webdriver.chrome.service import Service
 
 def initDriver():
     if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+        smac=Service(environ.get("CHROMEDRIVERMAC"))
+        driver = webdriver.Chrome(service=smac)
     elif platform.system() == 'Windows':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERWIN"))
+        swin=Service(environ.get("CHROMEDRIVERWIN"))
+        driver = webdriver.Chrome(service=swin)
     
     driver.get(environ.get("HOST"))
     driver.maximize_window()
