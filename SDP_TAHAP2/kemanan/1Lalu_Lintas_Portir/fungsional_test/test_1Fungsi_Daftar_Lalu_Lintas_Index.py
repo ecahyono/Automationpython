@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP, environ
 from re import S, T
@@ -19,8 +21,12 @@ from pytest_html_reporter import attach
 from dotenv import load_dotenv
 load_dotenv()
 #file modul
-from module.setup import initDriver, loadDataPath
-from module.login import login
+#from module.setup import initDriver, loadDataPath
+#from module.login import login
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
+ 
+
 
 import json
 
