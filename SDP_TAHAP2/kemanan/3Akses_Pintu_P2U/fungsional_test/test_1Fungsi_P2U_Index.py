@@ -296,10 +296,10 @@ def test_16_sortir_100_Halaman_Index():
 def test_17_membuka_halaman_tambah_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'backbutton')))
+    time.sleep(3)
+    driver.find_element(By.ID, 'backButton').click()
     print('.')
     print('================================================================================= Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
@@ -315,7 +315,7 @@ def test_19_membuka_halaman_detail_Index():
     driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     time.sleep(3)
-    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    driver.find_element(By.ID, 'backButton').click()
     print('================================================================================= Membuka Halaman Detail  ')
     attach(data=driver.get_screenshot_as_png())
 

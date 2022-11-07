@@ -1,9 +1,3 @@
-import sys
-sys.path.append("/Users/will/Documents/work/Automationpython")
-
-from Settings.setup import initDriver, loadDataPath
-from Settings.login import login
-
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP, environ
 from re import S, T
@@ -22,11 +16,17 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 
+import sys
+from pathlib import Path
+#file modul
+#from module.setup import initDriver, loadDataPath
+#from module.login import login
+
+sys.path.append("/Users/will/Documents/work/Automationpython")
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
 from dotenv import load_dotenv
 load_dotenv()
-#file modul
-
-
 import json
 
 @mark.fixture_test()
@@ -39,8 +39,8 @@ def test_1_setupOS():
 def test_2_login():
     login(driver)
 
+@mark.fixture_test()
 def test_3_akses_menu_index():
-    
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
