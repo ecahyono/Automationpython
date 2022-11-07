@@ -1,5 +1,9 @@
 import sys
-sys.path.append("..")
+sys.path.append("/Users/will/Documents/work/Automationpython")
+
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
+
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP, environ
 from re import S, T
@@ -23,8 +27,7 @@ load_dotenv()
 #file modul
 #from module.setup import initDriver, loadDataPath
 #from module.login import login
-from Settings.setup import initDriver, loadDataPath
-from Settings.login import login
+
  
 
 
