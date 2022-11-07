@@ -16,7 +16,10 @@ def initDriver():
     return driver
 
 def loadDataPath():
-    sys.path.append( '/Users/will/Documents/work/Automationpython' )
+    if platform.system() == 'Darwin':
+        sys.path.append( '/Users/will/Documents/work/Automationpython' )
+    elif platform.system() == 'Windows':
+        sys.path.append("C:\\path\\to\\dir")
     file = open('data.json', 'r')
     data = json.load(file)
     return data

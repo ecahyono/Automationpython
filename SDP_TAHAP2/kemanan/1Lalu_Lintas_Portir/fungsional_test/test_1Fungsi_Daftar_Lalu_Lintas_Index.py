@@ -1,5 +1,9 @@
 import sys
-sys.path.append("/Users/will/Documents/work/Automationpython")
+if platform.system() == 'Darwin':
+    sys.path.append("/Users/will/Documents/work/Automationpython")
+elif platform.system() == 'Windows':
+    sys.path.append("C:\\path\\to\\dir")
+
 
 from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
