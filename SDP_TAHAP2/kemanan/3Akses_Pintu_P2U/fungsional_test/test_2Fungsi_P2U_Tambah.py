@@ -102,6 +102,74 @@ def test_8_membuka_halaman_tambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
+def test_18_NamaSearch_TamuDinasNIP_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    driver.find_element(By.ID, "tamuDinas").click()
+    print('.')
+    print('========== Input kategori tamu dinas ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_19_input_nip_tamuDinas_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputNip')))
+    driver.find_element(By.ID, 'inputNip').send_keys('7321377')
+    
+    print('.')
+    print('========== Input nip ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_20_input_nip_tamuDinas_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputNama')))
+    driver.find_element(By.ID, 'inputNama').send_keys('input nama tamu dinas')
+    
+    print('.')
+    print('========== Input nip ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_21_Instansi_TamuDinasNIP_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputInstansiId"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputInstansiId"]').click()
+    driver.find_element(By.ID, "optionInstansi0").click()
+    print('.')
+    print('========== Input kategori tamu dinas ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_21_input_nip_tamuDinas_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputJabatan')))
+    driver.find_element(By.ID, 'inputJabatan').send_keys('input jabatan ')
+    
+    print('.')
+    print('========== Input nip ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_22_input_nip_tamuDinas_tambah():
+    driver.implicitly_wait(15)
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputKeperluan')))
+    driver.find_element(By.ID, 'inputKeperluan').send_keys('input keperluan test ')
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    driver.find_element(By.ID, 'submitButton').click()
+    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    
+    print('.')
+    print('========== Input nip ==========')
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+
+"""
+@mark.fixture_test()
 def test_9_NipSearch_tambah():
     driver.implicitly_wait(15)
     WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputSearch')))
@@ -209,6 +277,8 @@ def test_17_NamaSearch_TamuDinasNIP_tambah():
     print('.')
     print('========== Input tamu dinas  ==========')
     attach(data=driver.get_screenshot_as_png())
+    """
+    
 
 
 
