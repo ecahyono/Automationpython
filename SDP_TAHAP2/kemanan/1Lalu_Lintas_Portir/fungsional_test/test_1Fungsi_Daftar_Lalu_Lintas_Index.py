@@ -1,12 +1,4 @@
-import sys
-if platform.system() == 'Darwin':
-    sys.path.append("/Users/will/Documents/work/Automationpython")
-elif platform.system() == 'Windows':
-    sys.path.append("C:\\path\\to\\dir")
 
-
-from Settings.setup import initDriver, loadDataPath
-from Settings.login import login
 
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP, environ
@@ -26,8 +18,13 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 
+#env json
 from dotenv import load_dotenv
-load_dotenv()
+from pathlib import Path
+import sys
+import json
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
 #file modul
 #from module.setup import initDriver, loadDataPath
 #from module.login import login
@@ -35,7 +32,13 @@ load_dotenv()
  
 
 
-import json
+if platform.system() == 'Darwin':
+    sys.path.append("/Users/will/Documents/work/Automationpython")
+    dotenv_path = Path("/Users/will/Documents/work/Automationpython")
+elif platform.system() == 'Windows':
+    sys.path.append("C:\\path\\to\\dir")
+    dotenv_path = Path("C:\\path\\to\\dir")
+load_dotenv(dotenv_path=dotenv_path)
 
 @mark.fixture_test()
 def test_1_setupOS():
