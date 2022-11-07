@@ -53,17 +53,17 @@ def test_3_akses_menu_index():
 def test_4_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['filter Column'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
     
     time.sleep(1)
-    driver.find_element(By.XPATH, pathData['Id Search']['filter Column']).send_keys('nama')
-    driver.find_element(By.XPATH, pathData['Id Search']['filter Column']).click()
+    driver.find_element(By.ID, 'filterColumn').send_keys('nama')
+    driver.find_element(By.ID, 'filterColumn').click()
 
     driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['Input Kata Kunci'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['Input Kata Kunci'])))
     driver.find_element(By.XPATH, pathData['Id Search']['Input Kata Kunci']).send_keys('EYONO BIN CAS')
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
     WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, pathData['CSS']['Update Button'])))
     WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, pathData['CSS']['Update Button'])))
@@ -75,14 +75,14 @@ def test_4_search_data_kategori_nama_Index(): #Melakukan pencarian data berdasar
 def test_5_search_data_kategori_NoInduk_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['filter Column'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
     
-    driver.find_element(By.XPATH, pathData['Id Search']['filter Column']).send_keys('induk')
+    driver.find_element(By.ID, 'filterColumn').send_keys('induk')
     driver.find_element(By.XPATH, '//*[@id="nomorInduk"]').click()
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['Input Kata Kunci'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Id Search']['Input Kata Kunci'])))
     driver.find_element(By.XPATH, pathData['Id Search']['Input Kata Kunci']).send_keys('50120')
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
     WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, pathData['CSS']['Update Button'])))
     WebDriverWait(driver,5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, pathData['CSS']['Update Button'])))
@@ -94,7 +94,7 @@ def test_5_search_data_kategori_NoInduk_Index(): #Melakukan pencarian data berda
 @mark.fixture_test()
 def test_6_clik_clear_value_Index(): 
     driver.implicitly_wait(30)
-    nav1 = driver.find_element(By.XPATH, pathData['Id Search']['filter Column'])
+    nav1 = driver.find_element(By.ID, 'filterColumn')
     actions = ActionChains(driver)
     actions.move_to_element(nav1).perform()
     element2 = driver.find_element(By.CSS_SELECTOR, ".el-select__caret:nth-child(2) > svg")
@@ -132,7 +132,7 @@ def test_6_clik_clear_value_Index():
 def test_7_sortir_data_table_NoInduk_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, "//span/i[2]").click()
     print('.')
     print('================================================================================= Sortir No induk ')
@@ -143,7 +143,7 @@ def test_7_sortir_data_table_NoInduk_Index():
 def test_8_sortir_data_table_nama_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, "//th[3]/div/span").click()
     print('.')
     print('================================================================================= Sortir nama')
@@ -154,7 +154,7 @@ def test_8_sortir_data_table_nama_Index():
 def test_9_sortir_data_table_Jenis_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, "//th[4]/div").click()
     print('.')
     print('================================================================================= Sortir jenis ')
@@ -165,7 +165,7 @@ def test_9_sortir_data_table_Jenis_Index():
 def test_10_sortir_data_table_tglkeluar_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, "//th[5]/div/span/i").click()
     print('.')
     print('================================================================================= Sortir Tanggal Keluar ')
@@ -176,7 +176,7 @@ def test_10_sortir_data_table_tglkeluar_Index():
 def test_11_sortir_data_table_tglkembali_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, "//th[6]/div/span/i").click()
     print('.')
     print('================================================================================= Sortir tanggal kembali ')
@@ -186,7 +186,7 @@ def test_11_sortir_data_table_tglkembali_Index():
 @mark.fixture_test()
 def test_12_sortir_5_Halaman_Index():
     #5 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACKSPACE)
@@ -201,7 +201,7 @@ def test_12_sortir_5_Halaman_Index():
 @mark.fixture_test()
 def test_13_sortir_10_Halaman_Index():
     #10 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACKSPACE)
@@ -216,7 +216,7 @@ def test_13_sortir_10_Halaman_Index():
 @mark.fixture_test()
 def test_14_sortir_20_Halaman_Index():
      #20 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACKSPACE)
@@ -231,7 +231,7 @@ def test_14_sortir_20_Halaman_Index():
 @mark.fixture_test()
 def test_15_sortir_50_Halaman_Index():
     #50 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACKSPACE)
@@ -245,7 +245,7 @@ def test_15_sortir_50_Halaman_Index():
 @mark.fixture_test()
 def test_16_sortir_100_Halaman_Index():
     #100 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACKSPACE)
@@ -259,12 +259,12 @@ def test_16_sortir_100_Halaman_Index():
 @mark.fixture_test()
 def test_17_membuka_halaman_tambah_Index():
     driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    #WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+    #WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     print('================================================================================= Membuka Halaman Tambah  ')
@@ -273,7 +273,7 @@ def test_17_membuka_halaman_tambah_Index():
 @mark.fixture_test()
 def test_18_back_index():
     driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     print('========================================================== Back Ke Halaman Index  ')
@@ -282,10 +282,10 @@ def test_18_back_index():
 @mark.fixture_test()
 def test_19_membuka_halaman_ubah_Index(): 
     driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 path").click()
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
     time.sleep(3)
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('================================================================================= Membuka Halaman Ubah  ')
@@ -298,10 +298,10 @@ def test_19_membuka_halaman_ubah_Index():
 @mark.fixture_test()
 def test_20_membuka_halaman_detail_Index(): 
     driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
     driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div/div[3]/button')))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div/div[3]/button')))
     time.sleep(3)
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('================================================================================= Membuka Halaman Detail  ')
@@ -314,7 +314,7 @@ def test_20_membuka_halaman_detail_Index():
 def test_21_export_exel_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button').click()
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]').click()
     print('.')
@@ -329,7 +329,7 @@ def test_21_export_exel_Index():
 def test_22_export_pdf_Index(): 
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/button').click()
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]').click()
     print('.')
@@ -343,7 +343,7 @@ def test_22_export_pdf_Index():
 def test_23_cetak_Index(): 
     time.sleep(1)
     driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
     print('.')
