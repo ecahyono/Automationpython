@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from pytest_html_reporter import attach
 
+
 def login(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.XPATH, "//div/span").click()

@@ -7,22 +7,21 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys 
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.select import Select
-import platform
-from pytest import mark
-import time
 from pytest_html_reporter import attach
+from pytest import mark
+import platform
+import time
+import os
+import pytest
+import json
 import sys
 
 from dotenv import load_dotenv
 load_dotenv()
 
-
-
 #file modul
 from module.setup import initDriver, loadDataPath
 from module.login import login
-
-import json
 
 # init driver by os
 @mark.fixture_Penerimaan
@@ -36,21 +35,21 @@ def test_login():
     login(driver)
 
 @mark.fixture_Penerimaan
-def test_akses_menu():
+def test_akses_menu(driver):
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_Ubah():
+def test_halaman_Ubah(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['ubah']).click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
     driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_sortirtabel():
+def test_sortirtabel(driver):
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['ascendingtable']).click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
@@ -61,72 +60,72 @@ def test_sortirtabel():
 
 
 @mark.fixture_Penerimaan
-def test_halaman_tambah():
+def test_halaman_tambah(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['tambah']).click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
     driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_Daftarbarang():
+def test_halaman_Daftarbarang(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['daftarbarang']).click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
     driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_cetakBA():
+def test_halaman_cetakBA(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['CetakBA']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_exportexel():
+def test_halaman_exportexel(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['exportexel']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_exportexelsemuahal():
+def test_halaman_exportexelsemuahal(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['excelsemuhalaman']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_exportexelhalinisaj():
+def test_halaman_exportexelhalinisaj(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['excelHalamaninisaja']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_exportpdf():
+def test_halaman_exportpdf(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['exportPDF']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_pdfsemuahal():
+def test_halaman_pdfsemuahal(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pdfsemuaH']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_pdfhalinisaj():
+def test_halaman_pdfhalinisaj(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pdfhinisaj']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_print():
+def test_halaman_print(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['cetak']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_printsemuahal():
+def test_halaman_printsemuahal(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['cetaksemua']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_halaman_printhalinisaj():
+def test_halaman_printhalinisaj(driver):
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['cetakhalinisaj']).click() 
     attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_Penerimaan
-def test_pageindex20hal():
+def test_pageindex20hal(driver):
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pilihpage']).click() 
 
@@ -135,7 +134,7 @@ def test_pageindex20hal():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_pageindex50hal():
+def test_pageindex50hal(driver):
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pilihpage']).click() 
 
@@ -144,7 +143,7 @@ def test_pageindex50hal():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_pageindex100hal():
+def test_pageindex100hal(driver):
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pilihpage']).click() 
 
@@ -153,7 +152,7 @@ def test_pageindex100hal():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_pageindex5hal():
+def test_pageindex5hal(driver):
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['button']['pilihpage']).click() 
 
@@ -162,7 +161,7 @@ def test_pageindex5hal():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_Penerimaan
-def test_pergikepage():
+def test_pergikepage(driver):
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['AksesMenu']['Rupbasan']['button']['daftarbarang'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke']).send_keys(Keys.BACK_SPACE)
     time.sleep(3)

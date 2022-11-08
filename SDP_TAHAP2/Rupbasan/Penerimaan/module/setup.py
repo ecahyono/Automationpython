@@ -5,6 +5,7 @@ from pytest import mark
 from selenium.webdriver.chrome.service import Service
 
 def initDriver():
+    sys.path.append('..')
     if platform.system() == 'Darwin':
         smac=Service(environ.get("CHROMEDRIVERMAC"))
         driver = webdriver.Chrome(service=smac)
@@ -19,7 +20,8 @@ def initDriver():
     return driver
 
 def loadDataPath():
-    sys.path.append( '..' )
+    sys.path.append('..')
     file = open('data.json', 'r')
     data = json.load(file)
     return data
+
