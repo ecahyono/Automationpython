@@ -106,13 +106,13 @@ def test_6_Click_Button_Detile_Tambah():
 def test_7_Click_Button_Tambah_WBP_Tambah():
     driver.implicitly_wait(10)
     time.sleep(2)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
+    driver.find_element(By.ID, 'createButton').click()
     print('.')
     print('==========Click Button Tambah WBP  ==========')
     attach(data=driver.get_screenshot_as_png())
 
 
-@mark.fixture_test()
+@mark.fixture_test()    
 def test_8_sortir_detil_wbp_Tambah():
     WebDriverWait(driver,15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-0"]')))
     WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-0"]')))

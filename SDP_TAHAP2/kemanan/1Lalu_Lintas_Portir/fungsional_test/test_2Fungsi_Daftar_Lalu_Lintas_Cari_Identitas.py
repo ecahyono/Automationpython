@@ -183,16 +183,17 @@ def test_10_search_residivis_cari_identitas():
     print('================================================================================= Search Residivis  ')
     attach(data=driver.get_screenshot_as_png())
 
-"""
+
 @mark.fixture_test()
 def test_11_Sortir_5_Halaman_cari_identitas():
     #5 HALAMAN
     driver.implicitly_wait(60)
+    driver.execute_script("window.scrollTo(0,326)")
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, '(//input[@type=\'text\'])[3]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys("2") #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
     print('================================================================================= Menampilkan 5 halaman cari  ')
@@ -205,10 +206,10 @@ def test_12_sortir_10_Halaman_cari_identitas():
     #10 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, '(//input[@type=\'text\'])[3]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
     print('================================================================================= Menampilkan 10 halaman cari ')
@@ -219,10 +220,10 @@ def test_13_sortir_20_Halaman_cari_identitas():
     #20 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, '(//input[@type=\'text\'])[3]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
     print('================================================================================= Menampilkan 20 halaman cari ')
@@ -233,10 +234,10 @@ def test_14_sortir_50_Halaman_cari_identitas():
     #50 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, '(//input[@type=\'text\'])[3]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
     print('================================================================================= Menampilkan 50 halaman cari ')
@@ -247,16 +248,15 @@ def test_15_sortir_100_Halaman_cari_identitas():
     #100 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[2]/div/div/div/input').click()
+    driver.find_element(By.XPATH, '(//input[@type=\'text\'])[3]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div/span[3]/div/input').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
     print('================================================================================= Menampilkan 100 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
 
-"""
 
 
 
