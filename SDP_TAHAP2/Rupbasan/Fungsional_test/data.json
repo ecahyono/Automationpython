@@ -1,6 +1,4 @@
 {   
- 
-    
     "Id Navigate Button": {
         "Create Button": "//*[@id=\"createButton\"]",
         "Back Button": "//*[@id=\"backButton\"]",
@@ -9,7 +7,6 @@
         "Custom Button" : ""
         
         
-
     },
     "id form": {
         "Input Text": "",
@@ -24,7 +21,6 @@
         "Input Switch": ""
     
     },
-
     "Id Search": {
         "Filter Column": "//*[@id=\"filterColumn\"]",
         "Input Kata Kunci": "//*[@id=\"kataKunci\"]",
@@ -39,19 +35,38 @@
         "Input Switch":"",
         "Input Select":""
     },
-
     "CSS": {
         
-
     },
     "Other Search": {
         "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
     },
-
-
-
+    "buttonrupbasan":{
+        "tambah": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button",
+        "daftarbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[1]",
+        "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[2]",
+        "ubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[3]",
+        "cari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+        "exportexel":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button",
+        "excelHalamaninisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]",
+        "excelsemuhalaman":"//*[@id=\"app\"]/div/div[2]/div/div[]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[1]",
+        "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
+        "pdfhinisaj":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]",
+        "pdfsemuaH":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[1]",
+        "cetak":"//*[@id=\"printButton\"]",
+        "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
+        "cetakhalinisaj":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]",
+        "pilihpage":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[2]/div/div/div",
+        "5halaman":"//div[15]/div/div/div[1]/ul/li[1]",
+        "20halaman":"//div[15]/div/div/div[1]/ul/li[3]",
+        "50halaman":"//div[15]/div/div/div[1]/ul/li[4]",
+        "100halaman":"//div[15]/div/div/div[1]/ul/li[5]",
+        "ascendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[1]",
+        "descendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[1]/div/span/i[2]"
+        
+    },
     "AksesMenu": {
         "Registrasi": {
             "MainText": "",
@@ -69,7 +84,6 @@
                 
             }
             
-
         },
         "Integrasi": {
             "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
@@ -92,30 +106,6 @@
         "Rupbasan": {
             "menu":{
                 "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div"
-            },
-            "button":{
-                "tambah": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button",
-                "daftarbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[1]",
-                "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[2]",
-                "ubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[3]",
-                "cari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
-                "exportexel":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button",
-                "excelHalamaninisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]",
-                "excelsemuhalaman":"//*[@id=\"app\"]/div/div[2]/div/div[]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[1]",
-                "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
-                "pdfhinisaj":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]",
-                "pdfsemuaH":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[1]",
-                "cetak":"//*[@id=\"printButton\"]",
-                "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
-                "cetakhalinisaj":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]",
-                "pilihpage":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[2]/div/div/div",
-                "5halaman":"//div[15]/div/div/div[1]/ul/li[1]",
-                "20halaman":"//div[15]/div/div/div[1]/ul/li[3]",
-                "50halaman":"//div[15]/div/div/div[1]/ul/li[4]",
-                "100halaman":"//div[15]/div/div/div[1]/ul/li[5]",
-                "ascendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[1]",
-                "descendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[1]/div/span/i[2]"
-                
             }
         }
         
