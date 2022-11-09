@@ -79,7 +79,7 @@ def test_5_sortir_table_cari_nama_HalamanTambah():
     print(' = Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('cah')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('TEST BIN ayah')
     print('=')
     print(' = Input Nama  ')
 
@@ -373,11 +373,15 @@ def test_24_NamaPengawalExternalNotGetData_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'pengawal0').click
     driver.find_element(By.ID, 'pengawal0').send_keys('baru')
+    time.sleep(0.5)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'baru\')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'baru\')]").click()
+    time.sleep(0.5)
     driver.find_element(By.XPATH, "//input[@id=\'jabatan0\']").send_keys("jabatan")
+    time.sleep(0.5)
     driver.find_element(By.ID, "instansi0").click()
     driver.find_element(By.ID, "instansi0").send_keys("bandu")
+    time.sleep(0.5)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, "(//li[@id=\'optionInstansi0\'])[128]")))
     driver.find_element(By.XPATH, "(//li[@id=\'optionInstansi0\'])[128]").click()
     print('=')
@@ -387,6 +391,7 @@ def test_24_NamaPengawalExternalNotGetData_HalamanTambah():
 
 @mark.fixture_test()
 def test_25_ButtonSubmitEksternalNotGetData_HalamanTambah():
+    time.sleep(0.5)
     test_17_ButtonSubmitInternal_HalamanTambah()
 
 
