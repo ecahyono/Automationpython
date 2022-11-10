@@ -79,7 +79,7 @@ def test_5_sortir_table_cari_nama_HalamanTambah():
     print(' = Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('TEST BIN ayah')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
     print('=')
     print(' = Input Nama  ')
 
@@ -266,7 +266,7 @@ def test_19_NamaPengawalExternal_HalamanTambah():
 """
 
 @mark.fixture_test()
-def test_23_ButtonSubmitInternal_HalamanTambah():
+def test_17_ButtonSubmitInternal_HalamanTambah():
     driver.implicitly_wait(60)
     time.sleep(3)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))

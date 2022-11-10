@@ -15,7 +15,7 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-
+import pyautogui
 import sys
 from pathlib import Path
 #file modul
@@ -57,9 +57,35 @@ def test_3_akses_menu_HalamanEdit():
     attach(data=driver.get_screenshot_as_png())
 
 # MENAKAN BUTTON UBAH
+
+@mark.fixture_test()
+def test_7_sortir_table_cari_nama_cari_identitas():
+    driver.implicitly_wait(60)
+    WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
+    time.sleep(0.1)
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    time.sleep(0.1)
+    print('.')
+    print('================================================================================= Memilih Dropdown Nama  ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('CAH')
+    print('.')
+    print('================================================================================= Input Nama  ')
+
+    driver.implicitly_wait(60)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    print('.')
+    print('==========Click Button Cari  ==========')
+    attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_4_Click_ButtonUbah_HalamanEdit():
     driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 .h-5").click()
@@ -127,24 +153,64 @@ def test_7_Muat_Ulang_HalamanEdit():
     attach(data=driver.get_screenshot_as_png()) 
 
 
+
+@mark.fixture_test()
+def test_1_Ubah_NoSk_HalamanEdit():
+    driver.implicitly_wait(10)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="noSK"]')))
+    driver.find_element(By.XPATH, '//*[@id="noSK"]').clear()
+    driver.find_element(By.XPATH, '//*[@id="noSK"]').send_keys('SK/001/DIV')
+    print('.')
+    print('=================================================================================Ubah Deskripsi Berhasil================================================================================= ')
+    attach(data=driver.get_screenshot_as_png()) 
+
+@mark.fixture_test()
+def test_2_UploadSurat_HalamanEdit():
+    
+    time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="fileSK"]/div[1]/button').click()
+    time.sleep(3)
+    pyautogui.write(r"///////users/will/Downloads/pdf/rere.pdf")
+    time.sleep(2)
+    pyautogui.press('enter')
+    pyautogui.write(r"///////users/will/Downloads/pdf/rere.pdf")
+    time.sleep(3)
+    pyautogui.press('enter')
+    pyautogui.hotkey("backspace")
+    pyautogui.write(r"///////users/will/Downloads/pdf/rere.pdf")
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.press('enter')
 #MENEGEDIT DESKRIPSI
 @mark.fixture_test()
 def test_8_Ubah_Deskripsi_HalamanEdit():
     driver.implicitly_wait(10)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="deskripsi"]')))
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="deskripsi"]')))
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').clear()
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys('deskripsi baru')
     print('.')
     print('=================================================================================Ubah Deskripsi Berhasil================================================================================= ')
     attach(data=driver.get_screenshot_as_png()) 
-"""
+
+
+@mark.fixture_test()
+def test_10_Input_JenisKeluar_HalamanTambah():
+    driver.implicitly_wait(60)
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
+    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("Diversi")
+    driver.find_element(By.XPATH, '//*[@id="Diversi"]').click()
+    print('=')
+    print(' = Input Jenis Keluar  ')
+    attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 
 #MENGEDIT TANGGAL KELUAR
 def test_Ubah_Tanggal_Keluar_Edit():
     driver.implicitly_wait(10)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "keluarKeamanan")))
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, "keluarKeamanan")))
     driver.find_element(By.ID, "keluarKeamanan").clear()
+    driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys('24/12/2028')
     driver.find_element(By.ID, "keluarKeamanan").send_keys(Keys.ENTER)
     print('.')
     print('=================================================================================Ubah Tanggal Keluar Berhasil================================================================================= ')
@@ -156,26 +222,29 @@ def test_Ubah_Tanggal_Keluar_Edit():
 def test_Ubah_Tanggal_kembali_Edit():
     driver.implicitly_wait(10)
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').clear()
+    driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2028 12:80:80')
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('.')
     print('=================================================================================Ubah Tanggal Kembali Berhasil================================================================================= ')
     attach(data=driver.get_screenshot_as_png()) 
     time.sleep(10)
 
-#MENGEDIT JENIS KELUAR
+
 @mark.fixture_test()
-def test_Ubah_Jenis_Keluar_Edit():
-    driver.implicitly_wait(10)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
-    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').clear()
-
-    time.sleep(10)
-
-    print('.')
-    print('=================================================================================Ubah Jenis Keluar Berhasil================================================================================= ')
+def test_Ubah_Tanggal_kembali_Edit():
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="statusPendaftaran"]')))
+    driver.find_element(By.XPATH, '//*[@id="statusPendaftaran"]').send_keys("Diizinkan")
+    driver.find_element(By.XPATH, "//li[contains(.,\'Diizinkan\')]").click()
+    print('=')
+    print(' = Input Jenis Keluar  ')
     attach(data=driver.get_screenshot_as_png())
-"""
 
+
+@mark.fixture_test()
+def test_ButtonUbah_HalamanEdit():
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
+    
 
 
 #CLOSE 
