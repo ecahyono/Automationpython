@@ -61,20 +61,20 @@ def test_3_akses_menu_Portir():
 @mark.fixture_test()
 def test_4_sortir_table_cari_nama_Portir():
     driver.implicitly_wait(60)
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('=')
     print(' = Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('NAMA BIN Ayahku')
     print('=')
     print(' = Input Nama  ')
 
     driver.implicitly_wait(60)
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
     print('=')
     print(' = Click Button Cari  ')
     attach(data=driver.get_screenshot_as_png())
@@ -83,9 +83,40 @@ def test_4_sortir_table_cari_nama_Portir():
 def test_6_Click_Button_Detile_Portir():
     driver.implicitly_wait(60)
     time.sleep(2)
-    WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5")))
+    time.sleep(0.1)
+    driver.find_element(By.CSS_SELECTOR, ".h-5").click()
+
+    
     print('=')
     print(' = Click Button Update  ')
     attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_7_KonfirmasiKeluar_Portir():
+    driver.implicitly_wait(60)
+    time.sleep(2)
+    driver.execute_script("window.scrollTo(0,53)")
+    WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#lihatSurat > span")))
+
+    driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
+    time.sleep(10)
+    driver.find_element(By.XPATH, "//span[contains(.,\'Konfirmasi Masuk\')]").click()
+    #driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
+
+
+def teardown():
+    time.sleep(10)
+    print('.')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▓▒▒▓▒▒▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+    print('▒▓▒▒▒▒▒▒▒▒▓▒')
+    print('▒▒▓▓▓▓▓▓▓▓▒▒')
+    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+
+    driver.close()
+    driver.quit()
