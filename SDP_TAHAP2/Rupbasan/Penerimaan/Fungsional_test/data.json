@@ -43,43 +43,62 @@
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
     },
-    "buttonrupbasan":{
-        "tambah": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button",
-        "daftarbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[1]",
-        "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[2]",
-        "ubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[3]",
-        "cari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
-        "exportexel":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[1]/button",
-        "Halamaninisaja":"//*[@id=\"thisButton\"]",
-        "semuhalaman":"//*[@id=\"wholeButton\"]",
-        "exportPDF":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/button",
-        "PDFHalini":"//*[@id=\"thisButton\"]",
-        "PDFSemuaHal":"//*[@id=\"wholeButton\"]",
-        "cetak":"//*[@id=\"printButton\"]",
-        "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
-        "cetakhalinisaj":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]",
+    "Rupbasan":{
+        "indexrupbasan":{
+            "tambah": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button",
+            "daftarbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[1]",
+            "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[2]",
+            "ubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[9]/div/div/div[3]",
+            "cari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+            "exportexel":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[1]/button",
+            "Halamaninisaja":"//*[@id=\"thisButton\"]",
+            "semuhalaman":"//*[@id=\"wholeButton\"]",
+            "exportPDF":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/button",
+            "PDFHalini":"//*[@id=\"thisButton\"]",
+            "PDFSemuaHal":"//*[@id=\"wholeButton\"]",
+            "cetak":"//*[@id=\"printButton\"]",
+            "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
+            "cetakhalinisaj":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]",
+            "5halaman":"//div[15]/div/div/div[1]/ul/li[1]",
+            "20halaman":"//div[15]/div/div/div[1]/ul/li[3]",
+            "50halaman":"//div[15]/div/div/div[1]/ul/li[4]",
+            "100halaman":"//div[15]/div/div/div[1]/ul/li[5]",
+            "ascendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[1]",
+            "descedingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[1]/div/span/i[2]",
+            "filterabledropdownindex":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/input",
+            "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
+            "maskakunci":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input",
+            "clearkatkun":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/span[2]",
+            "dropdownJregIndex":"//*[@id=\"input_jenis_registrasi_baran_basan\"]",
+            "clearvaluejnreg":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[2]/div/div/div/div/div/span/span/i[2]",
+            "instansiindex":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/input",
+            "clearvalueinstnsi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/span/span/i[2]",
+            "btncaridataindx":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button"
+        },
+        "+rupbasan":{
+            "Jenis Registrasi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[1]/div/div/div/div/input",
+            "Tanggal Penerimaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input",
+            "Nomor Registrasi Rupbasan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div[1]/input",
+            "Instansi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[4]/div/div/div/div/input",
+            "Nomor Registrasi Instansi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div/input",
+            "Nomor Surat Izin Penyitaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[6]/div/div[1]/input",
+            "Tanggal Surat Izin Penyitaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[7]/div/div[1]/input",
+            "Pengadilan Penyita":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[1]/div/div/div/div/input",
+            "Nomor Surat Penyitaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[2]/div/div[1]/input",
+            "Tanggal Surat Penyitaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[3]/div/div[1]/input",
+            "Pasal":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/input",
+            "No. BA Serah Terima":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[5]/div/div/input",
+            "Keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[6]/div/div/textarea",
+            "Petugas Penerima":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input",
+            "Petugas yang Menyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input",
+            "":""
+        },
+        "barangrupbasan":{
+            "":""
+        }
 
-        "5halaman":"//div[15]/div/div/div[1]/ul/li[1]",
-        "20halaman":"//div[15]/div/div/div[1]/ul/li[3]",
-        "50halaman":"//div[15]/div/div/div[1]/ul/li[4]",
-        "100halaman":"//div[15]/div/div/div[1]/ul/li[5]",
-        "ascendingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[1]",
-        "descedingtable":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[1]/div/span/i[2]",
-        
-        "filterabledropdownindex":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/input",
-        "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
-        
-        "maskakunci":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input",
-        "clearkatkun":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/span[2]",
-
-        "dropdownJregIndex":"//*[@id=\"input_jenis_registrasi_baran_basan\"]",
-        "clearvaluejnreg":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[2]/div/div/div/div/div/span/span/i[2]",
-        "instansiindex":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/input",
-        "clearvalueinstnsi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/span/span/i[2]",
-        
-        "btncaridataindx":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button"
-        
     },
+    
     "AksesMenu": {
         "Registrasi": {
             "MainText": "",
@@ -119,6 +138,12 @@
         "Rupbasan": {
             "menu":{
                 "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div"
+            }
+        },
+        "Lain-lain":{
+            "MainText":"",
+            "child":{
+                "parameter":""
             }
         }
         
