@@ -72,6 +72,12 @@ def test_4_sortir_table_cari_nama_Portir():
     print('=')
     print(' = Input Nama  ')
 
+    driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('keluar keamanan')
+    driver.find_element(By.XPATH, "//li[contains(.,\'Keluar Keamanan\')]").click()
+
+    print('=')
+    print(' = Keluar Keamanan  ')
+
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
@@ -101,9 +107,10 @@ def test_7_KonfirmasiKeluar_Portir():
     driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#lihatSurat > span")))
 
-    driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
-    time.sleep(10)
-    driver.find_element(By.XPATH, "//span[contains(.,\'Konfirmasi Masuk\')]").click()
+    driver.find_element(By.CSS_SELECTOR, "#confirmButton > span").click()
+    #driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+
     #driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
 
 
