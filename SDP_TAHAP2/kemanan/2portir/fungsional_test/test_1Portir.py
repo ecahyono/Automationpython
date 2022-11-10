@@ -1,0 +1,91 @@
+from distutils.archive_util import make_archive
+from os import PRIO_PGRP, environ
+from re import S, T
+from threading import TIMEOUT_MAX
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys 
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.select import Select
+import platform
+from pytest import mark
+import time
+from pytest_html_reporter import attach
+
+import sys
+from pathlib import Path
+#file modul
+#from module.setup import initDriver, loadDataPath
+#from module.login import login
+
+sys.path.append("/Users/will/Documents/work/Automationpython")
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
+from dotenv import load_dotenv
+load_dotenv()
+import json
+
+
+@mark.fixture_test()
+def test_1_setupOS_Portir():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+
+@mark.fixture_test()
+def test_2_login_Portir():
+    login(driver)
+
+
+#AKSES MENU 
+@mark.fixture_test()
+def test_3_akses_menu_Portir():
+    
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
+    ActionChains(driver).move_to_element(nav1).perform()
+    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
+    time.sleep(1)
+    ActionChains(driver).move_to_element(element2).perform()
+    time.sleep(1)
+    driver.find_element(By.LINK_TEXT, 'Portir').click()
+    print('.')
+    print('==========akses menu daftar lalu lintas==========')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_4_sortir_table_cari_nama_Portir():
+    driver.implicitly_wait(60)
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    print('=')
+    print(' = Memilih Dropdown Nama  ')
+    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
+    print('=')
+    print(' = Input Nama  ')
+
+    driver.implicitly_wait(60)
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    print('=')
+    print(' = Click Button Cari  ')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_6_Click_Button_Detile_Portir():
+    driver.implicitly_wait(60)
+    time.sleep(2)
+    WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+    driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
+    print('=')
+    print(' = Click Button Update  ')
+    attach(data=driver.get_screenshot_as_png())
