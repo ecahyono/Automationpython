@@ -68,7 +68,7 @@ def test_4_sortir_table_cari_nama_Portir():
     print(' = Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('NAMA BIN Ayahku')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('a')
     print('=')
     print(' = Input Nama  ')
 
@@ -102,7 +102,7 @@ def test_6_Click_Button_Detile_Portir():
 
 @mark.fixture_test()
 def test_7_KonfirmasiKeluar_Portir():
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(60)  
     time.sleep(2)
     driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#lihatSurat > span")))
