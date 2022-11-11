@@ -67,21 +67,21 @@ def test_Registrasi(test_setup):
     driver.find_element(By.ID, "password").send_keys("waru")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
-    time.sleep(1)
+    time.sleep(0.5)
     element = driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/nav/ul/li[1]/div")
-    time.sleep(1)
+    time.sleep(0.5)
     actions = ActionChains(driver)
     actions.move_to_element(element).perform()
-    time.sleep(1)
+    time.sleep(0.5)
     element2 = driver.find_element(By.XPATH, "//div/ul/li[2]/div")
-    time.sleep(2)
+    time.sleep(0.5)
     actions2 = ActionChains(driver)
     actions2.move_to_element(element2).perform()
-    time.sleep(2)
+    time.sleep(0.5)
     driver.find_element(By.LINK_TEXT, "Registrasi Tahanan/ Narapidana").click()
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1")))
     
-    i = 10
+    i = 2
 
     # nge baca mulai dari tabel A
     while i <= len(sheetrange['A']):
@@ -161,7 +161,7 @@ def test_Registrasi(test_setup):
         TanggalEkspirasiPerkiraan           = sheetrange['BS'+str(i)].value
         
         #======================== Halaman Index ============================
-        time.sleep(2)
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[3]/i")))
         driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/button[3]/i").click()
         #WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div/div/h1")))
         time.sleep(2)
@@ -170,7 +170,7 @@ def test_Registrasi(test_setup):
             #======================== Halaman Cari ============================
 
             WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[2]")))
-        
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/form/button[2]")))
             
             driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) .el-input__inner").click()
             time.sleep(2)
