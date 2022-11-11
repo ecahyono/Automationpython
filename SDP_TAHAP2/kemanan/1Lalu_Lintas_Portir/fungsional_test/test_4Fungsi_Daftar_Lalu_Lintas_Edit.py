@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys 
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.select import Select
 import platform
@@ -18,7 +18,7 @@ from pytest_html_reporter import attach
 import pyautogui
 import sys
 from pathlib import Path
-#file modul
+#file module
 #from module.setup import initDriver, loadDataPath
 #from module.login import login
 

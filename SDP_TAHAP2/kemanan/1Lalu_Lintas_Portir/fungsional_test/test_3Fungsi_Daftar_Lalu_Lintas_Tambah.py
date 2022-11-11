@@ -18,7 +18,7 @@ from pytest_html_reporter import attach
 
 import sys
 from pathlib import Path
-#file modul
+#file module
 #from module.setup import initDriver, loadDataPath
 #from module.login import login
 
