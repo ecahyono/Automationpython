@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 #file modul
 #from module.setup import initDriver, loadDataPath
-#from module.login import login
+#from module.login import login 
 
 sys.path.append("/Users/will/Documents/work/Automationpython")
 from Settings.setup import initDriver, loadDataPath
@@ -107,7 +107,7 @@ def test_7_KonfirmasiKeluar_Portir():
     driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#lihatSurat > span")))
 
-    driver.find_element(By.CSS_SELECTOR, "#confirmButton > span").click()
+    driver.find_element(By. CSS_SELECTOR, "#confirmButton > span").click()
     #driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 

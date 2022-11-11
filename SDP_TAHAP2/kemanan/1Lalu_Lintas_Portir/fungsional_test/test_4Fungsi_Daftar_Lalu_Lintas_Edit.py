@@ -70,7 +70,7 @@ def test_4_sortir_table_cari_nama_cari_identitas():
     print('================================================================================= Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('cah bin A')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
     print('.')
     print('================================================================================= Input Nama  ')
 
