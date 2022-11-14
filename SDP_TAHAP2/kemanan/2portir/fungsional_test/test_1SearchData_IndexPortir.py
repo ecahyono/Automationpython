@@ -233,6 +233,7 @@ def test_9_SearchDataStatus_KeluarKeamanan_Index():  # Melakukan pencarian data 
         '================================================================================= Search Data Form Kategori No Induk  ')
     attach(data=driver.get_screenshot_as_png())
 
+"""
 
 @mark.fixture_test()
 def test_10_SearchDataStatus_KeluarPortir_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
@@ -251,25 +252,8 @@ def test_10_SearchDataStatus_KeluarPortir_Index():  # Melakukan pencarian data b
     print(
         '================================================================================= Search Data Form Kategori No Induk  ')
     attach(data=driver.get_screenshot_as_png())
+"""
 
-
-@mark.fixture_test()
-def test_11_SearchDataStatus_BelumKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(20)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.ID, 'filterColumn').click()
-    driver.find_element(By.XPATH, '//li[contains(.,\'Semua\')]').click()
-    driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('Belum Kembali')
-    driver.find_element(By.XPATH, "//li[contains(.,\'Belum Kembali\')]").click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-    # WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
-
-    print('.')
-    print(
-        '================================================================================= Search Data Form Kategori No Induk  ')
-    attach(data=driver.get_screenshot_as_png())
 
 
 def teardown():

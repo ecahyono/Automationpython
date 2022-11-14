@@ -258,7 +258,6 @@ def test_16_NamaPengawalEksternal_HalamanTambah():
     print(' = Input nama pengawal Internal  ')
     attach(data=driver.get_screenshot_as_png())
 
-
 @mark.fixture_test()
 def test_17_ButtonSubmitInternal_HalamanTambah():
     driver.implicitly_wait(60)
