@@ -111,6 +111,7 @@ def test_7_KonfirmasiKeluar_KeluarPortir():
     driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#confirmButton > span")))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#confirmButton > span")))
+    time.sleep(4)
     driver.find_element(By.CSS_SELECTOR, "#confirmButton > span").click()
     # driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))

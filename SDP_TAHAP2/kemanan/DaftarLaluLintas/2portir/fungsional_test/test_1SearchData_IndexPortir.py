@@ -147,6 +147,7 @@ def test_4_sortir_table_cari_Semua_Portir():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('USER')
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    time.sleep(1)
     driver.find_element(By.ID, 'searchButton').click()
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
     print('=')
