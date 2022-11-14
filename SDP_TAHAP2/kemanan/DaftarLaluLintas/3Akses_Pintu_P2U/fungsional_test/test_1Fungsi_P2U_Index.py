@@ -296,18 +296,7 @@ def test_16_sortir_100_Halaman_Index():
 
 #Membuka halaman detail melalui klik tombol aksi icon detail
 
-#Membuka form ubah melalui klik tombol aksi icon ubah
-@mark.fixture_test()
-def test_19_membuka_halaman_detail_Index(): 
-    driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
-    driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
-    time.sleep(3)
-    driver.find_element(By.ID, 'backButton').click()
-    print('================================================================================= Membuka Halaman Detail  ')
-    attach(data=driver.get_screenshot_as_png())
+#Membuka form ubah melalui klik tombol aksi icon uba
 
 
 
