@@ -122,8 +122,7 @@ def test_6_clik_clear_value_Index():
         '=================================================================================Click Clear Value Button filter Colum  ')
     attach(data=driver.get_screenshot_as_png())
 
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(
-        'tessssst')  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci yang tidak sesuai lalu data table yang ditampilkan kosong
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('tessssst')  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci yang tidak sesuai lalu data table yang ditampilkan kosong
     time.sleep(0.5)
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, '//*[@id="kataKunci"]')
