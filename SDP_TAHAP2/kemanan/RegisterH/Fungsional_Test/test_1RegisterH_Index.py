@@ -77,7 +77,7 @@ def test_4_search_data_kategori_nama_Index():  # Melakukan pencarian data berdas
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_4_search_data_kategori_noSurat_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_5_search_data_kategori_noSurat_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -98,7 +98,7 @@ def test_4_search_data_kategori_noSurat_Index():  # Melakukan pencarian data ber
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_4_search_data_kategori_lamaPengasingan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_6_search_data_kategori_lamaPengasingan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -120,7 +120,7 @@ def test_4_search_data_kategori_lamaPengasingan_Index():  # Melakukan pencarian 
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_4_search_data_kategori_tanggalMulai_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_7_search_data_kategori_tanggalMulai_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -141,7 +141,7 @@ def test_4_search_data_kategori_tanggalMulai_Index():  # Melakukan pencarian dat
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_4_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_8_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -163,7 +163,7 @@ def test_4_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian d
 
 
 @mark.fixture_test()
-def test_4_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_9_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -183,7 +183,7 @@ def test_4_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian d
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_7_sortir_data_table_Index():
+def test_10_sortir_data_table_Index():
 
 
     driver.implicitly_wait(30)
@@ -206,7 +206,7 @@ def test_7_sortir_data_table_Index():
     print('================================================================================= Sortir No induk ')
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
-def test_12_sortir_5_Halaman_Index():
+def test_11_sortir_5_Halaman_Index():
     # 5 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -265,7 +265,7 @@ def test_12_sortir_5_Halaman_Index():
 
 
 @mark.fixture_test()
-def test_17_membuka_halaman_tambah_Index():
+def test_12_membuka_halaman_tambah_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
@@ -298,7 +298,7 @@ def test_17_membuka_halaman_detail_Index():
 """
 
 @mark.fixture_test()
-def test_21_export_exel_Index():
+def test_13_export_exel_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -312,7 +312,7 @@ def test_21_export_exel_Index():
 
 # Melakukan export data tabel ke pdf
 @mark.fixture_test()
-def test_22_export_pdf_Index():
+def test_14_export_pdf_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -331,8 +331,7 @@ def test_23_cetak_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
-    driver.find_element(By.XPATH,
-                        '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
+    driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
     print('.')
     print('================================================================================= Cetak    ')
     attach(data=driver.get_screenshot_as_png())
