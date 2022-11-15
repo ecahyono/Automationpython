@@ -19,14 +19,8 @@ import sys
 from dotenv import load_dotenv
 load_dotenv()
 
-#file modul
-if platform.system() == 'Darwin':
-    sys.path.append('/Users/will/Documents/work/Automationpython')
-elif platform.system() == 'Windows':
-    sys.path.append(r'C:\Users\user\Documents\TRCH\Automationpython\Settings')
-
-from setup import initDriver, loadDataPath
-from login import login
+from module.setup import initDriver, loadDataPath
+from module.login import login
 
 # init driver by os
 @mark.fixture_Tambah_penerimaan
@@ -85,18 +79,34 @@ def test_Input_date():
 def test_Input_dropdown():
     Jenis_Registrasi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Jenis Registrasi'])
     Jenis_Registrasi.click()
+    time.sleep(2)
     Jenis_Registrasi.send_keys('Register Barang Rampasan Negara')
     Jenis_Registrasi.send_keys(Keys.DOWN)
     Jenis_Registrasi.send_keys(Keys.ENTER)
     
     Instansi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Instansi'])
     Instansi.click()
+    time.sleep(2)
     Instansi.send_keys('POLDA METRO JAYA')
     Instansi.send_keys(Keys.DOWN)
     Instansi.send_keys(Keys.ENTER)
 
     Pengadilan_Penyita = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Pengadilan Penyita'])
     Pengadilan_Penyita.click()
+    time.sleep(2)
     Pengadilan_Penyita.send_keys('Pengadilan Negeri Jakarta Pusat barat')
     Pengadilan_Penyita.send_keys(Keys.DOWN)
     Pengadilan_Penyita.send_keys(Keys.ENTER)
+
+    Petugas_Penerima = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas Penerima'])
+    Petugas_Penerima.click()
+    Petugas_Penerima.send_keys('Ananda Septiana Lestari')
+    driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1)> .el-descriptions__label ').click()
+    time.sleep(2)
+    PetugasygMenyerahkan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas yang Menyerahkan'])
+    PetugasygMenyerahkan.click()
+    PetugasygMenyerahkan.send_keys('Rehan')
+    element = driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1)> .el-descriptions__label ')
+    driver.implicitly_wait(10)
+    ActionChains(wait).move_to_element(element).click(element).perform()
+
