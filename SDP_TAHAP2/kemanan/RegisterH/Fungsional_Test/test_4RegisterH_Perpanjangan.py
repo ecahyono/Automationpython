@@ -44,7 +44,6 @@ def test_2_login_Search():
 def test_3_aksesmenu_Search():
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
-    time.sleep(1)
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Register H').click()
@@ -52,36 +51,27 @@ def test_3_aksesmenu_Search():
     print('==========akses menu daftar lalu lintas==========')
     attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_test()
-def test_4_membuka_halaman_tambah_index_Search():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'createButton')))
-    driver.find_element(By.ID, 'createButton').click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    print('.')
-    print('================================================================================= Membuka Halaman Tambah  ')
-    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_5_search_data_kategori_nama_HalamanTambah():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_9_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
 
-    time.sleep(1)
-    driver.find_element(By.ID, 'filterColumn').send_keys('nama')
-    driver.find_element(By.ID, 'filterColumn').click()
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("WILLLD BINTI eko cah cah ge")
 
-    driver.find_element(By.XPATH, '//*[@id="nama"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('WILLLD BINTI eko cah cah ge')
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
+    driver.find_element(By.XPATH, '//*[@id="perpanjangan0"]').click()
     print('.')
-    print('')
+    print(
+        '=================================================================================Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
+
+
+"""
 @mark.fixture_test()
 def test_6_ClickButton_Daftarkan_HalamanTambah():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
@@ -142,14 +132,15 @@ def test_11_InputAlasan_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_12_Submit_HalamanTambah():
+def test_11_InputAlasan_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'submitButton').click()
-
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
 
     print('.')
     print('')
     attach(data=driver.get_screenshot_as_png())
+"""
 
 
 def teardown():
