@@ -19,18 +19,12 @@ import sys
 from dotenv import load_dotenv
 load_dotenv()
 
-#file modul
-if platform.system() == 'Darwin':
-    sys.path.append('/Users/will/Documents/work/Automationpython')
-elif platform.system() == 'Windows':
-    sys.path.append(r'C:\Users\user\Documents\TRCH\Automationpython\Settings')
-
-from setup import initDriver, loadDataPath
-from login import login
+from module.setup import initDriver, loadDataPath
+from module.login import login
 
 # init driver by os
 @mark.fixture_index_penerimaan
-def test_1_setupOS():
+def test_setup():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -48,123 +42,153 @@ def test_akses_menu():
 
 #inputtext-Dropdown+Celarvalue button
 @mark.fixture_index_penerimaan
-def test_fieldinput_n_Dropdown_n_Clear_index_penerimaan():
-    field = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
+def test_fieldinput_Dropdown_ClearVB():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
     field.click()
-    field.send_keys('Nama')
+    field.send_keys('No Registrasi')
     field.send_keys(Keys.DOWN)
     field.send_keys(Keys.ENTER)
-    elemnt = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['clearkategori'])
+
+    elemnt = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['clearkategori'])
     ActionChains(driver).move_to_element(elemnt).perform()
-    WebDriverWait(driver, 20)
+    WebDriverWait(driver, 25)
     elemnt.click()
 
-    katkun = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['maskakunci'])
+    katkun = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['maskakunci'])
     katkun.click()
     katkun.send_keys('Kata kunci @ 123')
-    elemnt = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['clearkatkun'])
+
+    elemnt = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['clearkatkun'])
     ActionChains(driver).move_to_element(elemnt).perform()
-    WebDriverWait(driver, 20)
+    WebDriverWait(driver, 25)
     elemnt.click()
 
-    Registrasi = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['dropdownJregIndex'])
+    Registrasi = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['dropdownJregIndex'])
     Registrasi.click()
+    time.sleep(2)
     Registrasi.send_keys('Register Barang Rampasan Negara')
     Registrasi.send_keys(Keys.DOWN)
     Registrasi.send_keys(Keys.ENTER)
-    elemnt = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['clearvaluejnreg'])
+
+    elemnt = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['clearvaluejnreg'])
     ActionChains(driver).move_to_element(elemnt).perform()
-    WebDriverWait(driver, 20)
+    WebDriverWait(driver, 25)
     elemnt.click()
 
-    Instansi = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['instansiindex'])
+    Instansi = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['instansiindex'])
     Instansi.click()
     time.sleep(2)
     Instansi.send_keys('POLDA JABAR')
     Instansi.send_keys(Keys.DOWN)
     Instansi.send_keys(Keys.ENTER)
-    elemnt = driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['clearvalueinstnsi'])
+
+    elemnt = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['clearvalueinstnsi'])
     ActionChains(driver).move_to_element(elemnt).perform()
-    WebDriverWait(driver, 20)
+    WebDriverWait(driver, 25)
     elemnt.click()
 
     attach(data=driver.get_screenshot_as_png())
 
-# @mark.fixture_index_penerimaan
-# def test_cari_berdasarkan_():
-
 @mark.fixture_index_penerimaan
-def test_sortirtabel():
-    driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable']).click()
+def test_sortir_tabel():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable']).click()
     # driver.find_element(By.XPATH, pathData ['Rupbasan']['indexrupbasan']['descedingtable']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     attach(data=driver.get_screenshot_as_png())
-
+    time.sleep(2)
+# EXPORT && PRINT
 @mark.fixture_index_penerimaan
-def test_halamanpageindex():
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
-    driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['20halaman']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
-    driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['50halaman']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
-    driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['100halaman']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
+def test_ExportDanCetak():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportPDF']).click()    
+    driver.find_element(By.ID, 'wholeButton').click() 
+    driver.find_element(By.ID, 'thisButton').click()    
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportPDF'])))
+
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportexel']).click() 
+    driver.find_element(By.ID, 'wholeButton').click() 
+    driver.find_element(By.ID, 'thisButton').click() 
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportexel'])))
+
+    driver.find_element(By.ID, 'printButton').click() 
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['cetaksemua']).click() 
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['cetakhalinisaj']).click() 
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'printButton')))
+    attach(data=driver.get_screenshot_as_png())
+    time.sleep(2)
+@mark.fixture_index_penerimaan
+def test_halamanpage_index():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click() 
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['5halaman']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     page = driver.find_element(By.XPATH, pathData['Other Search']['Pergi Ke'])
     page.send_keys(Keys.BACK_SPACE)
-    page.send_keys('4')
+    page.send_keys('15')
     page.send_keys(Keys.ENTER)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Rupbasan']['indexrupbasan']['ascendingtable'])))
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_index_penerimaan
+def test_cari_Datatable():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
+    field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
+    field.click()
+    field.send_keys('No Registrasi')
+    field.send_keys(Keys.DOWN)
+    field.send_keys(Keys.ENTER)
+
+    katkun = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['maskakunci'])
+    katkun.click()
+    katkun.send_keys('NRP/1002')
+
+    driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+    time.sleep(2)
 @mark.fixture_index_penerimaan
 def test_cetakBA():
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['CetakBA']).click() 
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['CetakBA'])))
     attach(data=driver.get_screenshot_as_png())
-
+    time.sleep(2)
 @mark.fixture_index_penerimaan
 def test_Buka_halaman_Ubah():
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['ubah']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
-    driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    driver.find_element(By.ID, 'backButton').click()
     attach(data=driver.get_screenshot_as_png())
+    time.sleep(2)
+@mark.fixture_index_penerimaan
+def test_Buka_halaman_Daftarbarang():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
+    field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
+    field.click()
+    field.send_keys('No Registrasi')
+    field.send_keys(Keys.DOWN)
+    field.send_keys(Keys.ENTER)
+
+    katkun = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['maskakunci'])
+    katkun.click()
+    katkun.send_keys('NRP/1002')
+
+    driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+
+    time.sleep(2)
+
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['daftarbarang']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['ubahpenerimaan']['tab'])))
+    driver.find_element(By.ID, 'backButton').click()
+    attach(data=driver.get_screenshot_as_png())
+    time.sleep(2)
 
 @mark.fixture_index_penerimaan
 def test_Buka_halaman_tambah():
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['tambah']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
-    driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    driver.find_element(By.ID, 'backButton').click()
     attach(data=driver.get_screenshot_as_png())
-    
-@mark.fixture_index_penerimaan
-def test_Buka_halaman_Daftarbarang():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['daftarbarang']).click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, pathData ['Id Navigate Button']['Back Button'])))
-    driver.find_element(By.XPATH, pathData ['Id Navigate Button']['Back Button']).click()
-    attach(data=driver.get_screenshot_as_png())
-
-# EXPORT && PRINT
-@mark.fixture_index_penerimaan
-def test_halaman_exportexel():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportexel']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['semuhalaman']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['Halamaninisaja']).click() 
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_index_penerimaan
-def test_halaman_exportpdf():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportPDF']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['PDFHalini']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['PDFSemuaHal']).click() 
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_index_penerimaan
-def test_halaman_print():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['cetak']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['cetaksemua']).click() 
-    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['cetakhalinisaj']).click() 
-    attach(data=driver.get_screenshot_as_png())
+    time.sleep(2)   

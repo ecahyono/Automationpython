@@ -25,8 +25,8 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(r'C:\Users\user\Documents\TRCH\Automationpython\Settings')
 
-from setup import initDriver, loadDataPath
-from login import login
+from module.setup import initDriver, loadDataPath
+from module.login import login
 
 # init driver by os
 @mark.fixture_Barang_penerimaan
