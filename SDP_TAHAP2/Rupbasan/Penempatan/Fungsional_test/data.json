@@ -92,22 +92,7 @@
             "Keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[6]/div/div/textarea",
             "Petugas Penerima":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input",
             "Petugas yang Menyerahkan":"(//input[@type='text'])[18]",
-            "TersangkaPemilik":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[1]/div/div/div/div/input",
-            "JenisKelamin":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[5]/div/div/div/div/input",
-            
-            "noregidentitas":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[2]/div/div/input",
-            "NMlngkpidentitas":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[3]/div/div[1]/input",
-            "tgllhiridnt":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[6]/div/div/input",
-            "NOKTP":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[4]/div/div/input",
-            "NOtlp":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[8]/div/div[1]/input",
-            "idnalamat":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[7]/div/div/textarea",
-            "idenKeterangan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[9]/div/div/textarea",
-
-            "internalradioyangmenyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[6]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div/div/label[1]",
-            "externalradioyangmenyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[6]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div/div/label[2]",
-            "internalradiosaksi":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div/div/label[1]",
-            "externalradiosaksi":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div/div/label[2]",
-            "inputxternal":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[7]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div[2]/form/div/div/div/div/div/input"
+            "":""
         },
         "barangrupbasan":{
             "Nama Barang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[1]/div[1]/div/div/input",
@@ -132,6 +117,9 @@
             "Berat":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[11]/div/div/input",
             "Volume / CC":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[12]/div/div/input"
             
+
+
+
         },
         "ubahpenerimaan":{
             "tab":"//*[@id=\"tab-petugas_instansi\"]"

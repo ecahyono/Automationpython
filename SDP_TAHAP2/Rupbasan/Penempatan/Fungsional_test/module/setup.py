@@ -3,7 +3,6 @@ from os import environ, path
 from selenium import webdriver
 from pytest import mark
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
 
 def initDriver():
     if platform.system() == 'Darwin':
@@ -23,7 +22,3 @@ def loadDataPath():
     file = open('data.json', 'r')
     data = json.load(file)
     return data
-
-def buttonTambah(driver):
-    driver.implicitly_wait(60)
-    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
