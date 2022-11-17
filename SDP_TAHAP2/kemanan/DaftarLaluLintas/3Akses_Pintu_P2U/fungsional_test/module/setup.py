@@ -20,3 +20,4 @@ def loadDataPath():
     file = open('data.json', 'r')
     data = json.load(file)
     return data
+
