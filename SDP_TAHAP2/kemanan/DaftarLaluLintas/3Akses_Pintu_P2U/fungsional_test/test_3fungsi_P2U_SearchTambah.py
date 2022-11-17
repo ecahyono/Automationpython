@@ -242,20 +242,15 @@ def test_25_SelectKategori_OnsiteTambah():
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "kunjunganOnline").click()
     print('.')
-@mark.fixture_test()
-#input katakunci berdasarkan nama
-def test_26_filterNama_OnsiteTambah():
-    driver.implicitly_wait(60)
-    time.sleep(3)
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("a")
-    driver.find_element(By.ID, 'searchButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
 @mark.fixture_test()
 # input katakunci berdasarkan nama
 def test_27_PickNama_OnsiteTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'pickKunjungan0').click()
+
+def test_28_submit_OnsiteTambah():
+    buttonSubmit(driver)
 
 def teardown():
     quit(driver)
