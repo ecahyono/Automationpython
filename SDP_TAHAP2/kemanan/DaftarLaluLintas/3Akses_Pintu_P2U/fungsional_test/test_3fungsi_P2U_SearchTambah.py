@@ -228,7 +228,7 @@ def test_23_ButtonSubmit_TamuDinasNIPTambah():
 # ==================================================== Kunjungan Onsite ====================================================
 @mark.fixture_test()
 # button tambah kunjungan onsite
-def test_24_HalamanTambah_OnsiteTambah():
+def test_24_HalamanTambah_KunjunganOnsiteTambah():
     buttonTambah(driver)
     print('= Masuk Ke Halaman Tambah data Kunjungan Onsite  =')
     attach(data=driver.get_screenshot_as_png())
@@ -236,21 +236,51 @@ def test_24_HalamanTambah_OnsiteTambah():
 
 @mark.fixture_test()
 # memilih kategori berdasarkan kunjungna onsite
-def test_25_SelectKategori_OnsiteTambah():
+def test_25_SelectKategori_KunjunganOnsiteTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.ID, "kunjunganOnline").click()
+    driver.find_element(By.ID, "kunjungan").click()
     print('.')
 
 @mark.fixture_test()
 # input katakunci berdasarkan nama
-def test_27_PickNama_OnsiteTambah():
+def test_27_PickNama_KunjunganOnsiteTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'pickKunjungan0').click()
-
-def test_28_submit_OnsiteTambah():
+@mark.fixture_test()
+def test_28_submit_KunjunganOnsiteTambah():
     buttonSubmit(driver)
+
+# ==================================================== Kunjungan Online ====================================================
+@mark.fixture_test()
+# button tambah kunjungan onsite
+def test_29_HalamanTambah_KunjunganOnlineTambah():
+    buttonTambah(driver)
+    print('= Masuk Ke Halaman Tambah data Kunjungan Online  =')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+# memilih kategori berdasarkan kunjungna onsite
+def test_30_SelectKategori_KunjunganOnlineTambah():
+    driver.implicitly_wait(60)
+    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    driver.find_element(By.ID, "kunjunganOnline").click()
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+# input katakunci berdasarkan nama
+def test_31_PickNama_KunjunganOnlineTambah():
+    driver.implicitly_wait(60)
+    driver.find_element(By.ID, 'pickKunjungan0').click()
+    attach(data=driver.get_screenshot_as_png())
+@mark.fixture_test()
+def test_32_submit_KunjunganOnlineTambah():
+    buttonSubmit(driver)
+    attach(data=driver.get_screenshot_as_png())
+
 
 def teardown():
     quit(driver)
