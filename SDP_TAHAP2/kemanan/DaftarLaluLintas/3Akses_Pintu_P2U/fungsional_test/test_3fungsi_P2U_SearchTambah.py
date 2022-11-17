@@ -98,6 +98,7 @@ def test_7_InputKeperluan_Pegawaitambah():
     driver.implicitly_wait(15)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     driver.find_element(By.ID, 'submitButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
     print('.')
@@ -170,6 +171,7 @@ def test_8_SearchNIP_Pegawaitambah():
     driver.implicitly_wait(15)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     driver.find_element(By.ID, 'submitButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
     print('.')
