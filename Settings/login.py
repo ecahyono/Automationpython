@@ -16,7 +16,7 @@ def login(driver):
     driver.find_element(By.ID, "kc-login").click()
     WebDriverWait(driver, 10)
     print('.')
-    print('==========Login ==========')
+    print('========== Login ==========')
     
     attach(data=driver.get_screenshot_as_png())
 

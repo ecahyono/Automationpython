@@ -15,32 +15,35 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-
+from module.template import buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, quit
 import sys
 from pathlib import Path
 sys.path.append("/Users/will/Documents/work/Automationpython")
-from Settings.setup import initDriver, loadDataPath, buttonTambah
+from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
 from dotenv import load_dotenv
-
 load_dotenv()
 import json
 
+# file modul
+
+# from module.login import login
+
 
 @mark.fixture_test()
-def test_1_setupOS_Search_Tambah():
+def test_1_SetupOS_Search_Tambah():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
 
 
 @mark.fixture_test()
-def test_2_login_SearchTambah():
+def test_2_Login_SearchTambah():
     login(driver)
 
 
 @mark.fixture_test()
-def test_3_akses_menu_index():
+def test_3_Akses_menu_index():
     driver.implicitly_wait(60)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
@@ -53,6 +56,8 @@ def test_3_akses_menu_index():
     print('= akses menu daftar lalu lintas =')
     attach(data=driver.get_screenshot_as_png())
 
+# ==================================================== PEGAWAI ====================================================
+"""
 @mark.fixture_test()
 # pergi ke halaman tambah
 def test_4_ButtonTambah_PegawaiTambah():
@@ -60,12 +65,8 @@ def test_4_ButtonTambah_PegawaiTambah():
 
 
 @mark.fixture_test()
-def test_5_kategori_Pegawaitambah(): # memilih kategori pegawai
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.ID, "pegawai").click()
-    print('.')
+def test_5_Kategori_Pegawaitambah(): # memilih kategori pegawai
+    selectKategoriPegawai(driver)
     print('= Input Kategori Pegawai  =')
     attach(data=driver.get_screenshot_as_png())
 
@@ -92,13 +93,7 @@ def test_7_InputKeperluan_Pegawaitambah():
 @mark.fixture_test()
 # Submit inputan
 def test_8_ButtonSubmit_Pegawaitambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-
-    print('.')
+    buttonSubmit(driver)
     print('= Click Button Submit  =')
     attach(data=driver.get_screenshot_as_png())
 
@@ -106,28 +101,19 @@ def test_8_ButtonSubmit_Pegawaitambah():
 @mark.fixture_test()
 # pergi ke halaman tambah
 def test_9_ButtonTambahNIP_PegawaiTambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
-    print('.')
-    print('==================================================== PEGAWAI ====================================================')
+    buttonTambah(driver)
+    print('= tambah nip pegawai = ')
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 # memilih kategori pegawai dan mengisikan deskripsi
-def test_9_SearchNIP_Pegawaitambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.ID, "pegawai").click()
-    print('.')
+def test_10_SearchNIP_Pegawaitambah():
+    selectKategoriPegawai(driver)
     print('= Memilih Kategori Pegawai =')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 # Search Nip Pegawai
-def test_10_SearchNIP_Pegawaitambah():
+def test_11_SearchNIP_Pegawaitambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.ID, 'inputSearch')))
     driver.find_element(By.ID, 'inputSearch').send_keys('34')
@@ -139,7 +125,7 @@ def test_10_SearchNIP_Pegawaitambah():
 
 @mark.fixture_test()
 # memilih kategori pegawai dan mengisikan deskripsi
-def test_11_InputDeskripsi_Pegawaitambah():
+def test_12_InputDeskripsi_Pegawaitambah():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="inputKeperluan"]').send_keys('deskripsi')
     print('.')
@@ -148,21 +134,15 @@ def test_11_InputDeskripsi_Pegawaitambah():
 
 @mark.fixture_test()
 # Button Submit NIP
-def test_12_ButtonSubmitNip_Pegawaitambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-
-    print('.')
+def test_13_ButtonSubmitNip_Pegawaitambah():
+    buttonSubmit(driver)
     print('= Button Submit Nip =')
     attach(data=driver.get_screenshot_as_png())
 
 # ==================================================== TAMU DINAS ====================================================
 @mark.fixture_test()
 # masuk halaman tambah
-def test_13_ButtonTambah_TamuDinasTambah():
+def test_14_ButtonTambah_TamuDinasTambah():
     buttonTambah(driver)
     print('.')
     print('==================================================== TAMU DINAS ====================================================')
@@ -171,18 +151,14 @@ def test_13_ButtonTambah_TamuDinasTambah():
 
 @mark.fixture_test()
 # input kategori berdasarkan tamu dinas
-def test_14_kategori_TamuDinasNamaTambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.ID, "tamuDinas").click()
-    print('.')
+def test_15_Kategori_TamuDinasNamaTambah():
+    selectKategoriTamuDinas(driver)
     print('= Pilih kategori tamu dinas =')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 # input search tamu dinas
-def test_11_Search_TamuDinasNAMA_TamuDinasNamaTambah():
+def test_16_Search_TamuDinasNAMA_TamuDinasNamaTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'inputSearch')))
     driver.find_element(By.ID, 'inputSearch').send_keys('a')
@@ -193,7 +169,7 @@ def test_11_Search_TamuDinasNAMA_TamuDinasNamaTambah():
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 # Input Deskripsi keperluan tamu dinas
-def test_12_InputKeperluanTamuDinas_TamuDinasNamaTambah():
+def test_17_InputKeperluanTamuDinas_TamuDinasNamaTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="inputKeperluan"]').send_keys('keperluan')
     print('.')
@@ -202,39 +178,27 @@ def test_12_InputKeperluanTamuDinas_TamuDinasNamaTambah():
 
 
 @mark.fixture_test()
-def test_13_ButtonSubmitTamuDinas_TamuDinasNamaTambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    print('.')
+def test_18_ButtonSubmitTamuDinas_TamuDinasNamaTambah():
+    buttonSubmit(driver)
     print('= Button Submit Tamu Dinas  =')
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 # pergi ke halaman tambah
-def test_14_ButtonTambah_TamuDinasNIPTambah():
+def test_19_ButtonTambah_TamuDinasNIPTambah():
     buttonTambah(driver)
     print('.')
     print('= Membuka Halaman Tambah Untuk Input Tamu Dinas =')
     attach(data=driver.get_screenshot_as_png())
 
-
-
-
 @mark.fixture_test()
-def test_15_Kategori_TamuDinasNIPTambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.ID, "tamuDinas").click()
-    print('.')
+def test_20_Kategori_TamuDinasNIPTambah():
+    selectKategoriTamuDinas(driver)
     print('= Input kategori tamu dinas =')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 # Input Deskripsi
-def test_16_SearchNip_TamuDinasNIPTambah():
+def test_21_SearchNip_TamuDinasNIPTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'inputSearch')))
     driver.find_element(By.ID, 'inputSearch').send_keys('3')
@@ -246,7 +210,7 @@ def test_16_SearchNip_TamuDinasNIPTambah():
 
 @mark.fixture_test()
 # Input Deskripsi
-def test_17_InputKeperluan_TamuDinasNIPTambah():
+def test_22_InputKeperluan_TamuDinasNIPTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="inputKeperluan"]').send_keys('keperluan')
     print('.')
@@ -254,34 +218,44 @@ def test_17_InputKeperluan_TamuDinasNIPTambah():
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 # Button Submit tamu dinas nip
-def test_18_ButtonSubmit_TamuDinasNIPTambah():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+def test_23_ButtonSubmit_TamuDinasNIPTambah():
+    buttonSubmit(driver)
     print('.')
     print('= Input Keperluan Tamu dinas  =')
     attach(data=driver.get_screenshot_as_png())
 
-
+"""
 # ==================================================== Kunjungan Onsite ====================================================
 @mark.fixture_test()
-def test_19_HalamanTambah_Onsitetambah():
+# button tambah kunjungan onsite
+def test_24_HalamanTambah_OnsiteTambah():
     buttonTambah(driver)
+    print('= Masuk Ke Halaman Tambah data Kunjungan Onsite  =')
+    attach(data=driver.get_screenshot_as_png())
 
 
+@mark.fixture_test()
+# memilih kategori berdasarkan kunjungna onsite
+def test_25_SelectKategori_OnsiteTambah():
+    driver.implicitly_wait(60)
+    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    driver.find_element(By.ID, "kunjunganOnline").click()
+    print('.')
+@mark.fixture_test()
+#input katakunci berdasarkan nama
+def test_26_filterNama_OnsiteTambah():
+    driver.implicitly_wait(60)
+    time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("a")
+    driver.find_element(By.ID, 'searchButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+
+@mark.fixture_test()
+# input katakunci berdasarkan nama
+def test_27_PickNama_OnsiteTambah():
+    driver.implicitly_wait(60)
+    driver.find_element(By.ID, 'pickKunjungan0').click()
 
 def teardown():
-    time.sleep(9)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-    driver.close()
-    driver.quit()
+    quit(driver)

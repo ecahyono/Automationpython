@@ -6,30 +6,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
-def initDriver():
-    if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
-    elif platform.system() == 'Windows':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERWIN"))
-
-    driver.get(environ.get("HOST"))
-    driver.maximize_window()
-    driver.implicitly_wait(5)
-
-    return driver
-
-def loadDataPath():
-    if platform.system() == 'Darwin':
-        sys.path.append('/Users/will/Documents/work/Automationpython')
-        # sys.path.append( '..' )
-        file = open('data.json', 'r')
-        data = json.load(file)
-        return data
-    elif platform.system() == 'Windows':
-        #sys.path.append( '..' )
-        file = open('data.json', 'r')
-        data = json.load(file)
-        return data
 
 def buttonTambah(driver):
     driver.implicitly_wait(60)
@@ -75,4 +51,3 @@ def quit(driver):
 
     driver.close()
     driver.quit()
-
