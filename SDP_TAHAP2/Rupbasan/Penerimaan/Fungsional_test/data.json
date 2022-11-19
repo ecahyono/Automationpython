@@ -48,7 +48,7 @@
             "carikolom": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div",
             "katakunci": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div",
             "tambah": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button",
-            "daftarbarang":"//button[contains(.,'Daftar Barang')]",
+            "daftarbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div/div[3]/div/div/div/table/tbody/tr/td[10]/div/div/div/a/button",
             "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[10]/div/div/div[2]",
             "ubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div",
             "exportexel":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[1]/button",
@@ -113,24 +113,27 @@
             "Nama Barang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[1]/div[1]/div/div/input",
             "Jumlah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[2]/div[1]/div/div/input",
             "Jumlah Baik":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[2]/div[2]/div/div/input",
-            "umlah Rusak Ringan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[2]/div[3]/div/div/input",
+            "jumlah Rusak Ringan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[2]/div[3]/div/div/input",
             "Jumlah Rusak Berat":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[1]/div[2]/div[4]/div/div/input",
             "Jenis Barang":"//*[@id=\"input_jenis_baran_basan\"]",
             "Satuan":"//*[@id=\"input_satuan_baran_basan\"]",
             "1foto":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[2]/div/div/input",
             "1keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[3]/div/form/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[4]/div/div/textarea",
+
+            "Golongan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[5]/div/div/div/div",
+
             "Nomor Penelitian":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[1]/div/div/input",
             "Tanggal Penelitian":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[2]/div/div/input",
             "Nomor SK Peneliti":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[3]/div/div/input",
             "Tanggal SK Peneliti":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[4]/div/div/input",
-            "Golongan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[5]/div/div/div/div",
             "Keadaan Segel Penyita":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[6]/div/div/input",
             "Kondisi Barang":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[7]/div/div/div/div",
             "Sub Kondisi Barang":"//*[@id=\"input_sub_kondisi_baran_basan\"]",
             "Sifat":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[9]/div/div/input",
             "Merek Dan Kondisi":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[10]/div/div/input",
             "Berat":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[11]/div/div/input",
-            "Volume / CC":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[12]/div/div/input"
+            "Volume / CC":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[4]/div[1]/div[12]/div/div/input",
+            "PemeliharaanKhusus":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form[2]/div/div[2]/div[10]/div/div/div/div/input"
             
         },
         "ubahpenerimaan":{

@@ -22,130 +22,157 @@ load_dotenv()
 
 from module.setup import initDriver, loadDataPath, buttonTambah
 from module.login import login
+import unittest, time, re
 
-# init driver by os
-@mark.fixture_Tambah_penerimaan
-def test_1_setupOS():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()
 
-@mark.fixture_Tambah_penerimaan
-def test_login():
-    login(driver)
 
-@mark.fixture_Tambah_penerimaan
-def test_akses_menu():
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
-    ActionChains(driver).move_to_element(nav1).perform()
-    driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
-    attach(data=driver.get_screenshot_as_png())
+class Penerimaan(unittest.TestCase):
+    # init driver by os
+    @mark.fixture_Tambah_penerimaan
+    def test_1_setupOS(self):
+        global driver, pathData
+        self.driver = initDriver()
+        pathData = loadDataPath()
 
-@mark.fixture_Tambah_penerimaan
-def test_Buka_halaman_tambah():
-    buttonTambah(driver)
-
-@mark.fixture_Tambah_penerimaan
-def test_input_text():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Registrasi Rupbasan']).send_keys('TC1080TI')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Registrasi Instansi']).send_keys('NoRegIns-001')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Surat Izin Penyitaan']).send_keys('NoSurIzPen-001')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Surat Penyitaan']).send_keys('NoSurPen-001')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Pasal']).send_keys('Pasal 1 Ayat 1 No 5')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['No. BA Serah Terima']).send_keys('NoBASerTrim-001')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['noregidentitas']).send_keys('NoRegIdn-001')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NMlngkpidentitas']).send_keys('Nama lengkap saya')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NOKTP']).send_keys('1234123412341234')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NOtlp']).send_keys('086767857665')
-
-@mark.fixture_Tambah_penerimaan
-def test_Input_text_area():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Keterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['idnalamat']).send_keys('*&+_-ALAMATKeterangan @ Penerimaan Rupb454N')
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['idenKeterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
-
-@mark.fixture_Tambah_penerimaan
-def test_Input_date():
-    Tanggal_Penerimaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Penerimaan'])
-    Tanggal_Penerimaan.click()
-    Tanggal_Penerimaan.send_keys('01/11/2022')
-    Tanggal_Penerimaan.send_keys(Keys.ENTER)
-
-    Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Surat Izin Penyitaan'])
-    Tanggal_Surat_Izin_Penyitaan.click()
-    Tanggal_Surat_Izin_Penyitaan.send_keys('01/11/2022')
-    Tanggal_Surat_Izin_Penyitaan.send_keys(Keys.ENTER)
-
-    Tanggal_Surat_Penyitaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Surat Penyitaan'])
-    Tanggal_Surat_Penyitaan.click()
-    Tanggal_Surat_Penyitaan.send_keys('01/11/2022')
-    Tanggal_Surat_Penyitaan.send_keys(Keys.ENTER)
-
-    TglIdnlhr = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['tgllhiridnt'])
-    TglIdnlhr.click()
-    TglIdnlhr.send_keys('01/09/1998')
-    TglIdnlhr.send_keys(Keys.ENTER)
-
-@mark.fixture_Tambah_penerimaan
-def test_Input_dropdown():
-    Jenis_Registrasi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Jenis Registrasi'])
-    Jenis_Registrasi.click()
-    time.sleep(2)
-    Jenis_Registrasi.send_keys('Register Barang Rampasan Negara')
-    Jenis_Registrasi.send_keys(Keys.DOWN)
-    Jenis_Registrasi.send_keys(Keys.ENTER)
     
-    Instansi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Instansi'])
-    Instansi.click()
-    time.sleep(2)
-    Instansi.send_keys('POLDA METRO JAYA')
-    Instansi.send_keys(Keys.DOWN)
-    Instansi.send_keys(Keys.ENTER)
+    def test_login(test_1_setupOS):
+        login(driver)
 
-    Pengadilan_Penyita = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Pengadilan Penyita'])
-    Pengadilan_Penyita.click()
-    time.sleep(2)
-    Pengadilan_Penyita.send_keys('Pengadilan Negeri Jakarta Pusat barat')
-    Pengadilan_Penyita.send_keys(Keys.DOWN)
-    Pengadilan_Penyita.send_keys(Keys.ENTER)
+    
+    def test_akses_menu(test_login):
+        
+        nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
+        ActionChains(driver).move_to_element(nav1).perform()
+        driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
+        attach(data=driver.get_screenshot_as_png())
 
-    Petugas_Penerima = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas Penerima'])
-    Petugas_Penerima.click()
-    Petugas_Penerima.send_keys('Ananda Septiana Lestari')
-    driver.find_element(By. ID, 'cariPetugasInternal').click()
-    # driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1)> .el-descriptions__label ').click()
-    time.sleep(2)
-    PetugasygMenyerahkan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas yang Menyerahkan'])
-    PetugasygMenyerahkan.click()
-    PetugasygMenyerahkan.send_keys("Rehan")
-    driver.find_element(By. ID, 'cariPetugasEksternal').click()
-    # driver.find_element(By.XPATH, "//div[19]/div/div/div/ul/li").click()
 
-    #Tab identitas 
-    TersangkaPemilik = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['TersangkaPemilik'])
-    TersangkaPemilik.click()
-    driver.find_element(By.ID, "Tersangka").click()
-    # driver.find_element(By.XPATH, "//div[20]/div/div/div[1]/ul/li[1]").click()
+    def test_Buka_halaman_Ubah(self):
+        
+        WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+        field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
+        field.click()
+        field.send_keys('No Registrasi')
+        field.send_keys(Keys.DOWN)
+        field.send_keys(Keys.ENTER)
 
-    JenisKelamin = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['JenisKelamin'])
-    JenisKelamin.click()
-    driver.find_element(By.ID, "L").click()
+        katkun = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['maskakunci'])
+        katkun.click()
+        katkun.send_keys('124436487')
+        driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
+        WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
+        time.sleep(2)
+        driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['ubah']).click()
 
-@mark.fixture_Tambah_penerimaan
-def test_Pindah_tab():
-    driver.find_element(By.ID, "tab-petugas_instansi").click()
-    driver.find_element(By.ID, "tab-saksi_penerimaan").click()
+    
+    def test_input_text(self):
+        
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Registrasi Rupbasan']).send_keys('TC1080TI')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Registrasi Instansi']).send_keys('NoRegIns-001')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Surat Izin Penyitaan']).send_keys('NoSurIzPen-001')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Nomor Surat Penyitaan']).send_keys('NoSurPen-001')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Pasal']).send_keys('Pasal 1 Ayat 1 No 5')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['No. BA Serah Terima']).send_keys('NoBASerTrim-001')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['noregidentitas']).send_keys('NoRegIdn-001')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NMlngkpidentitas']).send_keys('Nama lengkap saya')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NOKTP']).send_keys('1234123412341234')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['NOtlp']).send_keys('086767857665')
 
-@mark.fixture_Tambah_penerimaan
-def test_pilih_radiobutton():
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['internalradiosaksi']).click()
-    driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['externalradiosaksi']).click()
-    external = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['inputxternal'])
-    external.click()
-    external.send_keys("Rehan")
-    driver.find_element(By. ID, 'cariPetugasEksternal').click()
-    # driver.find_element(By.XPATH, "//div[23]/div/div/div/ul/li").click()
+    
+    def test_Input_text_area(self):
+        
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Keterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['idnalamat']).send_keys('*&+_-ALAMATKeterangan @ Penerimaan Rupb454N')
+        driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['idenKeterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
 
-@mark.fixture_Tambah_penerimaan
-def test_Submit_Data_penerimaan():
-    driver.find_element(By.ID, "submitButton").click()
+    
+    def test_Input_date(self):
+        
+        Tanggal_Penerimaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Penerimaan'])
+        Tanggal_Penerimaan.click()
+        Tanggal_Penerimaan.send_keys('01/11/2022')
+        Tanggal_Penerimaan.send_keys(Keys.ENTER)
+
+        Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Surat Izin Penyitaan'])
+        Tanggal_Surat_Izin_Penyitaan.click()
+        Tanggal_Surat_Izin_Penyitaan.send_keys('01/11/2022')
+        Tanggal_Surat_Izin_Penyitaan.send_keys(Keys.ENTER)
+
+        Tanggal_Surat_Penyitaan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Tanggal Surat Penyitaan'])
+        Tanggal_Surat_Penyitaan.click()
+        Tanggal_Surat_Penyitaan.send_keys('01/11/2022')
+        Tanggal_Surat_Penyitaan.send_keys(Keys.ENTER)
+
+        TglIdnlhr = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['tgllhiridnt'])
+        TglIdnlhr.click()
+        TglIdnlhr.send_keys('01/09/1998')
+        TglIdnlhr.send_keys(Keys.ENTER)
+
+    
+    def test_Input_dropdown(self):
+        
+        Jenis_Registrasi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Jenis Registrasi'])
+        Jenis_Registrasi.click()
+        time.sleep(2)
+        Jenis_Registrasi.send_keys('Register Barang Rampasan Negara')
+        Jenis_Registrasi.send_keys(Keys.DOWN)
+        Jenis_Registrasi.send_keys(Keys.ENTER)
+        
+        Instansi = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Instansi'])
+        Instansi.click()
+        time.sleep(2)
+        Instansi.send_keys('POLDA METRO JAYA')
+        Instansi.send_keys(Keys.DOWN)
+        Instansi.send_keys(Keys.ENTER)
+
+        Pengadilan_Penyita = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Pengadilan Penyita'])
+        Pengadilan_Penyita.click()
+        time.sleep(2)
+        Pengadilan_Penyita.send_keys('Pengadilan Negeri Jakarta Pusat barat')
+        Pengadilan_Penyita.send_keys(Keys.DOWN)
+        Pengadilan_Penyita.send_keys(Keys.ENTER)
+
+        Petugas_Penerima = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas Penerima'])
+        Petugas_Penerima.click()
+        Petugas_Penerima.send_keys('Ananda Septiana Lestari')
+        driver.find_element(By. ID, 'cariPetugasInternal').click()
+        driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1)> .el-descriptions__label ').click()
+        time.sleep(2)
+        PetugasygMenyerahkan = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['Petugas yang Menyerahkan'])
+        PetugasygMenyerahkan.click()
+        PetugasygMenyerahkan.send_keys("Rehan")
+        # driver.find_element(By. ID, 'cariPetugasEksternal').click()
+        driver.find_element(By.XPATH, "//div[19]/div/div/div/ul/li").click()
+
+        #Tab identitas 
+        TersangkaPemilik = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['TersangkaPemilik'])
+        TersangkaPemilik.click()
+        driver.find_element(By.ID, "Tersangka").click()
+        # driver.find_element(By.XPATH, "//div[20]/div/div/div[1]/ul/li[1]").click()
+
+        JenisKelamin = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['JenisKelamin'])
+        JenisKelamin.click()
+        driver.find_element(By.ID, "P").click()
+
+    # 
+    # def test_Pindah_tab():
+    #     driver.find_element(By.ID, "tab-petugas_instansi").click()
+    #     driver.find_element(By.ID, "tab-saksi_penerimaan").click()
+
+    # 
+    # def test_pilih_radiobutton():
+    #     driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['internalradiosaksi']).click()
+    #     driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['externalradiosaksi']).click()
+    #     external = driver.find_element(By.XPATH, pathData['Rupbasan']['+rupbasan']['inputxternal'])
+    #     external.click()
+    #     external.send_keys("Rehan")
+    #     driver.find_element(By. ID, 'cariPetugasEksternal').click()
+        # driver.find_element(By.XPATH, "//div[23]/div/div/div/ul/li").click()
+
+    
+    def test_Submit_Data_penerimaan():
+        
+        driver.find_element(By.ID, "submitButton").click()
+
+if __name__ == "__main__":
+    unittest.main()

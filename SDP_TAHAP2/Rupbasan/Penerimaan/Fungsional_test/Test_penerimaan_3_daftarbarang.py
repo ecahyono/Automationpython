@@ -51,14 +51,66 @@ def test_Buka_halaman_Daftarbarang():
 
     katkun = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['maskakunci'])
     katkun.click()
-    katkun.send_keys('NRP1001')
-
+    katkun.send_keys('124436487')
     driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     time.sleep(3)
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['daftarbarang']).click()
-    
-# @mark.fixture_Barang_penerimaan
-# def test_Tambahn_Daftarbarang():
 
+###Kelengkapan Basan & Baran
+@mark.fixture_Barang_penerimaan
+def test_Tambah_Daftarbarang_TabKBB():
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['Nama Barang']).send_keys('Barang nama barang')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['Jumlah']).send_keys('5')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['Jumlah Baik']).send_keys('5')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['jumlah Rusak Ringan']).send_keys('5')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['Jumlah Rusak Berat']).send_keys('5')
     
+    Jenis_Barang = driver.find_element(By.ID, 'input_jenis_baran_basan')
+    Jenis_Barang.click()
+    Jenis_Barang.send_keys('berharga')
+    Jenis_Barang.send_keys(Keys.DOWN)
+    Jenis_Barang.send_keys(Keys.ENTER)
+
+    Satuan = driver.find_element(By.ID, 'input_satuan_baran_basan')
+    Satuan.click()
+    Satuan.send_keys('Unit')
+    Satuan.send_keys(Keys.DOWN)
+    Satuan.send_keys(Keys.ENTER)
+
+# def test_Tambah_Daftarbarang_TabPenelitian():
+def test_pindah_tab_penelitian():
+    driver.find_element(By.ID, 'tab-penelitian').click()
+
+    pilihgolongan = driver.find_element(By. XPATH, pathData['Rupbasan']['barangrupbasan']['Golongan'])
+    pilihgolongan.click()
+    pilihgolongan.send_keys('Senjata Tajam')
+    pilihgolongan.send_keys(Keys.DOWN)
+    pilihgolongan.send_keys(Keys.ENTER)
+
+    kondisibarang = driver.find_element(By.ID, 'input_kondisi_baran_basan')
+    kondisibarang.click()
+    kondisibarang.send_keys('Baik')
+    kondisibarang.send_keys(Keys.DOWN)
+    kondisibarang.send_keys(Keys.ENTER)
+
+    subkondisibarang = driver.find_element(By.ID, 'input_sub_kondisi_baran_basan')
+    subkondisibarang.click()
+    subkondisibarang.send_keys('rusak ringan')
+    subkondisibarang.send_keys(Keys.DOWN)
+    subkondisibarang.send_keys(Keys.ENTER)
+
+    PemeliharaanKhusus = driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['PemeliharaanKhusus'])
+    PemeliharaanKhusus.click()
+    PemeliharaanKhusus.send_keys('kendaraan')
+    PemeliharaanKhusus.send_keys(Keys.DOWN)
+    PemeliharaanKhusus.send_keys(Keys.ENTER)
+
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Nomor Penelitian']).send_keys('NoPen/003')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Nomor SK Peneliti']).send_keys('NoSKPen/003')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Keadaan Segel Penyita']).send_keys('Keadaan Segel Penyita02p')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Sifat']).send_keys('Sdd3ifat02p')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Merek Dan Kondisi']).send_keys('Merek Dan Kondisi 0987')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Berat']).send_keys('Berat')
+    driver.find_element(By.XPATH, pathData['Rupbasan']['barangrupbasan']['Berat']).send_keys('Berat')
+
