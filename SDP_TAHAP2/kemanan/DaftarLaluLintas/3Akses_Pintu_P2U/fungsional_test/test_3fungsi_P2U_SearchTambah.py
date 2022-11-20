@@ -57,7 +57,7 @@ def test_3_Akses_menu_index():
     attach(data=driver.get_screenshot_as_png())
 
 # ==================================================== PEGAWAI ====================================================
-"""
+
 @mark.fixture_test()
 # pergi ke halaman tambah
 def test_4_ButtonTambah_PegawaiTambah():
@@ -224,7 +224,7 @@ def test_23_ButtonSubmit_TamuDinasNIPTambah():
     print('= Input Keperluan Tamu dinas  =')
     attach(data=driver.get_screenshot_as_png())
 
-"""
+
 # ==================================================== Kunjungan Onsite ====================================================
 @mark.fixture_test()
 # button tambah kunjungan onsite
@@ -253,6 +253,7 @@ def test_28_submit_KunjunganOnsiteTambah():
     buttonSubmit(driver)
 
 # ==================================================== Kunjungan Online ====================================================
+
 @mark.fixture_test()
 # button tambah kunjungan onsite
 def test_29_HalamanTambah_KunjunganOnlineTambah():
@@ -280,7 +281,6 @@ def test_31_PickNama_KunjunganOnlineTambah():
 def test_32_submit_KunjunganOnlineTambah():
     buttonSubmit(driver)
     attach(data=driver.get_screenshot_as_png())
-
 
 def teardown():
     quit(driver)
