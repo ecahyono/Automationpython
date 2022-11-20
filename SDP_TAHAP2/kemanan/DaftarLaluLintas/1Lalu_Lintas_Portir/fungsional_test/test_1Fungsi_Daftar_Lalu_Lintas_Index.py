@@ -60,7 +60,7 @@ def test_3_akses_menu_index():
 
 
 @mark.fixture_test()
-def test_4_search_data_kategori_nama_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_4_DLP001_SearchkategoriNama_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -84,7 +84,7 @@ def test_4_search_data_kategori_nama_Index():  # Melakukan pencarian data berdas
 
 
 @mark.fixture_test()
-def test_5_search_data_kategori_NoInduk_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_5_DLP001_SearchKategoriNoInduk_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -142,7 +142,7 @@ def test_6_clik_clear_value_Index():
 
 # SORTIR TABLE HALAMAN INDEX
 @mark.fixture_test()
-def test_7_sortir_data_table_NoInduk_Index():
+def test_7_DLP001_SortirDatatable_NoInduk_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -150,10 +150,7 @@ def test_7_sortir_data_table_NoInduk_Index():
     print('.')
     print('================================================================================= Sortir No induk ')
     attach(data=driver.get_screenshot_as_png())
-
-
-@mark.fixture_test()
-def test_8_sortir_data_table_nama_Index():
+    #NAMA
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -161,10 +158,7 @@ def test_8_sortir_data_table_nama_Index():
     print('.')
     print('================================================================================= Sortir nama')
     attach(data=driver.get_screenshot_as_png())
-
-
-@mark.fixture_test()
-def test_9_sortir_data_table_Jenis_Index():
+    JENIS
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -172,10 +166,7 @@ def test_9_sortir_data_table_Jenis_Index():
     print('.')
     print('================================================================================= Sortir jenis ')
     attach(data=driver.get_screenshot_as_png())
-
-
-@mark.fixture_test()
-def test_10_sortir_data_table_tglkeluar_Index():
+    #TANGGAL KELUAR
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -183,10 +174,7 @@ def test_10_sortir_data_table_tglkeluar_Index():
     print('.')
     print('================================================================================= Sortir Tanggal Keluar ')
     attach(data=driver.get_screenshot_as_png())
-
-
-@mark.fixture_test()
-def test_11_sortir_data_table_tglkembali_Index():
+    #TANGGAL KEMBALI
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -198,7 +186,7 @@ def test_11_sortir_data_table_tglkembali_Index():
 
 # Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_12_sortir_5_Halaman_Index():
+def test_8_DLP001_Pagination_Index():
     # 5 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
@@ -207,73 +195,54 @@ def test_12_sortir_5_Halaman_Index():
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    print(' Menampilkan 5')
     attach(data=driver.get_screenshot_as_png())
 
-
-# Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
-@mark.fixture_test()
-def test_13_sortir_10_Halaman_Index():
-    # 10 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('2')
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 10  ')
+    print(' Menampilkan  ')
     attach(data=driver.get_screenshot_as_png())
 
-
-# Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
-@mark.fixture_test()
-def test_14_sortir_20_Halaman_Index():
-    # 20 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('2')
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 20  ')
+    print(' Menampilkan  ')
     attach(data=driver.get_screenshot_as_png())
 
-
-# Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
-@mark.fixture_test()
-def test_15_sortir_50_Halaman_Index():
-    # 50 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(
+        '100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 50  ')
+    print(' Menampilkan  ')
     attach(data=driver.get_screenshot_as_png())
 
-
-# Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
-@mark.fixture_test()
-def test_16_sortir_100_Halaman_Index():
-    # 100 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('2')
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 100  ')
+    print(' Menampilkan  ')
     attach(data=driver.get_screenshot_as_png())
 
 
 # Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
 @mark.fixture_test()
-def test_17_membuka_halaman_tambah_Index():
+def test_9_membuka_halaman_tambah_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
@@ -288,7 +257,7 @@ def test_17_membuka_halaman_tambah_Index():
 
 
 @mark.fixture_test()
-def test_18_back_index():
+def test_10_back_index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
@@ -298,7 +267,7 @@ def test_18_back_index():
 
 # Membuka halaman detail melalui klik tombol aksi icon detail
 @mark.fixture_test()
-def test_19_membuka_halaman_ubah_Index():
+def test_11_membuka_halaman_ubah_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
@@ -313,7 +282,7 @@ def test_19_membuka_halaman_ubah_Index():
 
 # Membuka form ubah melalui klik tombol aksi icon ubah
 @mark.fixture_test()
-def test_20_membuka_halaman_detail_Index():
+def test_12_membuka_halaman_detail_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
@@ -328,7 +297,7 @@ def test_20_membuka_halaman_detail_Index():
 
 # Melakukan export data tabel ke excel
 @mark.fixture_test()
-def test_21_export_exel_Index():
+def test_13_export_exel_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -342,7 +311,7 @@ def test_21_export_exel_Index():
 
 # Melakukan export data tabel ke pdf
 @mark.fixture_test()
-def test_22_export_pdf_Index():
+def test_14_export_pdf_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -356,7 +325,7 @@ def test_22_export_pdf_Index():
 
 # Melakukan cetak
 @mark.fixture_test()
-def test_23_cetak_Index():
+def test_15_cetak_Index():
     time.sleep(1)
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))

@@ -68,7 +68,7 @@ def test_4_sortir_table_cari_nama_KeluarKeamanan():
     print(' = Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('a')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('test')
     print('=')
     print(' = Input Nama  ')
 
@@ -107,10 +107,12 @@ def test_7_KonfirmasiKeluar_KeluarKeamanan():
     time.sleep(2)
     driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#lihatSurat > span")))
-    time.sleep(2)
+    time.sleep(5)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#confirmButton > span")))
     driver.find_element(By. CSS_SELECTOR, "#confirmButton > span").click()
     #driver.find_element(By.CSS_SELECTOR, "#lihatSurat > span").click()
+    WebDriverWait(driver, 30).until(
+        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
     #driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
