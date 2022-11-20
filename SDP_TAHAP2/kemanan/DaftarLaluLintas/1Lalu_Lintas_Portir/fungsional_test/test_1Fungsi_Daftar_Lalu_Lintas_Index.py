@@ -158,7 +158,7 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     print('.')
     print('================================================================================= Sortir nama')
     attach(data=driver.get_screenshot_as_png())
-    JENIS
+    #JENIS
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
