@@ -54,8 +54,9 @@ class TestDaftarLaluLintas_Input():
             driver.quit()
 
     def test_DaftarLaluLintas_Input(self,test_setup):
-        driver.implicitly_wait(10)
+        driver.implicitly_wait(60)
         sheetrange = wb ['DaftarLaluLintas_Input']
+
         WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"app\"]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/canvas")))
 
         driver.find_element(By.XPATH, "//div/span").click()
@@ -77,8 +78,6 @@ class TestDaftarLaluLintas_Input():
 
         driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
 
-
-
         i = 2
 
 
@@ -91,56 +90,130 @@ class TestDaftarLaluLintas_Input():
             TanggalHarusKembali                   = sheetrange['E'+str(i)].value
             deskripsi                             = sheetrange['F'+str(i)].value
 
-
+            driver.implicitly_wait(60)
+            WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+            driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+            WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+            WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+            driver.implicitly_wait(60)
+            WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            time.sleep(5)
+            driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
+            driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+            print('=')
+            print(' = Memilih Dropdown Nama  ')
 
             try:
-                time.sleep(1)
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
-                driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-                WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/label/div/div/div/input').click()
-                if Drpdownsearch == 'Nama' :
-                    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+                time.sleep(0.4)
+                driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
+                driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+                print('=')
+                print(' = Memilih Dropdown Nama  ')
 
-                elif Drpdownsearch == 'NoRegistrasi' :
-                    driver.find_element(By.XPATH, "//li[contains(.,'No. Registrasi')]").click()
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+                driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Nama)
 
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input')))
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/div/input').send_keys(Nama)
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+                driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
 
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button')))
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div/div[1]/div/div/button').click()
-
+                driver.implicitly_wait(60)
                 time.sleep(2)
-                WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
+                WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
                 driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
 
-                driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div/div/div[2]/div/div/div/div/div[2]/button').click()
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
+                driver.find_element(By.ID, 'createButton').click()
 
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keluarKeamanan"]')))
-                driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(TanggalKeluar)
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
+                driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("asimilasi")
+                driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
+
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keluarKeamanan"]')))
+                driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys('24/12/2018')
                 driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(Keys.ENTER)
-                
-                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(TanggalHarusKembali)
-                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
-                
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
-                driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').click()
-                time.sleep(1)
-                if JenisKeluar == 'Cuti Bersyarat' :
-                    driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
-                elif JenisKeluar == 'Bebas dari Tuntutan' :
-                    driver.find_element(By.XPATH, "//li[contains(.,\'Bebas dari Tuntutan\')]").click()
-                elif JenisKeluar == 'Cuti Menjelang Bebas':
-                    driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
 
-                driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys(deskripsi)
+                driver.implicitly_wait(60)
+                driver.execute_script("window.scrollTo(0,1462.5)")
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#deskripsi')))
+                driver.find_element(By.CSS_SELECTOR, "#deskripsi").click()
+                driver.find_element(By.CSS_SELECTOR, "#deskripsi").send_keys(deskripsi)
+
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalKembali"]')))
+                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2018 12:00:00')
+                driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
+
+
+                """
                 
+                driver.implicitly_wait(60)
+                driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
+                time.sleep(0.5)
+                driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
+
+
+
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis0"]')))
+                driver.find_element(By.XPATH, '//*[@id="jenis0"]').click()
+                driver.find_element(By.XPATH, "//li[contains(.,\'Internal\')]").click()
+                print('=')
+                print(' = Input tambah Jenis pengawal  ')
+
+
+                driver.implicitly_wait(60)
+                driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').click
+                driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').send_keys('robi')
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable(
+                    (By.XPATH, '//li[@id=\'optionPengawal0\']/div/div/table/tbody/tr[2]/td[2]')))
+                driver.find_element(By.XPATH,
+                                    "//li[@id=\'optionPengawal0\']/div/div/table/tbody/tr[2]/td[2]").click()
+                print('=')
+                print(' = Input nama pengawal Internal  ')
+                
+
+                driver.implicitly_wait(60)
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis1"]')))
+                driver.find_element(By.XPATH, '//*[@id="jenis1"]').click()
+                driver.find_element(By.CSS_SELECTOR, "#Eksternal1").click()
+                print('=')
+                print(' = Input tambah Jenis pengawal  ')
+                
+
+
+                driver.implicitly_wait(60)
+                driver.find_element(By.XPATH, '//*[@id="pengawal1"]').click
+                driver.find_element(By.XPATH, '//*[@id="pengawal1"]').send_keys('rehan')
+                time.sleep(1)
+                WebDriverWait(driver,60).until(
+                    EC.element_to_be_clickable((By.XPATH, "//td[contains(.,'operator')]")))
+                time.sleep(0.4)
+                driver.find_element(By.XPATH, "//td[contains(.,'operator')]").click()
+                print('=')
+                print(' = Input nama pengawal Enternal  ')
+                """
+
+
+                driver.implicitly_wait(60)
                 time.sleep(3)
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
                 driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
-                WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+                WebDriverWait(driver, 30).until(
+                    EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
+                WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+                print('=')
+                print(' = Menekan Button Submit  ')
+                
+
+
+
 
             except TimeoutException:
                 print("MASIH ADA ERROR, CEK LAGI PAK WIL")

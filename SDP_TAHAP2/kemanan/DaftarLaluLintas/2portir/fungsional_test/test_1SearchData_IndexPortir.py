@@ -136,7 +136,7 @@ def test_8_sortir_100_Halaman_Index():
 
 
 @mark.fixture_test()
-def test_4_sortir_table_cari_Semua_Portir():
+def test_9_sortir_table_cari_Semua_Portir():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
@@ -156,7 +156,7 @@ def test_4_sortir_table_cari_Semua_Portir():
 
 
 @mark.fixture_test()
-def test_6_search_data_kategori_NoInduk_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_10_search_data_kategori_NoInduk_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -177,7 +177,7 @@ def test_6_search_data_kategori_NoInduk_Index():  # Melakukan pencarian data ber
 
 
 @mark.fixture_test()
-def test_7_SearchDataKategori_NoSuratPenetapan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_11_SearchDataKategori_NoSuratPenetapan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -198,7 +198,7 @@ def test_7_SearchDataKategori_NoSuratPenetapan_Index():  # Melakukan pencarian d
 
 
 @mark.fixture_test()
-def test_8_SearchDataStatus_MasukPortir_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_12_SearchDataStatus_MasukPortir_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -217,7 +217,7 @@ def test_8_SearchDataStatus_MasukPortir_Index():  # Melakukan pencarian data ber
 
 
 @mark.fixture_test()
-def test_9_SearchDataStatus_KeluarKeamanan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_13_SearchDataStatus_KeluarKeamanan_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -234,17 +234,16 @@ def test_9_SearchDataStatus_KeluarKeamanan_Index():  # Melakukan pencarian data 
         '================================================================================= Search Data Form Kategori No Induk  ')
     attach(data=driver.get_screenshot_as_png())
 
-"""
-
 @mark.fixture_test()
-def test_10_SearchDataStatus_KeluarPortir_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_14_SearchDataStatus_KeluarPortir_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.ID, 'filterColumn').click()
     driver.find_element(By.XPATH, '//li[contains(.,\'Semua\')]').click()
-    driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('keluar porti')
-    driver.find_element(By.XPATH, "/li[contains(.,\'Keluar Portir\')]").click()
+    driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('keluar')
+
+    driver.find_element(By.CSS_SELECTOR, "#statusKeluarPortir").click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
@@ -253,7 +252,6 @@ def test_10_SearchDataStatus_KeluarPortir_Index():  # Melakukan pencarian data b
     print(
         '================================================================================= Search Data Form Kategori No Induk  ')
     attach(data=driver.get_screenshot_as_png())
-"""
 
 
 

@@ -237,7 +237,7 @@ def test_16_NamaPengawalInternal_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_15_JenisPengawalEksternal_HalamanTambah():
+def test_17_JenisPengawalEksternal_HalamanTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis1"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis1"]').click()
@@ -247,7 +247,7 @@ def test_15_JenisPengawalEksternal_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_16_NamaPengawalEksternal_HalamanTambah():
+def test_18_NamaPengawalEksternal_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="pengawal1"]').click
     driver.find_element(By.XPATH, '//*[@id="pengawal1"]').send_keys('rehan')
@@ -260,7 +260,7 @@ def test_16_NamaPengawalEksternal_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_17_ButtonSubmitInternal_HalamanTambah():
+def test_19_ButtonSubmitInternal_HalamanTambah():
     driver.implicitly_wait(60)
     time.sleep(3)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))

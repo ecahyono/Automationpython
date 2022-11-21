@@ -89,7 +89,7 @@ def test_4_sortir_table_cari_nama_KeluarPortir():
 
 
 @mark.fixture_test()
-def test_6_Click_Button_Detile_KeluarPortir():
+def test_5_Click_Button_Detile_KeluarPortir():
     driver.implicitly_wait(30)
     time.sleep(2)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -105,7 +105,7 @@ def test_6_Click_Button_Detile_KeluarPortir():
 
 
 @mark.fixture_test()
-def test_7_KonfirmasiKeluar_KeluarPortir():
+def test_6_KonfirmasiKeluar_KeluarPortir():
     driver.implicitly_wait(30)
     time.sleep(2)
     driver.execute_script("window.scrollTo(0,53)")
