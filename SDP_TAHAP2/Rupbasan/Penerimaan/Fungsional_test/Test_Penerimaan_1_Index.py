@@ -23,17 +23,17 @@ from module.setup import initDriver, loadDataPath
 from module.login import login
 
 # init driver by os
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_setup():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
 
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_login():
     login(driver)
 
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_akses_menu():
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
@@ -41,7 +41,7 @@ def test_akses_menu():
     attach(data=driver.get_screenshot_as_png())
 
 #inputtext-Dropdown+Celarvalue button
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_fieldinput_Dropdown_ClearVB():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
@@ -90,7 +90,7 @@ def test_fieldinput_Dropdown_ClearVB():
 
     attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_sortir_tabel():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable']).click()
@@ -99,7 +99,7 @@ def test_sortir_tabel():
     attach(data=driver.get_screenshot_as_png())
     time.sleep(2)
 # EXPORT && PRINT
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_ExportDanCetak():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['exportPDF']).click()    
@@ -118,8 +118,8 @@ def test_ExportDanCetak():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'printButton')))
     attach(data=driver.get_screenshot_as_png())
     time.sleep(2)
-@mark.fixture_index_penerimaan
-def test_halamanpage_index():
+@mark.fixture_penerimaan
+def test_halamanpage():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     driver.find_element(By.XPATH, pathData['Other Search']['Dropdown Halaman']).click() 
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['5halaman']).click()
@@ -131,7 +131,7 @@ def test_halamanpage_index():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_cari_Datatable():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
@@ -147,20 +147,20 @@ def test_cari_Datatable():
     driver.find_element(By.XPATH, pathData['Other Search']['Search Button']).click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     time.sleep(2)
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_cetakBA():
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['CetakBA']).click() 
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['CetakBA'])))
     attach(data=driver.get_screenshot_as_png())
     time.sleep(2)
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_Buka_halaman_Ubah():
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['ubah']).click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'backButton')))
     driver.find_element(By.ID, 'backButton').click()
     attach(data=driver.get_screenshot_as_png())
     time.sleep(2)
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_Buka_halaman_Daftarbarang():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupbasan']['indexrupbasan']['ascendingtable'])))
     field = driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['filterabledropdownindex'])
@@ -184,7 +184,7 @@ def test_Buka_halaman_Daftarbarang():
     attach(data=driver.get_screenshot_as_png())
     time.sleep(2)
 
-@mark.fixture_index_penerimaan
+@mark.fixture_penerimaan
 def test_Buka_halaman_tambah():
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.XPATH, pathData['Other Search']['Search Button'])))
     driver.find_element(By.XPATH, pathData['Rupbasan']['indexrupbasan']['tambah']).click()

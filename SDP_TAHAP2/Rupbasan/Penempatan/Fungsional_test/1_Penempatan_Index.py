@@ -16,7 +16,7 @@ import time
 import platform
 from pathlib import Path
 
-@pytest.fixture()
+@mark.fixture_penempatan
 def test_setup():
     global driver
     global wb
