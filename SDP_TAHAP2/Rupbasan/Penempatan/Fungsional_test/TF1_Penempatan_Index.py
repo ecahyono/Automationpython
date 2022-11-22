@@ -159,18 +159,6 @@ def test_aksesmenu_tambah():
     time.sleep(5)
 
 @mark.fixture_penempatan
-def test_exportexcel():
-    WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    driver.find_element(By.ID, 'excelButton').click()
-    driver.find_element(By.ID, 'wholeButton').click()
-    time.sleep(2)
-    driver.find_element(By.ID, 'thisButton').click()
-    WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'excelButton')))
-    time.sleep(5)
-
-
-#fixing besok
-@mark.fixture_penempatan
 def test_exportPDF():
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'pdfButton').click()
@@ -178,6 +166,16 @@ def test_exportPDF():
     time.sleep(2)
     driver.find_element(By.ID, 'thisButton').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'pdfButton')))
+    time.sleep(5)
+
+@mark.fixture_penempatan
+def test_exportexcel():
+    WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.ID, 'excelButton').click()
+    driver.find_element(By.ID, 'wholeButton').click()
+    time.sleep(2)
+    driver.find_element(By.ID, 'thisButton').click()
+    WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'excelButton')))
     time.sleep(5)
 
 @mark.fixture_penempatan
