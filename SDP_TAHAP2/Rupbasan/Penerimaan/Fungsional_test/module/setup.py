@@ -19,7 +19,7 @@ def initDriver():
     return driver
 
 def loadDataPath():
-    sys.path.append('..')
+    sys.path.append('.....')
     file = open('data.json', 'r')
     data = json.load(file)
     return data
