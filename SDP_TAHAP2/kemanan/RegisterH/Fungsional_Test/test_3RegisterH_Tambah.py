@@ -75,7 +75,7 @@ def test_5_search_data_kategori_nama_HalamanTambah():  # Melakukan pencarian dat
 
     driver.find_element(By.XPATH, '//*[@id="nama"]').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('WILLLD BINTI eko cah cah ge')
+
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('.')

@@ -57,7 +57,7 @@ def test_3_Akses_menu_index():
 
 
 @mark.fixture_test()
-def test_4_Search_data_kategori_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_4_Search_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(30) 
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
@@ -78,7 +78,7 @@ def test_4_Search_data_kategori_nama_Index(): #Melakukan pencarian data berdasar
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_5_Search_data_kategori_nomoID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_5_Search_nomorID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(30) 
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
