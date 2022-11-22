@@ -1,3 +1,4 @@
+
 from distutils.archive_util import make_archive
 from os import PRIO_PGRP, environ
 from re import S, T
@@ -45,7 +46,7 @@ def test_3_aksesmenu_Search():
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
-    time.sleep(1)
+    time.sleep(0.1)
     driver.find_element(By.LINK_TEXT, 'Register H').click()
     print('.')
     print('==========akses menu daftar lalu lintas==========')
@@ -53,49 +54,37 @@ def test_3_aksesmenu_Search():
 
 
 @mark.fixture_test()
-def test_9_search_data_kategori_tanggalKembali_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_9_search_data_kategori_tanggalKembali_HalPer():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(60)
-    time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.ID, 'filterColumn').send_keys('nama')
+    driver.find_element(By.ID, 'filterColumn').click()
 
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("WILLLD BINTI eko cah cah ge")
-
+    driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('a')
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.ID, 'filterStatus').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="diizinkan"]')))
+    driver.find_element(By.ID, 'diizinkan').click()
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-    driver.find_element(By.XPATH, '//*[@id="perpanjangan0"]').click()
-    print('.')
-    print(
-        '=================================================================================Search Data Form Kategori Nama ')
-    attach(data=driver.get_screenshot_as_png())
 
-
-
-"""
 @mark.fixture_test()
-def test_6_ClickButton_Daftarkan_HalamanTambah():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(60)
+def test_9_Click_ButtonPerpanjangan_HalPer():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
-    time.sleep(0.5)
-    driver.find_element(By.XPATH,'//*[@id="view0"]').click()
-    print('.')
-    print('')
-    attach(data=driver.get_screenshot_as_png())
-
-
-
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="perpanjangan0"]')))
+    time.sleep(1)
+    driver.find_element(By.XPATH, '//*[@id="perpanjangan0"]').click()
 
 @mark.fixture_test()
-def test_7_InputNoSurat_HalamanTambah():
+def test_7_InputNoSurat_HalamanTambah_HalPer():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="noSurat"]').send_keys('srt001/01')
     print('.')
     print('')
     attach(data=driver.get_screenshot_as_png())
-
 @mark.fixture_test()
-def test_8_InputTanggalSurat_HalamanTambah():
+def test_8_InputTanggalSurat_HalamanTambah_HalPer():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'tanggalSurat').send_keys('24/11/2022')
     driver.find_element(By.ID, 'tanggalSurat').send_keys(Keys.ENTER)
@@ -104,7 +93,7 @@ def test_8_InputTanggalSurat_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_9_InputTanggalMulai_HalamanTambah():
+def test_9_InputTanggalMulai_HalamanTambah_HalPer():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'tanggalMulai').send_keys('24/11/2022')
     driver.find_element(By.ID, 'tanggalMulai').send_keys(Keys.ENTER)
@@ -113,34 +102,33 @@ def test_9_InputTanggalMulai_HalamanTambah():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_10_InputLamaPerasingan_HalamanTambah():
+def test_10_InputLamaPerasingan_HalamanTambah_HalPer():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH,'//*[@id="lamaPengasingan"]/div/input').send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, '//*[@id="lamaPengasingan"]/div/input').send_keys('3')
+    driver.find_element(By.XPATH, '//*[@id="lamaPengasingan"]/div/input').send_keys('1')
 
     print('.')
     print('')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_11_InputAlasan_HalamanTambah():
+def test_11_InputAlasan_HalamanTambah_HalPer():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'alasan').send_keys('berantem')
 
     print('.')
     print('')
     attach(data=driver.get_screenshot_as_png())
-
+"""
 @mark.fixture_test()
-def test_11_InputAlasan_HalamanTambah():
+def test_12_Submit_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-
-    print('.')
-    print('')
-    attach(data=driver.get_screenshot_as_png())
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
 """
+
+
+
 
 
 def teardown():

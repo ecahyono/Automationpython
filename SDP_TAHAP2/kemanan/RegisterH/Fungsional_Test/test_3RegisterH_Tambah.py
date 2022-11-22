@@ -145,6 +145,7 @@ def test_11_InputAlasan_HalamanTambah():
 def test_12_Submit_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.ID, 'submitButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
 
 
     print('.')
