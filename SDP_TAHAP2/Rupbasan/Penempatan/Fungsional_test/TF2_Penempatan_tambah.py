@@ -18,13 +18,11 @@ import json
 import sys
 
 from TF1_Penempatan_Index import test_Ossetup, test_loggin, test_akses_menu_penempatan
-test_Ossetup()
-test_loggin()
-test_akses_menu_penempatan()
 
 @mark.fixture_Tambah_penerimaan
 def test_menujuhalamantambahpenempatan():
+    global driver
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'createButton').click()
-
+    Log.info('Membuka halaman Tambah')
 
