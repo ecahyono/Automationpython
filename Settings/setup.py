@@ -5,12 +5,18 @@ from pytest import mark
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 import time
+
+from dotenv import load_dotenv
+load_dotenv()
+
 def initDriver():
     if platform.system() == 'Darwin':
         driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
     elif platform.system() == 'Windows':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERWIN"))
+        swin = Service(environ.get("CHROMEDRIVERWIN"))
+        driver = webdriver.Chrome(service=swin)
 
     driver.get(environ.get("HOST"))
     driver.maximize_window()
@@ -26,8 +32,7 @@ def loadDataPath():
         data = json.load(file)
         return data
     elif platform.system() == 'Windows':
-        #sys.path.append( '..' )
-        file = open('data.json', 'r')
+        file = open(environ.get("WINJSONDATA"), 'r')
         data = json.load(file)
         return data
 
