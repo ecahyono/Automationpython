@@ -60,7 +60,8 @@ def test_3_Akses_menu_index():
 def test_4_Search_Nama():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, "//th[7]/div/span/i").click()
+    driver.find_element(By.CSS_SELECTOR, ".el-checkbox__inner").click()
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
 
 @mark.fixture_test()
 def test_5_ClickDetail_KonfirmKeluar():
@@ -75,6 +76,6 @@ def test_6_KonfirmKeluar():
     time.sleep(5)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
-#tambahan filter status
+#done
 def teardown():
     quit(driver)
