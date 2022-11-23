@@ -1,0 +1,17 @@
+[2022-11-23 15:46:54,426 test_1RegisterH_Index.py->test_3_aksesmenu_index()]==>INFO: akses menu daftar lalu lintas
+[2022-11-23 15:47:00,701 test_1RegisterH_Index.py->test_12_Membuka_HalamanDetile()]==>INFO:  Membuka Halaman Tambah  
+[2022-11-23 15:47:03,219 test_1RegisterH_Index.py->test_4_search_data_kategori_nama_Index()]==>INFO: Search Data Form Kategori Nama 
+[2022-11-23 15:47:06,748 test_1RegisterH_Index.py->test_5_search_data_kategori_noSurat_Index()]==>INFO: Search Data Kategori Nomor surat 
+[2022-11-23 15:47:15,020 test_1RegisterH_Index.py->test_6_search_data_kategori_lamaPengasingan_Index()]==>INFO: Search Data lama perasingan 
+[2022-11-23 15:47:18,075 test_1RegisterH_Index.py->test_7_search_data_kategori_tanggalMulai_Index()]==>INFO: Search Data Form Kategori Nama 
+[2022-11-23 15:47:21,159 test_1RegisterH_Index.py->test_8_search_data_kategori_tanggalKembali_Index()]==>INFO: Search tanggal kembali 
+[2022-11-23 15:47:25,655 test_1RegisterH_Index.py->test_9_search_data_kategori_semua_Index()]==>INFO: Search Data Form Kategori Semua 
+[2022-11-23 15:47:28,604 test_1RegisterH_Index.py->test_10_sortir_Halaman_Index()]==>INFO: Menampilkan 5 data per halaman  
+[2022-11-23 15:47:30,051 test_1RegisterH_Index.py->test_10_sortir_Halaman_Index()]==>INFO: Menampilkan 10 data per halaman  
+[2022-11-23 15:47:33,066 test_1RegisterH_Index.py->test_10_sortir_Halaman_Index()]==>INFO: Menampilkan 10 data per halaman  
+[2022-11-23 15:47:38,164 test_1RegisterH_Index.py->test_10_sortir_Halaman_Index()]==>INFO: Menampilkan 50 data per halaman  
+[2022-11-23 15:47:56,267 test_1RegisterH_Index.py->test_10_sortir_Halaman_Index()]==>INFO: Menampilkan 100 data per halaman  
+[2022-11-23 15:47:58,404 test_1RegisterH_Index.py->test_11_membuka_halaman_tambah_Index()]==>INFO:  Membuka Halaman Tambah  
+[2022-11-23 15:48:15,973 test_1RegisterH_Index.py->test_13_export_exel_Index()]==>INFO: Export Excel
+[2022-11-23 15:48:17,330 test_1RegisterH_Index.py->test_14_export_pdf_Index()]==>INFO: Export PDF
+[2022-11-23 15:48:18,701 test_1RegisterH_Index.py->test_15_cetak_Index()]==>INFO: Cetak
