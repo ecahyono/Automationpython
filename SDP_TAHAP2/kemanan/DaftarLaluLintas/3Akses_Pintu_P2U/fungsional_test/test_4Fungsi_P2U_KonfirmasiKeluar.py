@@ -75,6 +75,6 @@ def test_6_KonfirmKeluar():
     time.sleep(5)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
-
+#tambahan filter status
 def teardown():
     quit(driver)

@@ -18,13 +18,10 @@ from pytest_html_reporter import attach
 
 import sys
 from pathlib import Path
-#file modul
-#from module.setup import initDriver, loadDataPath
-#from module.login import login
-
 sys.path.append("/Users/will/Documents/work/Automationpython")
 from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
+from Settings.setup import quit
 from dotenv import load_dotenv
 load_dotenv()
 import json
@@ -231,14 +228,4 @@ def test_9_search_data_kategori_Semua_Search():  # Melakukan pencarian data berd
 
 
 def teardown():
-    time.sleep(5)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    driver.close()
-    driver.quit()
+    quit(driver)

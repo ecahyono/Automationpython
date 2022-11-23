@@ -15,21 +15,27 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-
 import sys
 from pathlib import Path
-
-# file modul
-# from module.setup import initDriver, loadDataPath
-# from module.login import login
-
 sys.path.append("/Users/will/Documents/work/Automationpython")
 from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
+from Settings.setup import quit
 from dotenv import load_dotenv
-
 load_dotenv()
 import json
+
+
+import logging
+Log = logging.getLogger(__name__)
+log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+fh = logging.FileHandler('result.log', mode="w")
+fh.setLevel(logging.INFO)
+formatter = logging.Formatter(log_format)
+fh.setFormatter(formatter)
+Log.addHandler(fh)
+
+
 
 
 @mark.fixture_test()
@@ -38,9 +44,11 @@ def test_1_setupOS():
     driver = initDriver()
     pathData = loadDataPath()
 
+
 @mark.fixture_test()
 def test_2_login():
     login(driver)
+
 
 @mark.fixture_test()
 def test_3_aksesmenu_index():
@@ -49,8 +57,27 @@ def test_3_aksesmenu_index():
     ActionChains(driver).move_to_element(nav1).perform()
 
     driver.find_element(By.LINK_TEXT, 'Register H').click()
+
+    Log.info('akses menu daftar lalu lintas==========')
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_12_Membuka_HalamanDetile():
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
+    driver.find_element(By.XPATH, '//*[@id="view0"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+
+    # WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+    # driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+    print('.')
+    print(
+        '================================================================================= Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
 """
@@ -289,8 +316,10 @@ def test_11_membuka_halaman_tambah_Index():
     print('================================================================================= Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
+
+
 @mark.fixture_test()
-def test_12_export_exel_Index():
+def test_13_export_exel_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -304,7 +333,7 @@ def test_12_export_exel_Index():
 
 # Melakukan export data tabel ke pdf
 @mark.fixture_test()
-def test_13_export_pdf_Index():
+def test_14_export_pdf_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -318,7 +347,7 @@ def test_13_export_pdf_Index():
 
 # Melakukan cetak
 @mark.fixture_test()
-def test_14_cetak_Index():
+def test_15_cetak_Index():
     time.sleep(1)
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -330,14 +359,4 @@ def test_14_cetak_Index():
     attach(data=driver.get_screenshot_as_png())
 
 def teardown():
-    time.sleep(5)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    driver.close()
-    driver.quit()
+    quit(driver)

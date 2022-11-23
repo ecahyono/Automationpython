@@ -1,0 +1,122 @@
+{
+    
+    "Id Navigate Button": {
+        "Create Button": "//*[@id=\"createButton\"]",
+        "Back Button": "//*[@id=\"backButton\"]",
+        "Detail Button" : "",
+        "Update Button":  ".text-green-500 .h-5",
+        "Custom Button" : ""
+        
+        
+
+    },
+    "Id Even Button": {
+        "Delete Button": "",
+        "Export To Excel Button": "",
+        "Export To Pdf Button" : "",
+        "Print Button" : "",
+        "Button Search": "",
+        "Button Submit": "",
+        "Button Ubah": "",
+        "Button Muat Ulang":"",
+        "Button Muat Ulang Ya":"",
+        "Button Muat Ulang Tidak":"",
+        "Button Halaman Ini Saja":"",
+        "Button Seluruh Halaman":""
+    },
+    "id form": {
+        "Input Text": "",
+        "Input Text Area": "",
+        "Input Number": "",
+        "Input Time": "",
+        "Input Date": "",
+        "Input Date Time": "",
+        "Input Check Box": "",
+        "Input Radio": "",
+        "input Dropdown": "",
+        "Input Switch": ""
+       
+    },
+
+    "Id Search": {
+        "Filter Column": "//*[@id=\"filterColumn\"]",
+        "Input Kata Kunci": "//*[@id=\"kataKunci\"]",
+        "Button Search":"//*[@id=\"searchButton\"]",
+        "Input Time": "",
+        "Input Date": "",
+        "Input Date Time":"",
+        "Input Text Area":"",
+        "Input Number":"",
+        "Input Check Box":"",
+        "Input Radio":"",
+        "Input Switch":"",
+        "Input Select":""
+    },
+
+    "CSS": {
+        
+
+    },
+    "Other Search Index": {
+        "Search Options": "//*[@id=\"searchOption0\"]/div/div/table/tbody/tr[2]/td[1]",
+        "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+        "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input"
+    },
+
+    "Other Search Identitas": {
+        "Search Options": "",
+        "Search Button": "",
+        "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[3]/div/input",
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[2]/div/div/div/input"
+    },
+
+
+
+
+
+
+
+
+    "AksesMenu": {
+        "Registrasi": {
+            "MainText": "",
+            "child": {
+                "Catatan": ""
+            }
+        },
+        "Keamanan": {
+            "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[4]/div/ul/li/div"
+                }
+                
+                
+            }
+            
+
+        },
+        "Integrasi": {
+            "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[4]/div/ul/li/div"
+                },
+                "lap":{
+                    "MainText":""
+                },
+                "lap3":{
+                    "Maintext":""
+                }
+
+            }
+            
+        },
+        "kunjungan": {}
+        
+        
+    }
+}
