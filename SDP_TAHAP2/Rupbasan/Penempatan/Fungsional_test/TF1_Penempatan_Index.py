@@ -60,10 +60,10 @@ def test_akses_menu_penempatan():
 @mark.fixture_penempatan
 def test_sortirdatatabel():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    ascending = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['ascenJRB'])
+    ascending = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['ascenJRB'])
     ascending.click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    descending = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['descenpatanbar'])
+    descending = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['descenpatanbar'])
     descending.click()
     Log.info('setelah data tabel muncul kemudian melakukan sortir data tabel')
 
@@ -94,7 +94,7 @@ def test_hapuspencariandatatabel():
     filter = driver.find_element(By. ID, "filterColumn")
     ActionChains(driver).move_to_element(filter).perform()
 
-    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['clearkategori'])
+    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['clearkategori'])
     ActionChains(driver).move_to_element(elemnthps).perform()
     elemnthps.click()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -105,16 +105,16 @@ def test_hapuspencariandatatabel():
 @mark.fixture_penempatan
 def test_pilihhalaman():
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    Halaman = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['pilihhalmn'])
+    Halaman = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['pilihhalmn'])
     Halaman.click()
-    halaman5 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['5halaman'])
+    halaman5 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['5halaman'])
     halaman5.click()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     time.sleep(2)
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    Halaman = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['pilihhalmn'])
+    Halaman = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['pilihhalmn'])
     Halaman.click()
-    halaman3 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['3halaman'])
+    halaman3 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['3halaman'])
     halaman3.click()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
@@ -124,7 +124,7 @@ def test_pilihhalaman():
 @mark.fixture_penempatan
 def test_pilihpagetabel():
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    pergipage = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['pergipage'])
+    pergipage = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['pergipage'])
     pergipage.clear()
     pergipage.send_keys('5')
     pergipage.send_keys(Keys.ENTER)
@@ -138,7 +138,7 @@ def test_aksesmenu_detail():
     test_pencariandatatabel()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['aksesdetail']).click()
+    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['aksesdetail']).click()
     time.sleep(2)
     driver.find_element(By.ID, 'backButton').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -151,7 +151,7 @@ def test_aksesmenu_ubah():
     test_pencariandatatabel()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['aksesubah']).click()
+    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['aksesubah']).click()
     time.sleep(2)
     driver.find_element(By.ID, 'backButton').click()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -204,9 +204,9 @@ def test_exportexcel():
 def test_printdatatable():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'printButton').click()
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['printsemua']).click()
+    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['printsemua']).click()
     time.sleep(2)
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['index']['printinisaja']).click()
+    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['printinisaja']).click()
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'printButton')))
     time.sleep(5)
     Log.info('Melakukan cetak Print data Table')

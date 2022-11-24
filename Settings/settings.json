@@ -54,15 +54,16 @@
     },
 
     "CSS": {
-        "Update Button": ".text-green-500 .h-5"
-
+        
 
     },
     "Other Search Index": {
         "Search Options": "//*[@id=\"searchOption0\"]/div/div/table/tbody/tr[2]/td[1]",
         "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
-        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input"
     },
 
     "Other Search Identitas": {
@@ -92,11 +93,67 @@
                 "LaluLintasPortir": {
                     "MainText": "//div[4]/div/ul/li/div"
                 }
-
-
+                
+                
             }
+            
+            
 
+        },
+        "Rupbasan": {
+            "menu":{
+                "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div"
+            },
+            "elemen":{
+                "indexpenempatan":{
+                    "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
+                    "descenpatanbar":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[2]",
+                    "ascenJRB":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[9]/div/span/i[1]",
+                    "pilihhalmn":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+                    "3halaman":"//div[13]/div/div/div[1]/ul/li[1]",
+                    "5halaman":"//div[13]/div/div/div[1]/ul/li[2]",
+                    "pergipage":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+                    "aksesdetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[1]/a/button",
+                    "aksesubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[2]/a/button",
+                    "printsemua":"//*[@id=\"printButton\"]/div/div/div/div[2]/div/button[1]",
+                    "printinisaja":"//*[@id=\"printButton\"]/div/div/div/div[2]/div/button[2]",
+                    "alert":"//div[contains(.,'Fitur ini sedang dalam pengembangan')]"
+                },
+                "+penempatan":{
+                    "caribarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/form/div/div[1]/div/div/div/div/div"
+                },
+                "llllll":{
+                },
+                "idxpenerimaan":{
+                    "pilkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/input",
+                    "katkun":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input",
+                    "tombolcari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+                    "hpskolom":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
+                    "ascending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[1]",
+                    "descending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[2]",
+                    "hlmnedit":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div/div/a/button" ,
+                    "clearJREG":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[2]/div/div/div/div/div/span/span/i[2]",
+                    "hlmndetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[10]/div/div/div[1]/a/button",
+                    "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[10]/div/div/div[2]/button",
+                    "pilhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+                    "peegikepage":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+                    "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
+                    "exportexcel":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button",
+                    "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
+                    "cetakinisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]"
+                },
+                "+penerimaan":{
+                    "PtgPenerima":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input",
+                    "PMenyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input",
+                    "tglpnrimaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input"
+                },
+                "ubagpenerimaan":{
 
+                },
+                "listbarang":{
+                    
+                }
+            }
         },
         "Integrasi": {
             "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
@@ -104,17 +161,19 @@
                 "LaluLintasPortir": {
                     "MainText": "//div[4]/div/ul/li/div"
                 },
-                "ManajemenPenempatan":{
-                    "MainText":"//div[4]/div/ul/li[2]/div"
+                "lap":{
+                    "MainText":""
                 },
-                "RegisterH":{
+                "lap3":{
                     "Maintext":""
                 }
 
             }
-
+            
         },
-        "kunjungan": {}
+        "kunjungan": {
+
+        }
         
         
     }

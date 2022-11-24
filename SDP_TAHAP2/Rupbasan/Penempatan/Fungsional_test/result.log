@@ -1,3 +1,2 @@
-[2022-11-23 15:42:51,410 TF1_Penempatan_Index.py->test_Ossetup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-11-23 15:42:54,685 TF1_Penempatan_Index.py->test_loggin()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-11-23 15:42:59,058 TF1_Penempatan_Index.py->test_akses_menu_penempatan()]==>INFO: Menuju Menu penempatan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu pemermpatan)
+[2022-11-24 14:52:19,410 TF2_Penempatan_tambah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-24 14:52:22,299 TF2_Penempatan_tambah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
