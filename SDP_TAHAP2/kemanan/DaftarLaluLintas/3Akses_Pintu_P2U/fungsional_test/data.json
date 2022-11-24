@@ -1,5 +1,14 @@
 {
-    
+
+    "IDTambahKamar": {
+        "Create Button": "//*[@id=\"createButton\"]",
+
+
+    },
+
+
+
+
     "Id Navigate Button": {
         "Create Button": "//*[@id=\"createButton\"]",
         "Back Button": "//*[@id=\"backButton\"]",
@@ -63,7 +72,8 @@
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
         "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
-        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input"
+        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+        "Click ke": "//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div/div[1]/div/div/div[1]",
     },
 
     "Other Search Identitas": {

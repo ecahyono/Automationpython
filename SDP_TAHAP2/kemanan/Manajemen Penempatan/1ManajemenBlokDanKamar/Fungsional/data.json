@@ -91,11 +91,15 @@
             "child": {
                 "LaluLintasPortir": {
                     "MainText": "//div[4]/div/ul/li/div"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[4]/div/ul/li[2]/div"
+                },
+                "RegisterH":{
+                    "Maintext":""
                 }
-                
-                
+
             }
-            
 
         },
         "Integrasi": {
@@ -104,8 +108,8 @@
                 "LaluLintasPortir": {
                     "MainText": "//div[4]/div/ul/li/div"
                 },
-                "lap":{
-                    "MainText":""
+                "ManajemenPenempatan":{
+                    "MainText":"//div[4]/div/ul/li[2]/div"
                 },
                 "RegisterH":{
                     "Maintext":""
