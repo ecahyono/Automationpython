@@ -142,7 +142,26 @@ def test_11_InputJumlahKamar():
     driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").click()
     driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").send_keys("10")
 
+@mark.fixture_test()
+def test_12_BAKALDIHAPUS():
+    driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-0").click()
+    driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-0").send_keys("2-6")
+    driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-1").click()
+    driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-1").send_keys("2-6")
 
+@mark.fixture_test()
+def test_13_BAKALDIHAPUS():
+    driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-0").click()
+    driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-0").send_keys("4-8")
+    driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-1").click()
+    driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-1").send_keys("4-8")
+
+@mark.fixture_test()
+def test_14():
+    driver.find_element(By.ID, "submitButton").click()
+
+
+#MASIH BELUM SELESAI
 
 
 

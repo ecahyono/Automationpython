@@ -230,8 +230,8 @@ def test_16_NamaPengawalInternal_HalamanTambah():
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').click
     driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').send_keys('robi')
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//li[@id=\'optionPengawal0\']/div/div/table/tbody/tr[2]/td[2]')))
-    driver.find_element(By.XPATH, "//li[@id=\'optionPengawal0\']/div/div/table/tbody/tr[2]/td[2]").click()
+    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="optionPengawal00"]')))
+    driver.find_element(By.XPATH, '//*[@id="optionPengawal00"]').click()
     print('=')
     print(' = Input nama pengawal Internal  ')
     attach(data=driver.get_screenshot_as_png())

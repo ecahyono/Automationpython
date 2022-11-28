@@ -24,11 +24,14 @@ from pathlib import Path
 # from module.login import login
 
 sys.path.append("/Users/will/Documents/work/Automationpython")
+
 from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
 from dotenv import load_dotenv
 
 load_dotenv()
+
+
 import json
 
 
