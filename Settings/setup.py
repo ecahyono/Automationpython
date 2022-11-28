@@ -26,15 +26,12 @@ def initDriver():
 
 def loadDataPath():
     if platform.system() == 'Darwin':
-        sys.path.append('/Users/will/Documents/work/Automationpython')
-        # sys.path.append( '..' )
-        file = open('data.json', 'r')
-        data = json.load(file)
-        return data
+        file = open(environ.get("MACJSONDATA"), 'r')
     elif platform.system() == 'Windows':
-        file = open(environ.get("WINJSONDATA"), 'r')
-        data = json.load(file)
-        return data
+        file = open(environ.get("MACJSONDATA"), 'r')
+
+    data = json.load(file)
+    return data
 
 def buttonTambah(driver):
     driver.implicitly_wait(60)

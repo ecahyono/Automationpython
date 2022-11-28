@@ -1,7 +1,7 @@
 from distutils.archive_util import make_archive
-from os import PRIO_PGRP, environ
-from re import S, T
-from threading import TIMEOUT_MAX
+# from os import PRIO_PGRP, environ
+# from re import S, T
+# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,13 +16,18 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 
+import sys
+from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
-#file modul
-from module.setup import initDriver, loadDataPath
-from module.login import login
 
-import json
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR")) 
+elif platform.system() == 'Windows':
+    sys.path.append(environ.get("WINPARENTDIR")) 
+
+from Settings.setup import initDriver, loadDataPath
+from Settings.login import login
 
 # init driver by os
 @mark.fixture_test()
@@ -100,35 +105,35 @@ def test_5_sortir_table_cari_nama_Tambah():
 
 
 
-def teardown():
-    time.sleep(10)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
+# def teardown():
+#     time.sleep(10)
+#     print('.')
+#     print('▒▒▒▒▒▒▒▒▒▒▒▒')
+#     print('▒▒▒▒▓▒▒▓▒▒▒▒')
+#     print('▒▒▒▒▓▒▒▓▒▒▒▒')
+#     print('▒▒▒▒▒▒▒▒▒▒▒▒')
+#     print('▒▓▒▒▒▒▒▒▒▒▓▒')
+#     print('▒▒▓▓▓▓▓▓▓▓▒▒')
+#     print('▒▒▒▒▒▒▒▒▒▒▒▒')
 
-    print('░░▄███▄███▄')
-    print('░░█████████')
-    print('░░▒▀█████▀░')
-    print('░░▒░░▀█▀')
-    print('░░▒░░█░')
-    print('░░▒░█')
-    print('░░░█')
-    print('░░█░░░░███████')
-    print('░██░░░██▓▓███▓██▒')
-    print('██░░░█▓▓▓▓▓▓▓█▓████')
-    print('██░░██▓▓▓(◐)▓█▓█▓█')
-    print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
-    print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
-    print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
-    print('░▒░░▒░░██▓██░░░██▓▓██')
-    driver.close()
-    driver.quit()
+#     print('░░▄███▄███▄')
+#     print('░░█████████')
+#     print('░░▒▀█████▀░')
+#     print('░░▒░░▀█▀')
+#     print('░░▒░░█░')
+#     print('░░▒░█')
+#     print('░░░█')
+#     print('░░█░░░░███████')
+#     print('░██░░░██▓▓███▓██▒')
+#     print('██░░░█▓▓▓▓▓▓▓█▓████')
+#     print('██░░██▓▓▓(◐)▓█▓█▓█')
+#     print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
+#     print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
+#     print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
+#     print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
+#     print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
+#     print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
+#     print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
+#     print('░▒░░▒░░██▓██░░░██▓▓██')
+#     driver.close()
+#     driver.quit()
