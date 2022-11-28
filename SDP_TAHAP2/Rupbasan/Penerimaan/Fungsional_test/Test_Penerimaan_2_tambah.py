@@ -30,7 +30,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('tambah.log', mode="w")
+fh = logging.FileHandler('Test_Penerimaan_2_tambah.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -60,20 +60,22 @@ def test_aksesmenuPenerimaan_3():
 @mark.fixture_penerimaan
 def test_Masukhalamatambah_4():
     driver.find_element(By.ID, 'createButton').click()
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Membuka halaman tambah penerimaan dengan klik button tambah')
     
 
 @mark.fixture_penerimaan
 def test_Input_dropdown_5():
     driver.find_element(By.ID, 'dropdownJenisRegistrasiBasanBaran').click()
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element(By.ID, 'Register Khusus Tingkat Mahkamah Agung').click()
 
     driver.find_element(By.ID, 'dropdownInstansi').click()
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element(By.ID, 'POLRES TEBING TINGGI').click()
 
     driver.find_element(By.ID, 'dropdownPengadilanPenyita').click()
-    time.sleep(2)
+    time.sleep(1)
     driver.find_element(By.ID, 'Pengadilan Negeri Tarutung').click()
 
     

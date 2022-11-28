@@ -1,0 +1,4 @@
+[2022-11-28 12:36:47,992 TF3_penempatan_ubah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-28 12:36:51,471 TF3_penempatan_ubah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-28 12:36:56,185 TF3_penempatan_ubah.py->test_akses_menu_penempatan_3()]==>INFO: mengakses menu penempatan
+[2022-11-28 12:37:05,039 TF3_penempatan_ubah.py->test_akses_Ubah_4()]==>INFO: melakukan pencarian data dengan memilih salah satu dari kategori yang disediakan

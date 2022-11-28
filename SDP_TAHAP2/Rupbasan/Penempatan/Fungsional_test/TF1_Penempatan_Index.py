@@ -29,7 +29,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('indexp.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -124,7 +124,7 @@ def test_pilihhalaman():
 @mark.fixture_penempatan
 def test_pilihpagetabel():
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    pergipage = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['indexpenempatan']['pergipage'])
+    pergipage = driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke'])
     pergipage.clear()
     pergipage.send_keys('5')
     pergipage.send_keys(Keys.ENTER)

@@ -30,7 +30,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Index.log', mode="w")
+fh = logging.FileHandler('Test_Penerimaan_1_Index.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -184,7 +184,7 @@ def test_pilihpagehalaman_13(): #kasus 5 data tabel per halaman
 
 @mark.fixture_penerimaan
 def test_pergikepagehalaman_14():
-    pergi = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['peegikepage'])
+    pergi = driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke'])
     pergi.clear()
     pergi.send_keys('8')
     pergi.send_keys(Keys.ENTER)
