@@ -1,7 +1,7 @@
 from distutils.archive_util import make_archive
-from os import PRIO_PGRP, environ
-from re import S, T
-from threading import TIMEOUT_MAX
+# from os import PRIO_PGRP, environ
+# from re import S, T
+# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,29 +17,34 @@ import time
 from pytest_html_reporter import attach
 
 import sys
-from pathlib import Path
+from os import environ, path
+from dotenv import load_dotenv
+load_dotenv()
 
-# file modul
-# from module.setup import initDriver, loadDataPath
-# from module.login import login
-
-sys.path.append("/Users/will/Documents/work/Automationpython")
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR"))
+    sys.path.append("/Users/will/Documents/work/Automationpython")
+elif platform.system() == 'Windows':
+    sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setup import initDriver, loadDataPath
 from Settings.login import login
-from dotenv import load_dotenv
 
-load_dotenv()
-
-
-import json
-
+import logging
+Log = logging.getLogger(__name__)
+log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+fh = logging.FileHandler('result.log', mode="w")
+fh.setLevel(logging.INFO)
+formatter = logging.Formatter(log_format)
+fh.setFormatter(formatter)
+Log.addHandler(fh)
 
 @mark.fixture_test()
 def test_1_setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
+    Log.info('Setup Os')
 
 
 @mark.fixture_test()
@@ -108,40 +113,6 @@ def test_5_DLP001_SearchKategoriNoInduk_Index():  # Melakukan pencarian data ber
 
 
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
-@mark.fixture_test()
-def test_6_clik_clear_value_Index():
-    driver.implicitly_wait(30)
-    nav1 = driver.find_element(By.ID, 'filterColumn')
-    actions = ActionChains(driver)
-    actions.move_to_element(nav1).perform()
-    element2 = driver.find_element(By.CSS_SELECTOR, ".el-select__caret:nth-child(2) > svg")
-    time.sleep(1)
-    actions2 = ActionChains(driver)
-    actions2.move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.CSS_SELECTOR, ".el-select__caret:nth-child(2) > svg").click()
-    print('.')
-    print(
-        '=================================================================================Click Clear Value Button filter Colum  ')
-    attach(data=driver.get_screenshot_as_png())
-
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('tessssst')  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci yang tidak sesuai lalu data table yang ditampilkan kosong
-    time.sleep(0.5)
-    driver.implicitly_wait(30)
-    nav1 = driver.find_element(By.XPATH, '//*[@id="kataKunci"]')
-    actions = ActionChains(driver)
-    actions.move_to_element(nav1).perform()
-    element2 = driver.find_element(By.CSS_SELECTOR, ".el-input__clear > svg")
-    time.sleep(1)
-    actions2 = ActionChains(driver)
-    actions2.move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.CSS_SELECTOR, ".el-input__clear > svg").click()
-    print('.')
-    print(
-        '================================================================================= Click Clear Value Button Kata Kunci dan inputan data tidak sesuai  ')
-    attach(data=driver.get_screenshot_as_png())
-
 
 # SORTIR TABLE HALAMAN INDEX
 @mark.fixture_test()

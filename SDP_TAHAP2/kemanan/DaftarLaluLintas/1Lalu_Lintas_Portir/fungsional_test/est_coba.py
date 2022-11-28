@@ -22,7 +22,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if platform.system() == 'Darwin':
-    sys.path.append(environ.get("MACPARENTDIR")) 
+    sys.path.append(environ.get("MACPARENTDIR"))
+    sys.path.append("/Users/will/Documents/work/Automationpython")
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR")) 
 

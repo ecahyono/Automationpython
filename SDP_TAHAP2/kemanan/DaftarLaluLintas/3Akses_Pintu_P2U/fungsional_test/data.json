@@ -1,22 +1,13 @@
 {
 
-    "IDTambahKamar": {
-        "Create Button": "//*[@id=\"createButton\"]",
-
-
-    },
-
-
-
-
     "Id Navigate Button": {
         "Create Button": "//*[@id=\"createButton\"]",
         "Back Button": "//*[@id=\"backButton\"]",
         "Detail Button" : "",
         "Update Button":  ".text-green-500 .h-5",
         "Custom Button" : ""
-        
-        
+
+
 
     },
     "Id Even Button": {
@@ -44,7 +35,7 @@
         "Input Radio": "",
         "input Dropdown": "",
         "Input Switch": ""
-       
+
     },
 
     "Id Search": {
@@ -63,17 +54,15 @@
     },
 
     "CSS": {
-        
+        "Update Button": ".text-green-500 .h-5"
+
 
     },
     "Other Search Index": {
         "Search Options": "//*[@id=\"searchOption0\"]/div/div/table/tbody/tr[2]/td[1]",
         "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
-        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
-        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
-        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
-        "Click ke": "//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div/div[1]/div/div/div[1]",
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
     },
 
     "Other Search Identitas": {
