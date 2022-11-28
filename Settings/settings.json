@@ -75,11 +75,6 @@
 
 
 
-
-
-
-
-
     "AksesMenu": {
         "Registrasi": {
             "MainText": "",
@@ -102,7 +97,9 @@
         },
         "Rupbasan": {
             "menu":{
-                "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div"
+                "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div",
+                "resetformbatal":"/html/body/div[3]/div/div/div[3]/button[1]",
+                "resetformYa":"/html/body/div[3]/div/div/div[3]/button[2]"
             },
             "elemen":{
                 "indexpenempatan":{
@@ -125,16 +122,14 @@
                 "llllll":{
                 },
                 "idxpenerimaan":{
-                    "pilkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/input",
-                    "katkun":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input",
-                    "tombolcari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
                     "hpskolom":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
                     "ascending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[1]",
                     "descending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[2]",
-                    "hlmnedit":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div/div/a/button" ,
+                    
                     "clearJREG":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[2]/div/div/div/div/div/span/span/i[2]",
-                    "hlmndetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[10]/div/div/div[1]/a/button",
-                    "CetakBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[10]/div/div/div[2]/button",
+                    "clearistansi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/span/span/i[2]",
+                    "hlmnedit":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div/div[2]/a/button",
+                    
                     "pilhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
                     "peegikepage":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
                     "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
@@ -147,12 +142,28 @@
                     "PMenyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input",
                     "tglpnrimaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input"
                 },
-                "ubagpenerimaan":{
+                "ubahpenerimaan":{
 
                 },
                 "listbarang":{
                     
+                },
+                "indexmutasi":{
+                    "ascend":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[1]",
+                    "descend":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[2]",
+                    "hapuscari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
+                    "detailmutasi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[1]/a/button",
+                    "ubahmuta":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[2]/a/button"
+                },
+                "+mutasi":{
+                    "caridata":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div/div/input",
+                    "NOSM":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[4]/div/div[1]/input",
+                    "TGLSM":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div[1]/input",
+                    "NOSBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[6]/div/div[1]/input",
+                    "Alamat":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[1]/div/div/textarea",
+                    "Keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[2]/div/div/textarea"
                 }
+                
             }
         },
         "Integrasi": {

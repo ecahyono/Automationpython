@@ -1,0 +1,6 @@
+[2022-11-25 15:03:35,203 Test_Mutasi_2_tambah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-25 15:03:38,136 Test_Mutasi_2_tambah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-25 15:03:40,874 Test_Mutasi_2_tambah.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Mutasi dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Mutasi
+[2022-11-25 15:03:47,486 Test_Mutasi_2_tambah.py->test_aksesmenu_tambah_4()]==>INFO: Mengakses menu tambah
+[2022-11-25 15:03:52,671 Test_Mutasi_2_tambah.py->test_Pencariandataregistrasi_5()]==>INFO: Melakukan pencarian data berdassarkan registrasi penerimaan, kemudian menuju form tambah
+[2022-11-25 15:03:57,922 Test_Mutasi_2_tambah.py->test_Meresetform_8()]==>INFO: Mereset Form tambah Mutasi dengan Option Ya
