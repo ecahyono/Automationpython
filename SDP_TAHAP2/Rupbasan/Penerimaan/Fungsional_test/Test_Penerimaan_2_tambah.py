@@ -82,20 +82,22 @@ def test_Input_dropdown_5():
     time.sleep(1)
     driver.find_element(By.ID, 'Pengadilan Negeri Tarutung').click()
 
-    Petugas_Penerima = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['PtgPenerima'])
+    Petugas_Penerima = driver.find_element(By.ID, 'cariData')
     Petugas_Penerima.click()
-    Petugas_Penerima.send_keys('Ananda Septiana Lestari')
-    driver.find_element(By. ID, 'cariPetugasInternal').click()
-    driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1)> .el-descriptions__label ').click()
+    Petugas_Penerima.send_keys('PEGWAI001')
+    driver.find_element(By. ID, 'cariData0').click()
+    
     time.sleep(2)
-    PetugasygMenyerahkan = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['PMenyerahkan'])
+    PetugasygMenyerahkan = driver.find_element(By.ID, 'cariPegawaiundefined')
     PetugasygMenyerahkan.click()
-    PetugasygMenyerahkan.send_keys("Rehan")
-    driver.find_element(By. ID, 'cariPetugasEksternal').click()
-    driver.find_element(By.XPATH, "//div[19]/div/div/div/ul/li").click()
+    PetugasygMenyerahkan.send_keys("Galih")
+    driver.find_element(By. ID, 'cariPegawaiEksternal0').click()
 
     # Tabidentitas 
-    driver.find_element(By. ID, 'cariIdentitasundefined').click()
+    ident = driver.find_element(By. ID, 'cariIdentitasundefined')
+    ident.click()
+    ident.send_keys('CAH')
+    driver.find_element(By. ID,'cariIdentitasPenerimaan0').click()
 
 @mark.fixture_penerimaan
 def test_inputtext_6():
