@@ -64,6 +64,8 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 
+
+
 def quit(driver):
     time.sleep(5)
     print('.')

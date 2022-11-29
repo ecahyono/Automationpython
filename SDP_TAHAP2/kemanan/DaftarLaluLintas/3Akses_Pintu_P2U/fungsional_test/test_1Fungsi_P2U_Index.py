@@ -1,7 +1,4 @@
 from distutils.archive_util import make_archive
-from os import PRIO_PGRP, environ
-from re import S, T
-from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,19 +14,27 @@ import time
 from pytest_html_reporter import attach
 
 import sys
-from pathlib import Path
-
-# file modul
-# from module.setup import initDriver, loadDataPath
-# from module.login import login
-
-sys.path.append("/Users/will/Documents/work/Automationpython")
-from Settings.setup import initDriver, loadDataPath
-from Settings.login import login
+from os import environ, path
 from dotenv import load_dotenv
-
 load_dotenv()
-import json
+
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR"))
+    sys.path.append("/Users/will/Documents/work/Automationpython")
+elif platform.system() == 'Windows':
+    sys.path.append(environ.get("WINPARENTDIR"))
+
+from Settings.setup import initDriver, loadDataPath, quit
+from Settings.login import login
+
+import logging
+Log = logging.getLogger(__name__)
+log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+fh = logging.FileHandler('result.log', mode="w")
+fh.setLevel(logging.INFO)
+formatter = logging.Formatter(log_format)
+fh.setFormatter(formatter)
+Log.addHandler(fh)
 
 @mark.fixture_test()
 def test_1_SetupOS():
@@ -54,7 +59,6 @@ def test_3_akses_menu_index():
     print('.')
     print('=akses menu daftar lalu lintas=')
     attach(data=driver.get_screenshot_as_png())
-
 
 
 
@@ -130,7 +134,9 @@ def test_6_Search_Pegawai_kategori_Index(): #Melakukan pencarian data berdasarka
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.XPATH, "//li[@id='tamuDinas']").click()
     # KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.ID, 'searchButton').click()
+
     #KLIK BUTTON CARI
     print('.')
     print('=Search TAMU DINAS=')
@@ -154,7 +160,7 @@ def test_6_Search_Pegawai_kategori_Index(): #Melakukan pencarian data berdasarka
     attach(data=driver.get_screenshot_as_png())
 
     # TAMU Kunjungna Online
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     # BUTTON CARI
     time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
@@ -329,7 +335,7 @@ def test_13_Sortir_50_Halaman_Index():
 @mark.fixture_test()
 def test_14_Sortir_100_Halaman_Index():
     #100 HALAMAN
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()
     driver.find_element(By.XPATH, pathData['Other Search Index']['Click ke']).send_keys(Keys.BACKSPACE)
@@ -339,18 +345,71 @@ def test_14_Sortir_100_Halaman_Index():
     print('= Menampilkan 100  ')
     attach(data=driver.get_screenshot_as_png())
 
+
+
+@mark.fixture_test()
+def test_17_Export_pdf_Index():
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.XPATH, '//*[@id="pdfButton"]/button').click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    print('.')
+    print('= Export PDF    ')
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+#Melakukan export data tabel ke excel
+@mark.fixture_test()
+def test_16_Export_exel_Index():
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.XPATH, '//*[@id="excelButton"]/button').click()
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    print('.')
+    print('= Export Excel   ')
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+
+#Melakukan export data tabel ke pdf
+
+
+
+
+#Melakukan cetak
+@mark.fixture_test()
+def test_18_Cetak_Index():
+    time.sleep(1)
+    driver.implicitly_wait(30)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
+    driver.find_element(By.XPATH, '//*[@id="printButton"]/div/div/div/div[2]/div/button[2]').click()
+
+
+    print('.')
+    print('= Cetak ')
+    attach(data=driver.get_screenshot_as_png())
+
+
 @mark.fixture_test()
 def test_15_SearchTanggal():
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, 'searchButton')))
     # BUTTON CARI
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterTanggalMasuk"]')))
     # BUTTON CARI
     time.sleep(1)
     driver.find_element(By.ID, "filterTanggalMasuk").send_keys('24/10/2022')
     driver.find_element(By.ID, "filterTanggalMasuk").send_keys(Keys.ENTER)
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
+    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, 'searchButton')))
+    driver.find_element(By.ID, 'searchButton').click()
     print('.')
     print('=Search Tanggal Masuk=')
     attach(data=driver.get_screenshot_as_png())
@@ -364,83 +423,16 @@ def test_15_SearchTanggal():
     time.sleep(1)
     driver.find_element(By.ID, "filterTanggalKeluar").send_keys('14/11/2022')
     driver.find_element(By.ID, "filterTanggalKeluar").send_keys(Keys.ENTER)
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
+    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, 'searchButton')))
+    driver.find_element(By.ID, 'searchButton').click()
 
     print('.')
     print('=Search Tanggal Keluar=')
     attach(data=driver.get_screenshot_as_png())
 
-
-
- #Membuka halaman Tambah Data / Cari Identitas melalui klik tombol tambah
-
-#Membuka halaman detail melalui klik tombol aksi icon detail
-
-#Membuka form ubah melalui klik tombol aksi icon uba
-
-
-
-#Melakukan export data tabel ke excel
-@mark.fixture_test()
-def test_15_Export_exel_Index():
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button').click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    print('.')
-    print('= Export Excel   ')
-    attach(data=driver.get_screenshot_as_png())
-
-
-
-
-#Melakukan export data tabel ke pdf
-@mark.fixture_test()
-def test_16_Export_pdf_Index():
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/button').click()
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    print('.')
-    print('= Export PDF    ')
-    attach(data=driver.get_screenshot_as_png())
-
-
-
-#Melakukan cetak
-@mark.fixture_test()
-def test_17_Cetak_Index():
-    time.sleep(1)
-    driver.implicitly_wait(30)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
-    driver.find_element(By.XPATH, '//*[@id="printButton"]/div/div/div/div[2]/div/button[2]').click()
-
-
-    print('.')
-    print('= Cetak ')
-    attach(data=driver.get_screenshot_as_png())
-
-
-
 def teardown():
-    time.sleep(9)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-
+    quit(driver)
     # TAMBAHAN FILTER TANGGAL
-    driver.close()
-    driver.quit()
+
 
     

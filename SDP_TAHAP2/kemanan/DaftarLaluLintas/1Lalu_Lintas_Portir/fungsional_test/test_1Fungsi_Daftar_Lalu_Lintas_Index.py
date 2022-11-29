@@ -27,7 +27,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath
+from Settings.setup import initDriver, loadDataPath, quit
 from Settings.login import login
 
 import logging
@@ -50,6 +50,7 @@ def test_1_setupOS():
 @mark.fixture_test()
 def test_2_login():
     login(driver)
+    Log.info('Login')
 
 
 @mark.fixture_test()
@@ -63,7 +64,7 @@ def test_3_akses_menu_index():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('Akses Menu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -86,8 +87,7 @@ def test_4_DLP001_SearchkategoriNama_Index():  # Melakukan pencarian data berdas
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
 
     print('.')
-    print(
-        '=================================================================================Search Data Form Kategori Nama ')
+    Log.info('Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -107,8 +107,7 @@ def test_5_DLP001_SearchKategoriNoInduk_Index():  # Melakukan pencarian data ber
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
 
     print('.')
-    print(
-        '================================================================================= Search Data Form Kategori No Induk  ')
+    Log.info('Search Data Form Kategori No Induk ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -122,7 +121,7 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//span/i[2]").click()
     print('.')
-    print('================================================================================= Sortir No induk ')
+    Log.info('Sortir No induk')
     attach(data=driver.get_screenshot_as_png())
     #NAMA
     driver.implicitly_wait(30)
@@ -130,7 +129,7 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//th[3]/div/span").click()
     print('.')
-    print('================================================================================= Sortir nama')
+    Log.info('Sortir nama')
     attach(data=driver.get_screenshot_as_png())
     #JENIS
     driver.implicitly_wait(30)
@@ -138,7 +137,7 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//th[4]/div").click()
     print('.')
-    print('================================================================================= Sortir jenis ')
+    Log.info(' Sortir jenis ')
     attach(data=driver.get_screenshot_as_png())
     #TANGGAL KELUAR
     driver.implicitly_wait(30)
@@ -146,7 +145,7 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//th[5]/div/span/i").click()
     print('.')
-    print('================================================================================= Sortir Tanggal Keluar ')
+    Log.info('Sortir Tanggal Keluar ')
     attach(data=driver.get_screenshot_as_png())
     #TANGGAL KEMBALI
     driver.implicitly_wait(30)
@@ -154,9 +153,8 @@ def test_7_DLP001_SortirDatatable_NoInduk_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//th[6]/div/span/i").click()
     print('.')
-    print('================================================================================= Sortir tanggal kembali ')
+    Log.info('Sortir tanggal kembali ')
     attach(data=driver.get_screenshot_as_png())
-
 
 # Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
@@ -169,7 +167,7 @@ def test_8_DLP001_Pagination_Index():
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print(' Menampilkan 5')
+    Log.info('halaman 5')
     attach(data=driver.get_screenshot_as_png())
 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -179,7 +177,7 @@ def test_8_DLP001_Pagination_Index():
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print(' Menampilkan  ')
+    Log.info('halaman 10')
     attach(data=driver.get_screenshot_as_png())
 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -189,7 +187,7 @@ def test_8_DLP001_Pagination_Index():
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print(' Menampilkan  ')
+    Log.info('halaman 20')
     attach(data=driver.get_screenshot_as_png())
 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -200,7 +198,7 @@ def test_8_DLP001_Pagination_Index():
         '100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print(' Menampilkan  ')
+    Log.info('halaman 50')
     attach(data=driver.get_screenshot_as_png())
 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -210,7 +208,7 @@ def test_8_DLP001_Pagination_Index():
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print(' Menampilkan  ')
+    Log.info('halaman 100')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -226,7 +224,7 @@ def test_9_membuka_halaman_tambah_Index():
     # WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     # driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
-    print('================================================================================= Membuka Halaman Tambah  ')
+    Log.info('Membuka Halaman Tambah')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -236,7 +234,7 @@ def test_10_back_index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
-    print('========================================================== Back Ke Halaman Index  ')
+    Log.info('Back Ke Halaman Index  ')
 
 
 # Membuka halaman detail melalui klik tombol aksi icon detail
@@ -250,7 +248,7 @@ def test_11_membuka_halaman_ubah_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,
                                                                 '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
     driver.find_element(By.ID, 'backButton').click()
-    print('================================================================================= Membuka Halaman Ubah  ')
+    Log.info('Membuka Halaman Ubah  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -262,10 +260,9 @@ def test_12_membuka_halaman_detail_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
     driver.find_element(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
     time.sleep(3)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,
-                                                                '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
     driver.find_element(By.ID, 'backButton').click()
-    print('================================================================================= Membuka Halaman Detail  ')
+    Log.info('Membuka Halaman Detail  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -279,7 +276,7 @@ def test_13_export_exel_Index():
     driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/div/div/div/div[2]/div/button[2]').click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
     print('.')
-    print('================================================================================= Export Excel   ')
+    Log.info('Export Excel')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -293,7 +290,7 @@ def test_14_export_pdf_Index():
     driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]/div/div/div/div[2]/div/button[2]').click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
     print('.')
-    print('================================================================================= Export PDF    ')
+    Log.info('Export PDF')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -304,41 +301,11 @@ def test_15_cetak_Index():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="printButton"]').click()
-    driver.find_element(By.XPATH,
-                        '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
+    driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
     print('.')
-    print('================================================================================= Cetak    ')
+    Log.info('Cetak')
     attach(data=driver.get_screenshot_as_png())
 
 
 def teardown():
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-    print('░░▄███▄███▄')
-    print('░░█████████')
-    print('░░▒▀█████▀░')
-    print('░░▒░░▀█▀')
-    print('░░▒░░█░')
-    print('░░▒░█')
-    print('░░░█')
-    print('░░█░░░░███████')
-    print('░██░░░██▓▓███▓██▒')
-    print('██░░░█▓▓▓▓▓▓▓█▓████')
-    print('██░░██▓▓▓(◐)▓█▓█▓█')
-    print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
-    print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
-    print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
-    print('░▒░░▒░░██▓██░░░██▓▓██')
-    driver.close()
-    driver.quit()
+    quit(driver)

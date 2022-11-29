@@ -1,14 +1,14 @@
 from distutils.archive_util import make_archive
-from os import PRIO_PGRP, environ
-from re import S, T
-from threading import TIMEOUT_MAX
+# from os import PRIO_PGRP, environ
+# from re import S, T
+# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys 
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.select import Select
 import platform
@@ -17,17 +17,27 @@ import time
 from pytest_html_reporter import attach
 
 import sys
-from pathlib import Path
-#file modul
-#from module.setup import initDriver, loadDataPath
-#from module.login import login 
-
-sys.path.append("/Users/will/Documents/work/Automationpython")
-from Settings.setup import initDriver, loadDataPath
-from Settings.login import login
+from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
-import json
+
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR"))
+    sys.path.append("/Users/will/Documents/work/Automationpython")
+elif platform.system() == 'Windows':
+    sys.path.append(environ.get("WINPARENTDIR"))
+
+from Settings.setup import initDriver, loadDataPath, quit
+from Settings.login import login
+
+import logging
+Log = logging.getLogger(__name__)
+log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+fh = logging.FileHandler('result.log', mode="w")
+fh.setLevel(logging.INFO)
+formatter = logging.Formatter(log_format)
+fh.setFormatter(formatter)
+Log.addHandler(fh)
 
 
 @mark.fixture_test()

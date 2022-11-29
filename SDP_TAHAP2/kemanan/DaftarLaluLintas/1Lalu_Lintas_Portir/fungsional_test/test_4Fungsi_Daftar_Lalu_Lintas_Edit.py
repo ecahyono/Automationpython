@@ -5,9 +5,6 @@ from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from distutils.archive_util import make_archive
-# from os import PRIO_PGRP, environ
-# from re import S, T
-# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -33,7 +30,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath
+from Settings.setup import initDriver, loadDataPath, quit
 from Settings.login import login
 
 import logging
@@ -50,10 +47,12 @@ def test_1_setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
+    Log.info('Setup Os')
 
 @mark.fixture_test()
 def test_2_login_HalamanEdit():
     login(driver)
+    Log.info('login')
 
 
 #AKSES MENU 
@@ -69,7 +68,7 @@ def test_3_akses_menu_HalamanEdit():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
 # MENAKAN BUTTON UBAH
@@ -90,18 +89,18 @@ def test_4_sortir_table_cari_nama_cari_identitas():
     time.sleep(0.1)
     
     print('.')
-    print('================================================================================= Memilih Dropdown Nama  ')
+    Log.info(' Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('TEST BIN ayah')
     """
-    print('================================================================================= Input Nama  ')
+    Log.info(' Input Nama  ')
 
     driver.implicitly_wait(60)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('.')
-    print('==========Click Button Cari  ==========')
+    Log.info('Click Button Cari')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -115,7 +114,7 @@ def test_5_Click_ButtonUbah_HalamanEdit():
     time.sleep(3)
     
     print('.')
-    print('=================================================================================Click Button Update Berhasil================================================================================= ')
+    Log.info('Click Button Update')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -139,8 +138,8 @@ def test_6_sortir_detil_wbp_HalamanEdit():
     time.sleep(0.3)
     driver.find_element(By.XPATH, '//*[@id="tab-7"]').click()
 
-    print('=')
-    print(' = Detile WBP')
+    print('.')
+    Log.info('Detile WBP')
 
 @mark.fixture_test()
 def test_7_detile_perkara_HalamanEdit():
@@ -161,8 +160,8 @@ def test_7_detile_perkara_HalamanEdit():
     driver.find_element(By.XPATH, '//*[@id="tab-pm"]').click()
     time.sleep(0.3)
     driver.find_element(By.XPATH, '//*[@id="tab-pembebasan"]').click()
-    print('=')
-    print(' = Detile Perkara')
+    print('.')
+    Log.info('Detile Perkara')
 #MEMUAT ULANG HALAMAN WEB
 @mark.fixture_test()
 def test_8_Muat_Ulang_HalamanEdit():
@@ -172,7 +171,7 @@ def test_8_Muat_Ulang_HalamanEdit():
     driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[3]/button[2]').click() 
     time.sleep(2)
     print('.')
-    print('=================================================================================Click Button Muat Ulang Berhasil================================================================================= ')
+    Log.info('Click Button Muat Ulang Berhasil')
     attach(data=driver.get_screenshot_as_png()) 
 
 
@@ -184,13 +183,15 @@ def test_9_Ubah_NoSk_HalamanEdit():
     driver.find_element(By.XPATH, '//*[@id="noSK"]').clear()
     driver.find_element(By.XPATH, '//*[@id="noSK"]').send_keys('SK/001/DIV')
     print('.')
-    print('=================================================================================Ubah Deskripsi Berhasil================================================================================= ')
+    Log.info('Ubah Deskripsi Berhasil')
     attach(data=driver.get_screenshot_as_png()) 
 
 @mark.fixture_test()
 def test_10_UploadSurat_HalamanEdit():
 
     time.sleep(3)
+    """
+    
     driver.find_element(By.XPATH, "//div[@id=\'fileSK\']/div/button/span").click()
     time.sleep(3)
     pyautogui.write("///////users/will/Downloads/pdf/rere.pdf")
@@ -204,6 +205,9 @@ def test_10_UploadSurat_HalamanEdit():
     pyautogui.press('enter')
     time.sleep(1)
     pyautogui.press('enter')
+    """
+    Log.info('Upload PDF')
+    attach(data=driver.get_screenshot_as_png())
 #MENEGEDIT DESKRIPSI
 @mark.fixture_test()
 def test_11_Ubah_Deskripsi_HalamanEdit():
@@ -212,22 +216,19 @@ def test_11_Ubah_Deskripsi_HalamanEdit():
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').clear()
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys('deskripsi baru')
     print('.')
-    print('=================================================================================Ubah Deskripsi Berhasil================================================================================= ')
-    attach(data=driver.get_screenshot_as_png()) 
-
-
+    Log.info('Ubah Deskripsi Berhasil')
+    attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 def test_12_Input_JenisKeluar_HalamanTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
     driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("Diversi")
     driver.find_element(By.XPATH, '//*[@id="Diversi"]').click()
-    print('=')
-    print(' = Input Jenis Keluar  ')
+    print('.')
+    Log.info('Input Jenis Keluar')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-
 #MENGEDIT TANGGAL KELUAR
 def test_13_Ubah_Tanggal_Keluar_Edit():
     driver.implicitly_wait(10)
@@ -236,7 +237,7 @@ def test_13_Ubah_Tanggal_Keluar_Edit():
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys('24/12/2028')
     driver.find_element(By.ID, "keluarKeamanan").send_keys(Keys.ENTER)
     print('.')
-    print('=================================================================================Ubah Tanggal Keluar Berhasil================================================================================= ')
+    Log.info('Ubah Tanggal Keluar Berhasil')
     attach(data=driver.get_screenshot_as_png()) 
 
 
@@ -248,9 +249,9 @@ def test_14_Ubah_Tanggal_kembali_Edit():
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2028 12:80:80')
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('.')
-    print('=================================================================================Ubah Tanggal Kembali Berhasil================================================================================= ')
+    Log.info('Ubah Tanggal Kembali Berhasil')
     attach(data=driver.get_screenshot_as_png()) 
-    time.sleep(10)
+    time.sleep(5)
 
 
 @mark.fixture_test()
@@ -259,7 +260,7 @@ def test_15_Ubah_Status_Edit():
     driver.find_element(By.XPATH, '//*[@id="statusPendaftaran"]').send_keys("Diizinkan")
     driver.find_element(By.XPATH, "//li[contains(.,\'Diizinkan\')]").click()
     print('=')
-    print(' = Input Jenis Keluar  ')
+    Log.info('status pendaftaran')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -268,39 +269,10 @@ def test_16_ButtonUbah_HalamanEdit():
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    
+    Log.info('Button Submit')
+    attach(data=driver.get_screenshot_as_png())
 
 
 #CLOSE 
 def teardown():
-    time.sleep(10)
-    print('.')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-    print('░░▄███▄███▄')
-    print('░░█████████')
-    print('░░▒▀█████▀░')
-    print('░░▒░░▀█▀')
-    print('░░▒░░█░')
-    print('░░▒░█')
-    print('░░░█')
-    print('░░█░░░░███████')
-    print('░██░░░██▓▓███▓██▒')
-    print('██░░░█▓▓▓▓▓▓▓█▓████')
-    print('██░░██▓▓▓(◐)▓█▓█▓█')
-    print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
-    print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
-    print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
-    print('░▒░░▒░░██▓██░░░██▓▓██')
-    driver.close()
-    driver.quit()
+    quit(driver)

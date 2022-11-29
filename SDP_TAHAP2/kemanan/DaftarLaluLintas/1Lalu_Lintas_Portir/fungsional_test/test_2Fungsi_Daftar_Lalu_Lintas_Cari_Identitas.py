@@ -27,7 +27,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath
+from Settings.setup import initDriver, loadDataPath, quit
 from Settings.login import login
 
 import logging
@@ -61,7 +61,7 @@ def test_3_akses_menu_index():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -82,7 +82,7 @@ def test_4_membuka_halaman_tambah_index():
     #WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
-    print('================================================================================= Membuka Halaman Tambah  ')
+    Log.info('Membuka Halaman Tambah')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -94,7 +94,7 @@ def test_5_Button_Next_Prev():
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     time.sleep(1)
     driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
-
+    Log.info('button next search data')
 
 
 @mark.fixture_test()
@@ -105,18 +105,18 @@ def test_6_sortir_table_cari_noreg_cari_identitas():
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, '//*[@id="nomorReg"]').click()
     print('.')
-    print('================================================================================= Memilih Dropdown Noregis  ')
+    Log.info(' Memilih Dropdown Noregis  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('123')
     print('.')
-    print('================================================================================= Input Noregis  ')
+    Log.info('Input Noregis  ')
 
     driver.implicitly_wait(60)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('.')
-    print('==========Click Button Cari  ==========')
+    Log.info('Click Button Cari ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -126,18 +126,18 @@ def test_7_sortir_table_cari_nama_cari_identitas():
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('.')
-    print('================================================================================= Memilih Dropdown Nama  ')
+    Log.info('Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('WILLLD BINTI eko cah cah ge')
     print('.')
-    print('================================================================================= Input Nama  ')
+    Log.info('Input Nama  ')
 
     driver.implicitly_wait(60)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('.')
-    print('==========Click Button Cari  ==========')
+    Log.info('Click Button Cari')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -147,18 +147,18 @@ def test_8_sortir_table_cari_JenisKejahatan_cari_identitas():
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, '//*[@id="jenisKejahatan"]').click()
     print('.')
-    print('================================================================================= Memilih Dropdown No Regis  ')
+    Log.info('Memilih Dropdown Jenis Kejahatan  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Korupsi')
     print('.')
-    print('================================================================================= Input No Regis  ')
+    Log.info('Input katakunci  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     print('.')
-    print('==========Click Button Cari  ==========')
+    Log.info('Click Button Cari')
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
@@ -174,7 +174,7 @@ def test_9_search_data_aktif_cari_identitas():
     time.sleep(2)
     driver.find_element(By.XPATH, '//*[@id="dataAktif"]/span[1]/span').click()
     print('.')
-    print('================================================================================= Search Data Aktiv  ')
+    Log.info(' Search Data Aktiv  ')
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
@@ -190,7 +190,7 @@ def test_10_search_residivis_cari_identitas():
     time.sleep(2)
     driver.find_element(By.XPATH, '//*[@id="residivis"]/span[1]/span').click()
     print('.')
-    print('================================================================================= Search Residivis  ')
+    Log.info(' Search Residivis  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -206,7 +206,7 @@ def test_11_Sortir_5_Halaman_cari_identitas():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys("2") #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5 halaman cari  ')
+    Log.info(' Menampilkan 5 halaman cari  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -222,7 +222,7 @@ def test_12_sortir_10_Halaman_cari_identitas():
     driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 10 halaman cari ')
+    Log.info(' Menampilkan 10 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -236,7 +236,7 @@ def test_13_sortir_20_Halaman_cari_identitas():
     driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 20 halaman cari ')
+    Log.info(' Menampilkan 20 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -250,7 +250,7 @@ def test_14_sortir_50_Halaman_cari_identitas():
     driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 50 halaman cari ')
+    Log.info(' Menampilkan 50 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -264,7 +264,7 @@ def test_15_sortir_100_Halaman_cari_identitas():
     driver.find_element(By.XPATH, '//input[@type=\'number\']').send_keys('3') #Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 100 halaman cari ')
+    Log.info('Menampilkan 100 halaman cari ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -272,35 +272,5 @@ def test_15_sortir_100_Halaman_cari_identitas():
 
 
 def teardown():
-    
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-    print('░░▄███▄███▄')
-    print('░░█████████')
-    print('░░▒▀█████▀░')
-    print('░░▒░░▀█▀')
-    print('░░▒░░█░')
-    print('░░▒░█')
-    print('░░░█')
-    print('░░█░░░░███████')
-    print('░██░░░██▓▓███▓██▒')
-    print('██░░░█▓▓▓▓▓▓▓█▓████')
-    print('██░░██▓▓▓(◐)▓█▓█▓█')
-    print('███▓▓▓█▓▓▓▓▓█▓█▓▓▓▓█')
-    print('▀██▓▓█░██▓▓▓▓██▓▓▓▓▓█')
-    print('░▀██▀░░█▓▓▓▓▓▓▓▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓▓█▓▓▓▓▓▓█')
-    print('░░░░▒░░░█▓▓▓▓█▓█▓▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█▓▓▓█▓▓▓▓█')
-    print('░▒░░▒░░░█▓▓▓█░░░█▓▓▓█')
-    print('░▒░░▒░░██▓██░░░██▓▓██')
-    driver.close()
-    driver.quit()
-
+    quit(driver)
     
