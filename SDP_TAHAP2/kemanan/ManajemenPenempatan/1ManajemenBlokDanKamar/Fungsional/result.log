@@ -1,23 +1,25 @@
-[2022-11-29 15:47:50,060 test_2Fungsi_tambahKamar.py->test_1_SetupOS()]==>INFO: Login
-[2022-11-29 15:47:52,021 test_2Fungsi_tambahKamar.py->test_2_Login()]==>INFO: Login
-[2022-11-29 15:47:54,637 test_2Fungsi_tambahKamar.py->test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
-[2022-11-29 15:48:06,299 test_2Fungsi_tambahKamar.py->test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
-[2022-11-29 15:48:07,096 test_2Fungsi_tambahKamar.py->test_5_ClickButtonTambah_MasterBlokDanKamar()]==>INFO: Click Button Tambah Master Blok Dan Kamar
-[2022-11-29 15:48:08,281 test_2Fungsi_tambahKamar.py->test_6_InputNamaBlok()]==>INFO: Input Nama Blok
-[2022-11-29 15:48:09,099 test_2Fungsi_tambahKamar.py->test_7_InputTipeBlok()]==>INFO: Input Tipe Blok
-[2022-11-29 15:48:09,936 test_2Fungsi_tambahKamar.py->test_8_JenisKelaminBlok()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
-[2022-11-29 15:48:12,329 test_2Fungsi_tambahKamar.py->test_9_JenisKejahatan()]==>INFO: Input Jenis kejahatan
-[2022-11-29 15:48:12,600 test_2Fungsi_tambahKamar.py->test_9_JumlahLantai()]==>INFO: Input Jumlah Lantai
-[2022-11-29 15:48:12,933 test_2Fungsi_tambahKamar.py->test_10_FormatPenomoranKamar()]==>INFO: Input Format Penomoran Kamar
-[2022-11-29 15:48:13,261 test_2Fungsi_tambahKamar.py->test_11_Umur()]==>INFO: usia
-[2022-11-29 15:48:13,796 test_2Fungsi_tambahKamar.py->test_12_InputJumlahKamar()]==>INFO: Input Jumlah Halaman
-[2022-11-29 15:48:14,089 test_2Fungsi_tambahKamar.py->test_13_BAKALDIHAPUS()]==>INFO: Input koridor
-[2022-11-29 15:48:14,392 test_2Fungsi_tambahKamar.py->test_14_BAKALDIHAPUS()]==>INFO: koridor simpang
-[2022-11-29 15:48:20,915 test_2Fungsi_tambahKamar.py->test_15_Submit()]==>INFO: Submit
-[2022-11-29 15:48:21,240 test_2Fungsi_tambahKamar.py->test_17_InputNomorKamar()]==>INFO: Input Nomor Kamar
-[2022-11-29 15:48:21,586 test_2Fungsi_tambahKamar.py->test_18_PeruntukanKelompokUsia()]==>INFO: Usia Ruangan
-[2022-11-29 15:48:21,910 test_2Fungsi_tambahKamar.py->test_19_TipeKamar()]==>INFO: Tipe Ruangan
-[2022-11-29 15:48:22,243 test_2Fungsi_tambahKamar.py->test_20_JenisKelamin()]==>INFO: Jenis Kelamin
-[2022-11-29 15:48:22,521 test_2Fungsi_tambahKamar.py->test_21_KapasitasInput()]==>INFO: Kapasitas Ruangan
-[2022-11-29 15:48:22,863 test_2Fungsi_tambahKamar.py->test_22_KondisiRuangan()]==>INFO: Kondisi Ruangan
-[2022-11-29 15:48:23,135 test_2Fungsi_tambahKamar.py->test_23_LamaHuni()]==>INFO: Lama Huni
+[2022-11-29 16:41:32,713 test_2Fungsi_tambahKamar.py->test_1_SetupOS()]==>INFO: Login
+[2022-11-29 16:41:34,793 test_2Fungsi_tambahKamar.py->test_2_Login()]==>INFO: Login
+[2022-11-29 16:41:37,408 test_2Fungsi_tambahKamar.py->test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
+[2022-11-29 16:41:43,971 test_2Fungsi_tambahKamar.py->test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2022-11-29 16:41:44,761 test_2Fungsi_tambahKamar.py->test_5_ClickButtonTambah_MasterBlokDanKamar()]==>INFO: Click Button Tambah Master Blok Dan Kamar
+[2022-11-29 16:41:46,064 test_2Fungsi_tambahKamar.py->test_6_InputNamaBlok()]==>INFO: Input Nama Blok
+[2022-11-29 16:41:46,888 test_2Fungsi_tambahKamar.py->test_7_InputTipeBlok()]==>INFO: Input Tipe Blok
+[2022-11-29 16:41:47,697 test_2Fungsi_tambahKamar.py->test_8_JenisKelaminBlok()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
+[2022-11-29 16:41:50,108 test_2Fungsi_tambahKamar.py->test_9_JenisKejahatan()]==>INFO: Input Jenis kejahatan
+[2022-11-29 16:41:50,410 test_2Fungsi_tambahKamar.py->test_10_JumlahLantai()]==>INFO: Input Jumlah Lantai
+[2022-11-29 16:41:50,748 test_2Fungsi_tambahKamar.py->test_11_FormatPenomoranKamar()]==>INFO: Input Format Penomoran Kamar
+[2022-11-29 16:41:51,065 test_2Fungsi_tambahKamar.py->test_12_Umur()]==>INFO: usia
+[2022-11-29 16:41:51,589 test_2Fungsi_tambahKamar.py->test_13_InputJumlahKamar()]==>INFO: Input Jumlah Halaman
+[2022-11-29 16:41:51,894 test_2Fungsi_tambahKamar.py->test_14_BAKALDIHAPUS()]==>INFO: Input koridor
+[2022-11-29 16:41:52,195 test_2Fungsi_tambahKamar.py->test_15_BAKALDIHAPUS()]==>INFO: koridor simpang
+[2022-11-29 16:41:55,360 test_2Fungsi_tambahKamar.py->test_16_Submit()]==>INFO: Submit
+[2022-11-29 16:41:57,086 test_2Fungsi_tambahKamar.py->test_17_JenisLantai()]==>INFO: Input Nomor Kamar
+[2022-11-29 16:41:57,344 test_2Fungsi_tambahKamar.py->test_18_InputNomorKamar()]==>INFO: Input Nomor Kamar
+[2022-11-29 16:41:57,671 test_2Fungsi_tambahKamar.py->test_19_PeruntukanKelompokUsia()]==>INFO: Usia Ruangan
+[2022-11-29 16:41:58,019 test_2Fungsi_tambahKamar.py->test_20_TipeKamar()]==>INFO: Tipe Ruangan
+[2022-11-29 16:41:58,343 test_2Fungsi_tambahKamar.py->test_21_JenisKelamin()]==>INFO: Jenis Kelamin
+[2022-11-29 16:41:58,593 test_2Fungsi_tambahKamar.py->test_22_KapasitasInput()]==>INFO: Kapasitas Ruangan
+[2022-11-29 16:41:58,906 test_2Fungsi_tambahKamar.py->test_23_KondisiRuangan()]==>INFO: Kondisi Ruangan
+[2022-11-29 16:41:59,156 test_2Fungsi_tambahKamar.py->test_24_LamaHuni()]==>INFO: Lama Huni
+[2022-11-29 16:41:59,399 test_2Fungsi_tambahKamar.py->test_25_ButtonSubmit()]==>INFO: Submit

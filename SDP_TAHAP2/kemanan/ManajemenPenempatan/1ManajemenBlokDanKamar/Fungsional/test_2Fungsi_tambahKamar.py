@@ -127,7 +127,7 @@ def test_9_JenisKejahatan():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_9_JumlahLantai():
+def test_10_JumlahLantai():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]')))
     driver.find_element(By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]').send_keys('2')
@@ -135,7 +135,7 @@ def test_9_JumlahLantai():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_10_FormatPenomoranKamar():
+def test_11_FormatPenomoranKamar():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'penomoran_kamar')))
     driver.find_element(By.ID, "penomoran_kamar").click()
@@ -143,7 +143,7 @@ def test_10_FormatPenomoranKamar():
     Log.info('Input Format Penomoran Kamar')
     attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
-def test_11_Umur():
+def test_12_Umur():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "kel_usia_id").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa')]").click()
@@ -151,7 +151,7 @@ def test_11_Umur():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_12_InputJumlahKamar():
+def test_13_InputJumlahKamar():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").click()
     driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").send_keys("10")
@@ -161,7 +161,7 @@ def test_12_InputJumlahKamar():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_13_BAKALDIHAPUS():
+def test_14_BAKALDIHAPUS():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-0").click()
     driver.find_element(By.ID, "posisi_koridor_utama_per_lantai-0").send_keys("2-6")
@@ -171,7 +171,7 @@ def test_13_BAKALDIHAPUS():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_14_BAKALDIHAPUS():
+def test_15_BAKALDIHAPUS():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-0").click()
     driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-0").send_keys("4-8")
@@ -181,24 +181,25 @@ def test_14_BAKALDIHAPUS():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_15_Submit():
+def test_16_Submit():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     Log.info('Submit')
     attach(data=driver.get_screenshot_as_png())
 
-    """
 @mark.fixture_test()
-def test_16_JenisLantai():
+def test_17_JenisLantai():
     driver.implicitly_wait(30)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[1]/div/div/div/div/input')))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'lantai_id')))
+    driver.find_element(By.ID, 'lantai_id').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'lantai-0')))
     driver.find_element(By.ID, "lantai-0").click()
     Log.info('Input Nomor Kamar')
     attach(data=driver.get_screenshot_as_png())
-     """
+
 @mark.fixture_test()
-def test_17_InputNomorKamar():
+def test_18_InputNomorKamar():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'nomorKamar')))
     driver.find_element(By.ID, "nomorKamar").send_keys('01')
@@ -206,7 +207,7 @@ def test_17_InputNomorKamar():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_18_PeruntukanKelompokUsia():
+def test_19_PeruntukanKelompokUsia():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "kel_usia_id").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa\')]").click()
@@ -214,7 +215,7 @@ def test_18_PeruntukanKelompokUsia():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_19_TipeKamar():
+def test_20_TipeKamar():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "tipe_id").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Umum\')]").click()
@@ -222,7 +223,7 @@ def test_19_TipeKamar():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_20_JenisKelamin():
+def test_21_JenisKelamin():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "kel_jenis_kelamin_id").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Perempuan\')]").click()
@@ -230,14 +231,14 @@ def test_20_JenisKelamin():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_21_KapasitasInput():
+def test_22_KapasitasInput():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, 'kapasitasInput').send_keys(30)
     Log.info('Kapasitas Ruangan')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_22_KondisiRuangan():
+def test_23_KondisiRuangan():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, 'kondisiInput').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Baik\')]").click()
@@ -245,10 +246,17 @@ def test_22_KondisiRuangan():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_23_LamaHuni():
+def test_24_LamaHuni():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, 'lamaHuni').send_keys(30)
     Log.info('Lama Huni')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_25_ButtonSubmit():
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, 'submitButton').click()
+    Log.info('Submit')
     attach(data=driver.get_screenshot_as_png())
     #MASIH BELUM SELESAI
 
