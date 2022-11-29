@@ -179,6 +179,7 @@ def test_14_BAKALDIHAPUS():
     driver.find_element(By.ID, "posisi_koridor_simpang_per_lantai-1").send_keys("4-8")
     Log.info('koridor simpang')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_15_Submit():
     driver.implicitly_wait(30)
@@ -203,6 +204,7 @@ def test_17_InputNomorKamar():
     driver.find_element(By.ID, "nomorKamar").send_keys('01')
     Log.info('Input Nomor Kamar')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_18_PeruntukanKelompokUsia():
     driver.implicitly_wait(30)
@@ -210,6 +212,7 @@ def test_18_PeruntukanKelompokUsia():
     driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa\')]").click()
     Log.info('Usia Ruangan')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_19_TipeKamar():
     driver.implicitly_wait(30)
@@ -217,6 +220,7 @@ def test_19_TipeKamar():
     driver.find_element(By.XPATH, "//li[contains(.,\'Umum\')]").click()
     Log.info('Tipe Ruangan')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_20_JenisKelamin():
     driver.implicitly_wait(30)
@@ -224,12 +228,14 @@ def test_20_JenisKelamin():
     driver.find_element(By.XPATH, "//li[contains(.,\'Perempuan\')]").click()
     Log.info('Jenis Kelamin')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_21_KapasitasInput():
     driver.implicitly_wait(30)
     driver.find_element(By.ID, 'kapasitasInput').send_keys(30)
     Log.info('Kapasitas Ruangan')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_22_KondisiRuangan():
     driver.implicitly_wait(30)
@@ -237,6 +243,7 @@ def test_22_KondisiRuangan():
     driver.find_element(By.XPATH, "//li[contains(.,\'Baik\')]").click()
     Log.info('Kondisi Ruangan')
     attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_23_LamaHuni():
     driver.implicitly_wait(30)
@@ -244,6 +251,7 @@ def test_23_LamaHuni():
     Log.info('Lama Huni')
     attach(data=driver.get_screenshot_as_png())
     #MASIH BELUM SELESAI
+
 @mark.fixture_test()
 def teardown():
     quit(driver)
