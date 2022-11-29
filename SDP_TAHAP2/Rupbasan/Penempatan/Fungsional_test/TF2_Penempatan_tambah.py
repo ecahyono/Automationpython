@@ -29,7 +29,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('+penemptn.log', mode="w")
+fh = logging.FileHandler('TF2_Penempatan_tambah.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -85,7 +85,7 @@ def test_SelectDropdwn_5():
     barang = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/form/div/div[1]/div/div/div/div/div/input')
     barang.click()
     barang.send_keys('mouse')
-    driver.find_element(By.XPATH, '//div[12]/div/div/div[1]/ul/li[1]').click()
+    driver.find_element(By.ID, '111').click()
 
     driver.find_element(By. ID, 'dropdownPilihTersangka').click()
     driver.find_element(By. ID, 'Wild').click()
@@ -102,7 +102,7 @@ def test_SelectDropdwn_5():
     driver.find_element(By. ID, 'baris satuya').click()
     
     driver.find_element(By. ID, 'dropdownNoUrut').click()
-    driver.find_element(By. ID, '764').click()
+    driver.find_element(By. ID, '764').click()  
 
     attach(data=driver.get_screenshot_as_png())
     Log.info('Memilih value, kemudian mengosongkan pilihan dengan clear button value, lalu ditampilkan validation message jika mandatory')
@@ -143,9 +143,3 @@ def test_submitdata_9():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Simpan data dengan klik button simpan dan data akan tampil di halaman index dengan data sesuai inputan')
     
-@mark.fixture_penempatan
-def test_keluar():
-    quit(driver)
-
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Kelauar web auto test')

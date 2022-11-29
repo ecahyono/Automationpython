@@ -28,7 +28,7 @@ def loadDataPath():
     if platform.system() == 'Darwin':
         file = open(environ.get("MACJSONDATA"), 'r')
     elif platform.system() == 'Windows':
-        file = open(environ.get("MACJSONDATA"), 'r')
+        file = open(environ.get("WINJSONDATA"), 'r')
 
     data = json.load(file)
     return data
