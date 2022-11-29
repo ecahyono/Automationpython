@@ -57,7 +57,7 @@ def test_3_Akses_menu_index():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Akses Pintu P2U').click()
     print('.')
-    print('= akses menu daftar lalu lintas =')
+    Log.info(' akses menu daftar lalu lintas =')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()

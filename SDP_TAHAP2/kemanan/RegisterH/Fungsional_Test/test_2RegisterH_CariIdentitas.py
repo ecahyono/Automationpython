@@ -46,7 +46,7 @@ def test_3_aksesmenu_Search():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Register H').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('akses menu daftar lalu lintas==========')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -56,7 +56,7 @@ def test_4_membuka_halaman_tambah_index_Search():
     driver.find_element(By.ID, 'createButton').click()
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     print('.')
-    print('================================================================================= Membuka Halaman Tambah  ')
+    Log.info(' Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -71,7 +71,7 @@ def test_5_sortir_Halaman_Index():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys('10')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    Log.info(' Menampilkan 5  ')
     attach(data=driver.get_screenshot_as_png())
 
     driver.implicitly_wait(60)
@@ -82,7 +82,7 @@ def test_5_sortir_Halaman_Index():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys('10')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    Log.info(' Menampilkan 5  ')
     attach(data=driver.get_screenshot_as_png())
 
     # 5 HALAMAN
@@ -94,7 +94,7 @@ def test_5_sortir_Halaman_Index():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys('10')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    Log.info(' Menampilkan 5  ')
     attach(data=driver.get_screenshot_as_png())
 
     # 5 HALAMAN
@@ -106,7 +106,7 @@ def test_5_sortir_Halaman_Index():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys('10')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    Log.info(' Menampilkan 5  ')
     attach(data=driver.get_screenshot_as_png())
 
     # 5 HALAMAN
@@ -118,7 +118,7 @@ def test_5_sortir_Halaman_Index():
     driver.find_element(By.XPATH, "//input[@type=\'number\']").send_keys('10')  # Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
     time.sleep(1)
     print('.')
-    print('================================================================================= Menampilkan 5  ')
+    Log.info(' Menampilkan 5  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -144,8 +144,7 @@ def test_6_search_data_kategori_nama_Search():  # Melakukan pencarian data berda
 
 
     print('.')
-    print(
-        '=================================================================================Search Data Form Kategori Nama ')
+    Log.info('Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -170,8 +169,7 @@ def test_7_search_data_kategori_JenisKejahatan_Search():  # Melakukan pencarian 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
 
     print('.')
-    print(
-        '=================================================================================Search Data Form Kategori Nama ')
+    Log.info('Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -196,8 +194,7 @@ def test_8_search_data_kategori_NoregSearch():  # Melakukan pencarian data berda
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
 
     print('.')
-    print(
-        '=================================================================================Search Data Form Kategori Nama ')
+    Log.info('Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -222,7 +219,7 @@ def test_9_search_data_kategori_Semua_Search():  # Melakukan pencarian data berd
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
 
     print('.')
-    print('=================================================================================Search Data Form Kategori Nama ')
+    Log.info('Search Data Form Kategori Nama ')
     attach(data=driver.get_screenshot_as_png())
 
 

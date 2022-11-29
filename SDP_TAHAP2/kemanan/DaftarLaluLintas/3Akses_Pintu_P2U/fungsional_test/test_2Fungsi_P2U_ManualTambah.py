@@ -42,6 +42,7 @@ def test_1_SetupOS():
     driver = initDriver()
     pathData = loadDataPath()
 
+
 @mark.fixture_test()
 def test_2_Login():
     login(driver)
@@ -58,7 +59,7 @@ def test_3_Akses_menu():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Akses Pintu P2U').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
 # ==================================================== TAMBAH PEGAWAI ====================================================
@@ -71,7 +72,7 @@ def test_4_ButtonTambah_PegawaiTambah():
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     print('.')
-    print('========== Membuka Halaman Tambah ==========')
+    Log.info(' Membuka Halaman Tambah ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -84,7 +85,7 @@ def test_5_Kategori_Pegawaitambah():
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "pegawai").click()
     print('.')
-    print('========== Input NIP ==========')
+    Log.info(' Input NIP ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -93,7 +94,7 @@ def test_6_InputNiP_Pegawaitambah():
     driver.implicitly_wait(20)
     driver.find_element(By.ID, 'inputNip').send_keys("0097736")
     print('.')
-    print('========== Input NIP ==========')
+    Log.info(' Input NIP ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -102,7 +103,7 @@ def test_7_InputNama_Pegawaitambah():
     driver.implicitly_wait(20)
     driver.find_element(By.ID, 'inputNama').send_keys("STERIO")
     print('.')
-    print('========== Input NIP ==========')
+    Log.info(' Input NIP ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -110,7 +111,7 @@ def test_8_InputJabatan_Pegawaitambah():
     driver.implicitly_wait(20)
     driver.find_element(By.ID, 'inputJabatan').send_keys("SARJANA MUDA")
     print('.')
-    print('========== Input NIP ==========')
+    Log.info(' Input NIP ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -118,7 +119,7 @@ def test_9_InputKeperluan_Pegawaitambah():
     driver.implicitly_wait(20)
     driver.find_element(By.ID, 'inputKeperluan').send_keys("Jalan jalan")
     print('.')
-    print('========== Input NIP ==========')
+    Log.info(' Input NIP ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -140,7 +141,7 @@ def test_11_CreateButton_TamuDinasTambah():
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     print('.')
-    print('========== Membuka Halaman Tambah ==========')
+    Log.info(' Membuka Halaman Tambah ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -151,7 +152,7 @@ def test_12_Kategori_TamuDinasTambah():
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "tamuDinas").click()
     print('.')
-    print('========== Input kategori tamu dinas ==========')
+    Log.info(' Input kategori tamu dinas ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -161,7 +162,7 @@ def test_13_InputNip_TamuDinasTambah():
     driver.find_element(By.ID, 'inputNip').send_keys('98329')
 
     print('.')
-    print('========== Input nip ==========')
+    Log.info(' Input nip ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -171,7 +172,7 @@ def test_14_InputNama_TamuDinasTambah():
     driver.find_element(By.ID, 'inputNama').send_keys('input nama tamu dinas')
 
     print('.')
-    print('========== Input nip ==========')
+    Log.info(' Input nip ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -182,7 +183,7 @@ def test_15_InputInstansi_TamuDinasTambah():
     driver.find_element(By.XPATH, '//*[@id="inputInstansiId"]').click()
     driver.find_element(By.ID, "optionInstansi0").click()
     print('.')
-    print('========== Input kategori tamu dinas ==========')
+    Log.info(' Input kategori tamu dinas ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -193,7 +194,7 @@ def test_16_InputJabatan_TamuDinasTambah():
     driver.find_element(By.ID, 'inputJabatan').send_keys('input jabatan ')
 
     print('.')
-    print('========== Input nip ==========')
+    Log.info(' Input nip ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -211,7 +212,7 @@ def test_18_SubmitButton_TamuDinasTambah():
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
     print('.')
-    print('========== Input nip ==========')
+    Log.info(' Input nip ')
     attach(data=driver.get_screenshot_as_png())
 
 
