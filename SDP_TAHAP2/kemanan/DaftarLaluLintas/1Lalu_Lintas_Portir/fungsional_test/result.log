@@ -1,0 +1,6 @@
+[2022-11-30 17:16:28,604 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_3_akses_menu_HalamanTambah()]==>INFO:  akses menu daftar lalu lintas
+[2022-11-30 17:16:30,082 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_4_membuka_halaman_HalamanTambah()]==>INFO:  Membuka Halaman Tambah  
+[2022-11-30 17:16:30,839 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Memilih Dropdown Nama  
+[2022-11-30 17:16:31,129 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Input Nama  
+[2022-11-30 17:16:31,165 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Click Button Cari  
+[2022-11-30 17:16:33,466 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_6_Click_Button_Detile_HalamanTambah()]==>INFO:  Click Button Update  

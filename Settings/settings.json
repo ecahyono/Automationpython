@@ -74,7 +74,6 @@
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[2]/div/div/div/input"
     },
 
-// Rupbasan dan Baran
     "Rupelemen":{
         "indexpenempatan":{
             "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
@@ -83,7 +82,7 @@
             "pilihhalmn":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
             "3halaman":"//div[13]/div/div/div[1]/ul/li[1]",
             "5halaman":"//div[13]/div/div/div[1]/ul/li[2]",
-            
+
             "aksesdetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[1]/a/button",
             "aksesubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[2]/a/button",
             "printsemua":"//*[@id=\"printButton\"]/div/div/div/div[2]/div/button[1]",
@@ -99,13 +98,13 @@
         "idxpenerimaan":{
             "ascending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[1]",
             "descending":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[2]",
-            
+
             "clearkolom":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
             "clearJREG":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[2]/div/div/div/div/div/span/span/i[2]",
             "clearistansi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[3]/div/div/div/div/div/span/span/i[2]",
-            
+
             "hlmnedit":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div/div[2]/a/button",
-            
+
             "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
             "exportexcel":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button",
             "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
@@ -120,10 +119,10 @@
             "Ptgsliti":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[7]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/form/div/div/div/div/div"
         },
         "ubahpenerimaan":{
-            
+
         },
         "listbarang":{
-            
+
         },
         "indexmutasi":{
             "ascend":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[1]",
@@ -140,12 +139,8 @@
             "Alamat":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[1]/div/div/textarea",
             "Keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[2]/div/div/textarea"
         }
-        
+
     },
-
-
-
-
 
     "AksesMenu": {
         "Registrasi": {

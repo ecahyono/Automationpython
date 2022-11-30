@@ -15,7 +15,7 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-
+from openpyxl import load_workbook
 import sys
 from os import environ, path
 from dotenv import load_dotenv
@@ -38,6 +38,16 @@ fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+sheetrange = wb ['DaftarLaluLintas_Input']
+i = 2
+Drpdownsearch                         = sheetrange['A'+str(i)].value
+Nama                                  = sheetrange['B'+str(i)].value
+JenisKeluar                           = sheetrange['C'+str(i)].value
+TanggalKeluar                         = sheetrange['D'+str(i)].value
+TanggalHarusKembali                   = sheetrange['E'+str(i)].value
+deskripsi                             = sheetrange['F'+str(i)].value
 
 @mark.fixture_test()
 def test_1_setupOS_HalamanTambah():
@@ -90,7 +100,7 @@ def test_5_sortir_table_cari_nama_HalamanTambah():
     Log.info(' Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('TEST BIN ayah')
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Nama)
     #driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
     print('=')
     Log.info(' Input Nama  ')
