@@ -60,7 +60,7 @@ def test_3_akses_menu_HalamanTambah():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     print('=')
-    print(' = akses menu daftar lalu lintas')
+    Log.info(' akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -74,7 +74,7 @@ def test_4_membuka_halaman_HalamanTambah():
     #WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
     #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('=')
-    print(' = Membuka Halaman Tambah  ')
+    Log.info(' Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -87,19 +87,19 @@ def test_5_sortir_table_cari_nama_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('=')
-    print(' = Memilih Dropdown Nama  ')
+    Log.info(' Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('TEST BIN ayah')
     #driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
     print('=')
-    print(' = Input Nama  ')
+    Log.info(' Input Nama  ')
 
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('=')
-    print(' = Click Button Cari  ')
+    Log.info(' Click Button Cari  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -110,7 +110,7 @@ def test_6_Click_Button_Detile_HalamanTambah():
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
     print('=')
-    print(' = Click Button Update  ')
+    Log.info(' Click Button Update  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -119,7 +119,7 @@ def test_7_Click_Button_Tambah_WBP_HalamanTambah():
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
     print('=')
-    print(' = Click Button Tambah WBP  ')
+    Log.info(' Click Button Tambah WBP  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -144,7 +144,7 @@ def test_8_sortir_detil_wbp_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="tab-7"]').click()
 
     print('=')
-    print(' = Detile WBP')
+    Log.info(' Detile WBP')
 
 @mark.fixture_test()
 def test_9_detile_perkara_HalamanTambah():
@@ -167,7 +167,7 @@ def test_9_detile_perkara_HalamanTambah():
     time.sleep(0.3)
     driver.find_element(By.XPATH, '//*[@id="tab-pembebasan"]').click()
     print('=')
-    print(' = Detile Perkara')
+    Log.info(' Detile Perkara')
 
 @mark.fixture_test()
 def test_10_Input_JenisKeluar_HalamanTambah():
@@ -176,7 +176,7 @@ def test_10_Input_JenisKeluar_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("asimilasi")
     driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
     print('=')
-    print(' = Input Jenis Keluar  ')
+    Log.info(' Input Jenis Keluar  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -188,7 +188,7 @@ def test_11_Input_Tanggal_Keluar_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(Keys.ENTER)
 
     print('=')
-    print(' = Input Tanggal Keluar  ')
+    Log.info(' Input Tanggal Keluar  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -200,7 +200,7 @@ def test_12_Input_Deskripsi_HalamanTambah():
     driver.find_element(By.CSS_SELECTOR, "#deskripsi").click()
     driver.find_element(By.CSS_SELECTOR, "#deskripsi").send_keys("koookok")
     print('=')
-    print(' = Input Deskripsi Behasil ')
+    Log.info(' Input Deskripsi Behasil ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -210,7 +210,7 @@ def test_13_Input_Tanggal_Harus_Kembali_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2018 12:00:00')
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('=')
-    print(' = Input Tanggal Harus Kembali  ')
+    Log.info(' Input Tanggal Harus Kembali  ')
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
@@ -220,7 +220,7 @@ def test_14_tambah_Pengwal_HalamanTambah():
     time.sleep(0.5)
     driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
     print('=')
-    print(' = Input tambah pengawal  ')
+    Log.info(' Input tambah pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -232,7 +232,7 @@ def test_15_JenisPengawal_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="jenis0"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Internal\')]").click()
     print('=')
-    print(' = Input tambah Jenis pengawal  ')
+    Log.info(' Input tambah Jenis pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -243,7 +243,7 @@ def test_16_NamaPengawalInternal_HalamanTambah():
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="optionPengawal00"]')))
     driver.find_element(By.XPATH, '//*[@id="optionPengawal00"]').click()
     print('=')
-    print(' = Input nama pengawal Internal  ')
+    Log.info(' Input nama pengawal Internal  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -253,7 +253,7 @@ def test_17_JenisPengawalEksternal_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="jenis1"]').click()
     driver.find_element(By.CSS_SELECTOR, "#Eksternal1").click()
     print('=')
-    print(' = Input tambah Jenis pengawal  ')
+    Log.info(' Input tambah Jenis pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -266,7 +266,7 @@ def test_18_NamaPengawalEksternal_HalamanTambah():
     time.sleep(0.4)
     driver.find_element(By.XPATH, "//td[contains(.,'operator')]").click()
     print('=')
-    print(' = Input nama pengawal Enternal  ')
+    Log.info(' Input nama pengawal Enternal  ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -278,7 +278,7 @@ def test_19_ButtonSubmitInternal_HalamanTambah():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     print('=')
-    print(' = Menekan Button Submit  ')
+    Log.info(' Menekan Button Submit  ')
     attach(data=driver.get_screenshot_as_png())
  
 

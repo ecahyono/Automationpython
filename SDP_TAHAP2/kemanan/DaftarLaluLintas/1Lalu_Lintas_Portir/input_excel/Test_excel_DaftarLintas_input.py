@@ -219,4 +219,4 @@ class TestDaftarLaluLintas_Input():
                 print("MASIH ADA ERROR, CEK LAGI PAK WIL")
                 pass
             i = i + 1
-        print("DONE PAK WILDAN, SEBATS DULU")
+    print("DONE PAK WILDAN, SEBATS DULU")
