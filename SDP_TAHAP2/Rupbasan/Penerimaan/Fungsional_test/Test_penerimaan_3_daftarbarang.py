@@ -61,24 +61,27 @@ def test_aksesmenuPenerimaan_3():
 def test_membukahalamanDetail_4():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.ID, 'filterColumn').click()
-    driver.find_element(By. ID, 'no_reg').click()
-    driver.find_element(By. ID, 'kataKunci').send_keys('NRP1001')
+    driver.find_element(By. ID, 'keterangan').click()
+    driver.find_element(By. ID, 'kataKunci').send_keys('Test QA')
     driver.find_element(By.ID , 'searchButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+    time.sleep(2)
     driver.find_element(By.ID, 'daftarBarang0').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
 
     attach(data=driver.get_screenshot_as_png())
     Log.info('Akses menu halama detail Penerimaan')
     
-@mark.fixture_penerimaan
-def test_bukadetailbarang_5():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonDetail1')))
-    driver.find_element(By.ID,'buttonDetail1').click()
+# @mark.fixture_penerimaan
+# def test_bukadetailbarang_5():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonDetail0')))
+#     driver.find_element(By.ID,'buttonDetail0').click()
 
-@mark.fixture_penerimaan
-def test_editbarang_6():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonUpdate1')))
-    driver.find_element(By.ID,'buttonUpdate1').click()
+#     driver.find_element(By.ID,'backButton').click()   
+
+# @mark.fixture_penerimaan
+# def test_editbarang_6():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonUpdate1')))
+#     driver.find_element(By.ID,'buttonUpdate1').click()
 
 
