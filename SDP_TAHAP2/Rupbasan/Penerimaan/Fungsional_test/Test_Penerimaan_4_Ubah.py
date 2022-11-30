@@ -56,3 +56,22 @@ def test_aksesmenuPenerimaan_3():
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
+
+@mark.fixture_penerimaan
+def test_PencarianData_4():
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+    driver.find_element(By.ID, 'filterColumn').click()
+    time.sleep(1)
+    driver.find_element(By. ID, 'no_reg').click()
+    driver.find_element(By. ID, 'kataKunci').send_keys('NRB01')
+    driver.find_element(By.ID , 'searchButton').click()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+
+    attach(data=driver.get_screenshot_as_png()) 
+    Log.info('Melakukan Pencarian data berdasarkan kategori nomer registrasi')
+
+@mark.fixture_penerimaan
+def test_membukahalamanedit_8():
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['hlmnedit']).click()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))

@@ -51,7 +51,7 @@ def test_loggin_2():
 
 @mark.fixture_penerimaan
 def test_aksesmenuPenerimaan_3():
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['AksesMenu']['Rupbasan']['menu']['MainText'])
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
     attach(data=driver.get_screenshot_as_png())
@@ -66,95 +66,120 @@ def test_Masukhalamatambah_4():
 
 @mark.fixture_penerimaan
 def test_Input_dropdown_5():
-    driver.find_element(By.ID, 'dropdownJenisRegistrasiBasanBaran').click()
+    driver.find_element(By.ID, 'dropdownJenisRegistrasi').click()
     time.sleep(1)
-    driver.find_element(By.ID, 'Register Khusus Tingkat Mahkamah Agung').click()
-
+    driver.find_element(By.ID, 'jenisRegistrasi0').click()
+    time.sleep(2)
     driver.find_element(By.ID, 'dropdownInstansi').click()
     time.sleep(1)
-    driver.find_element(By.ID, 'POLRES TEBING TINGGI').click()
-
+    driver.find_element(By.ID, 'instansi3').click()
+    time.sleep(2)
     driver.find_element(By.ID, 'dropdownPengadilanPenyita').click()
     time.sleep(1)
-    driver.find_element(By.ID, 'Pengadilan Negeri Tarutung').click()
-
-    driver.find_element(By.ID, 'cariPetugasundefined').click()
-    time.sleep(1)
-    driver.find_element(By.ID, 'Pengadilan Negeri Tarutung').click()
-
-    Petugas_Penerima = driver.find_element(By.ID, 'cariData')
+    driver.find_element(By.ID, 'pengadilanNegeri4').click()
+    time.sleep(2)
+    Petugas_Penerima = driver.find_element(By.ID, 'searchPetugasPenerima')
     Petugas_Penerima.click()
-    Petugas_Penerima.send_keys('PEGWAI001')
-    driver.find_element(By. ID, 'cariData0').click()
+    Petugas_Penerima.send_keys('PEGWAI')
+    driver.find_element(By. ID, 'searchPetugasPenerima0').click()
     
     time.sleep(2)
-    PetugasygMenyerahkan = driver.find_element(By.ID, 'cariPegawaiundefined')
+    PetugasygMenyerahkan = driver.find_element(By.ID, 'searchPetugasYangMenyerahkan')
     PetugasygMenyerahkan.click()
     PetugasygMenyerahkan.send_keys("Galih")
-    driver.find_element(By. ID, 'cariPegawaiEksternal0').click()
-
+    driver.find_element(By. ID, 'searchPetugasYangMenyerahkan0').click()
+    time.sleep(2)
     # Tabidentitas 
-    ident = driver.find_element(By. ID, 'cariIdentitasundefined')
+    ident = driver.find_element(By. ID, 'searchIdentitas-0')
     ident.click()
-    ident.send_keys('CAH')
-    driver.find_element(By. ID,'cariIdentitasPenerimaan0').click()
+    ident.send_keys('EKO')
+    driver.find_element(By. ID,'searchIdentitas-00').click()
 
+    Log.info('Memilih value, kemudian mengosongkan pilihan dengan clear button value, lalu ditampilkan validation message jika mandatory')
 @mark.fixture_penerimaan
 def test_inputtext_6():
-    driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div[1]/input').send_keys('TCAUTTCNRB01') #Nomor Registrasi Rupbasan
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div/input').send_keys('TCAUTTCNRI001') #Nomor Registrasi Instansi
-    driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div/input').send_keys('TCAUTTCNSP001') #Nomor Surat Izin Penyitaan
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[6]/div/div[1]/input').send_keys('TCAUTTCNSP001') #Nomor Surat Penyitaan
-    driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div[2]/div[4]/div/div[1]/input').send_keys('TCAUTTCPASAL') #Pasal
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div[2]/div[5]/div/div/input').send_keys('TCAUTTCNBAST001') #No. BA Serah Terima
-
-    #No. Registrasi
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[2]/div/div/input').send_keys('TCAUTTCNRI001') 
-    #Nama Lengkap
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[3]/div/div[1]/input').send_keys('TESAUTO')
-    #No. KTP
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[4]/div/div/input').send_keys('1234123412341234')
-    #No. Telepon
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[5]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[8]/div/div[1]/input').send_keys('086767857665')
-
+    driver.find_element(By.ID, 'inputNoRegistrasi').send_keys('NRB05') #Nomor Registrasi Rupbasan
+    driver.find_element(By.ID, 'inputNoRegInstansi').send_keys('NRI005') #Nomor Registrasi Instansi
+    driver.find_element(By.ID,'inputNoSuratIzinPenyitaan').send_keys('NSIP005') #Nomor Surat Izin Penyitaan
+    driver.find_element(By.ID, 'inputNoSuratPenyitaan').send_keys('NSP005') #Nomor Surat Penyitaan
+    driver.find_element(By.ID,'inputPasal').send_keys('PASAL') #Pasal
+    driver.find_element(By.ID, 'inputNoBaSerahTerima').send_keys('NBAST005') #No. BA Serah Terima
+    Log.info('Input field menggunakan varchar')
+    time.sleep(2)
 @mark.fixture_penerimaan
 def test_Inputtextarea_7():
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['Keterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['idnalamat']).send_keys('*&+_-ALAMATKeterangan @ Penerimaan Rupb454N')
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['idenKeterangan']).send_keys('*&+_-Keterangan @ Penerimaan Rupb454N')
-
+    driver.find_element(By.ID, 'inputKeterangan').send_keys('AUTOMAS1')
+    Log.info('Input field lalu value indicatornya sesuai dan tidak bisa input lebih dari max length Bisa scroll isi field')
+    time.sleep(2)
 @mark.fixture_penerimaan
-def test_7_Input_date():
-    Tanggal_Penerimaan = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['Tanggal Penerimaan'])
-    Tanggal_Penerimaan.click()
+def test_Inputdate():
+    Tanggal_Penerimaan = driver.find_element(By.ID,'inputTglPenerimaan')
     Tanggal_Penerimaan.send_keys('01/11/2022')
     Tanggal_Penerimaan.send_keys(Keys.ENTER)
-
-    Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['Tanggal Surat Izin Penyitaan'])
-    Tanggal_Surat_Izin_Penyitaan.click()
+    time.sleep(2)
+    Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.ID,'inputTglSuratIzinPenyitaan')
     Tanggal_Surat_Izin_Penyitaan.send_keys('01/11/2022')
     Tanggal_Surat_Izin_Penyitaan.send_keys(Keys.ENTER)
-
-    Tanggal_Surat_Penyitaan = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['Tanggal Surat Penyitaan'])
-    Tanggal_Surat_Penyitaan.click()
+    time.sleep(2)
+    Tanggal_Surat_Penyitaan = driver.find_element(By.ID, 'inputTglSuratPenyitaan')
     Tanggal_Surat_Penyitaan.send_keys('01/11/2022')
     Tanggal_Surat_Penyitaan.send_keys(Keys.ENTER)
 
-    TglIdnlhr = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['tgllhiridnt'])
-    TglIdnlhr.click()
-    TglIdnlhr.send_keys('01/09/1998')
-    TglIdnlhr.send_keys(Keys.ENTER)
-
+    Log.info('Input field dengan tanggal lampau, yang akan datang, dan tanggal hari ini dan tanggal yang ditampilkannya sesuai')
+    time.sleep(2)
 @mark.fixture_penerimaan
-def test_9_Pindah_tab():
+def test_Pindahtabptgsinstansi():
     driver.find_element(By.ID, "tab-petugas_instansi").click()
+    driver.find_element(By.ID, "tambahPenyerahPenerima").click()
+    Log.info('klik tab Petugas Instansi yang Menyerahkan, kemudian menambah 1 baris status petugas')
+    time.sleep(2)
+@mark.fixture_penerimaan
+def test_radiobuttonptgsinstansi():
+    driver.find_element(By.ID, 'radioButtonStatusPetugasInternal-0').click() #memilih Internal
+    time.sleep(2)    
+    penyerah = driver.find_element(By.ID, 'searchPetugasPenyerah-0')
+    penyerah.click() #mencari Identitas internal
+    penyerah.send_keys('PEGWAI')
+    driver.find_element(By. ID, 'searchPetugasPenyerah-09').click()
+
+    time.sleep(2)
+
+    driver.find_element(By.ID, 'radioButtonStatusPetugasEksternal-1').click() #memilih External
+    time.sleep(2)  
+    penyerah2 = driver.find_element(By.ID, 'searchPetugasPenyerahEksternal-1')
+    penyerah2.click() #mencari Identitas external
+    penyerah2.send_keys('g')
+    driver.find_element(By. ID, 'searchPetugasPenyerahEksternal-11').click()
+
+    Log.info('memilih radiobutton status petugas kemudian mencari petugas internal dan external')
+    time.sleep(2)
+@mark.fixture_penerimaan
+def test_Pindahtabsaksii():
     driver.find_element(By.ID, "tab-saksi_penerimaan").click()
+    driver.find_element(By.ID, "tambahSaksi").click()
+    time.sleep(2)
+    Log.info('Klik tab Saksi Penerima, kemudian menambah 1 baris status Saksi')
 
 @mark.fixture_penerimaan
-def test_10_pilih_radiobutton():
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['internalradiosaksi']).click()
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penerimaan']['externalradiosaksi']).click()
-
+def test_radiobuttonsaksi():
+    driver.find_element(By.ID, 'radioButtonStatusSaksiEksternal-0').click() #memilih External
+    time.sleep(2)   
+    saksi = driver.find_element(By.ID, 'searchSaksiPenerimaanEksternal-0')
+    saksi.click() #mencari Identitas External
+    saksi.send_keys('g')
+    driver.find_element(By. ID, 'searchSaksiPenerimaanEksternal-00').click()
+    time.sleep(2)
+    driver.find_element(By.ID, 'radioButtonStatusSaksiInternal-1').click() #memilih Internal
+    time.sleep(2)    
+    saksi2 = driver.find_element(By.ID, 'searchSaksiPenerimaan-1')
+    saksi2.click() #mencari Identitas internal
+    saksi2.send_keys('PEGWAI')
+    driver.find_element(By. ID, 'searchSaksiPenerimaan-13').click()
+    time.sleep(2)
+    Log.info('memilih radiobutton status petugas kemudian mencari petugas internal dan external')
+    
 @mark.fixture_penerimaan
-def test_11_Submit_Data_penerimaan():
+def test_SubmitDatapenerimaan():
     driver.find_element(By.ID, "submitButton").click()
+
+    Log.info('menekan button submit')

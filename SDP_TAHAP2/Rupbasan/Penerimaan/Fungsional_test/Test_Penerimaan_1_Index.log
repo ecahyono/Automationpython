@@ -1,0 +1,22 @@
+[2022-11-30 09:53:28,561 Test_Penerimaan_1_Index.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-30 09:53:31,927 Test_Penerimaan_1_Index.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-30 09:53:34,578 Test_Penerimaan_1_Index.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-11-30 09:53:52,161 Test_Penerimaan_1_Index.py->test_PencarianData_3()]==>INFO: Melakukan Pencarian data berdasarkan kategori nomer registrasi
+[2022-11-30 09:53:53,198 Test_Penerimaan_1_Index.py->test_menghapusfieldpencarian_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-11-30 09:53:55,266 Test_Penerimaan_1_Index.py->test_caridatadenganjenisinstasi_5()]==>INFO: Melakukan Pencarian data berdasarkan instansi
+[2022-11-30 09:54:00,319 Test_Penerimaan_1_Index.py->test_caridatadenganjenisregistrasi_6()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-11-30 09:54:02,584 Test_Penerimaan_1_Index.py->test_SortirDataTabel_7()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-11-30 09:54:06,243 Test_Penerimaan_1_Index.py->test_PencarianData_3()]==>INFO: Melakukan Pencarian data berdasarkan kategori nomer registrasi
+[2022-11-30 09:54:09,122 Test_Penerimaan_1_Index.py->test_membukahalamanedit_8()]==>INFO: Akses menu halaman edit Penerimaan
+[2022-11-30 09:54:20,376 Test_Penerimaan_1_Index.py->test_PencarianData_3()]==>INFO: Melakukan Pencarian data berdasarkan kategori nomer registrasi
+[2022-11-30 09:54:49,871 Test_Penerimaan_1_Index.py->test_membukahalamanDetail_10()]==>INFO: Akses menu halama detail Penerimaan
+[2022-11-30 09:54:53,648 Test_Penerimaan_1_Index.py->test_PencarianData_3()]==>INFO: Melakukan Pencarian data berdasarkan kategori nomer registrasi
+[2022-11-30 09:55:01,688 Test_Penerimaan_1_Index.py->test_CetakBA_11()]==>INFO: Akses menu halama Tambah Penerimaan
+[2022-11-30 09:55:04,458 Test_Penerimaan_1_Index.py->test_CetakSPTJM_12()]==>INFO: Akses menu halama Tambah Penerimaan
+[2022-11-30 09:55:05,429 Test_Penerimaan_1_Index.py->test_menghapusfieldpencarian_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-11-30 09:55:08,356 Test_Penerimaan_1_Index.py->test_pilihpagehalaman_13()]==>INFO: Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih
+[2022-11-30 09:55:20,288 Test_Penerimaan_1_Index.py->test_pergikepagehalaman_14()]==>INFO: Menginputkan nomor halaman lebih dari jumlah halaman yang ada dan yang ditampilkan tetap halaman terakhir
+[2022-11-30 09:55:29,902 Test_Penerimaan_1_Index.py->test_exportPDF_15()]==>INFO: Export data tabel dengan format PDF
+[2022-11-30 09:55:43,271 Test_Penerimaan_1_Index.py->test_exportexcel_16()]==>INFO: Export data Tabel dengan format Excel
+[2022-11-30 09:55:55,891 Test_Penerimaan_1_Index.py->test_printhalamn_17()]==>INFO: Print Data Tabel
+[2022-11-30 09:55:56,224 Test_Penerimaan_1_Index.py->test_membukahalamanTambah_18()]==>INFO: Akses menu halama Tambah Penerimaan

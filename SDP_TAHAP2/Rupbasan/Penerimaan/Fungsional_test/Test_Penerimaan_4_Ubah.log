@@ -1,0 +1,4 @@
+[2022-11-30 10:04:15,918 Test_Penerimaan_4_Ubah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-30 10:04:18,560 Test_Penerimaan_4_Ubah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-30 10:04:21,267 Test_Penerimaan_4_Ubah.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-11-30 10:04:23,766 Test_Penerimaan_4_Ubah.py->test_PencarianData_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori nomer registrasi

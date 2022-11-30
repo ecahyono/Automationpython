@@ -1,0 +1,4 @@
+[2022-11-30 10:00:01,383 Test_penerimaan_3_daftarbarang.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-30 10:00:03,993 Test_penerimaan_3_daftarbarang.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-30 10:00:06,423 Test_penerimaan_3_daftarbarang.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-11-30 10:00:32,506 Test_penerimaan_3_daftarbarang.py->test_membukahalamanDetail_4()]==>INFO: Membuka halaman daftar barang dengan nomer registrasi NRB01

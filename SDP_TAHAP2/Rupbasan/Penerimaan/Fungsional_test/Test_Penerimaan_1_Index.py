@@ -38,31 +38,34 @@ Log.addHandler(fh)
 
 # init driver by os
 @mark.fixture_penempatan
-def test_Ossetup_0():
+def test_Ossetup_1():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 
 @mark.fixture_penempatan
-def test_loggin_1():
+def test_loggin_2():
     login(driver)
     Log.info('Memasukan User name dan Password di halaman Login)')
 
 @mark.fixture_penerimaan
-def test_aksesmenuPenerimaan_2():
+def test_aksesmenuPenerimaan_3():
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
-    attach(data=driver.get_screenshot_as_png()) 
+    attach(data=driver.get_screenshot_as_png())
     Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
 
 @mark.fixture_penerimaan
 def test_PencarianData_3():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.ID, 'filterColumn').click()
+    time.sleep(1)
     driver.find_element(By. ID, 'no_reg').click()
-    driver.find_element(By. ID, 'kataKunci').send_keys('NRP1001')
+    time.sleep(1)
+    driver.find_element(By. ID, 'kataKunci').send_keys('TCAUTTCNRB02')
+    time.sleep(1)
     driver.find_element(By.ID , 'searchButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
@@ -74,7 +77,7 @@ def test_menghapusfieldpencarian_4():
     filter = driver.find_element(By.ID, 'filterColumn')
     ActionChains(driver).move_to_element(filter).perform()
 
-    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['hpskolom'])
+    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['clearkolom'])
     ActionChains(driver).move_to_element(elemnthps).perform()
     elemnthps.click()
 
@@ -126,7 +129,8 @@ def test_SortirDataTabel_7():
 
 @mark.fixture_penerimaan
 def test_membukahalamanedit_8():
-    test_PencarianData_3() #Yang digunakan NOREG NRP1001
+    test_PencarianData_3() #Yang digunakan NOREG 
+    time.sleep(1)
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['hlmnedit']).click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
@@ -136,13 +140,13 @@ def test_membukahalamanedit_8():
 
 @mark.fixture_penerimaan
 def test_kembalikehalamansebelumnya_9():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    # WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
     driver.find_element(By.ID, 'backButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
 @mark.fixture_penerimaan
 def test_membukahalamanDetail_10():
-    test_PencarianData_3() #Yang digunakan NOREG NRP1001
+    test_PencarianData_3() #Yang digunakan NOREG TCAUTTCNRB02
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.ID, 'daftarBarang0').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
@@ -172,10 +176,10 @@ def test_CetakSPTJM_12():
 
 @mark.fixture_penerimaan
 def test_pilihpagehalaman_13(): #kasus 5 data tabel per halaman
-    test_menghapusfieldpencarian_5()
+    test_menghapusfieldpencarian_4()
     driver.find_element(By.ID , 'searchButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['pilhalaman']).click()
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     time.sleep(1)
     driver.find_element(By.XPATH, '//div[15]/div/div/div[1]/ul/li[1]').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))

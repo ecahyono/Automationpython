@@ -1,0 +1,13 @@
+[2022-11-30 10:41:27,279 Test_Penerimaan_2_tambah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-11-30 10:41:29,954 Test_Penerimaan_2_tambah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-11-30 10:41:33,268 Test_Penerimaan_2_tambah.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-11-30 10:41:34,078 Test_Penerimaan_2_tambah.py->test_Masukhalamatambah_4()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
+[2022-11-30 10:41:50,445 Test_Penerimaan_2_tambah.py->test_Input_dropdown_5()]==>INFO: Memilih value, kemudian mengosongkan pilihan dengan clear button value, lalu ditampilkan validation message jika mandatory
+[2022-11-30 10:41:51,271 Test_Penerimaan_2_tambah.py->test_inputtext_6()]==>INFO: Input field menggunakan varchar
+[2022-11-30 10:41:53,431 Test_Penerimaan_2_tambah.py->test_Inputtextarea_7()]==>INFO: Input field lalu value indicatornya sesuai dan tidak bisa input lebih dari max length Bisa scroll isi field
+[2022-11-30 10:42:00,420 Test_Penerimaan_2_tambah.py->test_Inputdate()]==>INFO: Input field dengan tanggal lampau, yang akan datang, dan tanggal hari ini dan tanggal yang ditampilkannya sesuai
+[2022-11-30 10:42:02,681 Test_Penerimaan_2_tambah.py->test_Pindahtabptgsinstansi()]==>INFO: klik tab Petugas Instansi yang Menyerahkan, kemudian menambah 1 baris status petugas
+[2022-11-30 10:42:12,393 Test_Penerimaan_2_tambah.py->test_radiobuttonptgsinstansi()]==>INFO: memilih radiobutton status petugas kemudian mencari petugas internal dan external
+[2022-11-30 10:42:16,662 Test_Penerimaan_2_tambah.py->test_Pindahtabsaksii()]==>INFO: Klik tab Saksi Penerima, kemudian menambah 1 baris status Saksi
+[2022-11-30 10:42:26,285 Test_Penerimaan_2_tambah.py->test_radiobuttonsaksi()]==>INFO: memilih radiobutton status petugas kemudian mencari petugas internal dan external
+[2022-11-30 10:42:26,368 Test_Penerimaan_2_tambah.py->test_SubmitDatapenerimaan()]==>INFO: menekan button submit
