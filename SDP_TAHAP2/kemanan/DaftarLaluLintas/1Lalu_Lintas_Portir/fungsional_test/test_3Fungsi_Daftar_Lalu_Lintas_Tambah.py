@@ -27,7 +27,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath
+from Settings.setup import initDriver, loadDataPath, quit
 from Settings.login import login
 
 import logging
@@ -290,23 +290,6 @@ def test_19_ButtonSubmitInternal_HalamanTambah():
     print('=')
     Log.info(' Menekan Button Submit  ')
     attach(data=driver.get_screenshot_as_png())
- 
 
-
-
-
-
-def teardown():
-    time.sleep(5)
-    print('=')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▓▒▒▓▒▒▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-    print('▒▓▒▒▒▒▒▒▒▒▓▒')
-    print('▒▒▓▓▓▓▓▓▓▓▒▒')
-    print('▒▒▒▒▒▒▒▒▒▒▒▒')
-
-
-    driver.close()
-    driver.quit()
+def exit():
+    quit(driver)
