@@ -1,0 +1,17 @@
+[2022-12-01 16:45:58,065 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_1_setupOS()]==>INFO: Setup Os
+[2022-12-01 16:45:59,023 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_2_login_HalamanEdit()]==>INFO: login
+[2022-12-01 16:46:02,262 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_3_akses_menu_HalamanEdit()]==>INFO: akses menu daftar lalu lintas
+[2022-12-01 16:46:04,538 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_4_sortir_table_cari_nama_cari_identitas()]==>INFO: Memilih Dropdown Nama
+[2022-12-01 16:46:04,960 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_4_sortir_table_cari_nama_cari_identitas()]==>INFO:  Input Nama  
+[2022-12-01 16:46:05,003 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_4_sortir_table_cari_nama_cari_identitas()]==>INFO: Click Button Cari
+[2022-12-01 16:46:09,406 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_5_Click_ButtonUbah_HalamanEdit()]==>INFO: Click Button Update
+[2022-12-01 16:46:27,179 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_6_sortir_detil_wbp_HalamanEdit()]==>INFO: Detile WBP
+[2022-12-01 16:46:29,447 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_7_detile_perkara_HalamanEdit()]==>INFO: Detile Perkara
+[2022-12-01 16:46:29,608 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_9_Ubah_NoSk_HalamanEdit()]==>INFO: Ubah Deskripsi Berhasil
+[2022-12-01 16:46:45,701 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_10_UploadSurat_HalamanEdit()]==>INFO: Upload PDF
+[2022-12-01 16:46:46,273 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_11_Ubah_Deskripsi_HalamanEdit()]==>INFO: Ubah Deskripsi Berhasil
+[2022-12-01 16:46:46,796 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_10_Input_JenisKeluar_HalamanTambah()]==>INFO:  Input Jenis Cuti Bersyarat 
+[2022-12-01 16:46:47,246 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_13_Ubah_Tanggal_Keluar_Edit()]==>INFO: Ubah Tanggal Keluar Berhasil
+[2022-12-01 16:46:47,750 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_14_Ubah_Tanggal_kembali_Edit()]==>INFO: Ubah Tanggal Kembali Berhasil
+[2022-12-01 16:46:53,219 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_15_Ubah_Status_Edit()]==>INFO: status pendaftaran
+[2022-12-01 16:46:56,187 test_4Fungsi_Daftar_Lalu_Lintas_Edit.py->test_16_ButtonUbah_HalamanEdit()]==>INFO: Button Submit

@@ -12,7 +12,7 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-
+import pyautogui
 import sys
 from os import environ, path
 from dotenv import load_dotenv
@@ -86,12 +86,13 @@ def test_3_akses_menu_HalamanEdit():
 
 @mark.fixture_test()
 def test_4_sortir_table_cari_nama_cari_identitas():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.ID, 'filterStatus').click()
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "dalamProses")))
     driver.find_element(By.ID, 'dalamProses').click()
-    
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     time.sleep(0.1)
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
@@ -100,6 +101,7 @@ def test_4_sortir_table_cari_nama_cari_identitas():
     print('.')
     Log.info('Memilih Dropdown Nama')
     attach(data=driver.get_screenshot_as_png())
+    sleep(driver)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaEdit)
 
@@ -114,6 +116,7 @@ def test_4_sortir_table_cari_nama_cari_identitas():
 
 @mark.fixture_test()
 def test_5_Click_ButtonUbah_HalamanEdit():
+    sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -128,6 +131,7 @@ def test_5_Click_ButtonUbah_HalamanEdit():
 
 @mark.fixture_test()
 def test_6_sortir_detil_wbp_HalamanEdit():
+    sleep(driver)
     WebDriverWait(driver,15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-0"]')))
     WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-0"]')))
     driver.execute_script("window.scrollTo(0,1462.5)")
@@ -152,7 +156,7 @@ def test_6_sortir_detil_wbp_HalamanEdit():
 
 @mark.fixture_test()
 def test_7_detile_perkara_HalamanEdit():
-
+    sleep(driver)
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-registrasi"]')))
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-registrasi"]')))
     driver.execute_script("window.scrollTo(0,1462.5)")
@@ -173,34 +177,20 @@ def test_7_detile_perkara_HalamanEdit():
     Log.info('Detile Perkara')
 #MEMUAT ULANG HALAMAN WEB
 @mark.fixture_test()
-def test_8_Muat_Ulang_HalamanEdit():
-    driver.implicitly_wait(10)
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonReset"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonReset"]').click()
-    driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div[3]/button[2]').click() 
-    time.sleep(2)
-    print('.')
-    Log.info('Click Button Muat Ulang Berhasil')
-    attach(data=driver.get_screenshot_as_png()) 
-
-
-
-@mark.fixture_test()
 def test_9_Ubah_NoSk_HalamanEdit():
+    sleep(driver)
     driver.implicitly_wait(10)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="noSK"]')))
     driver.find_element(By.XPATH, '//*[@id="noSK"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="noSK"]').send_keys('SK/001/DIV')
+    driver.find_element(By.XPATH, '//*[@id="noSK"]').send_keys(noSK)
     print('.')
     Log.info('Ubah Deskripsi Berhasil')
     attach(data=driver.get_screenshot_as_png()) 
 
 @mark.fixture_test()
 def test_10_UploadSurat_HalamanEdit():
-
+    sleep(driver)
     time.sleep(3)
-    """
-    
     driver.find_element(By.XPATH, "//div[@id=\'fileSK\']/div/button/span").click()
     time.sleep(3)
     pyautogui.write("///////users/will/Downloads/pdf/rere.pdf")
@@ -214,32 +204,101 @@ def test_10_UploadSurat_HalamanEdit():
     pyautogui.press('enter')
     time.sleep(1)
     pyautogui.press('enter')
-    """
+
     Log.info('Upload PDF')
     attach(data=driver.get_screenshot_as_png())
 #MENEGEDIT DESKRIPSI
+
+
 @mark.fixture_test()
 def test_11_Ubah_Deskripsi_HalamanEdit():
+    sleep(driver)
     driver.implicitly_wait(10)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="deskripsi"]')))
     driver.find_element(By.XPATH, '//*[@id="deskripsi"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys('deskripsi baru')
+    driver.find_element(By.XPATH, '//*[@id="deskripsi"]').send_keys(deskripsiEdit)
     print('.')
     Log.info('Ubah Deskripsi Berhasil')
     attach(data=driver.get_screenshot_as_png())
+
+
 @mark.fixture_test()
-def test_12_Input_JenisKeluar_HalamanTambah():
+def test_10_Input_JenisKeluar_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
-    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("Diversi")
-    driver.find_element(By.XPATH, '//*[@id="Diversi"]').click()
-    print('.')
-    Log.info('Input Jenis Keluar')
-    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').click()
+    sleep(driver)
+    if JenisKeluarEdit == 'Asimilasi':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
+        print('.')
+        Log.info(' Input Jenis Keluar Asimilasi  ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluarEdit == 'Pembebasan Bersyarat':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Pembebasan Bersyarat')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Pembebasan Bersyarat\')]").click()
+        print('.')
+        Log.info(' Input Jenis Pembebasan bersyarat ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluarEdit == 'Anak Kembali ke Orang Tua':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Anak Kembali ke Orang Tua')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Anak Kembali ke Orang Tua\')]").click()
+        print('.')
+        Log.info(' Input Jenis Anak Kembali ke Orang Tua ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluarEdit == 'Cuti Bersyarat':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Bersyarat')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
+        print('.')
+        Log.info(' Input Jenis Cuti Bersyarat ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluarEdit == 'Asimilasi di Rumah':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi di Rumah')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi di Rumah\')]").click()
+        print('.')
+        Log.info(' Input Jenis Asimilasi di Rumah ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluarEdit == 'Bebas Biasa':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Biasa')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Biasa\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas Biasa ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluarEdit == 'Bebas dari Dakwaan':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas dari Dakwaan')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas dari Dakwaan\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas dari Dakwaan ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluarEdit == 'Bebas Dari Tuntutan':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Dari Tuntutan')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Dari Tuntutan\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas Dari Tuntutan ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluarEdit == 'Cuti Menjelang Bebas':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Menjelang Bebas')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
+        print('.')
+        Log.info(' Input Jenis Cuti Menjelang Bebas ')
+        attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 #MENGEDIT TANGGAL KELUAR
 def test_13_Ubah_Tanggal_Keluar_Edit():
+    sleep(driver)
     driver.implicitly_wait(10)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, "keluarKeamanan")))
     driver.find_element(By.ID, "keluarKeamanan").clear()
@@ -253,6 +312,7 @@ def test_13_Ubah_Tanggal_Keluar_Edit():
 #MENGEDIT TANGGAL KEMBALI
 @mark.fixture_test()
 def test_14_Ubah_Tanggal_kembali_Edit():
+    sleep(driver)
     driver.implicitly_wait(10)
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').clear()
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2028 12:80:80')
@@ -265,6 +325,7 @@ def test_14_Ubah_Tanggal_kembali_Edit():
 
 @mark.fixture_test()
 def test_15_Ubah_Status_Edit():
+    sleep(driver)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="statusPendaftaran"]')))
     driver.find_element(By.XPATH, '//*[@id="statusPendaftaran"]').send_keys("Diizinkan")
     driver.find_element(By.XPATH, "//li[contains(.,\'Diizinkan\')]").click()
@@ -275,13 +336,14 @@ def test_15_Ubah_Status_Edit():
 
 @mark.fixture_test()
 def test_16_ButtonUbah_HalamanEdit():
+    sleep(driver)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSubmit"]').click()
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     Log.info('Button Submit')
     attach(data=driver.get_screenshot_as_png())
 
-
-#CLOSE 
-def teardown():
+#CLOSE
+@mark.fixture_test()
+def test_exit():
     quit(driver)

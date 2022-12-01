@@ -1,19 +1,19 @@
-[2022-12-01 13:52:38,795 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_3_akses_menu_HalamanTambah()]==>INFO:  akses menu daftar lalu lintas
-[2022-12-01 13:52:40,509 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_4_membuka_halaman_HalamanTambah()]==>INFO:  Membuka Halaman Tambah  
-[2022-12-01 13:52:41,551 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Memilih Dropdown Nama  
-[2022-12-01 13:52:41,945 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Input Nama  
-[2022-12-01 13:52:42,077 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Click Button Cari  
-[2022-12-01 13:52:44,493 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_6_Click_Button_Detile_HalamanTambah()]==>INFO:  Click Button Update  
-[2022-12-01 13:52:45,444 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_7_Click_Button_Tambah_WBP_HalamanTambah()]==>INFO:  Click Button Tambah WBP  
-[2022-12-01 13:52:52,873 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_8_sortir_detil_wbp_HalamanTambah()]==>INFO:  Detile WBP
-[2022-12-01 13:52:55,651 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_9_detile_perkara_HalamanTambah()]==>INFO: Detile Perkara
-[2022-12-01 13:52:55,918 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_10_Input_JenisKeluar_HalamanTambah()]==>INFO:  Input Jenis Cuti Menjelang Bebas 
-[2022-12-01 13:52:56,375 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_11_Input_Tanggal_Keluar_HalamanTambah()]==>INFO:  Input Tanggal Keluar  
-[2022-12-01 13:52:56,780 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_12_Input_Deskripsi_HalamanTambah()]==>INFO:  Input Deskripsi Behasil 
-[2022-12-01 13:52:57,263 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_13_Input_Tanggal_Harus_Kembali_HalamanTambah()]==>INFO:  Input Tanggal Harus Kembali  
-[2022-12-01 13:52:58,240 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_14_tambah_Pengwal_HalamanTambah()]==>INFO:  Input tambah pengawal  
-[2022-12-01 13:52:58,690 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_15_JenisPengawal_HalamanTambah()]==>INFO:  Input tambah Jenis pengawal  
-[2022-12-01 13:52:59,168 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_16_NamaPengawalInternal_HalamanTambah()]==>INFO:  Input nama pengawal Internal  
-[2022-12-01 13:52:59,648 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_17_JenisPengawalEksternal_HalamanTambah()]==>INFO:  Input tambah Jenis pengawal  
-[2022-12-01 13:53:01,498 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_18_NamaPengawalEksternal_HalamanTambah()]==>INFO:  Input nama pengawal Enternal  
-[2022-12-01 13:53:06,943 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_19_ButtonSubmitInternal_HalamanTambah()]==>INFO:  Menekan Button Submit  
+[2022-12-01 15:46:05,873 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_3_akses_menu_HalamanTambah()]==>INFO:  akses menu daftar lalu lintas
+[2022-12-01 15:46:07,459 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_4_membuka_halaman_HalamanTambah()]==>INFO:  Membuka Halaman Tambah  
+[2022-12-01 15:46:08,491 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Memilih Dropdown Nama  
+[2022-12-01 15:46:08,907 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Input Nama  
+[2022-12-01 15:46:09,039 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Click Button Cari  
+[2022-12-01 15:46:11,432 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_6_Click_Button_Detile_HalamanTambah()]==>INFO:  Click Button Update  
+[2022-12-01 15:46:12,320 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_7_Click_Button_Tambah_WBP_HalamanTambah()]==>INFO:  Click Button Tambah WBP  
+[2022-12-01 15:46:17,005 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_8_sortir_detil_wbp_HalamanTambah()]==>INFO:  Detile WBP
+[2022-12-01 15:46:19,803 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_9_detile_perkara_HalamanTambah()]==>INFO: Detile Perkara
+[2022-12-01 15:46:20,069 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_10_Input_JenisKeluar_HalamanTambah()]==>INFO:  Input Jenis Cuti Bersyarat 
+[2022-12-01 15:46:20,508 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_11_Input_Tanggal_Keluar_HalamanTambah()]==>INFO:  Input Tanggal Keluar  
+[2022-12-01 15:46:20,920 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_12_Input_Deskripsi_HalamanTambah()]==>INFO:  Input Deskripsi Behasil 
+[2022-12-01 15:46:21,375 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_13_Input_Tanggal_Harus_Kembali_HalamanTambah()]==>INFO:  Input Tanggal Harus Kembali  
+[2022-12-01 15:46:22,353 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_14_tambah_Pengwal_HalamanTambah()]==>INFO:  Input tambah pengawal  
+[2022-12-01 15:46:22,797 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_15_JenisPengawal_HalamanTambah()]==>INFO:  Input tambah Jenis pengawal  
+[2022-12-01 15:46:23,289 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_16_NamaPengawalInternal_HalamanTambah()]==>INFO:  Input nama pengawal Internal  
+[2022-12-01 15:46:23,759 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_17_JenisPengawalEksternal_HalamanTambah()]==>INFO:  Input tambah Jenis pengawal  
+[2022-12-01 15:46:25,629 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_18_NamaPengawalEksternal_HalamanTambah()]==>INFO:  Input nama pengawal Enternal  
+[2022-12-01 15:46:31,766 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_19_ButtonSubmitInternal_HalamanTambah()]==>INFO:  Menekan Button Submit  

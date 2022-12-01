@@ -1,2 +1,18 @@
-[2022-12-01 15:08:07,293 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_1_setupOS()]==>INFO: Setup Os
-[2022-12-01 15:08:08,191 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_2_login()]==>INFO: Login
+[2022-12-01 15:44:41,119 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_1_setupOS()]==>INFO: Setup Os
+[2022-12-01 15:44:42,208 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_2_login()]==>INFO: Login
+[2022-12-01 15:44:45,014 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_3_akses_menu_index()]==>INFO: Akses Menu Daftar Lalu Lintas
+[2022-12-01 15:44:48,036 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_4_Searchkategori()]==>INFO: Search Data Form Kategori No Induk 
+[2022-12-01 15:44:49,465 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir No induk
+[2022-12-01 15:45:00,566 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir nama
+[2022-12-01 15:45:01,900 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO:  Sortir jenis 
+[2022-12-01 15:45:03,338 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir Tanggal Keluar 
+[2022-12-01 15:45:04,654 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir tanggal kembali 
+[2022-12-01 15:45:06,582 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 5
+[2022-12-01 15:45:07,986 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 10
+[2022-12-01 15:45:09,406 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 20
+[2022-12-01 15:45:10,852 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 50
+[2022-12-01 15:45:17,090 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 100
+[2022-12-01 15:45:18,663 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_9_membuka_halaman_tambah_Index()]==>INFO: Membuka Halaman Tambah
+[2022-12-01 15:45:19,763 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_10_back_index()]==>INFO: Back Ke Halaman Index  
+[2022-12-01 15:45:29,368 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_11_membuka_halaman_ubah_Index()]==>INFO: Membuka Halaman Ubah  
+[2022-12-01 15:45:38,874 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_12_membuka_halaman_detail_Index()]==>INFO: Membuka Halaman Detail  
