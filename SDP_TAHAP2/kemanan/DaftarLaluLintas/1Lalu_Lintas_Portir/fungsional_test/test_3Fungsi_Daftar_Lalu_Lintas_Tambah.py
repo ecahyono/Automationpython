@@ -1,7 +1,4 @@
 from distutils.archive_util import make_archive
-# from os import PRIO_PGRP, environ
-# from re import S, T
-# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -15,19 +12,21 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
-from openpyxl import load_workbook
+
 import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
+from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
     sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
@@ -39,15 +38,17 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
-sheetrange = wb ['DaftarLaluLintas_Input']
-i = 2
-Drpdownsearch                         = sheetrange['A'+str(i)].value
+sheetrange = wb['DaftarLaluLintas_Input']
+xr = sheetrange['A'+str(2)].value
+i = xr
+
 Nama                                  = sheetrange['B'+str(i)].value
 JenisKeluar                           = sheetrange['C'+str(i)].value
 TanggalKeluar                         = sheetrange['D'+str(i)].value
 TanggalHarusKembali                   = sheetrange['E'+str(i)].value
 deskripsi                             = sheetrange['F'+str(i)].value
+PengwalInternal                       = sheetrange['G'+str(i)].value
+PengwalExternal                       = sheetrange['H'+str(i)].value
 
 @mark.fixture_test()
 def test_1_setupOS_HalamanTambah():
@@ -61,6 +62,7 @@ def test_2_login_HalamanTambah():
 
 @mark.fixture_test()
 def test_3_akses_menu_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
@@ -76,36 +78,38 @@ def test_3_akses_menu_HalamanTambah():
 
 @mark.fixture_test()
 def test_4_membuka_halaman_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    #WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+
     print('=')
     Log.info(' Membuka Halaman Tambah  ')
     attach(data=driver.get_screenshot_as_png())
 
-
-
 @mark.fixture_test()
 def test_5_sortir_table_cari_nama_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     time.sleep(0.4)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
     print('=')
     Log.info(' Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Nama)
     #driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
     print('=')
     Log.info(' Input Nama  ')
 
     driver.implicitly_wait(60)
+    sleep(driver)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('=')
@@ -115,6 +119,7 @@ def test_5_sortir_table_cari_nama_HalamanTambah():
 @mark.fixture_test()
 def test_6_Click_Button_Detile_HalamanTambah():
     driver.implicitly_wait(60)
+    sleep(driver)
     time.sleep(2)
     WebDriverWait(driver,60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
@@ -125,6 +130,7 @@ def test_6_Click_Button_Detile_HalamanTambah():
 
 @mark.fixture_test()
 def test_7_Click_Button_Tambah_WBP_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
@@ -135,22 +141,29 @@ def test_7_Click_Button_Tambah_WBP_HalamanTambah():
 
 @mark.fixture_test()    
 def test_8_sortir_detil_wbp_HalamanTambah():
+    sleep(driver)
     WebDriverWait(driver,15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="tab-0"]')))
     WebDriverWait(driver,15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tab-0"]')))
     driver.execute_script("window.scrollTo(0,1462.5)")
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div[3]/div').click()
     driver.find_element(By.XPATH, '//*[@id="tab-1"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-2"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-3"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-4"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-5"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-6"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-7"]').click()
 
     print('=')
@@ -165,22 +178,29 @@ def test_9_detile_perkara_HalamanTambah():
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div[3]/div').click()
     driver.find_element(By.XPATH, '//*[@id="tab-registrasi"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-sidang"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-tahanan_rumah"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-meninggal_dunia"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-mutasi_upt"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-pm"]').click()
     time.sleep(0.3)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tab-pembebasan"]').click()
     print('=')
-    Log.info(' Detile Perkara')
+    Log.info('Detile Perkara')
 
 @mark.fixture_test()
 def test_10_Input_JenisKeluar_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
     driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("asimilasi")
@@ -192,9 +212,11 @@ def test_10_Input_JenisKeluar_HalamanTambah():
 
 @mark.fixture_test()
 def test_11_Input_Tanggal_Keluar_HalamanTambah():
+
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="keluarKeamanan"]')))
-    driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys('24/12/2018')
+    driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(TanggalKeluar)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(Keys.ENTER)
 
     print('=')
@@ -204,11 +226,12 @@ def test_11_Input_Tanggal_Keluar_HalamanTambah():
 
 @mark.fixture_test()
 def test_12_Input_Deskripsi_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     driver.execute_script("window.scrollTo(0,1462.5)")
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#deskripsi')))
     driver.find_element(By.CSS_SELECTOR, "#deskripsi").click()
-    driver.find_element(By.CSS_SELECTOR, "#deskripsi").send_keys("koookok")
+    driver.find_element(By.CSS_SELECTOR, "#deskripsi").send_keys(deskripsi)
     print('=')
     Log.info(' Input Deskripsi Behasil ')
     attach(data=driver.get_screenshot_as_png())
@@ -217,7 +240,8 @@ def test_12_Input_Deskripsi_HalamanTambah():
 def test_13_Input_Tanggal_Harus_Kembali_HalamanTambah():
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalKembali"]')))
-    driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys('29/12/2018 12:00:00')
+    driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(TanggalHarusKembali)
+    sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
     print('=')
     Log.info(' Input Tanggal Harus Kembali  ')
@@ -225,6 +249,7 @@ def test_13_Input_Tanggal_Harus_Kembali_HalamanTambah():
     
 @mark.fixture_test()
 def test_14_tambah_Pengwal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
     time.sleep(0.5)
@@ -237,6 +262,7 @@ def test_14_tambah_Pengwal_HalamanTambah():
 
 @mark.fixture_test()
 def test_15_JenisPengawal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis0"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis0"]').click()
@@ -247,9 +273,10 @@ def test_15_JenisPengawal_HalamanTambah():
 
 @mark.fixture_test()
 def test_16_NamaPengawalInternal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').click
-    driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').send_keys('robi')
+    driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').send_keys(PengwalInternal)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="optionPengawal00"]')))
     driver.find_element(By.XPATH, '//*[@id="optionPengawal00"]').click()
     print('=')
@@ -258,6 +285,7 @@ def test_16_NamaPengawalInternal_HalamanTambah():
 
 @mark.fixture_test()
 def test_17_JenisPengawalEksternal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis1"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis1"]').click()
@@ -268,9 +296,10 @@ def test_17_JenisPengawalEksternal_HalamanTambah():
 
 @mark.fixture_test()
 def test_18_NamaPengawalEksternal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     driver.find_element(By.XPATH, '//*[@id="pengawal1"]').click
-    driver.find_element(By.XPATH, '//*[@id="pengawal1"]').send_keys('rehan')
+    driver.find_element(By.XPATH, '//*[@id="pengawal1"]').send_keys(PengwalExternal)
     time.sleep(1)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, "//td[contains(.,'operator')]")))
     time.sleep(0.4)
@@ -281,6 +310,7 @@ def test_18_NamaPengawalEksternal_HalamanTambah():
 
 @mark.fixture_test()
 def test_19_ButtonSubmitInternal_HalamanTambah():
+    sleep(driver)
     driver.implicitly_wait(60)
     time.sleep(3)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
@@ -290,6 +320,6 @@ def test_19_ButtonSubmitInternal_HalamanTambah():
     print('=')
     Log.info(' Menekan Button Submit  ')
     attach(data=driver.get_screenshot_as_png())
-
-def exit():
+@mark.fixture_test()
+def test_exit():
     quit(driver)

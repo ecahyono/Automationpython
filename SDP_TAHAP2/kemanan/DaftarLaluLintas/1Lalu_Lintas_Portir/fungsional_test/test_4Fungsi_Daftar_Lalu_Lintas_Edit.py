@@ -32,7 +32,6 @@ elif platform.system() == 'Windows':
 
 from Settings.setup import initDriver, loadDataPath, quit
 from Settings.login import login
-
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
@@ -41,6 +40,18 @@ fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+
+from openpyxl import load_workbook
+wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+sheetrange = wb['DaftarLaluLintas_Input']
+i = 2
+Drpdownsearch                         = sheetrange['A'+str(i)].value
+Nama                                  = sheetrange['B'+str(i)].value
+JenisKeluar                           = sheetrange['C'+str(i)].value
+TanggalKeluar                         = sheetrange['D'+str(i)].value
+TanggalHarusKembali                   = sheetrange['E'+str(i)].value
+deskripsi                             = sheetrange['F'+str(i)].value
 
 @mark.fixture_test()
 def test_1_setupOS():

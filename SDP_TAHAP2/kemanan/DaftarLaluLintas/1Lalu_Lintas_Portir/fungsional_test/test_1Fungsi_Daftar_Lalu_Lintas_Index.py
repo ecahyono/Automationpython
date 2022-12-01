@@ -1,7 +1,4 @@
 from distutils.archive_util import make_archive
-# from os import PRIO_PGRP, environ
-# from re import S, T
-# from threading import TIMEOUT_MAX
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,14 +17,16 @@ import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
+from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
     sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
@@ -39,6 +38,16 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
+sheetrange = wb['DaftarLaluLintas_Index']
+xr = sheetrange['A'+str(2)].value
+i = xr
+
+filterColumn                          = sheetrange['B'+str(i)].value
+namaLengkap                           = sheetrange['C'+str(i)].value
+nomorInduk                            = sheetrange['D'+str(i)].value
+TanggalKeluar                         = sheetrange['E'+str(i)].value
+TanggalHarusKembali                   = sheetrange['F'+str(i)].value
+deskripsi                             = sheetrange['G'+str(i)].value
 @mark.fixture_test()
 def test_1_setupOS():
     global driver, pathData
@@ -76,39 +85,36 @@ def test_4_DLP001_SearchkategoriNama_Index():  # Melakukan pencarian data berdas
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
 
     time.sleep(1)
-    driver.find_element(By.ID, 'filterColumn').send_keys('nama')
+
     driver.find_element(By.ID, 'filterColumn').click()
+    if filterColumn == 'namaLengkap':
+        driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namaLengkap)
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+        driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
 
-    driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('EYONO BIN CAS')
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
+        print('.')
+        Log.info('Search Data Form Kategori Nama ')
+        attach(data=driver.get_screenshot_as_png())
 
-    print('.')
-    Log.info('Search Data Form Kategori Nama ')
-    attach(data=driver.get_screenshot_as_png())
+    elif filterColumn == 'nomorInduk':
+        driver.find_element(By.XPATH, '//*[@id="nomorInduk"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(nomorInduk)
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+        driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
+
+        print('.')
+        Log.info('Search Data Form Kategori No Induk ')
+        attach(data=driver.get_screenshot_as_png())
 
 
-@mark.fixture_test()
-def test_5_DLP001_SearchKategoriNoInduk_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(20)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
 
-    driver.find_element(By.ID, 'filterColumn').send_keys('induk')
-    driver.find_element(By.XPATH, '//*[@id="nomorInduk"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('50120')
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
 
-    print('.')
-    Log.info('Search Data Form Kategori No Induk ')
-    attach(data=driver.get_screenshot_as_png())
+
 
 
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
