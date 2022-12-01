@@ -25,6 +25,8 @@ if platform.system() == 'Darwin':
     wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Keamanan.xlsx")
+
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
@@ -32,7 +34,7 @@ from Settings.login import login
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('index.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -40,7 +42,7 @@ Log.addHandler(fh)
 
 sheetrange = wb['DaftarLaluLintas_Index']
 xr = sheetrange['A'+str(2)].value
-i = xr
+i  = xr
 
 filterColumn                          = sheetrange['B'+str(i)].value
 namaLengkap                           = sheetrange['C'+str(i)].value
@@ -48,13 +50,13 @@ nomorInduk                            = sheetrange['D'+str(i)].value
 TanggalKeluar                         = sheetrange['E'+str(i)].value
 TanggalHarusKembali                   = sheetrange['F'+str(i)].value
 deskripsi                             = sheetrange['G'+str(i)].value
+
 @mark.fixture_test()
 def test_1_setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
-
 
 @mark.fixture_test()
 def test_2_login():
@@ -78,7 +80,7 @@ def test_3_akses_menu_index():
 
 
 @mark.fixture_test()
-def test_4_DLP001_SearchkategoriNama_Index():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -313,5 +315,5 @@ def test_15_cetak_Index():
     attach(data=driver.get_screenshot_as_png())
 
 
-def teardown():
+def test_quit():
     quit(driver)

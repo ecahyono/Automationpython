@@ -1,16 +1,7 @@
-[2022-12-01 10:09:18,193 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_1_setupOS()]==>INFO: Setup Os
-[2022-12-01 10:09:19,563 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_2_login()]==>INFO: Login
-[2022-12-01 10:09:22,154 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_3_akses_menu_index()]==>INFO: Akses Menu Daftar Lalu Lintas
-[2022-12-01 10:09:25,089 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_4_DLP001_SearchkategoriNama_Index()]==>INFO: Search Data Form Kategori No Induk 
-[2022-12-01 10:09:26,386 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir No induk
-[2022-12-01 10:09:27,701 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir nama
-[2022-12-01 10:09:29,001 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO:  Sortir jenis 
-[2022-12-01 10:09:35,787 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir Tanggal Keluar 
-[2022-12-01 10:09:41,081 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir tanggal kembali 
-[2022-12-01 10:09:43,031 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 5
-[2022-12-01 10:09:44,423 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 10
-[2022-12-01 10:09:45,827 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 20
-[2022-12-01 10:09:47,744 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 50
-[2022-12-01 10:09:49,705 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 100
-[2022-12-01 10:09:50,704 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_9_membuka_halaman_tambah_Index()]==>INFO: Membuka Halaman Tambah
-[2022-12-01 10:09:51,778 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_10_back_index()]==>INFO: Back Ke Halaman Index  
+[2022-12-01 10:20:30,050 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_3_akses_menu_HalamanTambah()]==>INFO:  akses menu daftar lalu lintas
+[2022-12-01 10:20:56,007 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_4_membuka_halaman_HalamanTambah()]==>INFO:  Membuka Halaman Tambah  
+[2022-12-01 10:21:00,806 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Memilih Dropdown Nama  
+[2022-12-01 10:21:03,108 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Input Nama  
+[2022-12-01 10:21:05,154 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_5_sortir_table_cari_nama_HalamanTambah()]==>INFO:  Click Button Cari  
+[2022-12-01 10:21:09,440 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_6_Click_Button_Detile_HalamanTambah()]==>INFO:  Click Button Update  
+[2022-12-01 10:21:11,709 test_3Fungsi_Daftar_Lalu_Lintas_Tambah.py->test_7_Click_Button_Tambah_WBP_HalamanTambah()]==>INFO:  Click Button Tambah WBP  
