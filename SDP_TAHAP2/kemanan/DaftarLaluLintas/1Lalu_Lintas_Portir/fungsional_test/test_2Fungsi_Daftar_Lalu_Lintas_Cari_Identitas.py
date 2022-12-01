@@ -14,30 +14,57 @@ from selenium.webdriver.support.select import Select
 import platform
 from pytest import mark
 import time
+from distutils.archive_util import make_archive
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.select import Select
+import platform
+from pytest import mark
+import time
 from pytest_html_reporter import attach
 
 import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
+from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    sys.path.append(environ.get("WINEXCELDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+sheetrange = wb['DaftarLaluLintas_CariIdentitas']
+xr = sheetrange['A'+str(2)].value
+i  = xr
+
+filterColumn                            = sheetrange['B'+str(i)].value
+nomorReg                              = sheetrange['C'+str(i)].value
+Nama                                  = sheetrange['D'+str(i)].value
+jenisKejahatan                        = sheetrange['E'+str(i)].value
 
 
 @mark.fixture_test()
@@ -79,8 +106,7 @@ def test_4_membuka_halaman_tambah_index():
     driver.find_element(By.ID, 'createButton').click()
     WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    #WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    #driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
+
     print('.')
     Log.info('Membuka Halaman Tambah')
     attach(data=driver.get_screenshot_as_png())
@@ -98,71 +124,57 @@ def test_5_Button_Next_Prev():
 
 
 @mark.fixture_test()
-def test_6_sortir_table_cari_noreg_cari_identitas():
-
+def test_6_FilterData():
     driver.implicitly_wait(60)
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    driver.find_element(By.XPATH, '//*[@id="nomorReg"]').click()
-    print('.')
-    Log.info(' Memilih Dropdown Noregis  ')
-    attach(data=driver.get_screenshot_as_png())
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('123')
-    print('.')
-    Log.info('Input Noregis  ')
 
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    if filterColumn == 'nomorReg':
+        driver.find_element(By.XPATH, '//*[@id="nomorReg"]').click()
+        print('.')
+        Log.info(' Memilih Dropdown Noregis  ')
+        attach(data=driver.get_screenshot_as_png())
+
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(nomorReg)
+        print('.')
+        Log.info('Input Noregis  ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumn == 'nama':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+        print('.')
+        Log.info('Memilih Dropdown Nama')
+        attach(data=driver.get_screenshot_as_png())
+
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Nama)
+        print('.')
+        Log.info('Input Nama')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumn == 'jenisKejahatan':
+        driver.find_element(By.XPATH, '//*[@id="jenisKejahatan"]').click()
+        print('.')
+        Log.info('Memilih Dropdown Jenis Kejahatan  ')
+        attach(data=driver.get_screenshot_as_png())
+
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(jenisKejahatan)
+        print('.')
+        Log.info('Input Jenis kejahatan')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     print('.')
     Log.info('Click Button Cari ')
     attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_test()
-def test_7_sortir_table_cari_nama_cari_identitas():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
-    print('.')
-    Log.info('Memilih Dropdown Nama  ')
-    attach(data=driver.get_screenshot_as_png())
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('WILLLD BINTI eko cah cah ge')
-    print('.')
-    Log.info('Input Nama  ')
-
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    print('.')
-    Log.info('Click Button Cari')
-    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_8_sortir_table_cari_JenisKejahatan_cari_identitas():
-    driver.implicitly_wait(60)
-    WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
-    driver.find_element(By.XPATH, '//*[@id="jenisKejahatan"]').click()
-    print('.')
-    Log.info('Memilih Dropdown Jenis Kejahatan  ')
-    attach(data=driver.get_screenshot_as_png())
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Korupsi')
-    print('.')
-    Log.info('Input katakunci  ')
-    attach(data=driver.get_screenshot_as_png())
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
-    print('.')
-    Log.info('Click Button Cari')
-    attach(data=driver.get_screenshot_as_png())
-    
-@mark.fixture_test()
-def test_9_search_data_aktif_cari_identitas():
+def test_7_search_data_aktif_cari_identitas():
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
@@ -178,7 +190,7 @@ def test_9_search_data_aktif_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
     
 @mark.fixture_test()
-def test_10_search_residivis_cari_identitas():
+def test_8_search_residivis_cari_identitas():
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
@@ -195,7 +207,7 @@ def test_10_search_residivis_cari_identitas():
 
 
 @mark.fixture_test()
-def test_11_Sortir_5_Halaman_cari_identitas():
+def test_9_Sortir_5_Halaman_cari_identitas():
     #5 HALAMAN
     driver.implicitly_wait(60)
     driver.execute_script("window.scrollTo(0,326)")
@@ -212,7 +224,7 @@ def test_11_Sortir_5_Halaman_cari_identitas():
 
 
 @mark.fixture_test()
-def test_12_sortir_10_Halaman_cari_identitas():
+def test_10_sortir_10_Halaman_cari_identitas():
     #10 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -226,7 +238,7 @@ def test_12_sortir_10_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_13_sortir_20_Halaman_cari_identitas():
+def test_11_sortir_20_Halaman_cari_identitas():
     #20 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -240,7 +252,7 @@ def test_13_sortir_20_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_14_sortir_50_Halaman_cari_identitas():
+def test_12_sortir_50_Halaman_cari_identitas():
     #50 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -254,7 +266,7 @@ def test_14_sortir_50_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_15_sortir_100_Halaman_cari_identitas():
+def test_13_sortir_100_Halaman_cari_identitas():
     #100 HALAMAN
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -268,9 +280,7 @@ def test_15_sortir_100_Halaman_cari_identitas():
     attach(data=driver.get_screenshot_as_png())
 
 
-
-
-
-def teardown():
+@mark.fixture_test()
+def test_exit():
     quit(driver)
     

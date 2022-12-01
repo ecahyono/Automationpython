@@ -21,11 +21,12 @@ from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
     wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
-    wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Keamanan.xlsx")
+    sys.path.append(environ.get("WINEXCELDIR"))
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
@@ -34,7 +35,7 @@ from Settings.login import login
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('index.log', mode="w")
+fh = logging.FileHandler('test_1Fungsi_Daftar_Lalu_Lintas_Index.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -47,9 +48,7 @@ i  = xr
 filterColumn                          = sheetrange['B'+str(i)].value
 namaLengkap                           = sheetrange['C'+str(i)].value
 nomorInduk                            = sheetrange['D'+str(i)].value
-TanggalKeluar                         = sheetrange['E'+str(i)].value
-TanggalHarusKembali                   = sheetrange['F'+str(i)].value
-deskripsi                             = sheetrange['G'+str(i)].value
+
 
 @mark.fixture_test()
 def test_1_setupOS():
@@ -112,12 +111,6 @@ def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori de
         print('.')
         Log.info('Search Data Form Kategori No Induk ')
         attach(data=driver.get_screenshot_as_png())
-
-
-
-
-
-
 
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
 
@@ -229,8 +222,6 @@ def test_9_membuka_halaman_tambah_Index():
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
-    # WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
-    # driver.find_element(By.XPATH, '//*[@id="backButton"]').click()
     print('.')
     Log.info('Membuka Halaman Tambah')
     attach(data=driver.get_screenshot_as_png())
@@ -253,8 +244,7 @@ def test_11_membuka_halaman_ubah_Index():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 path").click()
     time.sleep(3)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,
-                                                                '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
     driver.find_element(By.ID, 'backButton').click()
     Log.info('Membuka Halaman Ubah  ')
     attach(data=driver.get_screenshot_as_png())

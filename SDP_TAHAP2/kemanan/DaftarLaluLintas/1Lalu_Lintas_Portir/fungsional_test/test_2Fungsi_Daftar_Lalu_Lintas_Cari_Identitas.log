@@ -1,0 +1,6 @@
+[2022-12-01 15:13:05,855 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_3_akses_menu_index()]==>INFO: akses menu daftar lalu lintas
+[2022-12-01 15:13:07,335 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_4_membuka_halaman_tambah_index()]==>INFO: Membuka Halaman Tambah
+[2022-12-01 15:13:09,202 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_5_Button_Next_Prev()]==>INFO: button next search data
+[2022-12-01 15:13:09,327 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_6_FilterData()]==>INFO:  Memilih Dropdown Noregis  
+[2022-12-01 15:13:09,606 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_6_FilterData()]==>INFO: Input Noregis  
+[2022-12-01 15:13:09,856 test_2Fungsi_Daftar_Lalu_Lintas_Cari_Identitas.py->test_6_FilterData()]==>INFO: Click Button Cari 

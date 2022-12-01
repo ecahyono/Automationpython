@@ -21,10 +21,13 @@ from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
     wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    sys.path.append(environ.get("WINEXCELDIR"))
+
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
@@ -32,7 +35,7 @@ from Settings.login import login
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('test_3Fungsi_Daftar_Lalu_Lintas_Tambah.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -203,11 +206,77 @@ def test_10_Input_JenisKeluar_HalamanTambah():
     sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver,60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
-    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').send_keys("asimilasi")
-    driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
-    print('=')
-    Log.info(' Input Jenis Keluar  ')
-    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.XPATH, '//*[@id="jenisKeluar"]').click()
+
+    if JenisKeluar == 'Asimilasi':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
+        print('.')
+        Log.info(' Input Jenis Keluar Asimilasi  ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluar == 'Pembebasan Bersyarat':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Pembebasan Bersyarat')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Pembebasan Bersyarat\')]").click()
+        print('.')
+        Log.info(' Input Jenis Pembebasan bersyarat ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluar == 'Anak Kembali ke Orang Tua':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Anak Kembali ke Orang Tua')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Anak Kembali ke Orang Tua\')]").click()
+        print('.')
+        Log.info(' Input Jenis Anak Kembali ke Orang Tua ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluar == 'Cuti Bersyarat':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Bersyarat')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
+        print('.')
+        Log.info(' Input Jenis Cuti Bersyarat ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluar == 'Asimilasi di Rumah':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi di Rumah')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi di Rumah\')]").click()
+        print('.')
+        Log.info(' Input Jenis Asimilasi di Rumah ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluar == 'Bebas Biasa':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Biasa')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Biasa\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas Biasa ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+    elif JenisKeluar == 'Bebas dari Dakwaan':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas dari Dakwaan')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas dari Dakwaan\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas dari Dakwaan ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluar == 'Bebas Dari Tuntutan':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Dari Tuntutan')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Dari Tuntutan\')]").click()
+        print('.')
+        Log.info(' Input Jenis Bebas Dari Tuntutan ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif JenisKeluar == 'Cuti Menjelang Bebas':
+        driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Menjelang Bebas')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
+        print('.')
+        Log.info(' Input Jenis Cuti Menjelang Bebas ')
+        attach(data=driver.get_screenshot_as_png())
+
+
+
+
 
 
 @mark.fixture_test()

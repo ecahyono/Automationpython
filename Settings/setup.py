@@ -63,7 +63,7 @@ def selectKategoriTamuDinas(driver):
     driver.find_element(By.ID, "tamuDinas").click()
     print('.')
 def sleep(driver):
-    time.sleep(2)
+    time.sleep(0.1)
 
 
 
