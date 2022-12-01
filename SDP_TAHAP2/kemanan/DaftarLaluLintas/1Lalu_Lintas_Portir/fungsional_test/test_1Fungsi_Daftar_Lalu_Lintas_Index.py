@@ -315,5 +315,6 @@ def test_15_cetak_Index():
     attach(data=driver.get_screenshot_as_png())
 
 
+@mark.fixture_test()
 def test_quit():
     quit(driver)
