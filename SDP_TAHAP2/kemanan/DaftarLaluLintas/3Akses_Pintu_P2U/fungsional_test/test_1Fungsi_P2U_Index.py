@@ -17,24 +17,43 @@ import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
+from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    sys.path.append(environ.get("WINEXCELDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('Fungsi_P2U_Index.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+
+sheetrange = wb['Fungsi_P2U_Index']
+xr = sheetrange['A'+str(2)].value
+i  = xr
+
+filterColumn                                = sheetrange['B'+str(i)].value
+NamaWBP                                     = sheetrange['C'+str(i)].value
+NomorInduk                                  = sheetrange['D'+str(i)].value
+Keperluan                                   = sheetrange['E'+str(i)].value
+inputKategori                               = sheetrange['F'+str(i)].value
+
+filterTanggalMasuk                          = sheetrange['G'+str(i)].value
+filterTanggalKeluar                         = sheetrange['H'+str(i)].value
 
 @mark.fixture_test()
 def test_1_SetupOS():
@@ -65,147 +84,74 @@ def test_3_akses_menu_index():
 
 
 @mark.fixture_test()
-def test_4_Search_nama_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(30) 
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama') 
-    #KETIK NAMA
-    driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click() 
-    #PILIH DROPDOWN NAMA LENGKAP
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("a")
-    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()  
-    #KLIK BUTTON CARI
-    print('.')
-    Log.info('Search nama')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_5_Search_nomorID_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(30) 
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('Nomor') 
-    #KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click() 
-    #PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("31") 
-    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click() 
-    #KLIK BUTTON CARI
-
-    print('.')
-    Log.info('Search Identitas')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_6_Search_Pegawai_kategori_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(30) 
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori') 
-    #KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click() 
-    #PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.XPATH, "//li[@id='pegawai']").click()
-    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-
-    #TAMU DINAS
+def test_4_SearchDATA():
+    # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+    driver.implicitly_wait(30)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    # BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
-    # KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click()
-    # PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.XPATH, "//li[@id='tamuDinas']").click()
-    # KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    if filterColumn == 'nama lengkap':
+        driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
+        #KETIK NAMA
+        driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click()
+        #PILIH DROPDOWN NAMA LENGKAP
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaWBP)
+        #KETIK GALIH DI FORM MASUKAN KATA KUNCI
+        Log.info('Search Bedasarkan Nama Lengkap')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumn == 'nomor induk':
+        driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('Nomor')
+        # KETIK NOMOR
+        driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click()
+        # PILIH DROPDOWN NOMOR IDENTITAS
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NomorInduk)
+        Log.info('Search Bedasarkan Nomor Induk')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumn == 'keperluan':
+        driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Keperluan')
+        # KETIK NOMOR
+        driver.find_element(By.XPATH, "//li[contains(.,\'Keperluan\')]").click()
+        # PILIH DROPDOWN NOMOR IDENTITAS
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(Keperluan)
+        Log.info('Search Bedasarkan Keperluan')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumn == 'kategori':
+        time.sleep(1)
+        driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
+        driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click()
+        driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+        Log.info('Search Bedasarkan kategori')
+        attach(data=driver.get_screenshot_as_png())
+        sleep(driver)
+
+        if inputKategori == 'Pegawai':
+            driver.find_element(By.XPATH, "//li[@id='pegawai']").click()
+            Log.info('select kategori pegawai')
+            attach(data=driver.get_screenshot_as_png())
+        elif inputKategori == 'Tamu Dinas':
+            driver.find_element(By.ID,'tamuDinas').click()
+            Log.info('select kategori tamu dinas')
+            attach(data=driver.get_screenshot_as_png())
+        elif inputKategori == 'Kunjungan Onsite':
+            driver.find_element(By.XPATH, "//li[@id='Kunjungan']").click()
+            Log.info('select kategori Kunjungan onsite')
+            attach(data=driver.get_screenshot_as_png())
+        elif inputKategori == 'Kunjungan Online':
+            driver.find_element(By.XPATH, "//li[@id='Kunjungan Online']").click()
+            Log.info('select kategori Kunjungan Online')
+            attach(data=driver.get_screenshot_as_png())
+        sleep(driver)
+
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.ID, 'searchButton').click()
-
-    #KLIK BUTTON CARI
-    print('.')
-    Log.info('Search TAMU DINAS')
-    attach(data=driver.get_screenshot_as_png())
-
-    # TAMU Kunjungna Online
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    # BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
-    # KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click()
-    # PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.XPATH, "//li[@id='kunjungan']").click()
-    # KETIK GALIH DI FORM MASUKAN KATA KUNCI
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-    # KLIK BUTTON CARI
-    print('.')
-    Log.info('Search Pegawai')
+    Log.info('Search Data berhasil')
     attach(data=driver.get_screenshot_as_png())
-
-    # TAMU Kunjungna Online
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    # BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
-    # KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click()
-    # PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    driver.find_element(By.CSS_SELECTOR, "#kunjunganOnline > span").click()
-    # KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-    # KLIK BUTTON CARI
-    print('.')
-    Log.info('Search Pegawai')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_7_Search_keperluan_Index(): #Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
-    driver.implicitly_wait(30) 
-    time.sleep(1)
-    WebDriverWait(driver,30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]'))) 
-    #BUTTON CARI
-    time.sleep(1)
-    driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Keperluan') 
-    #KETIK NOMOR
-    driver.find_element(By.XPATH, "//li[contains(.,\'Keperluan\')]").click() 
-    #PILIH DROPDOWN NOMOR IDENTITAS
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys("Test")
-    
-    #KETIK GALIH DI FORM MASUKAN KATA KUNCI
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click() 
-    #KLIK BUTTON CARI
-    print('.')
-    Log.info('Search Keperluan')
-    attach(data=driver.get_screenshot_as_png())
-
-
-
 
 #Mengosongkan kata kunci dan kategori dengan klik button clear value
 @mark.fixture_test()
-def test_8_Clik_clear_value_Index():
+def test_5_Clik_clear_value_Index():
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, '//*[@id="filterColumn"]')
     actions = ActionChains(driver)
@@ -240,7 +186,7 @@ def test_8_Clik_clear_value_Index():
 
 #SORTIR TABLE HALAMAN INDEX
 @mark.fixture_test()
-def test_9_Sortir_data_table_NoInduk_Index():
+def test_6_Sortir_data_table_NoInduk_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
@@ -275,7 +221,7 @@ def test_9_Sortir_data_table_NoInduk_Index():
 
 #Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_10_Sortir_5_Halaman_Index():
+def test_7_Sortir_5_Halaman_Index():
     #5 HALAMAN
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
@@ -291,7 +237,7 @@ def test_10_Sortir_5_Halaman_Index():
 
 #Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_11_Sortir_10_Halaman_Index():
+def test_8_Sortir_10_Halaman_Index():
     #10 HALAMAN
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
@@ -306,7 +252,7 @@ def test_11_Sortir_10_Halaman_Index():
 
 #Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_12_Sortir_20_Halaman_Index():
+def test_9_Sortir_20_Halaman_Index():
      #20 HALAMAN
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
@@ -321,7 +267,7 @@ def test_12_Sortir_20_Halaman_Index():
 
 #Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_13_Sortir_50_Halaman_Index():
+def test_10_Sortir_50_Halaman_Index():
     #50 HALAMAN
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
@@ -335,7 +281,7 @@ def test_13_Sortir_50_Halaman_Index():
 
 #Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)
 @mark.fixture_test()
-def test_14_Sortir_100_Halaman_Index():
+def test_11_Sortir_100_Halaman_Index():
     #100 HALAMAN
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
@@ -350,7 +296,7 @@ def test_14_Sortir_100_Halaman_Index():
 
 
 @mark.fixture_test()
-def test_17_Export_pdf_Index():
+def test_12_Export_pdf_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -365,7 +311,7 @@ def test_17_Export_pdf_Index():
 
 #Melakukan export data tabel ke excel
 @mark.fixture_test()
-def test_16_Export_exel_Index():
+def test_13_Export_exel_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -376,17 +322,11 @@ def test_16_Export_exel_Index():
     Log.info(' Export Excel   ')
     attach(data=driver.get_screenshot_as_png())
 
-
-
-
 #Melakukan export data tabel ke pdf
-
-
-
 
 #Melakukan cetak
 @mark.fixture_test()
-def test_18_Cetak_Index():
+def test_14_Cetak_Index():
     time.sleep(1)
     driver.implicitly_wait(30)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
@@ -408,7 +348,7 @@ def test_15_SearchTanggal():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterTanggalMasuk"]')))
     # BUTTON CARI
     time.sleep(1)
-    driver.find_element(By.ID, "filterTanggalMasuk").send_keys('24/10/2022')
+    driver.find_element(By.ID, "filterTanggalMasuk").send_keys(filterTanggalMasuk)
     driver.find_element(By.ID, "filterTanggalMasuk").send_keys(Keys.ENTER)
     WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'searchButton').click()
@@ -423,7 +363,7 @@ def test_15_SearchTanggal():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="filterTanggalMasuk"]')))
     # BUTTON CARI
     time.sleep(1)
-    driver.find_element(By.ID, "filterTanggalKeluar").send_keys('14/11/2022')
+    driver.find_element(By.ID, "filterTanggalKeluar").send_keys(filterTanggalKeluar)
     driver.find_element(By.ID, "filterTanggalKeluar").send_keys(Keys.ENTER)
     WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'searchButton').click()
@@ -432,7 +372,8 @@ def test_15_SearchTanggal():
     Log.info('Search Tanggal Keluar=')
     attach(data=driver.get_screenshot_as_png())
 
-def teardown():
+@mark.fixture_test()
+def test_16_exit():
     quit(driver)
     # TAMBAHAN FILTER TANGGAL
 

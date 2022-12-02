@@ -1,0 +1,6 @@
+[2022-12-02 11:17:03,142 test_4Portir_MasukPortir.py->test_3_akses_menu_MasukPortir()]==>INFO: akses menu daftar lalu lintas
+[2022-12-02 11:17:11,535 test_4Portir_MasukPortir.py->test_4_sortir_table_cari_nama_MasukPortir()]==>INFO:  Memilih Dropdown Nama  
+[2022-12-02 11:17:11,841 test_4Portir_MasukPortir.py->test_4_sortir_table_cari_nama_MasukPortir()]==>INFO:  Input Nama  
+[2022-12-02 11:17:13,001 test_4Portir_MasukPortir.py->test_4_sortir_table_cari_nama_MasukPortir()]==>INFO:  Masuk Keamanan  
+[2022-12-02 11:17:14,305 test_4Portir_MasukPortir.py->test_4_sortir_table_cari_nama_MasukPortir()]==>INFO:  Click Button Cari  
+[2022-12-02 11:17:21,678 test_4Portir_MasukPortir.py->test_5_Click_Button_Detile_MasukPortir()]==>INFO:  Click Button Update  

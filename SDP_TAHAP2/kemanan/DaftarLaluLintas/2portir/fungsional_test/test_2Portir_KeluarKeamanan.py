@@ -135,7 +135,6 @@ def test_6_KonfirmasiKeluar_KeluarKeamanan():
 
     #driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
 
-
-def teardown():
-    time.sleep(10)
-    sleep(driver)
+@mark.fixture_test()
+def test_exit():
+    quit(driver)
