@@ -16,6 +16,7 @@ from pytest_html_reporter import attach
 import sys
 from os import environ, path
 from dotenv import load_dotenv
+
 load_dotenv()
 from openpyxl import load_workbook
 
@@ -28,11 +29,11 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
     sys.path.append(environ.get("WINEXCELDIR"))
 
-
 from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
+
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
 fh = logging.FileHandler('Fungsi_P2U_Index.log', mode="w")
@@ -41,12 +42,14 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-
 sheetrange = wb['Fungsi_P2U_Index']
-xr = sheetrange['A'+str(2)].value
-i  = xr
+xr = sheetrange['A' + str(2)].value
+i = xr
 
-filterColumn                                = sheetrange['B'+str(i)].value
+inputKategori = sheetrange['B' + str(i)].value
+Nama = sheetrange['C' + str(i)].value
+
+
 @mark.fixture_test()
 def test_1_SetupOS():
     global driver, pathData
@@ -57,6 +60,7 @@ def test_1_SetupOS():
 @mark.fixture_test()
 def test_2_Login():
     login(driver)
+
 
 @mark.fixture_test()
 # Akses menu ke halaman akses pintu p2u
@@ -73,15 +77,16 @@ def test_3_Akses_menu():
     Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
+
 # ==================================================== TAMBAH PEGAWAI ====================================================
 @mark.fixture_test()
 # pergi ke halaman tambah
 def test_4_ButtonTambah_PegawaiTambah():
     driver.implicitly_wait(20)
-    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     print('.')
     Log.info(' Membuka Halaman Tambah ')
     attach(data=driver.get_screenshot_as_png())
@@ -89,57 +94,37 @@ def test_4_ButtonTambah_PegawaiTambah():
 
 @mark.fixture_test()
 # Memilih kategori pegawai
-def test_5_Kategori_Pegawaitambah():
-    driver.implicitly_wait(20)
+def test_5_Input():
+
     driver.implicitly_wait(15)
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "pegawai").click()
-    print('.')
-    Log.info(' Input NIP ')
-    attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_test()
-# Input nama
-def test_6_InputNiP_Pegawaitambah():
-    driver.implicitly_wait(20)
-    driver.find_element(By.ID, 'inputNip').send_keys("0097736")
-    print('.')
-    Log.info(' Input NIP ')
-    attach(data=driver.get_screenshot_as_png())
+    if Nama == 'Nabila':
+        driver.find_element(By.ID, 'inputSearch').send_keys(Nama)
+        driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label').click()
+        driver.find_element(By.ID, 'inputSearch').send_keys('dadasdas')
+        sleep(driver)
 
-@mark.fixture_test()
-# Input nama
-def test_7_InputNama_Pegawaitambah():
-    driver.implicitly_wait(20)
-    driver.find_element(By.ID, 'inputNama').send_keys("STERIO")
-    print('.')
-    Log.info(' Input NIP ')
-    attach(data=driver.get_screenshot_as_png())
+    elif Nama == '-':
+        driver.implicitly_wait(20)
+        driver.find_element(By.ID, 'inputNip').send_keys("33213")
+        driver.find_element(By.ID, 'inputNama').send_keys("STERIO")
+        driver.find_element(By.ID, 'inputJabatan').send_keys("SARJANA MUDA")
+        driver.find_element(By.ID, 'inputKeperluan').send_keys("Jalan jalan")
+        print('.')
+        Log.info(' Input NIP ')
+        attach(data=driver.get_screenshot_as_png())
+        print('.')
 
-@mark.fixture_test()
-def test_8_InputJabatan_Pegawaitambah():
-    driver.implicitly_wait(20)
-    driver.find_element(By.ID, 'inputJabatan').send_keys("SARJANA MUDA")
-    print('.')
-    Log.info(' Input NIP ')
-    attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_test()
-def test_9_InputKeperluan_Pegawaitambah():
-    driver.implicitly_wait(20)
-    driver.find_element(By.ID, 'inputKeperluan').send_keys("Jalan jalan")
-    print('.')
-    Log.info(' Input NIP ')
-    attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_test()
-# menekan button submit input data manual
-def test_10_Submit_PegawaiTambah():
-    driver.implicitly_wait(15)
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+
+
+
+"""
+
 
 # ==================================================== TAMU DINAS ====================================================
 
@@ -226,10 +211,11 @@ def test_18_SubmitButton_TamuDinasTambah():
     Log.info(' Input nip ')
     attach(data=driver.get_screenshot_as_png())
 
+"""
+
 
 def teardown():
     quit(driver)
 
-
-#INPUT MANUAL KUNJUNGAN ONLINE BELUM ( TIDAK ADA DATA )
-#INPUT MANUAL KUNJUNGAN ONSITE BELUM ( TIDAK ADA DATA )
+# INPUT MANUAL KUNJUNGAN ONLINE BELUM ( TIDAK ADA DATA )
+# INPUT MANUAL KUNJUNGAN ONSITE BELUM ( TIDAK ADA DATA )
