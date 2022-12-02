@@ -17,25 +17,36 @@ import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
+from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    sys.path.append(environ.get("WINEXCELDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('Portir_MasukPortir.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
+
+sheetrange = wb['Portir_SearchDataIndex']
+xr = sheetrange['A'+str(14)].value
+i  = xr
+
+NamaWbp                               = sheetrange['B'+str(i)].value
 
 
 @mark.fixture_test()
@@ -62,7 +73,7 @@ def test_3_akses_menu_MasukPortir():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Portir').click()
     print('.')
-    print('==========akses menu daftar lalu lintas==========')
+    Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -72,26 +83,30 @@ def test_4_sortir_table_cari_nama_MasukPortir():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    sleep(driver)
     print('=')
-    print(' = Memilih Dropdown Nama  ')
+    Log.info(' Memilih Dropdown Nama  ')
     attach(data=driver.get_screenshot_as_png())
-    #WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
-    #driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaWbp)
     print('=')
-    print(' = Input Nama  ')
+    Log.info(' Input Nama  ')
+    sleep(driver)
 
     driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('masuk portir')
     driver.find_element(By.CSS_SELECTOR, "#statusMasukPortir").click()
-
     print('=')
-    print(' = Masuk Keamanan  ')
+    Log.info(' Masuk Keamanan  ')
+    attach(data=driver.get_screenshot_as_png())
+    sleep(driver)
 
     driver.implicitly_wait(30)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
     print('=')
-    print(' = Click Button Cari  ')
+    Log.info(' Click Button Cari  ')
     attach(data=driver.get_screenshot_as_png())
+    sleep(driver)
 
 
 @mark.fixture_test()
@@ -103,11 +118,13 @@ def test_5_Click_Button_Detile_MasukPortir():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5")))
     time.sleep(3)
     driver.find_element(By.CSS_SELECTOR, ".h-5").click()
-    driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
+    #WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="confirmButton"]')))
 
+    #driver.find_element(By.XPATH, '//*[@id="confirmButton"]').click()
     print('=')
-    print(' = Click Button Update  ')
+    Log.info(' Click Button Update  ')
     attach(data=driver.get_screenshot_as_png())
 
-def teardown():
+@mark.fixture_test()
+def test_exit():
     quit(driver)

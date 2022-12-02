@@ -62,8 +62,9 @@ def selectKategoriTamuDinas(driver):
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "tamuDinas").click()
     print('.')
+
 def sleep(driver):
-    time.sleep(0.1)
+    time.sleep(1)
 
 
 

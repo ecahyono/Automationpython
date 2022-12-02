@@ -92,10 +92,6 @@ def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori de
         driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
         driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namaLengkap)
-        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-        driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-
         print('.')
         Log.info('Search Data Form Kategori Nama ')
         attach(data=driver.get_screenshot_as_png())
@@ -104,13 +100,13 @@ def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori de
         driver.find_element(By.XPATH, '//*[@id="nomorInduk"]').click()
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
         driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(nomorInduk)
-        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-        driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-
         print('.')
         Log.info('Search Data Form Kategori No Induk ')
         attach(data=driver.get_screenshot_as_png())
+
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
 
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
 
