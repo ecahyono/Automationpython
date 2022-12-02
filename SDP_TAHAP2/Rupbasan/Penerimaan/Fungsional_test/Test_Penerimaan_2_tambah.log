@@ -1,13 +1,32 @@
-[2022-11-30 10:41:27,279 Test_Penerimaan_2_tambah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-11-30 10:41:29,954 Test_Penerimaan_2_tambah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-11-30 10:41:33,268 Test_Penerimaan_2_tambah.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
-[2022-11-30 10:41:34,078 Test_Penerimaan_2_tambah.py->test_Masukhalamatambah_4()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
-[2022-11-30 10:41:50,445 Test_Penerimaan_2_tambah.py->test_Input_dropdown_5()]==>INFO: Memilih value, kemudian mengosongkan pilihan dengan clear button value, lalu ditampilkan validation message jika mandatory
-[2022-11-30 10:41:51,271 Test_Penerimaan_2_tambah.py->test_inputtext_6()]==>INFO: Input field menggunakan varchar
-[2022-11-30 10:41:53,431 Test_Penerimaan_2_tambah.py->test_Inputtextarea_7()]==>INFO: Input field lalu value indicatornya sesuai dan tidak bisa input lebih dari max length Bisa scroll isi field
-[2022-11-30 10:42:00,420 Test_Penerimaan_2_tambah.py->test_Inputdate()]==>INFO: Input field dengan tanggal lampau, yang akan datang, dan tanggal hari ini dan tanggal yang ditampilkannya sesuai
-[2022-11-30 10:42:02,681 Test_Penerimaan_2_tambah.py->test_Pindahtabptgsinstansi()]==>INFO: klik tab Petugas Instansi yang Menyerahkan, kemudian menambah 1 baris status petugas
-[2022-11-30 10:42:12,393 Test_Penerimaan_2_tambah.py->test_radiobuttonptgsinstansi()]==>INFO: memilih radiobutton status petugas kemudian mencari petugas internal dan external
-[2022-11-30 10:42:16,662 Test_Penerimaan_2_tambah.py->test_Pindahtabsaksii()]==>INFO: Klik tab Saksi Penerima, kemudian menambah 1 baris status Saksi
-[2022-11-30 10:42:26,285 Test_Penerimaan_2_tambah.py->test_radiobuttonsaksi()]==>INFO: memilih radiobutton status petugas kemudian mencari petugas internal dan external
-[2022-11-30 10:42:26,368 Test_Penerimaan_2_tambah.py->test_SubmitDatapenerimaan()]==>INFO: menekan button submit
+[2022-12-02 01:18:00,566 Test_Penerimaan_2_tambah.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-02 01:18:02,095 Test_Penerimaan_2_tambah.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-02 01:18:05,614 Test_Penerimaan_2_tambah.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-02 01:18:12,007 Test_Penerimaan_2_tambah.py->test_Masukhalamatambah_4()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
+[2022-12-02 01:18:16,309 Test_Penerimaan_2_tambah.py->test_Inputdropdown_1()]==>INFO: Memeilih Dropdown Jenis Registrasi
+[2022-12-02 01:18:22,554 Test_Penerimaan_2_tambah.py->test_Inputdate_1()]==>INFO: Menginput Tanggal Penerimaan
+[2022-12-02 01:18:24,648 Test_Penerimaan_2_tambah.py->test_inputtext_1()]==>INFO: Menginput Nomor Registrasi Rupbasan
+[2022-12-02 01:18:28,861 Test_Penerimaan_2_tambah.py->test_Inputdropdown_2()]==>INFO: Memilih Opsi instansi
+[2022-12-02 01:18:30,933 Test_Penerimaan_2_tambah.py->test_inputtext_2()]==>INFO: Menginput Nomor Registrasi Instansi
+[2022-12-02 01:18:33,007 Test_Penerimaan_2_tambah.py->test_inputtext_3()]==>INFO: Menginput Nomor Surat Izin Penyitaan
+[2022-12-02 01:18:35,213 Test_Penerimaan_2_tambah.py->test_Inputdate_2()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
+[2022-12-02 01:18:37,352 Test_Penerimaan_2_tambah.py->test_Inputdropdown_3()]==>INFO: Memilih Opsi Pengadilan Penyita
+[2022-12-02 01:18:39,434 Test_Penerimaan_2_tambah.py->test_inputtext_4()]==>INFO: menginput nomor surat Penyitaan
+[2022-12-02 01:18:41,559 Test_Penerimaan_2_tambah.py->test_Inputdate_3()]==>INFO: menginput tanggal surat Penyitaan
+[2022-12-02 01:18:43,634 Test_Penerimaan_2_tambah.py->test_inputtext_5()]==>INFO: input pasal
+[2022-12-02 01:18:45,712 Test_Penerimaan_2_tambah.py->test_inputtext_6()]==>INFO: Input field text input menggunakan varchar
+[2022-12-02 01:18:47,870 Test_Penerimaan_2_tambah.py->test_Inputtextarea_1()]==>INFO: Input field text area
+[2022-12-02 01:18:52,377 Test_Penerimaan_2_tambah.py->test_Inputdropdown_4()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
+[2022-12-02 01:18:56,905 Test_Penerimaan_2_tambah.py->test_Inputdropdown_5()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
+[2022-12-02 01:18:56,972 Test_Penerimaan_2_tambah.py->test_jumlahidentitas()]==>INFO:  menambah 1 baris status petugas
+[2022-12-02 01:18:58,982 Test_Penerimaan_2_tambah.py->test_jumlahidentitas()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
+[2022-12-02 01:19:01,500 Test_Penerimaan_2_tambah.py->test_Inputdropdown_6()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-02 01:19:04,018 Test_Penerimaan_2_tambah.py->test_Inputdropdown_6()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-02 01:19:04,133 Test_Penerimaan_2_tambah.py->test_Pindahtab_1()]==>INFO: klik tab Petugas Instansi
+[2022-12-02 01:19:06,196 Test_Penerimaan_2_tambah.py->test_pilihjumlahpenyerah()]==>INFO:  menambah 1 baris status petugas
+[2022-12-02 01:19:16,495 Test_Penerimaan_2_tambah.py->test_radio_1()]==>INFO: Memilih raduobutton petugas Internal
+[2022-12-02 01:19:20,640 Test_Penerimaan_2_tambah.py->test_radio_1()]==>INFO: Melakukan Pencarian data petugas penyerah internal
+[2022-12-02 01:19:22,735 Test_Penerimaan_2_tambah.py->test_Pindahtabsaksii()]==>INFO: Klik tab Saksi Penerima
+[2022-12-02 01:19:22,789 Test_Penerimaan_2_tambah.py->test_pilihjumlahsaksi()]==>INFO:  menambah 1 baris status petugas saksi
+[2022-12-02 01:19:24,894 Test_Penerimaan_2_tambah.py->test_radio_2()]==>INFO: Memilih radiobutton status petugas saksi External
+[2022-12-02 01:19:29,033 Test_Penerimaan_2_tambah.py->test_radio_2()]==>INFO: melakukan pencarian data petuggas saksi External
+[2022-12-02 01:19:39,677 Test_Penerimaan_2_tambah.py->test_SubmitDatapenerimaan()]==>INFO: menekan button submit

@@ -15,6 +15,7 @@ from pytest import mark
 import platform
 import logging
 import sys
+from openpyxl import load_workbook
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -24,7 +25,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath
+from Settings.setup import initDriver, loadDataPath, sleep
 from Settings.login import login
 
 
@@ -35,6 +36,16 @@ fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+wb = load_workbook(environ.get("RUPEXEL"))
+sheetrange = wb['IndexPenerimaan']
+i = 2
+
+Carikolom       = sheetrange['A'+str(i)].value
+Katkun          = sheetrange['B'+str(i)].value
+Registrasi      = sheetrange['C'+str(i)].value
+instansi        = sheetrange['D'+str(i)].value
+
 
 # init driver by os
 @mark.fixture_penempatan
@@ -61,23 +72,30 @@ def test_aksesmenuPenerimaan_3():
 def test_PencarianData_3():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.ID, 'filterColumn').click()
-    time.sleep(1)
-    driver.find_element(By. ID, 'no_reg').click()
-    time.sleep(1)
-    driver.find_element(By. ID, 'kataKunci').send_keys('TCAUTTCNRB02')
-    time.sleep(1)
+    sleep(driver)
+    if Carikolom == 'No Registrasi':
+        driver.find_element(By. ID, 'no_reg').click()
+    elif Carikolom == 'Tgl Penerimaan':
+        driver.find_element(By. ID, 'tgl_penerimaan').click()
+    elif Carikolom == 'Keterangan':
+        driver.find_element(By. ID, 'keterangan').click()
+
+    sleep(driver)
+    driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
+    sleep(driver)
+
     driver.find_element(By.ID , 'searchButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
     attach(data=driver.get_screenshot_as_png()) 
-    Log.info('Melakukan Pencarian data berdasarkan kategori nomer registrasi')
+    Log.info('Melakukan Pencarian data berdasarkan kategori')
 
 @mark.fixture_penerimaan
 def test_menghapusfieldpencarian_4():
     filter = driver.find_element(By.ID, 'filterColumn')
     ActionChains(driver).move_to_element(filter).perform()
 
-    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['clearkolom'])
+    elemnthps = driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['clearkolom'])
     ActionChains(driver).move_to_element(elemnthps).perform()
     elemnthps.click()
 
@@ -93,7 +111,7 @@ def test_caridatadenganjenisinstasi_5():
 
     field = driver.find_element(By.ID, 'input_jenis_instansi_baran_basan')
     ActionChains(driver).move_to_element(field).perform()
-    elem = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['clearistansi'])
+    elem = driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['clearistansi'])
     ActionChains(driver).move_to_element(elem).perform()
     elem.click()
     
@@ -109,7 +127,7 @@ def test_caridatadenganjenisregistrasi_6():
 
     field = driver.find_element(By.ID, 'input_jenis_registrasi_baran_basan')
     ActionChains(driver).move_to_element(field).perform()
-    elemins = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['clearJREG'])
+    elemins = driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['clearJREG'])
     ActionChains(driver).move_to_element(elemins).perform()
     elemins.click()
 
@@ -119,9 +137,9 @@ def test_caridatadenganjenisregistrasi_6():
 @mark.fixture_penerimaan
 def test_SortirDataTabel_7():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['ascending']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['ascending']).click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['descending']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['descending']).click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
     attach(data=driver.get_screenshot_as_png())
@@ -132,7 +150,7 @@ def test_membukahalamanedit_8():
     test_PencarianData_3() #Yang digunakan NOREG 
     time.sleep(1)
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['hlmnedit']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['hlmnedit']).click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
     
     attach(data=driver.get_screenshot_as_png())
@@ -199,27 +217,27 @@ def test_pergikepagehalaman_14():
 
 @mark.fixture_penerimaan
 def test_exportPDF_15():
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['exportPDF']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF']).click()
     driver.find_element(By.ID, 'wholeButton').click()
     driver.find_element(By.ID, 'thisButton').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['exportPDF'])))
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF'])))
     attach(data=driver.get_screenshot_as_png())
     Log.info('Export data tabel dengan format PDF')
 
 @mark.fixture_penerimaan
 def test_exportexcel_16():
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['exportexcel']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel']).click()
     driver.find_element(By.ID, 'wholeButton').click()
     driver.find_element(By.ID, 'thisButton').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['exportexcel'])))
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel'])))
     attach(data=driver.get_screenshot_as_png())
     Log.info('Export data Tabel dengan format Excel')
 
 @mark.fixture_penerimaan
 def test_printhalamn_17():
     driver.find_element(By.ID,'printButton').click()
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['cetaksemua']).click()
-    driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['idxpenerimaan']['cetakinisaja']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetaksemua']).click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetakinisaja']).click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'printButton')))
     attach(data=driver.get_screenshot_as_png())
     Log.info('Print Data Tabel')
