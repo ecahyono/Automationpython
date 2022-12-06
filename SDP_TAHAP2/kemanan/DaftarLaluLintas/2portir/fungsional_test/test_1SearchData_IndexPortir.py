@@ -135,6 +135,7 @@ def test_4_sortir_table_cari_Semua_Portir():
 @mark.fixture_test()
 def test_5_sortir_5_Halaman_Index():
     # 5 HALAMAN
+    driver.implicitly_wait(20)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
@@ -151,6 +152,7 @@ def test_5_sortir_5_Halaman_Index():
 @mark.fixture_test()
 def test_6_sortir_10_Halaman_Index():
     # 10 HALAMAN
+    driver.implicitly_wait(20)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'10/halaman\')]").click()
@@ -166,6 +168,7 @@ def test_6_sortir_10_Halaman_Index():
 @mark.fixture_test()
 def test_7_sortir_20_Halaman_Index():
     # 20 HALAMAN
+    driver.implicitly_wait(20)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'20/halaman\')]").click()
@@ -181,6 +184,7 @@ def test_7_sortir_20_Halaman_Index():
 @mark.fixture_test()
 def test_8_sortir_50_Halaman_Index():
     # 50 HALAMAN
+    driver.implicitly_wait(20)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'50/halaman\')]").click()
@@ -196,6 +200,7 @@ def test_8_sortir_50_Halaman_Index():
 @mark.fixture_test()
 def test_9_sortir_100_Halaman_Index():
     # 100 HALAMAN
+    driver.implicitly_wait(20)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     driver.find_element(By.XPATH, "//li[contains(.,\'100/halaman\')]").click()

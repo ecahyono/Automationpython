@@ -12,30 +12,46 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
+
 import sys
 from os import environ, path
 from dotenv import load_dotenv
+
 load_dotenv()
+from openpyxl import load_workbook
+
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    sys.path.append("/Users/will/Documents/work/Automationpython")
+    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Keamanan.xlsx")
+    sys.path.append(environ.get("MACEXCELDIR"))
+
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    sys.path.append(environ.get("WINEXCELDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas
+from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, sleep, waituntill
 from Settings.login import login
 
 import logging
+
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('result.log', mode="w")
+fh = logging.FileHandler('Fungsi_P2U_KonfirmasiKeluar.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
+sheetrange = wb['Fungsi_P2U_Index']
+xr = input("")
+i = xr
+
+inputKategori                        = sheetrange['B' + str(i)].value
+NamaWBP                              = sheetrange['C' + str(i)].value
+
 @mark.fixture_test()
 def test_1_SetupOS_Search_Tambah():
+    
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -48,7 +64,7 @@ def test_2_Login_SearchTambah():
 
 @mark.fixture_test()
 def test_3_Akses_menu_index():
-    driver.implicitly_wait(60)
+    sleep(driver)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
     element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
@@ -62,24 +78,37 @@ def test_3_Akses_menu_index():
 
 @mark.fixture_test()
 def test_4_Search_Nama():
-    driver.implicitly_wait(60)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
+    sleep(driver)
+    # KETIK NAMA
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click()
+    sleep(driver)
+    # PILIH DROPDOWN NAMA LENGKAP
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaWBP)
+    sleep(driver)
+    # KETIK GALIH DI FORM MASUKAN KATA KUNCI
+    Log.info('Search Bedasarkan Nama Lengkap')
+    attach(data=driver.get_screenshot_as_png())
     driver.find_element(By.CSS_SELECTOR, ".el-checkbox__inner").click()
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
 
 @mark.fixture_test()
 def test_5_ClickDetail_KonfirmKeluar():
-    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="searchButton"]')))
+    sleep(driver)
+
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     time.sleep(5)
     driver.find_element(By.ID, "detailButton0").click()
 
 @mark.fixture_test()
 def test_6_KonfirmKeluar():
-    driver.implicitly_wait(60)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     time.sleep(5)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
-#done
+
 def teardown():
     quit(driver)

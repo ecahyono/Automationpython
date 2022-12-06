@@ -29,7 +29,7 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINEXCELDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, quit, sleep
+from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, sleep
 from Settings.login import login
 
 import logging
@@ -43,7 +43,7 @@ Log.addHandler(fh)
 
 
 sheetrange = wb['Fungsi_P2U_Index']
-xr = sheetrange['A'+str(2)].value
+xr = input("")
 i  = xr
 
 filterColumn                                = sheetrange['B'+str(i)].value
@@ -376,6 +376,3 @@ def test_15_SearchTanggal():
 def test_16_exit():
     quit(driver)
     # TAMBAHAN FILTER TANGGAL
-
-
-    
