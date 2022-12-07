@@ -31,7 +31,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Test_Penerimaan_2_tambah.log', mode="w")
+fh = logging.FileHandler('Test_Penerimaan_2_TambahPenerimaan.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -90,12 +90,12 @@ def test_loggin_2():
 
 @mark.fixture_penerimaan
 def test_aksesmenuPenerimaan_3():
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
-    sleep(driver)
-    ActionChains(driver).move_to_element(nav1).perform()
-    driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
+	nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
+	ActionChains(driver).move_to_element(nav1).perform()
+	driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
+	driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['klik']).click()
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
 
 @mark.fixture_penerimaan
 def test_Masukhalamatambah_4():

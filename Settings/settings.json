@@ -76,13 +76,14 @@
 
     "Rupelemen":{
         "indexpenempatan":{
+			"klik":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div/h1",
             "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
             "descenpatanbar":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[2]/div/span/i[2]",
             "ascenJRB":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[9]/div/span/i[1]",
             "pilihhalmn":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
             "3halaman":"//div[13]/div/div/div[1]/ul/li[1]",
             "5halaman":"//div[13]/div/div/div[1]/ul/li[2]",
-
+			"kategoritanggal":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input",	
             "aksesdetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[1]/a/button",
             "aksesubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[12]/div/div/div[2]/a/button",
             "printsemua":"//*[@id=\"printButton\"]/div/div/div/div[2]/div/button[1]",
@@ -111,15 +112,15 @@
             "cetakinisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]"
         },
         "+penerimaan":{
-            "PtgPenerima":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[2]/div/form/div/div/div/div/div/input",
-            "PMenyerahkan":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/form/div[3]/div[1]/form/div/div/div/div/div/input",
-            "tglpnrimaan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div[1]/input"
+
         },
         "+barang":{
-            "Ptgsliti":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[3]/div/form/div[7]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/form/div/div/div/div/div"
+            "waitregisbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div",
+            "loadingbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div[2]/div/svg"
         },
         "ubahpenerimaan":{
-            "hpsbarisya":"//div[20]/div/div[2]/button[2]"
+			"hpsbarisya":"//div[20]/div/div[2]/button[2]",
+			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/svg"
 
         },
         "listbarang":{

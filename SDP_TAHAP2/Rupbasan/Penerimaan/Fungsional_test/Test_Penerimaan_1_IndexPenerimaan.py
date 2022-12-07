@@ -25,13 +25,13 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, sleep
+from Settings.setup import initDriver, loadDataPath, sleep, quit
 from Settings.login import login
 
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Test_Penerimaan_1_Index.log', mode="w")
+fh = logging.FileHandler('Test_Penerimaan_1_IndexPenerimaan.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -65,33 +65,42 @@ def test_aksesmenuPenerimaan_3():
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['klik']).click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
 
 @mark.fixture_penerimaan
 def test_PencarianData_3():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.ID, 'filterColumn').click()
-    sleep(driver)
-    if Carikolom == 'No Registrasi':
-        driver.find_element(By. ID, 'no_reg').click()
-    elif Carikolom == 'Tgl Penerimaan':
-        driver.find_element(By. ID, 'tgl_penerimaan').click()
-    elif Carikolom == 'Keterangan':
-        driver.find_element(By. ID, 'keterangan').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	driver.find_element(By.ID, 'filterColumn').click()
+	sleep(driver)
+	if Carikolom == 'No Registrasi':
+		driver.find_element(By. ID, 'no_reg').click()
+	elif Carikolom == 'Tgl Penerimaan':
+		driver.find_element(By. ID, 'tgl_penerimaan').click()
+	elif Carikolom == 'Keterangan':
+		driver.find_element(By. ID, 'keterangan').click()
 
-    sleep(driver)
-    driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
-    sleep(driver)
+	sleep(driver)
+	if Carikolom == 'Tgl Penerimaan':
+		kattgl = driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])
+		kattgl.click()
+		kattgl.send_keys(Katkun)
+	else:
+		driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
 
-    driver.find_element(By.ID , 'searchButton').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	sleep(driver)
 
-    attach(data=driver.get_screenshot_as_png()) 
-    Log.info('Melakukan Pencarian data berdasarkan kategori')
+	driver.find_element(By.ID , 'searchButton').click()
+	sleep(driver)
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+
+	attach(data=driver.get_screenshot_as_png()) 
+	Log.info('Melakukan Pencarian data berdasarkan kategori')
 
 @mark.fixture_penerimaan
 def test_menghapusfieldpencarian_4():
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     filter = driver.find_element(By.ID, 'filterColumn')
     ActionChains(driver).move_to_element(filter).perform()
 
@@ -134,55 +143,57 @@ def test_caridatadenganjenisregistrasi_6():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Melakukan Pencarian data berdasarkan kategori')
 
-@mark.fixture_penerimaan
-def test_SortirDataTabel_7():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['ascending']).click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['descending']).click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+# @mark.fixture_penerimaan
+# def test_SortirDataTabel_7():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+#     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['ascending']).click()
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+#     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['descending']).click()
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Melakukan Pencarian data berdasarkan kategori')
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('Melakukan Pencarian data berdasarkan kategori')
 
 @mark.fixture_penerimaan
 def test_membukahalamanedit_8():
-    test_PencarianData_3() #Yang digunakan NOREG 
-    time.sleep(1)
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['hlmnedit']).click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
-    
+    driver.find_element(By.CSS_SELECTOR, '.h-5').click()
+
     attach(data=driver.get_screenshot_as_png())
     Log.info('Akses menu halaman edit Penerimaan')
 
 @mark.fixture_penerimaan
-def test_kembalikehalamansebelumnya_9():
-    # WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
-    driver.find_element(By.ID, 'backButton').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+def test_kembalihalaman_9():
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['ubahpenerimaan']['loadhalaman'])))
+	# sleep(driver)
+	driver.find_element(By.ID, 'backButton').click()
+	
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Akses menu halaman edit Penerimaan')
 
 @mark.fixture_penerimaan
 def test_membukahalamanDetail_10():
-    test_PencarianData_3() #Yang digunakan NOREG TCAUTTCNRB02
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.ID, 'daftarBarang0').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	test_PencarianData_3()
+	sleep(driver)
+	driver.find_element(By. ID, 'daftarBarang0').click()
+	attach(data=driver.get_screenshot_as_png()) 
+	Log.info('Membuka daftar barang')
 
-    test_kembalikehalamansebelumnya_9()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	test_kembalihalaman_9()
 
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Akses menu halama detail Penerimaan')
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Akses menu halama detail Penerimaan')
 
 @mark.fixture_penerimaan
 def test_CetakBA_11():
-    test_PencarianData_3()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    cetak = driver.find_element(By. ID, 'cetakBA0').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Akses menu halama Tambah Penerimaan')
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	test_PencarianData_3()
+	# WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	cetak = driver.find_element(By. ID, 'cetakBA0').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Akses menu halama Tambah Penerimaan')
 
 @mark.fixture_penerimaan
 def test_CetakSPTJM_12():
@@ -248,3 +259,7 @@ def test_membukahalamanTambah_18():
     driver.find_element(By. ID, 'createButton').click
     attach(data=driver.get_screenshot_as_png())
     Log.info('Akses menu halama Tambah Penerimaan')
+	
+@mark.fixture_penerimaan
+def test_penutup_19():
+	quit(driver)

@@ -24,7 +24,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, quit
+from Settings.setup import initDriver, loadDataPath, quit, sleep
 from Settings.login import login
 
 Log = logging.getLogger(__name__)
@@ -34,6 +34,19 @@ fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
+
+sheetrange1 = wb['Penempatan']
+j = 2
+
+caribarang   	= sheetrange1['A'+str(j)].value #Cari Barang
+tglpenempatan 	= sheetrange1['B'+str(j)].value #Tanggal Penempatan
+tglpenyimpanan  = sheetrange1['C'+str(j)].value #Tanggal Penyimpanan
+pilihtersangka 	= sheetrange1['D'+str(j)].value #Pilih Tersangka
+gudang 		  	= sheetrange1['E'+str(j)].value #Gudang
+sektorgudang   	= sheetrange1['F'+str(j)].value #Sektor Gudang
+barisraklemari 	= sheetrange1['G'+str(j)].value #Baris/Rak/Lemari
+nourut  		= sheetrange1['H'+str(j)].value #No Urut
+keterangan      = sheetrange1['I'+str(j)].value #Keterangan
 
 @mark.fixture_penempatan
 def test_Ossetup_1():
@@ -55,6 +68,7 @@ def test_akses_menu_penempatan_3():
     ActionChains(driver).move_to_element(nav).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Penempatan').click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['klik']).click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('mengakses menu penempatan')
 
@@ -66,30 +80,45 @@ def test_aksesmenu_tambah_4():
     Log.info('membuka halaman tambah dengan menekan button tambah')
 
 @mark.fixture_penempatan
-def test_inputdate_6():
-    tgl = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div/input')
-    tgl.click()
-    tgl.send_keys('02/11/2022')
-    tgl.send_keys(Keys.ENTER)
-    
-    tgl2 = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div/input')
+def test_tambah_1():
+	barang = driver.find_element(By.ID, 'identity_keyword')
+	barang.click()
+	barang.send_keys(caribarang)
+	sleep(driver)
+	driver.find_element(By.ID, 'identity_keyword-0').click()
+
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Memilih value, kemudian mengosongkan pilihan dengan clear button value, lalu ditampilkan validation message jika mandatory')
+
+@mark.fixture_penempatan
+def test_tambah_2():
+	tgl = driver.find_element(By.ID, 'tgl_penempatan')
+	tgl.click()
+	tgl.send_keys(tglpenempatan)
+	tgl.send_keys(Keys.ENTER)
+
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('memilih tanggal dengan format DD/MM/YYYY ')
+
+@mark.fixture_penempatan
+def test_tambah_3():
+    tgl2 = driver.find_element(By.ID, 'tgl_penyimpanan')
     tgl2.click()
-    tgl2.send_keys('02/11/2022')
+    tgl2.send_keys(tglpenyimpanan)
     tgl2.send_keys(Keys.ENTER)
 
     attach(data=driver.get_screenshot_as_png())
     Log.info('memilih tanggal dengan format DD/MM/YYYY ')
 
 @mark.fixture_penempatan
-def test_SelectDropdwn_5():
-    barang = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/form/div/div[1]/div/div/div/div/div/input')
-    barang.click()
-    barang.send_keys('mouse')
-    driver.find_element(By.ID, '111').click()
+def test_tambah_4():
+    Tersangka = driver.find_element(By. ID, 'dropdownPilihTersangka')
+    Tersangka.click()
+    WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="el-popper-container-7411"]/div[16]/div/p')))
 
-    driver.find_element(By. ID, 'dropdownPilihTersangka').click()
-    driver.find_element(By. ID, 'Wild').click()
 
+@mark.fixture_penempatan
+def test_tambah_4():
     driver.find_element(By. ID, 'dropdownGudang').click()
     driver.find_element(By. ID, 'Gudang Berharga').click()
     WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penempatan']['descgudang'])))
@@ -109,37 +138,36 @@ def test_SelectDropdwn_5():
 
 @mark.fixture_penempatan
 def test_inputtestarea_7():
-    area = driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/form/div[1]/div[2]/div[5]/div/div/textarea')
-    area.send_keys('KEterangan hanyalah untuk keterangan semata didalam mennu penambahan penempatan yang di sediakan oleh semua orang yang sudah membuatnya selama ini')
-
+    area = driver.find_element(By. ID, 'keterangan')
+    area.send_keys(keterangan)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Input field menggunakan varchar, value indicatornya sesuai ')
 
-@mark.fixture_penempatan
-def test_muatulang_8():
-    driver.find_element(By.ID, 'resetButton').click()
-    driver.find_element(By.XPATH, pathData['Id Even Button']['Button Muat Ulang Ya']).click()
-    # driver.find_element(By.ID, 'resetButton').click()
-    # driver.find_element(By.XPATH, pathData['Id Even Button']['Button Muat Ulang Tidak']).click()
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Hapus semua inputan di form dengan klik button muat ulang')
+# @mark.fixture_penempatan
+# def test_muatulang_8():
+#     driver.find_element(By.ID, 'resetButton').click()
+#     driver.find_element(By.XPATH, pathData['Id Even Button']['Button Muat Ulang Ya']).click()
+#     # driver.find_element(By.ID, 'resetButton').click()
+#     # driver.find_element(By.XPATH, pathData['Id Even Button']['Button Muat Ulang Tidak']).click()
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('Hapus semua inputan di form dengan klik button muat ulang')
 
-@mark.fixture_penempatan
-def test_submitdata_9():
+# @mark.fixture_penempatan
+# def test_submitdata_9():
 
-    filter = driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/form/div/div[1]/div/div/div/div/div/input')
-    ActionChains(driver).move_to_element(filter).perform()
+#     filter = driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/form/div/div[1]/div/div/div/div/div/input')
+#     ActionChains(driver).move_to_element(filter).perform()
 
-    elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penempatan']['hpscaribrng'])
-    ActionChains(driver).move_to_element(elemnthps).perform()
-    elemnthps.click()
+#     elemnthps = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['elemen']['+penempatan']['hpscaribrng'])
+#     ActionChains(driver).move_to_element(elemnthps).perform()
+#     elemnthps.click()
 
-    test_SelectDropdwn_5()
-    test_inputdate_6()
-    test_inputtestarea_7()
-    driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By. ID, 'searchButton')))
+#     test_SelectDropdwn_5()
+#     test_inputdate_6()
+#     test_inputtestarea_7()
+#     driver.find_element(By.ID, 'submitButton').click()
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By. ID, 'searchButton')))
 
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Simpan data dengan klik button simpan dan data akan tampil di halaman index dengan data sesuai inputan')
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('Simpan data dengan klik button simpan dan data akan tampil di halaman index dengan data sesuai inputan')
     
