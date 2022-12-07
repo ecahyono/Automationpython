@@ -161,6 +161,9 @@
                 },
                 "RegisterH":{
                     "Maintext":""
+                },
+                "LaporanBulanan":{
+                    "Maintext":"//div[4]/div/ul/li[4]/div"
                 }
 
             }

@@ -1,0 +1,4 @@
+[2022-12-06 13:56:49,536 test_3RegisterH_Tambah.py->test_3_aksesmenu_Search()]==>INFO: .
+[2022-12-06 13:56:49,537 test_3RegisterH_Tambah.py->test_3_aksesmenu_Search()]==>INFO: akses menu Register H
+[2022-12-06 14:14:18,048 test_3RegisterH_Tambah.py->test_5_search_data_kategori_nama_HalamanTambah()]==>INFO: Klik Search Kategori berdasarkan Nama
+[2022-12-06 14:18:09,374 test_3RegisterH_Tambah.py->test_6_ClickButton_Daftarkan_HalamanTambah()]==>INFO: Klik Button Daftarkan

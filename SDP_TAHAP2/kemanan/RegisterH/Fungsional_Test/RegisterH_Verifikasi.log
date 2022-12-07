@@ -1,0 +1,9 @@
+[2022-12-06 16:38:59,299 test_4RegisterH_Verifikasi.py->test_3_aksesmenu_Search()]==>INFO: akses menu Register H
+[2022-12-06 16:39:28,472 test_4RegisterH_Verifikasi.py->test_4_keyword_nama()]==>INFO:  Memilih kategori Nama 
+[2022-12-06 16:39:30,398 test_4RegisterH_Verifikasi.py->test_5_nama()]==>INFO: Search nama
+[2022-12-06 16:39:33,195 test_4RegisterH_Verifikasi.py->test_6_status_dalamproses()]==>INFO: .
+[2022-12-06 16:39:33,195 test_4RegisterH_Verifikasi.py->test_6_status_dalamproses()]==>INFO: ========== Filter status Dalam Proses ==========
+[2022-12-06 16:40:28,083 test_4RegisterH_Verifikasi.py->test_7_Click_StatusDalamProses()]==>INFO: .
+[2022-12-06 16:40:28,084 test_4RegisterH_Verifikasi.py->test_7_Click_StatusDalamProses()]==>INFO: ========== Click Button Status Dalam Proses ==========
+[2022-12-06 16:40:54,226 test_4RegisterH_Verifikasi.py->test_8_Ubah_Status_Diizinkan()]==>INFO: .
+[2022-12-06 16:40:54,227 test_4RegisterH_Verifikasi.py->test_8_Ubah_Status_Diizinkan()]==>INFO: ========== Ubah Status Menjadi Di perbaikan ==========

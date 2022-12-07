@@ -34,7 +34,7 @@ def loadDataPath():
     return data
 
 def buttonTambah(driver):
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
@@ -42,29 +42,35 @@ def buttonTambah(driver):
     print('.')
 
 def buttonSubmit(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     driver.find_element(By.ID, 'submitButton').click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     print('.')
 
 def selectKategoriPegawai(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "pegawai").click()
     print('.')
 
 def selectKategoriTamuDinas(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "tamuDinas").click()
     print('.')
 
 def sleep(driver):
-    time.sleep(1)
+    driver.implicitly_wait(60)
+    print("-")
+    print("next")
+    input("")
+
+def waituntill(driver):
+    driver.implicitly_wait(30)
 
 
 

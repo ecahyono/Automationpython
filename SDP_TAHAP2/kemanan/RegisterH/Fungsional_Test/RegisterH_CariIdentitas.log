@@ -1,0 +1,11 @@
+[2022-12-06 12:48:36,636 test_2RegisterH_CariIdentitas.py->test_3_aksesmenu_Search()]==>INFO: akses menu daftar lalu lintas
+[2022-12-06 12:48:39,814 test_2RegisterH_CariIdentitas.py->test_4_membuka_halaman_tambah_index_Search()]==>INFO:  Membuka Halaman Tambah 
+[2022-12-06 12:48:43,803 test_2RegisterH_CariIdentitas.py->test_5_sortir_Halaman_Index()]==>INFO:  Menampilkan 5 halaman  
+[2022-12-06 12:48:54,739 test_2RegisterH_CariIdentitas.py->test_5_sortir_Halaman_Index()]==>INFO:  Menampilkan 10 Halaman  
+[2022-12-06 12:49:02,629 test_2RegisterH_CariIdentitas.py->test_5_sortir_Halaman_Index()]==>INFO:  Menampilkan 20 halaman  
+[2022-12-06 12:49:17,092 test_2RegisterH_CariIdentitas.py->test_5_sortir_Halaman_Index()]==>INFO:  Menampilkan 50 halaman  
+[2022-12-06 12:49:28,147 test_2RegisterH_CariIdentitas.py->test_5_sortir_Halaman_Index()]==>INFO:  Menampilkan 100 Halaman  
+[2022-12-06 12:49:49,304 test_2RegisterH_CariIdentitas.py->test_6_search_data_kategori_nama_Search()]==>INFO: Search Data Form Kategori Nama 
+[2022-12-06 12:50:01,214 test_2RegisterH_CariIdentitas.py->test_7_search_data_kategori_JenisKejahatan_Search()]==>INFO: Search Data Form Kategori Nama 
+[2022-12-06 12:50:12,291 test_2RegisterH_CariIdentitas.py->test_8_search_data_kategori_NoregSearch()]==>INFO: Search Data Form Kategori Nama 
+[2022-12-06 12:50:20,524 test_2RegisterH_CariIdentitas.py->test_9_search_data_kategori_Semua_Search()]==>INFO: Search Data Form Kategori Nama 
