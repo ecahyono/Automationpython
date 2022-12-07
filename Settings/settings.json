@@ -159,11 +159,8 @@
                 "ManajemenPenempatan":{
                     "MainText":"//div[4]/div/ul/li[2]/div"
                 },
-                "RegisterH":{
-                    "Maintext":""
-                },
                 "LaporanBulanan":{
-                    "Maintext":"//div[4]/div/ul/li[4]/div"
+                    "MainText":"//div[4]/div/ul/li[4]/div"
                 }
 
             }

@@ -42,7 +42,7 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 sheetrange = wb['DaftarLaluLintas_Index']
-xr = input('')
+xr = sheetrange['A'+str(2)].value
 i  = xr
 
 filterColumn                          = sheetrange['B'+str(i)].value
@@ -60,7 +60,7 @@ def test_1_setupOS():
 @mark.fixture_test()
 def test_2_login():
     loginOperator(driver)
-    Log.info('Login Operator')
+    Log.info('Login')
 
 
 @mark.fixture_test()
@@ -72,7 +72,7 @@ def test_3_akses_menu_index():
     time.sleep(1)
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+    driver.find_element(By.LINK_TEXT, 'Formulir Kamtib 6A').click()
     print('.')
-    Log.info('Akses Menu Laporan Bulanan')
+    Log.info('Akses Menu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
