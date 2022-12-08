@@ -116,7 +116,8 @@
         },
         "+barang":{
             "waitregisbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div",
-            "loadingbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div[2]/div/svg"
+            "loadingbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div[2]/div/svg",
+            "loadingbarang2":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[2]/div/div[2]/div[3]/div/svg"
         },
         "ubahpenerimaan":{
 			"hpsbarisya":"//div[20]/div/div[2]/button[2]",
@@ -131,16 +132,12 @@
             "descend":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[2]/table/thead/tr/th[3]/div/span/i[2]",
             "hapuscari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
             "detailmutasi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[1]/a/button",
-            "ubahmuta":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[2]/a/button"
+            "ubahmuta":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[2]/a/button",
+			"loadubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[3]/div/svg"
         },
         "+mutasi":{
-            "caridata":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div/div/div/input",
-            "NOSM":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[4]/div/div[1]/input",
-            "TGLSM":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[5]/div/div[1]/input",
-            "NOSBA":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[6]/div/div[1]/input",
-            "Alamat":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[1]/div/div/textarea",
-            "Keterangan":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div[2]/div/div/textarea"
-        }
+
+            }
 
     },
 

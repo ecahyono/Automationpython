@@ -31,7 +31,7 @@ from Settings.login import login
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Test_Penerimaan_1_IndexPenerimaan.log', mode="w")
+fh = logging.FileHandler('Penerimaan_1_IndexPenerimaan.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -48,14 +48,14 @@ instansi        = sheetrange['D'+str(i)].value
 
 
 # init driver by os
-@mark.fixture_penempatan
+@mark.fixture_penerimaan
 def test_Ossetup_1():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 
-@mark.fixture_penempatan
+@mark.fixture_penerimaan
 def test_loggin_2():
     login(driver)
     Log.info('Memasukan User name dan Password di halaman Login)')
@@ -73,15 +73,14 @@ def test_aksesmenuPenerimaan_3():
 def test_PencarianData_3():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	driver.find_element(By.ID, 'filterColumn').click()
-	sleep(driver)
+	
 	if Carikolom == 'No Registrasi':
 		driver.find_element(By. ID, 'no_reg').click()
 	elif Carikolom == 'Tgl Penerimaan':
 		driver.find_element(By. ID, 'tgl_penerimaan').click()
 	elif Carikolom == 'Keterangan':
 		driver.find_element(By. ID, 'keterangan').click()
-
-	sleep(driver)
+	
 	if Carikolom == 'Tgl Penerimaan':
 		kattgl = driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])
 		kattgl.click()
@@ -89,10 +88,7 @@ def test_PencarianData_3():
 	else:
 		driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
 
-	sleep(driver)
-
 	driver.find_element(By.ID , 'searchButton').click()
-	sleep(driver)
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
 	attach(data=driver.get_screenshot_as_png()) 
@@ -157,6 +153,8 @@ def test_caridatadenganjenisregistrasi_6():
 @mark.fixture_penerimaan
 def test_membukahalamanedit_8():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+    test_PencarianData_3()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.CSS_SELECTOR, '.h-5').click()
 
     attach(data=driver.get_screenshot_as_png())
@@ -165,7 +163,7 @@ def test_membukahalamanedit_8():
 @mark.fixture_penerimaan
 def test_kembalihalaman_9():
 	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['ubahpenerimaan']['loadhalaman'])))
-	# sleep(driver)
+	# 
 	driver.find_element(By.ID, 'backButton').click()
 	
 	attach(data=driver.get_screenshot_as_png())
@@ -173,9 +171,9 @@ def test_kembalihalaman_9():
 
 @mark.fixture_penerimaan
 def test_membukahalamanDetail_10():
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	test_PencarianData_3()
-	sleep(driver)
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	
 	driver.find_element(By. ID, 'daftarBarang0').click()
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Membuka daftar barang')
@@ -189,25 +187,31 @@ def test_membukahalamanDetail_10():
 def test_CetakBA_11():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	test_PencarianData_3()
-	# WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+
 	cetak = driver.find_element(By. ID, 'cetakBA0').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
+
+	# test_menghapusfieldpencarian_4()
+	
 	attach(data=driver.get_screenshot_as_png())
 	Log.info('Akses menu halama Tambah Penerimaan')
 
 @mark.fixture_penerimaan
 def test_CetakSPTJM_12():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By. ID, 'cetakSPTJM0').click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakSPTJM0')))
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Akses menu halama Tambah Penerimaan')
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
+	driver.find_element(By. ID, 'cetakSPTJM0').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakSPTJM0')))
+
+	attach(data=driver.get_screenshot_as_png())
+	Log.info('Akses menu halama Tambah Penerimaan')
 
 @mark.fixture_penerimaan
 def test_pilihpagehalaman_13(): #kasus 5 data tabel per halaman
     test_menghapusfieldpencarian_4()
     driver.find_element(By.ID , 'searchButton').click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+
     driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
     time.sleep(1)
     driver.find_element(By.XPATH, '//div[15]/div/div/div[1]/ul/li[1]').click()
@@ -263,3 +267,4 @@ def test_membukahalamanTambah_18():
 @mark.fixture_penerimaan
 def test_penutup_19():
 	quit(driver)
+	Log.info('menyelesaikan tes dan menutup browser')
