@@ -26,13 +26,13 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, sleep
+from Settings.setup import initDriver, loadDataPath, sleep, quit
 from Settings.login import login
 
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Test_penerimaan_5_Daftarbarang', mode="w")
+fh = logging.FileHandler('Penerimaan_5_Daftarbarang.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -41,14 +41,14 @@ Log.addHandler(fh)
 wb = load_workbook(environ.get("RUPEXEL"))
 
 # init driver by os
-@mark.fixture_penempatan
+@mark.fixture_penerimaan
 def test_Ossetup_1():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 
-@mark.fixture_penempatan
+@mark.fixture_penerimaan
 def test_loggin_2():
     login(driver)
     Log.info('Memasukan User name dan Password di halaman Login)')
@@ -72,7 +72,7 @@ Katkun          = sheetrange['B'+str(i)].value
 def test_Pencariandata_4():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	driver.find_element(By.ID, 'filterColumn').click()
-	sleep(driver)
+	
 	if Carikolom == 'No Registrasi':
 		driver.find_element(By. ID, 'no_reg').click()
 	elif Carikolom == 'Tgl Penerimaan':
@@ -80,7 +80,7 @@ def test_Pencariandata_4():
 	elif Carikolom == 'Keterangan':
 		driver.find_element(By. ID, 'keterangan').click()
 
-	sleep(driver)
+	
 	if Carikolom == 'Tgl Penerimaan':
 		kattgl = driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])
 		kattgl.click()
@@ -88,10 +88,9 @@ def test_Pencariandata_4():
 	else:
 		driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
 
-	sleep(driver)
+	
 
 	driver.find_element(By.ID , 'searchButton').click()
-	sleep(driver)
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 
 	attach(data=driver.get_screenshot_as_png()) 
@@ -100,7 +99,7 @@ def test_Pencariandata_4():
 @mark.fixture_penerimaan
 def test_Membukadetailbarang_5():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	sleep(driver)
+	
 	driver.find_element(By. ID, 'daftarBarang0').click()
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Membuka daftar barang')
@@ -108,3 +107,8 @@ def test_Membukadetailbarang_5():
 @mark.fixture_penerimaan
 def test_kembalihalaman_6():
 	driver.find_element(By.ID, 'backButton').click()
+
+@mark.fixture_penerimaan
+def keluar():
+	quit(driver)
+	Log.info('menyelesaikan test dan menutup browser')
