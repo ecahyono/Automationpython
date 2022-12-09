@@ -1,14 +1,4 @@
-[2022-12-08 15:36:56,612 test_1Fungsi_tambahKamar.py->test_1_SetupOS()]==>INFO: Login
-[2022-12-08 15:36:58,475 test_1Fungsi_tambahKamar.py->test_2_Login()]==>INFO: Login
-[2022-12-08 15:37:01,486 test_1Fungsi_tambahKamar.py->test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
-[2022-12-08 15:37:04,794 test_1Fungsi_tambahKamar.py->test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
-[2022-12-08 15:37:05,584 test_1Fungsi_tambahKamar.py->test_5_ClickButtonTambah_MasterBlokDanKamar()]==>INFO: Click Button Tambah Master Blok Dan Kamar
-[2022-12-08 15:37:06,755 test_1Fungsi_tambahKamar.py->test_6_InputNamaBlok()]==>INFO: Input Nama Blok
-[2022-12-08 15:37:07,575 test_1Fungsi_tambahKamar.py->test_7_InputTipeBlok()]==>INFO: Input Tipe Blok Umum
-[2022-12-08 15:37:08,403 test_1Fungsi_tambahKamar.py->test_8_JenisKelaminBlok()]==>INFO: Input Blok Untuk Jenis Kelamin Perempuan
-[2022-12-08 15:37:09,816 test_1Fungsi_tambahKamar.py->test_9_JenisKejahatan()]==>INFO: Input unutk Jenis kejahatan Teroris, Kriminal, Korupsi
-[2022-12-08 15:37:10,118 test_1Fungsi_tambahKamar.py->test_10_JumlahLantai()]==>INFO: Input Jumlah Lantai
-[2022-12-08 15:37:10,454 test_1Fungsi_tambahKamar.py->test_11_FormatPenomoranKamar()]==>INFO: Input Format Penomoran Kamar
-[2022-12-08 15:37:10,783 test_1Fungsi_tambahKamar.py->test_12_Umur()]==>INFO: memilih kelompok usia Anak Anak
-[2022-12-08 15:37:11,576 test_1Fungsi_tambahKamar.py->test_13_InputJumlahKamar()]==>INFO: Input Jumlah Kamar perlantai
-[2022-12-08 15:37:11,933 test_1Fungsi_tambahKamar.py->test_14_InputNoKamar()]==>INFO: Input koridor
+[2022-12-09 14:55:07,530 test_2Verifikasi.py->test_1_SetupOS()]==>INFO: Login
+[2022-12-09 14:55:08,353 test_2Verifikasi.py->test_2_Login()]==>INFO: Login
+[2022-12-09 14:55:11,188 test_2Verifikasi.py->test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
+[2022-12-09 14:55:12,723 test_2Verifikasi.py->test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
