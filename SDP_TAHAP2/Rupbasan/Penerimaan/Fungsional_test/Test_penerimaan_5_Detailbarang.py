@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -59,6 +60,7 @@ def test_aksesmenuPenerimaan_3():
     ActionChains(driver).move_to_element(nav1).perform()
     driver.implicitly_wait(5)
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
+    driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['klik']).click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
 
@@ -99,16 +101,45 @@ def test_Pencariandata_4():
 @mark.fixture_penerimaan
 def test_Membukadetailbarang_5():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	
 	driver.find_element(By. ID, 'daftarBarang0').click()
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Membuka daftar barang')
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang2'])))	
 
 @mark.fixture_penerimaan
-def test_kembalihalaman_6():
-	driver.find_element(By.ID, 'backButton').click()
+def test_pilihdetailbarang():
+	print('	###S ILAHKAN MASUKAN NOMOR 1 DAN SETERUSNYA UNTUK MEMILIH DETAIL BARANG YANG AKAN LIHAT ####')
+	print('ketik ### B ### jika ingin kembali ke halaman sebelumnya')
+	inp = input('Ingin Melihat Detail Barang nomer:')
+	while True:
+		try:
+			if inp == '1':
+				driver.find_element(By.ID, 'buttonDetail0').click()	
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				Log.info('Membuka halaman detail barang Nourut' + inp)
+			elif inp == '2':
+				driver.find_element(By.ID, 'buttonDetail1').click()
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				Log.info('Membuka halaman detail barang Nourut' + inp)
+			elif inp == '3':
+				driver.find_element(By.ID, 'buttonDetail2') 
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				Log.info('Membuka halaman detail barang Nourut'  +inp)
+			elif inp == '4':
+				driver.find_element(By.ID, 'buttonDetail3').click()
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				Log.info('Membuka halaman detail barang Nourut' + inp)
+			elif inp == '5':
+				driver.find_element(By.ID, 'buttonDetail4').click()
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				Log.info('Membuka halaman detail barang Nourut' + inp)
+			elif (inp == 'B'or inp == 'b'):
+				driver.find_element(By.ID,'backButton').click()
+			elif (inp == 'Q'or inp == 'q'):
+				quit(driver)
+				Log.info('menyelesaikan test dan menutup browser')
+		except NoSuchElementException:
+			print('Belum Ada Barang Silahkan Inputkan Barang terlebih dahulu')
+			print('Detail barang dengan Nourut' + inp +'Tidak tersedia')	
+			test_pilihdetailbarang()
 
-@mark.fixture_penerimaan
-def keluar():
-	quit(driver)
-	Log.info('menyelesaikan test dan menutup browser')

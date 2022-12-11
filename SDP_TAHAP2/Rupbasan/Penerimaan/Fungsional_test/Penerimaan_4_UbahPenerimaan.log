@@ -1,20 +1,5 @@
-[2022-12-07 22:38:32,462 Test_Penerimaan_4_UbahPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-07 22:38:34,081 Test_Penerimaan_4_UbahPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-07 22:38:37,146 Test_Penerimaan_4_UbahPenerimaan.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
-[2022-12-07 22:38:45,643 Test_Penerimaan_4_UbahPenerimaan.py->test_Pencariandata_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-07 22:39:03,754 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdropdown_1()]==>INFO: Memeilih Dropdown Jenis Registrasi
-[2022-12-07 22:39:03,924 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdate_1()]==>INFO: Menginput Tanggal Penerimaan
-[2022-12-07 22:39:04,049 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_1()]==>INFO: Menginput Nomor Registrasi Rupbasan
-[2022-12-07 22:39:05,795 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_2()]==>INFO: Menginput Nomor Registrasi Instansi
-[2022-12-07 22:39:05,916 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_3()]==>INFO: Menginput Nomor Surat Izin Penyitaan
-[2022-12-07 22:39:06,071 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdate_2()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
-[2022-12-07 22:39:07,569 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_4()]==>INFO: menginput nomor surat Penyitaan
-[2022-12-07 22:39:07,719 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdate_3()]==>INFO: menginput tanggal surat Penyitaan
-[2022-12-07 22:39:07,815 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_5()]==>INFO: input pasal
-[2022-12-07 22:39:07,916 Test_Penerimaan_4_UbahPenerimaan.py->test_inputtext_6()]==>INFO: Input field text input menggunakan varchar
-[2022-12-07 22:39:08,142 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputtextarea_1()]==>INFO: Input field text area
-[2022-12-07 22:39:08,862 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdropdown_4()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
-[2022-12-07 22:39:09,442 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdropdown_5()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
-[2022-12-07 22:39:21,498 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdropdown_6()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-07 22:39:22,306 Test_Penerimaan_4_UbahPenerimaan.py->test_Inputdropdown_6()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-07 22:39:40,331 Test_Penerimaan_4_UbahPenerimaan.py->test_SubmitDatapenerimaan()]==>INFO: menekan button submit
+[2022-12-11 20:36:53,848 Test_Penerimaan_4_UbahPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-11 20:36:58,873 Test_Penerimaan_4_UbahPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-11 20:37:02,875 Test_Penerimaan_4_UbahPenerimaan.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-11 20:37:11,455 Test_Penerimaan_4_UbahPenerimaan.py->test_Pencariandata_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-11 20:37:43,355 Test_Penerimaan_4_UbahPenerimaan.py->test_Pindahtabsaksii()]==>INFO: Klik tab Saksi Penerima
