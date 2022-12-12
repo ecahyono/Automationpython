@@ -34,7 +34,7 @@ from Settings.login import login, loginOperator
 
 import logging
 Log = logging.getLogger(__name__)
-log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+log_format = '[%(asctime)s %(funcName)s()]==>%(levelname)s: %(message)s'
 fh = logging.FileHandler('tambahBlokdanKamar.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
@@ -92,8 +92,7 @@ def test_3_AksesMenu_ManajemenBlokDanKamar():
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Manajemen Blok dan Kamar').click()
-    print('.')
-    Log.info('Manajemen Blok Dan Kamar')
+    Log.info('akses menu Manajemen Blok Dan Kamar')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -189,28 +188,28 @@ def test_9_JenisKejahatan():
         driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal Umum\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Teroris, Kriminal, Korupsi')
+        Log.info('Input untuk Jenis kejahatan Teroris, Kriminal, Korupsi')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Korupsi':
         driver.find_element(By.XPATH, "//li[contains(.,\'Korupsi\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Korupsi')
+        Log.info('Input untuk Jenis kejahatan Korupsi')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Teroris':
         driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Teroris')
+        Log.info('Input untuk Jenis kejahatan Teroris')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Kriminal':
         driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Kriminal')
+        Log.info('Input untuk Jenis kejahatan Kriminal')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Korupsi Teroris':
@@ -218,7 +217,7 @@ def test_9_JenisKejahatan():
         driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Korupsi,Teroris')
+        Log.info('Input untuk Jenis kejahatan Korupsi,Teroris')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Teroris Kriminal':
@@ -226,7 +225,7 @@ def test_9_JenisKejahatan():
         driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal Umum\')]").click()
         time.sleep(1)
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Teroris, Kriminal')
+        Log.info('Input untuk Jenis kejahatan Teroris, Kriminal')
         attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -421,10 +420,10 @@ def test_16_Submit():
     #sleep(driver)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    Log.info('Submit')
+    Log.info('Submit data blok ')
     attach(data=driver.get_screenshot_as_png())
 
-    ################################### kamar###################################
+    ################################### kamar ###################################
 
 @mark.fixture_test()
 def test_17_JenisLantai():
@@ -436,7 +435,7 @@ def test_17_JenisLantai():
     driver.find_element(By.ID, 'lantai_id').click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'lantai-0')))
     driver.find_element(By.ID, "lantai-0").click()
-    Log.info('Pilih Lantai')
+    Log.info('Pilih Lantai yang akan di inputkan')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -524,18 +523,18 @@ def test_22_kelompokJenisKejahatan():
     driver.find_element(By.ID, 'kel_jenis_kejahatan_id').click()
     if kelompokJenisKejahatan == 'Teroris':
         driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
-        Log.info('Input unutk Jenis kejahatan Teroris')
+        Log.info('Input untuk Jenis kejahatan Teroris')
         attach(data=driver.get_screenshot_as_png())
 
     elif kelompokJenisKejahatan == 'Korupsi':
         driver.find_element(By.XPATH, "//li[contains(.,\'Korupsi\')]").click()
-        Log.info('Input unutk Jenis kejahatan Korupsi')
+        Log.info('Input untuk Jenis kejahatan Korupsi')
         attach(data=driver.get_screenshot_as_png())
 
     elif jenisKejahatan == 'Kriminal':
         driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal\')]").click()
         driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
-        Log.info('Input unutk Jenis kejahatan Kriminal')
+        Log.info('Input untuk Jenis kejahatan Kriminal')
         attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -543,7 +542,7 @@ def test_23_KapasitasInput():
     driver.implicitly_wait(30)
     #sleep(driver)
     driver.find_element(By.ID, 'kapasitasInput').send_keys(kapasitasInput)
-    Log.info('Kapasitas Ruangan')
+    Log.info('Input Kapasitas Ruangan')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
