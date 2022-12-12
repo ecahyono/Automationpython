@@ -207,8 +207,7 @@ def test_tab_1():
 
 @mark.fixture_penerimaan
 def test_input_1():
-	# WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))	
-	
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))	
 	nabar = driver.find_element(By.ID, 'nama_barang').send_keys(nama_barang) #Nama Barang
 
 @mark.fixture_penerimaan

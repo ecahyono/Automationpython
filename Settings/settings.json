@@ -125,6 +125,7 @@
 
         },
         "listbarang":{
+			"loaddetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[2]/div/svg"			
 
         },
         "indexmutasi":{

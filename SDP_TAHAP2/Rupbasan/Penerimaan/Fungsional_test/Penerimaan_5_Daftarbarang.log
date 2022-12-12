@@ -1,0 +1,6 @@
+[2022-12-11 20:23:41,421 Test_penerimaan_5_Detailbarang.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-11 20:23:44,928 Test_penerimaan_5_Detailbarang.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-11 20:23:47,865 Test_penerimaan_5_Detailbarang.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-11 20:23:58,180 Test_penerimaan_5_Detailbarang.py->test_Pencariandata_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-11 20:24:08,477 Test_penerimaan_5_Detailbarang.py->test_Membukadetailbarang_5()]==>INFO: Membuka daftar barang
+[2022-12-11 20:25:15,363 Test_penerimaan_5_Detailbarang.py->test_pilihdetailbarang()]==>INFO: Membuka halaman detail barang Nourut2
