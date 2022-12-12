@@ -1,4 +1,5 @@
 import platform
+import time
 from os import environ
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -11,6 +12,7 @@ def login(driver):
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("test-user")
+    time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
@@ -27,6 +29,7 @@ def loginOperator(driver):
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("test-user")
+    time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
     driver.find_element(By.ID, "kc-login").click()
@@ -42,6 +45,7 @@ def loginSPV(driver):
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("gal")
+    time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
     driver.find_element(By.ID, "kc-login").click()

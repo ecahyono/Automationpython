@@ -1,4 +1,4 @@
-[2022-12-11 12:04:22,505 test_1_SetupOS()]==>INFO: Login
-[2022-12-11 12:04:25,241 test_2_Login()]==>INFO: Login
-[2022-12-11 12:04:31,037 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
-[2022-12-11 12:04:40,896 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2022-12-12 11:51:03,182 test_1_SetupOS()]==>INFO: Login
+[2022-12-12 11:51:06,117 test_2_Login()]==>INFO: Login
+[2022-12-12 11:51:09,766 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: Manajemen Blok Dan Kamar
+[2022-12-12 11:51:19,164 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block

@@ -1,0 +1,9 @@
+[2022-12-12 16:33:16,361 test_1_SetupOS()]==>INFO: Login
+[2022-12-12 16:33:19,189 test_2_Login()]==>INFO: Login
+[2022-12-12 16:33:22,056 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2022-12-12 16:33:28,100 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2022-12-12 16:33:34,184 test_6_PilihDropdown_FilterData()]==>INFO: memilih pencarian berdasarkan No Registrasi
+[2022-12-12 16:33:36,982 test_6_SearchData()]==>INFO: memilih pencarian berdasarkan No Registrasi
+[2022-12-12 16:33:39,057 test_7_clickButtonSearch()]==>INFO: Menekan button search
+[2022-12-12 16:33:55,877 test_8_KlikPenempatan()]==>INFO: Klik button Penempatan
+[2022-12-12 16:33:59,906 test_9_PilihBlok()]==>INFO: memilih blok mapenaling

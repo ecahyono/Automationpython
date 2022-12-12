@@ -35,7 +35,7 @@ from Settings.login import login, loginOperator
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('tambahBlokdanKamar.log', mode="w")
+fh = logging.FileHandler('1tambahBlokdanKamar.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -98,7 +98,7 @@ def test_3_AksesMenu_ManajemenBlokDanKamar():
 @mark.fixture_test()
 def test_4_ClickButtonTambah_PemetaanBlock():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.border:nth-child(1)')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
     print('.')
@@ -108,17 +108,16 @@ def test_4_ClickButtonTambah_PemetaanBlock():
 @mark.fixture_test()
 def test_5_ClickButtonTambah_MasterBlokDanKamar():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
-    print('.')
     Log.info('Click Button Tambah Master Blok Dan Kamar')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_6_InputNamaBlok():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'blok')))
     driver.find_element(By.ID, 'blok').send_keys(namablok)
     Log.info('Input Nama Blok')
@@ -127,7 +126,7 @@ def test_6_InputNamaBlok():
 @mark.fixture_test()
 def test_7_InputTipeBlok():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'tipe_id')))
     driver.find_element(By.ID, 'tipe_id').click()
 
@@ -160,7 +159,7 @@ def test_7_InputTipeBlok():
 @mark.fixture_test()
 def test_8_JenisKelaminBlok():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'kel_jenis_kelamin_id')))
     driver.find_element(By.ID, "kel_jenis_kelamin_id").click()
     if jeniskelamin == 'Laki-laki':
@@ -179,7 +178,7 @@ def test_8_JenisKelaminBlok():
 @mark.fixture_test()
 def test_9_JenisKejahatan():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'jenis_kejahatan_values')))
     driver.find_element(By.ID, "jenis_kejahatan_values").click()
     if jenisKejahatan == 'Korupsi Teroris Kriminal':
@@ -231,7 +230,7 @@ def test_9_JenisKejahatan():
 @mark.fixture_test()
 def test_10_JumlahLantai():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]')))
     driver.find_element(By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]').send_keys(jumlahLantai)
     Log.info('Input Jumlah Lantai')
@@ -240,7 +239,7 @@ def test_10_JumlahLantai():
 @mark.fixture_test()
 def test_11_FormatPenomoranKamar():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'penomoran_kamar')))
     driver.find_element(By.ID, "penomoran_kamar").click()
     if formatPenomoranKamar == 'Angka 8 mulai kiri atas':
@@ -291,7 +290,7 @@ def test_11_FormatPenomoranKamar():
 @mark.fixture_test()
 def test_12_Umur():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, "kel_usia_id").click()
     if kelUsia == 'Dewasa':
         driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa')]").click()
@@ -354,7 +353,7 @@ def test_13_InputJumlahKamar():
 @mark.fixture_test()
 def test_14_InputNoKamar():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     if jumlahLantai == 1:
         driver.find_element(By.ID, "noKamarAwal-0").click()
         driver.find_element(By.ID, "noKamarAwal-0").send_keys(noKamarAwal)
@@ -417,9 +416,9 @@ def test_14_InputNoKamar():
 @mark.fixture_test()
 def test_16_Submit():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, "submitButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
+    #WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     Log.info('Submit data blok ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -428,7 +427,7 @@ def test_16_Submit():
 @mark.fixture_test()
 def test_17_JenisLantai():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
 
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '// *[ @ id = "app"] / div / div[2] / div[1] / div[2] / div[2] / div / div[5] / div / span[3] / div / input')))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'lantai_id')))
@@ -441,7 +440,7 @@ def test_17_JenisLantai():
 @mark.fixture_test()
 def test_18_InputNomorKamar():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'nomorKamar')))
     driver.find_element(By.ID, "nomorKamar").send_keys(nomorKamar)
     Log.info('Input Nomor Kamar')
@@ -451,7 +450,7 @@ def test_18_InputNomorKamar():
 @mark.fixture_test()
 def test_19_PeruntukanKelompokUsia():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, "kel_usia_id").click()
     if kelUsia == 'Dewasa':
         driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa')]").click()
@@ -540,7 +539,7 @@ def test_22_kelompokJenisKejahatan():
 @mark.fixture_test()
 def test_23_KapasitasInput():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, 'kapasitasInput').send_keys(kapasitasInput)
     Log.info('Input Kapasitas Ruangan')
     attach(data=driver.get_screenshot_as_png())
@@ -548,7 +547,7 @@ def test_23_KapasitasInput():
 @mark.fixture_test()
 def test_24_KondisiRuangan():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, 'kondisiInput').click()
     if kondisiRuangan == 'Baik':
         driver.find_element(By.XPATH, "//li[contains(.,\'Baik\')]").click()
@@ -564,7 +563,7 @@ def test_24_KondisiRuangan():
 @mark.fixture_test()
 def test_25_LamaHuni():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, 'lamaHuni').send_keys(lamaHuni)
     Log.info('Lama Huni')
     attach(data=driver.get_screenshot_as_png())
@@ -572,7 +571,7 @@ def test_25_LamaHuni():
 @mark.fixture_test()
 def test_26_ButtonSubmit():
     driver.implicitly_wait(30)
-    #sleep(driver)
+    sleep(driver)
     driver.find_element(By.ID, 'submitButton').click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
     Log.info('Submit')
