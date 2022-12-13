@@ -35,7 +35,7 @@ from Settings.login import login, loginOperator
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('TambahManajemenPenghuniBaru.log', mode="w")
+fh = logging.FileHandler('1TambahManajemenPenghuniBaru.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -172,6 +172,7 @@ def test_8_KlikPenempatan():
 @mark.fixture_test()
 def test_9_PilihBlok():
     sleep(driver)
+    driver.execute_script("window.scrollTo(0,310.9090881347656)")
     driver.find_element(By.ID, "blokForm").click()
     if blokform == 'Blok mapenaling E':
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Blok mapenaling E\')]')))
@@ -194,16 +195,40 @@ def test_10_pilihLantai():
         driver.find_element(By.XPATH, "//li[@id=\'lantaiOption-0\']").click()
     elif Lantai == 'lantai 2':
         driver.find_element(By.XPATH, "//li[@id=\'lantaiOption-1\']").click()
-
-"""@mark.fixture_test()
+    Log.info('memilih lantai')
+    attach(data=driver.get_screenshot_as_png())
+@mark.fixture_test()
 def test_10_pilihKamar():
-    driver.find_element(By.ID, 'lantaiForm').click()
-    if Lantai == 'kamar 1':
-        driver.find_element(By.XPATH, "//li[@id=\'lantaiOption-0\']").click()
-    elif Lantai == 'kamar 2':
-        driver.find_element(By.XPATH, "//li[@id=\'lantaiOption-1\']").click()"""
+    sleep(driver)
+    driver.find_element(By.ID, 'kamarForm').click()
+    if Kamar == 'kamar 1':
+        driver.find_element(By.XPATH, "//li[@id=\'kamarOption-0\']").click()
+    elif Kamar == 'kamar 2':
+        driver.find_element(By.XPATH, "//li[@id=\'kamarOption-1\']").click()
+    Log.info('memilih kamar')
+    attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_11_tanggalPenempatan():
+    sleep(driver)
+    driver.find_element(By.ID, 'tanggalMutasiForm').send_keys(TanggalPenempatan)
+    driver.find_element(By.ID, 'tanggalMutasiForm').send_keys(Keys.ENTER)
+    Log.info('memilih tanggal penempatan')
+    attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_12_Keterangan():
+    sleep(driver)
+    driver.find_element(By.ID, 'keteranganForm').send_keys(Keterangan)
+    Log.info('menginputkan keterangan')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_13_ButtonSubmit():
+    sleep(driver)
+    driver.find_element(By.ID, 'submitButton').click()
+    Log.info('menekan button submit ')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_exit():

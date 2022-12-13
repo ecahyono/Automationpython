@@ -41,7 +41,7 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-sheetrange = wb['2Verifikasi']
+sheetrange = wb['VerifikasiManajemenBlok']
 print('.')
 print('masukan baris ke berapa yang akan di baca !!!')
 i  = input('')
