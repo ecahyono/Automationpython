@@ -54,6 +54,7 @@ kamar                                   = sheetrange['F'+str(i)].value
 statusVerifikasi                        = sheetrange['G'+str(i)].value
 BlokMapenaling                          = sheetrange['H'+str(i)].value
 Ubahstatus                              = sheetrange['I'+str(i)].value
+Keterangan                              = sheetrange['J'+str(i)].value
 
 @mark.fixture_test()
 def test_1_SetupOS():
@@ -79,7 +80,7 @@ def test_3_AksesMenu_ManajemenPenghuniBaru():
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Manajemen Penghuni Baru').click()
-    Log.info('akses menu Manajemen Blok Dan Kamar')
+    Log.info('akses menu Manajemen Penghuni Baru')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -88,75 +89,104 @@ def test_4_Pilih_filterColumn():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
     driver.find_element(By.ID, 'filterColumn').click()
     time.sleep(1)
-    # sleep(driver)
+    sleep(driver)
     if filter == 'Nama':
         driver.find_element(By.XPATH, "//li[@id=\'identitas_nama_lengkap\']").click()
+        Log.info('memilih berdasarkan nama')
+        attach(data=driver.get_screenshot_as_png())
 
     elif filter == 'No Registrasi':
         driver.find_element(By.XPATH, "//li[@id=\'perkara_nmr_reg_gol\']").click()
+        Log.info('memilih berdasarkan no registrasi')
+        attach(data=driver.get_screenshot_as_png())
 
     elif filter == 'Blok':
         driver.find_element(By.XPATH, "//li[@id=\'blok_deskripsi\']").click()
+        Log.info('memilih berdasarkan blok')
+        attach(data=driver.get_screenshot_as_png())
 
     elif filter == 'Kamar':
         driver.find_element(By.XPATH, "//li[@id=\'kamar_no_kamar\']").click()
+        Log.info('memilih berdasarkan kamar')
+        attach(data=driver.get_screenshot_as_png())
 
     elif filter == 'Status':
         driver.find_element(By.ID, 'statusVerifikasi').click()
         if statusVerifikasi == 'Dalam Proses':
             driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
+            Log.info('memilih berdasarkan status dalam proses')
+            attach(data=driver.get_screenshot_as_png())
 
         elif statusVerifikasi == 'Perbaikan':
             driver.find_element(By.XPATH, "//li[contains(.,\'Perbaikan\')]").click()
+            Log.info('memilih berdasarkan status perbaikan')
+            attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_5_ButtonSearch():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.ID, 'searchButton').click()
+    Log.info('Menekan Button Search')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_6_clickbuttonDalamProses():
-    #sleep(driver)
+    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#verifikasi-0 > span')))
     driver.find_element(By.CSS_SELECTOR, '#verifikasi-0 > span').click()
+    Log.info('memilih data yang akan di verifikasi')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_7_Verifikasi():
-    #sleep(driver)
+    sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#submitButton > span')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="status_verifikasi"]')))
     driver.find_element(By.XPATH, '//*[@id="status_verifikasi"]').click()
-    #sleep(driver)
-    if UbahStatus == 'Diizinkan':
-        driver.find_element(By.XPATH, '//*[@id="status_verifikasi"]').send_keys('Diizinkan')
+    sleep(driver)
+    if Ubahstatus == 'Diizinkan':
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//li[@id=\'diizinkan\']")))
         driver.find_element(By.XPATH, "//li[@id=\'diizinkan\']").click()
         Log.info('Ubah Status Menjadi Di Izinkan')
         attach(data=driver.get_screenshot_as_png())
     elif UbahStatus == 'Perbaikan':
-        driver.find_element(By.XPATH, '//*[@id="status_verifikasi"]').send_keys('Perbaikan')
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//li[@id=\'perbaikan\']")))
         driver.find_element(By.XPATH, "//li[@id=\'perbaikan\']").click()
         Log.info('Ubah Status Menjadi Di perbaikan')
         attach(data=driver.get_screenshot_as_png())
     elif UbahStatus == 'Ditolak':
-        driver.find_element(By.XPATH, '//*[@id="status_verifikasi"]').send_keys('Ditolak')
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//li[@id=\'ditolak\']")))
         driver.find_element(By.XPATH, "//li[@id=\'ditolak\']").click()
         Log.info('Ubah Status Menjadi Di Tolak')
         attach(data=driver.get_screenshot_as_png())
     elif UbahStatus == 'DalamProses':
-        driver.find_element(By.XPATH, '//*[@id="status_verifikasi"]').send_keys('DalamProses')
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//li[@id=\'dalam_proses\']/span")))
-        driver.find_element(By.XPATH, "//li[@id=\'dalam_proses\']/span").click()
+        driver.find_element(By.XPATH, "//li[@id=\'dalamProses\']").click()
         Log.info('Ubah Status Menjadi Dalam Proses')
         attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_8_keterangan():
+    driver.implicitly_wait(60)
+    sleep(driver)
+    driver.find_element(By.ID,'keterangan').send_keys(Keterangan)
+    Log.info('menginput data keterangan')
+    attach(data=driver.get_screenshot_as_png())
 
-#ubah status belum ada id
+@mark.fixture_test()
+def test_9_ButtonSubmit():
+    driver.implicitly_wait(60)
+    sleep(driver)
+    driver.find_element(By.ID, 'submitButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
+    Log.info('menekan button submit data')
+    attach(data=driver.get_screenshot_as_png())
+
 @mark.fixture_test()
 def test_exit():
+    driver.implicitly_wait(60)
+    sleep(driver)
     quit(driver)

@@ -1,3 +1,9 @@
-[2022-12-13 11:09:42,065 test_1_SetupOS()]==>INFO: Login
-[2022-12-13 11:09:45,244 test_2_Login()]==>INFO: Login
-[2022-12-13 11:09:49,241 test_3_AksesMenu_ManajemenPenghuniBaru()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2022-12-13 15:45:50,023 test_1_SetupOS()]==>INFO: Login
+[2022-12-13 15:45:52,808 test_2_Login()]==>INFO: Login
+[2022-12-13 15:46:10,603 test_3_AksesMenu_ManajemenPenghuniBaru()]==>INFO: akses menu Manajemen Penghuni Baru
+[2022-12-13 15:46:21,155 test_4_Pilih_filterColumn()]==>INFO: memilih berdasarkan status dalam proses
+[2022-12-13 15:46:21,276 test_5_ButtonSearch()]==>INFO: Menekan Button Search
+[2022-12-13 15:46:40,111 test_6_clickbuttonDalamProses()]==>INFO: memilih data yang akan di verifikasi
+[2022-12-13 15:46:45,616 test_7_Verifikasi()]==>INFO: Ubah Status Menjadi Di Izinkan
+[2022-12-13 15:46:47,211 test_8_keterangan()]==>INFO: menginput data keterangan
+[2022-12-13 15:46:54,370 test_9_ButtonSubmit()]==>INFO: menekan button submit data

@@ -30,7 +30,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, sleep
-from Settings.login import login
+from Settings.login import login, loginSPV
 
 import logging
 Log = logging.getLogger(__name__)
@@ -63,7 +63,7 @@ def test_1_setupOS_Search():
 
 @mark.fixture_test()
 def test_2_login_Search():
-    login(driver)
+    loginSPV(driver)
 
 @mark.fixture_test()
 def test_3_aksesmenu_Search():
