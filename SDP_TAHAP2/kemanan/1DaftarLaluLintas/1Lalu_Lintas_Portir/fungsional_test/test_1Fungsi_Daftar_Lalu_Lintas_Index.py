@@ -35,7 +35,7 @@ from Settings.login import login
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('test_1Fungsi_Daftar_Lalu_Lintas_Index.log', mode="w")
+fh = logging.FileHandler('1Fungsi_Daftar_Lalu_Lintas_Index.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -48,6 +48,7 @@ i  = xr
 filterColumn                          = sheetrange['B'+str(i)].value
 namaLengkap                           = sheetrange['C'+str(i)].value
 nomorInduk                            = sheetrange['D'+str(i)].value
+
 
 
 @mark.fixture_test()
@@ -64,7 +65,10 @@ def test_2_login():
 
 
 @mark.fixture_test()
-def test_3_akses_menu_index():
+def test_3_akses_menu_index_DLP_001():
+    print('.')
+    print('Akses halaman Daftar Lalu Lintas (DLP-001)')
+
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
@@ -73,14 +77,17 @@ def test_3_akses_menu_index():
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
-    print('.')
-    Log.info('Akses Menu Daftar Lalu Lintas')
+    sleep(driver)
+    Log.info('Akses halaman Daftar Lalu Lintas (DLP-001)')
     attach(data=driver.get_screenshot_as_png())
+
 
 
 @mark.fixture_test()
 def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
+    print('Pengecekan data yang telah di filter')
+    print('DLP-002')
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
@@ -107,7 +114,7 @@ def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori de
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-
+    Log.info('Pengecekan data yang telah di filter(DLP-002)')
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
 
 # SORTIR TABLE HALAMAN INDEX

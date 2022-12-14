@@ -49,21 +49,22 @@ i  = xr
 
 filterColumn                            = sheetrange['B'+str(i)].value
 namablok                                = sheetrange['C'+str(i)].value
-tipeblok                                = sheetrange['D'+str(i)].value
-jeniskelamin                            = sheetrange['E'+str(i)].value
-jenisKejahatan                          = sheetrange['F'+str(i)].value
-jumlahLantai                            = sheetrange['G'+str(i)].value
-formatPenomoranKamar                    = sheetrange['H'+str(i)].value
-kelUsia                                 = sheetrange['I'+str(i)].value
-jumlahKamarPerlantai                    = sheetrange['J'+str(i)].value
-noKamarAwal                             = sheetrange['K'+str(i)].value
-noKamarAkhir                            = sheetrange['L'+str(i)].value
+status                                  = sheetrange['D'+str(i)].value
+tipeblok                                = sheetrange['E'+str(i)].value
+jumlahlantai                            = sheetrange['F'+str(i)].value
+semua                                   = sheetrange['G'+str(i)].value
 
-nomorKamar                              = sheetrange['M'+str(i)].value
-kelompokJenisKejahatan                  = sheetrange['N'+str(i)].value
-kapasitasInput                          = sheetrange['O'+str(i)].value
-kondisiRuangan                          = sheetrange['P'+str(i)].value
-lamaHuni                                = sheetrange['Q'+str(i)].value
+EditNamaBlok                            = sheetrange['H'+str(i)].value
+EditTipeBlok                            = sheetrange['I'+str(i)].value
+Editjeniskelamin                        = sheetrange['J'+str(i)].value
+EditjenisKejahatan                      = sheetrange['K'+str(i)].value
+EditjumlahLantai                        = sheetrange['L'+str(i)].value
+EditformatPenomoranKamar                = sheetrange['M'+str(i)].value
+EditkelUsia                             = sheetrange['N'+str(i)].value
+EditjumlahKamarPerlantai                = sheetrange['O'+str(i)].value
+EditnoKamarAwal                         = sheetrange['P'+str(i)].value
+EditnoKamarAkhir                        = sheetrange['Q'+str(i)].value
+
 
 
 
@@ -105,10 +106,339 @@ def test_4_ClickButtonTambah_PemetaanBlock():
     Log.info('Click Button Tambah halaman Pemetaan Block')
     attach(data=driver.get_screenshot_as_png())
 
-## masi belom fix, di izinkan tidak ada button edit
+@mark.fixture_test()
+def test_5_FilterColumn():
+    # sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
+    if filterColumn == 'status':
+        driver.find_element(By.ID, 'filterColumn').send_keys('Status')
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#status_verifikasi > span')))
+        driver.find_element(By.CSS_SELECTOR, '#status_verifikasi > span').click()
+        driver.find_element(By.ID, 'kataKuncuStatusVerifikasi').click()
+        if status == 'Dalam Proses':
+            driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
+
+        elif status == 'Diizinkan':
+            driver.find_element(By.XPATH, "//li[contains(.,\'Diizinkan\')]").click()
+
+        elif status == 'Perbaikan':
+            driver.find_element(By.XPATH, "//li[contains(.,\'Perbaikan\')]").click()
+
+    elif filterColumn == 'blok':
+        driver.find_element(By.ID, 'kataKunci').send_keys(namablok)
+
+    elif filterColumn == 'tipeblok':
+        driver.find_element(By.ID, 'kataKunci').send_keys(tipeblok)
+
+    elif filterColumn == 'jumlahlantai':
+        driver.find_element(By.ID, 'kataKunci').send_keys(jumlahlantai)
+
+    elif filterColumn == 'semua':
+        driver.find_element(By.ID, 'kataKunci').send_keys(semua)
+
+
+
+    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
+
+@mark.fixture_test()
+def test_6_clickButtonEdit():
+    sleep(driver)
+    driver.find_element(By.ID, 'updateButton0').click()
+
+@mark.fixture_test()
+def test_7_EditNamaBlok():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'blok')))
+    #driver.find_element(By.ID, 'blok').clear()
+    driver.find_element(By.ID, 'blok').send_keys(EditNamaBlok)
+    Log.info('Input Nama Blok')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_8_EditTipeBlok():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'tipe_id')))
+    driver.find_element(By.ID, 'tipe_id').click()
+
+    if EditTipeBlok == 'Umum':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Umum\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Umum\')]").click()
+        Log.info('Input Tipe Blok Umum')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditTipeBlok == 'Tutup Sunyi':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Tutup Sunyi\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Tutup Sunyi\')]").click()
+        Log.info('Input Tipe Blok Tutup Sunyi')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditTipeBlok == 'Mapenaling':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Mapenaling\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Mapenaling\')]").click()
+        Log.info('Input Tipe Blok Umum')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditTipeBlok == 'Isolasi':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Isolasi\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Isolasi\')]").click()
+        Log.info('Input Tipe Blok Umum')
+        attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_9_EditJenisKelaminBlok():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'kel_jenis_kelamin_id')))
+    driver.find_element(By.ID, "kel_jenis_kelamin_id").click()
+    if Editjeniskelamin == 'Laki-laki':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Laki-laki\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Laki-laki\')]").click()
+
+        Log.info('Input Blok Untuk Jenis Kelamin Laki Laki')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif Editjeniskelamin == 'Perempuan':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Perempuan\')]')))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Perempuan\')]").click()
+
+        Log.info('Input Blok Untuk Jenis Kelamin Perempuan')
+        attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_10_EditJenisKejahatan():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'jenis_kejahatan_values')))
+    driver.find_element(By.ID, "jenis_kejahatan_values").click()
+    if EditjenisKejahatan == 'Korupsi Teroris Kriminal':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Korupsi\')]").click()
+        driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
+        driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal Umum\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Teroris, Kriminal, Korupsi')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjenisKejahatan == 'Korupsi':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Korupsi\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Korupsi')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjenisKejahatan == 'Teroris':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Teroris')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjenisKejahatan == 'Kriminal':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Kriminal')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjenisKejahatan == 'Korupsi Teroris':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Korupsi\')]").click()
+        driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Korupsi,Teroris')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjenisKejahatan == 'Teroris Kriminal':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Teroris\')]").click()
+        driver.find_element(By.XPATH, "//li[contains(.,\'Kriminal Umum\')]").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "jenis_kejahatan_values").send_keys(Keys.TAB)
+        Log.info('Input untuk Jenis kejahatan Teroris, Kriminal')
+        attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_10_EditJumlahLantai():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]')))
+    driver.find_element(By.XPATH, '// *[ @ id = "Masukkan Jumlah Lantai"]').send_keys(EditjumlahLantai)
+    Log.info('Input Jumlah Lantai')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_11_EditFormatPenomoranKamar():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'penomoran_kamar')))
+    driver.find_element(By.ID, "penomoran_kamar").click()
+    if EditformatPenomoranKamar == 'Angka 8 mulai kiri atas':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Angka 8 (mulai kiri atas)\')]").click()
+        Log.info('Input Format Penomoran Kamar')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == '8 mulai kiri bawah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Angka 8 (mulai kiri bawah)\')]").click()
+        Log.info('Input Format Penomoran Kamar 8 mulai kiri bawah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == '8 mulai kanan bawah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Angka 8 (mulai kanan bawah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Angka 8 mulai kanan bawah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == 'Ke Depan 1 arah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Belakang Ke Depan (1 arah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Belakang Ke Depan 1 arah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == 'Ke Depan 2 arah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Belakang Ke Depan (2 arah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Belakang Ke Depan 2 arah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == 'Depan Ke Belakang 1 arah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Depan Ke Belakang (1 arah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Depan Ke Belakang 1 arah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == 'Depan Ke Belakang 2 arah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Depan Ke Belakang (2 arah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Depan Ke Belakang 2 arah')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditformatPenomoranKamar == 'Kanan Kiri 1 arah':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Kanan Kiri (1 arah)\')]").click()
+        Log.info('Input Format Penomoran Kamar Kanan Kiri 1 arah')
+        attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_12_EditUmur():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    driver.find_element(By.ID, "kel_usia_id").click()
+    if EditkelUsia == 'Dewasa':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Dewasa')]").click()
+        Log.info('memilih kelompok usia Dewasa')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditkelUsia == 'Lansia':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Lansia')]").click()
+        Log.info('memilih kelompok usia Dewasa')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditkelUsia == 'Anak-anak':
+        driver.find_element(By.XPATH, "//li[contains(.,\'Anak-anak')]").click()
+        Log.info('memilih kelompok usia Anak Anak')
+        attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_13_InputJumlahKamar():
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").click()
+
+    if EditjumlahLantai == 1:
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").send_keys(EditjumlahKamarPerlantai)
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjumlahLantai == 2:
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").send_keys(EditjumlahKamarPerlantai)
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjumlahLantai == 3:
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-2").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-2").send_keys(EditjumlahKamarPerlantai)
+        attach(data=driver.get_screenshot_as_png())
+
+    elif EditjumlahLantai == 4:
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-0").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-1").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-2").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-2").send_keys(EditjumlahKamarPerlantai)
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-3").click()
+        driver.find_element(By.ID, "jumlah_kamar_per_lantai-3").send_keys(EditjumlahKamarPerlantai)
+        attach(data=driver.get_screenshot_as_png())
+
+    Log.info('Input Jumlah Kamar perlantai')
+    attach(data=driver.get_screenshot_as_png())
 
 
 
 @mark.fixture_test()
+def test_14_InputNoKamar():
+    driver.implicitly_wait(30)
+    sleep(driver)
+    if EditjumlahLantai == 1:
+        driver.find_element(By.ID, "noKamarAwal-0").click()
+        driver.find_element(By.ID, "noKamarAwal-0").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-0").click()
+        driver.find_element(By.ID, "noKamarAkhir-0").send_keys(EditnoKamarAkhir)
+
+    elif EditjumlahLantai ==2:
+        driver.find_element(By.ID, "noKamarAwal-0").click()
+        driver.find_element(By.ID, "noKamarAwal-0").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-0").click()
+        driver.find_element(By.ID, "noKamarAkhir-0").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-1").click()
+        driver.find_element(By.ID, "noKamarAwal-1").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-1").click()
+        driver.find_element(By.ID, "noKamarAkhir-1").send_keys(EditnoKamarAkhir)
+
+    elif EditjumlahLantai == 3:
+        driver.find_element(By.ID, "noKamarAwal-0").click()
+        driver.find_element(By.ID, "noKamarAwal-0").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-0").click()
+        driver.find_element(By.ID, "noKamarAkhir-0").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-1").click()
+        driver.find_element(By.ID, "noKamarAwal-1").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-1").click()
+        driver.find_element(By.ID, "noKamarAkhir-1").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-2").click()
+        driver.find_element(By.ID, "noKamarAwal-2").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-2").click()
+        driver.find_element(By.ID, "noKamarAkhir-2").send_keys(EditnoKamarAkhir)
+
+    elif EditjumlahLantai == 4:
+        driver.find_element(By.ID, "noKamarAwal-0").click()
+        driver.find_element(By.ID, "noKamarAwal-0").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-0").click()
+        driver.find_element(By.ID, "noKamarAkhir-0").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-1").click()
+        driver.find_element(By.ID, "noKamarAwal-1").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-1").click()
+        driver.find_element(By.ID, "noKamarAkhir-1").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-2").click()
+        driver.find_element(By.ID, "noKamarAwal-2").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-2").click()
+        driver.find_element(By.ID, "noKamarAkhir-2").send_keys(EditnoKamarAkhir)
+
+        driver.find_element(By.ID, "noKamarAwal-3").click()
+        driver.find_element(By.ID, "noKamarAwal-3").send_keys(EditnoKamarAwal)
+        driver.find_element(By.ID, "noKamarAkhir-3").click()
+        driver.find_element(By.ID, "noKamarAkhir-3").send_keys(EditnoKamarAkhir)
+
+    Log.info('Input koridor')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
 def test_exit():
+    sleep(driver)
     quit(driver)
