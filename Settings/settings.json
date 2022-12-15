@@ -112,20 +112,22 @@
             "cetakinisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]"
         },
         "+penerimaan":{
-
-        },
+			
+		},
         "+barang":{
-            "waitregisbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div",
+			"waitregisbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div",
             "loadingbarang":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div[2]/div/svg",
+			"loadubhbrng":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div[2]/div/form/div[9]/div/svg",
             "loadingbarang2":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[2]/div/div[2]/div[3]/div/svg"
         },
         "ubahpenerimaan":{
 			"hpsbarisya":"//div[20]/div/div[2]/button[2]",
-			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/svg"
+			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]"
 
         },
         "listbarang":{
-			"loaddetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[2]/div/svg"			
+			"loaddetail":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[2]/div/svg",
+			"loadingmask":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div[2]/div/form/div[9]"			
 
         },
         "indexmutasi":{
@@ -167,7 +169,8 @@
         },
         "Rupbasan": {
             "menu":{
-                "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div"
+                "MainText": "//*[@id=\"app\"]/div/nav/ul/li[5]/div",
+				"Rupbasan":"//*[@id=\"app\"]/div/nav/ul/li[1]/div"
             }
         },
         "Integrasi": {

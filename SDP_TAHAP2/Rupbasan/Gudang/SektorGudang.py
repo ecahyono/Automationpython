@@ -1,97 +1,141 @@
+# import imp
+from json import load
+import pyautogui
+import string
+from turtle import rt
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys 
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.select import Select
-from pytest_html_reporter import attach
-from pytest import mark
-import platform
+from selenium.webdriver.common.keys import Keys
+import pyautogui
+
+from openpyxl import load_workbook
 import time
-import os
-import pytest
-import json
-import sys
 
-from dotenv import load_dotenv
-load_dotenv()
+#target halaman excel ada dimana , wb = variablenya
+# wb = load_workbook(filename="C:\chromedriver\Data.xlsx")
+wb = load_workbook(filename=r"C:\Users\user\Documents\TRCH\Automationpython\Filexel\Rupbasan.xlsx")
 
+# jadi ini bisa read sheet yang dibawah itu yang di excel
+sheetrange = wb['Gudang']
 
-from module.setup import initDriver, loadDataPath, buttonTambah
-from module.login import login
+# ini web driver disimpen dimana, kalo disimpen di path kosongin aja
+driver = webdriver.Chrome(r'C:\Users\user\Documents\TRCH\chromedriver.exe')
 
-# init driver by os
-@mark.fixture_Tambah_penerimaan
-def test_1_setupOS():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()
+# link nya ini dimana
+# driver.get("http://192.168.2.11:32400/")
+driver.get("http://kumbang.torche.id:32400/")
+# seting windows nya jadi max   
+driver.maximize_window()
+# script gakan di eksekusi kalo web ga muncul. kalo lebih dari 10 detik ga muncul error
+driver.implicitly_wait(6)
+# ini letak xpath icon login
+driver.find_element(By.XPATH, "//div/span").click()
+# ini masuk ke form input username
+driver.find_element(By.ID, "username").click()
+# masukin input username
+driver.find_element(By.ID, "username").send_keys("oprupbasanbdg")
+# masukin input password
+driver.find_element(By.ID, "password").send_keys("password")
+# click button login
+driver.find_element(By.ID, "kc-login").click()
+time.sleep(3)
 
-@mark.fixture_Tambah_penerimaan
-def test_login():
-    login(driver)
-
-@mark.fixture_Tambah_penerimaan
-def test_akses_menu():
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
-    ActionChains(driver).move_to_element(nav1).perform()
-
-    driver.find_element(By.LINK_TEXT, "Sektor Gudang").click()
-    attach(data=driver.get_screenshot_as_png())
-
-driver.find_element(By.ID, "createButton").click()
-
-driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[2]/div/div/input').send_keys('Test Sektor Pribadi')
-driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[1]/div[3]/div/div/input').send_keys('12000')
-driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div[2]/div/div/div/textarea').send_keys('Keterangan di dalam Sektor gudang')
-
-driver.find_element(By. XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[1]/div/div/input').send_keys('Baris aman')
-
-nourut = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/div/div[2]/div/div/div/div/div')
-for x in range(5):
-    x = nourut.click()
-
-Gudang = driver.find_element(By.ID, 'input_kondisi_baran_basan')
-Gudang.click()
+element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
+# element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[3]/div')
+# element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[4]/div')
+actions = ActionChains(driver)
 time.sleep(2)
-Gudang.send_keys('Gudang Berharga')
-Gudang.send_keys(Keys.DOWN)
-Gudang.send_keys(Keys.ENTER)
+actions.move_to_element(element).perform()
 
-driver.find_element(By.ID, 'submitButton').click()
+element2 = driver.find_element(By.XPATH, '//div[3]/div/ul/li[1]/div[1]')
+# element2 = driver.find_element(By.XPATH, '//div[4]/div/ul/li[1]/div[1]')
+# element2 = driver.find_element(By.XPATH, '//div[6]/div/ul/li[1]/div[1]')
+# element2 = driver.find_element(By.XPATH, '//div[5]/div/ul/li[1]/div[1]')
+actions2 = ActionChains(driver)
+time.sleep(2)
+actions2.move_to_element(element2).perform()
 
-# i =3 
+driver.find_element(By.LINK_TEXT, "Sektor Gudang").click()
 
-# while i <= len(sheetrange['A']):
-#     Id_Lookup = sheetrange['A'+str(i)].value
-#     Groups = sheetrange['B'+str(i)].value
-#     Deskripsi = sheetrange['C'+str(i)].value
-#     Catatan = sheetrange['D'+str(i)].value
+i = 3 
 
-#     time.sleep(1)
+while i <= len(sheetrange['A']):
+    Gudang 				= sheetrange['A'+str(i)].value
+    NamaSektor 			= sheetrange['B'+str(i)].value
+    KapasitasSektor 	= sheetrange['C'+str(i)].value
+    Keterangan 			= sheetrange['D'+str(i)].value
+    # JumlahBaris 	   	= sheetrange['E'+str(i)].value
+    Baris  				= sheetrange['F'+str(i)].value
+    JumlahNORUT 		= sheetrange['G'+str(i)].value
 
-#     # driver.find_element(By.XPATH, "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/button").click()
-#     
+    NUM8 		= sheetrange['H'+str(i)].value
+    NUM9 		= sheetrange['I'+str(i)].value
+    NUM10 		= sheetrange['J'+str(i)].value
+    NUM11 		= sheetrange['K'+str(i)].value
+    NUM13 		= sheetrange['L'+str(i)].value
+    NUM14 		= sheetrange['M'+str(i)].value
+    NUM15 		= sheetrange['N'+str(i)].value
+    NUM16 		= sheetrange['O'+str(i)].value
+    NUM17 		= sheetrange['P'+str(i)].value
+    NUM18 		= sheetrange['Q'+str(i)].value
 
-#     try:
-#         WebDriverWait(driver,6).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div/div/h1')))
-#         time.sleep(2)
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[1]/div/div[1]/input').send_keys(Id_Lookup)
+    driver.find_element(By.ID, "createButton").click()
 
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/div/div/input').click()
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/div/div/input').send_keys(Groups)
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/div/div/input').send_keys(Keys.DOWN)
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[2]/div/div/div/div/input').send_keys(Keys.ENTER)
+    try:
+        gd = driver.find_element(By.ID, 'jenisGudang')
+        gd.click()
+        if JGudang == 'Gudang Umum Terbuka':
+            driver.find_element(By.ID,'JG01').click()
+        elif JGudang == 'Gudang Umum Tertutup':
+            driver.find_element(By.ID,'JG02').click()
+        elif JGudang == 'Gudang Berharga':
+            driver.find_element(By.ID,'JG02').click()
+        elif JGudang == 'Gudang Berbahaya':
+            driver.find_element(By.ID,'JG02').click()
+        elif JGudang == 'Gudang Hewan dan Tumbuhan':
+            driver.find_element(By.ID,'JG02').click()
 
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[3]/div/div[1]/input').send_keys(Deskripsi)
+        driver.find_element(By.ID, 'alamat').send_keys(Alm)
 
-#         driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/form/div[4]/div/div/textarea').send_keys(Catatan)
+        vinsi = driver.find_element(By.ID,'provinsi')
+        vinsi.send_keys(Prov)
+        if Prov == 'Jawa Barat':
+            driver.find_element(By.ID,'12').click()
+        elif Prov == 'DKI Jakarta':
+            driver.find_element(By.ID,'11').click()
+
+        paten = driver.find_element(By.ID,'kotaKabupaten')
+        paten.send_keys(Kotkab)
+        if Kotkab == 'Bandung':
+            driver.find_element(By.ID,'122').click()
+        elif Kotkab == 'Jakarta Pusat':
+            driver.find_element(By.ID,'116').click()
         
-#         driver.find_element(By.ID, 'submitButton').click()
-#     except TimeoutException:
-#         pass
-#     i = i + 1
-# print ("Success Created")
+        driver.find_element(By.ID, 'luas').send_keys(luas)
+        driver.find_element(By.ID, 'kapasitasGudang').send_keys(quant)
+
+        foto = driver.find_element(By.ID, 'pilihFoto').click()
+        time.sleep(3)
+        pyautogui.typewrite(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gudang.png')
+        pyautogui.press('enter')
+
+        driver.find_element(By.ID, 'keterangan').send_keys(ket)
+
+        driver.find_element(By.ID, 'nama0').send_keys(Nama)
+
+        driver.find_element(By.ID, 'jumlah0').send_keys(jmlh)
+
+        driver.find_element(By.ID, 'keterangan0').send_keys(rangan)
+        
+        driver.find_element(By.ID, 'submitButton').click()
+
+    except TimeoutException:
+        pass
+    i = i + 1
+print ("Success Created")
+
+# 

@@ -66,7 +66,7 @@ def test_aksesmenuPenerimaan_3():
 
 
 sheetrange = wb['IndexPenerimaan']
-i = 2
+i = 3
 Carikolom       = sheetrange['A'+str(i)].value
 Katkun          = sheetrange['B'+str(i)].value
 
@@ -79,18 +79,12 @@ def test_Pencariandata_4():
 		driver.find_element(By. ID, 'no_reg').click()
 	elif Carikolom == 'Tgl Penerimaan':
 		driver.find_element(By. ID, 'tgl_penerimaan').click()
-	elif Carikolom == 'Keterangan':
-		driver.find_element(By. ID, 'keterangan').click()
-
-	
-	if Carikolom == 'Tgl Penerimaan':
 		kattgl = driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])
 		kattgl.click()
 		kattgl.send_keys(Katkun)
-	else:
-		driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
-
-	
+	elif Carikolom == 'Keterangan':
+		driver.find_element(By. ID, 'keterangan').click()
+	driver.find_element(By. ID, 'kataKunci').send_keys(Katkun)
 
 	driver.find_element(By.ID , 'searchButton').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
@@ -115,23 +109,23 @@ def test_pilihdetailbarang():
 		try:
 			if inp == '1':
 				driver.find_element(By.ID, 'buttonDetail0').click()	
-				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['loaddetail'])))
 				Log.info('Membuka halaman detail barang Nourut' + inp)
 			elif inp == '2':
 				driver.find_element(By.ID, 'buttonDetail1').click()
-				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['loaddetail'])))
 				Log.info('Membuka halaman detail barang Nourut' + inp)
 			elif inp == '3':
 				driver.find_element(By.ID, 'buttonDetail2') 
-				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['loaddetail'])))
 				Log.info('Membuka halaman detail barang Nourut'  +inp)
 			elif inp == '4':
 				driver.find_element(By.ID, 'buttonDetail3').click()
-				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['loaddetail'])))
 				Log.info('Membuka halaman detail barang Nourut' + inp)
 			elif inp == '5':
 				driver.find_element(By.ID, 'buttonDetail4').click()
-				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['kategoritanggal'])))
+				WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['indexpenempatan']['loaddetail'])))
 				Log.info('Membuka halaman detail barang Nourut' + inp)
 			elif (inp == 'B'or inp == 'b'):
 				driver.find_element(By.ID,'backButton').click()
