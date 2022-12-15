@@ -51,10 +51,11 @@ def test_loggin_2():
 
 @mark.fixture_penempatan
 def test_akses_menu_penempatan_3():
-    nav = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
+    nav = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
     ActionChains(driver).move_to_element(nav).perform()
     time.sleep(2)
     driver.find_element(By.LINK_TEXT, 'Penempatan').click()
+    driver.find_element(By. ID, 'kataKunci').click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('mengakses menu penempatan')
 

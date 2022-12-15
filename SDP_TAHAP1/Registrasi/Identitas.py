@@ -37,8 +37,8 @@ def test_setup():
         driver.quit()
     elif platform.system() == 'Windows':
         driver = webdriver.Chrome(service=swin)
-        url = 'http://kumbang.torche.id:32400/'
-        # url = 'http://192.168.2.11:32400/'
+        # url = 'http://kumbang.torche.id:32400/'
+        url = 'http://192.168.2.11:32400/'
         
         driver.get(url)
         # seting windows nya jadi max   
@@ -54,8 +54,8 @@ def test_Identitas(test_setup):
     # Menuju login
     driver.find_element(By.XPATH, '//div/span').click()
     driver.find_element(By.ID, 'username').click()
-    driver.find_element(By.ID, 'username').send_keys('waru')
-    driver.find_element(By.ID, 'password').send_keys('waru')
+    driver.find_element(By.ID, 'username').send_keys('lapascirebon')
+    driver.find_element(By.ID, 'password').send_keys('password')
     # click button login
     driver.find_element(By.ID, 'kc-login').click()
     time.sleep(4) 
@@ -69,7 +69,7 @@ def test_Identitas(test_setup):
     driver.find_element(By.LINK_TEXT, 'Daftar Identitas').click()
     time.sleep(4)
 
-    i = 7
+    i = 19
     while i <= len(sheetrange['A']):
         #deklarasi per colom pada sheet
         #------------------------------------------------------
@@ -183,9 +183,9 @@ def test_Identitas(test_setup):
             #========================Input Tab Biodata ============================
             driver.find_element(By.ID, 'btn_residivis').click()
             if Residivis == 'Tidak':
-                driver.find_element(By.XPATH, '//div[12]/div/div/div[1]/ul/li[1]').click()
+                driver.find_element(By.XPATH, '//div[13]/div/div/div[1]/ul/li[1]').click()
             elif Residivis == 'Ya':
-                driver.find_element(By.XPATH, '//div[12]/div/div/div[1]/ul/li[2]').click()
+                driver.find_element(By.XPATH, '//div[13]/div/div/div[1]/ul/li[2]').click()
                 resike = driver.find_element(By.XPATH, '//*[@id="btn_residivis_counter"]/div/input')
                 resike.clear()
                 driver.find_element(By.XPATH, '//*[@id="btn_residivis_counter"]/div/input').send_keys(Rke)
@@ -193,37 +193,37 @@ def test_Identitas(test_setup):
             #--------------------------------------------------------------                                      
             driver.find_element(By.ID, 'btn_nama_lengkap').send_keys(Nama_Lengkap)
             #----------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nama_alias1').send_keys(Nama_Alias1)
+            driver.find_element(By.ID, 'btn_nama_alias1').send_keys(Nama_Alias1)
             # --------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nama_alias2').send_keys(Nama_Alias2)
+            driver.find_element(By.ID, 'btn_nama_alias2').send_keys(Nama_Alias2)
             # --------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nama_alias3').send_keys(Nama_Alias3)
+            driver.find_element(By.ID, 'btn_nama_alias3').send_keys(Nama_Alias3)
             # --------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nama_kecil1').send_keys(Nama_Kecil1)
+            driver.find_element(By.ID, 'btn_nama_kecil1').send_keys(Nama_Kecil1)
             # ---------------------------------------------------------------
-            # # driver.find_element(By.ID, 'btn_nama_kecil2').send_keys(Nama_Kecil2)
+            driver.find_element(By.ID, 'btn_nama_kecil2').send_keys(Nama_Kecil2)
             # ----------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nama_kecil3').send_keys(Nama_Kecil3)
+            driver.find_element(By.ID, 'btn_nama_kecil3').send_keys(Nama_Kecil3)
             # --------------------------------------------------------------
-            # if chcktab1 == 'tidak' :
-            #     driver.find_element(By.ID, 'btn_is_wbp_beresiko_tinggi').click()
-            #     print ('uncheckh')
-            # elif chcktab1 == 'ya' :
-            #     print ('wbp_beresiko_tinggi Masih default')
-            # if chcktab2 == 'tidak' :
-            #     driver.find_element(By.ID, 'btn_is_pengaruh_terhadap_masyarakat').click()
-            #     print ('uncheckh')
-            # elif chcktab2 == 'ya' :
-            #     print ('pengaruh_terhadap_masyarakat Masih default')
+            if chcktab1 == 'tidak' :
+                driver.find_element(By.ID, 'btn_is_wbp_beresiko_tinggi').click()
+                print ('uncheckh')
+            elif chcktab1 == 'ya' :
+                print ('wbp_beresiko_tinggi Masih default')
+            if chcktab2 == 'tidak' :
+                driver.find_element(By.ID, 'btn_is_pengaruh_terhadap_masyarakat').click()
+                print ('uncheckh')
+            elif chcktab2 == 'ya' :
+                print ('pengaruh_terhadap_masyarakat Masih default')
             # --------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_warganegara').click()
             # time.sleep(4)
             if Kewarganegaraan == 'WNI':
-                driver.find_element(By.XPATH, '//div[13]/div/div/div[1]/ul/li[2]').click()
+                driver.find_element(By.XPATH, '//div[14]/div/div/div[1]/ul/li[2]').click()
             elif Kewarganegaraan == 'WNA':
-                driver.find_element(By.XPATH, '//div[13]/div/div/div[1]/ul/li[1]').click()
+                driver.find_element(By.XPATH, '//div[14]/div/div/div[1]/ul/li[1]').click()
             #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_nik').send_keys(nik) 
+            driver.find_element(By.ID, 'btn_nik').send_keys(nik) 
             #-------------------------------------------------------------- 
             if Kewarganegaraan == 'WNI':
                 driver.find_element(By.ID, 'btn_id_tempat_asal').click()   
@@ -271,11 +271,11 @@ def test_Identitas(test_setup):
             elif Agama == Agama:
                 print ('agama masih default')
             #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_id_jenis_suku').click()
-            # time.sleep(4)
-            # driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(suku) 
-            # driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.DOWN) 
-            # driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.ENTER) 
+            driver.find_element(By.ID, 'btn_id_jenis_suku').click()
+            time.sleep(4)
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(suku) 
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.DOWN) 
+            driver.find_element(By.ID, 'btn_id_jenis_suku').send_keys(Keys.ENTER) 
             #------------------------------------------------------------------------------
             driver.find_element(By.ID, 'btn_id_jenis_status_perkawinan').click()
             time.sleep(4)
@@ -303,11 +303,11 @@ def test_Identitas(test_setup):
             #------------------------------------------------------------------------------      
             driver.find_element(By.ID, 'btn_alamat').send_keys(Alamat_rumah)       
             # # ------------------------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_telepon').send_keys(Telepon)
+            driver.find_element(By.ID, 'btn_telepon').send_keys(Telepon)
             # #------------------------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_kodepos').send_keys(Kode_pos)
+            driver.find_element(By.ID, 'btn_kodepos').send_keys(Kode_pos)
             # # ------------------------------------------------------------------------------
-            # driver.find_element(By.ID, 'btn_alamat_alternatif').send_keys(Alamat_lain)
+            driver.find_element(By.ID, 'btn_alamat_alternatif').send_keys(Alamat_lain)
             # ======================================================================
             driver.find_element(By.ID, 'tab-2').click()
             # ========================Input Tab Pekerjaan===========================
@@ -325,7 +325,7 @@ def test_Identitas(test_setup):
             # -----------------------------------------------------------
             driver.find_element(By.ID, 'alamat_pekerjaan').send_keys(Bekerjadi)
             #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'keterangan_pekerjaan').send_keys(Keterangan_pekerjaan)
+            driver.find_element(By.ID, 'keterangan_pekerjaan').send_keys(Keterangan_pekerjaan)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'id_tingkat_penghasilan').click()        
             time.sleep(4)
@@ -333,11 +333,11 @@ def test_Identitas(test_setup):
             driver.find_element(By.ID, 'id_tingkat_penghasilan').send_keys(Keys.DOWN)
             driver.find_element(By.ID, 'id_tingkat_penghasilan').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'id_jenis_pendidikan').click()        
-            # time.sleep(4)
-            # driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Tingkat_pendidikan)
-            # driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Keys.DOWN)
-            # driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Keys.ENTER)
+            driver.find_element(By.ID, 'id_jenis_pendidikan').click()        
+            time.sleep(4)
+            driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Tingkat_pendidikan)
+            driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_pendidikan').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'id_jenis_keahlian_1').click()        
             time.sleep(4)
@@ -347,11 +347,11 @@ def test_Identitas(test_setup):
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'id_jenis_level_1').click()        
             time.sleep(4)
-            if Level_keahlian1 == 'ahli':
+            if Level_keahlian1 == 'Ahli':
                 driver.find_element(By.XPATH, '//li[contains(.,"Ahli")]').click()
-            elif Level_keahlian1 == 'cukup ahli':
+            elif Level_keahlian1 == 'Cukup Ahli':
                 driver.find_element(By.XPATH, '//li[contains(.,"Cukup Ahli")]').click()
-            elif Level_keahlian1 == 'aurang ahli':
+            elif Level_keahlian1 == 'Kurang Ahli':
                 driver.find_element(By.XPATH, '//li[contains(.,"Kurang Ahli")]').click()
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'id_jenis_keahlian_2').click()
@@ -366,30 +366,30 @@ def test_Identitas(test_setup):
             driver.find_element(By.ID, 'id_jenis_level_2').send_keys(Keys.DOWN)
             driver.find_element(By.ID, 'id_jenis_level_2').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
-            # if quran == 'ya' :
-            #     driver.find_element(By.XPATH, '//*[@id="is_baca_quran"]/span[1]/span').click()
-            #     print (quran)
-            # elif quran == 'Tidak':
-            #     print ('tidak di check')
+            if quran == 'ya' :
+                driver.find_element(By.XPATH, '//*[@id="is_baca_quran"]/span[1]/span').click()
+                print (quran)
+            elif quran == 'Tidak':
+                print ('tidak di check')
             # # #----------------------------------------------------------------------
-            # if latin == 'ya' :
-            #     driver.find_element(By.XPATH, '//*[@id="is_baca_latin"]').click()
-            #     print (latin)
-            # elif latin == 'Tidak':
-            #     print ('tidak di check')
+            if latin == 'ya' :
+                driver.find_element(By.XPATH, '//*[@id="is_baca_latin"]').click()
+                print (latin)
+            elif latin == 'Tidak':
+                print ('tidak di check')
             #----------------------------------------------------------------------
-            # driver.find_element(By.ID, 'minat').send_keys(Minat)
+            driver.find_element(By.ID, 'minat').send_keys(Minat)
             #======================================================================
             driver.find_element(By.ID, 'tab-3').click()
             #========================Input Tab Keluarga============================ 
             #------------------------------------------------------------------------------
             driver.find_element(By.ID, 'nm_ayah').send_keys(Nama_ayah)
             #------------------------------------------------------------------------------
-            # driver.find_element(By.ID, 'tmp_tgl_ayah').send_keys(Alamat_ayah)
+            driver.find_element(By.ID, 'tmp_tgl_ayah').send_keys(Alamat_ayah)
             #------------------------------------------------------------------------------
             driver.find_element(By.ID, 'nm_ibu').send_keys(Nama_ibu)
             #------------------------------------------------------------------------------      
-            # driver.find_element(By.ID, 'tmp_tgl_ibu').send_keys(Alamat_ibu)
+            driver.find_element(By.ID, 'tmp_tgl_ibu').send_keys(Alamat_ibu)
             #------------------------------------------------------------------------------
             driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input').click()
             pyautogui.hotkey('backspace')        
@@ -490,7 +490,7 @@ def test_Identitas(test_setup):
                 elif  jumlah_anak == 0: 
                     print('masa ga punya anak')
                 #--------------------------------------------------------------
-                # driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(Telepon_keluarga)
+                driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(Telepon_keluarga)
             #======================================================================
             driver.find_element(By.ID, 'tab-4').click()
             #========================Input Tab Data Fisik========================== 
@@ -586,44 +586,44 @@ def test_Identitas(test_setup):
             driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.DOWN)
             driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.ENTER)
             #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'cacat').send_keys(Cacat_tubuh)
+            driver.find_element(By.ID, 'cacat').send_keys(Cacat_tubuh)
             # #--------------------------------------------------------------
-            # time.sleep(4)
-            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
-            # time.sleep(4)
-            # pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg')
-            # pyautogui.press('enter')
-            # time.sleep(4)
-            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
-            # time.sleep(4)
-            # pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg')
-            # pyautogui.press('enter')
-            # time.sleep(4)
-            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
-            # time.sleep(4)
-            # pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\Filefoto\lim.jpg')
-            # pyautogui.press('enter')
-            # time.sleep(4)
+            time.sleep(4)
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
+            time.sleep(4)
+            pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+            pyautogui.press('enter')
+            time.sleep(4)
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
+            time.sleep(4)
+            pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+            pyautogui.press('enter')
+            time.sleep(4)
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
+            time.sleep(4)
+            pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+            pyautogui.press('enter')
+            time.sleep(4)
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'ciri').send_keys(Catatancirikhusus1)  
+            driver.find_element(By.ID, 'ciri').send_keys(Catatancirikhusus1)  
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'ciri2').send_keys(Catatancirikhusus2) 
+            driver.find_element(By.ID, 'ciri2').send_keys(Catatancirikhusus2) 
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'ciri3').send_keys(Catatancirikhusus3)
+            driver.find_element(By.ID, 'ciri3').send_keys(Catatancirikhusus3)
             # # ======================================================================
-            # driver.find_element(By.ID, 'tab-5').click()
+            driver.find_element(By.ID, 'tab-5').click()
             # # ========================Input Tab Sidik Jari==========================
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'no_paspor').send_keys(Nopaspor)
+            driver.find_element(By.ID, 'no_paspor').send_keys(Nopaspor)
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'rumus_daktil').send_keys(Rumus)
+            driver.find_element(By.ID, 'rumus_daktil').send_keys(Rumus)
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'nomor_daktil').send_keys(Nopaspor)
+            driver.find_element(By.ID, 'nomor_daktil').send_keys(Nopaspor)
             # #--------------------------------------------------------------
-            # driver.find_element(By.ID, 'pengambil_sj').send_keys(Pengambilansidikjari)
-            # driver.find_element(By.ID, 'pengambil_sj').send_keys(Keys.ENTER)
+            driver.find_element(By.ID, 'pengambil_sj').send_keys(Pengambilansidikjari)
+            driver.find_element(By.ID, 'pengambil_sj').send_keys(Keys.ENTER)
             # #--------------------------------------------------------------
-            # driver.find_element(By.XPATH, '//*[@id="pane-5"]/div/form/div/div[2]/div[2]/div/div/input').send_keys(Tanggalpengambilan)
+            driver.find_element(By.XPATH, '//*[@id="pane-5"]/div/form/div/div[2]/div[2]/div/div/input').send_keys(Tanggalpengambilan)
             #======================================================================
             driver.find_element(By.ID, 'tab-6').click()
             #========================Input Tab Foto========================== 
@@ -646,8 +646,7 @@ def test_Identitas(test_setup):
             #========================Input Tab Identitas lama========================== 
             #Submit
             driver.find_element(By.ID, 'submitButton').click() 
-            time.sleep(22)
-            # WebDriverWait(driver, 25).until(EC.alert_is_present())
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.XPATH , '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/form/div[1]/div/div/button')))
             
         except TimeoutException:
             print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!LOADING TERLALU LAMA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')

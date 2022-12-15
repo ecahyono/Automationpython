@@ -1,0 +1,6 @@
+[2022-12-15 22:08:31,582 Test_penerimaan_3_Tambahbarang.py->test_Ossetup_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-15 22:08:33,822 Test_penerimaan_3_Tambahbarang.py->test_loggin_00()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-15 22:08:36,778 Test_penerimaan_3_Tambahbarang.py->test_aksesmenuPenerimaan_00()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-15 22:09:04,324 Test_penerimaan_3_Tambahbarang.py->test_Pencariandata_00()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-15 22:09:05,905 Test_penerimaan_3_Tambahbarang.py->test_PNM_006()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-15 22:09:07,126 Test_penerimaan_3_Tambahbarang.py->test_PNM_007_0()]==>INFO: Melakukan Pencarian data berdasarkan kategori
