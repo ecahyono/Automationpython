@@ -1,0 +1,25 @@
+[2022-12-15 11:44:16,910 test_1_SetupOS()]==>INFO: Login
+[2022-12-15 11:44:22,022 test_2_Login()]==>INFO: Login
+[2022-12-15 11:44:26,153 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2022-12-15 11:44:34,307 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2022-12-15 11:44:40,640 test_5_ClickButtonTambah_MasterBlokDanKamar()]==>INFO: Click Button Tambah Master Blok Dan Kamar
+[2022-12-15 11:44:46,998 test_6_InputNamaBlok()]==>INFO: Input Nama Blok
+[2022-12-15 11:44:53,861 test_7_InputTipeBlok()]==>INFO: Input Tipe Blok Umum
+[2022-12-15 11:45:00,723 test_8_JenisKelaminBlok()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
+[2022-12-15 11:45:08,133 test_9_JenisKejahatan()]==>INFO: Input untuk Jenis kejahatan Korupsi
+[2022-12-15 11:45:14,449 test_10_JumlahLantai()]==>INFO: Input Jumlah Lantai
+[2022-12-15 11:45:20,808 test_11_FormatPenomoranKamar()]==>INFO: Input Format Penomoran Kamar
+[2022-12-15 11:45:27,192 test_12_Umur()]==>INFO: memilih kelompok usia Anak Anak
+[2022-12-15 11:45:27,770 test_13_InputJumlahKamar()]==>INFO: Input Jumlah Kamar perlantai
+[2022-12-15 11:45:34,170 test_14_InputNoKamar()]==>INFO: Input koridor
+[2022-12-15 11:45:40,439 test_16_Submit()]==>INFO: Submit data blok 
+[2022-12-15 11:46:23,312 test_17_JenisLantai()]==>INFO: Pilih Lantai yang akan di inputkan
+[2022-12-15 11:46:29,623 test_18_InputNomorKamar()]==>INFO: Input Nomor Kamar
+[2022-12-15 11:46:35,983 test_19_PeruntukanKelompokUsia()]==>INFO: memilih kelompok usia Anak Anak
+[2022-12-15 11:46:36,804 test_20_JenisKelamin()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
+[2022-12-15 11:46:37,623 test_21_TipeKamar()]==>INFO: Input Tipe Blok Umum
+[2022-12-15 11:46:37,936 test_22_kelompokJenisKejahatan()]==>INFO: Input untuk Jenis kejahatan Korupsi
+[2022-12-15 11:46:44,219 test_23_KapasitasInput()]==>INFO: Input Kapasitas Ruangan
+[2022-12-15 11:46:50,579 test_24_KondisiRuangan()]==>INFO: Kondisi Ruangan Baik
+[2022-12-15 11:46:56,871 test_25_LamaHuni()]==>INFO: Lama Huni
+[2022-12-15 11:47:10,819 test_26_ButtonSubmit()]==>INFO: Submit

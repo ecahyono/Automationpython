@@ -1,20 +1,2 @@
-[2022-12-14 11:58:03,868 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_1_setupOS()]==>INFO: Setup Os
-[2022-12-14 11:58:06,728 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_2_login()]==>INFO: Login
-[2022-12-14 11:59:30,888 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_3_akses_menu_index_DLP_001()]==>INFO: Akses halaman Daftar Lalu Lintas (DLP-001)
-[2022-12-14 11:59:33,637 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_4_Searchkategori()]==>INFO: Search Data Form Kategori No Induk 
-[2022-12-14 12:00:37,154 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir No induk
-[2022-12-14 12:00:38,717 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir nama
-[2022-12-14 12:00:40,046 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO:  Sortir jenis 
-[2022-12-14 12:00:41,397 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir Tanggal Keluar 
-[2022-12-14 12:00:42,707 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_7_DLP001_SortirDatatable_NoInduk_Index()]==>INFO: Sortir tanggal kembali 
-[2022-12-14 12:00:46,769 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 5
-[2022-12-14 12:00:57,648 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 10
-[2022-12-14 12:01:04,363 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 20
-[2022-12-14 12:01:06,829 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 50
-[2022-12-14 12:01:14,560 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_8_DLP001_Pagination_Index()]==>INFO: halaman 100
-[2022-12-14 12:01:15,419 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_9_membuka_halaman_tambah_Index()]==>INFO: Membuka Halaman Tambah
-[2022-12-14 12:01:16,612 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_10_back_index()]==>INFO: Back Ke Halaman Index  
-[2022-12-14 12:02:22,383 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_12_membuka_halaman_detail_Index()]==>INFO: Membuka Halaman Detail  
-[2022-12-14 12:02:37,007 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_13_export_exel_Index()]==>INFO: Export Excel
-[2022-12-14 12:02:38,455 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_14_export_pdf_Index()]==>INFO: Export PDF
-[2022-12-14 12:02:39,777 test_1Fungsi_Daftar_Lalu_Lintas_Index.py->test_15_cetak_Index()]==>INFO: Cetak
+[2022-12-15 15:32:59,080 test_1Fungsi_DLP_001DaftarLaluLintas_Index.py->test_1_setupOS()]==>INFO: Setup Os
+[2022-12-15 15:33:01,945 test_1Fungsi_DLP_001DaftarLaluLintas_Index.py->test_2_login()]==>INFO: Login

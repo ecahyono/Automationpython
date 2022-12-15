@@ -42,8 +42,9 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 sheetrange = wb['DaftarLaluLintas_Index']
-xr = sheetrange['A'+str(2)].value
-i  = xr
+print('.')
+print('Mau Baris Ke Berapa ?')
+i  = input('')
 
 filterColumn                          = sheetrange['B'+str(i)].value
 namaLengkap                           = sheetrange['C'+str(i)].value
@@ -65,7 +66,7 @@ def test_2_login():
 
 
 @mark.fixture_test()
-def test_3_akses_menu_index_DLP_001():
+def test_3_DLP_001_AksesMenuIndex():
     print('.')
     print('Akses halaman Daftar Lalu Lintas (DLP-001)')
 
@@ -78,14 +79,16 @@ def test_3_akses_menu_index_DLP_001():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     sleep(driver)
-    Log.info('Akses halaman Daftar Lalu Lintas (DLP-001)')
+    Log.info('(DLP-001) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
 
 @mark.fixture_test()
-def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
+def test_4_DLP002_Searchkategori():
+    # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
+    sleep(driver)
     print('Pengecekan data yang telah di filter')
     print('DLP-002')
     time.sleep(1)
@@ -114,50 +117,18 @@ def test_4_Searchkategori():  # Melakukan pencarian data berdasarkan kategori de
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-    Log.info('Pengecekan data yang telah di filter(DLP-002)')
+    Log.info('(DLP-002) Pengecekan data yang telah di filter - Melakukan pengecekan filtering data berdasarkan kategori dan status')
 # Mengosongkan kata kunci dan kategori dengan klik button clear value
 
 # SORTIR TABLE HALAMAN INDEX
 @mark.fixture_test()
-def test_7_DLP001_SortirDatatable_NoInduk_Index():
+def test_7_SortirDatatable_NoInduk_Index():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, "//span/i[2]").click()
     print('.')
     Log.info('Sortir No induk')
-    attach(data=driver.get_screenshot_as_png())
-    #NAMA
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, "//th[3]/div/span").click()
-    print('.')
-    Log.info('Sortir nama')
-    attach(data=driver.get_screenshot_as_png())
-    #JENIS
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, "//th[4]/div").click()
-    print('.')
-    Log.info(' Sortir jenis ')
-    attach(data=driver.get_screenshot_as_png())
-    #TANGGAL KELUAR
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, "//th[5]/div/span/i").click()
-    print('.')
-    Log.info('Sortir Tanggal Keluar ')
-    attach(data=driver.get_screenshot_as_png())
-    #TANGGAL KEMBALI
-    driver.implicitly_wait(30)
-    time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
-    driver.find_element(By.XPATH, "//th[6]/div/span/i").click()
-    print('.')
-    Log.info('Sortir tanggal kembali ')
     attach(data=driver.get_screenshot_as_png())
 
 # Pilih 5 jumlah data per halaman (di pagging) lalu data table yang ditampilkan sesuai(hanya 5 data per 1 halaman)

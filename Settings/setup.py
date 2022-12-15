@@ -22,7 +22,6 @@ def initDriver():
     driver.get(environ.get("HOST"))
     driver.maximize_window()
     driver.implicitly_wait(5)
-
     return driver
 
 def loadDataPath():
@@ -66,9 +65,10 @@ def selectKategoriTamuDinas(driver):
 
 def sleep(driver):
     driver.implicitly_wait(60)
-    print("-")
+    time.sleep(10)
+    """print("-")
     print("silahkan tekan keyboard agar program bisa dilanjutkan !!!")
-    input("")
+    input("")"""
 
 def waituntill(driver):
     driver.implicitly_wait(30)

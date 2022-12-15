@@ -540,7 +540,8 @@ def test_22_kelompokJenisKejahatan():
 def test_23_KapasitasInput():
     driver.implicitly_wait(30)
     sleep(driver)
-    driver.find_element(By.ID, 'kapasitasInput').send_keys(kapasitasInput)
+    driver.find_element(By.CSS_SELECTOR, ".el-input:nth-child(3) > .el-input__inner").send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, "//div[@id=\'kapasitasInput\']/div/input").send_keys(kapasitasInput)
     Log.info('Input Kapasitas Ruangan')
     attach(data=driver.get_screenshot_as_png())
 
