@@ -342,7 +342,7 @@ def test_13_EditUmur():
         driver.find_element(By.XPATH, "//li[contains(.,\'Anak-anak')]").click()
         Log.info('memilih kelompok usia Anak Anak')
         attach(data=driver.get_screenshot_as_png())
-"""
+
 
 @mark.fixture_test()
 def test_14_InputJumlahKamar():
@@ -473,9 +473,12 @@ def test_15_InputNoKamar():
 
     Log.info('Input koridor')
     attach(data=driver.get_screenshot_as_png())
+"""
 @mark.fixture_test()
 def test_16_Submit():
     driver.implicitly_wait(30)
+    time.sleep(5)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     sleep(driver)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
@@ -534,7 +537,7 @@ def test_19_PeruntukanKelompokUsia():
 def test_20_JenisKelamin():
     driver.implicitly_wait(30)
     sleep(driver)
-    driver.find_element(By.CSS_SELECTOR, "#kel_jenis_kejahatan_id").click()
+    driver.find_element(By.ID, "kel_jenis_kelamin_id").click()
     if Editjeniskelamin == 'Laki-laki':
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'Laki-laki\')]')))
         driver.find_element(By.XPATH, "//li[contains(.,\'Laki-laki\')]").click()

@@ -1,15 +1,12 @@
-[2022-12-15 16:53:52,794 test_1_SetupOS()]==>INFO: Login
-[2022-12-15 16:53:58,705 test_2_Login()]==>INFO: Login
-[2022-12-15 16:54:01,885 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: akses menu Manajemen Blok Dan Kamar
-[2022-12-15 16:54:12,682 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
-[2022-12-15 16:55:03,070 test_14_InputJumlahKamar()]==>INFO: Input Jumlah Kamar perlantai
-[2022-12-15 16:55:13,584 test_15_InputNoKamar()]==>INFO: Input koridor
-[2022-12-15 16:55:30,958 test_16_Submit()]==>INFO: Submit data perubahan blok blok 
-[2022-12-15 16:55:41,984 test_17_JenisLantai()]==>INFO: Pilih Lantai yang akan di inputkan
-[2022-12-15 16:55:52,279 test_18_InputNomorKamar()]==>INFO: Input Nomor Kamar
-[2022-12-15 16:56:02,675 test_19_PeruntukanKelompokUsia()]==>INFO: memilih kelompok usia Anak Anak
-[2022-12-15 16:57:03,817 test_21_TipeKamar()]==>INFO: Input Tipe Blok Umum
-[2022-12-15 16:57:15,508 test_22_kelompokJenisKejahatan()]==>INFO: Input untuk Jenis kejahatan Korupsi
-[2022-12-15 16:57:25,847 test_23_KapasitasInput()]==>INFO: Input Kapasitas Ruangan
-[2022-12-15 16:57:36,502 test_24_KondisiRuangan()]==>INFO: Kondisi Ruangan Baik
-[2022-12-15 16:57:46,818 test_25_LamaHuni()]==>INFO: Lama Huni
+[2022-12-16 11:08:58,553 test_1_SetupOS()]==>INFO: Login
+[2022-12-16 11:09:02,425 test_2_Login()]==>INFO: Login
+[2022-12-16 11:09:06,043 test_3_AksesMenu_ManajemenBlokDanKamar()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2022-12-16 11:09:13,428 test_4_ClickButtonTambah_PemetaanBlock()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2022-12-16 11:10:21,722 test_17_JenisLantai()]==>INFO: Pilih Lantai yang akan di inputkan
+[2022-12-16 11:10:27,069 test_18_InputNomorKamar()]==>INFO: Input Nomor Kamar
+[2022-12-16 11:10:39,565 test_20_JenisKelamin()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
+[2022-12-16 11:10:44,979 test_24_KondisiRuangan()]==>INFO: Kondisi Ruangan Baik
+[2022-12-16 11:10:50,862 test_21_TipeKamar()]==>INFO: Input Tipe Blok Umum
+[2022-12-16 11:10:56,276 test_22_kelompokJenisKejahatan()]==>INFO: Input untuk Jenis kejahatan Korupsi
+[2022-12-16 11:11:01,636 test_23_KapasitasInput()]==>INFO: Input Kapasitas Ruangan
+[2022-12-16 11:11:06,960 test_25_LamaHuni()]==>INFO: Lama Huni
