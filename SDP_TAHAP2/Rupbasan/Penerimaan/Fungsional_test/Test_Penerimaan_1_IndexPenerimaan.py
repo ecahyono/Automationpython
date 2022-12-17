@@ -73,7 +73,7 @@ def test_aksesmenuPenerimaan_3():
 @mark.fixture_penerimaan
 def test_PencarianData_3():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	sleep(driver)
+	input('')
 	driver.find_element(By.ID, 'filterColumn').click()
 	time.sleep(2)
 	if Carikolom == 'No Registrasi':
@@ -96,18 +96,18 @@ def test_PencarianData_3():
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Melakukan Pencarian data berdasarkan kategori')
 
-@mark.fixture_penerimaan
-def test_menghapusfieldpencarian_4():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    filter = driver.find_element(By.ID, 'filterColumn')
-    ActionChains(driver).move_to_element(filter).perform()
+# @mark.fixture_penerimaan
+# def test_menghapusfieldpencarian_4():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+#     filter = driver.find_element(By.ID, 'filterColumn')
+#     ActionChains(driver).move_to_element(filter).perform()
 
-    elemnthps = driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['clearkolom'])
-    ActionChains(driver).move_to_element(elemnthps).perform()
-    elemnthps.click()
+#     elemnthps = driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['clearkolom'])
+#     ActionChains(driver).move_to_element(elemnthps).perform()
+#     elemnthps.click()
 
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('menghapus pencarian dengan menekan clear value button')
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('menghapus pencarian dengan menekan clear value button')
 
 # @mark.fixture_penerimaan
 # def test_caridatadenganjenisinstasi_5():
@@ -152,46 +152,46 @@ def test_menghapusfieldpencarian_4():
 #     attach(data=driver.get_screenshot_as_png())
 #     Log.info('Melakukan Pencarian data berdasarkan kategori')
 
-@mark.fixture_penerimaan
-def test_membukahalamanedit_8():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    # test_PencarianData_3()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-    driver.find_element(By.CSS_SELECTOR, '.h-5').click()
+# @mark.fixture_penerimaan
+# def test_membukahalamanedit_8():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+#     # test_PencarianData_3()
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+#     driver.find_element(By.CSS_SELECTOR, '.h-5').click()
 
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Akses menu halaman edit Penerimaan')
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('Akses menu halaman edit Penerimaan')
 
-@mark.fixture_penerimaan
-def test_kembalihalaman_9():
-	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['ubahpenerimaan']['loadhalaman'])))
-	# 
-	driver.find_element(By.ID, 'backButton').click()
+# @mark.fixture_penerimaan
+# def test_kembalihalaman_9():
+# 	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['ubahpenerimaan']['loadhalaman'])))
+# 	# 
+# 	driver.find_element(By.ID, 'backButton').click()
 	
-	attach(data=driver.get_screenshot_as_png())
-	Log.info('Akses menu halaman edit Penerimaan')
+# 	attach(data=driver.get_screenshot_as_png())
+# 	Log.info('Akses menu halaman edit Penerimaan')
 
-@mark.fixture_penerimaan
-def test_membukahalamanDetail_10():
-	test_PencarianData_3()
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+# @mark.fixture_penerimaan
+# def test_membukahalamanDetail_10():
+# 	test_PencarianData_3()
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	
-	driver.find_element(By. ID, 'daftarBarang0').click()
-	attach(data=driver.get_screenshot_as_png()) 
-	Log.info('Membuka daftar barang')
+# 	driver.find_element(By. ID, 'daftarBarang0').click()
+# 	attach(data=driver.get_screenshot_as_png()) 
+# 	Log.info('Membuka daftar barang')
 
-	test_kembalihalaman_9()
+# 	test_kembalihalaman_9()
 
-	attach(data=driver.get_screenshot_as_png())
-	Log.info('Akses menu halama detail Penerimaan')
+# 	attach(data=driver.get_screenshot_as_png())
+# 	Log.info('Akses menu halama detail Penerimaan')
 
 @mark.fixture_penerimaan
 def test_CetakBA_11():
+	# WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
+	# test_PencarianData_3()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	test_PencarianData_3()
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-
-	cetak = driver.find_element(By. ID, 'cetakBA0').click()
+	input('')
+	driver.find_element(By. ID, 'cetakBA0').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
 
 	# test_menghapusfieldpencarian_4()
@@ -201,6 +201,8 @@ def test_CetakBA_11():
 
 @mark.fixture_penerimaan
 def test_CetakSPTJM_12():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
+	input('')
 	driver.find_element(By. ID, 'cetakSPTJM0').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakSPTJM0')))
 
@@ -237,6 +239,7 @@ def test_CetakSPTJM_12():
 
 @mark.fixture_penerimaan
 def test_exportPDF_15():
+    input('')
     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF']).click()
     driver.find_element(By.ID, 'wholeButton').click()
     driver.find_element(By.ID, 'thisButton').click()
@@ -246,6 +249,7 @@ def test_exportPDF_15():
 
 @mark.fixture_penerimaan
 def test_exportexcel_16():
+    input(' ')
     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel']).click()
     driver.find_element(By.ID, 'wholeButton').click()
     driver.find_element(By.ID, 'thisButton').click()
@@ -255,6 +259,7 @@ def test_exportexcel_16():
 
 @mark.fixture_penerimaan
 def test_printhalamn_17():
+    input('')
     driver.find_element(By.ID,'printButton').click()
     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetaksemua']).click()
     driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetakinisaja']).click()
@@ -262,12 +267,12 @@ def test_printhalamn_17():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Print Data Tabel')
 
-@mark.fixture_penerimaan
-def test_membukahalamanTambah_18():
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'printButton')))
-    driver.find_element(By. ID, 'createButton').click
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Akses menu halama Tambah Penerimaan')
+# @mark.fixture_penerimaan
+# def test_membukahalamanTambah_18():
+#     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'printButton')))
+#     driver.find_element(By. ID, 'createButton').click
+#     attach(data=driver.get_screenshot_as_png())
+#     Log.info('Akses menu halama Tambah Penerimaan')
 	
 # @mark.fixture_penerimaan
 # def test_penutup_19():

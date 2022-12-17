@@ -1,3 +1,2 @@
-[2022-12-15 09:19:01,022 Test_Penerimaan_1_IndexPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-15 09:19:02,897 Test_Penerimaan_1_IndexPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-15 09:19:05,927 Test_Penerimaan_1_IndexPenerimaan.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-16 15:15:35,233 Test_Penerimaan_1_IndexPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-16 15:15:39,824 Test_Penerimaan_1_IndexPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)

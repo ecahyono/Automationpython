@@ -1,7 +1,7 @@
-[2022-12-12 18:38:50,755 Test_penerimaan_6_Ubahbarang.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-12 18:38:53,071 Test_penerimaan_6_Ubahbarang.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-12 18:38:57,067 Test_penerimaan_6_Ubahbarang.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
-[2022-12-12 18:39:05,668 Test_penerimaan_6_Ubahbarang.py->test_Pencariandata_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-12 18:39:13,475 Test_penerimaan_6_Ubahbarang.py->test_Membukadetailbarang_5()]==>INFO: Membuka daftar barang
-[2022-12-12 18:39:40,876 Test_penerimaan_6_Ubahbarang.py->test_pilihdetailbarang()]==>INFO: Membuka halaman detail barang Nourut1
-[2022-12-12 18:39:46,239 Test_penerimaan_6_Ubahbarang.py->test_tab_1()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-16 11:00:47,234 Test_penerimaan_6_Ubahbarang.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-16 11:00:51,021 Test_penerimaan_6_Ubahbarang.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-16 11:00:54,019 Test_penerimaan_6_Ubahbarang.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-16 11:01:03,555 Test_penerimaan_6_Ubahbarang.py->test_Pencariandata_4()]==>INFO: Melakukan Pencarian data berdasarkan kategori
+[2022-12-16 11:01:13,470 Test_penerimaan_6_Ubahbarang.py->test_Membukadetailbarang_5()]==>INFO: Membuka daftar barang
+[2022-12-16 11:01:39,663 Test_penerimaan_6_Ubahbarang.py->test_pilihdetailbarang()]==>INFO: Membuka halaman detail barang Nourut1
+[2022-12-16 11:01:54,927 Test_penerimaan_6_Ubahbarang.py->test_PNM_008_1()]==>INFO: Melakukan Pencarian data berdasarkan kategori

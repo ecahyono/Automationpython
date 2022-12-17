@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setup import initDriver, loadDataPath, sleep, quit
-from Settings.login import login
+from Settings.login import login, oprupbasanbdg
 
 
 Log = logging.getLogger(__name__)
@@ -51,16 +51,17 @@ def test_Ossetup_1():
 
 @mark.fixture_penerimaan
 def test_loggin_2():
-    login(driver)
+    # login(driver)
+    oprupbasanbdg(driver)
     Log.info('Memasukan User name dan Password di halaman Login)')
 
 @mark.fixture_penerimaan
 def test_aksesmenuPenerimaan_3():
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['MainText'])
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
     ActionChains(driver).move_to_element(nav1).perform()
     driver.implicitly_wait(5)
     driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
-    driver.find_element(By.XPATH, pathData['Rupelemen']['indexpenempatan']['klik']).click()
+    driver.find_element(By. ID, 'kataKunci').click()
     attach(data=driver.get_screenshot_as_png())
     Log.info('Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi ''Rubasan'' kemudian sub menu ''Penerimaan''')
 
@@ -101,10 +102,9 @@ def test_Membukadetailbarang_5():
 
 @mark.fixture_penerimaan
 def test_pilihdetailbarang():
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'buttonUpdate0')))
-	print('	###S ILAHKAN MASUKAN NOMOR 1 DAN SETERUSNYA UNTUK MEMILIH DETAIL BARANG YANG AKAN LIHAT ####')
+	print('	###SILAHKAN MASUKAN NOMOR 1 DAN SETERUSNYA UNTUK MEMILIH DETAIL BARANG YANG AKAN LIHAT ####')
 	print('ketik ### B ### jika ingin kembali ke halaman sebelumnya')
-	inp = input('Ingin Melihat Detail Barang nomer:')
+	inp = input('Ingin Ubah Barang nomer:')
 	try:
 		if inp == '1':
 			driver.find_element(By.ID, 'buttonUpdate0').click()	
@@ -135,7 +135,7 @@ def test_pilihdetailbarang():
 
 # #Kelengkapan Basan Baran ==============================================================
 sheetrange1 = wb['Barangbasan']
-j = 3
+j = 4
 
 nama_barang   = sheetrange1['A'+str(j)].value #Nama Barang
 barang_temuan = sheetrange1['B'+str(j)].value #Barang Temuan
@@ -228,28 +228,30 @@ Penilai3		= sheetrange1['CD'+str(j)].value #Petugas3
 
 # # #Kelengkapan Basan Baran ==============================================================
 @mark.fixture_penerimaan
-def test_tab_1():
+def test_PNM_008_1():
 	WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadubhbrng'])))
+	time.sleep(10)
 	driver.find_element(By.ID, 'tab-kelengkapanBasanBaran').click()
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Melakukan Pencarian data berdasarkan kategori')
 
 @mark.fixture_penerimaan
-def test_input_1():
-	WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))	
-	nabar = driver.find_element(By.ID, 'namabarang').send_keys(nama_barang) #Nama Barang
+def test_PNM_008_2():
+	nabar = driver.find_element(By.ID, 'nama_barang')
+	nabar.clear()
+	nabar.send_keys(nama_barang) #Nama Barang
 
 @mark.fixture_penerimaan
-def test_checkbox_1():
+def test_PNM_008_3():
 		
-	if barang_temuan == 'Iya':
-		driver.find_element(By.ID, 'barangTemuan').click()
-	elif barang_temuan == 'Tidak':
+	if (barang_temuan == 'Tidak' or barang_temuan == 'tidak'):
+		driver.find_element(By.ID, 'barang_temuan').click()
+	elif (barang_temuan == 'Iya' or barang_temuan == 'iya'):
 		print('')
 
 @mark.fixture_penerimaan
-def test_Dropdown_1():
-	driver.find_element(By.ID, 'jenisBarang').click() 
+def test_PNM_008_4():
+	driver.find_element(By.ID, 'input_jenis_baran_basan').click() 
 	
 	if jenis_barang == 'Umum Terbuka':
 		driver.find_element(By.ID, 'JSB1').click()
@@ -263,7 +265,7 @@ def test_Dropdown_1():
 		driver.find_element(By.ID, 'JSB5').click()
 	
 @mark.fixture_penerimaan
-def test_Dropdown_2():
+def test_PNM_008_5():
 	driver.find_element(By.ID, 'input_satuan_baran_basan').click()
 	if satuan == 'Unit':
 		driver.find_element(By.ID, '01').click()
@@ -339,24 +341,29 @@ def test_Dropdown_2():
 		driver.find_element(By.ID, 'SATUAN LAIN').click()
 
 # @mark.fixture_penerimaan
-# def test_input_2():
+# def test_PNM_008_():
 # 	driver.find_element(By.ID, 'jumlah').send_keys(jumlah) #jumlah
 
 @mark.fixture_penerimaan
-def test_input_3():
-	driver.find_element(By.ID, 'jumlahBaik').send_keys(jumlah_baik) #jumlah_baik
+def test_PNM_008_6():
+	bjmlh = driver.find_element(By.ID, 'jumlah_baik')
+	bjmlh.clear()
+	bjmlh.send_keys(jumlah_baik) #jumlah_baik
 
 @mark.fixture_penerimaan
-def test_input_4():
-	driver.find_element(By.ID, 'jumlahRusakRingan').send_keys(jumlah_rusak_ringan) #jumlah rusak ringan
+def test_PNM_008_7():
+	rrjmlh = driver.find_element(By.ID, 'jumlah_rusak_ringan')
+	rrjmlh.clear()
+	rrjmlh.send_keys(jumlah_rusak_ringan) #jumlah rusak ringan
 	
 @mark.fixture_penerimaan
-def test_input_5():
-	driver.find_element(By.ID, 'jumlahRusakBerat').send_keys(jumlah_rusak_berat) #jumlah Rusak Berat
+def test_PNM_008_8():
+	rbjmlh = driver.find_element(By.ID, 'jumlah_rusak_berat')
+	rbjmlh.clear()
+	rbjmlh.send_keys(jumlah_rusak_berat) #jumlah Rusak Berat
 	
-
 @mark.fixture_penerimaan
-def test_uploadfoto_1():
+def test_PNM_008_9():
 	driver.find_element(By.ID, 'pilihFoto0').click()
 	time.sleep(3)
 	pyautogui.write(environ.get(r"FOTBRG1"))
@@ -367,7 +374,7 @@ def test_uploadfoto_1():
 	
 
 @mark.fixture_penerimaan
-def test_uploadfoto_2():
+def test_PNM_008_10():
 	driver.find_element(By.ID, 'pilihFoto1').click()
 	time.sleep(3)
 	pyautogui.write(environ.get(r"FOTBRG1"))
@@ -378,7 +385,7 @@ def test_uploadfoto_2():
 	
 
 @mark.fixture_penerimaan
-def test_uploadfoto_3():
+def test_PNM_008_11():
 	driver.find_element(By.ID, 'pilihFoto2').click()
 	time.sleep(3)
 	pyautogui.write(environ.get(r"FOTBRG1"))
@@ -387,7 +394,6 @@ def test_uploadfoto_3():
 	# driver.find_element(By.ID,'namaFoto2').send_keys(foto3)
 	driver.find_element(By.ID,'keteranganFoto2').send_keys(keteranfanfoto3)
 	
-
 # Penelitian ==============================================================
 def test_tab_2():
 	

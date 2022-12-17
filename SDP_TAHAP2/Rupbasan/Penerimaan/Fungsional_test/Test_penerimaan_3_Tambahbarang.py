@@ -26,7 +26,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
-from Settings.setup import initDriver, loadDataPath, sleep, quit
+from Settings.setup import initDriver, loadDataPath, sleep, quit, hold
 from Settings.login import login, oprupbasanbdg
 
 
@@ -65,12 +65,12 @@ def test_aksesmenuPenerimaan_00():
 
 
 sheetrange3 = wb['TambahubahPenerimaan'] #untuk mencari data penerimaan
-w = 7
+w = 9
 noregistrasi       = sheetrange3['C'+str(w)].value
 
 @mark.fixture_penerimaan
 def test_Pencariandata_00():
-    sleep(driver)
+    hold(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     driver.find_element(By.ID, 'filterColumn').click()
     time.sleep(1)
@@ -87,8 +87,8 @@ def test_Pencariandata_00():
 @mark.fixture_penerimaan
 def test_PNM_006():
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	
 	driver.find_element(By. ID, 'daftarBarang0').click()
+	# WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang2'])))
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Melakukan Pencarian data berdasarkan kategori')
 	
@@ -189,14 +189,13 @@ Penilai3		= sheetrange1['CD'+str(j)].value #Petugas3
 # # #Kelengkapan Basan Baran ==============================================================
 @mark.fixture_penerimaan
 def test_PNM_007_0():
+	hold(driver)	
 	driver.find_element(By.ID, 'tab-kelengkapanBasanBaran').click()
 	attach(data=driver.get_screenshot_as_png()) 
 	Log.info('Melakukan Pencarian data berdasarkan kategori')
 
 @mark.fixture_penerimaan
 def test_PNM_007_1():
-	sleep(driver)
-	# WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))	
 	nabar = driver.find_element(By.ID, 'nama_barang').send_keys(nama_barang) #Nama Barang
 
 @mark.fixture_penerimaan
@@ -1345,14 +1344,14 @@ def test_PNM_007_68():
 		
 @mark.fixture_penerimaan
 def test_PNM_007_69():
-    sleep(driver)
+    hold(driver)
     driver.find_element(By.ID,'submitButton').click()
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
     test_Pencariandata_00()
     test_PNM_006()
-    sleep(driver)
 
 @mark.fixture_penerimaan
 def test_PNM_007_():
-	quit(driver)
-	Log.info('menyelesaikan test dan menutup browser')
+    hold(driver)
+    quit(driver)
+    Log.info('menyelesaikan test dan menutup browser')
