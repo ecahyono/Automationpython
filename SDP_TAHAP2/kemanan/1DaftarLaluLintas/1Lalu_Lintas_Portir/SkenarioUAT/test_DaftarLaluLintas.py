@@ -12,6 +12,7 @@ import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
+import pyautogui
 
 import sys
 from os import environ, path
@@ -21,12 +22,9 @@ from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
-    wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/KeamananUAT.xlsx")
-    sys.path.append(environ.get("MACEXCELDIR"))
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
-    sys.path.append(environ.get("WINEXCELDIR"))
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
@@ -35,12 +33,13 @@ from Settings.login import login
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('1Fungsi_Daftar_Lalu_Lintas_Index.log', mode="w")
+fh = logging.FileHandler('DaftarLaluLintasUAT.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
+wb = load_workbook(environ.get("KeamananUAT"))
 sheetrange = wb['DaftarLaluLintas_Index']
 print('.')
 print('Mau Baris Ke Berapa ?')
@@ -70,7 +69,7 @@ def test_2_login():
 @mark.fixture_test()
 def test_DLP_001():
     print('.')
-    print('Akses halaman Daftar Lalu Lintas (DLP-001)')
+    print('Menjalankan (DLP-001)')
 
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
@@ -81,18 +80,18 @@ def test_DLP_001():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     sleep(driver)
-    Log.info('(DLP-001) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
+    Log.info('(DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
 
-"""
+
 @mark.fixture_test()
 def test_DLP_002():
     # Melakukan pencarian data berdasarkan kategori dengan memilih kategori dan menginputkan kata kunci lalu data table yang ditampilkan sesuai
     driver.implicitly_wait(20)
     sleep(driver)
-    print('Pengecekan data yang telah di filter')
-    print('DLP-002')
+    print('.')
+    print('Menjalankan DLP-002')
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
@@ -119,7 +118,7 @@ def test_DLP_002():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
-    Log.info('(DLP-002) Pengecekan data yang telah di filter - Melakukan pengecekan filtering data berdasarkan kategori dan status')
+    Log.info('(DLP-002 Berhasil) Pengecekan data yang telah di filter - Melakukan pengecekan filtering data berdasarkan kategori dan status')
 
 
                                 ########## HALAMAN CARI IDENTITAS WBP ##########
@@ -137,6 +136,8 @@ jenisKejahatancari                        = sheetrangeCariIdentitas['E'+str(cari
 @mark.fixture_test()
 def test_DLP_003():
     sleep(driver)
+    print('.')
+    print('Menjalankan DLP-003')
     driver.implicitly_wait(60)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
@@ -198,11 +199,15 @@ def test_DLP_003():
 @mark.fixture_test()
 def test_DLP_004():
     #belum
+    print('.')
+    print('Menjalankan DLP-004')
     sleep(driver)
     print('kumaha ieu')
 
 @mark.fixture_test()
 def test_DLP_005():
+    print('.')
+    print('Menjalankan DLP-005')
     sleep(driver)
     # 5 HALAMAN
     driver.implicitly_wait(60)
@@ -274,6 +279,8 @@ def test_DLP_005():
 
 @mark.fixture_test()
 def test_DLP_006():
+    print('.')
+    print('Menjalankan DLP-006')
     #belum
     print('test button selanjutnya dan sebelum')
 
@@ -294,6 +301,8 @@ PengwalExternalInput                       = sheetrangeInput['H'+str(Halinput)].
 
 @mark.fixture_test()
 def test_DLP_007():
+    print('.')
+    print('Menjalankan DLP-007')
     sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -338,6 +347,8 @@ def test_DLP_007():
 
 @mark.fixture_test()
 def test_DLP_008():
+    print('.')
+    print('Menjalankan DLP-008')
     sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenisKeluar"]')))
@@ -508,12 +519,17 @@ def test_DLP_008():
 @mark.fixture_test()
 def test_DLP_009():
     #belum
+    print('.')
+    print('Menjalankan DLP-009')
     sleep(driver)
     print('Mencetak surat')
     Log.info('Mencetak surat data yang berstatus “Dalam Proses” dengan ceklis data yang akan dicetak suratnya pada checkbox lalu klik button Cetak Surat')
 
 @mark.fixture_test()
 def test_DLP_010():
+    print('.')
+    print('Menjalankan DLP-010')
+    sleep(driver)
     driver.implicitly_wait(30)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-blue-500 .h-5")))
@@ -522,7 +538,7 @@ def test_DLP_010():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[1]/div/button')))
     driver.find_element(By.ID, 'backButton').click()
     Log.info('Membuka Halaman Detail  ')
-    attach(data=driver.get_screenshot_as_png())"""
+    attach(data=driver.get_screenshot_as_png())
 
                                                     ########## masuk ke halaman ubah ##########
 
@@ -543,6 +559,8 @@ PengwalExternalEditUbah                         = sheetrangeUbah['I'+str(HalUbah
 
 @mark.fixture_test()
 def test_DLP_011():
+    print('.')
+    print('Menjalankan DLP-011')
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="filterColumn"]').click()
     time.sleep(0.1)
@@ -577,9 +595,9 @@ def test_DLP_011():
 
     sleep(driver)
     driver.implicitly_wait(30)
-    time.sleep(1)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    time.sleep(10)
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".text-green-500 .h-5")))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 .h-5")))
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 .h-5").click()
@@ -589,14 +607,16 @@ def test_DLP_011():
     Log.info('Click Button Update')
     attach(data=driver.get_screenshot_as_png())
 
-
+    time.sleep(5)
     sleep(driver)
     driver.implicitly_wait(10)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
-    driver.find_element(By.XPATH, '//*[@id="noSK"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="noSK"]').send_keys(noSKUbah)
+    time.sleep(10)
+    driver.find_element(By.ID, 'noSK').click()
+    driver.find_element(By.ID, 'noSK').clear()
+    driver.find_element(By.ID, 'noSK').send_keys(noSKUbah)
     print('.')
-    Log.info('Ubah Deskripsi Berhasil')
+    Log.info('Ubah No SK Berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -606,15 +626,17 @@ def test_DLP_011():
     time.sleep(3)
     pyautogui.write("///////users/will/Downloads/pdf/rere.pdf")
     time.sleep(2)
-    pyautogui.press('enter')
-    pyautogui.write("///////users/will/Downloads/pdf/rere.pdf")
     time.sleep(3)
     pyautogui.press('enter')
     pyautogui.hotkey("backspace")
-    pyautogui.write("///////users/will/Downloads/pdf/rere.pdf")
+    pyautogui.hotkey("backspace")
+    pyautogui.hotkey("backspace")
+    pyautogui.hotkey("backspace")
+    pyautogui.hotkey("backspace")
     pyautogui.press('enter')
     time.sleep(1)
-    pyautogui.press('enter')
+    print('Pilih PDF')
+    sleep(driver)
 
     Log.info('Upload PDF')
     attach(data=driver.get_screenshot_as_png())
@@ -626,10 +648,11 @@ def test_DLP_011():
     print('=')
     Log.info('ubah status pendaftaran')
     attach(data=driver.get_screenshot_as_png())
-"""
-# MENEGEDIT DESKRIPSI
+
 @mark.fixture_test()
 def test_DLP_012():
+    print('.')
+    print('Menjalankan DLP-012')
     sleep(driver)
     driver.implicitly_wait(10)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
@@ -742,11 +765,15 @@ def test_DLP_012():
 
 @mark.fixture_test()
 def test_DLP_013():
+    print('.')
+    print('Menjalankan DLP-013')
     #belum
     print('cek halaman paling belakang, sesuaikan dengan jumlah data')
 
 @mark.fixture_test()
 def test_DLP014_DLP015():
+    print('.')
+    print('Menjalankan DLP-014_015')
     sleep(driver)
     # 5 HALAMAN
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -809,7 +836,8 @@ def test_DLP014_DLP015():
 
 @mark.fixture_test()
 def test_DLP016():
-
+    print('.')
+    print('Menjalankan DLP-016')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
@@ -826,6 +854,8 @@ def test_DLP016():
 @mark.fixture_test()
 def test_DLP017():
 # Melakukan export data tabel ke pdf
+    print('.')
+    print('Menjalankan DLP-017')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
@@ -838,9 +868,11 @@ def test_DLP017():
     print('.')
     Log.info('Export PDF')
     attach(data=driver.get_screenshot_as_png())
+    
 @mark.fixture_test()
-def test_DLP018():
-# Melakukan cetak
+def test_DLP_018():
+    print('.')
+    print('Menjalankan DLP-018')
     sleep(driver)
     time.sleep(1)
     driver.implicitly_wait(30)
@@ -849,7 +881,7 @@ def test_DLP018():
     driver.find_element(By.XPATH,'//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]').click()
     print('.')
     Log.info('Cetak')
-    attach(data=driver.get_screenshot_as_png())"""
+    attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()

@@ -1,0 +1,10 @@
+[2022-12-17 14:03:34,308 test_DaftarLaluLintas.py->test_1_setupOS()]==>INFO: Setup Os
+[2022-12-17 14:03:39,071 test_DaftarLaluLintas.py->test_2_login()]==>INFO: Login
+[2022-12-17 14:03:48,298 test_DaftarLaluLintas.py->test_DLP_001()]==>INFO: (DLP-001) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas
+[2022-12-17 14:03:53,731 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: Memilih Dropdown Nama
+[2022-12-17 14:03:53,904 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO:  Input Nama  
+[2022-12-17 14:04:09,118 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: Click Button Cari
+[2022-12-17 14:04:31,584 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: Click Button Update
+[2022-12-17 14:04:51,896 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: Ubah Deskripsi Berhasil
+[2022-12-17 14:05:16,638 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: Upload PDF
+[2022-12-17 14:05:22,135 test_DaftarLaluLintas.py->test_DLP_011()]==>INFO: ubah status pendaftaran

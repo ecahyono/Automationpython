@@ -198,44 +198,63 @@ def test_MKR_006():
 def test_MKR_007():
     attach(data=driver.get_screenshot_as_png())
 
+    Log.info('Memilih Blok & Kamar untuk WBP yang bisa dilakukan dengan 2 cara, ')
+
+
+
+    Log.info(' Cara 1 : menekan button Denah Blok & Kamar lalu memilih Blok pada pop up kemudian pilih Lantai dan pilih Kamar kemudian klik button Simpan ')
+
+
+    Log.info('2: pilih Blok dan Kamar pada dropdown di form Catat Penempatan Kamar')
+
 @mark.fixture_test()
 def test_MKR_008():
+    Log.info('Menginputkan data tanggal dan alasan mutasi pada form Catat Mutasi Kamar lalu klik button simpan untuk menyimpan data Mutasi Kamar ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_009():
+    Log.info('Menampilkan detail data Penghuni dengan menggunakan button (Detail) pada kolom aksi di tabel data Penghuni pada halaman Manajemen Kamar. Jika ingin Kembali ke halaman sebelumnya, klik button Kembali')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_010():
+    Log.info('Mengubah data Penghuni dengan menggunakan button (Update) pada kolom aksi di tabel halaman Manajemen Kamar kemudian ubah data di form dan klik button simpan. Jika ingin Kembali ke halaman sebelumnya, klik button Kembali')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_011():
+    Log.info('Mencetak sterek dengan menekan Button Cetak Sterek')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_012():
+    Log.info('Menampilkan dropdown jumlah data yang dipilih oleh pengguna dan ditampilkan pada main grid')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_013():
+    Log.info('Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_014():
+    Log.info('Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_015():
+    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) dengan menekan Button Export Excel')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_016():
+    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_MKR_017():
+    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) yang terhubung langsung dengan perangkat tambahan (printer)')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
