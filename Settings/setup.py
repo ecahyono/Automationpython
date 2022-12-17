@@ -65,10 +65,10 @@ def selectKategoriTamuDinas(driver):
 
 def sleep(driver):
     driver.implicitly_wait(60)
-    time.sleep(5)
-    """print("-")
+    #time.sleep(5)
+    print("-")
     print("silahkan tekan keyboard agar program bisa dilanjutkan !!!")
-    input("")"""
+    input("")
 
 def waituntill(driver):
     driver.implicitly_wait(30)

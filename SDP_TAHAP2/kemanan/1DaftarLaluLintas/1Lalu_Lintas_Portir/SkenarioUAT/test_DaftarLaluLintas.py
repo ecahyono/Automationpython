@@ -80,6 +80,7 @@ def test_DLP_001():
     time.sleep(1)
     driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
     sleep(driver)
+    print('.')
     Log.info('(DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
@@ -118,6 +119,7 @@ def test_DLP_002():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.text-green-500 path')))
+    print('.')
     Log.info('(DLP-002 Berhasil) Pengecekan data yang telah di filter - Melakukan pengecekan filtering data berdasarkan kategori dan status')
 
 
@@ -316,14 +318,14 @@ def test_DLP_007():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
     # driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
-    print('=')
+    print('.')
     Log.info(' Input Nama  ')
 
     driver.implicitly_wait(60)
     sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
-    print('=')
+    print('.')
     Log.info(' Click Button Cari  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -333,7 +335,7 @@ def test_DLP_007():
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5 > path")))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5 > path")))
     driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
-    print('=')
+    print('.')
     Log.info(' Click Button Update  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -341,7 +343,7 @@ def test_DLP_007():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
-    print('=')
+    print('.')
     Log.info(' Click Button Tambah WBP  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -427,7 +429,7 @@ def test_DLP_008():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="keluarKeamanan"]').send_keys(Keys.ENTER)
 
-    print('=')
+    print('.')
     Log.info(' Input Tanggal Keluar  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -438,7 +440,7 @@ def test_DLP_008():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#deskripsi')))
     driver.find_element(By.CSS_SELECTOR, "#deskripsi").click()
     driver.find_element(By.CSS_SELECTOR, "#deskripsi").send_keys(deskripsiInput)
-    print('=')
+    print('.')
     Log.info(' Input Deskripsi Behasil ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -448,7 +450,7 @@ def test_DLP_008():
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(TanggalHarusKembaliInput)
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').send_keys(Keys.ENTER)
-    print('=')
+    print('.')
     Log.info(' Input Tanggal Harus Kembali  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -458,7 +460,7 @@ def test_DLP_008():
     driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
     time.sleep(0.5)
     driver.find_element(By.XPATH, '//*[@id="addPengawal"]').click()
-    print('=')
+    print('.')
     Log.info(' Input tambah pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -468,7 +470,7 @@ def test_DLP_008():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis0"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis0"]').click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Internal\')]").click()
-    print('=')
+    print('.')
     Log.info(' Input tambah Jenis pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -479,7 +481,7 @@ def test_DLP_008():
     driver.find_element(By.XPATH, '//*[@id="pengawalInternal0"]').send_keys(PengwalInternalInput)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="optionPengawal00"]')))
     driver.find_element(By.XPATH, '//*[@id="optionPengawal00"]').click()
-    print('=')
+    print('.')
     Log.info(' Input nama pengawal Internal  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -489,7 +491,7 @@ def test_DLP_008():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis1"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis1"]').click()
     driver.find_element(By.CSS_SELECTOR, "#Eksternal1").click()
-    print('=')
+    print('.')
     Log.info(' Input tambah Jenis pengawal  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -501,7 +503,7 @@ def test_DLP_008():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//td[contains(.,'operator')]")))
     time.sleep(0.4)
     driver.find_element(By.XPATH, "//td[contains(.,'operator')]").click()
-    print('=')
+    print('.')
     Log.info(' Input nama pengawal Enternal  ')
     attach(data=driver.get_screenshot_as_png())
 
@@ -645,7 +647,7 @@ def test_DLP_011():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="statusPendaftaran"]')))
     driver.find_element(By.XPATH, '//*[@id="statusPendaftaran"]').send_keys("Diizinkan")
     driver.find_element(By.XPATH, "//li[contains(.,\'Diizinkan\')]").click()
-    print('=')
+    print('.')
     Log.info('ubah status pendaftaran')
     attach(data=driver.get_screenshot_as_png())
 

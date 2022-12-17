@@ -1,0 +1,26 @@
+[2022-12-18 01:31:58,906 test_PortirUAT.py->test_PTR_001()]==>INFO: (Berhasil PTR-001) Berhasil menampilkan halaman Manajemen Portir
+[2022-12-18 01:31:59,187 test_PortirUAT.py->test_PTR_002()]==>INFO: Klik Filter Column
+[2022-12-18 01:32:50,971 test_PortirUAT.py->test_PTR_002()]==>INFO:  Memilih Dropdown Semua  
+[2022-12-18 01:32:51,090 test_PortirUAT.py->test_PTR_002()]==>INFO:  Input kata kunci semua  
+[2022-12-18 01:33:16,868 test_PortirUAT.py->test_PTR_002()]==>INFO: Ketik Status Keluar Kemanan
+[2022-12-18 01:33:23,389 test_PortirUAT.py->test_PTR_002()]==>INFO: Memilih Status Keluar Kemanan
+[2022-12-18 01:33:26,770 test_PortirUAT.py->test_PTR_002()]==>INFO: Klik Button Search
+[2022-12-18 01:33:33,203 test_PortirUAT.py->test_PTR_002()]==>INFO: (Berhasil PTR-002) Berhasil menampilkan data sesuai dengan kategori yang dipilih pada dropdown di halaman Manajemen Portir
+[2022-12-18 01:34:02,160 test_PortirUAT.py->test_PTR_003()]==>INFO: Klik Button Detile
+[2022-12-18 01:34:11,520 test_PortirUAT.py->test_PTR_003()]==>INFO: (BERHASIL PTR-003) Berhasil menampilkan detail data identitas WBP 
+[2022-12-18 01:35:08,279 test_PortirUAT.py->test_PTR_004()]==>INFO: Klik Button Konfirmasi Keluar Keamanan
+[2022-12-18 01:35:31,249 test_PortirUAT.py->test_PTR_004()]==>INFO: Menampilkan alert berhasil kemudian mengubah status portir WBP di halaman Manajemen Portir menjadi “Keluar Portir”
+[2022-12-18 01:35:59,547 test_PortirUAT.py->test_PTR_005()]==>INFO: Klik Filter Kolom
+[2022-12-18 01:36:02,048 test_PortirUAT.py->test_PTR_005()]==>INFO:  Memilih Dropdown Semua  
+[2022-12-18 01:36:02,257 test_PortirUAT.py->test_PTR_005()]==>INFO:  Input kata kunci semua  
+[2022-12-18 01:36:03,404 test_PortirUAT.py->test_PTR_005()]==>INFO: Klik Filter Status
+[2022-12-18 01:36:03,456 test_PortirUAT.py->test_PTR_005()]==>INFO: Memilih Status Keluar Portir
+[2022-12-18 01:36:12,155 test_PortirUAT.py->test_PTR_005()]==>INFO: Klik Button Search
+[2022-12-18 01:36:15,211 test_PortirUAT.py->test_PTR_005()]==>INFO: (Berhasil PTR-002) Berhasil menampilkan data sesuai dengan kategori yang dipilih pada dropdown di halaman Manajemen Portir
+[2022-12-18 01:36:22,746 test_PortirUAT.py->test_PTR_005()]==>INFO: Klik Button Detail
+[2022-12-18 01:37:08,550 test_PortirUAT.py->test_PTR_005()]==>INFO: Klik Button Konfirmasi masuk
+[2022-12-18 01:37:28,916 test_PortirUAT.py->test_PTR_005()]==>INFO: Menampilkan alert berhasil kemudian mengubah status portir WBP di halaman Manajemen Portir menjadi “Masuk Portir”
+[2022-12-18 01:37:37,641 test_PortirUAT.py->test_PTR_MasukPortir()]==>INFO:  Memilih Dropdown Semua  
+[2022-12-18 01:37:37,810 test_PortirUAT.py->test_PTR_MasukPortir()]==>INFO:  Input kata kunci semua  
+[2022-12-18 01:37:57,380 test_PortirUAT.py->test_PTR_MasukPortir()]==>INFO: (Berhasil PTR-xxx) xxx
+[2022-12-18 01:38:19,758 test_PortirUAT.py->test_PTR_MasukPortir()]==>INFO: (BERHASIL PTR-003) Berhasil menampilkan detail data identitas WBP 
