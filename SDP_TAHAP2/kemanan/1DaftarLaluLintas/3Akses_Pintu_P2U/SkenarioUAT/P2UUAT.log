@@ -1,0 +1,6 @@
+[2022-12-19 22:24:01,027 test_P2UUAT.py->test_APO_001()]==>INFO: (Berhasil APO-001) Berhasil menampilkan halaman Akses Pintu Otomatis
+[2022-12-19 22:24:14,472 test_P2UUAT.py->test_APO_006()]==>INFO: Berhasil menampilkan jumlah halaman data yang ditampilkan pada main grid
+[2022-12-19 22:24:27,481 test_P2UUAT.py->test_APO_007()]==>INFO: pergi ke halaman paling belakang
+[2022-12-19 22:24:29,197 test_P2UUAT.py->test_APO_007()]==>INFO: Berhasil menampilkan jumlah data yang sesuai pada main grid
+[2022-12-19 22:24:48,469 test_P2UUAT.py->test_APO_008()]==>INFO: (PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil
+[2022-12-19 22:26:28,889 test_P2UUAT.py->test_PTR_010()]==>INFO: (BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil
