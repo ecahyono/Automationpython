@@ -86,7 +86,7 @@ def test_APO_001():
     Log.info('(Berhasil APO-001) Berhasil menampilkan halaman Akses Pintu Otomatis')
     attach(data=driver.get_screenshot_as_png())
 
-"""@mark.fixture_test()
+@mark.fixture_test()
 def test_APO_002():
     print('.')
     print('(APO-002) / Melakukan pengecekan filtering data')
@@ -353,8 +353,6 @@ def test_APO_005():
     driver.find_element(By.ID, "detailButton0").click()
 
 
-"""
-
 @mark.fixture_test()
 def test_APO_006():
     print('')
@@ -374,11 +372,10 @@ def test_APO_007():
     print('( APO - 007 ) / Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
     sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
     Log.info('pergi ke halaman paling belakang')
     sleep(driver)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Click ke']).send_keys(Keys.BACKSPACE)
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Click ke']).send_keys('100')
+    driver.find_element(By.CSS_SELECTOR, ".el-input--small > .el-input__inner").send_keys(Keys.BACKSPACE)
+    driver.find_element(By.CSS_SELECTOR, ".el-input--small > .el-input__inner").send_keys('100')
 
     Log.info('Berhasil menampilkan jumlah data yang sesuai pada main grid')
     attach(data=driver.get_screenshot_as_png())
@@ -398,6 +395,69 @@ def test_APO_008():
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
     Log.info('(APO -008) / Berhasil menampilkan halaman sebelumnya dan selanjutnya')
+
+@mark.fixture_test()
+def test_APO_008():
+    print('.')
+    print('(APO - 009) / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
+
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, '#excelButton span').click()
+    driver.find_element(By.CSS_SELECTOR, '#thisButton > span').click()
+    WebDriverWait(driver, 30).until(
+        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info(
+        '(PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_APO_009():
+    # Melakukan export data tabel ke pdf
+    print('.')
+    print('Menjalankan APO - 009 / Mencetak data P2U (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, '#pdfButton span').click()
+    driver.find_element(By.CSS_SELECTOR, '#pdfButton #thisButton').click()
+    WebDriverWait(driver, 30).until(
+        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(BERHASIL APO - 009) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_PTR_010():
+    print('.')
+    print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, '#printButton path').click()
+    driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
+
+    print('.')
+    Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_PTR_010():
+    print('.')
+    print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, "#printButton > #printButton").click()
+    driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
+
+    print('.')
+    Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_exit():

@@ -513,7 +513,7 @@ def test_PTR_012():
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.CSS_SELECTOR, '#printButton path').click()
+    driver.find_element(By.CSS_SELECTOR, "#printButton > #printButton").click()
     driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
 
     print('.')
