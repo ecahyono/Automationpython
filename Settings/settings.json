@@ -63,8 +63,7 @@
         "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
-        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
-        "Click ke": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input"
+        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
     },
 
     "Other Search Identitas": {
@@ -75,6 +74,9 @@
     },
 
     "Rupelemen":{
+		"loading":{
+			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]"
+		},
         "indexpenempatan":{
 			"klik":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div/h1",
             "clearkategori":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
@@ -106,8 +108,8 @@
 
             "hlmnedit":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[11]/div/div/div[2]/a/button",
 
-            "exportPDF":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[2]/button",
-            "exportexcel":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[1]/button",
+            "exportPDF":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[2]",
+            "exportexcel":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[5]/div[1]",
             "cetaksemua":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[1]",
             "cetakinisaja":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[5]/div[3]/div/div/div/div[2]/div/button[2]"
         },
@@ -122,7 +124,8 @@
         },
         "ubahpenerimaan":{
 			"hpsbarisya":"//div[20]/div/div[2]/button[2]",
-			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]"
+			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]",
+			"loadingmask":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[9]"
 
         },
         "listbarang":{

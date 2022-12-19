@@ -1,9 +1,4 @@
-[2022-12-16 09:58:18,979 Test_penerimaan_3_Tambahbarang.py->test_Ossetup_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-16 09:58:24,411 Test_penerimaan_3_Tambahbarang.py->test_loggin_00()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-16 09:58:27,407 Test_penerimaan_3_Tambahbarang.py->test_aksesmenuPenerimaan_00()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
-[2022-12-16 09:58:59,458 Test_penerimaan_3_Tambahbarang.py->test_Pencariandata_00()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-16 09:59:08,339 Test_penerimaan_3_Tambahbarang.py->test_PNM_006()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-16 09:59:48,768 Test_penerimaan_3_Tambahbarang.py->test_PNM_007_0()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-16 10:34:46,052 Test_penerimaan_3_Tambahbarang.py->test_Pencariandata_00()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-16 10:34:53,880 Test_penerimaan_3_Tambahbarang.py->test_PNM_006()]==>INFO: Melakukan Pencarian data berdasarkan kategori
-[2022-12-16 10:35:22,640 Test_penerimaan_3_Tambahbarang.py->test_PNM_007_()]==>INFO: menyelesaikan test dan menutup browser
+[2022-12-17 20:00:23,127 Test_Rupbasan_Penerimaan.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-17 20:00:26,934 Test_Rupbasan_Penerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-17 20:00:42,086 Test_Rupbasan_Penerimaan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
+[2022-12-17 20:00:56,826 Test_Rupbasan_Penerimaan.py->test_PNM_002()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori

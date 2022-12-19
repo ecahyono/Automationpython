@@ -1,2 +1,6 @@
-[2022-12-16 15:15:35,233 Test_Penerimaan_1_IndexPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-16 15:15:39,824 Test_Penerimaan_1_IndexPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-17 16:34:32,345 Test_Penerimaan_1_IndexPenerimaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-17 16:34:37,941 Test_Penerimaan_1_IndexPenerimaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-17 16:34:41,701 Test_Penerimaan_1_IndexPenerimaan.py->test_aksesmenuPenerimaan_3()]==>INFO: Menuju Menu Penerimaan dengan mengarahkan kursor ke navigasi Rubasan kemudian sub menu Penerimaan
+[2022-12-17 16:34:58,851 Test_Penerimaan_1_IndexPenerimaan.py->test_exportPDF_15()]==>INFO: Export data tabel dengan format PDF
+[2022-12-17 16:35:20,256 Test_Penerimaan_1_IndexPenerimaan.py->test_exportexcel_16()]==>INFO: Export data Tabel dengan format Excel
+[2022-12-17 16:35:54,836 Test_Penerimaan_1_IndexPenerimaan.py->test_printhalamn_17()]==>INFO: Print Data Tabel
