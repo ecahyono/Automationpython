@@ -372,7 +372,8 @@ def test_APO_006():
 def test_APO_007():
     print('.')
     print('( APO - 007 ) / Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
-
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
     Log.info('pergi ke halaman paling belakang')
     sleep(driver)
