@@ -309,7 +309,7 @@ def test_PTR_005():
 
     driver.implicitly_wait(60)
     time.sleep(2)
-    driver.execute_script("window.scrollTo(0,53)")
+
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#lihatSurat > span")))
     time.sleep(5)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#confirmButton > span")))
@@ -325,13 +325,13 @@ def test_PTR_005():
 
 
 @mark.fixture_test()
-def test_PTR_MasukPortir():
+def test_PTR_006():
     print('.')
-    print('Menjalankan PTR-xxx - xxxx')
+    print('Menjalankan PTR-006/ Menampilkan detail data Portir dan Riwayat Portir dengan menggunakan button (Detail) pada kolom aksi di tabel Manajemen Portir')
     sleep(driver)
 
     print('.')
-    print('xxxx')
+    Log.info('Memilih Filter Status Column')
     sleep(driver)
 
     driver.implicitly_wait(60)
@@ -384,25 +384,25 @@ def test_PTR_MasukPortir():
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
         driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(nama_lengkapindex)
 
+    print('.')
+    Log.info('Memilih Status Masuk Portir')
+    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
     time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="statusColumn"]').send_keys('masuk portir')
-
-    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#statusMasukPortir')))
     driver.find_element(By.CSS_SELECTOR, "#statusMasukPortir").click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
 
+    print('.')
+    Log.info('Klik Button Search')
     sleep(driver)
     driver.find_element(By.ID, 'searchButton').click()
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
     print('.')
-    Log.info(
-        '(Berhasil PTR-xxx) xxx')
+    Log.info('(Berhasil PTR-006)/ Berhasil menampilkan data portir dan riwayat portir WBP yang dipilih dengan sesuai')
 
     attach(data=driver.get_screenshot_as_png())
-
-    print('.')
 
     driver.implicitly_wait(60)
     time.sleep(2)
@@ -411,27 +411,114 @@ def test_PTR_MasukPortir():
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".h-5")))
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5")))
     time.sleep(0.1)
-
+    print('.')
+    Log.info('Click Button Detile')
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, ".h-5").click()
-    print('.')
-    Log.info('(BERHASIL PTR-003) Berhasil menampilkan detail data identitas WBP ')
     attach(data=driver.get_screenshot_as_png())
 
     print('.')
+    print('menunggu halaman ditampilkan')
     sleep(driver)
 
     driver.implicitly_wait(60)
     time.sleep(2)
-    driver.execute_script("window.scrollTo(0,53)")
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#lihatSurat > span")))
+    Log.info('(BERHASIL PTR-006) Berhasil menampilkan detail data identitas WBP ')
+
+    Log.info('Klik Back Button untuk kembali ke halaman Index')
     sleep(driver)
+    driver.find_element(By.ID, 'backButton').click()
+
 
 
 @mark.fixture_test()
-def test_PTR_006():
-    print('tunduh lur sare holak')
+def test_PTR_007():
+    print('.')
+    print('Menjalankan PTR-007 - Pengecekan total halaman')
+    #BELUM
+    Log.info('Klik Pegi ke')
+    sleep(driver)
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')
+@mark.fixture_test()
+def test_PTR_008():
+    print('.')
+    print('Menjalankan PTR-008 / Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
+    sleep(driver)
 
+    # 100 HALAMAN
+    driver.implicitly_wait(20)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
+
+    Log.info(' (PTR-008) / Berhasil menampilkan jumlah data yang sesuai pada main grid  ')
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+@mark.fixture_test()
+def test_PTR_009():
+    print('.')
+    print('Menjalankan PTR-009 / Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
+    sleep(driver)
+    driver.implicitly_wait(30)
+
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    Log.info('Klik button selanjutnya')
+    driver.find_element(By.CSS_SELECTOR, ".btn-next svg").click()
+
+    Log.info('Klik button Sebelumnya')
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
+
+    Log.info('(PTR-009) / Berhasil menampilkan halaman sebelumnya dan selanjutnya')
+
+
+
+@mark.fixture_test()
+def test_PTR_010():
+    print('.')
+    print('Menjalankan PTR - 010 / Mencetak data portir (sesuai dengan jumlah halaman) dengan menekan Button Export Excel')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, '#excelButton span').click()
+    driver.find_element(By.CSS_SELECTOR, '#thisButton > span').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_PTR_011():
+    # Melakukan export data tabel ke pdf
+    print('.')
+    print('Menjalankan PTR - 011 / Mencetak data portir (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR,'#pdfButton span').click()
+    driver.find_element(By.CSS_SELECTOR,'#pdfButton #thisButton').click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(PTR-11) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format PDF (.pdf) kemudian tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_PTR_012():
+    print('.')
+    print('Menjalankan PTR - 012 / Mencetak data portir (sesuai dengan jumlah halaman) yang terhubung langsung dengan perangkat tambahan (printer)')
+    sleep(driver)
+    driver.implicitly_wait(30)
+    time.sleep(1)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, '#printButton path').click()
+    driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
+
+    print('.')
+    Log.info('(PTR-012) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    attach(data=driver.get_screenshot_as_png())
 @mark.fixture_test()
 def test_exit():
     quit(driver)
