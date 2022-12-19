@@ -62,74 +62,75 @@ actions2.move_to_element(element2).perform()
 
 driver.find_element(By.LINK_TEXT, "Gudang").click()
 
-i = 3 
+i = 5 
 
 
 while i <= len(sheetrange['A']):
-    JGudang 		= sheetrange['A'+str(i)].value
-    Alm 			= sheetrange['B'+str(i)].value
-    Prov		    = sheetrange['C'+str(i)].value
-    Kotkab          = sheetrange['D'+str(i)].value
-    luas 	    	= sheetrange['E'+str(i)].value
-    quant 			= sheetrange['F'+str(i)].value
-    ket 		    = sheetrange['G'+str(i)].value
-    Nama            = sheetrange['H'+str(i)].value
-    jmlh            = sheetrange['I'+str(i)].value
-    rangan          = sheetrange['J'+str(i)].value
+	JGudang 		= sheetrange['A'+str(i)].value
+	Alm 			= sheetrange['B'+str(i)].value
+	Prov			= sheetrange['C'+str(i)].value
+	Kotkab		  	= sheetrange['D'+str(i)].value
+	luas 			= sheetrange['E'+str(i)].value
+	quant 			= sheetrange['F'+str(i)].value
+	ket 			= sheetrange['G'+str(i)].value
+	Nama			= sheetrange['H'+str(i)].value
+	jmlh			= sheetrange['I'+str(i)].value
+	rangan		  	= sheetrange['J'+str(i)].value
 
-    driver.find_element(By.ID, "createButton").click()
+	driver.find_element(By.ID, "createButton").click()
 
-    try:
-        gd = driver.find_element(By.ID, 'jenisGudang')
-        gd.click()
-        if JGudang == 'Gudang Umum Terbuka':
-            driver.find_element(By.ID,'JG01').click()
-        elif JGudang == 'Gudang Umum Tertutup':
-            driver.find_element(By.ID,'JG02').click()
-        elif JGudang == 'Gudang Berharga':
-            driver.find_element(By.ID,'JG02').click()
-        elif JGudang == 'Gudang Berbahaya':
-            driver.find_element(By.ID,'JG02').click()
-        elif JGudang == 'Gudang Hewan dan Tumbuhan':
-            driver.find_element(By.ID,'JG02').click()
+	try:
+		gd = driver.find_element(By.ID, 'jenisGudang')
+		gd.click()
+		if JGudang == 'Gudang Umum Terbuka':
+			driver.find_element(By.ID,'JG01').click()
+		elif JGudang == 'Gudang Umum Tertutup':
+			driver.find_element(By.ID,'JG02').click()
+		elif JGudang == 'Gudang Berharga':
+			driver.find_element(By.ID,'JG03').click()
+		elif JGudang == 'Gudang Berbahaya':
+			driver.find_element(By.ID,'JG04').click()
+		elif JGudang == 'Gudang Hewan dan Tumbuhan':
+			driver.find_element(By.ID,'JG05').click()
 
-        driver.find_element(By.ID, 'alamat').send_keys(Alm)
+		driver.find_element(By.ID, 'alamat').send_keys(Alm)
 
-        vinsi = driver.find_element(By.ID,'provinsi')
-        vinsi.send_keys(Prov)
-        if Prov == 'Jawa Barat':
-            driver.find_element(By.ID,'12').click()
-        elif Prov == 'DKI Jakarta':
-            driver.find_element(By.ID,'11').click()
+		vinsi = driver.find_element(By.ID,'provinsi')
+		vinsi.send_keys(Prov)
+		if Prov == 'Jawa Barat':
+			driver.find_element(By.ID,'12').click()
+		elif Prov == 'DKI Jakarta':
+			driver.find_element(By.ID,'11').click()
 
-        paten = driver.find_element(By.ID,'kotaKabupaten')
-        paten.send_keys(Kotkab)
-        if Kotkab == 'Bandung':
-            driver.find_element(By.ID,'122').click()
-        elif Kotkab == 'Jakarta Pusat':
-            driver.find_element(By.ID,'116').click()
-        
-        driver.find_element(By.ID, 'luas').send_keys(luas)
-        driver.find_element(By.ID, 'kapasitasGudang').send_keys(quant)
+		paten = driver.find_element(By.ID,'kotaKabupaten')
+		paten.send_keys(Kotkab)
+		if Kotkab == 'Bandung':
+			driver.find_element(By.ID,'122').click()
+		elif Kotkab == 'Jakarta Pusat':
+			driver.find_element(By.ID,'116').click()
+				
+		driver.find_element(By.ID, 'luas').send_keys(luas)
+		driver.find_element(By.ID, 'kapasitasGudang').send_keys(quant)
 
-        foto = driver.find_element(By.ID, 'pilihFoto').click()
-        time.sleep(3)
-        pyautogui.typewrite(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gudang.png')
-        pyautogui.press('enter')
+		foto = driver.find_element(By.ID, 'pilihFoto').click()
+		time.sleep(3)
+		pyautogui.typewrite(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gudang.png')
+		pyautogui.press('enter')
 
-        driver.find_element(By.ID, 'keterangan').send_keys(ket)
+		driver.find_element(By.ID, 'keterangan').send_keys(ket)
 
-        driver.find_element(By.ID, 'nama0').send_keys(Nama)
+		driver.find_element(By.ID, 'nama0').send_keys(Nama)
 
-        driver.find_element(By.ID, 'jumlah0').send_keys(jmlh)
+		driver.find_element(By.ID, 'jumlah0').send_keys(jmlh)
 
-        driver.find_element(By.ID, 'keterangan0').send_keys(rangan)
-        
-        driver.find_element(By.ID, 'submitButton').click()
+		driver.find_element(By.ID, 'keterangan0').send_keys(rangan)
+				
+		driver.find_element(By.ID, 'submitButton').click()
+		WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.XPATH, 'searchButton')))
 
-    except TimeoutException:
-        pass
-    i = i + 1
+	except TimeoutException:
+		pass
+	i = i + 1
 print ("Success Created")
 
 # 

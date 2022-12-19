@@ -88,7 +88,5 @@ def quit(driver):
     driver.quit()
 
 def hold(driver):
-    driver.implicitly_wait(60)
-    print("-")
-    print("next")
+    print("================================================================= Press Enter to continue")
     input("")
