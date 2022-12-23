@@ -174,7 +174,7 @@ def test_APO_002():
 
 
 sheetrangeTambah = wb['Fungsi_P2U_Input']
-print("1.pegawai 2.Tamu Dinas")
+print("2.pegawai 3.Tamu Dinas")
 tambah = input("")
 
 inputKategoritambah                       = sheetrangeTambah['B' + str(tambah)].value
@@ -212,10 +212,11 @@ def test_4_ButtonTambah_PegawaiTambah():
     driver.implicitly_wait(30)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    if inputKategoriIndex == 'Pegawai':
+    if inputKategoritambah == 'Pegawai':
         Log.info('Input data Pegawai')
         sleep(driver)
-        driver.find_element(By.ID, "pegawai").click()
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+        driver.find_element(By.XPATH, "//li[@id=\'pegawai\']").click()
         driver.find_element(By.ID, 'inputSearch').send_keys(NamaAtauNiptambah)
         if driver.find_elements(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label'):
             driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label').click()
@@ -240,6 +241,7 @@ def test_4_ButtonTambah_PegawaiTambah():
             attach(data=driver.get_screenshot_as_png())
 
     elif inputKategoriIndex == 'Tamu Dinas':
+
         driver.find_element(By.ID, "tamuDinas").click()
         Log.info(' Memilih Kategori Tamu Dinas ')
         driver.find_element(By.ID, 'inputSearch').send_keys(NamaAtauNiptambah)
@@ -325,10 +327,9 @@ def test_APO_004():
 @mark.fixture_test()
 def test_APO_005():
     print('.')
-    print('APO - 005 / Menampilkan detail Detail Portir Akses Pintu P2U dengan menggunakan button (Detail) pada kolom aksi di tabel Daftar Portir Akses Pintu')
+    print('(APO - 005) / Menampilkan detail Detail Portir Akses Pintu P2U dengan menggunakan button (Detail) pada kolom aksi di tabel Daftar Portir Akses Pintu')
     print(".")
-    print(
-        ' (APO-004) / Melakukan konfirmasi keluar pada Non-WBP yang akan keluar melalui akses pintu otomatis dan menampilkan waktu keluar pada main grid')
+    print('(APO-004) / Melakukan konfirmasi keluar pada Non-WBP yang akan keluar melalui akses pintu otomatis dan menampilkan waktu keluar pada main grid')
     sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
@@ -351,6 +352,8 @@ def test_APO_005():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     time.sleep(5)
     driver.find_element(By.ID, "detailButton0").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    driver.find_element(By.ID, 'backButton').click()
 
 
 @mark.fixture_test()
@@ -458,6 +461,7 @@ def test_PTR_010():
     print('.')
     Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
+
 
 @mark.fixture_test()
 def test_exit():

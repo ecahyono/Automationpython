@@ -65,11 +65,19 @@ def selectKategoriTamuDinas(driver):
 
 def sleep(driver):
     driver.implicitly_wait(60)
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
     #time.sleep(5)
     print("-")
-    print("silahkan tekan keyboard agar program bisa dilanjutkan !!!")
+    print(WARNING + "=========================================================================================    NEXT PRESS ENTER    =========================================================================================")
     input("")
-    print('wait . . .')
+    print('wait . . . . . . . . . . . . . . . . . . . . . ')
 
 def waituntill(driver):
     driver.implicitly_wait(60)
