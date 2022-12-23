@@ -96,5 +96,6 @@ def quit(driver):
     driver.quit()
 
 def hold(driver):
-    print("================================================================= Press Enter to continue")
+    WARNING = '\033[93m'
+    print(WARNING +"================================================================= Press Enter to continue")
     input("")
