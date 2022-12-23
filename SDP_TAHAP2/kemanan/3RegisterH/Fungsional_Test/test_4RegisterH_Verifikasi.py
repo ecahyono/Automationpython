@@ -42,15 +42,15 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-sheetrange = wb['RegisterH_Verifikasi']
+sheetrangeVerifikasi = wb['RegisterH_Verifikasi']
 print(".")
 print("masukan baris yang akan dibaca")
 xr = input("")
 i  = xr
 
-filterColumn                                    = sheetrange['B'+str(i)].value
-namaLengkap                                     = sheetrange['C'+str(i)].value
-filterStatus                                    = sheetrange['D'+str(i)].value
+filterColumn                                    = sheetrangeVerifikasi['B'+str(i)].value
+namaLengkap                                     = sheetrangeVerifikasi['C'+str(i)].value
+filterStatus                                    = sheetrangeVerifikasi['D'+str(i)].value
 UbahStatus                                      = sheetrange['E'+str(i)].value
 keterangan                                      = sheetrange['F'+str(i)].value
 
