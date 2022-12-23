@@ -74,8 +74,12 @@
     },
 
     "Rupelemen":{
+		"pengeluaran":{
+			"pengadilantipe":"//div[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/section/div/div/div[6]/div/div/div/div/input"
+		},
 		"loading":{
-			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]"
+			"loadhalaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div[2]",
+			"loaddetailmutasi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/div[2]"
 		},
         "indexpenempatan":{
 			"klik":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[1]/div/h1",
@@ -139,7 +143,7 @@
             "hapuscari":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/label/div/div/div/span/span/i[2]",
             "detailmutasi":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[1]/a/button",
             "ubahmuta":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[9]/div/div/div[2]/a/button",
-			"loadubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[3]/div/svg"
+			"loadubah":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/form/div[3]"
         },
         "+mutasi":{
 

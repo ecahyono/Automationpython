@@ -1,0 +1,4 @@
+[2022-12-21 01:55:49,164 Test_Rupbasan_Pengeluaran.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-21 01:55:50,810 Test_Rupbasan_Pengeluaran.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-21 01:56:45,463 Test_Rupbasan_Pengeluaran.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
+[2022-12-21 01:57:06,095 Test_Rupbasan_Pengeluaran.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah

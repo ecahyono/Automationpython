@@ -40,34 +40,34 @@ Log.addHandler(fh)
 
 wb = load_workbook(environ.get("RUPEXEL"))
 sheetrange = wb['Pemeliharan']
-i = 2
+i = 4
 
-tglPemeliharaan  = sheetrange['A'+str(i)].value #Tanggal Pemeliharaan
-jnspemeliharaan  = sheetrange['B'+str(i)].value #Jenis Pemeliharaan
-KgiPemeliharaan  = sheetrange['C'+str(i)].value #Kegiatan Pemeliharaan
-Keterangan	   = sheetrange['D'+str(i)].value #Keterangan
+tglPemeliharaan		= sheetrange['A'+str(i)].value #Tanggal Pemeliharaan
+jnspemeliharaan		= sheetrange['B'+str(i)].value #Jenis Pemeliharaan
+KgiPemeliharaan		= sheetrange['C'+str(i)].value #Kegiatan Pemeliharaan
+Keterangan			= sheetrange['D'+str(i)].value #Keterangan
 
 ketpelaksana	 = sheetrange['E'+str(i)].value #Ketua Pelaksana
 ptgsinternal	 = sheetrange['F'+str(i)].value #Petugas Pemeliharaan (Internal)
 ptgsexternal	 = sheetrange['G'+str(i)].value #Petugas Pemeliharaan (Eksternal)
 
 #tab Detail Pemeliharan
-jumlhdetail	  = sheetrange['H'+str(i)].value #jumlah
+jumlhdetail		= sheetrange['H'+str(i)].value #jumlah
 namabarang		= sheetrange['I'+str(i)].value #Nama Barang
-kndbrng		  = sheetrange['J'+str(i)].value #Kondisi Barang
+kndbrng			= sheetrange['J'+str(i)].value #Kondisi Barang
 subkonbrg		= sheetrange['K'+str(i)].value #Sub Kondisi Barang
-jmlhbaik		 = sheetrange['L'+str(i)].value #Jumlah Baik
-jmlhRpar	  	 = sheetrange['M'+str(i)].value #Jumlah Rusak Parah
+jmlhbaik		= sheetrange['L'+str(i)].value #Jumlah Baik
+jmlhRpar		= sheetrange['M'+str(i)].value #Jumlah Rusak Parah
 jmlhRring		= sheetrange['N'+str(i)].value #Jumlah Rusak Ringan
 ketdetail		= sheetrange['O'+str(i)].value #Keterangan
 
 #tab identitas
-jmlhbahan		  = sheetrange['P'+str(i)].value #jumlah
-namabahan		 = sheetrange['Q'+str(i)].value #Nama Bahan
-jmlhpakai		 = sheetrange['R'+str(i)].value #Jumlah Pakai
+jmlhbahan		= sheetrange['P'+str(i)].value #jumlah
+namabahan		= sheetrange['Q'+str(i)].value #Nama Bahan
+jmlhpakai		= sheetrange['R'+str(i)].value #Jumlah Pakai
 satuan			= sheetrange['S'+str(i)].value #Satuan
 satlain			= sheetrange['T'+str(i)].value #Satuan Lain
-ketbahan		  = sheetrange['U'+str(i)].value #Keterangan
+ketbahan		= sheetrange['U'+str(i)].value #Keterangan
 
 # init driver by os
 @mark.fixture_pemeliharaan
@@ -107,7 +107,7 @@ def test_PML_002():#pencarian data
 	driver.find_element(By.ID, 'filterColumn').click()
 	time.sleep(1)
 	driver.find_element(By.ID, 'tglPemeliharaan').click()
-	tgl = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input')
+	tgl = driver.find_element(By.ID, 'filterTanggal')
 	tgl.send_keys(tglplm)
 	driver.find_element(By.ID, 'searchButton').click()
 
@@ -121,9 +121,9 @@ def test_PML_003_0():
 
 @mark.fixture_pemeliharaan
 def test_PML_003_1():
-	tglplm = driver.find_element(By.ID, 'tglPemeliharaan')
-	tglplm.send_keys(tglPemeliharaan)
-	tglplm.send_keys(Keys.ENTER)
+	tglpem = driver.find_element(By.XPATH, '//*[@id="tglPemeliharaan"]')
+	tglpem.send_keys(tglPemeliharaan)
+	tglpem.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_003_2():
 	driver.find_element(By.ID, 'inputJenisPemeliharaan').click()
@@ -177,25 +177,26 @@ def test_PML_003_7():
 def test_PML_003_9():
 	nabar = driver.find_element(By.ID, 'namaBarang0')
 	nabar.click()
-	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , '241')))
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'nama_barang-0-0')))
 	nabar.send_keys(namabarang)
 	nabar.send_keys(Keys.DOWN)
 	nabar.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_003_10():
-	driver.find_element(By.ID, 'KondisiBarang0').click()
-	if kndbrng == 'Baik':
-		driver.find_element(By.ID, 'KBB1').click()
-	elif kndbrng == 'Rusak':
-		driver.find_element(By.ID, 'KBB2').click()
+	konbar = driver.find_element(By.ID, 'KondisiBarang0')
+	konbar.click()
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'kondisi_barang-0-0')))
+	konbar.send_keys(kndbrng)
+	konbar.send_keys(Keys.DOWN)
+	konbar.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_003_11():
 	if kndbrng == 'Rusak':
-		driver.find_element(By.ID, 'subKondisiBarang0').click()
-		if subkonbrg == 'Rusak Ringan':
-			driver.find_element(By.ID, 'SKB1').click()
-		elif subkonbrg == 'Rusak Berat':
-			driver.find_element(By.ID, 'SKB2').click()
+		subkonbar = driver.find_element(By.ID, 'subKondisiBarang0').click()
+		WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'sub_kondisi_barang-0-0')))
+		Subkonbar.send_keys(subkonbrg)
+		Subkonbar.send_keys(Keys.DOWN)
+		Subkonbar.send_keys(Keys.ENTER)
 	else:
 		pass
 @mark.fixture_pemeliharaan
@@ -236,7 +237,7 @@ def test_PML_003_20():
 def test_PML_003_21():
 	stuan = driver.find_element(By.ID, 'satuanBarang0')
 	stuan.click()
-	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , '05')))
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'satuan-0-0')))
 	stuan.send_keys(satuan)
 	stuan.send_keys(Keys.DOWN)
 	stuan.send_keys(Keys.ENTER)
@@ -264,7 +265,7 @@ def test_Edit_Pemeliharaan():
 	driver.find_element(By.ID, 'filterColumn').click()
 	time.sleep(1)
 	driver.find_element(By.ID, 'tglPemeliharaan').click()
-	# tgl = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/div/input')
+	tgl = driver.find_element(By.ID, 'filterTanggal')
 	tgl.send_keys(tglPemeliharaan)
 	driver.find_element(By.ID, 'searchButton').click()
 
@@ -304,12 +305,12 @@ def test_PLM_004_0():
 	hold(driver)
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	driver.find_element(By.CSS_SELECTOR, "#update-0").click()
-	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['loading']['loadhalaman'])))
 	Log.info('Mengubah Pemeliharaan')
-	hold(driver)
 
 @mark.fixture_pemeliharaan
 def test_PML_004_1():
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['loading']['loadhalaman'])))
+	hold(driver)
 	tglpem = driver.find_element(By.ID, 'tglPemeliharaan')
 	tglpem.send_keys(tglPemelih)
 	tglpem.send_keys(Keys.ENTER)
@@ -331,7 +332,9 @@ def test_PML_004_3():
 		driver.find_element(By.ID, 'KPB2').click()
 @mark.fixture_pemeliharaan
 def test_PML_004_4():
-	driver.find_element(By.ID, 'keterangan').send_keys(Ktrangan)#Keterangan kegiatan
+	ngan = driver.find_element(By.ID, 'keterangan')
+	ngan.clear()
+	gan.send_keys(Ktrangan)#Keterangan kegiatan
 
 @mark.fixture_pemeliharaan
 def test_PML_004_5():
@@ -366,26 +369,28 @@ def test_PML_004_7():
 def test_PML_004_9():
 	nabran = driver.find_element(By.ID, 'namaBarang0')
 	nabran.click()
-	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , '241')))
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'nama_barang-0-0')))
 	nabran.send_keys(namabar)
 	nabran.send_keys(Keys.DOWN)
 	nabran.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_004_10():
-	driver.find_element(By.ID, 'KondisiBarang0').click()
-	if kndb == 'Baik':
-		driver.find_element(By.ID, 'KBB1').click()
-	elif kndb == 'Rusak':
-		driver.find_element(By.ID, 'KBB2').click()
+	kobar = driver.find_element(By.ID, 'KondisiBarang0')
+	kobar.click()
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'kondisi_barang-0-0')))
+	kobar.send_keys(kndb)
+	kobar.send_keys(Keys.DOWN)
+	kobar.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_004_11():
+	Log.info('Jika Kondisi barang =Rusak maka akan mengisi Subkondisi Barang')
 	if kndb == 'Rusak':
-		driver.find_element(By.ID, 'subKondisiBarang0').click()
-		if subkon == 'Rusak Ringan':
-			driver.find_element(By.ID, 'SKB1').click()
-		elif subkon == 'Rusak Berat':
-			driver.find_element(By.ID, 'SKB2').click()
-	else:
+		subkobar = driver.find_element(By.ID, 'subKondisiBarang0').click()
+		WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'sub_kondisi_barang-0-0')))
+		Subkobar.send_keys(subkon)
+		Subkobar.send_keys(Keys.DOWN)
+		Subkobar.send_keys(Keys.ENTER)
+	elif kndb == 'Baik':
 		pass
 @mark.fixture_pemeliharaan
 def test_PML_004_12():
@@ -418,20 +423,25 @@ def test_PML_004_18():
 
 @mark.fixture_pemeliharaan
 def test_PML_004_19():
-	driver.find_element(By.ID, 'namaBahan0').send_keys(namaba)
+	nang = driver.find_element(By.ID, 'namaBahan0')
+	nang.clear()
+	nang.send_keys(namaba)
 @mark.fixture_pemeliharaan
 def test_PML_004_20():
-	driver.find_element(By.ID, 'jmlPakai0').send_keys(jmlhpa)
+	jkai = driver.find_element(By.ID, 'jmlPakai0')
+	jkai.clear()
+	jkai.send_keys(jmlhpa)
 @mark.fixture_pemeliharaan
 def test_PML_004_21():
 	stan = driver.find_element(By.ID, 'satuanBarang0')
 	stan.click()
-	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , '05')))
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'satuan-0-0')))
 	stan.send_keys(sat)
 	stan.send_keys(Keys.DOWN)
 	stan.send_keys(Keys.ENTER)
 @mark.fixture_pemeliharaan
 def test_PML_004_22():
+	driver.find_element(By.ID, 'satuanLain0').clear()
 	driver.find_element(By.ID, 'satuanLain0').send_keys(satl)
 @mark.fixture_pemeliharaan
 def test_PML_004_23():
