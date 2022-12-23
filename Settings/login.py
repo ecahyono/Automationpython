@@ -44,7 +44,7 @@ def loginSPV(driver):
     driver.find_element(By.XPATH, "//div/span").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("gal")
+    driver.find_element(By.ID, "username").send_keys("test-gal")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login

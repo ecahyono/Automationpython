@@ -1,0 +1,10 @@
+[2022-12-23 10:42:48,082 test_RegisterH_UAT.py->test_RTH_001()]==>INFO: akses menu daftar lalu lintas
+[2022-12-23 10:43:18,006 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Search Data Form Kategori Semua 
+[2022-12-23 10:43:18,128 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Klik Button search
+[2022-12-23 10:43:19,839 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Berhasil menampilkan data sesuai dengan kategori yang dipilih pada dropdown dan kata kunci yang diinputkan di halaman Daftar Pengasingan
+[2022-12-23 10:48:56,627 test_RegisterH_UAT.py->test_RTH_003()]==>INFO:  Membuka Halaman Tambah  
+[2022-12-23 10:48:56,941 test_RegisterH_UAT.py->test_RTH_003()]==>INFO:  (RTH 003) / Berhasil menampilkan halaman Cari Identitas beserta list data WBP  
+[2022-12-23 10:49:06,289 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: Klik Search Kategori berdasarkan Nama
+[2022-12-23 10:49:07,490 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: search Nama
+[2022-12-23 10:49:07,638 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: Klik Button Search
+[2022-12-23 10:49:07,738 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: (BERHASIL RTH-004) / Menampilkan data WBP sesuai kategori yang dipilih dan kata kunci yang diinputkan

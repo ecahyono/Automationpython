@@ -63,13 +63,15 @@
         "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Click ke": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
     },
 
     "Other Search Identitas": {
-        "Search Options": "",
-        "Search Button": "",
+        "Search Options": "//*[@id=\\\"searchOption0\\\"]/div/div/table/tbody/tr[2]/td[1]",
+        "Search Button": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
         "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[3]/div/input",
+        "Click ke": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
         "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[2]/div/div/div/input"
     },
 

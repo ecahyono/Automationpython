@@ -91,7 +91,7 @@ def test_4_Search_Nama():
     # KETIK GALIH DI FORM MASUKAN KATA KUNCI
     Log.info('Search Bedasarkan Nama Lengkap')
     attach(data=driver.get_screenshot_as_png())
-    driver.find_element(By.CSS_SELECTOR, ".el-checkbox__inner").click()
+    driver.find_element(By.ID, "konfirmasiKeluar").click()
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
 
 @mark.fixture_test()
