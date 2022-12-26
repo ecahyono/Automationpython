@@ -1,3 +1,18 @@
-[2022-12-23 17:41:55,766 test_RegisterH_UAT.py->test_RTH_001()]==>INFO: akses menu daftar lalu lintas
-[2022-12-23 17:42:25,241 test_RegisterH_UAT.py->test_APO_008()]==>INFO: (PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil
-[2022-12-23 17:42:37,136 test_RegisterH_UAT.py->test_PTR_010()]==>INFO: (BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil
+[2022-12-26 11:35:16,787 test_RegisterH_UAT.py->test_RTH_001()]==>INFO: akses menu daftar lalu lintas
+[2022-12-26 11:35:39,719 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Search Data Form Kategori Semua 
+[2022-12-26 11:35:39,904 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Klik Button search
+[2022-12-26 11:35:40,780 test_RegisterH_UAT.py->test_RTH_002()]==>INFO: Berhasil menampilkan data sesuai dengan kategori yang dipilih pada dropdown dan kata kunci yang diinputkan di halaman Daftar Pengasingan
+[2022-12-26 11:36:11,253 test_RegisterH_UAT.py->test_RTH_003()]==>INFO:  Membuka Halaman Tambah  
+[2022-12-26 11:36:11,444 test_RegisterH_UAT.py->test_RTH_003()]==>INFO:  (RTH 003) / Berhasil menampilkan halaman Cari Identitas beserta list data WBP  
+[2022-12-26 11:36:37,168 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: Klik Search Kategori berdasarkan Nama
+[2022-12-26 11:36:39,678 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: search Nama
+[2022-12-26 11:36:39,883 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: Klik Button Search
+[2022-12-26 11:36:40,054 test_RegisterH_UAT.py->test_RTH_004()]==>INFO: (BERHASIL RTH-004) / Menampilkan data WBP sesuai kategori yang dipilih dan kata kunci yang diinputkan
+[2022-12-26 11:37:08,269 test_RegisterH_UAT.py->test_RTH_005()]==>INFO: (RTH-005) / Menampilkan halaman Tambah Pengasingan
+[2022-12-26 11:40:34,789 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Input Nomor Surat
+[2022-12-26 11:40:36,019 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Input Tanggal Surat
+[2022-12-26 11:40:36,846 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Input Tanggal Mulai
+[2022-12-26 11:40:38,329 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Input Lama Perasingan
+[2022-12-26 11:40:40,435 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Input Alasan
+[2022-12-26 11:40:48,304 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: Click Button Submit
+[2022-12-26 11:40:48,502 test_RegisterH_UAT.py->test_RTH_006()]==>INFO: (RTH-006) / Menampilkan alert berhasil kemudian data ditampilkan pada tabel Halaman Daftar Pengasingan

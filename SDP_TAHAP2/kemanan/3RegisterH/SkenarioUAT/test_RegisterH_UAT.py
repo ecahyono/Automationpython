@@ -81,7 +81,7 @@ def test_RTH_001():
     Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
-"""@mark.fixture_test()
+@mark.fixture_test()
 def test_RTH_002():
 
 
@@ -520,20 +520,20 @@ def test_RTH_007():
 @mark.fixture_test()
 def test_RTH_008():
     print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan ')
-    sleep(driver)"""
+    sleep(driver)
 
 
-"""
 
 @mark.fixture_test()
 def test_RTH_010():
     print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan ')
-    sleep(driver)
-    
+
     global driver, pathData
+    sleep(driver)
     driver = initDriver()
     pathData = loadDataPath()
 
+    sleep(driver)
     loginSPV(driver)
 
     driver.implicitly_wait(30)
@@ -666,11 +666,10 @@ def test_RTH_010():
 
     Log.info('(RTH-006) / Menampilkan alert berhasil kemudian data ditampilkan pada tabel Halaman Daftar Pengasingan')
     attach(data=driver.get_screenshot_as_png())
-    """
 
 
 @mark.fixture_test()
-def test_APO_008():
+def test_RTH_015():
     print('.')
     print('(APO - 009) / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
 
@@ -687,23 +686,23 @@ def test_APO_008():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_APO_009():
+def test_RTH_016():
     # Melakukan export data tabel ke pdf
     print('.')
     print('Menjalankan APO - 009 / Mencetak data P2U (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.CSS_SELECTOR, '#pdfButton > .el-button').click()
-    driver.find_element(By.CSS_SELECTOR, '#thisButton > span').click()
+    driver.find_element(By.CSS_SELECTOR, '#pdfButton #thisButton').click()
     WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
     Log.info('(BERHASIL APO - 009) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_PTR_010():
+def test_RTH_017():
     print('.')
     print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
     sleep(driver)
@@ -723,4 +722,3 @@ def test_exit():
     print(' == NEXT ==  EXIT')
     sleep(driver)
     quit(driver)
-
