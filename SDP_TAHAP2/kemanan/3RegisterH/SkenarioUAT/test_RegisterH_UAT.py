@@ -62,6 +62,7 @@ def test_1_setupOS():
     driver = initDriver()
     pathData = loadDataPath()
 
+                                ############################################################### LOGIN OPERATOR ###############################################################
 
 @mark.fixture_test()
 def test_2_login():
@@ -331,6 +332,8 @@ def test_RTH_006():
     Log.info('(RTH-006) / Menampilkan alert berhasil kemudian data ditampilkan pada tabel Halaman Daftar Pengasingan')
     attach(data=driver.get_screenshot_as_png())
 
+                            ############################################################### LOGIN SUPERVISOR ###############################################################
+
 @mark.fixture_test()
 def test_RTH_007():
 
@@ -517,6 +520,9 @@ def test_RTH_007():
     attach(data=driver.get_screenshot_as_png())
 
 
+
+                            ############################################################### LOGIN OPERATOR ###############################################################
+
 @mark.fixture_test()
 def test_RTH_008():
     print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan Login sebgai Operator upt ')
@@ -668,15 +674,10 @@ def test_RTH_008():
 
 @mark.fixture_test()
 def test_RTH_009():
-    print(' == NEXT == (RTH - 009)  / Pengecekan data Pengasingan WBP yang telah diubah ')
+    print(' == NEXT == (RTH - 009)  / Pengecekan data Pengasingan WBP yang telah diubah')
     sleep(driver)
-
-
-
-
-
-
-
+    
+    #belum
     Log.info(' (RTH - 009) ')
 
 
@@ -685,18 +686,113 @@ def test_RTH_010():
     print(' == NEXT == (RTH - 010)  / Pengecekan tampilan detail data Pengasingan WBP ')
     sleep(driver)
 
+    #belum
+
     Log.info(' (RTH - 010) / ')
 
+
+sheetrangeEdit = wb['RegisterH_Edit']
+print(".")
+print("Halaman Edit, masukan baris yang akan dibaca . . . .")
+
+edit  = input('')
+
+noSuratEdit                                         = sheetrangeEdit['B'+str(edit)].value
+tanggalSuratEdit                                    = sheetrangeEdit['C'+str(edit)].value
+tanggalMulaiEdit                                    = sheetrangeEdit['D'+str(edit)].value
+lamaPengasinganEdit                                 = sheetrangeEdit['E'+str(edit)].value
+alasanEdit                                          = sheetrangeEdit['F'+str(edit)].value
 
 
 @mark.fixture_test()
 def test_RTH_011():
-    print(' == NEXT == (RTH - 011)  /  ')
+    print(' == NEXT == (RTH - 011)  / Pengecekan data Pengasingan WBP yang telah diubah')
     sleep(driver)
 
+    print(' == NEXT == / Memilih Filter Column untuk filter data ')
+    sleep(driver)
+    driver.find_element(By.ID, 'filterColumn').click()
+    if filterColumnTambah == 'nama':
+        
+        sleep(driver)
+        driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+
+        Log.info('input kata kunci nama')
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namaTambah)
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+        Log.info('memilih filter berdasarkan nama ')
 
 
-    #wildan
+    elif filterColumnindex == 'noSurat':
+        Log.info('Memilih Filter Column No surat')
+        sleep(driver)
+        driver.find_element(By.ID, 'filterColumn').send_keys('no')
+        driver.find_element(By.XPATH, '//*[@id="noSurat"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+
+        Log.info('Input No surat')
+        sleep(driver)
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(noSuratindex)
+
+        Log.info('Search Data Kategori Nomor surat ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumnindex == "lamaPerasingan":
+
+        driver.find_element(By.XPATH, '//*[@id="lamaPengasingan"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        Log.info('Input Lama Perasingan')
+        sleep(driver)
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(lamaPengasinganindex)
+
+        Log.info('Search Data lama perasingan ')
+        attach(data=driver.get_screenshot_as_png())
+
+    elif filterColumnindex == "tanggalMulai":
+        driver.find_element(By.ID, 'filterColumn').send_keys('tgl')
+        print(' == NEXT == Input Tangal mulai')
+        sleep(driver)
+        driver.find_element(By.XPATH, '//*[@id="tanggalMulai"]').click()
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalMulai"]')))
+        Log.info('input Tanggal Mulai')
+        sleep(driver)
+        driver.find_element(By.XPATH, '//*[@id="tanggalMulai"]').send_keys(tanggalMulaiindex)
+
+        Log.info('Search Data Form Kategori Nama ')
+        attach(data=driver.get_screenshot_as_png())
+    elif filterColumnindex == 'tanggalKembali':
+        print(' == NEXT == Input Tanggal Kembali')
+
+        time.sleep(1)
+        driver.find_element(By.ID, 'filterColumn').send_keys('tgl')
+        driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').click()
+        Log.info('Input tanggal kembali')
+        sleep(driver)
+
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalSelesai"]')))
+        driver.find_element(By.XPATH, '//*[@id="tanggalSelesai"]').send_keys(tanggalKembaliindex)
+
+        Log.info('Search tanggal kembali ')
+        attach(data=driver.get_screenshot_as_png())
+    elif filterColumnTambah == 'semua':
+        print(' == NEXT == semua')
+        sleep(driver)
+        driver.find_element(By.ID, 'filterColumn').send_keys('Semua')
+        driver.find_element(By.XPATH, '//*[@id="semua"]').click()
+        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(semuaTambah)
+
+        Log.info('Search Data Form Kategori Semua ')
+        attach(data=driver.get_screenshot_as_png())
+    
+    print('== NEXT == Klik button search')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+    Log.info('Klik Button search')
+    
+
+
 
 
 
@@ -706,48 +802,50 @@ def test_RTH_011():
 
 @mark.fixture_test()
 def test_RTH_012():
-    print(' == NEXT == (RTH - 012)  /  ')
+
+    Log.info('== NEXT == (RTH - 012)  / Pergi ke halaman paling belakang')
     sleep(driver)
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys(Keys.BACKSPACE)
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke']).send_keys('100')  
+    time.sleep(1)
 
-
-
-
-
-
-
-    Log.info(' (RTH - 012) /  ')
-
+    Log.info(' (RTH - 012) / Berhasil menampilkan jumlah halaman data yang ditampilkan pada main grid')
+    attach(data=driver.get_screenshot_as_png())
 
 
 
 @mark.fixture_test()
 def test_RTH_013():
-    print(' == NEXT == (RTH - 013)  /  ')
+
+    print(' == NEXT == (RTH - 013)  / Pengecekan navigasi button halaman ')
     sleep(driver)
 
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
+    sleep(driver)
 
-
-
-
-
-
-    Log.info(' (RTH - 013) / ')
-
+    Log.info(' (RTH - 013) ')
 
 
 
 @mark.fixture_test()
 def test_RTH_014():
-    print(' == NEXT == (RTH - 014fdfdffffffff)  / Pengecekan navigasi button halaman ')
+    print(' == NEXT == (RTH - 014) / Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
+
     sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    driver.find_element(By.CSS_SELECTOR, ".btn-next svg").click()
+    Log.info('menekan button selanjutanya')
 
-
-
-
-
-
-
-    Log.info(' (RTH - 014) Berhasil menampilkan halaman sebelumnya dan selanjutnya')
+    print(' == NEXT == (RTH - 014) /Menakan Button Sebelumnya ')
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+    Log.info('Menekan button sebelumnya')
+    Log.info('(RTH - 014) / Berhasil menampilkan halaman sebelumnya dan selanjutnya')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_RTH_015():
@@ -791,6 +889,7 @@ def test_RTH_017():
     print('.')
     Log.info('(BERHASIL RTH - 017) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
+
 
 
 @mark.fixture_test()
