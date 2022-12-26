@@ -738,7 +738,7 @@ def test_RTH_013():
 
 @mark.fixture_test()
 def test_RTH_014():
-    print(' == NEXT == (RTH - 014)  / Pengecekan navigasi button halaman ')
+    print(' == NEXT == (RTH - 014fdfd)  / Pengecekan navigasi button halaman ')
     sleep(driver)
 
 
@@ -751,7 +751,7 @@ def test_RTH_014():
 
 @mark.fixture_test()
 def test_RTH_015():
-    
+
     print(' == NEXT == (RTH - 015)  / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
     sleep(driver)
 
