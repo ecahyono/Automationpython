@@ -519,22 +519,15 @@ def test_RTH_007():
 
 @mark.fixture_test()
 def test_RTH_008():
-    print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan ')
-    sleep(driver)
-
-
-
-@mark.fixture_test()
-def test_RTH_010():
-    print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan ')
-
+    print(' == NEXT == ( RTH-010 ) / Melakukan Perpanjangan Pengasingan Login sebgai Operator upt ')
     global driver, pathData
     sleep(driver)
     driver = initDriver()
     pathData = loadDataPath()
 
+    print(' == NEXT == / Login ')
     sleep(driver)
-    loginSPV(driver)
+    login(driver)
 
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
@@ -545,6 +538,7 @@ def test_RTH_010():
     Log.info('akses menu daftar lalu lintas')
     attach(data=driver.get_screenshot_as_png())
 
+    print(' == NEXT == / Memilih Filter Column untuk filter data ')
     sleep(driver)
     driver.find_element(By.ID, 'filterColumn').click()
     if filterColumnTambah == 'nama':
@@ -577,6 +571,7 @@ def test_RTH_010():
 
         driver.find_element(By.XPATH, '//*[@id="lamaPengasingan"]').click()
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+        Log.info('Input Lama Perasingan')
         sleep(driver)
         driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(lamaPengasinganindex)
 
@@ -585,20 +580,23 @@ def test_RTH_010():
 
     elif filterColumnindex == "tanggalMulai":
         driver.find_element(By.ID, 'filterColumn').send_keys('tgl')
+        print(' == NEXT == Input Tangal mulai')
         sleep(driver)
-
         driver.find_element(By.XPATH, '//*[@id="tanggalMulai"]').click()
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalMulai"]')))
+        Log.info('input Tanggal Mulai')
         sleep(driver)
         driver.find_element(By.XPATH, '//*[@id="tanggalMulai"]').send_keys(tanggalMulaiindex)
 
         Log.info('Search Data Form Kategori Nama ')
         attach(data=driver.get_screenshot_as_png())
     elif filterColumnindex == 'tanggalKembali':
+        print(' == NEXT == Input Tanggal Kembali')
 
         time.sleep(1)
         driver.find_element(By.ID, 'filterColumn').send_keys('tgl')
         driver.find_element(By.XPATH, '//*[@id="tanggalKembali"]').click()
+        Log.info('Input tanggal kembali')
         sleep(driver)
 
         WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="tanggalSelesai"]')))
@@ -620,6 +618,7 @@ def test_RTH_010():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
 
+    Log.info('klik Perpanjangan Perasingan')
     sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.CSS_SELECTOR, '#perpanjangan0').click()
@@ -667,44 +666,121 @@ def test_RTH_010():
     Log.info('(RTH-006) / Menampilkan alert berhasil kemudian data ditampilkan pada tabel Halaman Daftar Pengasingan')
     attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_RTH_009():
+    print(' == NEXT == (RTH - 009)  / Pengecekan data Pengasingan WBP yang telah diubah ')
+    sleep(driver)
+
+
+
+
+
+
+
+    Log.info(' (RTH - 009) ')
+
+
+@mark.fixture_test()
+def test_RTH_010():
+    print(' == NEXT == (RTH - 010)  / Pengecekan tampilan detail data Pengasingan WBP ')
+    sleep(driver)
+
+    Log.info(' (RTH - 010) / ')
+
+
+
+@mark.fixture_test()
+def test_RTH_011():
+    print(' == NEXT == (RTH - 011)  /  ')
+    sleep(driver)
+
+
+
+    #wildan
+
+
+
+    Log.info(' (RTH - 011) / ')
+
+
+
+@mark.fixture_test()
+def test_RTH_012():
+    print(' == NEXT == (RTH - 012)  /  ')
+    sleep(driver)
+
+
+
+
+
+
+
+    Log.info(' (RTH - 012) /  ')
+
+
+
+
+@mark.fixture_test()
+def test_RTH_013():
+    print(' == NEXT == (RTH - 013)  /  ')
+    sleep(driver)
+
+
+
+
+
+
+
+    Log.info(' (RTH - 013) / ')
+
+
+
+
+@mark.fixture_test()
+def test_RTH_014():
+    print(' == NEXT == (RTH - 014)  / Pengecekan navigasi button halaman ')
+    sleep(driver)
+
+
+
+
+
+
+
+    Log.info(' (RTH - 014) Berhasil menampilkan halaman sebelumnya dan selanjutnya')
 
 @mark.fixture_test()
 def test_RTH_015():
-    print('.')
-    print('(APO - 009) / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
-
+    
+    print(' == NEXT == (RTH - 015)  / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
     sleep(driver)
-    driver.implicitly_wait(30)
+
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.CSS_SELECTOR, '#excelButton span').click()
     driver.find_element(By.CSS_SELECTOR, '#thisButton > span').click()
-    WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    Log.info(
-        '(PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(RTH-015) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_RTH_016():
-    # Melakukan export data tabel ke pdf
-    print('.')
-    print('Menjalankan APO - 009 / Mencetak data P2U (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
+
+    print(' == NEXT == (RTH - 016) / Mencetak data Register H (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.CSS_SELECTOR, '#pdfButton > .el-button').click()
     driver.find_element(By.CSS_SELECTOR, '#pdfButton #thisButton').click()
-    WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    Log.info('(BERHASIL APO - 009) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(BERHASIL (RTH - 016) / Berhasil mencetak data Register H otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_RTH_017():
-    print('.')
-    print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
+
+    print('== NEXT == Menjalankan RTH - 017 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
@@ -713,12 +789,13 @@ def test_RTH_017():
     driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
 
     print('.')
-    Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    Log.info('(BERHASIL RTH - 017) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()
 def test_exit():
+
     print(' == NEXT ==  EXIT')
     sleep(driver)
     quit(driver)
