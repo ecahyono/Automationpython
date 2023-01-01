@@ -20,7 +20,7 @@ def initDriver():
 
     driver.get(environ.get("HOSTKUMBANG"))
     #driver.get(environ.get("HOST"))
-    #driver.maximize_window()
+    driver.maximize_window()
     driver.implicitly_wait(60)
     return driver
 

@@ -1,2 +1,5 @@
-[2023-01-01 19:21:41,828 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
-[2023-01-01 19:21:45,091 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
+[2023-01-01 20:30:12,265 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
+[2023-01-01 20:30:16,789 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
+[2023-01-01 20:30:21,000 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2023-01-01 20:30:47,338 test_ManajemenBlokDanKamarUAT.py->test_MBK_002()]==>INFO: Berhasil menampilkan data blok berdasarkan kata kunci yang diinputkan di halaman Pemetaan Blok & Kamar
+[2023-01-01 20:31:20,901 test_ManajemenBlokDanKamarUAT.py->test_MBK_003()]==>INFO: Berhasil menampilkan data berdasarkan kategori kapasitas yang dipilih pada dropdown di halaman Pemetaan Blok & Kamar

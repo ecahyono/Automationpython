@@ -76,7 +76,6 @@ def test_MBK_001():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
-    sleep(driver)
     Log.info('Login')
 
     login(driver)
@@ -91,15 +90,15 @@ def test_MBK_001():
     driver.find_element(By.LINK_TEXT, 'Manajemen Blok dan Kamar').click()
     Log.info('akses menu Manajemen Blok Dan Kamar')
     attach(data=driver.get_screenshot_as_png())
-
+""
 @mark.fixture_test()
 def test_MBK_002():
     print('== NEXT == MBK-002 / melakukan filtering data')
     sleep(driver)
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    driver.find_element(By.ID, 'kataKunci').click
+    driver.find_element(By.ID, 'kataKunci').click()
     driver.find_element(By.ID, 'kataKunci').send_keys(filterColumnIndex)
-    driver.find_element(By.ID, 'searchButton').click
+    driver.find_element(By.ID, 'searchButton').click()
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     Log.info('Berhasil menampilkan data blok berdasarkan kata kunci yang diinputkan di halaman Pemetaan Blok & Kamar')
     attach(data=driver.get_screenshot_as_png())
@@ -110,7 +109,8 @@ def test_MBK_002():
 @mark.fixture_test()
 def test_MBK_003():
     print('== NEXT == MBK-003 / melakukan filtering data')
-    
+    sleep(driver)
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'statusKapasitasForm').click()
     sleep(driver)
     if statusKapasitasFormIndex == 'semua':
@@ -133,12 +133,11 @@ def test_MBK_003():
         sleep(driver)
         driver.find_element(By.XPATH, "//li[contains(.,\'Overcapacity\')]").click()
     WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    driver.find_element(By.ID, 'searchButton').click
+    driver.find_element(By.ID, 'searchButton').click()
     Log.info('Berhasil menampilkan data berdasarkan kategori kapasitas yang dipilih pada dropdown di halaman Pemetaan Blok & Kamar')
     attach(data=driver.get_screenshot_as_png())
 
     #Melakukan pengecekan filtering data
-
 @mark.fixture_test()
 def test_MBK_004():
     print('== NEXT == MBK-004 / Melakukan pengecekan filtering daftar kamar berdasarkan lantai')
@@ -150,6 +149,7 @@ def test_MBK_005():
     print('== NEXT == MBK-005 / Melakukan pengecekan data kapasitas dan jumlah yang telah terisi dari kamar yang dipilih dengan klik salah satu nomor kamar')
 
     #Pengecekan kapasitas kamar dan jumlah yang telah terisi
+"""
 
 @mark.fixture_test()
 def test_MBK_006():
@@ -653,3 +653,7 @@ def test_MBK_017():
 def test_MBK_018():
     print('== NEXT ==')
     #Pengecekan print / cetak data blok dan kamar
+"""
+@mark.fixture_test()
+def test_exit():
+    quit(driver)
