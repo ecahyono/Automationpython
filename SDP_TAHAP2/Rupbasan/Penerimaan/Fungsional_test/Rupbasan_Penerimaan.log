@@ -1,2 +1,32 @@
-[2022-12-20 21:04:48,051 Test_Rupbasan_Penerimaan.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-20 21:04:50,171 Test_Rupbasan_Penerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-28 15:33:25,688 Test_Rupbasan_Penerimaan.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-28 15:33:27,624 Test_Rupbasan_Penerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-28 15:33:47,092 Test_Rupbasan_Penerimaan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
+[2022-12-28 15:33:52,740 Test_Rupbasan_Penerimaan.py->test_PNM_002()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
+[2022-12-28 15:33:54,821 Test_Rupbasan_Penerimaan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
+[2022-12-28 15:33:55,337 Test_Rupbasan_Penerimaan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
+[2022-12-28 15:33:57,406 Test_Rupbasan_Penerimaan.py->test_PNM003_3()]==>INFO: Menginput Tanggal Penerimaan
+[2022-12-28 15:33:57,931 Test_Rupbasan_Penerimaan.py->test_PNM003_4()]==>INFO: Menginput Nomor Registrasi Rupbasan
+[2022-12-28 15:33:58,049 Test_Rupbasan_Penerimaan.py->test_PNM003_5()]==>INFO: Memilih Opsi instansi
+[2022-12-28 15:34:00,767 Test_Rupbasan_Penerimaan.py->test_PNM003_6()]==>INFO: Menginput Nomor Registrasi Instansi
+[2022-12-28 15:34:01,195 Test_Rupbasan_Penerimaan.py->test_PNM003_7()]==>INFO: Menginput Nomor Surat Izin Penyitaan
+[2022-12-28 15:34:01,561 Test_Rupbasan_Penerimaan.py->test_PNM003_8()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
+[2022-12-28 15:34:02,055 Test_Rupbasan_Penerimaan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
+[2022-12-28 15:34:04,577 Test_Rupbasan_Penerimaan.py->test_PNM003_10()]==>INFO: menginput nomor surat Penyitaan
+[2022-12-28 15:34:05,021 Test_Rupbasan_Penerimaan.py->test_PNM003_11()]==>INFO: menginput tanggal surat Penyitaan
+[2022-12-28 15:34:05,532 Test_Rupbasan_Penerimaan.py->test_PNM003_12()]==>INFO: input pasal
+[2022-12-28 15:34:05,931 Test_Rupbasan_Penerimaan.py->test_PNM003_13()]==>INFO: Input field text input menggunakan varchar
+[2022-12-28 15:34:16,459 Test_Rupbasan_Penerimaan.py->test_PNM003_14()]==>INFO: Input field text area
+[2022-12-28 15:34:16,909 Test_Rupbasan_Penerimaan.py->test_PNM003_15()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
+[2022-12-28 15:34:17,723 Test_Rupbasan_Penerimaan.py->test_PNM003_16()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
+[2022-12-28 15:34:28,160 Test_Rupbasan_Penerimaan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
+[2022-12-28 15:34:28,614 Test_Rupbasan_Penerimaan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-28 15:34:29,202 Test_Rupbasan_Penerimaan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-28 15:34:29,823 Test_Rupbasan_Penerimaan.py->test_PNM003_19()]==>INFO: klik tab Petugas Instansi
+[2022-12-28 15:34:30,223 Test_Rupbasan_Penerimaan.py->test_PNM003_20()]==>INFO:  menambah 1 baris status petugas
+[2022-12-28 15:34:30,558 Test_Rupbasan_Penerimaan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan pertama
+[2022-12-28 15:34:30,963 Test_Rupbasan_Penerimaan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan kedua
+[2022-12-28 15:34:33,312 Test_Rupbasan_Penerimaan.py->test_PNM003_21()]==>INFO: Melakukan Pencarian data petugas penyerah internal
+[2022-12-28 15:34:33,321 Test_Rupbasan_Penerimaan.py->test_PNM003_22()]==>INFO: Klik tab Saksi Penerima
+[2022-12-28 15:34:33,789 Test_Rupbasan_Penerimaan.py->test_PNM003_23()]==>INFO:  menambah 1 baris status petugas saksi
+[2022-12-28 15:34:34,157 Test_Rupbasan_Penerimaan.py->test_PNM003_24()]==>INFO: Melakukan Pencarian data petugas saksi external
+[2022-12-28 15:34:34,160 Test_Rupbasan_Penerimaan.py->test_PNM003_24()]==>INFO: memilih radiobutton status petugas Saksi Internal

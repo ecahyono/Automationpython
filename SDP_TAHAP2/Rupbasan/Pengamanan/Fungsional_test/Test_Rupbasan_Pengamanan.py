@@ -84,12 +84,42 @@ def test_loggin_2():
 	Log.info('Memasukan User name dan Password di halaman Login)')
 
 @mark.fixture_pemeliharaan
-def test_PML_001():
+def test_PMN_001():
+	Log.info('Mengakses menu Pengamanan dengan memilih modul Rupbasan kemudian pilih menu Pengamanan')
 	hold(driver)
-	Log.info('Mengakses menu Pemeliharaan dengan memilih modul Rupbasan kemudian pilih menu Pemeliharaan')
 	nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
 	ActionChains(driver).move_to_element(nav1).perform()
 	time.sleep(1)
 	driver.find_element(By.LINK_TEXT, 'Pengamanan').click()
 	driver.find_element(By.ID, 'kataKunci').click()
 	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_pemeliharaan
+def test_PMN_002():
+	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'createButton')))
+	Log.info('Menampilkan tanggal sesuai dengan hari saat mengakses dengan menekan button Hari Ini')
+	hold(driver)
+	pass
+wb = load_workbook(environ.get("RUPEXEL"))
+sheetrange1 = wb['Barangbasan']
+j = 9
+
+Tanggal_Shift = sheetrange1['A'+str(j)].value 
+Komandan_Jaga = sheetrange1['B'+str(j)].value 
+jenis_barang  = sheetrange1['C'+str(j)].value 
+satuan 		  = sheetrange1['D'+str(j)].value 
+
+@mark.fixture_pemeliharaan
+def test_PMN_003():
+	Log.info('Menambahkan data Shift dengan menekan button Tambah lalu menginputkan data Shift pada form Tambah #kemudian submit data')
+	hold(driver)
+	driver.find_element(By.ID, 'createButton').click()
+	# driver.find_element(By.ID, 'backButton').click()
+	# WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'createButton')))
+
+	tgl = driver.find_element(By.ID,'').click()
+
+#Navigasi button
+# //*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[3]/div[1]/div[3]/button
+# //*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[3]/div[1]/div[3]/div/button[1]
+# //*[@id="app"]/div/div[2]/div[1]/div[2]/div/div/div[3]/div[1]/div[3]/div/button[2]

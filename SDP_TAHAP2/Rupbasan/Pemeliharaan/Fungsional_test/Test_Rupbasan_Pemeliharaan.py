@@ -80,13 +80,13 @@ def test_Ossetup_1():
 @mark.fixture_pemeliharaan
 def test_loggin_2():
 	# login(driver)
-	oprupbasanbdg(driver)
 	Log.info('Memasukan User name dan Password di halaman Login)')
+	oprupbasanbdg(driver)
 
 @mark.fixture_pemeliharaan
 def test_PML_001():
-	hold(driver)
 	Log.info('Mengakses menu Pemeliharaan dengan memilih modul Rupbasan kemudian pilih menu Pemeliharaan')
+	hold(driver)
 	nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
 	ActionChains(driver).move_to_element(nav1).perform()
 	time.sleep(1)
@@ -102,8 +102,8 @@ tglplm  = plm['A'+str(j)].value #Tanggal Pemeliharaan
 @mark.fixture_pemeliharaan
 def test_PML_002():#pencarian data
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	hold(driver)
 	Log.info('Pengecekan data yang telah di filter')
+	hold(driver)
 	driver.find_element(By.ID, 'filterColumn').click()
 	time.sleep(1)
 	driver.find_element(By.ID, 'tglPemeliharaan').click()
@@ -114,8 +114,8 @@ def test_PML_002():#pencarian data
 @mark.fixture_pemeliharaan
 def test_PML_003_0():
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
-	hold(driver)
 	Log.info('Membuka halaman tambah penerimaan dengan klik button tambah')
+	hold(driver)
 	driver.find_element(By.ID, 'createButton').click()
 	attach(data=driver.get_screenshot_as_png())
 
@@ -124,42 +124,35 @@ def test_PML_003_1():
 	tglpem = driver.find_element(By.XPATH, '//*[@id="tglPemeliharaan"]')
 	tglpem.send_keys(tglPemeliharaan)
 	tglpem.send_keys(Keys.ENTER)
-@mark.fixture_pemeliharaan
-def test_PML_003_2():
+
 	driver.find_element(By.ID, 'inputJenisPemeliharaan').click()
 	WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID , 'JPB1')))
 	if jnspemeliharaan =='Pemeliharaan Basan dan Baran Umum':
 		driver.find_element(By.ID, 'JPB1').click()
 	elif jnspemeliharaan == 'Pemeliharaan Basan dan Baran Khusus':
 		driver.find_element(By.ID, 'JPB2').click()
-@mark.fixture_pemeliharaan
-def test_PML_003_3():
+
 	driver.find_element(By.ID, 'inputKegiatanPemeliharaan').click()
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'KPB1')))	
 	if KgiPemeliharaan == 'Pemeliharaan Berkala (Preventive Maintenance)':
 		driver.find_element(By.ID, 'KPB1').click()
 	elif KgiPemeliharaan == 'Pemeliharaan Darurat (Emergency)':
 		driver.find_element(By.ID, 'KPB2').click()
-@mark.fixture_pemeliharaan
-def test_PML_003_4():
+
 	driver.find_element(By.ID, 'keterangan').send_keys(KgiPemeliharaan)#Keterangan kegiatan
 
-@mark.fixture_pemeliharaan
-def test_PML_003_5():
 	ketu = driver.find_element(By.ID, 'cariKetua')
 	ketu.click()
 	ketu.send_keys(ketpelaksana) #Ketua Pelaksana
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'cariKetua0')))
 	driver.find_element(By.ID, 'cariKetua0').click()
-@mark.fixture_pemeliharaan
-def test_PML_003_6():
+
 	ptginter = driver.find_element(By.ID, 'cariPetugasInternal')
 	ptginter.click()
 	ptginter.send_keys(ptgsinternal) #Petugas Pemeliharaan (Internal)
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID , 'cariPetugasInternal0')))
 	driver.find_element(By.ID, 'cariPetugasInternal0').click()
-@mark.fixture_pemeliharaan
-def test_PML_003_7():
+
 	ptgexter = driver.find_element(By.ID, 'cariPetugasEksternal')
 	ptgexter.click()
 	ptgexter.send_keys(ptgsexternal) #Petugas Pemeliharaan (Eksternal)
@@ -202,18 +195,10 @@ def test_PML_003_11():
 @mark.fixture_pemeliharaan
 def test_PML_003_12():
 	driver.find_element(By.ID,'jumlahBaik0').send_keys(jmlhbaik)
-@mark.fixture_pemeliharaan
-def test_PML_003_13():
 	driver.find_element(By.ID,'jumlahRusakParah0').send_keys(jmlhRpar)
-@mark.fixture_pemeliharaan
-def test_PML_003_14():
 	driver.find_element(By.ID,'jumlahRusakRingan0').send_keys(jmlhRring)
-@mark.fixture_pemeliharaan
-def test_PML_003_15():
 	driver.find_element(By.ID,'keteranganBarang0').send_keys(ketdetail)
 
-@mark.fixture_pemeliharaan
-def test_PML_003_16():
 	driver.find_element(By.ID,'tab-bahan_pemeliharaan').click()
 
 #
@@ -301,9 +286,9 @@ ketba		= updt['U'+str(k)].value #Keterangan
 
 @mark.fixture_pemeliharaan
 def test_PLM_004_0():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	Log.info('menekan tombol Ubah')
 	hold(driver)
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'searchButton')))
 	driver.find_element(By.CSS_SELECTOR, "#update-0").click()
 	Log.info('Mengubah Pemeliharaan')
 
@@ -403,7 +388,7 @@ def test_PML_004_14():
 	driver.find_element(By.ID,'jumlahRusakRingan0').send_keys(jmlhRr)
 @mark.fixture_pemeliharaan
 def test_PML_004_15():
-	driver.find_element(By.ID,'keteranganBarang0').send_keys(ketdet)
+	driver.find_element(By.ID,'keteranganBarang0').send_keys('Update' + ketdet)
 
 @mark.fixture_pemeliharaan
 def test_PML_004_16():

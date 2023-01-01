@@ -65,7 +65,7 @@ def test_aksesmenuPenerimaan_00():
 
 
 sheetrange3 = wb['TambahubahPenerimaan'] #untuk mencari data penerimaan
-w = 9
+w = 331
 noregistrasi       = sheetrange3['C'+str(w)].value
 
 @mark.fixture_penerimaan
@@ -95,7 +95,7 @@ def test_PNM_006():
 
 # #Kelengkapan Basan Baran ==============================================================
 sheetrange1 = wb['Barangbasan']
-j = 3
+j = 9
 
 nama_barang   = sheetrange1['A'+str(j)].value #Nama Barang
 barang_temuan = sheetrange1['B'+str(j)].value #Barang Temuan
@@ -330,7 +330,7 @@ def test_PNM_007_9():
 def test_PNM_007_10():
 	driver.find_element(By.ID, 'pilihFoto0').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	pyautogui.write(environ.get(r"BLAIN"))
 	pyautogui.press('enter')
 	# 
 	# driver.find_element(By.ID,'namaFoto0').send_keys(foto1)
@@ -341,7 +341,7 @@ def test_PNM_007_10():
 def test_PNM_007_11():
 	driver.find_element(By.ID, 'pilihFoto1').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	pyautogui.write(environ.get(r"BLAIN"))
 	pyautogui.press('enter')
 	# 
 	# driver.find_element(By.ID,'namaFoto1').send_keys(foto2)
@@ -352,7 +352,7 @@ def test_PNM_007_11():
 def test_PNM_007_12():
 	driver.find_element(By.ID, 'pilihFoto2').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	pyautogui.write(environ.get(r"BLAIN"))
 	pyautogui.press('enter')
 	# 
 	# driver.find_element(By.ID,'namaFoto2').send_keys(foto3)

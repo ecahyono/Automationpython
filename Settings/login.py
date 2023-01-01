@@ -57,20 +57,30 @@ def loginSPV(driver):
 
 
 def oprupbasanbdg(driver):
-    driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
-    # ini masuk ke form input username
-    driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("oprupbasanbdg")
-    time.sleep(2)
-    driver.find_element(By.ID, "password").send_keys("password")
-    # click button login
-    driver.find_element(By.ID, "kc-login").click()
-    WebDriverWait(driver, 10)
-    print('.')
-    print('========== Login ==========')
+	driver.implicitly_wait(10)
+	driver.find_element(By.XPATH, "//div/span").click()
+	# ini masuk ke form input username
+	driver.find_element(By.ID, "username").click()
+	driver.find_element(By.ID, "username").send_keys("oprupbasanbdg")
+	time.sleep(2)
+	driver.find_element(By.ID, "password").send_keys("password")
+	# click button login
+	driver.find_element(By.ID, "kc-login").click()
+	WebDriverWait(driver, 10)
+	print('==========================================================================')
+	print('''@@@&GJ7!~~~!?5B@@&P?!~^^^~!JG&@@&PJ7~~~~!?5#@@@@@
+@@#J^^!?YYYYJ7~^!?^^!J55P55J!^~YJ^^!?Y55YJ7~^!P@@@
+@P^:?PGP7^^^~GG7.:?PGJ!~~!JPGP!.:?PGY!!!7JGG5!.7&@
+G::YGGG7 ^55YGY::YGGG7 !?~ ^PY:^5GGG7 ^?^ !GGG7.7@
+7.?GPPGY: ^?PG!.!GGPG7 YGG! ?!.?GPPG7 7G? ^PGGP^:B
+7.?GPPPGPY! .57.!GGPG7 JGG7 ?!.JGPPG7 .^:~5GPGP^:G
+P:^5GGGJ!J?. 55::JGGG7 7Y! ^PJ:^5GGG7 !PPGGPGG?.!@
+@P::JPGY!~~75GGJ..75GJ^^^~?PG5^.^JPGJ:?GGGGG57.!#@
+@@@?^^7J5555Y?!^~J~^~?JYYYY?~^!5?^^7JY555Y?!^~5@@@
+@@@@&P?!~^^~~7JG&@@BY7!~~~!?5B@@@#5?!~^^~~7YB@@@@@''')
+	print('==========================================================================')
     
-    attach(data=driver.get_screenshot_as_png())
+	attach(data=driver.get_screenshot_as_png())
 
 def supcirebon(driver):
     driver.implicitly_wait(10)

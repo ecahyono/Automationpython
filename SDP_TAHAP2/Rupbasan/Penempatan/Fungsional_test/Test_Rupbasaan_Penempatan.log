@@ -1,13 +1,13 @@
-[2022-12-20 18:17:48,571 Test_Rupbasaan_Penempatan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-20 18:17:54,881 Test_Rupbasaan_Penempatan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login
-[2022-12-20 18:17:59,200 Test_Rupbasaan_Penempatan.py->test_PTN_001()]==>INFO: Mengakses menu  Penempatan dengan memilih modul Rupbasan kemudian pilih menu Penempatan
-[2022-12-20 18:18:13,744 Test_Rupbasaan_Penempatan.py->test_selanjutnya1()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
-[2022-12-20 18:18:27,740 Test_Rupbasaan_Penempatan.py->test_PTN_003_0()]==>INFO: membuka halaman tambah dengan menekan button tambah
-[2022-12-20 18:18:28,227 Test_Rupbasaan_Penempatan.py->test_PTN_003_1()]==>INFO: Mencari nama Barang
-[2022-12-20 18:18:38,982 Test_Rupbasaan_Penempatan.py->test_PTN_003_2()]==>INFO: memilih tanggal dengan format DD/MM/YYYY 
-[2022-12-20 18:18:39,551 Test_Rupbasaan_Penempatan.py->test_PTN_003_3()]==>INFO: pencarian tersangka barang
-[2022-12-20 18:18:49,671 Test_Rupbasaan_Penempatan.py->test_PTN_003_4()]==>INFO: Memilih Gudang untuk barang
-[2022-12-20 18:19:12,185 Test_Rupbasaan_Penempatan.py->test_PTN_003_5()]==>INFO: memilih sektor gudang
-[2022-12-20 18:19:25,579 Test_Rupbasaan_Penempatan.py->test_PTN_003_6()]==>INFO: Memilih Baris dalam gudang
-[2022-12-20 18:19:32,912 Test_Rupbasaan_Penempatan.py->test_PTN_003_7()]==>INFO: Memilih memilih nomer urut
-[2022-12-20 18:19:39,658 Test_Rupbasaan_Penempatan.py->test_PTN_003_8()]==>INFO: memasukan Ketrangan Penempatan
+[2022-12-28 16:00:03,994 Test_Rupbasaan_Penempatan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-28 16:00:14,459 Test_Rupbasaan_Penempatan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-28 16:00:19,593 Test_Rupbasaan_Penempatan.py->test_PTN_001()]==>INFO: Mengakses menu  Penempatan dengan memilih modul Rupbasan kemudian pilih menu Penempatan
+[2022-12-28 16:00:28,346 Test_Rupbasaan_Penempatan.py->test_selanjutnya1()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
+[2022-12-28 16:00:34,297 Test_Rupbasaan_Penempatan.py->test_PTN_003_0()]==>INFO: membuka halaman tambah dengan menekan button tambah
+[2022-12-28 16:00:34,650 Test_Rupbasaan_Penempatan.py->test_PTN_003_1()]==>INFO: Mencari nama Barang
+[2022-12-28 16:00:45,258 Test_Rupbasaan_Penempatan.py->test_PTN_003_2()]==>INFO: memilih tanggal dengan format DD/MM/YYYY 
+[2022-12-28 16:00:45,741 Test_Rupbasaan_Penempatan.py->test_PTN_003_3()]==>INFO: pencarian tersangka barang
+[2022-12-28 16:00:46,066 Test_Rupbasaan_Penempatan.py->test_PTN_003_4()]==>INFO: Memilih Gudang untuk barang
+[2022-12-28 16:02:17,120 Test_Rupbasaan_Penempatan.py->test_PTN_003_5()]==>INFO: memilih sektor gudang
+[2022-12-28 16:02:23,408 Test_Rupbasaan_Penempatan.py->test_PTN_003_6()]==>INFO: Memilih Baris dalam gudang
+[2022-12-28 16:02:27,560 Test_Rupbasaan_Penempatan.py->test_PTN_003_7()]==>INFO: Memilih memilih nomer urut
+[2022-12-28 16:02:28,575 Test_Rupbasaan_Penempatan.py->test_PTN_003_8()]==>INFO: memasukan Ketrangan Penempatan

@@ -63,8 +63,6 @@ actions2.move_to_element(element2).perform()
 driver.find_element(By.LINK_TEXT, "Gudang").click()
 
 i = 5 
-
-
 while i <= len(sheetrange['A']):
 	JGudang 		= sheetrange['A'+str(i)].value
 	Alm 			= sheetrange['B'+str(i)].value

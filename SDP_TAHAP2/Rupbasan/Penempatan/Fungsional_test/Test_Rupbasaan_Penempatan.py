@@ -150,7 +150,7 @@ def test_PTN_003_4():
 		# WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-0')))
 		# driver.find_element(By.ID, "gudangOption-0").click()
 	print('Menunggu loading Detail Gudang')
-	WebDriverWait(driver, 80).until(EC.presence_of_element_located((By.XPATH, pathData['Rupelemen']['+penempatan']['descgudang'])))
+	WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, pathData['Rupelemen']['+penempatan']['descgudang'])))
 	attach(data=driver.get_screenshot_as_png())	
 @mark.fixture_penempatan
 def test_PTN_003_5():

@@ -22,9 +22,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if platform.system() == 'Darwin':
-    sys.path.append(environ.get("MACPARENTDIR")) 
+	sys.path.append(environ.get("MACPARENTDIR")) 
 elif platform.system() == 'Windows':
-    sys.path.append(environ.get("WINPARENTDIR"))
+	sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setup import initDriver, loadDataPath, sleep, quit, hold
 from Settings.login import login, oprupbasanbdg
@@ -39,6 +39,254 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 wb = load_workbook(environ.get("RUPEXEL"))
+
+# init driver by os
+@mark.fixture_rupbasan
+def test_00_setup():
+	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
+	global driver, pathData
+	driver = initDriver()
+	pathData = loadDataPath()
+
+@mark.fixture_rupbasan
+def test_00_loggin():
+	Log.info('Memasukan User name dan Password di halaman Login')
+	oprupbasanbdg(driver)
+
+# @mark.fixture_rupbasan
+# def test_GDG_001():
+# 	Log.info('Mengakses menu Gudang dengan memilih modul Lain - Lain kemudian pilih menu Parameter lalu pilih submenu Gudang')
+# 	hold(driver)
+# 	element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
+# 	actions = ActionChains(driver)
+# 	time.sleep(2)
+# 	actions.move_to_element(element).perform()
+
+# 	element2 = driver.find_element(By.XPATH, '//div[3]/div/ul/li[1]/div[1]')
+# 	actions2 = ActionChains(driver)
+# 	time.sleep(2)
+# 	actions2.move_to_element(element2).perform()
+# 	driver.find_element(By.LINK_TEXT, "Gudang").click()
+
+# gudang = wb['Gudang']
+# o = 6
+# namgud			= gudang['A'+str(o)].value
+# JGudang 		= gudang['B'+str(o)].value
+# Alm 			= gudang['C'+str(o)].value
+# Prov			= gudang['D'+str(o)].value
+# Kotkab		  	= gudang['E'+str(o)].value
+# luas 			= gudang['F'+str(o)].value
+# quant 			= gudang['G'+str(o)].value
+# ket 			= gudang['H'+str(o)].value
+# Nama			= gudang['I'+str(o)].value
+# jmlh			= gudang['J'+str(o)].value
+# rangan		  	= gudang['K'+str(o)].value
+
+# @mark.fixture_rupbasan
+# def test_GDG_002():
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	hold(driver)
+# 	Log.info('Melakukan pengecekan filtering data berdasarkan kategori')
+# 	driver.find_element(By.ID, 'formfilterColumn').click()
+# 	time.sleep(1)
+# 	driver.find_element(By. XPATH, '//div[4]/div/div/div[1]/ul/li[1]').click()
+# 	driver.find_element(By. ID, 'kataKunci').send_keys(JGudang)
+# 	driver.find_element(By.ID, 'searchButton').click()
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	attach(data=driver.get_screenshot_as_png())
+
+# @mark.fixture_rupbasan
+# def test_GDG_003():
+# 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	hold(driver)
+# 	Log.info('Menambahkan data gudang dengan menggunakan button tambah lalu menginputkan data gudang pada form')
+# 	driver.find_element(By.ID, 'createButton').click()
+# 	attach(data=driver.get_screenshot_as_png())
+
+# 	driver.find_element(By.ID, 'namaGudang').send_keys(namgud)
+
+# 	gd = driver.find_element(By.ID, 'jenisGudang')
+# 	gd.click()
+# 	if JGudang == 'Gudang Umum Terbuka':
+# 		driver.find_element(By.ID,'JG01').click()
+# 	elif JGudang == 'Gudang Umum Tertutup':
+# 		driver.find_element(By.ID,'JG02').click()
+# 	elif JGudang == 'Gudang Berharga':
+# 		driver.find_element(By.ID,'JG03').click()
+# 	elif JGudang == 'Gudang Berbahaya':
+# 		driver.find_element(By.ID,'JG04').click()
+# 	elif JGudang == 'Gudang Hewan dan Tumbuhan':
+# 		driver.find_element(By.ID,'JG05').click()
+
+# 	driver.find_element(By.ID, 'alamat').send_keys(Alm)
+
+# 	vinsi = driver.find_element(By.ID,'provinsi')
+# 	vinsi.send_keys(Prov)
+# 	if Prov == 'Jawa Barat':
+# 		driver.find_element(By.ID,'12').click()
+# 	elif Prov == 'DKI Jakarta':
+# 		driver.find_element(By.ID,'11').click()
+
+# 	paten = driver.find_element(By.ID,'kotaKabupaten')
+# 	paten.send_keys(Kotkab)
+# 	if Kotkab == 'Bandung':
+# 		driver.find_element(By.ID,'122').click()
+# 	elif Kotkab == 'Jakarta Pusat':
+# 		driver.find_element(By.ID,'116').click()
+			
+# 	driver.find_element(By.ID, 'luas').send_keys(luas)
+# 	driver.find_element(By.ID, 'kapasitasGudang').send_keys(quant)
+
+# 	foto = driver.find_element(By.ID, 'pilihFoto').click()
+# 	time.sleep(3)
+# 	pyautogui.typewrite(environ.get(r"GUDANG"))
+# 	pyautogui.press('enter')
+
+# 	driver.find_element(By.ID, 'keterangan').send_keys(ket)
+
+# 	driver.find_element(By.ID, 'nama0').send_keys(Nama)
+# 	driver.find_element(By.ID, 'jumlah0').send_keys(jmlh)
+# 	driver.find_element(By.ID, 'keterangan0').send_keys(rangan)
+
+# 	Log.info('kemudian submit data')
+# 	hold(driver)		
+# 	driver.find_element(By.ID, 'submitButton').click()
+	
+
+# ubhgudang = wb['Gudang']
+# a = 5
+# ubhnamgud		= ubhgudang['A'+str(a)].value
+# ubhAlm 			= ubhgudang['C'+str(a)].value
+# ubhProv			= ubhgudang['D'+str(a)].value
+# ubhKotkab		= ubhgudang['E'+str(a)].value
+# ubhluas 		= ubhgudang['F'+str(a)].value
+# ubhquant 		= ubhgudang['G'+str(a)].value
+# ubhket 			= ubhgudang['H'+str(a)].value
+
+# @mark.fixture_rupbasan
+# def test_GDG_004():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	Log.info('Mengubah data gudang dengan menggunakan button (Ubah) pada kolom aksi di tabel kemudian ubah data di form')
+# 	hold(driver)
+
+# 	# driver.find_element(By.CSS_SELECTOR, ".h-5").click()
+# 	driver.find_element(By.ID, 'updateButton-125').click()
+
+# 	hold(driver)
+# 	driver.find_element(By.ID, 'namaGudang').send_keys(ubhnamgud)
+# 	driver.find_element(By.ID, 'alamat').send_keys(ubhAlm)
+
+# 	vinsi = driver.find_element(By.ID,'provinsi')
+# 	vinsi.send_keys(ubhProv)
+# 	if Prov == 'Jawa Barat':
+# 		driver.find_element(By.ID,'12').click()
+# 	elif Prov == 'DKI Jakarta':
+# 		driver.find_element(By.ID,'11').click()
+
+# 	paten = driver.find_element(By.ID,'kotaKabupaten')
+# 	paten.send_keys(ubhKotkab)
+# 	if Kotkab == 'Bandung':
+# 		driver.find_element(By.ID,'122').click()
+# 	elif Kotkab == 'Jakarta Pusat':
+# 		driver.find_element(By.ID,'116').click()
+			
+# 	driver.find_element(By.ID, 'luas').send_keys(ubhluas)
+# 	driver.find_element(By.ID, 'kapasitasGudang').send_keys(ubhquant)
+# 	driver.find_element(By.ID, 'keterangan').send_keys(ubhket)
+
+# 	Log.Info('kemudian klik button ubah')
+# 	hold(driver)		
+# 	driver.find_element(By.ID, 'submitButton').click()
+
+# @mark.fixture_rupbasan
+# def test_GDG_005():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	Log.info('Menampilkan detail gudang dengan menggunakan button (Detail) pada kolom aksi di tabel')
+# 	hold(driver)
+# 	driver.find_element(By.CSS_SELECTOR, ".h-5").click()
+# 	hold(driver)
+# 	driver.find_element(By.ID, "backButton").click()
+
+# @mark.fixture_rupbasan
+# def test_GDG_006():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	Log.info('Menampilkan dropdown jumlah data yang dipilih oleh pengguna dan ditampilkan pada main grid')
+# 	hold(driver)
+# 	time.sleep(1)
+# 	driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
+# 	driver.find_element(By.XPATH, '//div[5]/div/div/div[1]/ul/li[1]').click()  # 5 Halaman
+# 	attach(data=driver.get_screenshot_as_png())
+
+# @mark.fixture_rupbasan
+# def test_GDG_007():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	Log.info('Menampilkan jumlah Total perhalaman di main grid')
+# 	hold(driver)
+# 	pass
+
+# @mark.fixture_rupbasan
+# def test_GDG_008():
+# 	Log.info('Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
+# 	hold(driver)
+# 	pergi = driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke'])
+# 	time.sleep(2)
+# 	pergi.clear()
+# 	pergi.send_keys('3')
+# 	pergi.send_keys(Keys.ENTER)
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+
+# @mark.fixture_rupbasan
+# def test_GDG_010():
+# 	Log.info('Berhasil mencetak data penerimaan sesuai dengan total halaman yang dipilih dengan format PDF (.pdf)')
+# 	hold(driver)
+# 	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF']).click()
+# 	# driver.find_element(By.ID, 'wholeButton').click()
+# 	time.sleep(1)
+# 	driver.find_element(By.ID, 'thisButton').click()
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF'])))
+# 	attach(data=driver.get_screenshot_as_png())
+
+# @mark.fixture_rupbasan
+# def test_GDG_009():
+# 	Log.info('Mencetak data penerimaan (sesuai dengan jumlah halaman) dengan menekan Button Export Excel')
+# 	hold(driver)
+# 	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel']).click()
+# 	# driver.find_element(By.ID, 'wholeButton').click()
+# 	time.sleep(1)
+# 	driver.find_element(By.ID, 'thisButton').click()
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel'])))
+# 	attach(data=driver.get_screenshot_as_png())
+
+# @mark.fixture_rupbasan
+# def test_GDG_011():
+# 	hold(driver)
+# 	Log.info('Mencetak data penerimaan (sesuai dengan jumlah halaman) yang terhubung langsung dengan perangkat tambahan (printer)')
+# 	driver.find_element(By.ID, 'printButton').click()
+# 	time.sleep(1)
+# 	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetakinisaja']).click()
+# 	attach(data=driver.get_screenshot_as_png())
+
+# @mark.fixture_rupbasan
+# def test_SKG_001():
+# 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'printButton')))
+# 	Log.info('Mengakses menu Sektor Gudang dengan memilih modul Lain - Lain kemudian pilih menu Parameter lalu pilih submenu Sektor Gudang')
+# 	hold(driver)
+# 	element = driver.find_element(By.XPATH, '//*[@id="app"]/div/nav/ul/li[2]/div')
+# 	actions = ActionChains(driver)
+# 	time.sleep(1)
+# 	actions.move_to_element(element).perform()
+# 	element2 = driver.find_element(By.XPATH, '//div[3]/div/ul/li[1]/div[1]')
+# 	actions2 = ActionChains(driver)
+# 	time.sleep(1)
+# 	actions2.move_to_element(element2).perform()
+
+# 	driver.find_element(By.LINK_TEXT, "Sektor Gudang").click()
+
+# @mark.fixture_rupbasan
+# def test_SKG_001():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+#==================================================================================================================#
+#==================================================================================================================#
 plus = wb['TambahubahPenerimaan']
 i = 2  # barisexel
 
@@ -76,24 +324,14 @@ saksi1				= plus['Z'+str(i)].value  # saksi1
 statusaksi2			= plus['AA'+str(i)].value  # statussaksi2
 saksi2				= plus['AB'+str(i)].value  # saksi2
 
-# init driver by os
-@mark.fixture_penerimaan
-def test_00_setup():
-	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
-	global driver, pathData
-	driver = initDriver()
-	pathData = loadDataPath()
-
-@mark.fixture_penerimaan
-def test_00_loggin():
-	Log.info('Memasukan User name dan Password di halaman Login')
-	# login(driver)
-	oprupbasanbdg(driver)
-
-@mark.fixture_penerimaan
+filtertable			= wb['TambahubahPenerimaan']
+j = 15
+Noregrupsan			= filtertable['C'+str(j)].value
+@mark.fixture_rupbasan
 def test_PNM_001():
-	Log.info('Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan')
+	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	hold(driver)
+	Log.info('Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan')
 	nav1 = driver.find_element(
 		By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
 	ActionChains(driver).move_to_element(nav1).perform()
@@ -101,7 +339,22 @@ def test_PNM_001():
 	driver.find_element(By.ID, 'kataKunci').click()
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
+def test_PNM_002():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	hold(driver)
+	Log.info('Melakukan pengecekan filtering data berdasarkan kategori')
+	driver.find_element(By.ID, 'filterColumn').click()
+	time.sleep(1)
+	driver.find_element(By. ID, 'no_reg').click()
+
+	driver.find_element(By. ID, 'kataKunci').send_keys(Noregrupsan)
+
+	driver.find_element(By.ID, 'searchButton').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
 def test_PNM003_1():
 	WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	hold(driver)
@@ -109,9 +362,8 @@ def test_PNM003_1():
 	driver.find_element(By.ID, 'createButton').click()
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_2():
-	time.sleep(1)
 	Log.info('Memeilih Dropdown Jenis Registrasi')
 	# WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['ubahpenerimaan']['loadhalaman'])))
 	# Jenis Registrasi
@@ -142,193 +394,166 @@ def test_PNM003_2():
 	attach(data=driver.get_screenshot_as_png())
 
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_3():
-	time.sleep(1)
 	Log.info('Menginput Tanggal Penerimaan')
-	Tanggal_Penerimaan = driver.find_element(By.ID, 'inputTglPenerimaan')  # Tanggal Penerimaan
+	Tanggal_Penerimaan = driver.find_element(
+		By.ID, 'inputTglPenerimaan')  # Tanggal Penerimaan
 	Tanggal_Penerimaan.send_keys(tglPenerimaan)
 	Tanggal_Penerimaan.send_keys(Keys.ENTER)
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
-def test_PNM003_4():
-	time.sleep(1)
-	Log.info('Menginput Nomor Registrasi Rupbasan')
-	driver.find_element(By.ID, 'inputNoRegistrasi').send_keys(Noregrup)  # Nomor Registrasi Rupbasan
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
+def test_PNM003_4():
+	Log.info('Menginput Nomor Registrasi Rupbasan')
+	driver.find_element(By.ID, 'inputNoRegistrasi').send_keys(
+		Noregrup)  # Nomor Registrasi Rupbasan
+
+
+@mark.fixture_rupbasan
 def test_PNM003_5():
-	time.sleep(1)
 	Log.info('Memilih Opsi instansi')
 	driver.find_element(By.ID, 'dropdownInstansi').click()  # Instansi
 	time.sleep(2)
 	if instansi == 'POLDA JABAR':
 		driver.find_element(By.ID, 'instansi0').click()
 	elif instansi == 'POLRES BANDUNG':
-
 		driver.find_element(By.ID, 'instansi3').click()
 	elif instansi == 'POLRES CIMAHI':
-
 		driver.find_element(By.ID, 'instansi10').click()
 	elif instansi == 'POLRES CIREBON':
-
 		driver.find_element(By.ID, 'instansi18').click()
 	elif instansi == 'POLRES KUNINGAN':
-
 		driver.find_element(By.ID, 'instansi21').click()
 	elif instansi == 'POLRESTA SURAKARTA':
-
 		driver.find_element(By.ID, 'instansi38').click()
 	elif instansi == 'POLRES CIAMIS':
-
 		driver.find_element(By.ID, 'instansi15').click()
 	elif instansi == 'POLRES BANJAR KOTA':
-
 		driver.find_element(By.ID, 'instansi16').click()
 	elif instansi == 'POLRES MAJALENGKA':
-
 		driver.find_element(By.ID, 'instansi19').click()
 	elif instansi == 'POLRES INDRAMAYU':
-
 		driver.find_element(By.ID, 'instansi20').click()
 	elif instansi == 'POLRES JAKARTA BARAT':
-
 		driver.find_element(By.ID, 'instansi24').click()
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_6():
-	time.sleep(1)
 	Log.info('Menginput Nomor Registrasi Instansi')
-	driver.find_element(By.ID, 'inputNoRegInstansi').send_keys(Noregins)  # Nomor Registrasi Instansi
+	driver.find_element(By.ID, 'inputNoRegInstansi').send_keys(
+		Noregins)  # Nomor Registrasi Instansi
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_7():
-	time.sleep(1)
 	Log.info('Menginput Nomor Surat Izin Penyitaan')
-	driver.find_element(By.ID, 'inputNoSuratIzinPenyitaan').send_keys(NoSIP)  # Nomor Surat Izin Penyitaan
+	driver.find_element(By.ID, 'inputNoSuratIzinPenyitaan').send_keys(
+		NoSIP)  # Nomor Surat Izin Penyitaan
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_8():
-	time.sleep(1)
 	Log.info('Menginput Tanggal Surat Izin Penyitaan')
-	Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.ID, 'inputTglSuratIzinPenyitaan')  # Tanggal Surat Izin Penyitaan
+	Tanggal_Surat_Izin_Penyitaan = driver.find_element(
+		By.ID, 'inputTglSuratIzinPenyitaan')  # Tanggal Surat Izin Penyitaan
 	Tanggal_Surat_Izin_Penyitaan.send_keys(tglSIP)
 	Tanggal_Surat_Izin_Penyitaan.send_keys(Keys.ENTER)
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_9():
 	Log.info('Memilih Opsi Pengadilan Penyita')
 	driver.find_element(By.ID, 'dropdownPengadilanPenyita').click()
 	time.sleep(2)
 	if Ppenyita == 'Pengadilan Negeri Jakarta Utara':
-
 		driver.find_element(By.ID, 'pengadilanNegeri2').click()
 	elif Ppenyita == 'Pengadilan Negeri Bandung':
-
 		driver.find_element(By.ID, 'pengadilanNegeri7').click()
 	elif Ppenyita == 'Pengadilan Negeri Sukabumi':
-
 		driver.find_element(By.ID, 'pengadilanNegeri9').click()
 	elif Ppenyita == 'Pengadilan Negeri Tasikmalaya':
-
 		driver.find_element(By.ID, 'pengadilanNegeri15').click()
 	elif Ppenyita == 'Pengadilan Negeri Majalengka':
-
 		driver.find_element(By.ID, 'pengadilanNegeri19').click()
 	elif Ppenyita == 'Pengadilan Negeri Ciamis':
-
 		driver.find_element(By.ID, 'pengadilanNegeri20').click()
 	elif Ppenyita == 'Pengadilan Negeri Kuningan':
-
 		driver.find_element(By.ID, 'pengadilanNegeri21').click()
 	elif Ppenyita == 'Pengadilan Negeri Subang':
 		driver.find_element(By.ID, 'pengadilanNegeri23').click()
-
 	elif Ppenyita == 'Pengadilan Negeri Bangkalan':
-
 		driver.find_element(By.ID, 'pengadilanNegeri39').click()
 	elif Ppenyita == 'Pengadilan Negeri Yogyakarta':
-
 		driver.find_element(By.ID, 'pengadilanNegeri147').click()
 	elif Ppenyita == 'Pengadilan Negeri Bondowoso':
-
 		driver.find_element(By.ID, 'pengadilanNegeri48').click()
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_10():
-	time.sleep(1)
 	Log.info('menginput nomor surat Penyitaan')
-	driver.find_element(By.ID, 'inputNoSuratPenyitaan').send_keys(NoSP)  # Nomor Surat Penyitaan
+	driver.find_element(By.ID, 'inputNoSuratPenyitaan').send_keys(
+		NoSP)  # Nomor Surat Penyitaan
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_11():
-	time.sleep(1)
 	Log.info('menginput tanggal surat Penyitaan')
 	Tanggal_Surat_Izin_Penyitaan = driver.find_element(By.ID, 'inputTglSuratPenyitaan')  # Tanggal Surat Penyitaan
 	Tanggal_Surat_Izin_Penyitaan.send_keys(tglSP)
 	Tanggal_Surat_Izin_Penyitaan.send_keys(Keys.ENTER)
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_12():
-	time.sleep(1)
 	Log.info('input pasal')
 	driver.find_element(By.ID, 'inputPasal').send_keys(pasal)  # Pasal
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+
+@mark.fixture_rupbasan
 def test_PNM003_13():
-	time.sleep(1)
 	Log.info('Input field text input menggunakan varchar')
-	driver.find_element(By.ID, 'inputNoBaPenyitaan').send_keys(NBAST)  # No. BA Serah Terima
+	driver.find_element(By.ID, 'inputNoBaSerahTerima').send_keys(NBAST)  # No. BA Serah Terima
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+
+@mark.fixture_rupbasan
 def test_PNM003_14():
-	time.sleep(1)
 	Log.info('Input field text area')
 	driver.find_element(By.ID, 'inputKeterangan').send_keys(Keterangan)
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_15():
-	time.sleep(1)
 	Log.info('Melakukan Pencarian data Identitas petugas Penerima')
-	penerima = driver.find_element(By.ID, 'searchPetugasPenerima')  # Petugas Penerima
+	penerima = driver.find_element(
+		By.ID, 'searchPetugasPenerima')  # Petugas Penerima
 	penerima.click()
 	penerima.send_keys(Ptgpenerima)
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchPetugasPenerima0')))
+	WebDriverWait(driver, 50).until(
+		EC.element_to_be_clickable((By.ID, 'searchPetugasPenerima0')))
 	driver.find_element(By.ID, 'searchPetugasPenerima0').click()
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+
+@mark.fixture_rupbasan
 def test_PNM003_16():
-	time.sleep(1)
 	Log.info('Melakukan Pencarian data Petugas yang menyerahkan')
-	penyerah = driver.find_element(By.ID, 'nama_penyerah')  # Petugas Penyrah
-	penyerah.send_keys()
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchPetugasYangMenyerahkan0')))
+	penyerah = driver.find_element(
+		By.ID, 'searchPetugasYangMenyerahkan')  # Petugas Penyrah
+	penyerah.click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable(
+		(By.ID, 'searchPetugasYangMenyerahkan0')))
 	penyerah.send_keys(pilihPTG)
 	driver.find_element(By.ID, 'searchPetugasYangMenyerahkan0').click()
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_17():
-	time.sleep(1)
 	Log.info('Pengecekan jumlah data identitas yang akan di inputkan')
 	if jumlahidentitas == 2:
 		driver.find_element(By.ID, 'tambahIdentitas').click()
@@ -338,9 +563,8 @@ def test_PNM003_17():
 	attach(data=driver.get_screenshot_as_png())
 
 # tab Identitas
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_18():
-	time.sleep(1)
 	Log.info('Melakukan Pencarian data Identitas')
 	identi1 = driver.find_element(By.ID, "searchIdentitas-0")
 	identi1.click()
@@ -356,17 +580,14 @@ def test_PNM003_18():
 	attach(data=driver.get_screenshot_as_png())
 
 # Tab Petugas Instansi Yng Menyerahkan
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_19():
-	time.sleep(1)
 	Log.info('klik tab Petugas Instansi')
 	driver.find_element(By.ID, "tab-petugas_instansi").click()
 	attach(data=driver.get_screenshot_as_png())
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_20():
-	time.sleep(1)
 	Log.info(' menambah 1 baris status petugas')
 	if jumlahpenyerah == 2:
 		driver.find_element(By.ID, "tambahPenyerahPenerima").click()
@@ -374,9 +595,8 @@ def test_PNM003_20():
 		print('')
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_21():
-	time.sleep(1)
 	Log.info('Memilih Petugas Instansi Yang menyerahkan pertama')
 	nyerah1 = driver.find_element(By.ID, 'searchPetugasPenyerah-0')
 	nyerah1.click()
@@ -386,22 +606,20 @@ def test_PNM003_21():
 	Log.info('Memilih Petugas Instansi Yang menyerahkan kedua')
 	nyerah2 = driver.find_element(By.ID, 'searchPetugasPenyerah-1')
 	nyerah2.click()
-	time.sleep(1)
+	time.sleep(2)
 	nyerah2.send_keys(Penyerah2)
 	driver.find_element(By.ID, 'searchPetugasPenyerah-10').click()
 	Log.info('Melakukan Pencarian data petugas penyerah internal')
 
 # #tab Saksi
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_22():
-	time.sleep(1)
 	Log.info('Klik tab Saksi Penerima')
 	driver.find_element(By.ID, "tab-saksi_penerimaan").click()
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_23():
-	time.sleep(1)
 	Log.info(' menambah 1 baris status petugas saksi')
 	if jumlahsaksi == 2:
 		driver.find_element(By.ID, "tambahSaksi").click()
@@ -409,28 +627,269 @@ def test_PNM003_23():
 		print('')
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_24():
-	time.sleep(1)
-	statsaks1 = driver.find_element(By.ID, 'searchSaksi-0')
-	statsaks1.click()
-	statsaks1.send_keys(saksi1)
-	driver.find_element(By.ID, 'searchSaksi-00').click()
+	Log.info('Melakukan Pencarian data petugas saksi external')
+	if statusaksi1 == 'Internal':
+		Log.info('memilih radiobutton status petugas Saksi Internal')
+		driver.find_element(By.ID, 'searchSaksi-0-Internal').click()
 
-	statsak2 = driver.find_element(By.ID, 'searchSaksi-1')
-	statsak2.click()
-	statsak2.send_keys(saksi2)
-	driver.find_element(By.ID, 'searchSaksi-10').click()
+		Log.info('melakukan pencarian data petuggas saksi internal')
+		statsaks1 = driver.find_element(By.ID, 'searchSaksi-0')
+		statsaks1.click()
+		statsaks1.send_keys(saksi1)
+		driver.find_element(By.ID, 'searchSaksi-00').click()
+
+	elif statusaksi1 == 'External':
+		Log.info('Memilih radiobutton status petugas saksi External')
+		driver.find_element(By.ID, 'searchSaksi-0-Eksternal').click()
+
+		Log.info('melakukan pencarian data petuggas saksi External baris pertama')
+		statusaks1 = driver.find_element(By.ID, 'searchSaksi-0')
+		statusaks1.click()
+		statusaks1.send_keys(saksi1)
+		driver.find_element(By.ID, 'searchSaksi-00').click()
+
+	if statusaksi2 == 'Internal':
+		Log.info('Melakukan Pencarian data petugas saksi external baris Pertama')
+		driver.find_element(By.ID, 'searchSaksi-1-Internal').click()
+
+		statsak2 = driver.find_element(By.ID, 'searchSaksi-1')
+		statsak2.click()
+		statsak2.send_keys(saksi2)
+		driver.find_element(By.ID, 'searchSaksi-10').click()
+	elif statusaksi2 == 'External':
+		Log.info('Melakukan Pencarian data petugas saksi external baris kedua')
+		driver.find_element(By.ID, 'searchSaksi-1-Eksternal').click()
+
+		statsak2 = driver.find_element(By.ID, 'searchSaksi-1')
+		statsak2.click()
+		statsak2.send_keys(saksi2)
+		driver.find_element(By.ID, 'searchSaksi-10').click()
 
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM003_25():
 	hold(driver)
 	Log.info('menekan button submit')
 	driver.find_element(By.ID, "submitButton").click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
-# @mark.fixture_penerimaan
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
+
+@mark.fixture_rupbasan
+def test_Cekdatayangdibuat():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	hold(driver)
+	Log.info('Mengecek data penerimaan yang telah dibuat dengan memfilter tabel penerimaan')
+	driver.find_element(By.ID, 'filterColumn').click()
+	time.sleep(1)
+	driver.find_element(By.ID, 'no_reg').click()
+	driver.find_element(By. ID, 'kataKunci').send_keys(Noregrup)
+	driver.find_element(By.ID, 'searchButton').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+
+ubhpnm = wb['TambahubahPenerimaan']
+k = 3  # barisexel
+
+# jenreg2			= ubhpnm['A'+str(k)].value  # Jenis Registrasi
+tglPenerimaan2	= ubhpnm['B'+str(k)].value  # Tanggal Penerimaan
+Noregrup2		= ubhpnm['C'+str(k)].value  # Nomor Registrasi Rupbasan
+instansi2		= ubhpnm['D'+str(k)].value  # Instansi
+Noregins2		= ubhpnm['E'+str(k)].value  # Nomor Registrasi Instansi
+NoSIP2			= ubhpnm['F'+str(k)].value  # Nomor Surat Izin Penyitaan
+tglSIP2			= ubhpnm['G'+str(k)].value  # Tanggal Surat Izin Penyitaan
+Ppenyita2		= ubhpnm['H'+str(k)].value  # Pengadilan Penyita
+NoSP2			= ubhpnm['I'+str(k)].value  # Nomor Surat Penyitaan
+tglSP2			= ubhpnm['J'+str(k)].value  # Tanggal Surat Penyitaan
+pasal2			= ubhpnm['K'+str(k)].value  # Pasal
+NBAST2			= ubhpnm['L'+str(k)].value  # No. BA Serah Terima
+Keterangan2		= ubhpnm['M'+str(k)].value  # Keterangan
+
+Ptgpenerima2	= ubhpnm['N'+str(k)].value  # Petugas Penerima
+pilihPTG2		= ubhpnm['O'+str(k)].value  # Petugas Penyrah
+
+# tab2 identitas
+jumlahidentitas2 = ubhpnm['P'+str(k)].value  # jumlh identitas
+identitas12		= ubhpnm['Q'+str(k)].value  # identitas 1
+identitas22		= ubhpnm['R'+str(k)].value  # identitas 2
+
+jumlahpenyerah2 = ubhpnm['S'+str(k)].value  # jumlah penyerah
+status12		= ubhpnm['T'+str(k)].value  # status1
+Penyerah12		= ubhpnm['U'+str(k)].value  # penyerah1
+status22		= ubhpnm['v'+str(k)].value  # Penyerah1
+Penyerah22		= ubhpnm['W'+str(k)].value  # Penyerah2
+
+jumlahsaksi2	= ubhpnm['X'+str(k)].value  # jumlah saksi
+statusaksi12	= ubhpnm['Y'+str(k)].value  # statussaksi1
+saksi12			= ubhpnm['Z'+str(k)].value  # saksi1
+statusaksi22	= ubhpnm['AA'+str(k)].value  # statussaksi2
+saksi22			= ubhpnm['AB'+str(k)].value  # saksi2
+
+@mark.fixture_rupbasan
+def test_PNM_004_1():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	hold(driver)
+	Log.info('Menekan tombol edit')
+	driver.find_element(By.CSS_SELECTOR, ".h-5").click()
+	time.sleep(3)
+
+@mark.fixture_rupbasan
+def test_PNM_004_4():
+	Log.info('Menginput Tanggal Penerimaan')
+	Tanggal_Penerimaan2 = driver.find_element(By.ID, 'inputTglPenerimaan')  # Tanggal Penerimaan
+	Tanggal_Penerimaan2.clear()
+	Tanggal_Penerimaan2.send_keys(tglPenerimaan2)
+	Tanggal_Penerimaan2.send_keys(Keys.ENTER)
+
+@mark.fixture_rupbasan
+def test_PNM_004_5():
+	Log.info('Menginput Nomor Registrasi Rupbasan')
+	noregrup2 = driver.find_element(By.ID, 'inputNoRegistrasi')
+	noregrup2.clear()
+	noregrup2.send_keys('update' + Noregrup2)  # Nomor Registrasi Rupbasan
+
+@mark.fixture_rupbasan
+def test_PNM_004_7():
+	Log.info('Menginput Nomor Registrasi Instansi')
+	noregins2 = driver.find_element(By.ID, 'inputNoRegInstansi')
+	noregins2.clear()
+	noregins2.send_keys('update' + Noregins2)  # Nomor Registrasi Instansi
+
+@mark.fixture_rupbasan
+def test_PNM_004_8():
+	Log.info('Menginput Nomor Surat Izin Penyitaan')
+	nosrIP2 = driver.find_element(By.ID, 'inputNoSuratIzinPenyitaan')
+	nosrIP2.clear()
+	nosrIP2.send_keys('Update' + NoSIP2)  # Nomor Surat Izin Penyitaan
+
+@mark.fixture_rupbasan
+def test_PNM_004_9():
+	Log.info('Menginput Tanggal Surat Izin Penyitaan')
+	TglSrttIzin_Penyitaan = driver.find_element(By.ID, 'inputTglSuratIzinPenyitaan')  
+	TglSrttIzin_Penyitaan.clear()
+	TglSrttIzin_Penyitaan.send_keys(tglSIP2)# Tanggal Surat Izin Penyitaan
+	TglSrttIzin_Penyitaan.send_keys(Keys.ENTER)
+
+@mark.fixture_rupbasan
+def test_PNM_004_11():
+	Log.info('menginput nomor surat Penyitaan')
+	NSP2 = driver.find_element(By.ID, 'inputNoSuratPenyitaan')
+	NSP2.clear()
+	NSP2.send_keys('update' + NoSP2)  # Nomor Surat Penyitaan
+
+@mark.fixture_rupbasan
+def test_PNM_004_12():
+	Log.info('menginput tanggal surat Penyitaan')
+	TglSrtPenyitaan2 = driver.find_element(
+		By.ID, 'inputTglSuratPenyitaan')  # Tanggal Surat Penyitaan
+	TglSrtPenyitaan2.clear()
+	TglSrtPenyitaan2.send_keys(tglSP2)
+	TglSrtPenyitaan2.send_keys(Keys.ENTER)
+
+@mark.fixture_rupbasan
+def test_PNM_004_13():
+	Log.info('input pasal')
+	psal2 = driver.find_element(By.ID, 'inputPasal')
+	psal2.clear()
+	psal2.send_keys('Update' + pasal2)  # Pasal
+
+@mark.fixture_rupbasan
+def test_PNM_004_14():
+	Log.info('Input field text input menggunakan varchar')
+	NOBA2 = driver.find_element(By.ID, 'inputNoBaSerahTerima')
+	NOBA2.clear()
+	NOBA2.send_keys('Update' + NBAST2)  # No. BA Serah Terima
+
+@mark.fixture_rupbasan
+def test_PNM_004_15():
+	Log.info('Input field text area')
+	ket2 = driver.find_element(By.ID, 'inputKeterangan')
+	ket2.clear()
+	ket2.send_keys('Update' + Keterangan2)  # Keterangan
+
+@mark.fixture_rupbasan
+def test_PNM_004_16():
+	Log.info('Melakukan Pencarian data Identitas petugas Penerima')
+	penerima2 = driver.find_element(By.ID, 'searchPetugasPenerima')  
+	penerima2.click()
+	penerima2.send_keys(Ptgpenerima2)# Petugas Penerima
+	driver.find_element(By.ID, 'searchPetugasPenerima0').click()
+
+@mark.fixture_rupbasan
+def test_PNM_004_17():
+	Log.info('Melakukan Pencarian data Petugas yang menyerahkan')
+	penyerah2 = driver.find_element(By.ID, 'searchPetugasYangMenyerahkan')  
+	penyerah2.click()
+	penyerah2.send_keys(pilihPTG2)# Petugas Penyrah
+	driver.find_element(By.ID, 'searchPetugasYangMenyerahkan0').click()
+
+# tab Identitas
+@mark.fixture_rupbasan
+def test_PNM_004_18():
+	Log.info('Melakukan Pencarian data Identitas')
+	identi02 = driver.find_element(By.ID, "searchIdentitas-0")
+	identi02.click()
+	identi02.send_keys(identitas12)
+	driver.find_element(By. ID, 'searchIdentitas-00').click()
+
+# Tab Petugas Instansi Yng Menyerahkan
+@mark.fixture_rupbasan
+def test_PNM_004_19():
+	Log.info('klik tab Petugas Instansi')
+	driver.find_element(By.ID, "tab-petugas_instansi").click()
+
+@mark.fixture_rupbasan
+def test_PNM_004_20():
+	Log.info('Memilih Petugas Instansi Yang menyerahkan pertama')
+	nyerah12 = driver.find_element(By.ID, 'searchPetugasPenyerah-0')
+	nyerah12.click()
+	time.sleep(1)
+	nyerah12.send_keys(Penyerah12)
+	driver.find_element(By.ID, 'searchPetugasPenyerah-00').click()
+
+# #tab Saksi
+@mark.fixture_rupbasan
+def test_PNM_004_21():
+	Log.info('Klik tab Saksi Penerima')
+	driver.find_element(By.ID, "tab-saksi_penerimaan").click()
+
+@mark.fixture_rupbasan
+def test_PNM004_22():
+	Log.info('Melakukan Pencarian data petugas saksi external')
+	if statusaksi12 == 'Internal':
+		Log.info('memilih radiobutton status petugas Saksi Internal')
+		driver.find_element(By.ID, 'searchSaksi-0-Internal').click()
+
+		Log.info('melakukan pencarian data petuggas saksi internal')
+		statsaks12 = driver.find_element(By.ID, 'searchSaksi-0')
+		statsaks12.click()
+		statsaks12.send_keys(saksi12)
+		driver.find_element(By.ID, 'searchSaksi-00').click()
+
+	elif statusaksi12 == 'External':
+		Log.info('Memilih radiobutton status petugas saksi External')
+		driver.find_element(By.ID, 'searchSaksi-0-Eksternal').click()
+
+		Log.info('melakukan pencarian data petuggas saksi External baris pertama')
+		statusaks12 = driver.find_element(By.ID, 'searchSaksi-0')
+		statusaks12.click()
+		statusaks12.send_keys(saksi12)
+		driver.find_element(By.ID, 'searchSaksi-00').click()
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
+def test_PNM_004_23():  # submit ubah penerimaan
+	hold(driver)
+	Log.info('menekan button Ubah')
+	driver.find_element(By.ID, "submitButton").click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+
+# @mark.fixture_rupbasan
 # def test_CaridataUntukBarang():
 # 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 # 	hold(driver)
@@ -438,10 +897,10 @@ def test_PNM003_25():
 # 	driver.find_element(By.ID, 'filterColumn').click()
 # 	time.sleep(1)
 # 	driver.find_element(By.ID, 'no_reg').click()
-# 	driver.find_element(By. ID, 'kataKunci').send_keys(Noregrup)
+# 	driver.find_element(By. ID, 'kataKunci').send_keys(Noregrup2)
 # 	driver.find_element(By.ID, 'searchButton').click()
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_005_006():
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	hold(driver)
@@ -450,9 +909,13 @@ def test_PNM_005_006():
 	driver.find_element(By. ID, 'daftarBarang0').click()
 	attach(data=driver.get_screenshot_as_png())
 
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
 # #Kelengkapan Basan Baran ==============================================================
 sbarang = wb['Barangbasan']
-y = 11 # barisexel
+y = 2  # barisexel
 
 nama_barang			= sbarang['A'+str(y)].value  # Nama Barang
 barang_temuan		= sbarang['B'+str(y)].value  # Barang Temuan
@@ -547,32 +1010,29 @@ Penilai1		= sbarang['CB'+str(y)].value  # Petugas1
 Penilai2		= sbarang['CC'+str(y)].value  # Petugas2
 Penilai3		= sbarang['CD'+str(y)].value  # Petugas3
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_0():
-	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-	Log.info('Menambahkan data baran dan basan dengan menginputkan data di halaman daftar barang kemudian klik button simpan')
 	hold(driver)
+	Log.info('Menambahkan data baran dan basan dengan menginputkan data di halaman daftar barang kemudian klik button simpan')
 	driver.find_element(By.ID, 'tab-kelengkapanBasanBaran').click()
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_1():
-	time.sleep(1)
 	Log.info('Nama barang')
-	nabar = driver.find_element(By.ID, 'nama_barang').send_keys(nama_barang)  # Nama Barang
+	nabar = driver.find_element(By.ID, 'nama_barang').send_keys(
+		nama_barang)  # Nama Barang
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_2():
-	time.sleep(1)
 	Log.info('checkbox barang temuan')
 	if barang_temuan == 'Iya':
 		driver.find_element(By.ID, 'barang_temuan').click()
 	elif barang_temuan == 'Tidak':
 		print('')
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_3():
-	time.sleep(1)
 	Log.info('Memilih jenis barang basan')
 	driver.find_element(By.ID, 'input_jenis_baran_basan').click()
 	if jenis_barang == 'Umum Terbuka':
@@ -586,9 +1046,8 @@ def test_PNM_007_3():
 	elif jenis_barang == 'Hewan dan Tumbuhan':
 		driver.find_element(By.ID, 'JSB5').click()
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_4():
-	time.sleep(1)
 	Log.info('Memilih satuan barang')
 	driver.find_element(By.ID, 'input_satuan_baran_basan').click()
 	if satuan == 'Unit':
@@ -664,27 +1123,26 @@ def test_PNM_007_4():
 	elif satuan == 'Lain - Lain':
 		driver.find_element(By.ID, 'SATUAN LAIN').click()
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_6():
-	time.sleep(1)
 	Log.info('Jumlah Baik')
-	driver.find_element(By.ID, 'jumlah_baik').send_keys(jumlah_baik)  # jumlah_baik
+	driver.find_element(By.ID, 'jumlah_baik').send_keys(
+		jumlah_baik)  # jumlah_baik
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_7():
-	time.sleep(1)
 	Log.info('Jumlah rusak ringan')
-	driver.find_element(By.ID, 'jumlah_rusak_ringan').send_keys(jumlah_rusak_ringan)  # jumlah rusak ringan
+	driver.find_element(By.ID, 'jumlah_rusak_ringan').send_keys(
+		jumlah_rusak_ringan)  # jumlah rusak ringan
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_8():
-	time.sleep(1)
 	Log.info('Jumlah rusak berat')
-	driver.find_element(By.ID, 'jumlah_rusak_berat').send_keys(jumlah_rusak_berat)  # jumlah Rusak Berat
+	driver.find_element(By.ID, 'jumlah_rusak_berat').send_keys(
+		jumlah_rusak_berat)  # jumlah Rusak Berat
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_9():
-	time.sleep(1)
 	Log.info('Jumlah foto')
 	if Jumlahfoto == 3:
 		driver.find_element(By.ID, 'tambah_foto').click()
@@ -695,86 +1153,99 @@ def test_PNM_007_9():
 	elif Jumlahfoto == 1:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_10():
-	time.sleep(1)
 	Log.info('upload foto barang 1')
 	driver.find_element(By.ID, 'pilihFoto0').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
 	pyautogui.press('enter')
 	#
 	# driver.find_element(By.ID,'namaFoto0').send_keys(foto1)
 	driver.find_element(By.ID, 'keterangann0').send_keys(keteranfanfoto1)
 
-@mark.fixture_penerimaan
-def test_PNM_007_11():
-	time.sleep(1)
 	Log.info('upload foto barang 2')
 	driver.find_element(By.ID, 'pilihFoto1').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
 	pyautogui.press('enter')
 	#
 	# driver.find_element(By.ID,'namaFoto1').send_keys(foto2)
 	driver.find_element(By.ID, 'keterangann1').send_keys(keteranfanfoto2)
 
-@mark.fixture_penerimaan
-def test_PNM_007_12():
-	time.sleep(1)
 	Log.info('upload foto barang 3')
 	driver.find_element(By.ID, 'pilihFoto2').click()
 	time.sleep(3)
-	pyautogui.write(environ.get(r"FOTBRG1"))
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
 	pyautogui.press('enter')
 	#
 	# driver.find_element(By.ID,'namaFoto2').send_keys(foto3)
 	driver.find_element(By.ID, 'keterangann2').send_keys(keteranfanfoto3)
 
 # Penelitian ==============================================================
-def test_PNM_007_13():
-	time.sleep(1)
+@mark.fixture_rupbasan
+def test_PNM_007_11():
 	Log.info('pindah tab')
-	hold(driver)
 	# WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))
 	driver.find_element(By.ID, 'tab-penelitian').click()
 
-@mark.fixture_penerimaan
-def test_PNM_007_14():
-	time.sleep(1)
+@mark.fixture_rupbasan
+def test_PNM_007_12():
 	Log.info('Nomor Penelitian')
-	noPenelitian = driver.find_element(By.ID, 'noPenelitian').send_keys(
-		NomorPenelitian)  # Nomor Penelitian
+	noPenelitian = driver.find_element(By.ID, 'noPenelitian').send_keys(NomorPenelitian)  # Nomor Penelitian
 
-@mark.fixture_penerimaan
-def test_PNM_007_15():
-	time.sleep(1)
+@mark.fixture_rupbasan
+def test_PNM_007_14():
 	Log.info('tanggal Penelitian')
 	penelititgl = driver.find_element(By.ID, 'tglPenelitian')
 	penelititgl.click()
 	penelititgl.send_keys(tglPenelitian)
 	penelititgl.send_keys(Keys.ENTER)  # Tanggal Penelitian
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_16():
-	time.sleep(1)
 	Log.info('no SK penelitian')
-	driver.find_element(By.ID, 'noSkPeneliti').send_keys(NoskPenelitian)  # Nomor SK Penelitian
+	driver.find_element(By.ID, 'noSkPeneliti').send_keys(
+		NoskPenelitian)  # Nomor SK Penelitian
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_17():
-	time.sleep(1)
 	Log.info('Tanggal SK Penelitian')
 	skpenelititgl = driver.find_element(By.ID, 'tglSkPeneliti')
 	skpenelititgl.click
 	skpenelititgl.send_keys(tglSkPeneliti)
 	skpenelititgl.send_keys(Keys.ENTER)  # Tanggal SK Penelitian
 
-@mark.fixture_penerimaan
-def test_PNM_007_18():
-	time.sleep(1)  # Memilih Golongan
+@mark.fixture_rupbasan
+def test_PNM_007_18():  # Memilih Golongan
 	Log.info('Memilih Golongan')
-	hold(driver)
 	driver.find_element(By.ID, 'golongan').click()
 	if Golongan == 'ELEKTRONIK':
 		driver.find_element(By.ID, '001').click()
@@ -881,15 +1352,13 @@ def test_PNM_007_18():
 	elif Golongan == 'Lain - Lain':
 		driver.find_element(By.ID, 'BASAN LAIN').click()
 
-@mark.fixture_penerimaan
-def test_PNM_007_19():
-	time.sleep(1)  # Keadaan Segel Penyita
+@mark.fixture_rupbasan
+def test_PNM_007_19():  # Keadaan Segel Penyita
 	Log.info('Keadaan Segel Penyita')
 	driver.find_element(By.ID, 'keadaanSegel').send_keys(KeadaanSegelPenyita)
 
-@mark.fixture_penerimaan
-def test_PNM_007_20():
-	time.sleep(1)  # Kondisi Barang
+@mark.fixture_rupbasan
+def test_PNM_007_20():  # Kondisi Barang
 	Log.info('Kondisi Barang')
 	driver.find_element(By.ID, 'kondisiBarang').click()
 	if KondisiBarang == 'Baik':
@@ -897,9 +1366,8 @@ def test_PNM_007_20():
 	elif KondisiBarang == 'Rusak':
 		driver.find_element(By.ID, 'KBB2').click()
 
-@mark.fixture_penerimaan
-def test_PNM_007_21():
-	time.sleep(1)  # Sub Kondisi Barang
+@mark.fixture_rupbasan
+def test_PNM_007_21():  # Sub Kondisi Barang
 	Log.info('Sub Kondisi Barang')
 	if KondisiBarang == 'Rusak':
 		driver.find_element(By.ID, 'subKondisiBarang').click()
@@ -910,51 +1378,18 @@ def test_PNM_007_21():
 	elif KondisiBarang == 'Baik':
 		pass
 
-@mark.fixture_penerimaan
-def test_PNM_007_22():
-	time.sleep(1)  # Sifat
-	Log.info('Input sifat')
-	driver.find_element(By.ID, 'sifat').send_keys(Sifat)
-
-@mark.fixture_penerimaan
-def test_PNM_007_23():
-	time.sleep(1)  # Merek Dan Kondisi
-	Log.info('input merek dan kondisi')
-	driver.find_element(By.ID, 'merekKondisi').send_keys(MerekDanKondisi)
-
-@mark.fixture_penerimaan
-def test_PNM_007_24():
-	time.sleep(1)
-	Log.info('input berat')
+@mark.fixture_rupbasan
+def test_PNM_007_22(): 
+	driver.find_element(By.ID, 'sifat').send_keys(Sifat) # Sifat
+	driver.find_element(By.ID, 'merekKondisi').send_keys(MerekDanKondisi) # Merek Dan Kondisi
 	driver.find_element(By.ID, 'berat').send_keys(Berat)  # Berat
-
-@mark.fixture_penerimaan
-def test_PNM_007_25():
-	time.sleep(1)
-	Log.info('input volime')
 	driver.find_element(By.ID, 'volumeCc').send_keys(VolumeCC)  # Volume / CC
-
-@mark.fixture_penerimaan
-def test_PNM_007_26():
-	time.sleep(1)
-	Log.info('input panjang')
 	driver.find_element(By.ID, 'panjang').send_keys(Panjang)  # Panjang
-
-@mark.fixture_penerimaan
-def test_PNM_007_27():
-	time.sleep(1)
-	Log.info('input lebar')
 	driver.find_element(By.ID, 'lebar').send_keys(Lebar)  # Lebar
-
-@mark.fixture_penerimaan
-def test_PNM_007_28():
-	time.sleep(1)
-	Log.info('input tinggi')
 	driver.find_element(By.ID, 'tinggi').send_keys(Tinggi)  # Tinggi
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_29():
-	time.sleep(1)
 	Log.info('input tipemerek')
 	if Golongan == 'HEWAN TERNAK':
 		pass
@@ -962,9 +1397,8 @@ def test_PNM_007_29():
 		driver.find_element(By.ID, 'tipeMerek').send_keys(
 			TipeMerek)  # Tipe / Merek
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_30():
-	time.sleep(1)
 	Log.info('input yang jenis golongan senjata api')
 	if Golongan == 'SENJATA API (SENPI)':
 		driver.find_element(By.ID, 'laras').send_keys(Laras)  # Laras
@@ -985,11 +1419,10 @@ def test_PNM_007_30():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_31():
-	time.sleep(1)
 	Log.info('input yang jenis golongan elektronik')
-	if (Golongan == 'ELEKTRONIK' or Golongan == 'PERHIASAN'):
+	if Golongan == 'ELEKTRONIK':
 		driver.find_element(By.ID, 'pembuatPabrik').send_keys(PembuatPabrik)  # Pembuat Pabrik
 		driver.find_element(By.ID, 'nomorPabrik').send_keys(NomorPabrik)  # Nomor Pabrik
 		tglexit = driver.find_element(By.ID, 'tglKeluar')
@@ -1003,9 +1436,8 @@ def test_PNM_007_31():
 	else:
 		pass
 
-@mark.fixture_penerimaanx
+@mark.fixture_rupbasan
 def test_PNM_007_32():
-	time.sleep(1)
 	Log.info('input tahunPembuatan')
 	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'SENJATA API (SENPI)' or Golongan == 'Lain - Lain'):
 		thnpembuatan = driver.find_element(By.ID, 'tahunPembuatan')
@@ -1014,31 +1446,27 @@ def test_PNM_007_32():
 	else:
 		pass
 
-@mark.fixture_penerimaanx
+@mark.fixture_rupbasan
 def test_PNM_007_33():
-	time.sleep(1)
 	Log.info('input tahunPengeluaranPenerbitan')
 	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'SENJATA API (SENPI)' or Golongan == 'Lain - Lain'):
-		thnpengeluaran = driver.find_element(
-			By.ID, 'tahunPengeluaranPenerbitan')
+		thnpengeluaran = driver.find_element(By.ID, 'tahunPengeluaranPenerbitan')
 		# Tahun Pengeluaran / Penerbitan
 		thnpengeluaran.send_keys(TahunPengeluaranpenerbitan)
 		thnpengeluaran.send_keys(Keys.ENTER)
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_34():
-	time.sleep(1)
 	Log.info('input warna')
 	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'SENJATA API (SENPI)'):
 		driver.find_element(By.ID, 'warna').send_keys(Warna)  # Warna
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_35():
-	time.sleep(1)
 	Log.info('input NomorMesin')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'nmrMesin').send_keys(
@@ -1046,9 +1474,8 @@ def test_PNM_007_35():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_36():
-	time.sleep(1)
 	Log.info('input NomorChasis')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'nmrChasis').send_keys(
@@ -1056,9 +1483,8 @@ def test_PNM_007_36():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_37():
-	time.sleep(1)
 	Log.info('input TeganganDaya')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'teganganDaya').send_keys(
@@ -1066,9 +1492,8 @@ def test_PNM_007_37():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_38():
-	time.sleep(1)
 	Log.info('input MerekSumberDaya')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'merekSumberDaya').send_keys(
@@ -1076,23 +1501,18 @@ def test_PNM_007_38():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_39():
-	time.sleep(1)
 	Log.info('input AsalBasanDari')
-	driver.find_element(By.ID, 'asalDari').send_keys(
-		AsalBasanDari)  # Asal Basan Dari
+	driver.find_element(By.ID, 'asalDari').send_keys(AsalBasanDari)  # Asal Basan Dari
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_40():
-	time.sleep(1)
 	Log.info('input PerkiraanUsia')
-	driver.find_element(By.ID, 'perkiraanUsia').send_keys(
-		PerkiraanUsia)  # Perkiraan Usia
+	driver.find_element(By.ID, 'perkiraanUsia').send_keys(PerkiraanUsia)  # Perkiraan Usia
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_41():
-	time.sleep(1)
 	Log.info('input Kemasan')
 	if Golongan == 'BATU PERMATA':
 		driver.find_element(By.ID, 'kadarKarat').send_keys(
@@ -1101,107 +1521,91 @@ def test_PNM_007_41():
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_42():
-	time.sleep(1)
 	Log.info('input Batasan')
 	driver.find_element(By.ID, 'batasan').send_keys(Batasan)  # Batasan
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_44():
-	time.sleep(1)
 	Log.info('input NoIMB')
 	driver.find_element(By.ID, 'NoImb').send_keys(NoIMB)  # No. IMB
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_45():
-	time.sleep(1)
 	Log.info('input IsiGedung')
 	driver.find_element(By.ID, 'isiGedung').send_keys(IsiGedung)  # Isi Gedung
 
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_46():
-	time.sleep(1)
 	Log.info('input SuratBukti')
 	driver.find_element(By.ID, 'suratBukti').send_keys(SuratBukti)  # Surat Bukti
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_47():
-	time.sleep(1)
 	Log.info('input BenderaNegara')
 	driver.find_element(By.ID, 'bendera').send_keys(BenderaNegara)  # Bendera Negara
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_48():
-	time.sleep(1)
 	Log.info('input NoPolisi')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'nomorPolisi').send_keys(NoPolisi)  # No. Polisi
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_49():
-	time.sleep(1)
 	Log.info('input WarnaTNKB')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'warnaTnkb').send_keys(WarnaTNKB)  # Warna TNKB
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_50():
-	time.sleep(1)
 	Log.info('input MasaBerlakuTNK')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'masaBerlakuTnkb').send_keys(MasaBerlakuTNK)  # Masa Berlaku TNKB
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_51():
-	time.sleep(1)
 	Log.info('input BahanBakar')
 	if Golongan == 'KENDARAAN BERMOTOR':
 		driver.find_element(By.ID, 'bahanBakar').send_keys(BahanBakar)  # Bahan Bakar
 	else:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_52():
-	time.sleep(1)
 	Log.info('input CiriKhusus')
 	driver.find_element(By.ID, 'ciriKhusus').send_keys(CiriKhusus)  # Ciri Khusus
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_53():
-	time.sleep(1)
 	Log.info('input HalLainnya')
 	driver.find_element(By.ID, 'halLainnya').send_keys(HalLainnya)  # Hal Lainnya
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_54():
-	time.sleep(1)
 	Log.info('input PemeliharaanKhusus')
 	if (PemeliharaanKhusus == 'Iya' or PemeliharaanKhusus == 'iya'):
 		driver.find_element(By.ID, 'PemeliharaanKhusus').click()
 	elif (PemeliharaanKhusus == 'Tidak' or PemeliharaanKhusus == 'tidak'):
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_55():
-	time.sleep(1)
 	Log.info('input catatanPemeliharaanKhusus')
 	if (PemeliharaanKhusus == 'Iya' or PemeliharaanKhusus == 'iya'):
 		driver.find_element(By.ID, 'catatanPemeliharaanKhusus').send_keys(CatatanPemeliharaanKhusus)  # Catatan Pemeliharaan Khusus
 	elif (PemeliharaanKhusus == 'Tidak' or PemeliharaanKhusus == 'tidak'):
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_56():
-	time.sleep(1)
 	Log.info('input RekomendasiTimPeneliti')
 	driver.find_element(By.ID, 'rekomendasiTimPeneliti').send_keys(RekomendasiTimPeneliti)  # Rekomendasi Tim Peneliti
 
@@ -1300,9 +1704,8 @@ jmlhSTNK		= gmotor['CK'+str(g)].value
 konSTNK			= gmotor['CL'+str(g)].value
 
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_35_1():
-	time.sleep(1)
 	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if KunciKontak == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan10').click()
@@ -1311,7 +1714,11 @@ def test_PNM_007_35_1():
 		elif KunciKontak == 'Tidak':
 			driver.find_element(By.ID, 'jumlah10').send_keys('-')
 			driver.find_element(By.ID, 'kondisi10').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_2():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if RemoteKunci == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan11').click()
 			driver.find_element(By.ID, 'jumlah11').send_keys(jmlhRemoteKunci)
@@ -1319,7 +1726,11 @@ def test_PNM_007_35_1():
 		elif RemoteKunci == 'Tidak':
 			driver.find_element(By.ID, 'jumlah11').send_keys('-')
 			driver.find_element(By.ID, 'kondisi11').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_3():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if CentralLock == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan12').click()
 			driver.find_element(By.ID, 'jumlah12').send_keys(jmlhCentralLock)
@@ -1327,7 +1738,11 @@ def test_PNM_007_35_1():
 		elif CentralLock == 'Tidak':
 			driver.find_element(By.ID, 'jumlah12').send_keys('-')
 			driver.find_element(By.ID, 'kondisi12').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_4():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if PowerWindow == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan13').click()
 			driver.find_element(By.ID, 'jumlah13').send_keys(jmlhPowerWindow)
@@ -1335,7 +1750,11 @@ def test_PNM_007_35_1():
 		elif PowerWindow == 'Tidak':
 			driver.find_element(By.ID, 'jumlah13').send_keys('-')
 			driver.find_element(By.ID, 'kondisi13').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_5():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Spion == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan14').click()
 			driver.find_element(By.ID, 'jumlah14').send_keys(jmlhSpion)
@@ -1343,7 +1762,11 @@ def test_PNM_007_35_1():
 		elif Spion == 'Tidak':
 			driver.find_element(By.ID, 'jumlah14').send_keys('-')
 			driver.find_element(By.ID, 'kondisi14').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_6():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Wiper == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan15').click()
 			driver.find_element(By.ID, 'jumlah15').send_keys(jmlhWiper)
@@ -1351,7 +1774,11 @@ def test_PNM_007_35_1():
 		elif Wiper == 'Tidak':
 			driver.find_element(By.ID, 'jumlah15').send_keys('-')
 			driver.find_element(By.ID, 'kondisi15').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_7():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if LampuDepan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan16').click()
 			driver.find_element(By.ID, 'jumlah16').send_keys(jmlhLampuDepan)
@@ -1359,7 +1786,11 @@ def test_PNM_007_35_1():
 		elif LampuDepan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah16').send_keys('-')
 			driver.find_element(By.ID, 'kondisi16').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_8():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if SeinDepan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan17').click()
 			driver.find_element(By.ID, 'jumlah17').send_keys(jmlhSeinDepan)
@@ -1367,7 +1798,11 @@ def test_PNM_007_35_1():
 		elif SeinDepan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah17').send_keys('-')
 			driver.find_element(By.ID, 'kondisi17').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_9():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if LampuBelakang == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan18').click()
 			driver.find_element(By.ID, 'jumlah18').send_keys(jmlhLampuBelakang)
@@ -1375,7 +1810,11 @@ def test_PNM_007_35_1():
 		elif LampuBelakang == 'Tidak':
 			driver.find_element(By.ID, 'jumlah18').send_keys('-')
 			driver.find_element(By.ID, 'kondisi18').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_10():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if SeinBelakang == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan19').click()
 			driver.find_element(By.ID, 'jumlah19').send_keys(jmlhSeinBelakang)
@@ -1383,7 +1822,11 @@ def test_PNM_007_35_1():
 		elif SeinBelakang == 'Tidak':
 			driver.find_element(By.ID, 'jumlah19').send_keys('-')
 			driver.find_element(By.ID, 'kondisi19').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_11():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if LampuVariasi == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan110').click()
 			driver.find_element(By.ID, 'jumlah110').send_keys(jmlhLampuVariasi)
@@ -1391,7 +1834,11 @@ def test_PNM_007_35_1():
 		elif LampuVariasi == 'Tidak':
 			driver.find_element(By.ID, 'jumlah110').send_keys('-')
 			driver.find_element(By.ID, 'kondisi110').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_12():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if PintuKanan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan111').click()
 			driver.find_element(By.ID, 'jumlah111').send_keys(jmlhPintuKanan)
@@ -1399,7 +1846,11 @@ def test_PNM_007_35_1():
 		elif PintuKanan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah111').send_keys('-')
 			driver.find_element(By.ID, 'kondisi111').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_13():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if PintuKiri == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan112').click()
 			driver.find_element(By.ID, 'jumlah112').send_keys(jmlhPintuKiri)
@@ -1407,7 +1858,11 @@ def test_PNM_007_35_1():
 		elif PintuKiri == 'Tidak':
 			driver.find_element(By.ID, 'jumlah112').send_keys('-')
 			driver.find_element(By.ID, 'kondisi112').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_14():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if BodyBelakang == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan113').click()
 			driver.find_element(By.ID, 'jumlah113').send_keys(jmlhBodyBelakang)
@@ -1415,7 +1870,11 @@ def test_PNM_007_35_1():
 		elif BodyBelakang == 'Tidak':
 			driver.find_element(By.ID, 'jumlah113').send_keys('-')
 			driver.find_element(By.ID, 'kondisi113').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_15():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if BumperDepan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan114').click()
 			driver.find_element(By.ID, 'jumlah114').send_keys(jmlhBumperDepan)
@@ -1423,7 +1882,11 @@ def test_PNM_007_35_1():
 		elif BumperDepan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah114').send_keys('-')
 			driver.find_element(By.ID, 'kondisi114').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_16():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if BumperBelakang == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan20').click()
 			driver.find_element(By.ID, 'jumlah20').send_keys(
@@ -1433,7 +1896,11 @@ def test_PNM_007_35_1():
 		elif BumperBelakang == 'Tidak':
 			driver.find_element(By.ID, 'jumlah20').send_keys('-')
 			driver.find_element(By.ID, 'kondisi20').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_17():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Accu == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan21').click()
 			driver.find_element(By.ID, 'jumlah21').send_keys(jmlhAccu)
@@ -1441,7 +1908,11 @@ def test_PNM_007_35_1():
 		elif Accu == 'Tidak':
 			driver.find_element(By.ID, 'jumlah21').send_keys('-')
 			driver.find_element(By.ID, 'kondisi21').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_18():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Speedometer == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan22').click()
 			driver.find_element(By.ID, 'jumlah22').send_keys(jmlhSpeedometer)
@@ -1449,7 +1920,11 @@ def test_PNM_007_35_1():
 		elif Speedometer == 'Tidak':
 			driver.find_element(By.ID, 'jumlah22').send_keys('-')
 			driver.find_element(By.ID, 'kondisi22').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_19():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Jok == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan23').click()
 			driver.find_element(By.ID, 'jumlah23').send_keys(jmlhJok)
@@ -1457,7 +1932,11 @@ def test_PNM_007_35_1():
 		elif Jok == 'Tidak':
 			driver.find_element(By.ID, 'jumlah23').send_keys('-')
 			driver.find_element(By.ID, 'kondisi23').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_20():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if AC == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan24').click()
 			driver.find_element(By.ID, 'jumlah24').send_keys(jmlhAC)
@@ -1465,7 +1944,11 @@ def test_PNM_007_35_1():
 		elif AC == 'Tidak':
 			driver.find_element(By.ID, 'jumlah24').send_keys('-')
 			driver.find_element(By.ID, 'kondisi24').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_21():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if AudioSound == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan25').click()
 			driver.find_element(By.ID, 'jumlah25').send_keys(jmlhAudioSound)
@@ -1473,7 +1956,11 @@ def test_PNM_007_35_1():
 		elif AudioSound == 'Tidak':
 			driver.find_element(By.ID, 'jumlah25').send_keys('-')
 			driver.find_element(By.ID, 'kondisi25').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_22():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if KarpetBawah == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan26').click()
 			driver.find_element(By.ID, 'jumlah26').send_keys(jmlhKarpetBawah)
@@ -1481,7 +1968,11 @@ def test_PNM_007_35_1():
 		elif KarpetBawah == 'Tidak':
 			driver.find_element(By.ID, 'jumlah26').send_keys('-')
 			driver.find_element(By.ID, 'kondisi26').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_23():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if VelgBanRodaDepan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan27').click()
 			driver.find_element(By.ID, 'jumlah27').send_keys(
@@ -1491,7 +1982,11 @@ def test_PNM_007_35_1():
 		elif VelgBanRodaDepan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah27').send_keys('-')
 			driver.find_element(By.ID, 'kondisi27').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_24():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if VelgBanRodaBelakang == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan28').click()
 			driver.find_element(By.ID, 'jumlah28').send_keys(
@@ -1501,7 +1996,11 @@ def test_PNM_007_35_1():
 		elif VelgBanRodaBelakang == 'Tidak':
 			driver.find_element(By.ID, 'jumlah28').send_keys('-')
 			driver.find_element(By.ID, 'kondisi28').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_25():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if BanSerep == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan29').click()
 			driver.find_element(By.ID, 'jumlah29').send_keys(jmlhBanSerep)
@@ -1509,7 +2008,11 @@ def test_PNM_007_35_1():
 		elif BanSerep == 'Tidak':
 			driver.find_element(By.ID, 'jumlah29').send_keys('-')
 			driver.find_element(By.ID, 'kondisi29').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_26():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Dongkrak == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan210').click()
 			driver.find_element(By.ID, 'jumlah210').send_keys(jmlhDongkrak)
@@ -1517,7 +2020,11 @@ def test_PNM_007_35_1():
 		elif Dongkrak == 'Tidak':
 			driver.find_element(By.ID, 'jumlah210').send_keys('-')
 			driver.find_element(By.ID, 'kondisi210').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_27():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if KunciKunci == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan211').click()
 			driver.find_element(By.ID, 'jumlah211').send_keys(jmlhKunciKunci)
@@ -1525,7 +2032,11 @@ def test_PNM_007_35_1():
 		elif KunciKunci == 'Tidak':
 			driver.find_element(By.ID, 'jumlah211').send_keys('-')
 			driver.find_element(By.ID, 'kondisi211').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_28():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if LogoTulisan == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan212').click()
 			driver.find_element(By.ID, 'jumlah212').send_keys(jmlhLogoTulisan)
@@ -1533,7 +2044,11 @@ def test_PNM_007_35_1():
 		elif LogoTulisan == 'Tidak':
 			driver.find_element(By.ID, 'jumlah212').send_keys('-')
 			driver.find_element(By.ID, 'kondisi212').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_29():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if Mesin == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan213').click()
 			driver.find_element(By.ID, 'jumlah213').send_keys(jmlhMesin)
@@ -1541,7 +2056,11 @@ def test_PNM_007_35_1():
 		elif Mesin == 'Tidak':
 			driver.find_element(By.ID, 'jumlah213').send_keys('-')
 			driver.find_element(By.ID, 'kondisi213').send_keys('-')
-
+	else:
+		pass
+@mark.fixture_rupbasan
+def test_PNM_007_35_30():
+	if (Golongan == 'KENDARAAN BERMOTOR' or Golongan == 'ANGKUTAN (DARAT/LAUT/UDARA)'):
 		if STNK == 'Ada':
 			driver.find_element(By.ID, 'ketersediaan214').click()
 			driver.find_element(By.ID, 'jumlah214').send_keys(jmlhSTNK)
@@ -1551,10 +2070,8 @@ def test_PNM_007_35_1():
 			driver.find_element(By.ID, 'kondisi214').send_keys('-')
 	else:
 		pass
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_57():
-	time.sleep(1)
 	Log.info('tambah jumlah peneliti')
 	if jumlhpeneliti == 3:
 		driver.find_element(By.ID, 'tambahPeneliti').click()
@@ -1563,39 +2080,31 @@ def test_PNM_007_57():
 		driver.find_element(By.ID, 'tambahPeneliti').click()
 	elif jumlhpeneliti == 1:
 		pass
-
-
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_58():
-	time.sleep(1)
 	Log.info('pencarian para prtugas peneliti')
 	if jumlhpeneliti == 3:
 		ptgs1 = driver.find_element(By.ID, 'cariPeneliti0')
 		ptgs1.click()
 		ptgs1.send_keys(Peneliti1)
 		driver.find_element(By.ID, 'cariPeneliti00').click()
-
 		ptgs2 = driver.find_element(By.ID, 'cariPeneliti1')
 		ptgs2.click()
 		ptgs2.send_keys(Peneliti2)
 		driver.find_element(By.ID, 'cariPeneliti10').click()
-
 		ptgs2 = driver.find_element(By.ID, 'cariPeneliti2')
 		ptgs2.click()
 		ptgs2.send_keys(Peneliti3)
 		driver.find_element(By.ID, 'cariPeneliti20').click()
-
 	elif jumlhpeneliti == 2:
 		ptgs1 = driver.find_element(By.ID, 'cariPeneliti0')
 		ptgs1.click()
 		ptgs1.send_keys(Peneliti1)
 		driver.find_element(By.ID, 'cariPeneliti00').click()
-
 		ptgs2 = driver.find_element(By.ID, 'cariPeneliti1')
 		ptgs2.click()
 		ptgs2.send_keys(Peneliti2)
 		driver.find_element(By.ID, 'cariPeneliti10').click()
-
 	elif jumlhpeneliti == 1:
 		ptgs1 = driver.find_element(By.ID, 'cariPeneliti0')
 		ptgs1.click()
@@ -1604,42 +2113,34 @@ def test_PNM_007_58():
 
 # Penilaian ==============================================================
 def test_PNM_007_59():
-	time.sleep(1)
-	hold(driver)
 	Log.info('pindah tab')
 	# WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))
 	driver.find_element(By.ID, 'tab-penilaian').click()
 
-
-@mark.fixture_penerimaanx
+@mark.fixture_rupbasan
 def test_PNM_007_60():
-	time.sleep(1)
 	Log.info('input tglPenilaian')
 	tglpenilai = driver.find_element(By.ID, 'tglPenilaian')  
 	tglpenilai.send_keys(TglPenilaian)# Tanggal Penilaian
 	tglpenilai.send_keys(Keys.ENTER)
 
-@mark.fixture_penerimaan
-def test_PNM_007_61():
-	time.sleep(1)  # Nomor BA Penelitian
+@mark.fixture_rupbasan
+def test_PNM_007_61():  # Nomor BA Penelitian
 	Log.info('input NoBAPenelitian')
 	driver.find_element(By.ID, 'noBaPenelitian').send_keys(NoBAPenelitian)
 
-@mark.fixture_penerimaan
-def test_PNM_007_62():
-	time.sleep(1)  # Nilai Satuan Barang
+@mark.fixture_rupbasan
+def test_PNM_007_62():  # Nilai Satuan Barang
 	Log.info('input NilaiSatuanBarang')
 	driver.find_element(By.ID, 'nilaiSatuan').send_keys(NilaiSatuanBarang)
 
-@mark.fixture_penerimaan
-def test_PNM_007_63():
-	time.sleep(1)  # Keterangan
+@mark.fixture_rupbasan
+def test_PNM_007_63():  # Keterangan
 	Log.info('input Keterangan')
 	driver.find_element(By.ID, 'keterangan').send_keys(Keterangan)
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_67():
-	time.sleep(1)
 	Log.info('tambah jumlah petugas penilai')
 	if jumlhpeneliti == 3:
 		driver.find_element(By.ID, 'tambahPenilai').click()
@@ -1649,9 +2150,8 @@ def test_PNM_007_67():
 	elif jumlhpeneliti == 1:
 		pass
 
-@mark.fixture_penerimaan
+@mark.fixture_rupbasan
 def test_PNM_007_68():
-	time.sleep(1)
 	Log.info('pencarian prtugas penilai')
 	if jumlhpenelilai == 3:
 		penlai1 = driver.find_element(By.ID, 'cariPenilai0')
@@ -1686,139 +2186,280 @@ def test_PNM_007_68():
 		penlai1.send_keys(Penilai1)
 		driver.find_element(By.ID, 'cariPenilai00').click()
 
-@mark.fixture_penerimaan
-def test_PNM_007_69():# submit data tambah barang
+@mark.fixture_rupbasan
+def test_PNM_007_69():  # submit data tambah barang
 	hold(driver)
 	Log.info('submit data')
 	driver.find_element(By.ID, 'submitButton').click()
 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
-@mark.fixture_penempatan
-def test_PTN_001():
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
+#############################################################################################################################
+
+bahbara = wb['Barangbasan']
+v = 8  # barisexel
+
+nmbarang	= bahbara['A'+str(v)].value  # Nama Barang
+brgtemuan	= bahbara['B'+str(v)].value  # Barang Temuan
+jnsbarang	= bahbara['C'+str(v)].value  # Jenis Barang
+satuanbrg	= bahbara['D'+str(v)].value  # Satuan
+# jumlah 	= bahbara['E'+str(v)].value #Jumlah
+j_baik		= bahbara['F'+str(v)].value  # Jumlah Baik
+j_rusak_ringan	= bahbara['G'+str(v)].value  # Jumlah Rusak Ringan
+j_rusak_berat	= bahbara['H'+str(v)].value  # Jumlah Rusak Berat
+# Jfoto			= bahbara['I'+str(v)].value #listjumlah foto barang
+fo1		= bahbara['J'+str(v)].value  # Nama Foto 1
+kfoto1	= bahbara['K'+str(v)].value  # Keterangan1
+fo2		= bahbara['L'+str(v)].value  # Nama Foto 2
+kfoto2	= bahbara['M'+str(v)].value  # Keterangan2
+fo3		= bahbara['N'+str(v)].value  # Nama Foto 2
+kfoto3	= bahbara['O'+str(v)].value  # Keterangan2
+
+@mark.fixture_rupbasan
+def test_PNM_008_0():
+	Log.info('mencari data penerimaan')
+	test_CaridataUntukBarang()
+	Log.info('menekan tombol daftar barang')
+	test_PNM_005_006()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonUpdate0')))
 	hold(driver)
-	Log.info('Mengakses menu  Penempatan dengan memilih modul Rupbasan kemudian pilih menu Penempatan')
-	nav = driver.find_element(By.XPATH, pathData['AksesMenu']['Rupbasan']['menu']['Rupbasan'])
-	ActionChains(driver).move_to_element(nav).perform()
+	Log.info('Menekan tombol ubah barang')
+	# WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadingbarang'])))
+	driver.find_element(By.ID, 'buttonUpdate0').click()
+
+# Kelengkapan Basan Baran ==============================================================
+@mark.fixture_rupbasan
+def test_PNM_008_1():
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element_located((By.XPATH, pathData['Rupelemen']['+barang']['loadubhbrng'])))
+	hold(driver)
+	Log.info('tab pertama')
 	time.sleep(1)
-	driver.find_element(By.LINK_TEXT, 'Penempatan').click()
-	driver.find_element(By. ID, 'kataKunci').click()
+	driver.find_element(By.ID, 'tab-kelengkapanBasanBaran').click()
+	attach(data=driver.get_screenshot_as_png())
 
-	attach(data=driver.get_screenshot_as_png()) 
+@mark.fixture_rupbasan
+def test_PNM_008_2():
+	Log.info('Update nama barang')
+	nabar = driver.find_element(By.ID, 'nama_barang')
+	nabar.clear()
+	nabar.send_keys('Update' + nmbarang)  # Nama Barang
 
-@mark.fixture_penempatan
-def test_PTN_003_0():
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By. ID, 'searchButton')))
+@mark.fixture_rupbasan
+def test_PNM_008_3():
+	Log.info('Update temuan barang')
+	if (brgtemuan == 'Tidak' or brgtemuan == 'tidak'):
+		driver.find_element(By.ID, 'barang_temuan').click()
+	elif (brgtemuan == 'Iya' or brgtemuan == 'iya'):
+		print('')
+
+@mark.fixture_rupbasan
+def test_PNM_008_6():
+	Log.info('Update jumlah baik barang')
+	bjmlh = driver.find_element(By.ID, 'jumlah_baik')
+	bjmlh.clear()
+	bjmlh.send_keys(j_baik)  # jumlah_baik
+
+@mark.fixture_rupbasan
+def test_PNM_008_7():
+	Log.info('Update jumlah rusak ringan barang')
+	rrjmlh = driver.find_element(By.ID, 'jumlah_rusak_ringan')
+	rrjmlh.clear()
+	rrjmlh.send_keys(j_rusak_ringan)  # jumlah rusak ringan
+
+@mark.fixture_rupbasan
+def test_PNM_008_8():
+	Log.info('Update jumlah rusak berat barang')
+	rbjmlh = driver.find_element(By.ID, 'jumlah_rusak_berat')
+	rbjmlh.clear()
+	rbjmlh.send_keys(j_rusak_berat)  # jumlah Rusak Berat
+
+@mark.fixture_rupbasan
+def test_PNM_008_9():
+	Log.info('Update foto1 barang')
+	driver.find_element(By.ID, 'pilihFoto0').click()
+	time.sleep(3)
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
+	pyautogui.press('enter')
+	# driver.find_element(By.ID,'namaFoto0').send_keys(foto1)
+	satu1 = driver.find_element(By.ID, 'keterangann0')
+	satu1.clear()
+	satu1.send_keys('update'+ kfoto1)
+
+@mark.fixture_rupbasan
+def test_PNM_008_10():
+	Log.info('Update foto2 barang')
+	driver.find_element(By.ID, 'pilihFoto1').click()
+	time.sleep(3)
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
+	pyautogui.press('enter')
+	# driver.find_element(By.ID,'namaFoto1').send_keys(foto2)
+	two2 = driver.find_element(By.ID, 'keterangann1')
+	two2.clear()
+	two2.send_keys('update'+ kfoto2)
+
+@mark.fixture_rupbasan
+def test_PNM_008_11():
+	Log.info('Update foto3 barang')
+	driver.find_element(By.ID, 'pilihFoto2').click()
+	time.sleep(3)
+	if Golongan =='KENDARAAN BERMOTOR':
+		pyautogui.write(environ.get(r"FOTBRG1"))
+	elif Golongan =='SENJATA API (SENPI)':
+		pyautogui.write(environ.get(r"SENPI"))
+	elif Golongan =='ELEKTRONIK':
+		pyautogui.write(environ.get(r"ELEKTRONIK"))
+	elif Golongan =='HEWAN TERNAK':
+		pyautogui.write(environ.get(r"HEWAN"))
+	elif Golongan =='PERHIASAN':
+		pyautogui.write(environ.get(r"EMAS"))
+	pyautogui.press('enter')
+	# driver.find_element(By.ID,'namaFoto2').send_keys(foto3)
+	tiga3 = driver.find_element(By.ID, 'keterangann2')
+	tiga3.clear()
+	tiga3.send_keys('update'+ kfoto3)
+
+@mark.fixture_rupbasan
+def test_PNM_008_12():  # submit untuk update barang
 	hold(driver)
-	Log.info('membuka halaman tambah dengan menekan button tambah')
-	driver.find_element(By. ID, 'createButton').click()
+	Log.info('Mengupdate data barang basan')
+	driver.find_element(By.ID, 'submitButton').click()
+
+@mark.fixture_rupbasan
+def test_PNM_009():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonDetail0')))
+	hold(driver)
+	Log.info('Melihat detail barang basan')
+	driver.find_element(By.ID, 'buttonDetail0').click()
+	time.sleep(2)
+	WebDriverWait(driver, 50).until(EC.invisibility_of_element((By.XPATH, pathData['Rupelemen']['listbarang']['loaddetail'])))
+	driver.find_element(By.ID, 'tab-perkara').click()
+	time.sleep(2)
+	driver.find_element(By.ID, 'tab-penelitian').click()
+	time.sleep(2)
+	driver.find_element(By.ID, 'tab-penilaian').click()
+	time.sleep(2)
+	driver.find_element(By.ID, 'tab-pemeliharaan').click()
+	# hold(driver)
+	# driver.find_element(By.ID, 'backButton').click()
+
+@mark.fixture_rupbasan
+def test_kehalamanutama():
+	Log.info('Menuju Halaman utama penerimaan')
+	hold(driver)
+	driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[1]/span[3]/span[1]').click()
+
+#############################################################################################################################
+#############################################################################################################################
+# @mark.fixture_rupbasan
+# def test_halamanindex():
+# 	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+# 	hold(driver)
+# 	Log.info('Menuju Halaman Utama')
+# 	test_CaridataUntukBarang()
+
+@mark.fixture_rupbasan
+def test_PNM_SPTJM():
+	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	hold(driver)
+	Log.info('Mencetak surat BA dengan menekan Button Cetak SPTJM')
+	driver.find_element(By. ID, 'cetakSPTJM0').click()
 	attach(data=driver.get_screenshot_as_png())
 
-PTN = wb['Penempatan']
-u = 2
-
-tglpenempatan 	= PTN['B'+str(u)].value #Tanggal Penempatan
-pilihtersangka  = PTN['C'+str(u)].value #Pilih Tersangka
-gudang 			= PTN['D'+str(u)].value #Gudang
-sektorgudang 	= PTN['E'+str(u)].value #Sektor Gudang
-barisraklemari  = PTN['F'+str(u)].value #Baris/Rak/Lemari
-nourut 			= PTN['G'+str(u)].value #No Urut
-keterangan  	= PTN['H'+str(u)].value #Keterangan
-
-@mark.fixture_penempatan
-def test_PTN_003_1():
-	Log.info('Mencari nama Barang')
-	nabar = driver.find_element(By.ID, 'identity_keyword')
-	nabar.click()
-	nabar.send_keys(nama_barang)
-	print('Menunggu loading "Memuat"')
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'identity_keyword-0')))
-	driver.find_element(By.CSS_SELECTOR, "#identity_keyword-0").click()
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_2():
-	Log.info('memilih tanggal dengan format DD/MM/YYYY ')
-	tglPtn = driver.find_element(By.ID, 'tgl_penempatan')
-	tglPtn.click()
-	tglPtn.send_keys(tglpenempatan)
-	tglPtn.send_keys(Keys.ENTER)
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_3():
-	Log.info('pencarian tersangka barang')
-	Ters = driver.find_element(By. ID, 'dropdownPilihTersangka')
-	Ters.click()
-	Ters.send_keys(pilihtersangka)
-	print('Menunggu loading "Memuat"')
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'tersangkaOption-0')))
-	driver.find_element(By.ID, "tersangkaOption-0").click()
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_4():
-	Log.info('Memilih Gudang untuk barang')
+@mark.fixture_rupbasan
+def test_PNM_010():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakSPTJM0')))
 	hold(driver)
-	driver.find_element(By. ID, 'dropdownPilihGudang').click()
-	if gudang == 'Gudang Umum Terbuka':
-		WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-0')))
-		driver.find_element(By.ID,'gudangOption-0').click()
-	elif gudang == 'Gudang Umum Tertutup':
-		WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-1')))
-		driver.find_element(By.ID,'gudangOption-1').click()
-	elif gudang == 'Gudang Berharga':
-		WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-2')))
-		driver.find_element(By.ID,'gudangOption-2').click()
-	elif gudang == 'Gudang Berbahaya':
-		WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-3')))
-		driver.find_element(By.ID,'gudangOption-3').click()
-	elif gudang == 'Gudang Hewan dan Tumbuhan':
-		WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-4')))
-		driver.find_element(By.ID,'gudangOption-4').click()
-		# pilgud.send_keys(gudang)
-		# print('Menunggu loading "Memuat"')
-		# WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'gudangOption-0')))
-		# driver.find_element(By.ID, "gudangOption-0").click()
-	print('Menunggu loading Detail Gudang')
-	WebDriverWait(driver, 80).until(EC.presence_of_element_located((By.XPATH, pathData['Rupelemen']['+penempatan']['descgudang'])))
-	attach(data=driver.get_screenshot_as_png())	
-@mark.fixture_penempatan
-def test_PTN_003_5():
-	Log.info('memilih sektor gudang')
-	hold(driver)
-	pilsek = driver.find_element(By. ID, 'dropdownSektorGudang')
-	pilsek.click()
-	pilsek.send_keys(sektorgudang)
-	print('Menunggu loading "Memuat"')
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'sektorGudangOption-0')))
-	driver.find_element(By.ID, "sektorGudangOption-0").click()
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_6():
-	Log.info('Memilih Baris dalam gudang')
-	hold(driver)
-	pillbar = driver.find_element(By.CSS_SELECTOR, ".el-input > #dropdownBaris")
-	pillbar.click()
-	# pillbar.send_keys(barisraklemari)
-	print('Menunggu loading "Memuat"')
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'baris-0')))
-	driver.find_element(By.ID, "baris-0").click()
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_7():
-	Log.info('Memilih memilih nomer urut')
-	pilnorut = driver.find_element(By.CSS_SELECTOR, ".el-input > #dropdownNoUrut")
-	pilnorut.click()
-	# pilnorut.send_keys(nourut)
-	print('Menunggu loading "Memuat"')
-	WebDriverWait(driver, 80).until(EC.element_to_be_clickable((By.ID, 'noUrut-0')))
-	driver.find_element(By.ID, "noUrut-0").click()
-	attach(data=driver.get_screenshot_as_png())
-@mark.fixture_penempatan
-def test_PTN_003_8():
-	Log.info('memasukan Ketrangan Penempatan')
-	driver.find_element(By. ID, 'keterangan').send_keys(keterangan)
+	Log.info('Mencetak surat BA dengan menekan Button Cetak BA')
+	driver.find_element(By. ID, 'cetakBA0').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
 	attach(data=driver.get_screenshot_as_png())
 
-@mark.fixture_penempatan
-def test_PTN_003_9():
+@mark.fixture_rupbasan
+def test_PNM_011():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'cetakBA0')))
+	Log.info('Menampilkan dropdown jumlah data yang dipilih oleh pengguna dan ditampilkan pada main grid')
 	hold(driver)
-	Log.info('menekan button submit data penempatan')
-	driver.find_element(By.ID, "submitButton").click()
+	# driver.find_element(By.ID, 'kataKunci').clear()
+	# time.sleep(1)
+	# driver.find_element(By.ID, 'searchButton').click()
+	# WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	time.sleep(1)
+	driver.find_element(By.XPATH, pathData['Other Search Index']['Dropdown Halaman']).click()
+	driver.find_element(By.XPATH, '//div[8]/div/div/div[1]/ul/li[1]').click()  # 5 Halaman
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
+def test_PNM_012():
+	Log.info('Menampilkan jumlah Total perhalaman di main grid')
+	hold(driver)
+	pass
+
+@mark.fixture_rupbasan
+def test_PNM_013():
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	Log.info('Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
+	hold(driver)
+	pergi = driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke'])
+	time.sleep(2)
+	pergi.clear()
+	pergi.send_keys('3')
+	pergi.send_keys(Keys.ENTER)
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+
+@mark.fixture_rupbasan
+def test_PNM_015():
+	Log.info('Berhasil mencetak data penerimaan sesuai dengan total halaman yang dipilih dengan format PDF (.pdf)')
+	hold(driver)
+	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF']).click()
+	# driver.find_element(By.ID, 'wholeButton').click()
+	time.sleep(1)
+	driver.find_element(By.ID, 'thisButton').click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF'])))
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
+def test_PNM_014():
+	Log.info('Mencetak data penerimaan (sesuai dengan jumlah halaman) dengan menekan Button Export Excel')
+	hold(driver)
+	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel']).click()
+	# driver.find_element(By.ID, 'wholeButton').click()
+	time.sleep(1)
+	driver.find_element(By.ID, 'thisButton').click()
+	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportexcel'])))
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
+def test_PNM_016():
+	hold(driver)
+	Log.info('Mencetak data penerimaan (sesuai dengan jumlah halaman) yang terhubung langsung dengan perangkat tambahan (printer)')
+	driver.find_element(By.ID, 'printButton').click()
+	time.sleep(1)
+	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['cetakinisaja']).click()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'printButton')))
+	attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_rupbasan
+def test_tutupweb():
+	hold(driver)
+	Log.info('menyelesaikan test penerimaan dan menutup browser')
+	driver.quit()

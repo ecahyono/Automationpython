@@ -1,33 +1,8 @@
-[2022-12-15 14:52:26,361 Test_Penerimaan_2_TambahPenerimaan.py->test_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-15 14:52:27,854 Test_Penerimaan_2_TambahPenerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-15 14:52:37,000 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
-[2022-12-15 14:52:58,650 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_002()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
-[2022-12-15 14:53:23,466 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
-[2022-12-15 14:53:25,360 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
-[2022-12-15 14:53:25,690 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_3()]==>INFO: Menginput Tanggal Penerimaan
-[2022-12-15 14:53:25,783 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_4()]==>INFO: Menginput Nomor Registrasi Rupbasan
-[2022-12-15 14:53:28,252 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_5()]==>INFO: Memilih Opsi instansi
-[2022-12-15 14:53:28,516 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_6()]==>INFO: Menginput Nomor Registrasi Instansi
-[2022-12-15 14:53:28,768 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_7()]==>INFO: Menginput Nomor Surat Izin Penyitaan
-[2022-12-15 14:53:29,051 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_8()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
-[2022-12-15 14:53:31,466 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
-[2022-12-15 14:53:31,705 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_10()]==>INFO: menginput nomor surat Penyitaan
-[2022-12-15 14:53:31,981 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_11()]==>INFO: menginput tanggal surat Penyitaan
-[2022-12-15 14:53:32,216 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_12()]==>INFO: input pasal
-[2022-12-15 14:53:32,452 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_13()]==>INFO: Input field text input menggunakan varchar
-[2022-12-15 14:53:32,778 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_14()]==>INFO: Input field text area
-[2022-12-15 14:53:33,702 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_15()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
-[2022-12-15 14:53:34,269 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_16()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
-[2022-12-15 14:53:34,550 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
-[2022-12-15 14:53:36,165 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-15 14:53:37,208 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-15 14:53:37,410 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_19()]==>INFO: klik tab Petugas Instansi
-[2022-12-15 14:53:37,631 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_20()]==>INFO:  menambah 1 baris status petugas
-[2022-12-15 14:53:37,919 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan pertama
-[2022-12-15 14:53:38,187 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_21()]==>INFO: Melakukan Pencarian data petugas penyerah internal
-[2022-12-15 14:53:38,187 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan kedua
-[2022-12-15 14:53:38,470 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_22()]==>INFO: Klik tab Saksi Penerima
-[2022-12-15 14:53:38,719 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_23()]==>INFO:  menambah 1 baris status petugas saksi
-[2022-12-15 14:53:38,772 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_24()]==>INFO: Memilih radiobutton status petugas saksi External
-[2022-12-15 14:53:39,379 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_24()]==>INFO: melakukan pencarian data petuggas saksi External baris pertama
-[2022-12-15 14:53:40,985 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_24()]==>INFO: Melakukan Pencarian data petugas saksi external
+[2022-12-29 13:24:51,621 Test_Penerimaan_2_TambahPenerimaan.py->test_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-29 13:25:02,596 Test_Penerimaan_2_TambahPenerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-29 13:25:10,041 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
+[2022-12-29 13:25:14,002 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_002()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
+[2022-12-29 13:25:16,805 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
+[2022-12-29 13:25:18,987 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
+[2022-12-29 13:25:22,920 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
+[2022-12-29 13:27:24,689 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan

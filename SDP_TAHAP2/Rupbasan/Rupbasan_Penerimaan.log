@@ -1,106 +1,29 @@
-[2022-12-21 10:28:34,983 Test_Rupbasan.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-21 10:28:38,157 Test_Rupbasan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
-[2022-12-21 10:28:45,875 Test_Rupbasan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
-[2022-12-21 10:29:05,885 Test_Rupbasan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
-[2022-12-21 10:29:07,381 Test_Rupbasan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
-[2022-12-21 10:29:09,878 Test_Rupbasan.py->test_PNM003_3()]==>INFO: Menginput Tanggal Penerimaan
-[2022-12-21 10:29:11,434 Test_Rupbasan.py->test_PNM003_4()]==>INFO: Menginput Nomor Registrasi Rupbasan
-[2022-12-21 10:29:12,575 Test_Rupbasan.py->test_PNM003_5()]==>INFO: Memilih Opsi instansi
-[2022-12-21 10:29:16,327 Test_Rupbasan.py->test_PNM003_6()]==>INFO: Menginput Nomor Registrasi Instansi
-[2022-12-21 10:29:17,713 Test_Rupbasan.py->test_PNM003_7()]==>INFO: Menginput Nomor Surat Izin Penyitaan
-[2022-12-21 10:29:19,138 Test_Rupbasan.py->test_PNM003_8()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
-[2022-12-21 10:29:19,747 Test_Rupbasan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
-[2022-12-21 10:29:23,290 Test_Rupbasan.py->test_PNM003_10()]==>INFO: menginput nomor surat Penyitaan
-[2022-12-21 10:29:24,697 Test_Rupbasan.py->test_PNM003_11()]==>INFO: menginput tanggal surat Penyitaan
-[2022-12-21 10:29:26,215 Test_Rupbasan.py->test_PNM003_12()]==>INFO: input pasal
-[2022-12-21 10:29:27,568 Test_Rupbasan.py->test_PNM003_13()]==>INFO: Input field text input menggunakan varchar
-[2022-12-21 10:29:28,957 Test_Rupbasan.py->test_PNM003_14()]==>INFO: Input field text area
-[2022-12-21 10:29:30,406 Test_Rupbasan.py->test_PNM003_15()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
-[2022-12-21 10:29:32,445 Test_Rupbasan.py->test_PNM003_16()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
-[2022-12-21 10:29:34,153 Test_Rupbasan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
-[2022-12-21 10:29:35,588 Test_Rupbasan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-21 10:29:40,332 Test_Rupbasan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
-[2022-12-21 10:29:42,698 Test_Rupbasan.py->test_PNM003_19()]==>INFO: klik tab Petugas Instansi
-[2022-12-21 10:29:44,080 Test_Rupbasan.py->test_PNM003_20()]==>INFO:  menambah 1 baris status petugas
-[2022-12-21 10:29:45,411 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan pertama
-[2022-12-21 10:29:46,213 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan kedua
-[2022-12-21 10:29:47,521 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Melakukan Pencarian data petugas penyerah internal
-[2022-12-21 10:29:48,530 Test_Rupbasan.py->test_PNM003_22()]==>INFO: Klik tab Saksi Penerima
-[2022-12-21 10:29:49,906 Test_Rupbasan.py->test_PNM003_23()]==>INFO:  menambah 1 baris status petugas saksi
-[2022-12-21 10:29:51,259 Test_Rupbasan.py->test_PNM003_24()]==>INFO: Melakukan Pencarian data petugas saksi external
-[2022-12-21 10:29:51,259 Test_Rupbasan.py->test_PNM003_24()]==>INFO: memilih radiobutton status petugas Saksi Internal
-[2022-12-21 10:29:51,332 Test_Rupbasan.py->test_PNM003_24()]==>INFO: melakukan pencarian data petuggas saksi internal
-[2022-12-21 10:29:52,001 Test_Rupbasan.py->test_PNM003_24()]==>INFO: Melakukan Pencarian data petugas saksi external baris kedua
-[2022-12-21 10:30:20,086 Test_Rupbasan.py->test_PNM003_25()]==>INFO: menekan button submit
-[2022-12-21 10:37:39,646 Test_Rupbasan.py->test_PNM_005_006()]==>INFO: [PNM-005]=>Menampilkan detail penerimaan dengan menggunakan button (Daftar Barang) pada kolom aksi di tabel
-[2022-12-21 10:37:39,646 Test_Rupbasan.py->test_PNM_005_006()]==>INFO: [PNM-006]=>Menampilkan halaman daftar barang baran dan basan dengan menggunakan button (Daftar Barang) pada kolom aksi di tabel
-[2022-12-21 10:37:40,241 Test_Rupbasan.py->test_PNM_007_0()]==>INFO: Menambahkan data baran dan basan dengan menginputkan data di halaman daftar barang kemudian klik button simpan
-[2022-12-21 10:38:26,697 Test_Rupbasan.py->test_PNM_007_1()]==>INFO: Nama barang
-[2022-12-21 10:38:27,861 Test_Rupbasan.py->test_PNM_007_2()]==>INFO: checkbox barang temuan
-[2022-12-21 10:38:28,968 Test_Rupbasan.py->test_PNM_007_3()]==>INFO: Memilih jenis barang basan
-[2022-12-21 10:38:31,133 Test_Rupbasan.py->test_PNM_007_4()]==>INFO: Memilih satuan barang
-[2022-12-21 10:38:32,693 Test_Rupbasan.py->test_PNM_007_6()]==>INFO: Jumlah Baik
-[2022-12-21 10:38:33,825 Test_Rupbasan.py->test_PNM_007_7()]==>INFO: Jumlah rusak ringan
-[2022-12-21 10:38:34,937 Test_Rupbasan.py->test_PNM_007_8()]==>INFO: Jumlah rusak berat
-[2022-12-21 10:38:36,054 Test_Rupbasan.py->test_PNM_007_9()]==>INFO: Jumlah foto
-[2022-12-21 10:38:37,253 Test_Rupbasan.py->test_PNM_007_10()]==>INFO: upload foto barang 1
-[2022-12-21 10:38:41,962 Test_Rupbasan.py->test_PNM_007_11()]==>INFO: upload foto barang 2
-[2022-12-21 10:38:46,599 Test_Rupbasan.py->test_PNM_007_12()]==>INFO: upload foto barang 3
-[2022-12-21 10:38:51,271 Test_Rupbasan.py->test_PNM_007_13()]==>INFO: pindah tab
-[2022-12-21 10:39:41,481 Test_Rupbasan.py->test_PNM_007_14()]==>INFO: Nomor Penelitian
-[2022-12-21 10:39:42,714 Test_Rupbasan.py->test_PNM_007_15()]==>INFO: tanggal Penelitian
-[2022-12-21 10:39:44,156 Test_Rupbasan.py->test_PNM_007_16()]==>INFO: no SK penelitian
-[2022-12-21 10:39:45,285 Test_Rupbasan.py->test_PNM_007_17()]==>INFO: Tanggal SK Penelitian
-[2022-12-21 10:39:47,068 Test_Rupbasan.py->test_PNM_007_18()]==>INFO: Memilih Golongan
-[2022-12-21 10:40:33,483 Test_Rupbasan.py->test_PNM_007_19()]==>INFO: Keadaan Segel Penyita
-[2022-12-21 10:40:34,620 Test_Rupbasan.py->test_PNM_007_20()]==>INFO: Kondisi Barang
-[2022-12-21 10:40:36,990 Test_Rupbasan.py->test_PNM_007_21()]==>INFO: Sub Kondisi Barang
-[2022-12-21 10:40:37,999 Test_Rupbasan.py->test_PNM_007_22()]==>INFO: Input sifat
-[2022-12-21 10:40:39,205 Test_Rupbasan.py->test_PNM_007_23()]==>INFO: input merek dan kondisi
-[2022-12-21 10:40:40,525 Test_Rupbasan.py->test_PNM_007_24()]==>INFO: input berat
-[2022-12-21 10:40:41,646 Test_Rupbasan.py->test_PNM_007_25()]==>INFO: input volime
-[2022-12-21 10:40:42,743 Test_Rupbasan.py->test_PNM_007_26()]==>INFO: input panjang
-[2022-12-21 10:40:43,856 Test_Rupbasan.py->test_PNM_007_27()]==>INFO: input lebar
-[2022-12-21 10:40:45,054 Test_Rupbasan.py->test_PNM_007_28()]==>INFO: input tinggi
-[2022-12-21 10:40:46,185 Test_Rupbasan.py->test_PNM_007_29()]==>INFO: input tipemerek
-[2022-12-21 10:40:47,321 Test_Rupbasan.py->test_PNM_007_30()]==>INFO: input yang jenis golongan senjata api
-[2022-12-21 10:40:48,324 Test_Rupbasan.py->test_PNM_007_31()]==>INFO: input yang jenis golongan elektronik
-[2022-12-21 10:40:50,164 Test_Rupbasan.py->test_PNM_007_32()]==>INFO: input tahunPembuatan
-[2022-12-21 10:40:51,167 Test_Rupbasan.py->test_PNM_007_33()]==>INFO: input tahunPengeluaranPenerbitan
-[2022-12-21 10:40:52,170 Test_Rupbasan.py->test_PNM_007_34()]==>INFO: input warna
-[2022-12-21 10:40:53,171 Test_Rupbasan.py->test_PNM_007_35()]==>INFO: input NomorMesin
-[2022-12-21 10:40:54,194 Test_Rupbasan.py->test_PNM_007_36()]==>INFO: input NomorChasis
-[2022-12-21 10:40:55,198 Test_Rupbasan.py->test_PNM_007_37()]==>INFO: input TeganganDaya
-[2022-12-21 10:40:56,205 Test_Rupbasan.py->test_PNM_007_38()]==>INFO: input MerekSumberDaya
-[2022-12-21 10:40:57,215 Test_Rupbasan.py->test_PNM_007_39()]==>INFO: input AsalBasanDari
-[2022-12-21 10:40:58,396 Test_Rupbasan.py->test_PNM_007_40()]==>INFO: input PerkiraanUsia
-[2022-12-21 10:40:59,541 Test_Rupbasan.py->test_PNM_007_41()]==>INFO: input Kemasan
-[2022-12-21 10:41:00,544 Test_Rupbasan.py->test_PNM_007_42()]==>INFO: input Batasan
-[2022-12-21 10:41:01,727 Test_Rupbasan.py->test_PNM_007_44()]==>INFO: input NoIMB
-[2022-12-21 10:41:02,857 Test_Rupbasan.py->test_PNM_007_45()]==>INFO: input IsiGedung
-[2022-12-21 10:41:04,022 Test_Rupbasan.py->test_PNM_007_46()]==>INFO: input SuratBukti
-[2022-12-21 10:41:05,182 Test_Rupbasan.py->test_PNM_007_47()]==>INFO: input BenderaNegara
-[2022-12-21 10:41:06,359 Test_Rupbasan.py->test_PNM_007_48()]==>INFO: input NoPolisi
-[2022-12-21 10:41:07,361 Test_Rupbasan.py->test_PNM_007_49()]==>INFO: input WarnaTNKB
-[2022-12-21 10:41:08,369 Test_Rupbasan.py->test_PNM_007_50()]==>INFO: input MasaBerlakuTNK
-[2022-12-21 10:41:09,375 Test_Rupbasan.py->test_PNM_007_51()]==>INFO: input BahanBakar
-[2022-12-21 10:41:10,377 Test_Rupbasan.py->test_PNM_007_52()]==>INFO: input CiriKhusus
-[2022-12-21 10:41:11,554 Test_Rupbasan.py->test_PNM_007_53()]==>INFO: input HalLainnya
-[2022-12-21 10:41:12,739 Test_Rupbasan.py->test_PNM_007_54()]==>INFO: input PemeliharaanKhusus
-[2022-12-21 10:41:13,745 Test_Rupbasan.py->test_PNM_007_55()]==>INFO: input catatanPemeliharaanKhusus
-[2022-12-21 10:41:14,753 Test_Rupbasan.py->test_PNM_007_56()]==>INFO: input RekomendasiTimPeneliti
-[2022-12-21 10:41:16,911 Test_Rupbasan.py->test_PNM_007_57()]==>INFO: tambah jumlah peneliti
-[2022-12-21 10:41:17,913 Test_Rupbasan.py->test_PNM_007_58()]==>INFO: pencarian para prtugas peneliti
-[2022-12-21 10:56:09,173 Test_Rupbasan.py->test_PNM_007_59()]==>INFO: pindah tab
-[2022-12-21 10:56:10,391 Test_Rupbasan.py->test_PNM_007_60()]==>INFO: input tglPenilaian
-[2022-12-21 10:56:11,810 Test_Rupbasan.py->test_PNM_007_61()]==>INFO: input NoBAPenelitian
-[2022-12-21 10:56:12,929 Test_Rupbasan.py->test_PNM_007_62()]==>INFO: input NilaiSatuanBarang
-[2022-12-21 10:56:14,397 Test_Rupbasan.py->test_PNM_007_63()]==>INFO: input Keterangan
-[2022-12-21 10:56:15,612 Test_Rupbasan.py->test_PNM_007_67()]==>INFO: tambah jumlah petugas penilai
-[2022-12-21 10:56:16,618 Test_Rupbasan.py->test_PNM_007_68()]==>INFO: pencarian prtugas penilai
-[2022-12-21 11:06:55,871 Test_Rupbasan.py->test_PNM_007_69()]==>INFO: submit data
-[2022-12-21 11:07:25,887 Test_Rupbasan.py->test_PTN_001()]==>INFO: Mengakses menu  Penempatan dengan memilih modul Rupbasan kemudian pilih menu Penempatan
-[2022-12-21 11:07:27,805 Test_Rupbasan.py->test_PTN_003_0()]==>INFO: membuka halaman tambah dengan menekan button tambah
-[2022-12-21 11:07:28,356 Test_Rupbasan.py->test_PTN_003_1()]==>INFO: Mencari nama Barang
-[2022-12-21 11:07:38,740 Test_Rupbasan.py->test_PTN_003_2()]==>INFO: memilih tanggal dengan format DD/MM/YYYY 
-[2022-12-21 11:07:49,149 Test_Rupbasan.py->test_PTN_003_3()]==>INFO: pencarian tersangka barang
+[2022-12-28 16:25:15,418 Test_Rupbasan.py->test_00_setup()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-28 16:25:17,541 Test_Rupbasan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2022-12-28 16:25:22,778 Test_Rupbasan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
+[2022-12-28 16:25:32,341 Test_Rupbasan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
+[2022-12-28 16:25:33,872 Test_Rupbasan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
+[2022-12-28 16:25:36,285 Test_Rupbasan.py->test_PNM003_3()]==>INFO: Menginput Tanggal Penerimaan
+[2022-12-28 16:25:37,698 Test_Rupbasan.py->test_PNM003_4()]==>INFO: Menginput Nomor Registrasi Rupbasan
+[2022-12-28 16:25:38,851 Test_Rupbasan.py->test_PNM003_5()]==>INFO: Memilih Opsi instansi
+[2022-12-28 16:25:42,526 Test_Rupbasan.py->test_PNM003_6()]==>INFO: Menginput Nomor Registrasi Instansi
+[2022-12-28 16:25:43,873 Test_Rupbasan.py->test_PNM003_7()]==>INFO: Menginput Nomor Surat Izin Penyitaan
+[2022-12-28 16:25:45,157 Test_Rupbasan.py->test_PNM003_8()]==>INFO: Menginput Tanggal Surat Izin Penyitaan
+[2022-12-28 16:25:45,624 Test_Rupbasan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
+[2022-12-28 16:25:49,174 Test_Rupbasan.py->test_PNM003_10()]==>INFO: menginput nomor surat Penyitaan
+[2022-12-28 16:25:50,649 Test_Rupbasan.py->test_PNM003_11()]==>INFO: menginput tanggal surat Penyitaan
+[2022-12-28 16:25:52,088 Test_Rupbasan.py->test_PNM003_12()]==>INFO: input pasal
+[2022-12-28 16:25:53,373 Test_Rupbasan.py->test_PNM003_13()]==>INFO: Input field text input menggunakan varchar
+[2022-12-28 16:26:05,135 Test_Rupbasan.py->test_PNM003_14()]==>INFO: Input field text area
+[2022-12-28 16:26:06,739 Test_Rupbasan.py->test_PNM003_15()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
+[2022-12-28 16:26:08,332 Test_Rupbasan.py->test_PNM003_16()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
+[2022-12-28 16:26:19,721 Test_Rupbasan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
+[2022-12-28 16:26:21,176 Test_Rupbasan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-28 16:26:21,711 Test_Rupbasan.py->test_PNM003_18()]==>INFO: Melakukan Pencarian data Identitas
+[2022-12-28 16:26:23,167 Test_Rupbasan.py->test_PNM003_19()]==>INFO: klik tab Petugas Instansi
+[2022-12-28 16:26:24,491 Test_Rupbasan.py->test_PNM003_20()]==>INFO:  menambah 1 baris status petugas
+[2022-12-28 16:26:25,781 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan pertama
+[2022-12-28 16:26:26,251 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Memilih Petugas Instansi Yang menyerahkan kedua
+[2022-12-28 16:26:27,608 Test_Rupbasan.py->test_PNM003_21()]==>INFO: Melakukan Pencarian data petugas penyerah internal
+[2022-12-28 16:26:28,630 Test_Rupbasan.py->test_PNM003_22()]==>INFO: Klik tab Saksi Penerima
+[2022-12-28 16:26:29,964 Test_Rupbasan.py->test_PNM003_23()]==>INFO:  menambah 1 baris status petugas saksi

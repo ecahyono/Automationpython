@@ -1,6 +1,5 @@
-[2022-12-20 10:23:12,754 Test_Rupbasan_Pemeliharaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-20 10:23:16,773 Test_Rupbasan_Pemeliharaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-20 10:23:32,211 Test_Rupbasan_Pemeliharaan.py->test_PML_001()]==>INFO: Mengakses menu Pemeliharaan dengan memilih modul Rupbasan kemudian pilih menu Pemeliharaan
-[2022-12-20 10:24:31,660 Test_Rupbasan_Pemeliharaan.py->test_PML_002()]==>INFO: Pengecekan data yang telah di filter
-[2022-12-20 10:24:45,964 Test_Rupbasan_Pemeliharaan.py->test_PML_003_0()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
-[2022-12-20 10:24:57,619 Test_Rupbasan_Pemeliharaan.py->test_PML_003_24()]==>INFO: Menekan Button nsubmit data pemeliharan
+[2022-12-27 11:00:01,464 Test_Rupbasan_Pemeliharaan.py->test_Ossetup_1()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2022-12-27 11:00:01,469 Test_Rupbasan_Pemeliharaan.py->test_loggin_2()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2022-12-27 11:00:05,629 Test_Rupbasan_Pemeliharaan.py->test_PML_001()]==>INFO: Mengakses menu Pemeliharaan dengan memilih modul Rupbasan kemudian pilih menu Pemeliharaan
+[2022-12-27 11:00:29,763 Test_Rupbasan_Pemeliharaan.py->test_PML_002()]==>INFO: Pengecekan data yang telah di filter
+[2022-12-27 11:00:40,638 Test_Rupbasan_Pemeliharaan.py->test_PML_003_0()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
