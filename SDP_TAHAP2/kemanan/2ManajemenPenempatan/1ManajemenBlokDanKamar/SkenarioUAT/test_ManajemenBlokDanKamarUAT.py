@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, sleep
+from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, sleep
 from Settings.login import login, loginSPV
 
 import logging
@@ -76,8 +76,8 @@ def test_MBK_001():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
-    Log.info('Login')
     sleep(driver)
+    Log.info('Login')
 
     login(driver)
     Log.info('Login')
