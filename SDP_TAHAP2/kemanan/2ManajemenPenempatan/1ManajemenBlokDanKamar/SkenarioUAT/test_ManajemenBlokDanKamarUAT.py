@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, quit, buttonTambah, buttonSubmit, selectKategoriPegawai, selectKategoriTamuDinas, sleep
+from Settings.setup import initDriver, loadDataPath, sleep
 from Settings.login import login, loginSPV
 
 import logging
@@ -74,10 +74,10 @@ lamaHuniTambah                                = sheetrange['Q'+str(index)].value
 def test_MBK_001():
     print(' == NEXT == Login Sebagai OPERATOR UPT')
     global driver, pathData
-    sleep(driver)
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Login')
+    sleep(driver)
 
     login(driver)
     Log.info('Login')
@@ -132,6 +132,8 @@ def test_MBK_003():
     elif statusKapasitasFormIndex == 'overcapacity':
         sleep(driver)
         driver.find_element(By.XPATH, "//li[contains(.,\'Overcapacity\')]").click()
+    WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.ID, 'searchButton').click
     Log.info('Berhasil menampilkan data berdasarkan kategori kapasitas yang dipilih pada dropdown di halaman Pemetaan Blok & Kamar')
     attach(data=driver.get_screenshot_as_png())
 
