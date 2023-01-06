@@ -1,1 +1,25 @@
-[2023-01-01 18:35:54,535 test_P2UUAT.py->test_APO_002()]==>INFO: Memilih Filter data
+[2023-01-03 01:31:27,210 test_P2UUAT.py->test_APO_001()]==>INFO: (Berhasil APO-001) Berhasil menampilkan halaman Akses Pintu Otomatis
+[2023-01-03 01:32:04,608 test_P2UUAT.py->test_APO_002()]==>INFO:  Membuka Halaman Tambah 
+[2023-01-03 01:32:07,434 test_P2UUAT.py->test_APO_002()]==>INFO: (BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid 
+[2023-01-03 01:32:22,471 test_P2UUAT.py->test_APO_002()]==>INFO:  Membuka Halaman Tambah 
+[2023-01-03 01:32:22,710 test_P2UUAT.py->test_APO_002()]==>INFO:  Input NIP 
+[2023-01-03 01:32:24,086 test_P2UUAT.py->test_APO_002()]==>INFO:  Input Nama 
+[2023-01-03 01:32:24,877 test_P2UUAT.py->test_APO_002()]==>INFO:  Input Jabatan 
+[2023-01-03 01:32:25,706 test_P2UUAT.py->test_APO_002()]==>INFO:  Input Keperluan 
+[2023-01-03 01:32:26,676 test_P2UUAT.py->test_APO_002()]==>INFO: (BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid 
+[2023-01-03 01:33:27,235 test_P2UUAT.py->test_APO_002()]==>INFO:  Membuka Halaman Tambah 
+[2023-01-03 01:33:28,405 test_P2UUAT.py->test_APO_002()]==>INFO: (BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid 
+[2023-01-03 01:34:03,758 test_P2UUAT.py->test_APO_002()]==>INFO:  Membuka Halaman Tambah 
+[2023-01-03 01:34:27,506 test_P2UUAT.py->test_APO_002()]==>INFO:  Input NIP 
+[2023-01-03 01:34:27,623 test_P2UUAT.py->test_APO_002()]==>INFO: (BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid 
+[2023-01-03 01:35:05,037 test_P2UUAT.py->test_APO_003()]==>INFO: Search Bedasarkan Nama Lengkap
+[2023-01-03 01:35:05,157 test_P2UUAT.py->test_APO_003()]==>INFO: Klik check Box Belum Konfirmasi Keluar
+[2023-01-03 01:35:09,572 test_P2UUAT.py->test_APO_003()]==>INFO: Klik Button Search
+[2023-01-03 01:35:35,050 test_P2UUAT.py->test_APO_004()]==>INFO: Klik Konfirmasi Keluar
+[2023-01-03 01:35:59,914 test_P2UUAT.py->test_APO_004()]==>INFO: ( BERHASIL APO-004 / Menampilkan alert berhasil kemudian berhasil konfirmasi keluar dan menampilkan waktu keluar 
+[2023-01-03 01:36:22,211 test_P2UUAT.py->test_APO_005()]==>INFO: Search Bedasarkan Nama Lengkap
+[2023-01-03 01:36:22,358 test_P2UUAT.py->test_APO_005()]==>INFO: Klik Button Search
+[2023-01-03 01:36:24,990 test_P2UUAT.py->test_APO_005()]==>INFO: Clik Button Detail
+[2023-01-03 01:37:31,601 test_P2UUAT.py->test_APO_006()]==>INFO: (APO-006) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil
+[2023-01-03 01:37:51,642 test_P2UUAT.py->test_APO_007()]==>INFO: (BERHASIL APO - 007) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil
+[2023-01-03 01:37:56,090 test_P2UUAT.py->test_PTR_008()]==>INFO: (BERHASIL APO - 008) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil

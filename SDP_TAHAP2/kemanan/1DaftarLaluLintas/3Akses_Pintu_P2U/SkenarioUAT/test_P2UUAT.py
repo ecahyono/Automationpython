@@ -70,8 +70,7 @@ def test_2_login():
 
 @mark.fixture_test()
 def test_APO_001():
-    print('.')
-    print('Menjalankan APO-001 - Mengakses halaman Akses Pintu Otomatis dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Akses Pintu Otomatis')
+    print('== NEXT == APO-001 - // Mengakses halaman Akses Pintu Otomatis dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Akses Pintu Otomatis')
 
     driver.implicitly_wait(60)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
@@ -84,92 +83,6 @@ def test_APO_001():
 
     print('.')
     Log.info('(Berhasil APO-001) Berhasil menampilkan halaman Akses Pintu Otomatis')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_APO_002():
-    print('.')
-    print('(APO-002) / Melakukan pengecekan filtering data')
-
-    driver.implicitly_wait(30)
-    Log.info('Memilih Filter data')
-    sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    if filterColumnIndex == 'nama lengkap':
-        print('akan memilih Pencarian berdasarkan nama lepngkap')
-        sleep(driver)
-        driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
-        # KETIK NAMA
-        driver.find_element(By.XPATH, "//li[contains(.,\'Nama Lengkap\')]").click()
-        # PILIH DROPDOWN NAMA LENGKAP
-        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaWBPIndex)
-        # KETIK GALIH DI FORM MASUKAN KATA KUNCI
-        Log.info('Search Bedasarkan Nama Lengkap')
-        attach(data=driver.get_screenshot_as_png())
-
-    elif filterColumnIndex == 'nomor induk':
-        print('akan memilih Pencarian berdasarkan Nomor induk')
-        sleep(driver)
-        driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('Nomor')
-        # KETIK NOMOR
-        driver.find_element(By.XPATH, "//li[contains(.,\'Nomor Identitas\')]").click()
-        # PILIH DROPDOWN NOMOR IDENTITAS
-        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NomorIndukIndex)
-        Log.info('Search Bedasarkan Nomor Induk')
-        attach(data=driver.get_screenshot_as_png())
-
-    elif filterColumnIndex == 'keperluan':
-        print('akan memilih Pencarian berdasarkan keperluan')
-        sleep(driver)
-        driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Keperluan')
-        # KETIK NOMOR
-        driver.find_element(By.XPATH, "//li[contains(.,\'Keperluan\')]").click()
-        # PILIH DROPDOWN NOMOR IDENTITAS
-        driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(KeperluanIndex)
-        Log.info('Search Bedasarkan Keperluan')
-        attach(data=driver.get_screenshot_as_png())
-
-    elif filterColumnIndex == 'kategori':
-        time.sleep(1)
-        print('akan memilih Pencarian berdasarkan Kategori')
-        sleep(driver)
-        driver.find_element(By.XPATH, '//*[@id="filterColumn"]').send_keys('Kategori')
-        driver.find_element(By.XPATH, "//li[contains(.,\'Kategori\')]").click()
-        driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-        Log.info('Search Bedasarkan kategori')
-        attach(data=driver.get_screenshot_as_png())
-        sleep(driver)
-
-        if inputKategoriIndex == 'Pegawai':
-            print(' akan memilih Pencarian Pegawai')
-            sleep(driver)
-            driver.find_element(By.XPATH, "//li[@id='pegawai']").click()
-            Log.info('select kategori pegawai')
-            attach(data=driver.get_screenshot_as_png())
-
-        elif inputKategoriIndex == 'Tamu Dinas':
-            print(' akan memilih Pencarian Tamu Dinas')
-            sleep(driver)
-            driver.find_element(By.ID, 'tamuDinas').click()
-            Log.info('select kategori tamu dinas')
-
-            attach(data=driver.get_screenshot_as_png())
-        elif inputKategoriIndex == 'Kunjungan Onsite':
-            Log.info('select kategori Kunjungan onsite')
-            sleep(driver)
-            driver.find_element(By.XPATH, "//li[@id='Kunjungan']").click()
-            attach(data=driver.get_screenshot_as_png())
-        elif inputKategoriIndex == 'Kunjungan Online':
-            Log.info('select kategori Kunjungan Online')
-            sleep(driver)
-            driver.find_element(By.XPATH, "//li[@id='Kunjungan Online']").click()
-            attach(data=driver.get_screenshot_as_png())
-    Log.info('Klik button search')
-    sleep(driver)
-
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-    Log.info('(BERHASIL APO-002) / Berhasil menampilkan data sesuai dengan kategori yang dipilih pada dropdown di halaman Daftar Akses Pintu ')
     attach(data=driver.get_screenshot_as_png())
 
 
@@ -189,33 +102,144 @@ KunjunganOnlinetambah                     = sheetrangeTambah['J' + str(tambah)].
 
 
 @mark.fixture_test()
-def test_APO_003():
-    print('.')
-    print('(BERHASIL APO-003) / Menambahkan data akses pintu otomatis dengan menekan button tambah dan melakukan pencarian identitas Non-WBP, kemudian input keperluan / keterangan lalu klik button konfirmasi masuk')
+def test_APO_002():
+    print('(MENJALANKAN APO-002) / Pengecekan data yang telah dibuat')
 
-
-@mark.fixture_test()
-# pergi ke halaman tambah
-def test_4_ButtonTambah_PegawaiTambah():
-    print(".")
-    print('Click Button TAMBAH')
+    print('== NEXT == / Click Button TAMBAH')
     sleep(driver)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     Log.info(' Membuka Halaman Tambah ')
     attach(data=driver.get_screenshot_as_png())
 
-    print(".")
-    print('Input data ')
+
+    ######### DROPDOWN PEGAWAI GET #########
+    print('== NEXT == / Input data Pegawai Get Data')
     driver.implicitly_wait(30)
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
-    if inputKategoritambah == 'Pegawai':
-        Log.info('Input data Pegawai')
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+    driver.find_element(By.XPATH, "//li[@id=\'pegawai\']").click()
+    driver.find_element(By.ID, 'inputSearch').send_keys(NamaAtauNiptambah)
+    driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label').click()
+    driver.find_element(By.ID, 'inputKeperluan').send_keys(inputKeperluantambah)
+    Log.info('(BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid ')
+    sleep(driver)
+    buttonSubmit(driver)
+    attach(data=driver.get_screenshot_as_png())
+
+
+    ######### DROPDOWN PEGAWAI INPUT #########
+    print('== NEXT == / Click Button TAMBAH')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    Log.info(' Membuka Halaman Tambah ')
+    attach(data=driver.get_screenshot_as_png())
+
+    print('== NEXT == / Input data Pegawai Get Data')
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+    driver.find_element(By.XPATH, "//li[@id=\'pegawai\']").click()
+    driver.find_element(By.ID, 'inputNip').click()
+    driver.find_element(By.ID, 'inputNip').send_keys(inputNiptambah)
+    Log.info(' Input NIP ')
+    sleep(driver)
+    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.ID, 'inputNama').send_keys(inputNamatambah)
+    Log.info(' Input Nama ')
+    sleep(driver)
+    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.ID, 'inputJabatan').send_keys(inputJabatantambah)
+    Log.info(' Input Jabatan ')
+    sleep(driver)
+    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.ID, 'inputKeperluan').send_keys(inputKeperluantambah)
+    Log.info(' Input Keperluan ')
+    sleep(driver)
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('(BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid ')
+    sleep(driver)
+    buttonSubmit(driver)
+    attach(data=driver.get_screenshot_as_png())
+
+
+    print('== NEXT == / Click Button TAMBAH')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    Log.info(' Membuka Halaman Tambah ')
+    attach(data=driver.get_screenshot_as_png())
+    ######### DROPDOWN TAMU DINAS GET #########
+    print('== NEXT == / Input data Pegawai Get Data')
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+    driver.find_element(By.ID, "tamuDinas").click()
+    driver.find_element(By.ID, 'inputSearch').send_keys(NamaAtauNiptambah)
+    driver.find_element(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label').click()
+    driver.find_element(By.ID, 'inputKeperluan').send_keys(inputKeperluantambah)
+    Log.info('(BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid ')
+    sleep(driver)
+    buttonSubmit(driver)
+    attach(data=driver.get_screenshot_as_png())
+
+
+
+    print('== NEXT == / Click Button TAMBAH')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    Log.info(' Membuka Halaman Tambah ')
+    attach(data=driver.get_screenshot_as_png())
+    ######### DROPDOWN TAMU DINAS PUT #########
+    print('== NEXT == / Input data Pegawai Get Data')
+    driver.implicitly_wait(30)
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+    driver.find_element(By.ID, "tamuDinas").click()
+   
+    driver.find_element(By.ID, 'inputNip').send_keys(inputNiptambah)
+    sleep(driver)
+    driver.find_element(By.ID, 'inputNama').send_keys(inputNamatambah)
+    sleep(driver)
+    driver.find_element(By.ID, 'inputInstansiId').send_keys(InputInstansitambah)
+    if InputInstansitambah == "POLRES BANDUNG":
+        driver.find_element(By.CSS_SELECTOR, '#optionInstansi0').click()
+    elif InputInstansitambah == "POLDA JABAR":
+        driver.find_element(By.ID, '//div[contains(.,\'POLDA JABAR\')]').click()
+    elif InputInstansitambah == "POLRES MAGELANG":
+        driver.find_element(By.ID, '//div[contains(.,\'POLRES MAGELANG\')]').click()
+    sleep(driver)
+    driver.find_element(By.ID, 'inputJabatan').send_keys(inputJabatantambah)
+    sleep(driver)
+    driver.find_element(By.ID, 'inputKeperluan').send_keys(inputKeperluantambah)
+    print('.')
+    Log.info(' Input NIP ')
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('(BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid ')
+    sleep(driver)
+    buttonSubmit(driver)
+    attach(data=driver.get_screenshot_as_png())
+
+
+     ###################################
+    """if inputKategoritambah == 'Pegawai':
+        print('Input data Pegawai')
         sleep(driver)
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'pegawai')))
+        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, 'pegawai')))
         driver.find_element(By.XPATH, "//li[@id=\'pegawai\']").click()
         driver.find_element(By.ID, 'inputSearch').send_keys(NamaAtauNiptambah)
         if driver.find_elements(By.CSS_SELECTOR, 'tr:nth-child(1) > .el-descriptions__label'):
@@ -274,7 +298,7 @@ def test_4_ButtonTambah_PegawaiTambah():
 
     elif inputKategoriIndex == 'Kunjungan Onsite':
 
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+        WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
         driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
         driver.find_element(By.ID, "kunjungan").click()
         attach(data=driver.get_screenshot_as_png())
@@ -283,14 +307,13 @@ def test_4_ButtonTambah_PegawaiTambah():
     Log.info('(BERHASIL APO_003) / Menampilkan alert berhasil kemudian data yang sesuai ditampilkan di pada main grid ')
     sleep(driver)
     buttonSubmit(driver)
-    attach(data=driver.get_screenshot_as_png())
+    attach(data=driver.get_screenshot_as_png())"""
 
 @mark.fixture_test()
-def test_APO_004():
-    print(".")
-    print(' (APO-004) / Melakukan konfirmasi keluar pada Non-WBP yang akan keluar melalui akses pintu otomatis dan menampilkan waktu keluar pada main grid')
+def test_APO_003():
+    print(' (APO-003) / Pengecekan data Non-WBP yang belum konfirmasi keluar')
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
     sleep(driver)
     # KETIK NAMA
@@ -310,18 +333,19 @@ def test_APO_004():
     Log.info('Klik Button Search')
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
-
-    Log.info('Clik Button Detail')
+@mark.fixture_test()
+def test_APO_004():
+    print('== NEXT == APO_004 / Pengecekan konfirmasi keluar')
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.ID, "detailButton0").click()
 
     Log.info('Klik Konfirmasi Keluar')
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     time.sleep(5)
     driver.find_element(By.ID, "submitButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
     Log.info('( BERHASIL APO-004 / Menampilkan alert berhasil kemudian berhasil konfirmasi keluar dan menampilkan waktu keluar ')
 
 @mark.fixture_test()
@@ -331,7 +355,7 @@ def test_APO_005():
     print(".")
     print('(APO-004) / Melakukan konfirmasi keluar pada Non-WBP yang akan keluar melalui akses pintu otomatis dan menampilkan waktu keluar pada main grid')
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('nama')
     sleep(driver)
     # KETIK NAMA
@@ -347,62 +371,24 @@ def test_APO_005():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
 
-    Log.info('Clik Button Detail')
+    print('== NEXT == / click button detile ')
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     time.sleep(5)
     driver.find_element(By.ID, "detailButton0").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    Log.info('Clik Button Detail')
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'backButton')))
+    print(' == NEXT == / backbutton')
+    sleep(driver)
     driver.find_element(By.ID, 'backButton').click()
+
+
 
 
 @mark.fixture_test()
 def test_APO_006():
-    print('')
-    print('(APO-006 / Menampilkan dropdown jumlah data HALAMAN yang dipilih oleh pengguna dan ditampilkan pada main grid, DATA TABEL SESUAI HALAMAN')
-
-    sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.XPATH, pathData['Other Search Index']['Pergi Ke1']).click()
-    driver.find_element(By.XPATH, "//li[contains(.,\'5/halaman\')]").click()
-
-    Log.info('Berhasil menampilkan jumlah halaman data yang ditampilkan pada main grid')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_APO_007():
     print('.')
-    print('( APO - 007 ) / Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
-    sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    Log.info('pergi ke halaman paling belakang')
-    sleep(driver)
-    driver.find_element(By.CSS_SELECTOR, ".el-input--small > .el-input__inner").send_keys(Keys.BACKSPACE)
-    driver.find_element(By.CSS_SELECTOR, ".el-input--small > .el-input__inner").send_keys('100')
-
-    Log.info('Berhasil menampilkan jumlah data yang sesuai pada main grid')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_APO_008():
-    print('.')
-    print('(APO - 008) / Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
-    sleep(driver)
-    driver.implicitly_wait(30)
-
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    Log.info('Klik button selanjutnya')
-    driver.find_element(By.CSS_SELECTOR, ".btn-next svg").click()
-
-    Log.info('Klik button Sebelumnya')
-    sleep(driver)
-    driver.find_element(By.CSS_SELECTOR, ".btn-prev svg").click()
-    Log.info('(APO -008) / Berhasil menampilkan halaman sebelumnya dan selanjutnya')
-
-@mark.fixture_test()
-def test_APO_008():
-    print('.')
-    print('(APO - 009) / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
+    print('(APO - 006) / Mencetak data akses pintu otomatis (sesuai dengan jumlah halaman) dengan menekan Button Export Excel ')
 
     sleep(driver)
     driver.implicitly_wait(30)
@@ -410,32 +396,30 @@ def test_APO_008():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.CSS_SELECTOR, '#excelButton span').click()
     driver.find_element(By.CSS_SELECTOR, '#thisButton > span').click()
-    WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    Log.info(
-        '(PTR-010) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    WebDriverWait(driver, 60).until( EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
+    Log.info('(APO-006) / Mencetak data portir sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_APO_009():
+def test_APO_007():
     # Melakukan export data tabel ke pdf
     print('.')
-    print('Menjalankan APO - 009 / Mencetak data P2U (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
+    print('Menjalankan APO - 007 / Mencetak data P2U (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     driver.find_element(By.CSS_SELECTOR, '#pdfButton span').click()
     driver.find_element(By.CSS_SELECTOR, '#pdfButton #thisButton').click()
-    WebDriverWait(driver, 30).until(
+    WebDriverWait(driver, 60).until(
         EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil mengunduh file\')]')))
-    Log.info('(BERHASIL APO - 009) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
+    Log.info('(BERHASIL APO - 007) / Berhasil mencetak data akses pintu otomatis sesuai dengan total halaman yang dipilih dengan format Excel (.xlsx) kemudian tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_PTR_010():
+def test_PTR_008():
     print('.')
-    print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
+    print('Menjalankan APO - 008 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
@@ -444,22 +428,22 @@ def test_PTR_010():
     driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
 
     print('.')
-    Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    Log.info('(BERHASIL APO - 008) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_PTR_010():
+def test_PTR_009():
     print('.')
-    print('Menjalankan APO - 010 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
+    print('Menjalankan APO - 009 / Pengecekan cetak data akses pintu otomatis dengan format PDF')
     sleep(driver)
     driver.implicitly_wait(30)
     time.sleep(1)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    driver.find_element(By.CSS_SELECTOR, "#printButton > #printButton").click()
+    driver.find_element(By.CSS_SELECTOR, "#printButton > #printButton").click()###error
     driver.find_element(By.CSS_SELECTOR, '#printButton .el-button:nth-child(2) > span').click()
 
     print('.')
-    Log.info('(BERHASIL APO - 010) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
+    Log.info('(BERHASIL APO - 009) / Menampilkan halaman preview lalu setelah berhasil mencetak data, tampil alert berhasil')
     attach(data=driver.get_screenshot_as_png())
 
 

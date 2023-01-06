@@ -1,5 +1,18 @@
-[2023-01-01 20:30:12,265 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
-[2023-01-01 20:30:16,789 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
-[2023-01-01 20:30:21,000 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: akses menu Manajemen Blok Dan Kamar
-[2023-01-01 20:30:47,338 test_ManajemenBlokDanKamarUAT.py->test_MBK_002()]==>INFO: Berhasil menampilkan data blok berdasarkan kata kunci yang diinputkan di halaman Pemetaan Blok & Kamar
-[2023-01-01 20:31:20,901 test_ManajemenBlokDanKamarUAT.py->test_MBK_003()]==>INFO: Berhasil menampilkan data berdasarkan kategori kapasitas yang dipilih pada dropdown di halaman Pemetaan Blok & Kamar
+[2023-01-01 20:59:56,048 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
+[2023-01-01 20:59:59,368 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: Login
+[2023-01-01 21:00:03,372 test_ManajemenBlokDanKamarUAT.py->test_MBK_001()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2023-01-01 21:02:03,805 test_ManajemenBlokDanKamarUAT.py->test_MBK_002()]==>INFO: Berhasil menampilkan data blok berdasarkan kata kunci yang diinputkan di halaman Pemetaan Blok & Kamar
+[2023-01-01 21:02:45,252 test_ManajemenBlokDanKamarUAT.py->test_MBK_003()]==>INFO: Berhasil menampilkan data berdasarkan kategori kapasitas yang dipilih pada dropdown di halaman Pemetaan Blok & Kamar
+[2023-01-01 21:03:42,164 test_ManajemenBlokDanKamarUAT.py->test_MBK_006()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2023-01-01 21:03:57,203 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Click Button Tambah Master Blok Dan Kamar
+[2023-01-01 21:03:59,500 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input Nama Blok
+[2023-01-01 21:04:01,964 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input Tipe Blok Umum
+[2023-01-01 21:04:04,619 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input Blok Untuk Jenis Kelamin Laki Laki
+[2023-01-01 21:04:09,672 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input untuk Jenis kejahatan Korupsi
+[2023-01-01 21:04:09,903 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: input jumlah lantai
+[2023-01-01 21:04:11,509 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input Format Penomoran Kamar
+[2023-01-01 21:04:11,626 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: input penomoran kamar
+[2023-01-01 21:04:13,710 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: memilih kelompok usia Anak Anak
+[2023-01-01 21:04:16,049 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input Jumlah Kamar perlantai
+[2023-01-01 21:04:16,973 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Input koridor
+[2023-01-01 21:04:18,403 test_ManajemenBlokDanKamarUAT.py->test_MBK_007()]==>INFO: Submit data blok 

@@ -141,15 +141,15 @@ def test_MBK_003():
 @mark.fixture_test()
 def test_MBK_004():
     print('== NEXT == MBK-004 / Melakukan pengecekan filtering daftar kamar berdasarkan lantai')
-    
-    #Melakukan pengecekan filtering daftar kamar berdasarkan lantai
+    print('XXXXXX MANUAL XXXXXX')
+    #Melakukan pengecekan filtering daftar kamar berdasarkan lantai oke
     
 @mark.fixture_test()
 def test_MBK_005():
-    print('== NEXT == MBK-005 / Melakukan pengecekan data kapasitas dan jumlah yang telah terisi dari kamar yang dipilih dengan klik salah satu nomor kamar')
+    print('== NEXT == MBK-005 / Pengecekan kapasitas kamar dan jumlah yang telah terisi')
+    print('XXXXXX MANUAL XXXXXX')
 
     #Pengecekan kapasitas kamar dan jumlah yang telah terisi
-"""
 
 @mark.fixture_test()
 def test_MBK_006():
@@ -463,6 +463,7 @@ def test_MBK_007():
 
     ################################### kamar ###################################
 
+"""
 @mark.fixture_test()
 def test_MBK_008():
 
