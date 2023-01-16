@@ -1,0 +1,3 @@
+[2023-01-03 14:12:59,294 Konfig.py->test_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2023-01-03 14:12:59,303 Konfig.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login)
+[2023-01-03 14:12:59,311 Konfig.py->test_aksesmenu()]==>INFO: Mengakses menu Item Konfig SPPN

@@ -8,7 +8,7 @@ from pytest_html_reporter import attach
 
 def login(driver):
     driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
+    driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("test-user")
@@ -25,7 +25,7 @@ def login(driver):
 
 def loginOperator(driver):
     driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
+    driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("test-user")
@@ -41,7 +41,7 @@ def loginOperator(driver):
 
 def loginSPV(driver):
     driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
+    driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("test-gal")
@@ -58,7 +58,7 @@ def loginSPV(driver):
 
 def oprupbasanbdg(driver):
 	driver.implicitly_wait(10)
-	driver.find_element(By.XPATH, "//div/span").click()
+	driver.find_element(By.ID, "login").click()
 	# ini masuk ke form input username
 	driver.find_element(By.ID, "username").click()
 	driver.find_element(By.ID, "username").send_keys("oprupbasanbdg")
@@ -84,7 +84,7 @@ P:^5GGGJ!J?. 55::JGGG7 7Y! ^PJ:^5GGG7 !PPGGPGG?.!@
 
 def supcirebon(driver):
     driver.implicitly_wait(10)
-    driver.find_element(By.XPATH, "//div/span").click()
+    driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("supcirebon")
