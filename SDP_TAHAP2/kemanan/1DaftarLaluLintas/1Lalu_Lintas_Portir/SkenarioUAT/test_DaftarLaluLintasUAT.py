@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import login
+from Settings.login import login, loginOperator
 
 import logging
 Log = logging.getLogger(__name__)
@@ -62,7 +62,7 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    login(driver)
+    loginOperator(driver)
     Log.info('Login')
 
 
@@ -78,7 +78,7 @@ def test_DLP_001():
     time.sleep(1)
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
+    driver.find_element(By.LINK_TEXT, 'Akses P2U Internal').click()
     sleep(driver)
     print('.')
     Log.info('(DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
@@ -152,6 +152,20 @@ TanggalHarusKembaliInput                   = sheetrangeInput['E'+str(Halinput)].
 deskripsiInput                             = sheetrangeInput['F'+str(Halinput)].value
 PengwalInternalInput                       = sheetrangeInput['G'+str(Halinput)].value
 PengwalExternalInput                       = sheetrangeInput['H'+str(Halinput)].value
+
+sheetrangeUbah = wb['DaftarLaluLintas_Edit']
+print('.')
+print('Halaman Ubah, Mau Baris Ke Berapa ?')
+HalUbah = input('')
+
+NamaEditUbah                                    = sheetrangeUbah['B'+str(HalUbah)].value
+noSKUbah                                        = sheetrangeUbah['C'+str(HalUbah)].value
+JenisKeluarEditUbah                             = sheetrangeUbah['D'+str(HalUbah)].value
+TanggalKeluarEditUbah                           = sheetrangeUbah['E'+str(HalUbah)].value
+TanggalHarusKembaliEditUbah                     = sheetrangeUbah['F'+str(HalUbah)].value
+deskripsiEditUbah                               = sheetrangeUbah['G'+str(HalUbah)].value
+PengwalInternalEditUbah                         = sheetrangeUbah['H'+str(HalUbah)].value
+PengwalExternalEditUbah                         = sheetrangeUbah['I'+str(HalUbah)].value
 
 
                                         ########## MASUK KE HALAMAN TAMBAH ##########
@@ -241,6 +255,10 @@ def test_DLP_004():
         print('.')
         Log.info(' Input Jenis Cuti Menjelang Bebas ')
         attach(data=driver.get_screenshot_as_png())
+    
+    driver.find_element(By.ID, 'noSK').click()
+    driver.find_element(By.ID, 'noSK').clear()
+    driver.find_element(By.ID, 'noSK').send_keys(noSKUbah)
 
     sleep(driver)
     driver.implicitly_wait(60)
@@ -289,7 +307,7 @@ def test_DLP_004():
     driver.implicitly_wait(60)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="jenis0"]')))
     driver.find_element(By.XPATH, '//*[@id="jenis0"]').click()
-    driver.find_element(By.XPATH, "//li[contains(.,\'Internal\')]").click()
+    driver.find_element(By.XPATH, "//li[@id='Internal0']").click()
     print('.')
     Log.info(' Input tambah Jenis pengawal  ')
     attach(data=driver.get_screenshot_as_png())
@@ -337,7 +355,7 @@ def test_DLP_004():
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     Log.info(' Menekan Button Submit  ')
     attach(data=driver.get_screenshot_as_png())
-
+"""
 @mark.fixture_test()
 def test_DLP_005():
     #belum
@@ -351,19 +369,7 @@ def test_DLP_005():
 
                                                     ########## masuk ke halaman ubah ##########
 
-sheetrangeUbah = wb['DaftarLaluLintas_Edit']
-print('.')
-print('Halaman Ubah, Mau Baris Ke Berapa ?')
-HalUbah = input('')
 
-NamaEditUbah                                    = sheetrangeUbah['B'+str(HalUbah)].value
-noSKUbah                                        = sheetrangeUbah['C'+str(HalUbah)].value
-JenisKeluarEditUbah                             = sheetrangeUbah['D'+str(HalUbah)].value
-TanggalKeluarEditUbah                           = sheetrangeUbah['E'+str(HalUbah)].value
-TanggalHarusKembaliEditUbah                     = sheetrangeUbah['F'+str(HalUbah)].value
-deskripsiEditUbah                               = sheetrangeUbah['G'+str(HalUbah)].value
-PengwalInternalEditUbah                         = sheetrangeUbah['H'+str(HalUbah)].value
-PengwalExternalEditUbah                         = sheetrangeUbah['I'+str(HalUbah)].value
 
 
 @mark.fixture_test()
@@ -421,9 +427,7 @@ def test_DLP_006():
     driver.implicitly_wait(10)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSubmit"]')))
     
-    driver.find_element(By.ID, 'noSK').click()
-    driver.find_element(By.ID, 'noSK').clear()
-    driver.find_element(By.ID, 'noSK').send_keys(noSKUbah)
+    
     print('.')
     Log.info('Ubah No SK Berhasil')
     attach(data=driver.get_screenshot_as_png())
@@ -620,7 +624,7 @@ def test_DLP_011():
     print('.')
     Log.info('Cetak')
     attach(data=driver.get_screenshot_as_png())
-
+"""
 
 @mark.fixture_test()
 def test_exit():

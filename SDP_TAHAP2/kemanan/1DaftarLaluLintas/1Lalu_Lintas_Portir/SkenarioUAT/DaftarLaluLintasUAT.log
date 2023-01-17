@@ -1,37 +1,16 @@
-[2023-01-02 23:06:47,537 test_DaftarLaluLintasUAT.py->test_1_setupOS()]==>INFO: Setup Os
-[2023-01-02 23:06:51,043 test_DaftarLaluLintasUAT.py->test_2_login()]==>INFO: Login
-[2023-01-02 23:07:03,113 test_DaftarLaluLintasUAT.py->test_DLP_001()]==>INFO: (DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas
-[2023-01-02 23:07:20,491 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Memilih Dropdown Nama  
-[2023-01-02 23:07:27,134 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Input Nama  
-[2023-01-02 23:07:30,285 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Cari  
-[2023-01-02 23:07:44,423 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Update  
-[2023-01-02 23:07:53,262 test_DaftarLaluLintasUAT.py->test_DLP_003()]==>INFO:  Click Button Tambah WBP  
-[2023-01-02 23:08:17,972 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Jenis Cuti Menjelang Bebas 
-[2023-01-02 23:08:24,578 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Tanggal Keluar  
-[2023-01-02 23:08:26,373 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Deskripsi Behasil 
-[2023-01-02 23:08:30,101 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Tanggal Harus Kembali  
-[2023-01-02 23:08:35,481 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah pengawal  
-[2023-01-02 23:08:40,727 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah Jenis pengawal  
-[2023-01-02 23:08:44,270 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input nama pengawal Internal  
-[2023-01-02 23:08:46,440 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah Jenis pengawal  
-[2023-01-02 23:08:50,278 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input nama pengawal Enternal  
-[2023-01-02 23:09:22,856 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Menekan Button Submit  
-[2023-01-02 23:09:25,829 test_DaftarLaluLintasUAT.py->test_DLP_005()]==>INFO: Mencetak surat data yang berstatus “Dalam Proses” dengan ceklis data yang akan dicetak suratnya pada checkbox lalu klik button Cetak Surat
-[2023-01-02 23:09:33,638 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: Memilih Dropdown Nama
-[2023-01-02 23:09:33,796 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO:  Input Nama  
-[2023-01-02 23:09:45,664 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: Click Button Cari
-[2023-01-02 23:10:37,011 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: Click Button Update
-[2023-01-02 23:11:06,014 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: Ubah No SK Berhasil
-[2023-01-02 23:11:39,275 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: Upload PDF
-[2023-01-02 23:11:45,298 test_DaftarLaluLintasUAT.py->test_DLP_006()]==>INFO: ubah status pendaftaran
-[2023-01-02 23:12:13,563 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: Memilih Dropdown Nama
-[2023-01-02 23:12:13,743 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO:  Input Nama  
-[2023-01-02 23:13:08,010 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: Click Button Cari
-[2023-01-02 23:13:52,274 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: Click Button Update
-[2023-01-02 23:14:22,912 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: Ubah No SK Berhasil
-[2023-01-02 23:15:57,693 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: Upload PDF
-[2023-01-02 23:16:37,885 test_DaftarLaluLintasUAT.py->test_DLP_007()]==>INFO: ubah status pendaftaran
-[2023-01-02 23:17:06,795 test_DaftarLaluLintasUAT.py->test_DLP_008()]==>INFO: Membuka Halaman Detail  
-[2023-01-02 23:18:08,217 test_DaftarLaluLintasUAT.py->test_DLP_009()]==>INFO: Export Excel
-[2023-01-02 23:18:28,609 test_DaftarLaluLintasUAT.py->test_DLP_010()]==>INFO: Export PDF
-[2023-01-02 23:18:43,355 test_DaftarLaluLintasUAT.py->test_DLP_011()]==>INFO: Cetak
+[2023-01-17 10:08:12,759 test_DaftarLaluLintasUAT.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-01-17 10:08:15,876 test_DaftarLaluLintasUAT.py->test_2_login()]==>INFO: Login
+[2023-01-17 10:08:55,379 test_DaftarLaluLintasUAT.py->test_DLP_001()]==>INFO: (DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas
+[2023-01-17 10:09:03,263 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Memilih Dropdown Nama  
+[2023-01-17 10:09:12,462 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Input Nama  
+[2023-01-17 10:09:14,083 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Cari  
+[2023-01-17 10:09:21,323 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Update  
+[2023-01-17 10:09:32,471 test_DaftarLaluLintasUAT.py->test_DLP_003()]==>INFO:  Click Button Tambah WBP  
+[2023-01-17 10:10:19,035 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Jenis Cuti Menjelang Bebas 
+[2023-01-17 10:10:20,850 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Tanggal Keluar  
+[2023-01-17 10:10:21,655 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Deskripsi Behasil 
+[2023-01-17 10:10:23,334 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input Tanggal Harus Kembali  
+[2023-01-17 10:10:25,016 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah pengawal  
+[2023-01-17 10:10:26,118 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah Jenis pengawal  
+[2023-01-17 10:10:27,715 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input nama pengawal Internal  
+[2023-01-17 10:10:30,389 test_DaftarLaluLintasUAT.py->test_DLP_004()]==>INFO:  Input tambah Jenis pengawal  
