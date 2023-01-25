@@ -1,0 +1,5 @@
+[2022-12-05 14:02:42,414 test_2Fungsi_P2U_Tambah.py->test_3_Akses_menu()]==>INFO: akses menu daftar lalu lintas
+[2022-12-05 14:03:12,383 test_2Fungsi_P2U_Tambah.py->test_4_ButtonTambah_PegawaiTambah()]==>INFO:  Membuka Halaman Tambah 
+[2022-12-05 14:03:12,626 test_2Fungsi_P2U_Tambah.py->test_5_Input()]==>INFO:  Memilih Kategori Tamu Dinas 
+[2022-12-05 14:03:12,661 test_2Fungsi_P2U_Tambah.py->test_5_Input()]==>INFO:  Cari Nama atau Nip Kategori Tamu Dinas 
+[2022-12-05 14:04:02,255 test_2Fungsi_P2U_Tambah.py->test_5_Input()]==>INFO:  Input NIP 
