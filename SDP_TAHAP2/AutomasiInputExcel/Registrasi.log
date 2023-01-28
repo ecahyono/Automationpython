@@ -1,3 +1,3 @@
-[2023-01-27 17:25:24,021 test_Petugas.py->test_1_setupOS()]==>INFO: Setup Os
-[2023-01-27 17:25:27,763 test_Petugas.py->test_2_login()]==>INFO: Login
-[2023-01-27 17:25:30,097 test_Petugas.py->test_Input()]==>INFO: Akses halaman Lainlian Daftar Pegawai
+[2023-01-28 23:05:23,567 test_registrasi.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-01-28 23:05:26,624 test_registrasi.py->test_2_login()]==>INFO: Login
+[2023-01-28 23:05:30,571 test_registrasi.py->test_Input()]==>INFO: (DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas

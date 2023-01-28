@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginSumedang, loginBanjar
+from Settings.login import loginSumedang, loginBanjar, loginBogor
 
 import logging
 Log = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    loginBanjar(driver)
+    loginBogor(driver)
     Log.info('Login')
 
 
