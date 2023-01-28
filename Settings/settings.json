@@ -155,13 +155,39 @@
 
     "AksesMenu": {
         "Registrasi": {
-            "MainText": "",
+            "MainText": "//div[@id='01']",
             "child": {
-                "Catatan": ""
+                "ManajemenRegistrasi": {
+                    "MainText": "//div[@id=\"20\"]"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[@id='KEA02']"
+                },
+                "LaporanBulanan":{
+                    "MainText":"//div[@id='KEA03']"
+                }
+
             }
+
         },
         "Keamanan": {
             "MainText": "//div[@id='KEA00']",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[@id='KEA01']"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[@id='KEA02']"
+                },
+                "LaporanBulanan":{
+                    "MainText":"//div[@id='KEA03']"
+                }
+
+            }
+
+        },
+        "Lainlain": {
+            "MainText": "//div[@id='601']",
             "child": {
                 "LaluLintasPortir": {
                     "MainText": "//div[@id='KEA01']"
