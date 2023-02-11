@@ -70,7 +70,7 @@ def test_Input():
     Log.info('(DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
-    i = 2
+    i = 38
         # nge baca mulai dari tabel A
     while i <= len(sheetrange['A']):
         # deklarasi bahwa NIP itu ada di A 
@@ -229,7 +229,7 @@ def test_Input():
             driver.find_element(By.ID, "jaksa-0").send_keys(NamaJaksa)
 
             driver.find_element(By.XPATH, "//input[@id='instansi-0']").click()
-            driver.find_element(By.XPATH, "//li[contains(.,\'Pengadilan Negeri Jakarta Pusat barat\')]").click()
+            driver.find_element(By.XPATH, "//li[contains(.,\'Pengadilan Negeri Jakarta Pusat\')]").click()
 
             driver.find_element(By.ID, "tgl_dijalankan_ptsn-0").click()
             driver.find_element(By.ID, "tgl_dijalankan_ptsn-0").send_keys(Tgl)
