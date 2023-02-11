@@ -128,8 +128,6 @@ def test_Input():
 
             driver.find_element(By.ID, 'submitButton').click()
                     
-           
-            
         except TimeoutException:
             print("MASIH ADA ERROR, CEK LAGI PAK WIL")
             pass
