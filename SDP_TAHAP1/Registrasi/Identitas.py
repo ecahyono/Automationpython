@@ -9,63 +9,49 @@ from selenium.webdriver.common.keys import Keys
 from openpyxl import load_workbook
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import Select
-import os
+import os, sys
+from os import environ, path
 import pyautogui
+from pytest import mark
 import pytest
 import time
 import platform
 from pathlib import Path
+import logging
 
-@pytest.fixture()
+from dotenv import load_dotenv
+load_dotenv()
+
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR")) 
+elif platform.system() == 'Windows':
+	sys.path.append(environ.get("WINPARENTDIR"))
+	
+
+from Settings.setup import initDriver, loadDataPath, hold
+from Settings.login import login, loginBanjar
+from Settings.Page.Registrasi import Registrasi_identitas
+
+@mark.fixture_test
+# init driver by os
 def test_setup():
-	global driver
-	global wb
-	swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
-	smac = Service('/Users/will/Downloads/chromedriver')
-	if platform.system() == 'Darwin':
-		driver = webdriver.Chrome(service=smac)
-		# url = 'http://kumbang.torche.id:32400/'
-		url = 'http://192.168.2.11:32400/'
-				
-		driver.get(url)
-		# seting windows nya jadi max
-		wb = load_workbook(filename='/Users/will/Documents/work/Automationpython/Filexel/Registrasi.xlsx')   
-		driver.maximize_window()
-		driver.implicitly_wait(5)
-		yield
-		driver.close()
-		driver.quit()
-	elif platform.system() == 'Windows':
-		driver = webdriver.Chrome(service=swin)
-		url = 'http://kumbang.torche.id:32400/'
-		# url = 'http://192.168.2.11:32400/'
-				
-		driver.get(url)
-		# seting windows nya jadi max   
-		wb = load_workbook(filename=r'C:\Users\user\Documents\TRCH\Automationpython\Filexel\Registrasi.xlsx')
-		driver.maximize_window()
-		driver.implicitly_wait(5)
-		yield
-		driver.close()
-		driver.quit()
-def test_Identitas(test_setup):
-	# read excel
-	sheetrange = wb ['Identitas']
-	# Menuju login
-	WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'login')))
-	driver.find_element(By.ID, 'login').click()
-	driver.find_element(By.ID, 'username').click()
-	driver.find_element(By.ID, 'username').send_keys('test-bogor')
-	driver.find_element(By.ID, 'password').send_keys('password')
-	# click button login
-	driver.find_element(By.ID, 'kc-login').click()
-	#Registrasi
-	element = driver.find_element(By.ID, '01')								   
-	ActionChains(driver).move_to_element(element).perform()
-	#Identitas
-	driver.find_element(By.LINK_TEXT, 'Daftar Identitas').click()
+	global driver, pathData
+	driver = initDriver()
+	pathData = loadDataPath()
+@mark.fixture_test
+def test_loggin():
+	# login(driver)
+	loginBanjar(driver)
 
-	i = 76
+@mark.fixture_test
+def test_aksesmenu():
+	Registrasi_identitas(driver)
+
+@mark.fixture_test
+def test_eksekusi():
+	wb = load_workbook(environ.get("REGEXCEL"))
+	sheetrange = wb['Identitas']
+	i = 71
 	while i <= len(sheetrange['A']):
 		#deklarasi per colom pada sheet
 		#------------------------------------------------------
