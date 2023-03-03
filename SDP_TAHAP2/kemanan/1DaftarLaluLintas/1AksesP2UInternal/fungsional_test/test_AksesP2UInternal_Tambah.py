@@ -1,5 +1,6 @@
 from distutils.archive_util import make_archive
 from selenium import webdriver
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -28,7 +29,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginSumedang, loginBanjar, loginBpsBdg, loginBogor, loginOperatorSumedang
+from Settings.login import loginOperatorSumedang, Op_Keamanan_p2u
 
 import logging
 Log = logging.getLogger(__name__)
@@ -51,7 +52,7 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    loginOperatorSumedang(driver)
+    Op_Keamanan_p2u(driver)
     Log.info('Login')
 
 
@@ -79,7 +80,7 @@ def test_Input():
     while i <= len(sheetrangeIndex['A']):
     
         NamaInput                                 = sheetrangeIndex['B'+str(i)].value
-        nomorRegcari                              = sheetrangeIndex['C'+str(i)].value
+        Nosk                                      = sheetrangeIndex['C'+str(i)].value
         Namacari                                  = sheetrangeIndex['D'+str(i)].value
         jenisKejahatancari                        = sheetrangeIndex['E'+str(i)].value
                 
@@ -103,8 +104,42 @@ def test_Input():
             print('== NEXT == Input kata kunci nama')
             sleep(driver)
             driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
-            # driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys('Wildan Cahyono')
             Log.info(' Input Nama  ')
+            driver.find_element(By.ID, 'buttonSearch' ).click()
+            sleep(driver)
+
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
+            
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
+            driver.find_element(By.ID, 'createButton').click()
+
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'buttonSubmit')))
+            driver.find_element(By.ID, 'noSK').send_keys(Nosk)
+
+            sleep(driver)
+            driver.find_element(By.XPATH, "//div[@id=\'fileSK\']/div/button").click()
+
+            sleep(driver)
+            pyautogui.write("///////users/will/test.pdf")
+            pyautogui.press('return')
+            pyautogui.write("///////users/will/test.pdf")
+        
+            pyautogui.press('return')
+            pyautogui.press('escape')
+            pyautogui.press('enter')
+            pyautogui.press('enter')
+            time.sleep(2)
+            pyautogui.press('enter')
+
+            driver.find_element(By.ID, 'jenisKeluar').click()
+            
+            driver.find_element(By.XPATH, "//li[@id=\'Izin Alasan Penting\']").click()
+    
+    
+
+            sleep(driver)
+
 
         except TimeoutException:
             print("ERRROR")

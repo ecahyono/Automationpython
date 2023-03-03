@@ -57,6 +57,21 @@ def loginwaru(driver):
 
     attach(data=driver.get_screenshot_as_png())
 
+def Op_Keamanan_p2u(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("op-keamanan-p2u")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+
 def loginSumedang(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
