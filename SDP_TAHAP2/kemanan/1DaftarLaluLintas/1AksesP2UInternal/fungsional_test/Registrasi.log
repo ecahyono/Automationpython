@@ -1,0 +1,4 @@
+[2023-02-21 19:53:49,064 test_AksesP2UInternal_Tambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-02-21 19:53:53,236 test_AksesP2UInternal_Tambah.py->test_2_login()]==>INFO: Login
+[2023-02-21 19:53:58,258 test_AksesP2UInternal_Tambah.py->test_Input()]==>INFO: (DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas
+[2023-02-21 19:54:22,868 test_AksesP2UInternal_Tambah.py->test_Input()]==>INFO:  Input Nama  

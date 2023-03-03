@@ -18,7 +18,7 @@ def initDriver():
         swin = Service(environ.get("CHROMEDRIVERWIN"))
         driver = webdriver.Chrome(service=swin)
 
-    driver.get(environ.get("HOSTKUMBANG"))
+    driver.get(environ.get("HOSTDO"))
     #driver.get(environ.get("HOST"))
     driver.maximize_window()
     driver.implicitly_wait(60)
@@ -76,7 +76,8 @@ def sleep(driver):
     #time.sleep(5)
     print("-")
     print(WARNING + "===============================================================================    PRESS ENTER FOR NEXT STEP    ===============================================================================")
-    input("")
+    time.sleep(2)
+    #input("")
     print('wait . . . . . . . . . . . . . . . . . . . . . ')
     
 

@@ -23,7 +23,7 @@ def login(driver):
     attach(data=driver.get_screenshot_as_png())
 
 
-def loginOperator(driver):
+def loginOperatorSumedang(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
@@ -41,12 +41,12 @@ def loginOperator(driver):
 
 
 
-def loginBogor(driver):
+def loginwaru(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("test-bogor")
+    driver.find_element(By.ID, "username").send_keys("master-rutan1bdg")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login

@@ -81,7 +81,7 @@ def test_PTR_001():
     time.sleep(1)
     ActionChains(driver).move_to_element(element2).perform()
     time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Portir').click()
+    driver.find_element(By.LINK_TEXT, 'Akses P2U Internal').click()
 
     Log.info('(Berhasil PTR-001) Berhasil menampilkan halaman Manajemen Portir')
     attach(data=driver.get_screenshot_as_png())
