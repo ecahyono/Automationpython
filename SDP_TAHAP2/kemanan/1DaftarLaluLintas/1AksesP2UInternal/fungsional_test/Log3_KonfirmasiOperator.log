@@ -1,0 +1,15 @@
+[2023-03-13 16:13:09,424 test_3P2UinternalKonfirmasiOperator.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-13 16:13:12,462 test_3P2UinternalKonfirmasiOperator.py->test_2_login()]==>INFO: Login
+[2023-03-13 16:13:17,545 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-03-13 16:13:21,969 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Klik Status
+[2023-03-13 16:13:24,063 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:13:24,100 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:13:28,166 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Detile
+[2023-03-13 16:13:35,398 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:13:37,486 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Detile
+[2023-03-13 16:13:48,308 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Klik Status
+[2023-03-13 16:13:50,395 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:13:50,414 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:13:54,498 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Detile
+[2023-03-13 16:14:01,997 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:14:04,083 test_3P2UinternalKonfirmasiOperator.py->test_3_Input()]==>INFO: Click Button Detile
