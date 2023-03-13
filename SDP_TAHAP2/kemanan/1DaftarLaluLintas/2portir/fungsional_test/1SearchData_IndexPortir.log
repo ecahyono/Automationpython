@@ -1,8 +1,0 @@
-[2022-12-03 09:19:13,746 test_1SearchData_IndexPortir.py->test_4_sortir_table_cari_Semua_Portir()]==>INFO:  Input kata kunci Nomor Surat Penetapan  
-[2022-12-03 09:19:14,925 test_1SearchData_IndexPortir.py->test_4_sortir_table_cari_Semua_Portir()]==>INFO:  Input Semua  
-[2022-12-03 09:19:16,188 test_1SearchData_IndexPortir.py->test_5_sortir_5_Halaman_Index()]==>INFO:  Menampilkan 5  
-[2022-12-03 09:19:24,269 test_1SearchData_IndexPortir.py->test_6_sortir_10_Halaman_Index()]==>INFO:  Menampilkan 10  
-[2022-12-03 09:19:26,589 test_1SearchData_IndexPortir.py->test_7_sortir_20_Halaman_Index()]==>INFO:  Menampilkan 20  
-[2022-12-03 09:19:28,923 test_1SearchData_IndexPortir.py->test_8_sortir_50_Halaman_Index()]==>INFO:  Menampilkan 50  
-[2022-12-03 09:19:30,187 test_1SearchData_IndexPortir.py->test_9_sortir_100_Halaman_Index()]==>INFO:  Menampilkan 100  
-[2022-12-03 09:19:37,033 test_1SearchData_IndexPortir.py->test_10_SearchDataStatus_MasukPortir_Index()]==>INFO:  Search Data Form Kategori No Induk  
