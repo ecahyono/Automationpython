@@ -1,0 +1,3 @@
+[2023-03-17 15:33:52,936 PenerimaanAPH.py->testconfigandlogin()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2023-03-17 15:33:55,235 PenerimaanAPH.py->testconfigandlogin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2023-03-17 15:33:58,401 PenerimaanAPH.py->test_daftarklien()]==>INFO: Membuka Halaman Penerimaan Klien APH
