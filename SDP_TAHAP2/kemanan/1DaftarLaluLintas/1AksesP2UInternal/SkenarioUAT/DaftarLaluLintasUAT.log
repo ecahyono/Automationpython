@@ -1,0 +1,7 @@
+[2023-02-21 18:22:11,047 test_DaftarLaluLintasUAT.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-02-21 18:22:17,284 test_DaftarLaluLintasUAT.py->test_2_login()]==>INFO: Login
+[2023-02-21 18:24:01,476 test_DaftarLaluLintasUAT.py->test_DLP_001()]==>INFO: (DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas
+[2023-02-21 18:24:14,829 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Memilih Dropdown Nama  
+[2023-02-21 18:24:18,127 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Input Nama  
+[2023-02-21 18:24:20,775 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Cari  
+[2023-02-21 18:24:26,482 test_DaftarLaluLintasUAT.py->test_DLP_002()]==>INFO:  Click Button Update  

@@ -1,0 +1,17 @@
+[2023-03-13 16:12:04,590 test_2VerifikasiP2UinternalSPV.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-13 16:12:07,812 test_2VerifikasiP2UinternalSPV.py->test_2_login()]==>INFO: Login
+[2023-03-13 16:12:12,705 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-03-13 16:12:17,127 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Klik Status Dalam Proses
+[2023-03-13 16:12:19,215 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:12:19,248 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:12:21,297 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click Button Verifikasi
+[2023-03-13 16:12:21,875 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Input Keterangan
+[2023-03-13 16:12:21,905 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: click button izinkan
+[2023-03-13 16:12:43,685 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click button ya 
+[2023-03-13 16:12:51,841 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Klik Status Dalam Proses
+[2023-03-13 16:12:53,939 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:12:53,951 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:12:56,027 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click Button Verifikasi
+[2023-03-13 16:12:56,603 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Input Keterangan
+[2023-03-13 16:12:56,632 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: click button izinkan
+[2023-03-13 16:12:57,178 test_2VerifikasiP2UinternalSPV.py->test_3_Input()]==>INFO: Click button ya 

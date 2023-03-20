@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginSumedang, loginBanjar, loginBpsBdg, loginBogor
+from Settings.login import loginSumedang, loginBanjar, loginwaru
 
 import logging
 Log = logging.getLogger(__name__)
@@ -51,13 +51,12 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    loginBogor(driver)
+    loginwaru(driver)
     Log.info('Login')
 
 
 @mark.fixture_test()
 def test_Input():
-    driver.implicitly_wait(60)
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Lainlain']['MainText'])
     ActionChains(driver).move_to_element(nav1).perform()
@@ -67,7 +66,7 @@ def test_Input():
     Log.info('Akses halaman Lainlian Daftar Pegawai')
     attach(data=driver.get_screenshot_as_png())
 
-    i = 2
+    i = 23
         # nge baca mulai dari tabel A
     while i <= len(sheetrange['A']):
         # deklarasi bahwa NIP itu ada di A 
@@ -129,7 +128,7 @@ def test_Input():
             driver.find_element(By.ID, 'submitButton').click()
                     
         except TimeoutException:
-            print("MASIH ADA ERROR, CEK LAGI PAK WIL")
+            print("ERRROR")
             pass
         time.sleep(5)
         i = i + 1

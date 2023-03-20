@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginSumedang, loginBanjar, loginBogor
+from Settings.login import loginSumedang, loginBanjar, loginwaru
 
 import logging
 Log = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    loginBogor(driver)
+    loginwaru(driver)
     Log.info('Login')
 
 
@@ -70,7 +70,7 @@ def test_Input():
     Log.info('(DLP-001 SUKSES) Akses halaman Daftar Lalu Lintas - Mengakses halaman Daftar Lalu Lintas dengan memilih modul Keamanan kemudian pilih menu Lalu Lintas lalu pilih submenu Daftar Lalu Lintas')
     attach(data=driver.get_screenshot_as_png())
 
-    i = 38
+    i = 98
         # nge baca mulai dari tabel A
     while i <= len(sheetrange['A']):
         # deklarasi bahwa NIP itu ada di A 
@@ -102,6 +102,7 @@ def test_Input():
 
 
         try:
+            driver.implicitly_wait(60)
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,\'Registrasi Baru\')]')))
             driver.find_element(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()
 
@@ -109,6 +110,7 @@ def test_Input():
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'findButton')))
             driver.find_element(By.ID, "jenisRegistrasi").click()
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//li[contains(.,\'B I\')]')))
+            time.sleep(0.5)
             driver.find_element(By.XPATH, "//li[contains(.,\'B I\')]").click()
             driver.find_element(By.ID, "noRegistrasi").click()
             driver.find_element(By.ID, "noRegistrasi").send_keys(NamaWBP)

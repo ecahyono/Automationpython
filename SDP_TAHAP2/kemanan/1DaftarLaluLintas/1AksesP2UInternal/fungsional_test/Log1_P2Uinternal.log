@@ -1,0 +1,25 @@
+[2023-03-13 16:10:34,464 test_1AksesP2UInternal_Tambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-13 16:10:37,493 test_1AksesP2UInternal_Tambah.py->test_2_login()]==>INFO: Login
+[2023-03-13 16:10:42,670 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-03-13 16:10:44,985 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Create
+[2023-03-13 16:10:49,367 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:10:49,392 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:10:51,455 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Detile
+[2023-03-13 16:10:53,538 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Tambah WBP
+[2023-03-13 16:10:55,678 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input No SK
+[2023-03-13 16:11:05,658 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Upload SK
+[2023-03-13 16:11:07,979 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Jenis Keluar
+[2023-03-13 16:11:10,137 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Tanggal Keluar
+[2023-03-13 16:11:14,261 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Tanggal Kembali
+[2023-03-13 16:11:14,312 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Deskripsi
+[2023-03-13 16:11:22,731 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Create
+[2023-03-13 16:11:27,111 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Search Nama WBP
+[2023-03-13 16:11:27,135 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Search
+[2023-03-13 16:11:29,192 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Detile
+[2023-03-13 16:11:31,096 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Click Button Tambah WBP
+[2023-03-13 16:11:33,159 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input No SK
+[2023-03-13 16:11:42,008 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Upload SK
+[2023-03-13 16:11:44,138 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Jenis Keluar
+[2023-03-13 16:11:46,284 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Tanggal Keluar
+[2023-03-13 16:11:50,437 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Tanggal Kembali
+[2023-03-13 16:11:50,487 test_1AksesP2UInternal_Tambah.py->test_3_Input()]==>INFO: Input Deskripsi
