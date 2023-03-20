@@ -1,26 +1,54 @@
+import platform, sys, json
+from os import environ, path
+from selenium import webdriver
+from pytest import mark
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+import time
+import subprocess
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-def initoption():
-    # Dapatkan nomor port pada Remote Debugging Port yang sudah dicatat sebelumnya
-    remote_debugging_port = 9222
 
-    # Tentukan path ke file Chrome Driver
-    chromedriver_path = "C:/Users/user/Documents/110.0.5481.exe"
+from dotenv import load_dotenv
+load_dotenv()
 
-    # Atur opsi untuk Chrome
-    chrome_options = Options()
-    chrome_options.add_experimental_option("debuggerAddress", f"localhost:{remote_debugging_port}")
-    chrome_options.add_argument("user-data-dir=C:/Users/user/AppData/Local/Google/Chrome/User Data/Default")
 
-    # Buat objek Service
-    chrome_service = Service(chromedriver_path)
+def initDriver():
+    if platform.system() == 'Darwin':
+        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+    elif platform.system() == 'Windows':
+        options = webdriver.ChromeOptions()
+        options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
+        # tentukan path ke driver Chrome
+        path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
+        # jalankan Chrome dengan opsi dan path yang ditentukan
+        driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
 
-    # Buat objek Remote WebDriver
-    driver = Remote(service=chrome_service, options=chrome_options)
+    driver.get(environ.get("HOSTKUMBANG"))
+    #driver.get(environ.get("HOST"))
+    driver.maximize_window()
+    return driver
 
-    # Lakukan navigasi ke situs web
-    driver.get("https://www.google.com")
+def secondaryinit():
+    if platform.system() == 'Darwin':
+        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+    elif platform.system() == 'Windows':
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option("debuggerAddress", "localhost:9222")
+        # tentukan path ke driver Chrome
+        path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
+        # jalankan Chrome dengan opsi dan path yang ditentukan
+        driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
+
+    driver.execute_script("window.open('http://kumbang.torche.id:32400')")
+    handles = driver.window_handles
+    # alihkan fokus ke tab baru
+    driver.switch_to.window(handles[1])
+    # jalankan script pada tab baru
+    # ...
     return driver
 
 def loadDataPath():
