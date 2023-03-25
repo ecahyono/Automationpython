@@ -1,0 +1,4 @@
+[2023-03-17 14:26:29,041 test_2P2UExternalkonfirm.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-17 14:26:31,849 test_2P2UExternalkonfirm.py->test_2_login()]==>INFO: Login
+[2023-03-17 14:26:35,971 test_2P2UExternalkonfirm.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U External
+[2023-03-17 14:26:40,438 test_2P2UExternalkonfirm.py->test_3_Input()]==>INFO: Search Bedasarkan Nama Lengkap

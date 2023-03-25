@@ -1,0 +1,5 @@
+[2023-03-20 13:00:28,839 test_2VerifikasiPenghuniBaru.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-20 13:00:37,712 test_2VerifikasiPenghuniBaru.py->test_2_login()]==>INFO: Login Operator Manajemen Penempatan
+[2023-03-20 13:00:42,880 test_2VerifikasiPenghuniBaru.py->test_3_Input()]==>INFO: Akses halaman Manajemen Penghuni Baru
+[2023-03-20 13:00:45,192 test_2VerifikasiPenghuniBaru.py->test_3_Input()]==>INFO: memilih pencarian berdasarkan Nama Lengkap
+[2023-03-20 13:00:48,545 test_2VerifikasiPenghuniBaru.py->test_3_Input()]==>INFO: Click Button  Verifikasi

@@ -1,0 +1,13 @@
+[2023-03-17 11:30:24,816 test_2Kamar_Tambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-17 11:30:27,914 test_2Kamar_Tambah.py->test_2_login()]==>INFO: Login Operator Manajemen Penempatan
+[2023-03-17 11:30:31,809 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U External
+[2023-03-17 11:30:34,132 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2023-03-17 11:30:35,958 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:30:51,156 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:31:05,571 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:31:20,631 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:31:35,547 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:31:50,534 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:32:04,949 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:32:20,011 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok
+[2023-03-17 11:32:35,461 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok

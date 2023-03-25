@@ -1,0 +1,51 @@
+[2023-03-24 15:32:59,066 test_registrasi_fungsi.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-24 15:33:02,666 test_registrasi_fungsi.py->test_2_login()]==>INFO: Login
+[2023-03-24 15:33:11,768 test_registrasi_fungsi.py->test_3_AksesMenu_Registrasi()]==>INFO: Akses Menu Registrasi
+[2023-03-24 15:33:13,053 test_registrasi_fungsi.py->test_4_ButtonRegistrasi()]==>INFO: Click Button Registrasi
+[2023-03-24 15:33:15,932 test_registrasi_fungsi.py->test_5_PilihJenisReg()]==>INFO: Click Button Jenis Registrasi B1
+[2023-03-24 15:33:16,509 test_registrasi_fungsi.py->test_6_SearchNoregWBP()]==>INFO: Input nomor registrasi wbp
+[2023-03-24 15:33:17,187 test_registrasi_fungsi.py->test_7_ClickDataWbp()]==>INFO: Click Pilih Data Registrasi
+[2023-03-24 15:33:17,726 test_registrasi_fungsi.py->test_8_SearchWbp()]==>INFO: Click Button search
+[2023-03-24 15:33:18,380 test_registrasi_fungsi.py->test_9_ClosePopUp()]==>INFO: close Pop Up
+[2023-03-24 15:33:18,961 test_registrasi_fungsi.py->test_10_InputNoreg()]==>INFO: input no registrasi 
+[2023-03-24 15:33:19,596 test_registrasi_fungsi.py->test_11_InputTglSurat()]==>INFO: input tanggal surat 
+[2023-03-24 15:33:20,243 test_registrasi_fungsi.py->test_12_InputSrtPenahanan()]==>INFO: input nomor surat penahanan
+[2023-03-24 15:33:20,822 test_registrasi_fungsi.py->test_13_inputNamaPtgs()]==>INFO: input nama petugas
+[2023-03-24 15:33:21,641 test_registrasi_fungsi.py->test_13_PilihKejaksaan()]==>INFO: Pilih Kejaksaan
+[2023-03-24 15:33:22,221 test_registrasi_fungsi.py->test_14_PilihAsalInstanasi()]==>INFO: pilih asal instansi
+[2023-03-24 15:33:23,081 test_registrasi_fungsi.py->test_15_PilihInstansiPenyidik()]==>INFO: pilih instansi penyidik
+[2023-03-24 15:33:23,672 test_registrasi_fungsi.py->test_16_InputLokasiDOkumen()]==>INFO: input lokasi dokumen
+[2023-03-24 15:33:24,253 test_registrasi_fungsi.py->test_17_InputAsalTahanan()]==>INFO: input asal tahanan
+[2023-03-24 15:33:24,839 test_registrasi_fungsi.py->test_18_InputAsalKepolisian()]==>INFO: Input asal kepolisian
+[2023-03-24 15:33:25,440 test_registrasi_fungsi.py->test_19_InputTanggalPenangkapan()]==>INFO: input tanggal penangkapan
+[2023-03-24 15:33:26,043 test_registrasi_fungsi.py->test_20_InputTanggalBA8()]==>INFO: input tanggal BA 8
+[2023-03-24 15:33:26,640 test_registrasi_fungsi.py->test_21_InputTglPtsnAkhir()]==>INFO: input tanggal menjalani putusan akhir
+[2023-03-24 15:33:27,309 test_registrasi_fungsi.py->test_22_InputJenisPutusan()]==>INFO: input jenis putusan
+[2023-03-24 15:33:28,239 test_registrasi_fungsi.py->test_23_InputTglMenjalaniPencabutanPB()]==>INFO: tanggal menjalani pencaputan PB
+[2023-03-24 15:33:28,882 test_registrasi_fungsi.py->test_24_ClickTabPerkara()]==>INFO: Tab Perkara
+[2023-03-24 15:33:29,528 test_registrasi_fungsi.py->test_25_InputKejahatanUtama()]==>INFO: input kejahatan utama
+[2023-03-24 15:33:30,113 test_registrasi_fungsi.py->test_26_InputPasalUtama()]==>INFO: input pasal utama
+[2023-03-24 15:33:30,695 test_registrasi_fungsi.py->test_27_InputKejahatan()]==>INFO: input Kejahatan
+[2023-03-24 15:33:31,282 test_registrasi_fungsi.py->test_28_InputTempatKejadian()]==>INFO: input tempat kejadian
+[2023-03-24 15:33:31,309 test_registrasi_fungsi.py->test_28_InputTempatKejadian()]==>INFO: pilih jenis putusan
+[2023-03-24 15:33:31,890 test_registrasi_fungsi.py->test_29_InputTanggalPutusanAkhir()]==>INFO: Input tanggal putusan akhir
+[2023-03-24 15:33:32,838 test_registrasi_fungsi.py->test_30_InputNomorPutusan()]==>INFO: input nomor putusan 
+[2023-03-24 15:33:33,430 test_registrasi_fungsi.py->test_31_InputPasal()]==>INFO: input pasal
+[2023-03-24 15:33:34,000 test_registrasi_fungsi.py->test_31_InputNamaHakimKetua()]==>INFO: Input nama hakim ketua
+[2023-03-24 15:33:34,596 test_registrasi_fungsi.py->test_32_InputNamaHakimAnggota1()]==>INFO: input hakim anggota 1
+[2023-03-24 15:33:35,445 test_registrasi_fungsi.py->test_33_InputHakimAnggota2()]==>INFO: input hakim anggota 2
+[2023-03-24 15:33:36,041 test_registrasi_fungsi.py->test_34_InputPanitera()]==>INFO: input panitera
+[2023-03-24 15:33:36,613 test_registrasi_fungsi.py->test_35_InputNamaJaksa()]==>INFO: input nama jaksa
+[2023-03-24 15:33:37,359 test_registrasi_fungsi.py->test_36_InputPengadilan()]==>INFO: input pengadilan
+[2023-03-24 15:33:38,080 test_registrasi_fungsi.py->test_37_TglDijalnkanPutusan()]==>INFO: input tanggal dijalankan putusan
+[2023-03-24 15:33:39,021 test_registrasi_fungsi.py->test_38_Inputtersangka()]==>INFO: Input Tersangka
+[2023-03-24 15:33:39,659 test_registrasi_fungsi.py->test_39_StatusBasanBaran()]==>INFO: status hukum basan baran
+[2023-03-24 15:33:40,419 test_registrasi_fungsi.py->test_40_JenisHukuman()]==>INFO: jenis hukuman
+[2023-03-24 15:33:40,997 test_registrasi_fungsi.py->test_41_InputPidana()]==>INFO: input pidana
+[2023-03-24 15:33:43,420 test_registrasi_fungsi.py->test_42_InputJenisRemisi()]==>INFO: input jenis remisi
+[2023-03-24 15:33:44,021 test_registrasi_fungsi.py->test_43_TglEksipirasiPerkiraan()]==>INFO: Input tanggal ekspirasi perkiraan
+[2023-03-24 15:33:47,708 test_registrasi_fungsi.py->test_44_TglPertamaDthan()]==>INFO: Input tanggal pertama ditahan
+[2023-03-24 15:33:48,318 test_registrasi_fungsi.py->test_45_TglAkhirDthn()]==>INFO: Input tanggal akhir ditahan
+[2023-03-24 15:33:48,939 test_registrasi_fungsi.py->test_46_TglAwalDthnGol()]==>INFO: Input tanggal awal ditahan golongan
+[2023-03-24 15:33:53,745 test_registrasi_fungsi.py->test_47_TglMasukLapas()]==>INFO: Input tanggal masuk lapas
+[2023-03-24 15:33:54,303 test_registrasi_fungsi.py->test_48_SubmitRegistrasi()]==>INFO: Klik Button Submit
