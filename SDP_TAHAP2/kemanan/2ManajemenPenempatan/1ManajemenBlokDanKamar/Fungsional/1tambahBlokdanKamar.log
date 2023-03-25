@@ -1,2 +1,4 @@
-[2023-01-01 18:31:35,285 test_1_SetupOS()]==>INFO: Login
-[2023-01-01 18:31:40,819 test_2_Login()]==>INFO: Login
+[2023-03-14 15:37:08,902 test_1Blokdankamar_Tambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-14 15:37:11,986 test_1Blokdankamar_Tambah.py->test_2_login()]==>INFO: Login
+[2023-03-14 15:37:14,872 test_1Blokdankamar_Tambah.py->test_3_Input_BlokDanKamar()]==>INFO: akses menu Manajemen Blok Dan Kamar
+[2023-03-14 15:37:16,665 test_1Blokdankamar_Tambah.py->test_3_Input_BlokDanKamar()]==>INFO: Click Button Tambah halaman Pemetaan Block

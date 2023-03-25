@@ -41,7 +41,7 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 wb = load_workbook(environ.get("KeamananUAT"))
-sheetrangeIndex = wb['DaftarLaluLintas_Input']
+sheetrangeIndex = wb['P2U_Internal']
 
 @mark.fixture_test()
 def test_1_setupOS():
@@ -53,7 +53,7 @@ def test_1_setupOS():
 @mark.fixture_test()
 def test_2_login():
     Op_Keamanan_p2u(driver)
-    Log.info('Login')
+    Log.info('Login Operator Keamanan P2U')
 
 
 @mark.fixture_test()
@@ -137,11 +137,15 @@ def test_3_Input():
             pyautogui.write("///////users/will/test.pdf")
         
             pyautogui.press('return')
+            time.sleep(0.5)
             pyautogui.press('escape')
+            time.sleep(0.5)
             pyautogui.press('enter')
+            time.sleep(0.5)
             pyautogui.press('enter')
             time.sleep(2)
             pyautogui.press('enter')
+            time.sleep(0.5)
             Log.info('Upload SK')
 
             driver.find_element(By.ID, 'jenisKeluar').click()
@@ -222,12 +226,16 @@ def test_3_Input():
                 driver.find_element(By.ID, "Eksternal0").click()
                 driver.find_element(By.ID, 'pengawal0').click()
                 driver.find_element(By.XPATH, "//td[contains(.,'"+ namaPengawalExternal +"')]").click()
+                Log.info('input pengawal external')
+
             elif JenisPengawal == 'Internal':
                 driver.find_element(By.ID, "Internal0").click()
                 driver.find_element(By.ID, 'pengawalInternal0').click()
                 driver.find_element(By.XPATH, "//td[contains(.,'"+ namaPengawalInternal +"')]").click()
+                Log.info('input pengawal internal')
 
             driver.find_element(By.ID, 'buttonSubmit').click()
+            Log.info('click button submit')
 
                 
         

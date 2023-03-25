@@ -56,14 +56,17 @@ jumlahLantai                            = sheetrange['G'+str(i)].value
 formatPenomoranKamar                    = sheetrange['H'+str(i)].value
 kelUsia                                 = sheetrange['I'+str(i)].value
 jumlahKamarPerlantai                    = sheetrange['J'+str(i)].value
-noKamarAwal                             = sheetrange['K'+str(i)].value
-noKamarAkhir                            = sheetrange['L'+str(i)].value
+jumlahKolomPerlantai                    = sheetrange['K'+str(i)].value
+noKamarAwal                             = sheetrange['L'+str(i)].value
 
-nomorKamar                              = sheetrange['M'+str(i)].value
-kelompokJenisKejahatan                  = sheetrange['N'+str(i)].value
-kapasitasInput                          = sheetrange['O'+str(i)].value
-kondisiRuangan                          = sheetrange['P'+str(i)].value
-lamaHuni                                = sheetrange['Q'+str(i)].value
+noKamarAkhir                            = sheetrange['M'+str(i)].value
+
+nomorKamar                              = sheetrange['N'+str(i)].value
+kelompokJenisKejahatan                  = sheetrange['O'+str(i)].value
+kapasitasInput                          = sheetrange['P'+str(i)].value
+kondisiRuangan                          = sheetrange['Q'+str(i)].value
+lamaHuni                                = sheetrange['R'+str(i)].value
+
 
 
 

@@ -45,7 +45,7 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 wb = load_workbook(environ.get("KeamananUAT"))
-sheetrangeIndex = wb['DaftarLaluLintas_Input']
+sheetrangeIndex = wb['P2U_Internal']
 
 @mark.fixture_test()
 def test_1_setupOS():
@@ -57,7 +57,7 @@ def test_1_setupOS():
 @mark.fixture_test()
 def test_2_login():
     Op_Keamanan_p2u(driver)
-    Log.info('Login')
+    Log.info('Login Operator Keamanan')
 
 
 @mark.fixture_test()
@@ -95,7 +95,7 @@ def test_3_Input():
 
             driver.find_element(By.ID, 'statusColumn').click()
             driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
-            Log.info('Klik Status')
+            Log.info('Filter Status Dalam Proses')
 
             sleep(driver)
             driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
@@ -112,16 +112,20 @@ def test_3_Input():
             
             WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
             driver.find_element(By.ID, 'submitButton').click()
+            Log.info('clik button keluar P2U')
             
             WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
             driver.find_element(By.ID, 'statusColumn').click()
             driver.find_element(By.XPATH, "//li[contains(.,\'Keluar P2U\')]").click()
+            Log.info('filter status Keluar P2U')
 
             sleep(driver)
             driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
             driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
             Log.info('Search Nama WBP')
+
             driver.find_element(By.ID, 'searchButton' ).click()
+            Log.info('click button search')
 
             WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
             sleep(driver)
@@ -130,6 +134,7 @@ def test_3_Input():
 
             WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
             driver.find_element(By.ID, 'submitButton').click()
+            Log.info('click button masuk P2U')
 
             sleep(driver)
 

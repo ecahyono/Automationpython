@@ -33,7 +33,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginOperatorSumedang, Op_Keamanan_p2u, SpvP2U
+from Settings.login import loginOperatorSumedang, Op_Keamanan_p2u, SpvRutanBdg
 
 import logging
 Log = logging.getLogger(__name__)
@@ -45,7 +45,7 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 wb = load_workbook(environ.get("KeamananUAT"))
-sheetrangeIndex = wb['DaftarLaluLintas_Input']
+sheetrangeIndex = wb['P2U_Internal']
 
 @mark.fixture_test()
 def test_1_setupOS():
@@ -56,14 +56,12 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    SpvP2U(driver)
-    Log.info('Login')
+    SpvRutanBdg(driver)
+    Log.info('Login Super Visor P2U')
 
 
 @mark.fixture_test()
 def test_3_Input():
-    print('.')
-    print('== NEXT == (DLP-001) - Akses halaman Daftar Lalu Lintas ')
 
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])

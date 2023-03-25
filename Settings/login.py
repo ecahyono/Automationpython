@@ -57,12 +57,29 @@ def loginwaru(driver):
 
     attach(data=driver.get_screenshot_as_png())
 
-def SpvP2U(driver):
+def SpvRutanBdg(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("spv-keamanan-rutan-bandung")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+    attach(data=driver.get_screenshot_as_png())
+
+def op_keamanan_mp(driver):
+    
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("op-keamanan-mp")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
@@ -104,12 +121,42 @@ def loginSumedang(driver):
 
     attach(data=driver.get_screenshot_as_png())
 
+def LapasPerempuan(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("lapasperempuan")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+    attach(data=driver.get_screenshot_as_png())
+
 def loginBpsBdg(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
     driver.find_element(By.ID, "username").send_keys("bpsbdg")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+def testsukamiskin(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-sukamiskin")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
