@@ -29,7 +29,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginOperatorSumedang, Op_Keamanan_p2u
+from Settings.login import Op_Keamanan_p2u
 
 import logging
 Log = logging.getLogger(__name__)
