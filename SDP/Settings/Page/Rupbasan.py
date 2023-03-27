@@ -15,11 +15,10 @@ pathData = loadDataPath()
 def alihkan(driver):
 	driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[1]/div[1]/h1').click()
 	
-def Rupbasan(driver):
+def Penerimaan(driver):
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'RUP00')))
 	nav1 = driver.find_element(By.ID, 'RUP00')
 	ActionChains(driver).move_to_element(nav1).perform()
-
-def childmenu1(driver):
 	driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	attach(data=driver.get_screenshot_as_png())
@@ -62,13 +61,27 @@ def childlain(driver):
 	element2 = driver.find_element(By.ID, '80')
 	ActionChains(driver).move_to_element(element2).perform()
 
-def childlain1(driver):
+def Gudang(driver):
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '601')))
+	nav1 = driver.find_element(By.ID, '601')
+	ActionChains(driver).move_to_element(nav1).perform()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '80')))
+	nav2 = driver.find_element(By.ID, '80')
+	ActionChains(driver).move_to_element(nav2).perform()
 	driver.find_element(By.LINK_TEXT, "Gudang").click()
-	time.sleep(2)
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	attach(data=driver.get_screenshot_as_png())
 
-def childlain2(driver):
+def SektorGudang(driver):
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '601')))
+	nav1 = driver.find_element(By.ID, '601')
+	ActionChains(driver).move_to_element(nav1).perform()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '80')))
+	nav2 = driver.find_element(By.ID, '80')
+	ActionChains(driver).move_to_element(nav2).perform()
 	driver.find_element(By.LINK_TEXT, "Sektor Gudang").click()
-	time.sleep(2)
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+	attach(data=driver.get_screenshot_as_png())
 
 def exportPDF(driver):
 	driver.find_element(By.XPATH, pathData['Rupelemen']['idxpenerimaan']['exportPDF']).click()
