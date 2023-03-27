@@ -1,1 +1,0 @@
-{"content": {"suites": {"0": {"status": {"total_pass": 3, "total_skip": 0, "total_xpass": 0, "total_xfail": 0, "total_rerun": 0, "total_fail": 0, "total_error": 0}, "tests": {"0": {"status": "PASS", "message": "", "test_name": "test_1_SetupOS", "rerun": "0"}, "1": {"status": "PASS", "message": "", "test_name": "test_2_Login", "rerun": "0"}, 
