@@ -7,154 +7,176 @@ import logging
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-def p2uinternal (driver):
+def p2uinternal(driver):
+    driver.implicitly_wait(10)
     nav1 = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA01")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/p2u-internal").click()
+    driver.find_element(By.LINK_TEXT, "Akses P2U Internal").click()
 
-def p2ueksternal():
+def p2ueksternal(driver):
     nav1 = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA01")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/p2u-eksternal").click()
+    driver.find_element(By.LINK_TEXT, "Akses P2U Eksternal").click()
 
-def manajemenblokdankamar():
+def manajemenblokdankamar(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/manajemen-blok-dan-kamar").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/manajemen-blok-dan-kamar").click()
 
-def manajemenpenghunibaru():
+def manajemenpenghunibaru(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/manajemen-penghuni-baru").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/manajemen-penghuni-baru").click()
 
-def manajemenkamar():
+def manajemenkamar(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/manajemen-kamar").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/manajemen-kamar").click()
 
-def suratmutasiblokkamar():
+def suratmutasiblokkamar(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/surat-mutasi-blok-kamar").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/surat-mutasi-blok-kamar").click()
 
-def riwayatpenempatan():
+def riwayatpenempatan(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/riwayat-penempatan").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/riwayat-penempatan").click()
 
-def RegisterH():
+def RegisterH(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
-    driver.find_element(By.ID, "/keamanan/pengasingan").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/pengasingan").click()
 
-def laporan6a():
+def laporan6a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6a").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6a").click()
 
-def laporan6b():
+def laporan6b(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6b").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6b").click()
 
-def laporan6c():
+def laporan6c(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6c").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6c").click()
 
-def laporan6d():
+def laporan6d(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6d").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6d").click()
 
-def laporan6e():
+def laporan6e(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6e").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6e").click()
 
-def laporan6f():
+def laporan6f(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-6f").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6f").click()
 
-def laporan7a():
+def laporan7a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-7a").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7a").click()
 
-def laporan7b():
+def laporan7b(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.ID, "/keamanan/formulir-kamtib-7b").click()
 
-def laporan7c():
+def laporan7c(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-7c").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7c").click()
 
-def laporan7d():
+def laporan7d(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-7d").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7d").click()
 
-def laporan7e():
+def laporan7e(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-7e").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7e").click()
 
-def laporan8a():
+def laporan8a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-8a").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-8a").click()
 
-def laporan8b():
+def laporan8b(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-8b").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-8b").click()
 
-def laporan9a():
+def laporan9a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/keamanan/formulir-kamtib-9a").click()
+    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-9a").click()

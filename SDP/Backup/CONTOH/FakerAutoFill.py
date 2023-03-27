@@ -70,7 +70,6 @@ def test_daftarklien():
         name = fake.name()
         tgllahir = fake.date_of_birth().strftime('%d/%m/%Y')
         phone = fake.numerify('############')
-
         agama = random.choice(my_word_list)
         worksheet.append([
             name, tgllahir, phone, agama

@@ -31,6 +31,7 @@ elif platform.system() == 'Windows':
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
 from Settings.loginkeamanan import Op_Keamanan_p2u
+from Settings.Page.keamanan import p2ueksternal
 
 import logging
 
@@ -71,14 +72,7 @@ def test_2_login():
 @mark.fixture_test()
 def test_3_Input():
     driver.implicitly_wait(10)
-    sleep(driver)
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
-    ActionChains(driver).move_to_element(nav1).perform()
-    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
-    time.sleep(1)
-    ActionChains(driver).move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Akses P2U Eksternal').click()
+    p2ueksternal(driver)
     sleep(driver)
     print('.')
     Log.info('Akses halaman Daftar Lalu Lintas P2U External')
