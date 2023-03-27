@@ -1,7 +1,2 @@
-[2023-03-17 14:25:55,799 test_1P2UExternalTambah.py->test_1_setupOS()]==>INFO: Setup Os
-[2023-03-17 14:25:58,907 test_1P2UExternalTambah.py->test_2_login()]==>INFO: Login
-[2023-03-17 14:26:03,023 test_1P2UExternalTambah.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U External
-[2023-03-17 14:26:05,339 test_1P2UExternalTambah.py->test_3_Input()]==>INFO: masuk ke halaman daftar lalu lintas external
-[2023-03-17 14:26:06,385 test_1P2UExternalTambah.py->test_3_Input()]==>INFO: masuk ke halaman tambah
-[2023-03-17 14:26:07,656 test_1P2UExternalTambah.py->test_3_Input()]==>INFO:  Memilih Kategori Tamu Dinas 
-[2023-03-17 14:26:07,692 test_1P2UExternalTambah.py->test_3_Input()]==>INFO:  Cari Nama atau Nip Kategori Tamu Dinas 
+[2023-03-25 23:20:35,406 test_1P2UExternalTambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-25 23:20:39,390 test_1P2UExternalTambah.py->test_2_login()]==>INFO: Login

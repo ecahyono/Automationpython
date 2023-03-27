@@ -184,6 +184,32 @@ def test_3_Input():
                 
             driver.find_element(By.CSS_SELECTOR, '#submitButton').click()
 
+
+            sleep(driver)
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+            driver.find_element(By.XPATH, "//input[@type=\'text\']").send_keys('semua')
+            sleep(driver)
+            # KETIK NAMA
+            driver.find_element(By.XPATH, "//li[contains(.,\'Semua\')]").click()
+            sleep(driver)
+            # PILIH DROPDOWN NAMA LENGKAP
+            driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaAtauNip)
+            sleep(driver)
+            # KETIK GALIH DI FORM MASUKAN KATA KUNCI
+            Log.info('Search Bedasarkan Nama Lengkap')
+            attach(data=driver.get_screenshot_as_png())
+            driver.find_element(By.ID, "konfirmasiKeluar").click()
+            driver.find_element(By.XPATH, '//*[@id="searchButton"]').click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+
+            sleep(driver)
+            driver.find_element(By.CSS_SELECTOR, "#detailButton0 .h-5").click()
+
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+            time.sleep(5)
+            driver.find_element(By.ID, "submitButton").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
+
         except TimeoutException:
             print("ERRROR")
             pass

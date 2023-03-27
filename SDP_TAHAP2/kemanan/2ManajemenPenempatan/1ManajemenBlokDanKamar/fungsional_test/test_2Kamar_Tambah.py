@@ -147,6 +147,9 @@ def test_3_Input():
             driver.find_element(By.CSS_SELECTOR, "a > #submitButton > span").click()
       
 
+
+            
+
         except TimeoutException:
             print("ERRROR")
             pass
