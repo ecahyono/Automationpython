@@ -1,0 +1,105 @@
+[2023-03-26 06:04:03,294 test_registrasi_Loop.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-26 06:04:06,690 test_registrasi_Loop.py->test_2_login()]==>INFO: Login
+[2023-03-26 06:04:10,513 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Akses Menu Registrasi
+[2023-03-26 06:04:11,279 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button Registrasi
+[2023-03-26 06:04:13,965 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button Jenis Registrasi B1
+[2023-03-26 06:04:14,128 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input nomor registrasi wbp
+[2023-03-26 06:04:15,226 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Pilih Data Registrasi
+[2023-03-26 06:04:15,242 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button search
+[2023-03-26 06:04:16,946 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: close Pop Up
+[2023-03-26 06:04:17,325 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input no registrasi 
+[2023-03-26 06:04:17,428 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal surat 
+[2023-03-26 06:04:17,545 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nomor surat penahanan
+[2023-03-26 06:04:17,595 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nama petugas
+[2023-03-26 06:04:18,189 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Pilih Kejaksaan
+[2023-03-26 06:04:18,416 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih asal instansi
+[2023-03-26 06:04:19,174 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih instansi penyidik
+[2023-03-26 06:04:19,237 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input lokasi dokumen
+[2023-03-26 06:04:19,291 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input asal tahanan
+[2023-03-26 06:04:19,354 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input asal kepolisian
+[2023-03-26 06:04:19,447 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal penangkapan
+[2023-03-26 06:04:19,521 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal BA 8
+[2023-03-26 06:04:19,606 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal menjalani putusan akhir
+[2023-03-26 06:04:19,767 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input jenis putusan
+[2023-03-26 06:04:20,647 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: tanggal menjalani pencaputan PB
+[2023-03-26 06:04:21,072 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input kejahatan utama
+[2023-03-26 06:04:21,153 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pasal utama
+[2023-03-26 06:04:21,623 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input Kejahatan
+[2023-03-26 06:04:21,679 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tempat kejadian
+[2023-03-26 06:04:21,719 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih jenis putusan
+[2023-03-26 06:04:21,775 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal putusan akhir
+[2023-03-26 06:04:22,685 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nomor putusan 
+[2023-03-26 06:04:22,755 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pasal
+[2023-03-26 06:04:23,619 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input nama hakim ketua
+[2023-03-26 06:04:23,687 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input hakim anggota 1
+[2023-03-26 06:04:24,566 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input hakim anggota 2
+[2023-03-26 06:04:24,642 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input panitera
+[2023-03-26 06:04:24,685 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nama jaksa
+[2023-03-26 06:04:25,274 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pengadilan
+[2023-03-26 06:04:25,615 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal dijalankan putusan
+[2023-03-26 06:04:26,522 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input Tersangka
+[2023-03-26 06:04:26,625 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: status hukum basan baran
+[2023-03-26 06:04:27,125 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: jenis hukuman
+[2023-03-26 06:04:27,169 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pidana
+[2023-03-26 06:04:29,343 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input jenis remisi
+[2023-03-26 06:04:29,414 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal ekspirasi perkiraan
+[2023-03-26 06:04:32,575 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal pertama ditahan
+[2023-03-26 06:04:33,694 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal akhir ditahan
+[2023-03-26 06:04:33,793 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal awal ditahan golongan
+[2023-03-26 06:04:38,081 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal masuk lapas
+[2023-03-26 06:04:38,136 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Submit
+[2023-03-26 06:04:41,222 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Search Nama WBP
+[2023-03-26 06:04:45,360 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Search
+[2023-03-26 06:04:49,461 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Delete
+[2023-03-26 06:04:50,506 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Ya
+[2023-03-26 06:04:53,606 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button Registrasi
+[2023-03-26 06:04:55,811 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button Jenis Registrasi B1
+[2023-03-26 06:04:56,029 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input nomor registrasi wbp
+[2023-03-26 06:04:56,918 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Pilih Data Registrasi
+[2023-03-26 06:04:56,947 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Click Button search
+[2023-03-26 06:04:58,716 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: close Pop Up
+[2023-03-26 06:04:59,102 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input no registrasi 
+[2023-03-26 06:04:59,208 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal surat 
+[2023-03-26 06:04:59,330 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nomor surat penahanan
+[2023-03-26 06:04:59,383 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nama petugas
+[2023-03-26 06:04:59,514 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Pilih Kejaksaan
+[2023-03-26 06:04:59,731 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih asal instansi
+[2023-03-26 06:04:59,918 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih instansi penyidik
+[2023-03-26 06:05:00,030 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input lokasi dokumen
+[2023-03-26 06:05:00,093 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input asal tahanan
+[2023-03-26 06:05:00,158 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input asal kepolisian
+[2023-03-26 06:05:00,232 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal penangkapan
+[2023-03-26 06:05:00,308 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal BA 8
+[2023-03-26 06:05:00,393 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal menjalani putusan akhir
+[2023-03-26 06:05:00,532 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input jenis putusan
+[2023-03-26 06:05:01,427 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: tanggal menjalani pencaputan PB
+[2023-03-26 06:05:01,883 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input kejahatan utama
+[2023-03-26 06:05:01,964 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pasal utama
+[2023-03-26 06:05:02,067 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input Kejahatan
+[2023-03-26 06:05:02,177 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tempat kejadian
+[2023-03-26 06:05:02,214 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: pilih jenis putusan
+[2023-03-26 06:05:02,263 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal putusan akhir
+[2023-03-26 06:05:03,182 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nomor putusan 
+[2023-03-26 06:05:03,252 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pasal
+[2023-03-26 06:05:04,111 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input nama hakim ketua
+[2023-03-26 06:05:04,176 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input hakim anggota 1
+[2023-03-26 06:05:05,041 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input hakim anggota 2
+[2023-03-26 06:05:05,116 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input panitera
+[2023-03-26 06:05:05,161 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input nama jaksa
+[2023-03-26 06:05:05,295 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pengadilan
+[2023-03-26 06:05:06,096 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input tanggal dijalankan putusan
+[2023-03-26 06:05:06,998 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input Tersangka
+[2023-03-26 06:05:07,102 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: status hukum basan baran
+[2023-03-26 06:05:07,209 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: jenis hukuman
+[2023-03-26 06:05:07,253 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input pidana
+[2023-03-26 06:05:09,061 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: input jenis remisi
+[2023-03-26 06:05:09,142 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal ekspirasi perkiraan
+[2023-03-26 06:05:12,319 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal pertama ditahan
+[2023-03-26 06:05:13,444 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal akhir ditahan
+[2023-03-26 06:05:13,540 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal awal ditahan golongan
+[2023-03-26 06:05:17,829 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Input tanggal masuk lapas
+[2023-03-26 06:05:17,891 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Submit
+[2023-03-26 06:05:20,967 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Search Nama WBP
+[2023-03-26 06:05:25,615 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Search
+[2023-03-26 06:05:29,710 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Delete
+[2023-03-26 06:05:30,769 test_registrasi_Loop.py->test_3_Input_Registrasi()]==>INFO: Klik Button Ya
