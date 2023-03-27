@@ -1,0 +1,110 @@
+{
+    
+    "Id Navigate Button": {
+        "Create Button": "//*[@id=\"createButton\"]",
+        "Back Button": "//*[@id=\"backButton\"]",
+        "Detail Button" : "",
+        "Update Button":  ".text-green-500 .h-5"
+        
+    },
+
+    "Id Search": {
+        "Filter Column": "//*[@id=\"filterColumn\"]",
+        "Input Kata Kunci": "//*[@id=\"kataKunci\"]",
+        "Button Search":"//*[@id=\"searchButton\"]"
+    },
+
+    "CSS": {
+        "Update Button": ".text-green-500 .h-5"
+
+
+    },
+    "Other Search Index": {
+        "Search Options": "//*[@id=\"searchOption0\"]/div/div/table/tbody/tr[2]/td[1]",
+        "Search Button": "//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+        "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input",
+        "Click ke": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+        "Pergi Ke1": "//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[4]/div/span[2]/div/div/div/input"
+    },
+
+    "Other Search Identitas": {
+        "Search Options": "//*[@id=\\\"searchOption0\\\"]/div/div/table/tbody/tr[2]/td[1]",
+        "Search Button": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button",
+        "Pergi Ke":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[3]/div/input",
+        "Click ke": "//*[@id=\\\"app\\\"]/div/div[2]/div/div[2]/div/div/div[4]/div/span[3]/div/input",
+        "Dropdown Halaman":"//*[@id=\"app\"]/div/div[2]/div[1]/div[2]/div/div/div[6]/div/span[2]/div/div/div/input"
+    },
+
+
+    "AksesMenu": {
+        "Registrasi": {
+            "MainText": "//div[@id='01']",
+            "child": {
+                "ManajemenRegistrasi": {
+                    "MainText": "//div[@id=\"20\"]"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[@id='KEA02']"
+                },
+                "LaporanBulanan":{
+                    "MainText":"//div[@id='KEA03']"
+                }
+
+            }
+
+        },
+        "Keamanan": {
+            "MainText": "//div[@id='KEA00']",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[@id='KEA01']"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[@id='KEA02']"
+                },
+                "LaporanBulanan":{
+                    "MainText":"//div[@id='KEA03']"
+                }
+
+            }
+
+        },
+        "Lainlain": {
+            "MainText": "//div[@id='601']",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[@id='KEA01']"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[@id='KEA02']"
+                },
+                "LaporanBulanan":{
+                    "MainText":"//div[@id='KEA03']"
+                }
+
+            }
+
+        },
+    
+        "Integrasi": {
+            "MainText": "//*[@id=\"app\"]/div/nav/ul/li[2]/div",
+            "child": {
+                "LaluLintasPortir": {
+                    "MainText": "//div[4]/div/ul/li/div"
+                },
+                "ManajemenPenempatan":{
+                    "MainText":"//div[4]/div/ul/li[2]/div"
+                },
+                "RegisterH":{
+                    "Maintext":""
+                }
+
+            }
+
+        },
+        "kunjungan": {}
+
+
+    }
+}
