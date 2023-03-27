@@ -27,8 +27,8 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import LapasPerempuan, testsukamiskin
+from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
+from Settings.loginkeamanan import LapasPerempuan, testsukamiskin
 
 import logging
 Log = logging.getLogger(__name__)
