@@ -28,8 +28,8 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import Op_Keamanan_p2u
+from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
+from Settings.loginkeamanan import Op_Keamanan_p2u, SpvRutanBdg
 
 import logging
 Log = logging.getLogger(__name__)
@@ -61,15 +61,18 @@ def test_1_setupOS():
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
+    sleep(driver)
 
 @mark.fixture_test()
-def test_2_login():
+def test_2_loginOperator():
+    sleep(driver)
     Op_Keamanan_p2u(driver)
     Log.info('Login Operator Keamanan P2U')
 
 
 @mark.fixture_test()
 def test_3_AksesMenu():
+    sleep(driver)
     print('.')
 
     driver.implicitly_wait(10)
@@ -87,14 +90,17 @@ def test_3_AksesMenu():
 
 @mark.fixture_test()
 def test_4_ClickButtonCreate():
+    sleep(driver)
     print('Click Button Create')
     sleep(driver)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
     Log.info('Click Button Create')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_5_SearchNamaWBP():
+    sleep(driver)
     print('Pilih Dropdown Nama')
     sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
@@ -106,34 +112,44 @@ def test_5_SearchNamaWBP():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_6_SearchNamaWBP():
+    sleep(driver)
     Log.info('Search Nama WBP')
     driver.find_element(By.ID, 'buttonSearch' ).click()
     Log.info('Click Button Search')
+    attach(data=driver.get_screenshot_as_png())
     sleep(driver)
 
 @mark.fixture_test()
 def test_7_ClickButtonDetile():
+    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
     driver.find_element(By.CSS_SELECTOR, ".h-5 > path").click()
     Log.info('Click Button Detile')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_8_ButtonTambah():
+    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'createButton')))
     driver.find_element(By.ID, 'createButton').click()
     Log.info('Click Button Tambah WBP')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_9_InputNoSK():
+    sleep(driver)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'buttonSubmit')))
     driver.find_element(By.ID, 'noSK').send_keys(Nosk)
     Log.info('Input No SK')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_10_UploadSK():
+    sleep(driver)
     sleep(driver)
     driver.find_element(By.XPATH, "//div[@id=\'fileSK\']/div/button").click()
     
@@ -153,91 +169,112 @@ def test_():
     pyautogui.press('enter')
     time.sleep(0.5)
     Log.info('Upload SK')
+    attach(data=driver.get_screenshot_as_png())
 
 
 @mark.fixture_test()
-def test_():
+def test_11_InputJenisKeluar():
+    sleep(driver)
     driver.find_element(By.ID, 'jenisKeluar').click()
     sleep(driver)
     
     if jenisKeluar == 'Pembebasan Bersyarat':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Pembebasan Bersyarat')
         driver.find_element(By.XPATH, "//li[contains(.,\'Pembebasan Bersyarat\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Anak Kembali ke Orang Tua':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Anak Kembali ke Orang Tua')
         driver.find_element(By.XPATH, "//li[contains(.,\'Anak Kembali ke Orang Tua\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Asimilasi':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi')
         driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Asimilasi di Rumah':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Asimilasi di Rumah')
         driver.find_element(By.XPATH, "//li[contains(.,\'Asimilasi di Rumah\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Bebas Biasa':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Biasa')
         driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Biasa\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Bebas dari Dakwaan':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas dari Dakwaan')
         driver.find_element(By.XPATH, "//li[contains(.,\'Bebas dari Dakwaan\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Bebas Dari Tuntutan':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Bebas Dari Tuntutan')
         driver.find_element(By.XPATH, "//li[contains(.,\'Bebas Dari Tuntutan\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Cuti Menjelang Bebas':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Menjelang Bebas')
         driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Menjelang Bebas\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Cuti Bersyarat':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Cuti Bersyarat')
         driver.find_element(By.XPATH, "//li[contains(.,\'Cuti Bersyarat\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Dikeluarkan Demi Hukum':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Dikeluarkan Demi Hukum')
         driver.find_element(By.XPATH, "//li[contains(.,\'Dikeluarkan Demi Hukum\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Dikembalikan ke Pihak Penahan':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Dikembalikan ke Pihak Penahan')
         driver.find_element(By.XPATH, "//li[contains(.,\'Dikembalikan ke Pihak Penahan\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Dirawat Dirumah Sakit':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Dirawat Dirumah Sakit')
         driver.find_element(By.XPATH, "//li[contains(.,\'Dirawat Dirumah Sakit\')]").click()
+        attach(data=driver.get_screenshot_as_png())
 
     elif jenisKeluar == 'Diversi':
         driver.find_element(By.ID, 'jenisKeluar').send_keys('Diversi')
         driver.find_element(By.XPATH, "//li[contains(.,\'Diversi\')]").click()
-
+        attach(data=driver.get_screenshot_as_png())
     Log.info('Input Jenis Keluar')
 
 
 @mark.fixture_test()
-def test_():
+def test_12_InputTanggalKeluarKeamanan():
+    sleep(driver)
     driver.find_element(By.ID, "keluarKeamanan").click()
     sleep(driver)
     driver.find_element(By.ID, "keluarKeamanan").send_keys(TanggalKeluar)
     Log.info('Input Tanggal Keluar')
+    attach(data=driver.get_screenshot_as_png())
     sleep(driver)
 
 @mark.fixture_test()
-def test_():
+def test_13_InputTanggalKembali():
+    sleep(driver)
     driver.find_element(By.ID, "tanggalKembali").click()
     sleep(driver)
     driver.find_element(By.ID, "tanggalKembali").send_keys(tanggalKembali)
     Log.info('Input Tanggal Kembali')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_14_InputDeskripsi():
+    sleep(driver)
     driver.find_element(By.ID, "deskripsi").click()
     driver.find_element(By.ID, "deskripsi").send_keys(deskripsi)
     Log.info('Input Deskripsi')
+    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_15_InputJenisPengawal():
+    sleep(driver)
     driver.find_element(By.ID, "jenis0").click()
     sleep(driver)
     if JenisPengawal == 'Eksternal':
@@ -245,24 +282,214 @@ def test_():
         driver.find_element(By.ID, 'pengawal0').click()
         driver.find_element(By.XPATH, "//td[contains(.,'"+ namaPengawalExternal +"')]").click()
         Log.info('input pengawal external')
+        attach(data=driver.get_screenshot_as_png())
 
     elif JenisPengawal == 'Internal':
         driver.find_element(By.ID, "Internal0").click()
         driver.find_element(By.ID, 'pengawalInternal0').click()
         driver.find_element(By.XPATH, "//td[contains(.,'"+ namaPengawalInternal +"')]").click()
         Log.info('input pengawal internal')
+        attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_():
+def test_16_ClickButtonSubmit():
+    sleep(driver)
     driver.find_element(By.ID, 'buttonSubmit').click()
     Log.info('click button submit')
+    attach(data=driver.get_screenshot_as_png())
 
-        
+
+
+
+@mark.fixture_test()
+def test_17_loginSpv():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+    SpvRutanBdg(driver)
+    Log.info('Login Super Visor P2U')
+
+
+@mark.fixture_test()
+def test_18_AksesMenu():
+    sleep(driver)
+
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
+    ActionChains(driver).move_to_element(nav1).perform()
+    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
+    time.sleep(1)
+    ActionChains(driver).move_to_element(element2).perform()
+    time.sleep(1)
+    driver.find_element(By.LINK_TEXT, 'Akses P2U Internal').click()
+    sleep(driver)
+    print('.')
+    Log.info('Akses halaman Daftar Lalu Lintas P2U Internal')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@mark.fixture_test()
+def test_19_PilihDropdownNama():
+    sleep(driver)
+    print('Pilih Dropdown Nama')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.ID, 'statusColumn').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
+    Log.info('Klik Status Dalam Proses')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_1_():
+    sleep(driver)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    Log.info('Search Nama WBP')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_1_():
+    driver.find_element(By.ID, 'searchButton' ).click()
+    Log.info('Click Button Search')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_1_():
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.CSS_SELECTOR, ".w-6 > path").click()
+    Log.info('Click Button Verifikasi')
+    attach(data=driver.get_screenshot_as_png())
+    
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'keterangan')))
+    driver.find_element(By.ID, 'keterangan').send_keys(deskripsi)
+    Log.info('Input Keterangan')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'Izinkan')))
+    driver.find_element(By.ID, 'Izinkan').click()
+    Log.info('click button izinkan')
+    driver.execute_script("window.scrollTo(0,527)") 
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(.,'Ya')]")))
+    driver.find_element(By.XPATH, "//span[contains(.,'Ya')]").click()
+    Log.info ('Click button ya ')
+    attach(data=driver.get_screenshot_as_png())
+
+@mark.fixture_test()
+def test_2_login():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+    Op_Keamanan_p2u(driver)
+    Log.info('Login Operator Keamanan')
+
+
+@mark.fixture_test()
+def test_3_Input():
+    print('.')
+    print('== NEXT == (DLP-001) - Akses halaman Daftar Lalu Lintas ')
+
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
+    ActionChains(driver).move_to_element(nav1).perform()
+    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
+    time.sleep(1)
+    ActionChains(driver).move_to_element(element2).perform()
+    time.sleep(1)
+    driver.find_element(By.LINK_TEXT, 'Akses P2U Internal').click()
+    sleep(driver)
+    print('.')
+    Log.info('Akses halaman Daftar Lalu Lintas P2U Internal')
+    attach(data=driver.get_screenshot_as_png())
+    
+
+
+
+
+
+
+
+
+
+
+
+    print('Pilih Dropdown Nama')
+    sleep(driver)
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+
+    driver.find_element(By.ID, 'statusColumn').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
+    Log.info('Filter Status Dalam Proses')
+
+@mark.fixture_test()
+def test_1_():
+    sleep(driver)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    Log.info('Search Nama WBP')
+    driver.find_element(By.ID, 'searchButton' ).click()
+    Log.info('Click Button Search')
+    sleep(driver)
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, "#detailButton-0 .h-5").click()
+    Log.info('Click Button Detile')
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    driver.find_element(By.ID, 'submitButton').click()
+    Log.info('clik button keluar P2U')
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    driver.find_element(By.ID, 'statusColumn').click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Keluar P2U\')]").click()
+    Log.info('filter status Keluar P2U')
+
+@mark.fixture_test()
+def test_1_():
+    sleep(driver)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    Log.info('Search Nama WBP')
+
+@mark.fixture_test()
+def test_1_():
+    driver.find_element(By.ID, 'searchButton' ).click()
+    Log.info('click button search')
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, "#detailButton-0 .h-5").click()
+    Log.info('Click Button Detile')
+
+@mark.fixture_test()
+def test_1_():
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    driver.find_element(By.ID, 'submitButton').click()
+    Log.info('click button masuk P2U')
 
     sleep(driver)
 
-
-def test_exit():
+@mark.fixture_test()
+def test_17_exit():
     quit(driver)
 
         
