@@ -20,7 +20,7 @@ Automation Web testing using python &amp; selenium Web driver
 ## Extrack chromedriver and save to antoher folder
 exemple :
 - s = Service('C:\chromedriver\chromedriver.exe')
-- driver = webdriver.Chrome(service=s)
+- driver = webdriver.Chrome(service=s). 
 .
 
 # document test 
