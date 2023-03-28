@@ -41,7 +41,7 @@ from Settings.Page.keamanan import manajemenblokdankamar
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log1BlokTambah.log', mode="w")
+fh = logging.FileHandler('LogBlokDanKamar.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -79,6 +79,8 @@ namablok                                = VerifikasiBlok['C'+str(i)].value
 verifikasi                              = VerifikasiBlok['S'+str(i)].value
 keterangan                              = VerifikasiBlok['S'+str(i)].value
 
+
+    #=============== Halaman Tambah Blok Operaotor =============== 
 @mark.fixture_test()
 def test_1_setupOS():
     global driver, pathData
@@ -325,7 +327,7 @@ def test_13_ClickButtonSubmit():
     Log.info('Input Jumlah Kamar perlantai')
     attach(data=driver.get_screenshot_as_png())
 
-
+    #=============== Halaman Tambah Kamar =============== 
 
 @mark.fixture_test()
 def test_14_loginOperatorMP():
@@ -338,7 +340,7 @@ def test_14_loginOperatorMP():
 
 
 @mark.fixture_test()
-def test_3_Input():
+def test_15_AksesMenuOperatorKeamanan():
 
     manajemenblokdankamar(driver)
     Log.info('Akses halaman Manajemen Blok dan Kamar')
@@ -347,7 +349,7 @@ def test_3_Input():
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
-def test_4():
+def test_16_ClickButtonHalamanTambah():
     sleep(driver)
     driver.implicitly_wait(10)
     sleep(driver)
@@ -358,26 +360,23 @@ def test_4():
     attach(data=driver.get_screenshot_as_png())
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'backButton')))
 
-    
-    
-
             
 @mark.fixture_test()
-def test_4():
+def test_17_SearchNamaBlok():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'searchButton')))
     driver.find_element(By.ID, 'kataKunci').send_keys(namablok)
     driver.find_element(By.ID, 'searchButton').click()
     Log.info('Search Nama Blok')
 
 @mark.fixture_test()
-def test_4():
+def test_18_ClickButtonSearch():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'searchButton')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,'#roomButton0 .h-5')))
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, '#roomButton0 .h-5').click()
     
 @mark.fixture_test()
-def test_4():
+def test_19_PilihLanta():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'backButton')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'lantai_id')))
     driver.execute_script("window.scrollTo(0,244.5)")
@@ -386,62 +385,63 @@ def test_4():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'lantai-0')))
     driver.find_element(By.ID, "lantai-0").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ lantai +"')]").click()
+    Log.info('Pilih Lantai')
 
 @mark.fixture_test()
-def test_4():
+def test_20_InputNomorkamar():
     sleep(driver)
     driver.find_element(By.ID, "nomorKamar").click()
     driver.find_element(By.ID, "nomorKamar").send_keys(nomorKamar)
+    Log.info('Input Nomor Kamar')
 
 @mark.fixture_test()
-def test_4():
+def test_21_InputKondisiRuangan():
     driver.find_element(By.ID, "kondisiInput").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ kondisiRuangan +"')]").click()
+    Log.info('Input Kondisi Ruangan')
     
 @mark.fixture_test()
-def test_4():
+def test_22_InputkelompokJenisKejahatan():
     driver.find_element(By.ID, "kel_jenis_kejahatan_id").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ kelompokJenisKejahatan +"')]").click()
+    Log.info('Input Kelompok Jenis Kejahatan')
     
 @mark.fixture_test()
-def test_4():
+def test_23_InputKapasitas():
     driver.find_element(By.ID, "kapasitasInput").click()
     driver.find_element(By.ID, "kapasitasInput").send_keys(kapasitasInput)
+    Log.info('Input Kapasitas')
 
 @mark.fixture_test()
-def test_4():
+def test_24_ClickButtonSubmitKamar():
     driver.find_element(By.ID, 'submitButton').click()
+    Log.info('Click Button Submit Kamar')
 
 
 @mark.fixture_test()
-def test_4():
+def test_25_ClickButtonSubmitBlok():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
 
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
 
     time.sleep(3)
     driver.find_element(By.CSS_SELECTOR, "a > #submitButton > span").click()
-      
 
 
 
-
-
+    #=============== Halaman Verifikasi Supervisor =============== 
 
 @mark.fixture_test()
-def test_1_setupOS():
+def test_26_loginSuperVisor():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
-
-@mark.fixture_test()
-def test_2_login():
     SpvRutanBdg(driver)
     Log.info('Login Operator Manajemen Penempatan')
 
 @mark.fixture_test()
-def test_3_AksesMenu():
+def test_27_AksesMenu():
     manajemenblokdankamar(driver)
     Log.info('Akses halaman Manajemen Blok dan Kamar')
     attach(data=driver.get_screenshot_as_png())
@@ -451,7 +451,7 @@ def test_3_AksesMenu():
 
     
 @mark.fixture_test()
-def test_4():
+def test_28_ClickTambahPemetaanBlok():
     sleep(driver)
     driver.implicitly_wait(10)
     sleep(driver)
@@ -463,7 +463,7 @@ def test_4():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'backButton')))
     
 @mark.fixture_test()
-def test_4():
+def test_29_SearchNamaBlok():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'searchButton')))
     driver.find_element(By.ID, 'kataKunci').send_keys(namablok)
     driver.find_element(By.ID, 'searchButton').click()
@@ -471,31 +471,36 @@ def test_4():
     Log.info('Search Nama Blok')
 
 @mark.fixture_test()
-def test_4():
+def test_30_ClickButtonVerifikasi():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'searchButton')))
     driver.find_element(By.CSS_SELECTOR, '#verifikasiButton-0 .h-5').click()
+    Log.info('ClickButtonVerifikasi')
 
 @mark.fixture_test()
-def test_4():
+def test_31_ClickStatusVerifikasi():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'submitButton')))
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID,'status_verifikasi')))
     driver.find_element(By.ID, 'status_verifikasi').click()
+    Log.info('Click status verifikasi')
 
 @mark.fixture_test()
-def test_4():
+def test_32_Verifikasi():
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH,"//li[contains(.,\'"+ verifikasi +"')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ verifikasi +"')]").click()
+    Log.info('Verifikasi')
     
 @mark.fixture_test()
-def test_4():
+def test_33_InputKeterangan():
     driver.find_element(By.ID, 'keterangan').send_keys(keterangan)
+    Log.info('Input Keterangan')
     
 @mark.fixture_test()
-def test_4():
+def test_34_ClickButtonSubmit():
     driver.find_element(By.ID, 'submitButton').click()
+    Log.info('Clik Button Submit')
 
 @mark.fixture_test()
-def test_exit():
+def test_35_exit():
     quit(driver)
         
 
