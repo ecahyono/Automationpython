@@ -23,9 +23,11 @@ from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
+    wb = load_workbook(environ.get("KeamananUAT"))
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    wb = load_workbook(environ.get("KeamananUATWin"))
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
@@ -41,7 +43,7 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-wb = load_workbook(environ.get("KeamananUAT"))
+
 sheetrangeIndex = wb['P2U_Internal']
 
 @mark.fixture_test()

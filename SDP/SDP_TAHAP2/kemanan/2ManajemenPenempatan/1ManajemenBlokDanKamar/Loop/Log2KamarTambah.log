@@ -1,0 +1,5 @@
+[2023-03-25 22:44:41,397 test_2Kamar_Tambah.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-25 22:44:45,497 test_2Kamar_Tambah.py->test_2_login()]==>INFO: Login Operator Manajemen Penempatan
+[2023-03-25 22:44:51,536 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U External
+[2023-03-25 22:44:55,739 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Click Button Tambah halaman Pemetaan Block
+[2023-03-25 22:44:57,679 test_2Kamar_Tambah.py->test_3_Input()]==>INFO: Search Nama Blok

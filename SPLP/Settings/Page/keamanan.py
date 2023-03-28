@@ -7,7 +7,7 @@ import logging
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-def p2uinternal (driver):
+def p2uinternal(driver):
     nav1 = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
     nav2 = driver.find_element(By.ID, "KEA01")

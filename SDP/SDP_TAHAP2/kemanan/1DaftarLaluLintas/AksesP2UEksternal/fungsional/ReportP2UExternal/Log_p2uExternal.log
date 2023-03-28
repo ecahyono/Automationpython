@@ -1,0 +1,14 @@
+[2023-03-28 16:03:20,843 test_p2uExternal_Fungsi.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-03-28 16:03:28,116 test_p2uExternal_Fungsi.py->test_2_login()]==>INFO: Login
+[2023-03-28 16:03:33,166 test_p2uExternal_Fungsi.py->test_3_Input()]==>INFO: Akses halaman Daftar Lalu Lintas P2U External
+[2023-03-28 16:03:37,357 test_p2uExternal_Fungsi.py->test_3_ClickCreateButton()]==>INFO: masuk ke halaman daftar lalu lintas external
+[2023-03-28 16:03:39,407 test_p2uExternal_Fungsi.py->test_3_ClickCreateButton()]==>INFO: masuk ke halaman tambah
+[2023-03-28 16:03:40,965 test_p2uExternal_Fungsi.py->test_4_inputKategori()]==>INFO:  Memilih Kategori Tamu Dinas 
+[2023-03-28 16:03:41,014 test_p2uExternal_Fungsi.py->test_4_inputKategori()]==>INFO:  Cari Nama atau Nip Kategori Tamu Dinas 
+[2023-03-28 16:03:44,009 test_p2uExternal_Fungsi.py->test_5_ClickSubmitButton()]==>INFO: click button submit
+[2023-03-28 16:03:49,258 test_p2uExternal_Fungsi.py->test_6_FilterDataSemua()]==>INFO: Katakunci Semua
+[2023-03-28 16:03:53,423 test_p2uExternal_Fungsi.py->test_7_InputKatakunci()]==>INFO: Search Bedasarkan Nama Lengkap
+[2023-03-28 16:03:53,581 test_p2uExternal_Fungsi.py->test_8_KlikFilterKonfirmBelumKeluar()]==>INFO: Clik Filter Belum Konfirmasi Keluar
+[2023-03-28 16:03:55,756 test_p2uExternal_Fungsi.py->test_9_KlikDetailWbp()]==>INFO: Click Button Detail
+[2023-03-28 16:04:00,068 test_p2uExternal_Fungsi.py->test_10_KlikKonfirmasiKeluar()]==>INFO: click Button Submit
+[2023-03-28 16:04:01,476 test_p2uExternal_Fungsi.py->test_11_BerhasilDiperbaharui()]==>INFO: Berhasil diperbaharui
