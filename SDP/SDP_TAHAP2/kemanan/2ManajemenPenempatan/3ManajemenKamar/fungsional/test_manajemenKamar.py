@@ -187,6 +187,8 @@ def test_16_MemilihKataKunciNama():
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, "filterColumn").click()
     driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    driver.find_element(By.ID, "statusVerifikasi").click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Dalam Proses\')]").click()
     Log.info('Filter Data Berdasarkan Nama')
 
 @mark.fixture_test()
@@ -199,33 +201,40 @@ def test_17_SearchNamaWBP():
 
 
 @mark.fixture_test()
-def test_13_KlikButtonSearch():
+def test_18_KlikButtonSearch():
     sleep(driver)
     driver.find_element(By.ID, 'searchButton').click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    time.sleep(5)
-    driver.find_element(By.CSS_SELECTOR, ".text-yellow-500 path").click()
-    driver.find_element(By.CSS_SELECTOR, ".w-5 > path").click()
+    Log.info('Click Button Search')
+
+@mark.fixture_test()
+def test_19_VERIFIAKSI():
+    time.sleep(2)
+    driver.find_element(By.ID, "verifikasi-0").click()
+    Log.info("Click Button Verifikasi")
 
 @mark.fixture_test()
 def test_13_Status():
     sleep(driver)
     driver.find_element(By.ID, "status_verifikasi").click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'diizinkan')))
-    time.sleep(2)
-    driver.find_element(By.XPATH, "//li[contains(.,'" + status + "')]").click()
+  
+    driver.find_element(By.XPATH, "//li[@id=\'"+status+"\']").click()
+    Log.info('Ubah Status')
 
 @mark.fixture_test()
 def test_14_InputKeterangan():
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, ".el-textarea > #keterangan").click()
     driver.find_element(By.CSS_SELECTOR, ".el-textarea > #keterangan").send_keys(Keterangan)
+    Log.info('Input Keterangan')
 
 @mark.fixture_test()
-def test_15_ClickButtonSubmit():
+def test_clear15_ClickButtonSubmit():
     sleep(driver)
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    Log.info('Click Button Submit')
 
 
 @mark.fixture_test()
