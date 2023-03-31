@@ -31,235 +31,199 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginOperatorSumedang, Op_Keamanan_p2u, SpvRutanBdg, op_keamanan_mp
+from Settings.loginkeamanan import loginOperatorSumedang, Op_Keamanan_p2u, SpvRutanBdg, op_keamanan_mp
 from Settings.Page.keamanan import manajemenpenghunibaru
+from Settings.Page.keamanan import manajemenkamar
 
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('LogManajemenPenghuniBaru.log', mode="w")
+fh = logging.FileHandler('LogManajemenKamar.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-sheetrangeIndex = wb['ManajemenKamarIndex']
-print('.')
-print('Mau Baris Ke Berapa ?')
-index  = input('')
+wb = load_workbook(environ.get("KeamananUAT"))
+sheetrange = wb['ManajemenKamar']
+i = 2
 
-filterColumnindex                            = sheetrangeIndex['B'+str(index)].value
-Namaindex                                    = sheetrangeIndex['C'+str(index)].value
-NoRegisindex                                 = sheetrangeIndex['D'+str(index)].value
-SemuaIndex                                   = sheetrangeIndex['E'+str(index)].value
-StatusIndex                                  = sheetrangeIndex['F'+str(index)].value
-
-
+    
+Nama                                    = sheetrange['A'+str(i)].value
+blokform                                = sheetrange['B'+str(i)].value
+Lantai                                  = sheetrange['C'+str(i)].value
+Kamar                                   = sheetrange['D'+str(i)].value
+TanggalPenempatan                       = sheetrange['E'+str(i)].value
+Keterangan                              = sheetrange['F'+str(i)].value
+status                                  = sheetrange['G'+str(i)].value
 
 
 @mark.fixture_test()
-def test_1_setupOS():
+def test_2_login():
+    sleep(driver)
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
-
-@mark.fixture_test()
-def test_2_login():
     op_keamanan_mp(driver)
-    Log.info('Login')
+    Log.info('Login Operator Manajemen Penempatan')
 
 
 @mark.fixture_test()
-def test_MKR_001():
+def test_3_AksesMenu():
+    sleep(driver)
+    manajemenkamar(driver)
     print('.')
-    print('Akses halaman Manajemen Kamar (MKR-001)')
-
-    driver.implicitly_wait(30)
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
-    ActionChains(driver).move_to_element(nav1).perform()
-    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['LaluLintasPortir']['MainText'])
-    time.sleep(1)
-    ActionChains(driver).move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Daftar Lalu Lintas').click()
-    sleep(driver)
-    Log.info('(MKR-001) Mengakses halaman Manajemen Kamar dengan memilih modul Keamanan kemudian pilih menu Manajemen Penempatan lalu pilih submenu Manajemen Kamar')
+    Log.info('Akses halaman Manajemen Penghuni Baru')
     attach(data=driver.get_screenshot_as_png())
+    Log.info('Akses Menu Manajemen Kamar')
 
 @mark.fixture_test()
-def test_MKR_002():
+def test_4_ClickButtonTambah():
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button[2]')))
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div[1]/div/div/button[2]').click()
-    sleep(driver)
-    Log.info('(MKR_002)Clik Button Keterangan - Menampilkan jumlah data WBP yang bebas berdasarkan waktunya dengan menekan button Keterangan')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_MKR_003():
-    sleep(driver)
-
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
-    driver.find_element(By.ID, 'filterColumn').click()
-    if filterColumnindex == 'namaIndex':
-        driver.find_element(By.ID, 'nama_lengkap').click()
-        driver.find_element(By.ID, 'kataKunci').send_keys(Namaindex)
-        Log.info('Mencari Berdasarkan Nama')
-        attach(data=driver.get_screenshot_as_png())
-
-    elif filterColumnindex == 'noregisIndex':
-        driver.find_element(By.ID, 'nmr_reg_gol').click()
-        driver.find_element(By.ID, 'kataKunci').send_keys(NoRegisindex)
-        Log.info('Mencari Berdasarkan No Regis')
-        attach(data=driver.get_screenshot_as_png())
-
-    driver.find_element(By.ID, 'statusVerifikasistatusVerifikasi').click()
-    if StatusIndex == 'Dalam Proses':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'DalamProses')))
-        driver.find_element(By.ID, 'DalamProses').click
-        Log.info('Memilih status dalam proses')
-
-    elif StatusIndex == 'Diizinkan':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'Diizinkan')))
-        driver.find_element(By.ID, 'Diizinkan').click
-        Log.info('Memilih Status Diizinkan')
-
-    elif StatusIndex == 'Perbaikan':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'Perbaikan')))
-        driver.find_element(By.ID, 'Perbaikan').click
-        Log.info('Memilih Status Perbaikan')
-
-    elif StatusIndex == 'Ditolak':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'Ditolak')))
-        driver.find_element(By.ID, 'Ditolak').click
-        Log.info('Memilih Status Ditolak')
-
-    elif StatusIndex == 'Semua':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'semuaStatusVerifikasi')))
-        driver.find_element(By.ID, 'semuaStatusVerifikasi').click
-        Log.info('Memilih Status Semua')
-
-    driver.find_element(By.ID, 'searchButton').click()
-
-    Log.info('(MKR_003) Search data - Melakukan pengecekan filtering data dengan menginputkan kata kunci dan memilih kategori pada halaman Manajemen Kamar lalu klik button cari')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_MKR_004():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'createButton').click()
-    Log.info('(MKR_004)Click button create - Mengakses halaman Cari Identitas WBP yang akan dimutasi dengan menekan button Tambah Mutasi Blok/Kamar pada halaman Manajemen Kamar')
-
-
-
-
-                                            ########## HALAMAN CARI ##########
-
-sheetrangeCari = wb['ManajemenKamarCari']
-print('.')
-print('Halaman cari, Mau Baris Ke Berapa ?')
-cari  = input('')
-
-filterColumnCari                            = sheetrangeCari['B'+str(cari)].value
-NamaCari                                    = sheetrangeCari['C'+str(cari)].value
-NoRegisCari                                 = sheetrangeCari['D'+str(cari)].value
-JenisKejahatanCari                          = sheetrangeCari['E'+str(cari)].value
 
 @mark.fixture_test()
-def test_MKR_005():
+def test_5_FilterColumn():
     sleep(driver)
-
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
-    driver.find_element(By.ID, 'filterColumn').click()
-    if filterColumnCari == 'namaCari':
-        driver.find_element(By.ID, 'nama_lengkap').click()
-        driver.find_element(By.ID, 'kataKunci').send_keys(NamaCari)
-        Log.info('Mencari Berdasarkan Nama')
-        attach(data=driver.get_screenshot_as_png())
-
-    elif filterColumnCari == 'noregisIndex':
-        driver.find_element(By.ID, 'nmr_reg_gol').click()
-        driver.find_element(By.ID, 'kataKunci').send_keys(NoRegisCari)
-        Log.info('Mencari Berdasarkan No Regis')
-        attach(data=driver.get_screenshot_as_png())
-
-    driver.find_element(By.ID, 'searchButton').click()
-    Log.info('(MKR_004) Search Identitas - Melakukan pencarian identitas WBP yang akan dimutasi di halaman Cari Identitas dengan memilih kategori pencarian dan menginputkan kata kunci lalu klik button Cari. Jika ingin Kembali ke halaman sebelumnya, klik button Kembali')
-    attach(data=driver.get_screenshot_as_png())
+    driver.find_element(By.ID, "filterColumn").click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    driver.find_element(By.ID, "kataKunci").click()
+    driver.find_element(By.ID, "kataKunci").send_keys(Nama)
+    Log.info("Search Nama lengkap")
 
 @mark.fixture_test()
-def test_MKR_006():
+def test_6_ClickButtonSearch():
+    sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
-    driver.find_element(By.ID,'mutasi-0').click()
+    driver.find_element(By.CSS_SELECTOR, "#searchButton svg").click()
+    Log.info('Click Button Search')
+
+@mark.fixture_test()
+def test_7_ClickButtonMutasi():
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.ID, "mutasi-0").click()
+    Log.info('Click Button mutasi')
+
+@mark.fixture_test()
+def test_8_PilihBlok():
+    sleep(driver)
+    driver.find_element(By.ID, "blokForm").send_keys(blokform)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'blokOption-0')))
+    driver.find_element(By.ID, "blokOption-0").click()
+    Log.info('Pilih Blok')
+
+@mark.fixture_test()
+def test_9_PilihLantai():
+    sleep(driver)
+    driver.find_element(By.ID, "lantaiForm").send_keys(Lantai)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'lantaiOption-0')))
+    driver.find_element(By.ID, "lantaiOption-0").click()
+    Log.info('Pilih Lantai')
+
+@mark.fixture_test()
+def test_10_PilhKamar():
+    sleep(driver)
+    driver.find_element(By.ID, "kamarForm").send_keys(Kamar)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'kamarOption-0')))
+    driver.find_element(By.CSS_SELECTOR, "#kamarOption-0 > span").click()
+    Log.info("Pilih Kamar")
+
+@mark.fixture_test()
+def test_11_InputTanggalMutasi():
+    sleep(driver)
+    driver.find_element(By.ID, "tanggalMutasiForm").click()
+    driver.find_element(By.ID, "tanggalMutasiForm").send_keys(TanggalPenempatan)
+    Log.info('input tanggal penempatan')
+
+@mark.fixture_test()
+def test_12_InputKeterangan():
+    sleep(driver)
+    driver.find_element(By.ID, "keteranganForm").click()
+    driver.find_element(By.ID, "keteranganForm").send_keys(Keterangan)
+    Log.info('Input Keterangan')
+
+@mark.fixture_test()
+def test_13_ClickButtonSubmit():
+    sleep(driver)
+    driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    Log.info('Click Button Submit')
+
+
+
+
+
 
 
 @mark.fixture_test()
-def test_MKR_007():
-    attach(data=driver.get_screenshot_as_png())
+def test_14_loginSPV():
+    sleep(driver)
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+    SpvRutanBdg(driver)
+    Log.info('Login Spv Manajemen Penempatan')
 
-    Log.info('Memilih Blok & Kamar untuk WBP yang bisa dilakukan dengan 2 cara, ')
-
-
-
-    Log.info(' Cara 1 : menekan button Denah Blok & Kamar lalu memilih Blok pada pop up kemudian pilih Lantai dan pilih Kamar kemudian klik button Simpan ')
-
-
-    Log.info('2: pilih Blok dan Kamar pada dropdown di form Catat Penempatan Kamar')
 
 @mark.fixture_test()
-def test_MKR_008():
-    Log.info('Menginputkan data tanggal dan alasan mutasi pada form Catat Mutasi Kamar lalu klik button simpan untuk menyimpan data Mutasi Kamar ')
+def test_15_AksesMenu():
+    sleep(driver)
+    manajemenkamar(driver)
+    print('.')
+    Log.info('Akses halaman Manajemen Penghuni Baru')
     attach(data=driver.get_screenshot_as_png())
+    Log.info('Akses Menu Manajemen Kamar')
+
 
 @mark.fixture_test()
-def test_MKR_009():
-    Log.info('Menampilkan detail data Penghuni dengan menggunakan button (Detail) pada kolom aksi di tabel data Penghuni pada halaman Manajemen Kamar. Jika ingin Kembali ke halaman sebelumnya, klik button Kembali')
-    attach(data=driver.get_screenshot_as_png())
+def test_16_MemilihKataKunciNama():
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.ID, "filterColumn").click()
+    driver.find_element(By.XPATH, "//li[contains(.,\'Nama\')]").click()
+    Log.info('Filter Data Berdasarkan Nama')
 
 @mark.fixture_test()
-def test_MKR_010():
-    Log.info('Mengubah data Penghuni dengan menggunakan button (Update) pada kolom aksi di tabel halaman Manajemen Kamar kemudian ubah data di form dan klik button simpan. Jika ingin Kembali ke halaman sebelumnya, klik button Kembali')
-    attach(data=driver.get_screenshot_as_png())
+def test_17_SearchNamaWBP():
+    sleep(driver)
+    driver.find_element(By.ID, "kataKunci").click()
+    driver.find_element(By.ID, "kataKunci").send_keys(Nama)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    Log.info('Search nama wbp')
+
 
 @mark.fixture_test()
-def test_MKR_011():
-    Log.info('Mencetak sterek dengan menekan Button Cetak Sterek')
-    attach(data=driver.get_screenshot_as_png())
+def test_13_KlikButtonSearch():
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.CSS_SELECTOR, ".text-yellow-500 path").click()
 
 @mark.fixture_test()
-def test_MKR_012():
-    Log.info('Menampilkan dropdown jumlah data yang dipilih oleh pengguna dan ditampilkan pada main grid')
-    attach(data=driver.get_screenshot_as_png())
+def test_13_Status():
+    sleep(driver)
+    driver.find_element(By.ID, "status_verifikasi").click()
+    driver.find_element(By.XPATH, "//li[contains(.,'" + status + "')]").click()
 
 @mark.fixture_test()
-def test_MKR_013():
-    Log.info('Menampilkan jumlah data yang sesuai dengan total halaman yang dipilih')
-    attach(data=driver.get_screenshot_as_png())
+def test_14_InputKeterangan():
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, ".el-textarea > #keterangan").click()
+    driver.find_element(By.CSS_SELECTOR, ".el-textarea > #keterangan").send_keys(Keterangan)
 
 @mark.fixture_test()
-def test_MKR_014():
-    Log.info('Menampilkan halaman sebelumnya dan selanjutnya menggunakan navigasi button ')
-    attach(data=driver.get_screenshot_as_png())
+def test_15_ClickButtonSubmit():
+    sleep(driver)
+    driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 
-@mark.fixture_test()
-def test_MKR_015():
-    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) dengan menekan Button Export Excel')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_MKR_016():
-    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) dengan menekan Button Export PDF')
-    attach(data=driver.get_screenshot_as_png())
-
-@mark.fixture_test()
-def test_MKR_017():
-    Log.info('Mencetak data penghuni (sesuai dengan jumlah halaman) yang terhubung langsung dengan perangkat tambahan (printer)')
-    attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
 def test_exit():
+    sleep(driver)
     quit(driver)
-    attach(data=driver.get_screenshot_as_png())
+

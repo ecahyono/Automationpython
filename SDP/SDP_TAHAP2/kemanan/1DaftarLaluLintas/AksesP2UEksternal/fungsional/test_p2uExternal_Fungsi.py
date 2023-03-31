@@ -29,6 +29,7 @@ if platform.system() == 'Darwin':
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    wb = load_workbook(environ.get("KeamananUATWin"))
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
 from Settings.loginkeamanan import Op_Keamanan_p2u

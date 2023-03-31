@@ -1,0 +1,19 @@
+[2023-03-31 11:07:11,231 test_manajemenKamar.py->test_2_login()]==>INFO: Setup Os
+[2023-03-31 11:07:14,967 test_manajemenKamar.py->test_2_login()]==>INFO: Login Operator Manajemen Penempatan
+[2023-03-31 11:07:18,194 test_manajemenKamar.py->test_3_AksesMenu()]==>INFO: Akses halaman Manajemen Penghuni Baru
+[2023-03-31 11:07:18,894 test_manajemenKamar.py->test_3_AksesMenu()]==>INFO: Akses Menu Manajemen Kamar
+[2023-03-31 11:07:23,161 test_manajemenKamar.py->test_5_FilterColumn()]==>INFO: Search Nama lengkap
+[2023-03-31 11:07:25,229 test_manajemenKamar.py->test_6_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-03-31 11:07:27,288 test_manajemenKamar.py->test_7_ClickButtonMutasi()]==>INFO: Click Button mutasi
+[2023-03-31 11:07:30,130 test_manajemenKamar.py->test_8_PilihBlok()]==>INFO: Pilih Blok
+[2023-03-31 11:07:32,763 test_manajemenKamar.py->test_9_PilihLantai()]==>INFO: Pilih Lantai
+[2023-03-31 11:07:35,396 test_manajemenKamar.py->test_10_PilhKamar()]==>INFO: Pilih Kamar
+[2023-03-31 11:07:37,485 test_manajemenKamar.py->test_11_InputTanggalMutasi()]==>INFO: input tanggal penempatan
+[2023-03-31 11:07:39,579 test_manajemenKamar.py->test_12_InputKeterangan()]==>INFO: Input Keterangan
+[2023-03-31 11:07:44,245 test_manajemenKamar.py->test_13_ClickButtonSubmit()]==>INFO: Click Button Submit
+[2023-03-31 11:07:48,777 test_manajemenKamar.py->test_14_loginSPV()]==>INFO: Setup Os
+[2023-03-31 11:07:52,185 test_manajemenKamar.py->test_14_loginSPV()]==>INFO: Login Spv Manajemen Penempatan
+[2023-03-31 11:07:55,410 test_manajemenKamar.py->test_15_AksesMenu()]==>INFO: Akses halaman Manajemen Penghuni Baru
+[2023-03-31 11:07:56,106 test_manajemenKamar.py->test_15_AksesMenu()]==>INFO: Akses Menu Manajemen Kamar
+[2023-03-31 11:07:58,259 test_manajemenKamar.py->test_16_MemilihKataKunciNama()]==>INFO: Filter Data Berdasarkan Nama
+[2023-03-31 11:08:00,353 test_manajemenKamar.py->test_17_SearchNamaWBP()]==>INFO: Search nama wbp
