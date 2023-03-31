@@ -19,6 +19,7 @@ def Penerimaan(driver):
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'RUP00')))
 	nav1 = driver.find_element(By.ID, 'RUP00')
 	ActionChains(driver).move_to_element(nav1).perform()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.LINK_TEXT, 'Penerimaan')))
 	driver.find_element(By.LINK_TEXT, 'Penerimaan').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	attach(data=driver.get_screenshot_as_png())
@@ -53,9 +54,12 @@ def childmenu7(driver):
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	attach(data=driver.get_screenshot_as_png())
 
-def lainlain(driver):
+def daftarpegawai(driver):
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '601')))
 	element = driver.find_element(By.ID, '601')
 	ActionChains(driver).move_to_element(element).perform()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.LINK_TEXT, 'Daftar Pegawai')))
+	driver.find_element(By. LINK_TEXT, 'Daftar Pegawai').click()
 	
 def childlain(driver):
 	element2 = driver.find_element(By.ID, '80')

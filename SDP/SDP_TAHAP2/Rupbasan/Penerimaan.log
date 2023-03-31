@@ -1,0 +1,30 @@
+[2023-03-30 16:37:14,983 Fungsional-Penerimaan.py->testconfigwebdriver()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
+[2023-03-30 16:37:17,288 Fungsional-Penerimaan.py->testlogin()]==>INFO: Memasukan User name dan Password di halaman Login
+[2023-03-30 16:37:21,119 Fungsional-Penerimaan.py->testaksesmenu()]==>INFO: Mengakses Halaman Penerimaan
+[2023-03-30 16:37:29,635 Fungsional-Penerimaan.py->testaksesmenu()]==>INFO: Mengakses Halaman Tambah
+[2023-03-30 16:37:30,736 Fungsional-Penerimaan.py->test_PNM_01()]==>INFO: Memeilih Dropdown Jenis Registrasi
+[2023-03-30 16:37:31,391 Fungsional-Penerimaan.py->test_PNM_02()]==>INFO: Menginput Tanggal Penerimaan
+[2023-03-30 16:37:31,594 Fungsional-Penerimaan.py->test_PNM_03()]==>INFO: Memilih Opsi instansi
+[2023-03-30 16:37:32,482 Fungsional-Penerimaan.py->test_PNM_04()]==>INFO: Menginput Nomor Surat Perintah Penyitaan
+[2023-03-30 16:37:32,591 Fungsional-Penerimaan.py->test_PNM_04()]==>INFO: Menginput Tgl Surat Perintah Penyitaan
+[2023-03-30 16:37:32,695 Fungsional-Penerimaan.py->test_PNM_05()]==>INFO: Menginput anggal Surat Perintah Penyitaan
+[2023-03-30 16:37:32,869 Fungsional-Penerimaan.py->test_PNM_06()]==>INFO: Memilih Opsi Pengadilan Penyita
+[2023-03-30 16:37:33,568 Fungsional-Penerimaan.py->test_PNM_07()]==>INFO: menginput nomor surat Penyitaan
+[2023-03-30 16:37:33,660 Fungsional-Penerimaan.py->test_PNM_08()]==>INFO: menginput tanggal surat Penyitaan
+[2023-03-30 16:37:33,787 Fungsional-Penerimaan.py->test_PNM_09()]==>INFO: Memilih Opsi Institusi Penempatan
+[2023-03-30 16:37:34,434 Fungsional-Penerimaan.py->test_PNM_10()]==>INFO: input pasal
+[2023-03-30 16:37:34,760 Fungsional-Penerimaan.py->test_PNM_11()]==>INFO: Memilih Opsi Institusi Penempatan
+[2023-03-30 16:37:35,416 Fungsional-Penerimaan.py->test_PNM_12()]==>INFO: Memilih Opsi Institusi Penempatan
+[2023-03-30 16:37:36,119 Fungsional-Penerimaan.py->test_PNM_13()]==>INFO: input NoBAPenyitaan
+[2023-03-30 16:37:36,199 Fungsional-Penerimaan.py->test_PNM_14()]==>INFO: input No. Surat Pernyataan
+[2023-03-30 16:37:36,269 Fungsional-Penerimaan.py->test_PNM_15()]==>INFO: Input field text area
+[2023-03-30 16:37:36,439 Fungsional-Penerimaan.py->test_PNM_16()]==>INFO: Melakukan Pencarian data Identitas petugas Penerima
+[2023-03-30 16:37:37,120 Fungsional-Penerimaan.py->test_PNM_17()]==>INFO: Melakukan Pencarian data Petugas yang menyerahkan
+[2023-03-30 16:37:37,468 Fungsional-Penerimaan.py->test_PNM_18()]==>INFO: Melakukan Pencarian data Identitas WBP
+[2023-03-30 16:37:38,116 Fungsional-Penerimaan.py->test_PNM_19()]==>INFO: klik tab Petugas Instansi yang Menyerahkan
+[2023-03-30 16:37:38,175 Fungsional-Penerimaan.py->test_PNM_19()]==>INFO: input data  Petugas Instansi Yang menyerahkan
+[2023-03-30 16:37:38,369 Fungsional-Penerimaan.py->test_PNM_20()]==>INFO: Klik tab Saksi Penerima
+[2023-03-30 16:37:38,465 Fungsional-Penerimaan.py->test_PNM_20()]==>INFO: melakukan pencarian data petugas saksi penerimaan
+[2023-03-30 16:37:39,139 Fungsional-Penerimaan.py->test_PNM_22()]==>INFO: Klik tab Dokument
+[2023-03-30 16:37:39,255 Fungsional-Penerimaan.py->test_PNM_22()]==>INFO: melakukan Verifikasi dokumen yang diupload
+[2023-03-30 16:37:48,751 Fungsional-Penerimaan.py->test_PNM_23()]==>INFO: menekan button submit
