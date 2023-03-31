@@ -38,7 +38,7 @@ def manajemenpenghunibaru(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/manajemen-penghuni-baru").click()
+    driver.find_element(By.LINK_TEXT, "Manajemen Penghuni Baru").click()
 
 def manajemenkamar(driver):
     nav1  = driver.find_element(By.ID, "KEA00")

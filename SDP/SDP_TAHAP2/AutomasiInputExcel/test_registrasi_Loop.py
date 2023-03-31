@@ -28,7 +28,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
-from Settings.loginkeamanan import LapasPerempuan, testsukamiskin
+from Settings.loginkeamanan import LapasPerempuan, testsukamiskin,loginwaru
 
 import logging
 Log = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ def test_1_setupOS():
 
 @mark.fixture_test()
 def test_2_login():
-    testsukamiskin(driver)
+    loginwaru(driver)
     Log.info('Login')
 
 
