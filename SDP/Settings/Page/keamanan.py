@@ -62,12 +62,13 @@ def riwayatpenempatan(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA02")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/riwayat-penempatan").click()
+    driver.find_element(By.LINK_TEXT, "Riwayat Penempatan").click()
 
 def RegisterH(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav1).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/pengasingan").click()
+    driver.find_element(By.LINK_TEXT, "Register H").click()
 
 def laporan6a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")

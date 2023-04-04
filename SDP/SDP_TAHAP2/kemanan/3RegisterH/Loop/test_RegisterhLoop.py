@@ -72,15 +72,18 @@ def test_3_CetakNoSurat():
     sleep(driver)
 
     i = 2
-    tambah = wb['RegisterH_Tambah']
-    while i <= len(tambah['A']):
+    Regh = wb['RegisterH_Tambah']
+    while i <= len(Regh['A']):
         
-        nama                                            = tambah['A'+str(i)].value
-        noSurat                                         = tambah['B'+str(i)].value
-        tanggalSurat                                    = tambah['C'+str(i)].value
-        tanggalMulai                                    = tambah['D'+str(i)].value
-        lamaPengasingan                                 = tambah['E'+str(i)].value
-        alasan                                          = tambah['F'+str(i)].value
+        nama                                            = Regh['A'+str(i)].value
+        noSurat                                         = Regh['B'+str(i)].value
+        tanggalSurat                                    = Regh['C'+str(i)].value
+        tanggalMulai                                    = Regh['D'+str(i)].value
+        lamaPengasingan                                 = Regh['E'+str(i)].value
+        alasan                                          = Regh['F'+str(i)].value
+        filterStatus                                    = Regh['H'+str(i)].value
+        UbahStatus                                      = Regh['I'+str(i)].value
+        keterangan                                      = Regh['J'+str(i)].value
 
         try:
             
@@ -166,6 +169,111 @@ def test_3_CetakNoSurat():
             driver.find_element(By.ID, 'submitButton').click()
             WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
             Log.info('Click Button Submit')
+            attach(data=driver.get_screenshot_as_png())
+
+
+
+            global driver, pathData
+            driver = initDriver()
+            pathData = loadDataPath()
+            Log.info('Setup Os')
+            SpvRutanBdg(driver)
+            Log.info('Login Spv Manajemen Penempatan')
+
+
+
+            sleep(driver)
+            RegisterH(driver)
+            Log.info('Akses Menu Register H')
+            attach(data=driver.get_screenshot_as_png())
+
+
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            driver.find_element(By.ID, 'filterColumn').send_keys('nama')
+            driver.find_element(By.XPATH, '//*[@id="namaLengkap"]').click()
+            Log.info(' Memilih kategori Nama ')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="kataKunci"]')))
+            driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(nama)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            Log.info('Search nama')
+            attach(data=driver.get_screenshot_as_png())
+
+
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'filterStatus')))
+            driver.find_element(By.ID, 'filterStatus').click()
+            if filterStatus == 'dalamproses':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="dalamProses"]')))
+                driver.find_element(By.ID, 'filterStatus').send_keys('dalam Proses')
+                driver.find_element(By.ID, 'dalamProses').click()
+                Log.info(' Filter status Dalam Proses ')
+                attach(data=driver.get_screenshot_as_png())
+            elif filterStatus == 'perbaikan':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="dalamProses"]')))
+                driver.find_element(By.XPATH, "//li[@id=\'perbaikan\']").click()
+                Log.info('.')
+                Log.info(' Filter status Dalam Proses ')
+                attach(data=driver.get_screenshot_as_png())
+
+
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="modalButton0"]')))
+            driver.find_element(By.XPATH, '//*[@id="modalButton0"]').click()
+            Log.info('.')
+            Log.info('Click Button Status Dalam Proses')
+            attach(data=driver.get_screenshot_as_png())
+
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="statusVerifikasiModal"]')))
+            driver.find_element(By.XPATH, '//*[@id="statusVerifikasiModal"]').click()
+            if UbahStatus == 'diizinkan':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "(//li[@id=\'diizinkan\'])[2]")))
+                driver.find_element(By.XPATH, "(//li[@id=\'diizinkan\'])[2]").click()
+                Log.info('.')
+                Log.info('Ubah Status Menjadi Di Izinkan')
+                attach(data=driver.get_screenshot_as_png())
+            elif UbahStatus == 'perbaikan':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "(//li[@id=\'perbaikan\'])[2]")))
+                driver.find_element(By.XPATH, "(//li[@id=\'perbaikan\'])[2]").click()
+                Log.info('.')
+                Log.info('Ubah Status Menjadi Di perbaikan')
+                attach(data=driver.get_screenshot_as_png())
+            elif UbahStatus == 'ditolak':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "(//li[@id=\'ditolak\'])[2]")))
+                driver.find_element(By.XPATH, "(//li[@id=\'ditolak\'])[2]").click()
+                Log.info('.')
+                Log.info('Ubah Status Menjadi Di Tolak')
+                attach(data=driver.get_screenshot_as_png())
+            elif UbahStatus == 'dalamProses':
+                WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, "(//li[@id=\'dalamProses\'])[2]")))
+                driver.find_element(By.XPATH, "(//li[@id=\'dalamProses\']/span)[2]").click()
+                Log.info('.')
+                Log.info('Ubah Status Menjadi Dalam Proses')
+                attach(data=driver.get_screenshot_as_png())
+
+
+            sleep(driver)
+            driver.find_element(By.ID, "keterangan").click()
+            driver.find_element(By.ID, "keterangan").send_keys(keterangan)
+            Log.info('.')
+            Log.info('Input Keterangan')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            driver.find_element(By.ID, "simpanVerifikasi").click()
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Diperbaharui\')]')))
+            Log.info('.')
+            Log.info('Button Simpan Verifikasi')
             attach(data=driver.get_screenshot_as_png())
 
 

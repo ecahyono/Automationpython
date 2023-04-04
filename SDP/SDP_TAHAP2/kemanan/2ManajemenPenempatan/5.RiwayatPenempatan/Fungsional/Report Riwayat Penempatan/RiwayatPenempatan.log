@@ -1,0 +1,9 @@
+[2023-04-04 15:35:18,060 test_RiwayatPenempatan.py->test_1_loginSPV()]==>INFO: Setup Os
+[2023-04-04 15:35:26,501 test_RiwayatPenempatan.py->test_1_loginSPV()]==>INFO: Login Spv Manajemen Penempatan
+[2023-04-04 15:35:30,628 test_RiwayatPenempatan.py->test_2_AksesMenu()]==>INFO: Akses halaman Manajemen Penghuni Baru
+[2023-04-04 15:35:31,041 test_RiwayatPenempatan.py->test_2_AksesMenu()]==>INFO: Akses Menu Riwayat Penempatan Kamar
+[2023-04-04 15:35:34,138 test_RiwayatPenempatan.py->test_3_SearchSemua()]==>INFO: Click Search Button
+[2023-04-04 15:35:36,481 test_RiwayatPenempatan.py->test_3_SearchSemua()]==>INFO: Cek Filter Data Berdasarkan semua
+[2023-04-04 15:35:41,380 test_RiwayatPenempatan.py->test_4_SearchNoreg()]==>INFO: Cek Filter Data Berdasarkan Nomor Registrasi
+[2023-04-04 15:35:45,816 test_RiwayatPenempatan.py->test_5_SearchNamaLengkap()]==>INFO: Cek Filter Data Berdasarkan Nama Lengkap
+[2023-04-04 15:35:50,732 test_RiwayatPenempatan.py->test_6_SearchPidana()]==>INFO: Cek Filter Data Berdasarkan Pidana
