@@ -1,0 +1,196 @@
+from distutils.archive_util import make_archive
+from selenium import webdriver
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.select import Select
+from selenium.webdriver.firefox.options import Options
+import platform
+from pytest import mark
+import time
+from pytest_html_reporter import attach
+import pyautogui
+
+import sys
+from os import environ, path
+from dotenv import load_dotenv
+load_dotenv()
+from openpyxl import load_workbook
+
+if platform.system() == 'Darwin':
+    sys.path.append(environ.get("MACPARENTDIR"))
+    wb = load_workbook(environ.get("KeamananUAT"))
+
+elif platform.system() == 'Windows':
+    sys.path.append(environ.get("WINPARENTDIR"))
+
+
+from Settings.setup import initDriver, loadDataPath, quit, sleep
+from Settings.loginkeamanan import loginOperatorSumedang, Op_Keamanan_p2u, SpvRutanBdg, op_keamanan_mp
+from Settings.Page.keamanan import manajemenpenghunibaru
+from Settings.Page.keamanan import RegisterH
+
+import logging
+Log = logging.getLogger(__name__)
+log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
+fh = logging.FileHandler('LogSuratMutasi.log', mode="w")
+fh.setLevel(logging.INFO)
+formatter = logging.Formatter(log_format)
+fh.setFormatter(formatter)
+Log.addHandler(fh)
+
+
+
+@mark.fixture_test()
+def test_1loginSPV():
+
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+    SpvRutanBdg(driver)
+    Log.info('Login Spv Manajemen Penempatan')
+
+
+@mark.fixture_test()
+def test_2_AksesMenu():
+    sleep(driver)
+    RegisterH(driver)
+    print('.')
+    Log.info('Akses halaman Manajemen Penghuni Baru')
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Akses Menu Manajemen Kamar')
+
+
+@mark.fixture_test()
+def test_3_CetakNoSurat():
+    sleep(driver)
+
+    i = 2
+    tambah = wb['RegisterH_Tambah']
+    while i <= len(tambah['A']):
+        
+        nama                                            = tambah['A'+str(i)].value
+        noSurat                                         = tambah['B'+str(i)].value
+        tanggalSurat                                    = tambah['C'+str(i)].value
+        tanggalMulai                                    = tambah['D'+str(i)].value
+        lamaPengasingan                                 = tambah['E'+str(i)].value
+        alasan                                          = tambah['F'+str(i)].value
+
+        try:
+            
+       
+            sleep(driver)
+            driver.implicitly_wait(10)
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'createButton')))
+            driver.find_element(By.ID, 'createButton').click()
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="backButton"]')))
+            Log.info(' Membuka Halaman Tambah  ')
+            attach(data=driver.get_screenshot_as_png())
+
+          
+            sleep(driver)
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'filterColumn')))
+            driver.find_element(By.ID, 'kataKunci').send_keys(nama)
+            Log.info('Klik Search Kategori berdasarkan Nama')
+            attach(data=driver.get_screenshot_as_png())
+
+
+            
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            driver.find_element(By.XPATH, '//*[@id="buttonSearch"]').click()
+            Log.info('Klik Button Search')
+            attach(data=driver.get_screenshot_as_png())
+
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="buttonSearch"]')))
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="view0"]')))
+            sleep(driver)
+            driver.find_element(By.XPATH,'//*[@id="view0"]').click()
+            Log.info('Klik Button Daftarkan')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'detailRegis')))
+            WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'noSurat')))
+            driver.find_element(By.XPATH, '//*[@id="noSurat"]').send_keys(noSurat)
+            Log.info('Input Nomor Surat')
+            attach(data=driver.get_screenshot_as_png())
+
+
+            sleep(driver)
+            driver.find_element(By.ID, "uploadButton").click()
+
+            sleep(driver)
+            pyautogui.write("///////users/will/test.pdf")
+            pyautogui.press('enter')
+            pyautogui.write("///////users/will/test.pdf")
+            pyautogui.press('enter')
+            pyautogui.press('escape')
+            pyautogui.press('escape')
+            time.sleep(0.5)
+            pyautogui.press('enter')
+            time.sleep(0.5)
+            pyautogui.press('enter')
+
+            Log.info('Upload SK')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            driver.find_element(By.ID, 'tanggalSurat').clear()
+            driver.find_element(By.ID, 'tanggalSurat').send_keys(tanggalSurat)
+            Log.info('Input Tanggal Surat')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            driver.find_element(By.ID, 'tanggalMulai').send_keys(tanggalMulai)
+            Log.info('Input Tanggal Mulai')
+            attach(data=driver.get_screenshot_as_png())
+
+            sleep(driver)
+            driver.find_element(By.XPATH,'//*[@id="lamaPengasingan"]/div/input').send_keys(Keys.BACKSPACE)
+            driver.find_element(By.XPATH, '//*[@id="lamaPengasingan"]/div/input').send_keys(lamaPengasingan)
+            Log.info('Input Lama Perasingan')
+            attach(data=driver.get_screenshot_as_png())
+
+            driver.implicitly_wait(60)
+            driver.find_element(By.ID, 'alasan').send_keys(alasan)
+            Log.info('Input Alasan')
+            attach(data=driver.get_screenshot_as_png())
+
+            driver.find_element(By.ID, 'submitButton').click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
+            Log.info('Click Button Submit')
+            attach(data=driver.get_screenshot_as_png())
+
+
+        except TimeoutException:
+            print("ERRROR")
+            pass
+                
+        sleep(driver)
+        i = i + 1
+    print('DONE')
+
+@mark.fixture_test()
+def teardown():
+    quit(driver)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
