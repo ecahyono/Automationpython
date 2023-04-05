@@ -291,7 +291,7 @@ def test_32_PilihUPT():
     driver.find_element(By.ID, "formfilterUpt").click()
     driver.find_element(By.ID, "formfilterUpt").send_keys("rutan kelas I Bandung")
     driver.find_element(By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]").click()
-    Log.info('Pilih UPT')
+    Log.info('PilihUPT')
 
 @mark.fixture_test()
 def test_33_ClickButtonSearch():
