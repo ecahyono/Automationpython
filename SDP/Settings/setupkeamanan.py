@@ -7,13 +7,23 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
+from selenium.webdriver.chrome.options import Options
 
 from dotenv import load_dotenv
 load_dotenv()
 
 def initDriver():
+    options = Options()
+    print('.')
+    X = int(input("1. Headless, 2. Not Headless")) 
+    print('.')
+    if X == 1:
+        options.headless = True
+    elif X == 2:
+        options.headless = False
     if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"), options=options)
+        
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
         driver = webdriver.Chrome(service=swin)
@@ -64,7 +74,7 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 def sleep(driver):
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(10)
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
