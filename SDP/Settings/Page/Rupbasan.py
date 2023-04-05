@@ -24,7 +24,11 @@ def Penerimaan(driver):
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	attach(data=driver.get_screenshot_as_png())
 
-def childmenu2(driver):
+def Penempatan(driver):
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'RUP00')))
+	nav1 = driver.find_element(By.ID, 'RUP00')
+	ActionChains(driver).move_to_element(nav1).perform()
+	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.LINK_TEXT, 'Penempatan')))
 	driver.find_element(By.LINK_TEXT, 'Penempatan').click()
 	WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
 	attach(data=driver.get_screenshot_as_png())

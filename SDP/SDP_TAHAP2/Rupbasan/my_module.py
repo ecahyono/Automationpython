@@ -28,7 +28,7 @@ fake = Faker()
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Penerimaan', mode="w")
+fh = logging.FileHandler('Penerimaan.log', mode="a")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -40,7 +40,10 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setupbrowser import initDriver, secondaryinit
-from Settings.login import login, oprupbasanbdg
-from Settings.Page.Rupbasan import Penerimaan, daftarpegawai
+from Settings.login import *
+from Settings.Page.Rupbasan import *
 
-wb = load_workbook(environ.get("RUPEXEL"))
+if platform.system() == 'Darwin':
+    wb = load_workbook(environ.get("RUPEXEL"))
+elif platform.system() == 'Windows':
+    wb = load_workbook(environ.get("RUPEXEL"))

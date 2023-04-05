@@ -40,6 +40,7 @@ def test_menmabahpetugasrupbasan():
 		tgllhrpgw.send_keys(tanggallahir)
 		tgllhrpgw.send_keys(Keys.ENTER)
 		driver.find_element(By.ID, "jenisKelamin").click()
+		WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'Laki-laki')))
 		driver.find_element(By.XPATH, "//li[contains(.,'"+ jeniskelamin+"')]").click()
 		driver.find_element(By.ID, "Alamat").send_keys(alamat)
 		driver.find_element(By.ID, "Jabatan").send_keys(jabatan)
