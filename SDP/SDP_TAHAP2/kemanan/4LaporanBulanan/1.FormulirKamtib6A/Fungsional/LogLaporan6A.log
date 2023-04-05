@@ -1,0 +1,36 @@
+[2023-04-05 21:05:04,447 test_Laporan6A.py->test_1loginOperatir()]==>INFO: Setup Os
+[2023-04-05 21:05:08,821 test_Laporan6A.py->test_1loginOperatir()]==>INFO: Login Op Laporan Kamtib 6A
+[2023-04-05 21:05:11,479 test_Laporan6A.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6A
+[2023-04-05 21:05:14,946 test_Laporan6A.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-05 21:05:16,938 test_Laporan6A.py->test_4_FilterColumn()]==>INFO: Filter Column Semua
+[2023-04-05 21:05:17,210 test_Laporan6A.py->test_5_Katakunci()]==>INFO: Search Nama WBP
+[2023-04-05 21:05:17,463 test_Laporan6A.py->test_6_ButtonSearch()]==>INFO: Klik tombol search
+[2023-04-05 21:05:19,819 test_Laporan6A.py->test_7_ClickButtonDaftarkan()]==>INFO: Klik tombol daftarkan
+[2023-04-05 21:05:20,924 test_Laporan6A.py->test_8_InputnoSK()]==>INFO: Input No SK Asimilasi
+[2023-04-05 21:05:21,205 test_Laporan6A.py->test_9_InputTanggalSk()]==>INFO: Input Tanggal SK Asimilasi
+[2023-04-05 21:05:21,479 test_Laporan6A.py->test_10_InputTanggalAsimilasi()]==>INFO: Input Tanggal Asimilasi
+[2023-04-05 21:05:21,751 test_Laporan6A.py->test_11_Inputlokasi()]==>INFO: Input Lokasi Asimilasi
+[2023-04-05 21:05:21,998 test_Laporan6A.py->test_12_InputNamaPetugas()]==>INFO: Input Nama Petugas
+[2023-04-05 21:05:22,242 test_Laporan6A.py->test_13_InputNamaPenjamin()]==>INFO: Input Nama Pengjamin
+[2023-04-05 21:05:22,538 test_Laporan6A.py->test_14_InputPihakLain()]==>INFO: Input Keterlibatan Pihak Lain
+[2023-04-05 21:05:22,798 test_Laporan6A.py->test_15_InputKeterangan()]==>INFO: Input Keterangan
+[2023-04-05 21:05:27,430 test_Laporan6A.py->test_16_ClickButtonSubmit()]==>INFO: Klik tombol submit
+[2023-04-05 21:05:34,780 test_Laporan6A.py->test_17_loginSPV()]==>INFO: Setup Os
+[2023-04-05 21:05:39,711 test_Laporan6A.py->test_17_loginSPV()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-05 21:05:42,546 test_Laporan6A.py->test_18_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6A
+[2023-04-05 21:05:58,804 test_Laporan6A.py->test_20_loginKanwil()]==>INFO: Setup Os
+[2023-04-05 21:06:02,872 test_Laporan6A.py->test_20_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-05 21:06:05,747 test_Laporan6A.py->test_21_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6A
+[2023-04-05 21:06:08,438 test_Laporan6A.py->test_22_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-04-05 21:06:08,664 test_Laporan6A.py->test_23_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-05 21:06:11,378 test_Laporan6A.py->test_24_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-05 21:06:14,627 test_Laporan6A.py->test_25_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-04-05 21:06:14,864 test_Laporan6A.py->test_26_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-04-05 21:06:15,122 test_Laporan6A.py->test_27_Inputketerangan()]==>INFO: Input Keterangan
+[2023-04-05 21:06:15,350 test_Laporan6A.py->test_28_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-04-05 21:06:20,849 test_Laporan6A.py->test_29_loginPusat()]==>INFO: Setup Os
+[2023-04-05 21:06:25,086 test_Laporan6A.py->test_29_loginPusat()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-05 21:06:27,943 test_Laporan6A.py->test_30_AksesMenuPusat()]==>INFO: Akses halaman Laporan 6A
+[2023-04-05 21:06:29,587 test_Laporan6A.py->test_31_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-04-05 21:06:29,701 test_Laporan6A.py->test_32_PilihUPT()]==>INFO: Pilih UPT
+[2023-04-05 21:06:29,979 test_Laporan6A.py->test_33_ClickButtonSearch()]==>INFO: Click Button Search

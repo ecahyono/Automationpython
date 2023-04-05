@@ -152,16 +152,3 @@ def test_3_Search():
 def teardown():
     quit(driver)
 
-
-
-
-
-
-
-
-
-
-
-
-
-

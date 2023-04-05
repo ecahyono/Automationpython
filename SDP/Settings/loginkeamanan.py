@@ -39,6 +39,21 @@ def loginOperatorSumedang(driver):
 
     attach(data=driver.get_screenshot_as_png())
 
+def oplapkamtibwaru(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("op-keamanan-lapkamtib")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+    attach(data=driver.get_screenshot_as_png())
 
 
 def loginwaru(driver):
@@ -226,12 +241,29 @@ P:^5GGGJ!J?. 55::JGGG7 7Y! ^PJ:^5GGG7 !PPGGPGG?.!@
     
 	attach(data=driver.get_screenshot_as_png())
 
-def supcirebon(driver):
+def kanwiljabar(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("supcirebon")
+    driver.find_element(By.ID, "username").send_keys("kanwil-jabar")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+    
+    attach(data=driver.get_screenshot_as_png())
+
+
+def pusat(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-pusat")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
