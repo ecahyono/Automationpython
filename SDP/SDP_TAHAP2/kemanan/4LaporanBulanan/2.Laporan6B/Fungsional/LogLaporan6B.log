@@ -1,0 +1,34 @@
+[2023-04-06 17:43:09,609 test_Laporan6B.py->test_1loginOperator()]==>INFO: Setup Os
+[2023-04-06 17:43:17,726 test_Laporan6B.py->test_1loginOperator()]==>INFO: Login Op Laporan Kamtib 6A
+[2023-04-06 17:43:21,695 test_Laporan6B.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6B
+[2023-04-06 17:43:25,722 test_Laporan6B.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-06 17:43:27,762 test_Laporan6B.py->test_4_UraianSingkatKejadian()]==>INFO: Isi Uraian Singkat Kejadian
+[2023-04-06 17:43:28,582 test_Laporan6B.py->test_5_WaktuKejadian()]==>INFO: Isi Waktu Kejadian
+[2023-04-06 17:43:28,796 test_Laporan6B.py->test_6_Kerusakan()]==>INFO: Isi Kerusakan
+[2023-04-06 17:43:29,049 test_Laporan6B.py->test_7_TotalKerugian()]==>INFO: Isi Total Kerugian
+[2023-04-06 17:43:29,280 test_Laporan6B.py->test_8_KorbanJiwa()]==>INFO: Isi Korban Jiwa
+[2023-04-06 17:43:29,517 test_Laporan6B.py->test_9_TindakanSementaraYangDilakukan()]==>INFO: Isi Tindakan Sementara Yang Dilakukan
+[2023-04-06 17:43:29,905 test_Laporan6B.py->test_10_TindakLanjut()]==>INFO: Isi Tindak Lanjut
+[2023-04-06 17:43:30,075 test_Laporan6B.py->test_11_SumberDana()]==>INFO: Isi Sumber Dana
+[2023-04-06 17:43:30,267 test_Laporan6B.py->test_12_BantuanPihakLain()]==>INFO: Isi Bantuan Pihak Lain
+[2023-04-06 17:43:30,462 test_Laporan6B.py->test_13_Keterangan()]==>INFO: Isi Keterangan
+[2023-04-06 17:43:30,592 test_Laporan6B.py->test_14_Submit()]==>INFO: Klik tombol submit
+[2023-04-06 17:43:41,686 test_Laporan6B.py->test_17_loginSPV()]==>INFO: Setup Os
+[2023-04-06 17:43:49,606 test_Laporan6B.py->test_17_loginSPV()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-06 17:43:53,765 test_Laporan6B.py->test_18_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6A
+[2023-04-06 17:44:12,678 test_Laporan6B.py->test_20_loginKanwil()]==>INFO: Setup Os
+[2023-04-06 17:44:20,534 test_Laporan6B.py->test_20_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-06 17:44:27,838 test_Laporan6B.py->test_21_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6A
+[2023-04-06 17:44:34,050 test_Laporan6B.py->test_22_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-04-06 17:44:34,211 test_Laporan6B.py->test_23_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-06 17:44:37,463 test_Laporan6B.py->test_24_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-06 17:44:40,630 test_Laporan6B.py->test_25_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-04-06 17:44:40,818 test_Laporan6B.py->test_26_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-04-06 17:44:41,024 test_Laporan6B.py->test_27_Inputketerangan()]==>INFO: Input Keterangan
+[2023-04-06 17:44:41,188 test_Laporan6B.py->test_28_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-04-06 17:44:49,649 test_Laporan6B.py->test_29_loginPusat()]==>INFO: Setup Os
+[2023-04-06 17:44:57,898 test_Laporan6B.py->test_29_loginPusat()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-04-06 17:45:04,029 test_Laporan6B.py->test_30_AksesMenuPusat()]==>INFO: Akses halaman Laporan 6A
+[2023-04-06 17:45:07,171 test_Laporan6B.py->test_31_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-04-06 17:45:09,477 test_Laporan6B.py->test_32_PilihUPT()]==>INFO: PilihUPT
+[2023-04-06 17:45:09,637 test_Laporan6B.py->test_33_ClickButtonSearch()]==>INFO: Click Button Search

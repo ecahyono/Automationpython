@@ -1,11 +1,19 @@
-
+from distutils.archive_util import make_archive
+from selenium import webdriver
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.select import Select
 import platform
 from pytest import mark
 import time
 from pytest_html_reporter import attach
+import pyautogui
 
 import sys
 from os import environ, path
@@ -19,6 +27,7 @@ if platform.system() == 'Darwin':
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
+    wb = load_workbook(environ.get("KeamananUATWin"))
 
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
@@ -34,10 +43,8 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-
 i = 2
 laporan6a = wb['Laporan6A']
-
 
 nama                                            = laporan6a['A'+str(i)].value
 nosk                                            = laporan6a['B'+str(i)].value
@@ -49,12 +56,14 @@ namaPenjamin                                    = laporan6a['G'+str(i)].value
 keterlibatanLain                                = laporan6a['H'+str(i)].value
 keterangan                                      = laporan6a['I'+str(i)].value
 
+
+global driver, pathData
+driver = initDriver()
+pathData = loadDataPath()
+Log.info('Setup Os')
+
 @mark.fixture_test()
-def test_1loginOperatir():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()
-    Log.info('Setup Os')
+def test_1loginOperator():
     oplapkamtibwaru(driver)
     Log.info('Login Op Laporan Kamtib 6A')
 
@@ -216,8 +225,8 @@ def test_22_VerifikasiLaporanKanwil():
     sleep(driver)
     time.sleep(2)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'formfilterUpt2')))
-    driver.find_element(By.ID, "formfilterUpt2").click()
     driver.find_element(By.ID, "formfilterUpt2").send_keys("Rutan Kelas I Bandung")
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
     driver.find_element(By.XPATH, "//span[contains(.,\'Rutan Kelas I Bandung\')]").click()
     Log.info('Input UPT')
 
@@ -288,8 +297,9 @@ def test_31_PilihKanwil():
 
 @mark.fixture_test()
 def test_32_PilihUPT():
-    driver.find_element(By.ID, "formfilterUpt").click()
+    sleep(driver)
     driver.find_element(By.ID, "formfilterUpt").send_keys("rutan kelas I Bandung")
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]").click()
     Log.info('PilihUPT')
 
@@ -300,10 +310,12 @@ def test_33_ClickButtonSearch():
     driver.find_element(By.CSS_SELECTOR, "#searchButton > span").click()
     Log.info('Click Button Search')
 
+
 @mark.fixture_test()
 def test_34_exit():
     time.sleep(5)
     quit(driver)
+
 
 
 
