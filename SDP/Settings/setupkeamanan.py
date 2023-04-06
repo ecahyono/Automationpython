@@ -13,16 +13,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def initDriver():
-    options = Options()
-    print('.')
-    X = int(input("1. Headless, 2. Not Headless")) 
-    print('.')
-    if X == 1:
-        options.headless = True
-    elif X == 2:
-        options.headless = False
+    
     if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"), options=options)
+        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
         
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
@@ -85,8 +78,7 @@ def sleep(driver):
     UNDERLINE = '\033[4m'
     #time.sleep(5)
     print("-")
-    print(WARNING + "===============================================================================    PRESS ENTER FOR NEXT STEP    ===============================================================================")
-    time.sleep(0.2)
+    time.sleep(0.1)
     #input("")
     print('wait . . . . . . . . . . . . . . . . . . . . . ')
     

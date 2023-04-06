@@ -219,6 +219,8 @@ def test_22_VerifikasiLaporanKanwil():
     sleep(driver)
     time.sleep(2)
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'formfilterUpt2')))
+    driver.find_element(By.ID, "formfilterUpt").click()
+    time.sleep(1)
     driver.find_element(By.ID, "formfilterUpt2").send_keys("Rutan Kelas I ")
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
     driver.find_element(By.XPATH, "//span[contains(.,\'Rutan Kelas I Bandung\')]").click()
@@ -292,6 +294,8 @@ def test_31_PilihKanwil():
 @mark.fixture_test()
 def test_32_PilihUPT():
     sleep(driver)
+    driver.find_element(By.ID, "formfilterUpt").click()
+    time.sleep(1)
     driver.find_element(By.ID, "formfilterUpt").send_keys("rutan kelas I ")
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]").click()

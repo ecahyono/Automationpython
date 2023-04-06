@@ -84,7 +84,7 @@ def menulaporan6b(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6b").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 6B - Bencana Alam").click()
 
 def menulaporan6c(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
@@ -92,7 +92,7 @@ def menulaporan6c(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6c").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 6C - Bencana Non Alam").click()
 
 def menulaporan6d(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
