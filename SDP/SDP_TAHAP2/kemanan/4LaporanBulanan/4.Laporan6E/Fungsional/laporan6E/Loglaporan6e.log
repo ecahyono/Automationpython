@@ -1,0 +1,44 @@
+[2023-04-11 13:52:37,179 test_Laporan6E.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-11 13:52:47,518 test_Laporan6E.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 6 E
+[2023-04-11 13:52:52,384 test_Laporan6E.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6 E
+[2023-04-11 13:52:59,345 test_Laporan6E.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-11 13:53:02,435 test_Laporan6E.py->test_4_TipeSenjata()]==>INFO: Pilih tipe senjata
+[2023-04-11 13:53:04,848 test_Laporan6E.py->test_5_PilihJenisSenjata()]==>INFO: Pilih jenis senjata
+[2023-04-11 13:53:05,075 test_Laporan6E.py->test_6_InputNomorSenjata()]==>INFO: Input nomor senjata
+[2023-04-11 13:53:05,758 test_Laporan6E.py->test_7_MasaBerlaku()]==>INFO: Input masa berlaku
+[2023-04-11 13:53:06,575 test_Laporan6E.py->test_8_kepemilikan()]==>INFO: Pilih kepemilikan
+[2023-04-11 13:53:07,266 test_Laporan6E.py->test_9_kondisibaik()]==>INFO: Input kondisi baik
+[2023-04-11 13:53:07,936 test_Laporan6E.py->test_10_kondisirusak()]==>INFO: Input kondisi rusak
+[2023-04-11 13:53:08,125 test_Laporan6E.py->test_11_jumlahpeluru()]==>INFO: Input jumlah peluru
+[2023-04-11 13:53:08,337 test_Laporan6E.py->test_12_deskripsi()]==>INFO: Input deskripsi
+[2023-04-11 13:53:08,515 test_Laporan6E.py->test_13_ClickButtonSubmit()]==>INFO: Klik tombol simpan
+[2023-04-11 13:53:19,537 test_Laporan6E.py->test_11_SetupOS()]==>INFO: Setup Os
+[2023-04-11 13:53:19,539 test_Laporan6E.py->test_12_LoginSpv()]==>INFO: Setup Os
+[2023-04-11 13:53:29,131 test_Laporan6E.py->test_12_LoginSpv()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-11 13:53:33,416 test_Laporan6E.py->test_13_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
+[2023-04-11 13:53:43,964 test_Laporan6E.py->test_14_KirimLaporanSpv()]==>INFO: Kirim laporan
+[2023-04-11 13:53:54,254 test_Laporan6E.py->test_15_loginKanwil()]==>INFO: Setup Os
+[2023-04-11 13:54:06,188 test_Laporan6E.py->test_15_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-11 13:54:14,378 test_Laporan6E.py->test_16_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
+[2023-04-11 13:54:20,300 test_Laporan6E.py->test_17_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-04-11 13:54:20,463 test_Laporan6E.py->test_18_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-11 13:54:24,766 test_Laporan6E.py->test_19_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-11 13:54:28,218 test_Laporan6E.py->test_20_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-04-11 13:54:28,384 test_Laporan6E.py->test_21_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-04-11 13:54:28,566 test_Laporan6E.py->test_22_Inputketerangan()]==>INFO: Input Keterangan
+[2023-04-11 13:54:28,756 test_Laporan6E.py->test_23_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-04-11 13:54:39,963 test_Laporan6E.py->test_24_loginPusat()]==>INFO: Setup Os
+[2023-04-11 13:54:49,878 test_Laporan6E.py->test_24_loginPusat()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-11 13:54:57,018 test_Laporan6E.py->test_25_AksesMenuPusat()]==>INFO: Akses halaman Laporan 6D
+[2023-04-11 13:55:00,100 test_Laporan6E.py->test_26_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-04-11 13:55:01,632 test_Laporan6E.py->test_27_PilihUPT()]==>INFO: PilihUPT
+[2023-04-11 13:55:02,088 test_Laporan6E.py->test_28_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-11 13:55:07,174 test_Laporan6E.py->test_29_ClickButtonMaster()]==>INFO: Click Button Master
+[2023-04-11 13:55:09,008 test_Laporan6E.py->test_30_CreateButton()]==>INFO: Click Button Create
+[2023-04-11 13:55:11,520 test_Laporan6E.py->test_31_TipeSenjata()]==>INFO: Input Tipe Senjata
+[2023-04-11 13:55:11,874 test_Laporan6E.py->test_32_JenisSenjata()]==>INFO: Input Jenis Senjata
+[2023-04-11 13:55:12,237 test_Laporan6E.py->test_33_JenisPeluru()]==>INFO: Input Jenis Peluru
+[2023-04-11 13:55:12,613 test_Laporan6E.py->test_34_Kepemilikan()]==>INFO: Input Kepemilikan
+[2023-04-11 13:55:12,949 test_Laporan6E.py->test_35_Deskripsi()]==>INFO: Input Deskripsi
+[2023-04-11 13:55:13,216 test_Laporan6E.py->test_36_CreateButton()]==>INFO: Click Button Create
+[2023-04-11 13:55:24,543 test_Laporan6E.py->test_37_exit()]==>INFO: Exit
