@@ -1,35 +1,29 @@
-[2023-04-11 18:49:11,245 test_Laporan6D.py->test_2_Login()]==>INFO: Setup Os
-[2023-04-11 18:49:21,041 test_Laporan6D.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 6 D
-[2023-04-11 18:49:25,792 test_Laporan6D.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6 D
-[2023-04-11 18:49:33,991 test_Laporan6D.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
-[2023-04-11 18:49:37,351 test_Laporan6D.py->test_4_InputJenisSarana()]==>INFO: Input Jenis Sarana
-[2023-04-11 18:49:37,534 test_Laporan6D.py->test_5_InputKondisi()]==>INFO: Input Kondisi
-[2023-04-11 18:49:37,759 test_Laporan6D.py->test_6_InputKeterangan()]==>INFO: Input Keterangan
-[2023-04-11 18:49:40,112 test_Laporan6D.py->test_7_ButtonSubmit()]==>INFO: Klik tombol submit
-[2023-04-11 18:50:07,295 test_Laporan6D.py->test_11_SetupOS()]==>INFO: Setup Os
-[2023-04-11 18:50:07,297 test_Laporan6D.py->test_12_LoginSpv()]==>INFO: Setup Os
-[2023-04-11 18:50:16,979 test_Laporan6D.py->test_12_LoginSpv()]==>INFO: Login Spv Laporan Kamtib 6D
-[2023-04-11 18:50:21,226 test_Laporan6D.py->test_13_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
-[2023-04-11 18:50:48,704 test_Laporan6D.py->test_15_loginKanwil()]==>INFO: Setup Os
-[2023-04-11 18:50:59,714 test_Laporan6D.py->test_15_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 6D
-[2023-04-11 18:51:06,733 test_Laporan6D.py->test_16_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
-[2023-04-11 18:51:10,784 test_Laporan6D.py->test_17_VerifikasiLaporanKanwil()]==>INFO: Input UPT
-[2023-04-11 18:51:10,954 test_Laporan6D.py->test_18_ClickButtonSearch()]==>INFO: Click Button Search
-[2023-04-11 18:51:14,914 test_Laporan6D.py->test_19_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
-[2023-04-11 18:51:18,190 test_Laporan6D.py->test_20_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
-[2023-04-11 18:51:18,367 test_Laporan6D.py->test_21_UbahStatus()]==>INFO: Ubah Status Verifikasi
-[2023-04-11 18:51:18,545 test_Laporan6D.py->test_22_Inputketerangan()]==>INFO: Input Keterangan
-[2023-04-11 18:51:18,737 test_Laporan6D.py->test_23_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
-[2023-04-11 18:51:30,093 test_Laporan6D.py->test_24_loginPusat()]==>INFO: Setup Os
-[2023-04-11 18:51:41,704 test_Laporan6D.py->test_24_loginPusat()]==>INFO: Login Spv Laporan Kamtib 6D
-[2023-04-11 18:51:49,467 test_Laporan6D.py->test_25_AksesMenuPusat()]==>INFO: Akses halaman Laporan 6D
-[2023-04-11 18:51:53,068 test_Laporan6D.py->test_26_PilihKanwil()]==>INFO: Pilih Kanwil
-[2023-04-11 18:51:54,760 test_Laporan6D.py->test_27_PilihUPT()]==>INFO: PilihUPT
-[2023-04-11 18:51:54,922 test_Laporan6D.py->test_28_ClickButtonSearch()]==>INFO: Click Button Search
-[2023-04-11 18:51:55,163 test_Laporan6D.py->test_29_ClickButtonMaster()]==>INFO: Click Button Master
-[2023-04-11 18:51:56,751 test_Laporan6D.py->test_30_CreateButton()]==>INFO: Click Button Create
-[2023-04-11 18:51:57,900 test_Laporan6D.py->test_31_InputNama()]==>INFO: Input Nama barang
-[2023-04-11 18:51:58,071 test_Laporan6D.py->test_32_InputDeskripsi()]==>INFO: Input Deskripsi
-[2023-04-11 18:51:58,294 test_Laporan6D.py->test_33_Switch()]==>INFO: Click Switch
-[2023-04-11 18:51:58,320 test_Laporan6D.py->test_34_Tambah()]==>INFO: Click Button Tambah
-[2023-04-11 18:52:08,525 test_Laporan6D.py->test_35_exit()]==>INFO: Exit
+[2023-04-11 21:23:33,487 test_Laporan6D.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-11 21:23:44,537 test_Laporan6D.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 6 D
+[2023-04-11 21:23:48,800 test_Laporan6D.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6 D
+[2023-04-11 21:23:59,827 test_Laporan6D.py->test_3_CreateButton()]==>INFO: Gagal Klik tombol tambah data
+[2023-04-11 21:24:10,841 test_Laporan6D.py->test_4_InputJenisSarana()]==>INFO: Gagal Input Jenis Sarana
+[2023-04-11 21:24:21,293 test_Laporan6D.py->test_5_InputKondisi()]==>INFO: Gagal Input Kondisi
+[2023-04-11 21:24:31,718 test_Laporan6D.py->test_6_InputKeterangan()]==>INFO: Gagal Input Keterangan
+[2023-04-11 21:24:42,115 test_Laporan6D.py->test_7_ButtonSubmit()]==>INFO: Gagal Klik tombol submit
+[2023-04-11 21:24:45,116 test_Laporan6D.py->test_8_TambahUsulan()]==>INFO: Gagal Klik tombol tambah usulan
+[2023-04-11 21:24:56,982 test_Laporan6D.py->test_11_SetupOS()]==>INFO: Setup Os
+[2023-04-11 21:25:08,829 test_Laporan6D.py->test_12_LoginSpv()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-11 21:25:13,513 test_Laporan6D.py->test_13_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
+[2023-04-11 21:25:20,775 test_Laporan6D.py->test_14_KirimLaporanSpv()]==>INFO: Gagal Kirim Laporan
+[2023-04-11 21:25:31,063 test_Laporan6D.py->test_17_VerifikasiLaporanKanwil()]==>INFO: Gagal Input UPT
+[2023-04-11 21:25:31,535 test_Laporan6D.py->test_18_ClickButtonSearch()]==>INFO: Gagal Click Button Search
+[2023-04-11 21:25:32,080 test_Laporan6D.py->test_19_ClickButtonVerifikasi()]==>INFO: Gagal Click Button Verifikasi
+[2023-04-11 21:25:32,520 test_Laporan6D.py->test_20_StatusVerifikasiModal()]==>INFO: Gagal Click Verifikasi Modal
+[2023-04-11 21:25:32,960 test_Laporan6D.py->test_21_UbahStatus()]==>INFO: Gagal Ubah Status Verifikasi
+[2023-04-11 21:25:33,400 test_Laporan6D.py->test_22_Inputketerangan()]==>INFO: Gagal Click Keterangan
+[2023-04-11 21:25:33,854 test_Laporan6D.py->test_23_SimpanVerifikasi()]==>INFO: Gagal Click Button Simpan Verifikasi
+[2023-04-11 21:25:45,049 test_Laporan6D.py->test_26_PilihKanwil()]==>INFO: Gagal Pilih Kanwil
+[2023-04-11 21:25:45,495 test_Laporan6D.py->test_27_PilihUPT()]==>INFO: Gagal Pilih UPT
+[2023-04-11 21:25:45,950 test_Laporan6D.py->test_28_ClickButtonSearch()]==>INFO: Gagal Click Button Search
+[2023-04-11 21:25:46,475 test_Laporan6D.py->test_29_ClickButtonMaster()]==>INFO: Gagal Click Button Master
+[2023-04-11 21:25:46,916 test_Laporan6D.py->test_30_CreateButton()]==>INFO: Gagal Click Button Create
+[2023-04-11 21:25:47,365 test_Laporan6D.py->test_31_InputNama()]==>INFO: Gagal Click Nama barang
+[2023-04-11 21:25:47,812 test_Laporan6D.py->test_32_InputDeskripsi()]==>INFO: Gagal Click Deskripsi
+[2023-04-11 21:25:48,264 test_Laporan6D.py->test_33_Switch()]==>INFO: Gagal Click Switch
+[2023-04-11 21:25:48,708 test_Laporan6D.py->test_34_Tambah()]==>INFO: Gagal Click Button Tambah
