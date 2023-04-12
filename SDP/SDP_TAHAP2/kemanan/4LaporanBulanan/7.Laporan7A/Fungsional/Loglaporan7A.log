@@ -1,0 +1,36 @@
+[2023-04-12 14:52:17,927 test_Laporan7A.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-12 14:52:26,106 test_Laporan7A.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 7 A
+[2023-04-12 14:52:28,896 test_Laporan7A.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 7 A
+[2023-04-12 14:52:33,247 test_Laporan7A.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-12 14:52:35,118 test_Laporan7A.py->test_4_InpuNoSuratPerintah()]==>INFO: Input No Surat Perintah
+[2023-04-12 14:52:35,998 test_Laporan7A.py->test_5_InputTanggalPelaksanaan()]==>INFO: Input Tanggal Pelaksanaan
+[2023-04-12 14:52:37,097 test_Laporan7A.py->test_6_InputBlok()]==>INFO: Input Blok
+[2023-04-12 14:52:37,731 test_Laporan7A.py->test_7_lantai()]==>INFO: Input Lantai
+[2023-04-12 14:52:38,612 test_Laporan7A.py->test_8_InputKamar()]==>INFO: Input Kamar
+[2023-04-12 14:52:39,131 test_Laporan7A.py->test_9_InputKeterangan()]==>INFO: Input Keterangan
+[2023-04-12 14:52:39,774 test_Laporan7A.py->test_10_InputNamaBarang()]==>INFO: Input Nama Barang
+[2023-04-12 14:52:40,258 test_Laporan7A.py->test_11_InputJumlah()]==>INFO: Input Jumlah
+[2023-04-12 14:52:40,971 test_Laporan7A.py->test_12_namaPemilik()]==>INFO: Input Nama Pemilik
+[2023-04-12 14:52:41,546 test_Laporan7A.py->test_13_InputtindakLanjut()]==>INFO: Input Tindak Lanjut
+[2023-04-12 14:52:41,975 test_Laporan7A.py->test_14_submit()]==>INFO: Submit
+[2023-04-12 14:52:51,216 test_Laporan7A.py->test_16_LoginSPV()]==>INFO: Setup Os
+[2023-04-12 14:52:59,446 test_Laporan7A.py->test_16_LoginSPV()]==>INFO: Login Op Laporan Kamtib 7 A
+[2023-04-12 14:53:02,437 test_Laporan7A.py->test_17_AksesMenuSpv()]==>INFO: Akses halaman Laporan 7 A
+[2023-04-12 14:53:11,690 test_Laporan7A.py->test_18_KirimLaporanSpv()]==>INFO: Kirim laporan
+[2023-04-12 14:53:23,844 test_Laporan7A.py->test_19_loginKanwil()]==>INFO: Setup Os
+[2023-04-12 14:53:31,968 test_Laporan7A.py->test_19_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-12 14:53:37,002 test_Laporan7A.py->test_20_AksesMenuSpv()]==>INFO: Akses halaman Laporan 6D
+[2023-04-12 14:53:42,685 test_Laporan7A.py->test_21_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-04-12 14:53:42,866 test_Laporan7A.py->test_22_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-12 14:53:45,907 test_Laporan7A.py->test_23_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-12 14:53:49,095 test_Laporan7A.py->test_24_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-04-12 14:53:49,281 test_Laporan7A.py->test_25_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-04-12 14:53:49,585 test_Laporan7A.py->test_26_Inputketerangan()]==>INFO: Input Keterangan
+[2023-04-12 14:53:49,750 test_Laporan7A.py->test_27_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-04-12 14:53:58,875 test_Laporan7A.py->test_28_loginPusat()]==>INFO: Setup Os
+[2023-04-12 14:54:07,052 test_Laporan7A.py->test_28_loginPusat()]==>INFO: Login Spv Laporan Kamtib 6D
+[2023-04-12 14:54:12,071 test_Laporan7A.py->test_29_AksesMenuPusat()]==>INFO: Akses halaman Laporan 6D
+[2023-04-12 14:54:14,591 test_Laporan7A.py->test_30_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-04-12 14:54:16,732 test_Laporan7A.py->test_31_PilihUPT()]==>INFO: PilihUPT
+[2023-04-12 14:54:17,223 test_Laporan7A.py->test_32_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-12 14:54:22,806 test_Laporan7A.py->test_33_exit()]==>INFO: Exit

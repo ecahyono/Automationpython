@@ -116,7 +116,7 @@ def menulaporan6f(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-6f").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 6F - Pemantauan & Evaluasi").click()
 
 def menulaporan7a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
@@ -124,7 +124,7 @@ def menulaporan7a(driver):
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7a").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 7A - Kegiatan Penggeledahan").click()
 
 def menulaporan7b(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
