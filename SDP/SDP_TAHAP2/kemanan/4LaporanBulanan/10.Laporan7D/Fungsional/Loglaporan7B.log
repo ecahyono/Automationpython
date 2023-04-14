@@ -1,0 +1,6 @@
+[2023-04-13 09:51:57,785 test_Laporan7D.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-13 09:52:05,958 test_Laporan7D.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 7 B
+[2023-04-13 09:52:10,211 test_Laporan7D.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 7 B
+[2023-04-13 09:52:14,736 test_Laporan7D.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-13 09:52:15,319 test_Laporan7D.py->test_3_SearchWBP()]==>INFO: Cari WBP
+[2023-04-13 09:52:26,039 test_Laporan7D.py->test_4_PilihJenisGangguan()]==>INFO: Gagal Pilih Jenis Gangguan

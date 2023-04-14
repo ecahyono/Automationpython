@@ -1,4 +1,5 @@
 from distutils.archive_util import make_archive
+from faker import Faker
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,25 +15,29 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 import pyautogui
-
+from datetime import datetime
+import random
 import sys
 from os import environ, path
 from dotenv import load_dotenv
 load_dotenv()
-from openpyxl import load_workbook
+from openpyxl import load_workbook, Workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
     wb = load_workbook(environ.get("KeamananUAT"))
+    nama = load_workbook(environ.get("data"))
+    file_path = environ.get("fakermac")
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
     wb = load_workbook(environ.get("KeamananUATWin"))
 
 
-from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
+from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep, upload
 from Settings.loginkeamanan import Op_Keamanan_p2u, SpvRutanBdg
 from Settings.Page.keamanan import p2uinternal
+from faker import Faker
 
 import logging
 Log = logging.getLogger(__name__)
@@ -56,6 +61,43 @@ deskripsi                                 = sheetrangeIndex['F'+str(i)].value
 JenisPengawal                             = sheetrangeIndex['G'+str(i)].value
 namaPengawalExternal                      = sheetrangeIndex['H'+str(i)].value
 namaPengawalInternal                      = sheetrangeIndex['I'+str(i)].value
+
+sheetrangeIndex = nama['listWbpRutan1Bandung']
+
+nama = random.randint(0,100)
+
+namawbp                                 = sheetrangeIndex['A'+str(nama)].value
+print(namawbp)
+
+
+workbook = Workbook()
+worksheet = workbook.active
+worksheet.title = 'LaporanFaker'
+
+fake = Faker('id_ID')
+
+
+for i in range(50):
+   
+    TanggalKeluarFaker         = fake.date_time_between(start_date='now', end_date='now').strftime('%d/%m/%Y %H:%M:%S')
+    TanggalKembaliFaker        = fake.date_time_between(start_date='+1h', end_date='+1h').strftime('%d/%m/%Y %H:%M:%S')
+
+    worksheet.append([
+        TanggalKeluarFaker,
+        TanggalKembaliFaker
+        ])
+workbook.save(file_path)
+
+workbook = load_workbook(filename=file_path)
+worksheet = workbook.active
+for row in worksheet.iter_rows(min_row=2, values_only=True):
+
+
+    TanggalKeluarXC                       = row[0]
+    TanggalKembaliXC                      = row[1]
+
+
+
 
 @mark.fixture_test()
 def test_1_setupOS():
@@ -103,7 +145,8 @@ def test_5_SearchNamaWBP():
     print('== NEXT == Input kata kunci nama')
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namawbp)
+    print(namawbp)
     attach(data=driver.get_screenshot_as_png())
 
 @mark.fixture_test()
@@ -142,27 +185,9 @@ def test_9_InputNoSK():
 @mark.fixture_test()
 def test_10_UploadSK():
     sleep(driver)
-    driver.find_element(By.XPATH, "//div[@id=\'fileSK\']/div/button").click()
-    
-    sleep(driver)
-    pyautogui.write("///////users/will/test.pdf")
-    pyautogui.press('return')
-    pyautogui.write("///////users/will/test.pdf")
-
-    pyautogui.press('return')
-    time.sleep(0.5)
-    pyautogui.press('escape')
-    time.sleep(0.5)
-    pyautogui.press('enter')
-    time.sleep(0.5)
-    pyautogui.press('enter')
-    time.sleep(0.5)
-    pyautogui.press('enter')
-    time.sleep(0.5)
-    pyautogui.press('enter')
-    
-    
-
+    time.sleep(2)
+    driver.find_element(By.XPATH, "//div[@id='fileSK']/div/button").click()
+    upload(driver)
     Log.info('Upload SK')
     attach(data=driver.get_screenshot_as_png())
 
@@ -244,7 +269,7 @@ def test_12_InputTanggalKeluarKeamanan():
     sleep(driver)
     driver.find_element(By.ID, "keluarKeamanan").click()
     sleep(driver)
-    driver.find_element(By.ID, "keluarKeamanan").send_keys(TanggalKeluar)
+    driver.find_element(By.ID, "keluarKeamanan").send_keys(TanggalKeluarXC)
     Log.info('Input Tanggal Keluar')
     attach(data=driver.get_screenshot_as_png())
     sleep(driver)
@@ -254,7 +279,7 @@ def test_13_InputTanggalKembali():
     sleep(driver)
     driver.find_element(By.ID, "tanggalKembali").click()
     sleep(driver)
-    driver.find_element(By.ID, "tanggalKembali").send_keys(tanggalKembali)
+    driver.find_element(By.ID, "tanggalKembali").send_keys(TanggalKembaliXC)
     Log.info('Input Tanggal Kembali')
     attach(data=driver.get_screenshot_as_png())
 
@@ -288,6 +313,7 @@ def test_15_InputJenisPengawal():
 @mark.fixture_test()
 def test_16_ClickButtonSubmit():
     sleep(driver)
+    time.sleep(3)
     driver.find_element(By.ID, 'buttonSubmit').click()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     Log.info('click button submit')
@@ -339,7 +365,7 @@ def test_19_PilihDropdownNama():
 def test_20_SearchNamaWBP_():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namawbp)
     Log.info('Search Nama WBP')
     attach(data=driver.get_screenshot_as_png())
 
@@ -417,7 +443,7 @@ def test_28_StatusDalamProses():
 def test_28_SearchNamaWbp():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namawbp)
     Log.info('Search Nama WBP')
     driver.find_element(By.ID, 'searchButton' ).click()
     Log.info('Click Button Search')
@@ -446,7 +472,7 @@ def test_31_SearchStatusKeluarP2U():
 def test_32_SearchNamaWBP():
     sleep(driver)
     driver.find_element(By.XPATH, '//*[@id="kataKunci"]').clear()
-    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(NamaInput)
+    driver.find_element(By.XPATH, '//*[@id="kataKunci"]').send_keys(namawbp)
     Log.info('Search Nama WBP')
 
 @mark.fixture_test()

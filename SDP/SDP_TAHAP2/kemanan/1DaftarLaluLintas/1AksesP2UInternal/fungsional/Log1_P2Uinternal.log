@@ -1,40 +1,40 @@
-[2023-03-28 15:56:20,626 test_AksesP2UInternal_Fungsi.py->test_1_setupOS()]==>INFO: Setup Os
-[2023-03-28 15:56:29,100 test_AksesP2UInternal_Fungsi.py->test_2_loginOperator()]==>INFO: Login Operator Keamanan P2U
-[2023-03-28 15:56:32,343 test_AksesP2UInternal_Fungsi.py->test_3_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
-[2023-03-28 15:56:36,650 test_AksesP2UInternal_Fungsi.py->test_4_ClickButtonCreate()]==>INFO: Click Button Create
-[2023-03-28 15:56:45,107 test_AksesP2UInternal_Fungsi.py->test_6_SearchNamaWBP()]==>INFO: Search Nama WBP
-[2023-03-28 15:56:45,158 test_AksesP2UInternal_Fungsi.py->test_6_SearchNamaWBP()]==>INFO: Click Button Search
-[2023-03-28 15:56:49,350 test_AksesP2UInternal_Fungsi.py->test_7_ClickButtonDetile()]==>INFO: Click Button Detile
-[2023-03-28 15:56:51,496 test_AksesP2UInternal_Fungsi.py->test_8_ButtonTambah()]==>INFO: Click Button Tambah WBP
-[2023-03-28 15:56:54,490 test_AksesP2UInternal_Fungsi.py->test_9_InputNoSK()]==>INFO: Input No SK
-[2023-03-28 15:57:02,873 test_AksesP2UInternal_Fungsi.py->test_10_UploadSK()]==>INFO: Upload SK
-[2023-03-28 15:57:05,352 test_AksesP2UInternal_Fungsi.py->test_11_InputJenisKeluar()]==>INFO: Input Jenis Keluar
-[2023-03-28 15:57:09,468 test_AksesP2UInternal_Fungsi.py->test_12_InputTanggalKeluarKeamanan()]==>INFO: Input Tanggal Keluar
-[2023-03-28 15:57:15,800 test_AksesP2UInternal_Fungsi.py->test_13_InputTanggalKembali()]==>INFO: Input Tanggal Kembali
-[2023-03-28 15:57:17,986 test_AksesP2UInternal_Fungsi.py->test_14_InputDeskripsi()]==>INFO: Input Deskripsi
-[2023-03-28 15:57:22,691 test_AksesP2UInternal_Fungsi.py->test_15_InputJenisPengawal()]==>INFO: input pengawal internal
-[2023-03-28 15:57:29,300 test_AksesP2UInternal_Fungsi.py->test_16_ClickButtonSubmit()]==>INFO: click button submit
-[2023-03-28 15:57:38,342 test_AksesP2UInternal_Fungsi.py->test_17_loginSpv()]==>INFO: Setup Os
-[2023-03-28 15:57:44,207 test_AksesP2UInternal_Fungsi.py->test_17_loginSpv()]==>INFO: Login Super Visor P2U
-[2023-03-28 15:57:50,816 test_AksesP2UInternal_Fungsi.py->test_18_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
-[2023-03-28 15:57:55,095 test_AksesP2UInternal_Fungsi.py->test_19_PilihDropdownNama()]==>INFO: Klik Status Dalam Proses
-[2023-03-28 15:57:57,298 test_AksesP2UInternal_Fungsi.py->test_20_SearchNamaWBP_()]==>INFO: Search Nama WBP
-[2023-03-28 15:57:59,436 test_AksesP2UInternal_Fungsi.py->test_21_ClickButtonSearch()]==>INFO: Click Button Search
-[2023-03-28 15:58:01,627 test_AksesP2UInternal_Fungsi.py->test_22_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
-[2023-03-28 15:58:01,785 test_AksesP2UInternal_Fungsi.py->test_23_InputKeterangan()]==>INFO: Input Keterangan
-[2023-03-28 15:58:01,935 test_AksesP2UInternal_Fungsi.py->test_24_ClickButtonDiziinkan()]==>INFO: click button izinkan
-[2023-03-28 15:58:02,074 test_AksesP2UInternal_Fungsi.py->test_25_ClickButtonYa()]==>INFO: Click button ya 
-[2023-03-28 15:58:14,473 test_AksesP2UInternal_Fungsi.py->test_26_loginOperator()]==>INFO: Setup Os
-[2023-03-28 15:58:19,944 test_AksesP2UInternal_Fungsi.py->test_26_loginOperator()]==>INFO: Login Operator Keamanan
-[2023-03-28 15:58:23,161 test_AksesP2UInternal_Fungsi.py->test_27_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
-[2023-03-28 15:58:23,267 test_AksesP2UInternal_Fungsi.py->test_27_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
-[2023-03-28 15:58:27,502 test_AksesP2UInternal_Fungsi.py->test_28_StatusDalamProses()]==>INFO: Filter Status Dalam Proses
-[2023-03-28 15:58:29,583 test_AksesP2UInternal_Fungsi.py->test_28_SearchNamaWbp()]==>INFO: Search Nama WBP
-[2023-03-28 15:58:29,624 test_AksesP2UInternal_Fungsi.py->test_28_SearchNamaWbp()]==>INFO: Click Button Search
-[2023-03-28 15:58:31,683 test_AksesP2UInternal_Fungsi.py->test_29_ClickButtonDetile()]==>INFO: Click Button Detile
-[2023-03-28 15:58:34,558 test_AksesP2UInternal_Fungsi.py->test_30_ClickButtonKonfirmasiKeluar()]==>INFO: clik button keluar P2U
-[2023-03-28 15:58:38,979 test_AksesP2UInternal_Fungsi.py->test_31_SearchStatusKeluarP2U()]==>INFO: filter status Keluar P2U
-[2023-03-28 15:58:41,060 test_AksesP2UInternal_Fungsi.py->test_32_SearchNamaWBP()]==>INFO: Search Nama WBP
-[2023-03-28 15:58:41,081 test_AksesP2UInternal_Fungsi.py->test_33_ClickButtonSearch()]==>INFO: click button search
-[2023-03-28 15:58:43,147 test_AksesP2UInternal_Fungsi.py->test_34_ClickButtonDetail()]==>INFO: Click Button Detile
-[2023-03-28 15:58:45,287 test_AksesP2UInternal_Fungsi.py->test_35_ClickButtonMasukP2U()]==>INFO: click button masuk P2U
+[2023-04-14 00:36:26,817 test_AksesP2UInternal_Fungsi.py->test_1_setupOS()]==>INFO: Setup Os
+[2023-04-14 00:36:34,312 test_AksesP2UInternal_Fungsi.py->test_2_loginOperator()]==>INFO: Login Operator Keamanan P2U
+[2023-04-14 00:36:38,373 test_AksesP2UInternal_Fungsi.py->test_3_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-04-14 00:36:40,747 test_AksesP2UInternal_Fungsi.py->test_4_ClickButtonCreate()]==>INFO: Click Button Create
+[2023-04-14 00:36:44,413 test_AksesP2UInternal_Fungsi.py->test_6_SearchNamaWBP()]==>INFO: Search Nama WBP
+[2023-04-14 00:36:44,460 test_AksesP2UInternal_Fungsi.py->test_6_SearchNamaWBP()]==>INFO: Click Button Search
+[2023-04-14 00:36:46,089 test_AksesP2UInternal_Fungsi.py->test_7_ClickButtonDetile()]==>INFO: Click Button Detile
+[2023-04-14 00:36:48,187 test_AksesP2UInternal_Fungsi.py->test_8_ButtonTambah()]==>INFO: Click Button Tambah WBP
+[2023-04-14 00:36:51,324 test_AksesP2UInternal_Fungsi.py->test_9_InputNoSK()]==>INFO: Input No SK
+[2023-04-14 00:37:02,656 test_AksesP2UInternal_Fungsi.py->test_10_UploadSK()]==>INFO: Upload SK
+[2023-04-14 00:37:03,675 test_AksesP2UInternal_Fungsi.py->test_11_InputJenisKeluar()]==>INFO: Input Jenis Keluar
+[2023-04-14 00:37:04,140 test_AksesP2UInternal_Fungsi.py->test_12_InputTanggalKeluarKeamanan()]==>INFO: Input Tanggal Keluar
+[2023-04-14 00:37:04,857 test_AksesP2UInternal_Fungsi.py->test_13_InputTanggalKembali()]==>INFO: Input Tanggal Kembali
+[2023-04-14 00:37:05,186 test_AksesP2UInternal_Fungsi.py->test_14_InputDeskripsi()]==>INFO: Input Deskripsi
+[2023-04-14 00:37:06,464 test_AksesP2UInternal_Fungsi.py->test_15_InputJenisPengawal()]==>INFO: input pengawal internal
+[2023-04-14 00:37:15,304 test_AksesP2UInternal_Fungsi.py->test_16_ClickButtonSubmit()]==>INFO: click button submit
+[2023-04-14 00:37:24,353 test_AksesP2UInternal_Fungsi.py->test_17_loginSpv()]==>INFO: Setup Os
+[2023-04-14 00:37:31,861 test_AksesP2UInternal_Fungsi.py->test_17_loginSpv()]==>INFO: Login Super Visor P2U
+[2023-04-14 00:37:37,468 test_AksesP2UInternal_Fungsi.py->test_18_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-04-14 00:37:41,114 test_AksesP2UInternal_Fungsi.py->test_19_PilihDropdownNama()]==>INFO: Klik Status Dalam Proses
+[2023-04-14 00:37:41,711 test_AksesP2UInternal_Fungsi.py->test_20_SearchNamaWBP_()]==>INFO: Search Nama WBP
+[2023-04-14 00:37:42,030 test_AksesP2UInternal_Fungsi.py->test_21_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-14 00:37:43,920 test_AksesP2UInternal_Fungsi.py->test_22_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-14 00:37:44,124 test_AksesP2UInternal_Fungsi.py->test_23_InputKeterangan()]==>INFO: Input Keterangan
+[2023-04-14 00:37:44,325 test_AksesP2UInternal_Fungsi.py->test_24_ClickButtonDiziinkan()]==>INFO: click button izinkan
+[2023-04-14 00:37:44,537 test_AksesP2UInternal_Fungsi.py->test_25_ClickButtonYa()]==>INFO: Click button ya 
+[2023-04-14 00:37:55,290 test_AksesP2UInternal_Fungsi.py->test_26_loginOperator()]==>INFO: Setup Os
+[2023-04-14 00:38:02,057 test_AksesP2UInternal_Fungsi.py->test_26_loginOperator()]==>INFO: Login Operator Keamanan
+[2023-04-14 00:38:05,943 test_AksesP2UInternal_Fungsi.py->test_27_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-04-14 00:38:06,550 test_AksesP2UInternal_Fungsi.py->test_27_AksesMenu()]==>INFO: Akses halaman Daftar Lalu Lintas P2U Internal
+[2023-04-14 00:38:09,768 test_AksesP2UInternal_Fungsi.py->test_28_StatusDalamProses()]==>INFO: Filter Status Dalam Proses
+[2023-04-14 00:38:10,149 test_AksesP2UInternal_Fungsi.py->test_28_SearchNamaWbp()]==>INFO: Search Nama WBP
+[2023-04-14 00:38:10,196 test_AksesP2UInternal_Fungsi.py->test_28_SearchNamaWbp()]==>INFO: Click Button Search
+[2023-04-14 00:38:10,488 test_AksesP2UInternal_Fungsi.py->test_29_ClickButtonDetile()]==>INFO: Click Button Detile
+[2023-04-14 00:38:12,678 test_AksesP2UInternal_Fungsi.py->test_30_ClickButtonKonfirmasiKeluar()]==>INFO: clik button keluar P2U
+[2023-04-14 00:38:16,660 test_AksesP2UInternal_Fungsi.py->test_31_SearchStatusKeluarP2U()]==>INFO: filter status Keluar P2U
+[2023-04-14 00:38:16,952 test_AksesP2UInternal_Fungsi.py->test_32_SearchNamaWBP()]==>INFO: Search Nama WBP
+[2023-04-14 00:38:16,987 test_AksesP2UInternal_Fungsi.py->test_33_ClickButtonSearch()]==>INFO: click button search
+[2023-04-14 00:38:17,394 test_AksesP2UInternal_Fungsi.py->test_34_ClickButtonDetail()]==>INFO: Click Button Detile
+[2023-04-14 00:38:20,180 test_AksesP2UInternal_Fungsi.py->test_35_ClickButtonMasukP2U()]==>INFO: click button masuk P2U

@@ -1,0 +1,5 @@
+[2023-04-12 16:29:06,747 test_Laporan7C.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-12 16:29:15,135 test_Laporan7C.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 7 B
+[2023-04-12 16:29:18,202 test_Laporan7C.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 7 B
+[2023-04-12 16:29:21,831 test_Laporan7C.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-12 16:29:28,396 test_Laporan7C.py->test_29_exit()]==>INFO: Exit

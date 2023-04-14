@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
 from selenium.webdriver.chrome.options import Options
+import pyautogui
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -67,7 +68,7 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 def sleep(driver):
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -99,6 +100,22 @@ def quit(driver):
     driver.close()
     driver.quit()
 
+
+def upload(driver):
+    sleep(driver)
+    pyautogui.press('return')
+    time.sleep(1)
+    pyautogui.write("///////users/will/test.pdf")
+    pyautogui.press('return')
+    time.sleep(1)
+    pyautogui.press('return')
+    time.sleep(1)
+    pyautogui.write("///////users/will/test.pdf")
+    time.sleep(1)
+    pyautogui.press('return')
+    time.sleep(2)
+    pyautogui.press('return')
+    
 def hold(driver):
     WARNING = '\033[93m'
     print(WARNING +"================================================================= Press Enter to continue")
