@@ -1,0 +1,5 @@
+[2023-04-22 10:38:03,095 test_Laporan7E.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-22 10:38:10,146 test_Laporan7E.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 7D
+[2023-04-22 10:38:14,627 test_Laporan7E.py->test_3_AksesMenu()]==>INFO: Akses halaman Laporan 7D
+[2023-04-22 10:38:27,795 test_Laporan7E.py->test_5_PetugasPenangkap()]==>INFO: Gagal Input Petugas penangkap
+[2023-04-22 10:38:40,022 test_Laporan7E.py->test_9_ClickButtonSimpan()]==>INFO: Gagal Click Button Simpan

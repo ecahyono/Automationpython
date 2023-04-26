@@ -1,0 +1,14 @@
+[2023-04-14 17:12:32,825 test_Laporan7C.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-14 17:12:40,960 test_Laporan7C.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 7 C
+[2023-04-14 17:12:44,258 test_Laporan7C.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 7 C
+[2023-04-14 17:12:48,015 test_Laporan7C.py->test_3_CreateButton()]==>INFO: Klik tombol tambah data
+[2023-04-14 17:12:49,845 test_Laporan7C.py->test_4_JenisGanggguan()]==>INFO: Pilih Jenis Gangguan
+[2023-04-14 17:12:50,594 test_Laporan7C.py->test_5_IdentitasPelaku()]==>INFO: Pilih Identitas Pelaku
+[2023-04-14 17:12:51,662 test_Laporan7C.py->test_6_WaktuKejadian()]==>INFO: Pilih Waktu Kejadian
+[2023-04-14 17:12:52,139 test_Laporan7C.py->test_7_TingkatGangguan()]==>INFO: Pilih Tingkat Gangguan
+[2023-04-14 17:12:52,665 test_Laporan7C.py->test_8_Korban()]==>INFO: Input Korban Petugas,WBP,Masyarakat
+[2023-04-14 17:12:53,110 test_Laporan7C.py->test_9_Kerugian()]==>INFO: Input Kerugian
+[2023-04-14 17:12:53,594 test_Laporan7C.py->test_10_TindakLanjut()]==>INFO: Input Tindak Lanjut
+[2023-04-14 17:12:54,275 test_Laporan7C.py->test_11_Keterangan()]==>INFO: Input Keterangan
+[2023-04-14 17:12:54,737 test_Laporan7C.py->test_12_SubmitButton()]==>INFO: Klik tombol submit
+[2023-04-14 17:13:00,273 test_Laporan7C.py->test_29_exit()]==>INFO: Exit

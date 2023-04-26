@@ -68,7 +68,7 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 def sleep(driver):
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(5)
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -86,8 +86,9 @@ def sleep(driver):
 
 def waituntill(driver):
     driver.implicitly_wait(60)
+    
 def quit(driver):
-    time.sleep(5)
+    time.sleep(3)
     print('.')
     print('▒▒▒▒▒▒▒▒▒▒▒▒')
     print('▒▒▒▒▓▒▒▓▒▒▒▒')
@@ -113,7 +114,7 @@ def upload(driver):
     pyautogui.write("///////users/will/test.pdf")
     time.sleep(1)
     pyautogui.press('return')
-    time.sleep(2)
+    time.sleep(1)
     pyautogui.press('return')
     
 def hold(driver):

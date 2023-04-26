@@ -131,6 +131,7 @@ def menulaporan7b(driver):
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.LINK_TEXT, "Formulir Kamtib 7B - Kegiatan Intellijen").click()
 
@@ -139,6 +140,7 @@ def menulaporan7c(driver):
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.LINK_TEXT, "Formulir Kamtib 7C - Gangguan Oleh Petugas").click()
 
@@ -157,29 +159,33 @@ def menulaporan7e(driver):
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-7e").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 7E - Pelarian Tertangkap Kembali").click()
 
 def menulaporan8a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-8a").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 8A").click()
 
-def menulaporan8b(driver):
+def menulaporan8b(driver):  
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-8b").click()
+    driver.find_element(By.LINK_TEXT, "Formulir Kamtib 8B").click()
 
 def menulaporan9a(driver):
     nav1  = driver.find_element(By.ID, "KEA00")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "KEA04")
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.LINK_TEXT, "/keamanan/formulir-kamtib-9a").click()

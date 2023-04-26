@@ -59,13 +59,14 @@ worksheet.title = 'LaporanFaker'
 
 fake = Faker('id_ID')
 Wbp = ['NASRULLAH SIRAIt BIN doniserigar','PRAYITNA SALAHUDIn BINTI waloyo','NAJIB NAINGGOLAn BIN sugiono','PRAYOGA KURNIAWAn BINTI sugiono','PUSPA SUWARNo BIN zulahmad','KAREN ZULKARNAIn BINTI doniserigar','BAHUWIRYA UTAMa BIN waloyo','H CENGKIR HARDIANSYAh BINTI sugiono','DALIONO PRADIPTa BIN sugiono','HUMAIRA NASYIAH S.KEd BIN zulahmad','R. VICKY USAMAH S.E.I BINTI doniserigar','IR. AISYAH HASANAh BIN waloyo','QUEEN PURNAWATi BINTI sugiono','DR. JABAL SUSANTi BIN sugiono','VANESA RIYANTI S.Gz BINTI zulahmad']
-Gangguan = ['Ringan','Sedang']
+Gangguan = ['Berat','Sedang','Ringan']
 JenisGangguanSedang = ['jenisGangguanOption-0','jenisGangguanOption-1','jenisGangguanOption-2','jenisGangguanOption-3', 'jenisGangguanOption-4' ]
 JenisGangguanBerat = ['jenisGangguanOption-0','jenisGangguanOption-1','jenisGangguanOption-2','jenisGangguanOption-3', 'jenisGangguanOption-4', 'jenisGangguanOption-5','jenisGangguanOption-6' ]
 JenisGangguanRingan = ['jenisGangguanOption-0','jenisGangguanOption-1','jenisGangguanOption-2','jenisGangguanOption-3', 'jenisGangguanOption-4', 'jenisGangguanOption-5','jenisGangguanOption-6' ]
-
+followup = ['0','1']
 korban = ['1','2','3','4', '5', '6' ]
-TindakLanjutBarang = ['Evaluasi','Agenda Ulang']
+JenisGangguanBerat = ['Tidak Mengikuti Program Pembinaan Yang Telah Ditetapkan','Mengancam, Melawan, Atau Melakukan Penyerangan Terhadap Petugas','Membuat Atau Menyimpan Senjata API, Senjata Tajam, Atau Sejenisnya','Merusak Fasilitas Lapas Atau Rutan','Mengancam, Memprovokasi, Atau Perbuatan Lain Yang Menimbulkan Gangguan Keamanan Dan Ketertiban','Memiliki, Membawa, Atau Menggunakan Alat Komunikasi Atau Alat Elektronik','Membuat, Membawa, Menyimpan, Mengedarkan Atau Mengkonsumsi Minuman Yang Mengandung Alkohol','Membuat, Membawa, Menyimpan, Mengedarkan, Atau Mengkonsumsi Narkotika Dan Obat Terlarang Serta Zat Adiktif Lainnya','Melakukan Upaya Melarikan Diri Atau Membantu Narapidana Atau Tahanan Lain Untuk Melarikan Diri']
+
 for i in range(50):
     WbpFaker                    = random.randint(0,50)
     GangguanFaker               = random.choice(Gangguan)
@@ -85,6 +86,7 @@ for i in range(50):
     KeteranganFaker             = fake.paragraph(nb_sentences=2)
     NoSkFaker                   = fake.numerify('SK/'+'#################')
     NoBAPFaker                  = fake.numerify('BAP/'+'#################')
+    followupFaker               = random.choice(followup)
 
 
 
@@ -107,7 +109,8 @@ for i in range(50):
         tglAkhirHukumanFaker,
         KeteranganFaker,
         NoSkFaker,
-        NoBAPFaker
+        NoBAPFaker,
+        followupFaker
          
         ])
 workbook.save(file_path)
@@ -134,7 +137,7 @@ for row in worksheet.iter_rows(min_row=2, values_only=True):
     KeteranganXC                            = row[15]
     NoSkXC                                  = row[16]
     NoBAPXC                                 = row[17]
-   
+    followupXC                              = row[18]
 
 
 @mark.fixture_test()
@@ -198,7 +201,7 @@ def test_4_PilihJenisGangguan():
     try:
         WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "searchButton")))
         driver.find_element(By.CSS_SELECTOR, ".cell svg").click()
-        
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ GangguanXC +"')]")))
         driver.find_element(By.XPATH, "//li[contains(.,\'"+ GangguanXC +"')]").click()
         Log.info('Pilih Jenis Gangguan')
         attach(data=driver.get_screenshot_as_png())
@@ -228,8 +231,8 @@ def test_5_ClickButtonDaftarkan():
 def test_6_InputData():
     Log.info('Iput Data Bersadarkan Jenis Gangguan')
     sleep(driver)
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//td[contains(.,'Status Verifikasi')]")))
     if driver.find_elements(By.XPATH, "//h1[contains(.,\'Catat Pelanggaran Sedang\')]"):
-        time.sleep(5)
         WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//td[contains(.,'Status Verifikasi')]")))
         driver.find_element(By.ID, "jenisGangguan").click()
         time.sleep(2)
@@ -271,25 +274,25 @@ def test_6_InputData():
 
         driver.find_element(By.CSS_SELECTOR, "#chooseFile > span").click()
         upload(driver)
+        
 
         driver.find_element(By.ID, "noSk").click()
         driver.find_element(By.ID, "noSk").send_keys(NoSkXC)
         
-        driver.find_element(By.ID, "generateSk").click()
-        driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) #noSk").click()
-        driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) #noSk").send_keys(NoSkXC)
-        driver.find_element(By.ID, "noBap").send_keys(NoBAPXC)
-        driver.find_element(By.ID, "submitGenerateSk").click()
-        WebDriverWait(driver,10).until(EC.invisibility_of_element((By.ID, 'submitGenerateSk')))
+        # driver.find_element(By.ID, "generateSk").click()
+        # driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) #noSk").click()
+        # driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) #noSk").send_keys(NoSkXC)
+        # driver.find_element(By.ID, "noBap").send_keys(NoBAPXC)
+        # driver.find_element(By.ID, "submitGenerateSk").click()
+        # WebDriverWait(driver,10).until(EC.invisibility_of_element((By.ID, 'submitGenerateSk')))
 
         Log.info('Input Jenis Gangguan sedang')
         print("Catat Pelanggaran Sedang")
         attach(data=driver.get_screenshot_as_png())
-        assert True
 
     elif driver.find_elements(By.XPATH, "//h1[contains(.,\'Catat Pelanggaran Ringan\')]"):
         driver.find_element(By.ID, "jenisGangguan").click()
-        driver.find_element(By.XPATH, "//li[@id=\'"+JenisGangguanSedangXC+"\']").click()
+        driver.find_element(By.XPATH, "//li[@id=\'"+JenisGangguanRinganXC+"\']").click()
 
         driver.find_element(By.ID, "tglTerjadi").click()
         driver.find_element(By.ID, "tglTerjadi").send_keys(waktukejadianXC)
@@ -315,31 +318,274 @@ def test_6_InputData():
         Log.info('Input Jenis Gangguan Ringan')
         print("Catat Pelanggaran Ringan")
         attach(data=driver.get_screenshot_as_png())
-        assert True
 
     elif driver.find_elements(By.XPATH, "//h1[contains(.,\'Catat Pelanggaran Berat\')]"):
-        driver.find_element(By.XPATH, "//li[@id=\'"+JenisGangguanBeratXC+"\']").click()
+        sleep(driver)
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "tanggalTerjadi")))
+        print("Catat Pelanggaran Berat")
+        driver.find_element(By.ID, "jenisPelanggaran").click()
+        time.sleep(1)
+        sleep(driver)
+        driver.find_element(By.XPATH, "//li[contains(.,\'"+JenisGangguanBeratXC+"\')]").click()
+        sleep(driver)
+        driver.find_element(By.ID, "tanggalTerjadi").click()
+        driver.find_element(By.ID, "tanggalTerjadi").send_keys(waktukejadianXC)
 
+        driver.find_element(By.ID, "kronologisSingkat").click()
+        driver.find_element(By.ID, "kronologisSingkat").send_keys(KronologiXC)
+
+        driver.find_element(By.ID, "tanggalSuratPutusan").click()
+        driver.find_element(By.ID, "tanggalSuratPutusan").send_keys(TglSuratPtsXC)
+
+        driver.find_element(By.ID, "namaPimpinan").click()
+        driver.find_element(By.ID, "namaPimpinan").send_keys(NamaPimpinanXC)
+
+        driver.find_element(By.ID, "namaPengawas").click()
+        driver.find_element(By.ID, "namaPengawas").send_keys(PengawasXC)
+
+        driver.find_element(By.ID, "noSuratPutusan").click()
+        driver.find_element(By.ID, "noSuratPutusan").send_keys(NoSuratPutusanXC)
+
+        driver.find_element(By.ID, "nipPimpinan").click()
+        driver.find_element(By.ID, "nipPimpinan").send_keys(NipPimpinanXC)
+
+        driver.find_element(By.ID, "nipPengawas").click()
+        driver.find_element(By.ID, "nipPengawas").send_keys(NipPengawasXC)
+
+        driver.find_element(By.CSS_SELECTOR, "#chooseFile > span").click()
+        upload(driver)
+
+        if followup == 0:
+            driver.find_element(By.CLASS_NAME, '.el-switch__core').click()
+        else:
+            pass    
+
+        driver.find_element(By.ID, "tglMulaiHukuman-0").click()
+        driver.find_element(By.ID, "tglMulaiHukuman-0").send_keys(tglMulaiHukumanXC)
+        driver.find_element(By.ID, "tglAkhirHukuman-0").click()
+        driver.find_element(By.ID, "tglAkhirHukuman-0").send_keys(tglMulaiHukumanXC)
+
+        driver.find_element(By.ID, "tglMulaiHukuman-1").click()
+        driver.find_element(By.ID, "tglMulaiHukuman-1").send_keys(tglMulaiHukumanXC)
+        driver.find_element(By.ID, "tglAkhirHukuman-1").click()
+        driver.find_element(By.ID, "tglAkhirHukuman-1").send_keys(tglMulaiHukumanXC)
+
+        driver.find_element(By.ID, "keterangan").click()
+        driver.find_element(By.ID, "keterangan").send_keys(KeteranganXC)
+        
+        driver.find_element(By.ID, "keterangan").click()
+        driver.find_element(By.XPATH, "//tr[2]/td[5]/div/div/div/div/input").send_keys(KeteranganXC)
+
+
+        driver.find_element(By.ID, "noSk").click()
+        driver.find_element(By.ID, "noSk").send_keys(NoSkXC)
+        
+        # driver.find_element(By.ID, "generateSk").click()
+        # driver.find_element(By.ID, "noSurat").click()
+        # driver.find_element(By.ID, "noSurat").send_keys(NoSkXC)
+        # driver.find_element(By.ID, "noBap").send_keys(NoBAPXC)
+        # driver.find_element(By.ID, "submitGenerateSk").click()
+  
+        # WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'submitGenerateSk')))
         Log.info('Input Jenis Gangguan Berat')
         print("Catat Pelanggaran Berat")
 
+@mark.fixture_test()
+def test_7_submit():
     driver.find_element(By.ID, "submitButton").click()
+    sleep(driver)
+    print("Submit")
+    attach(data=driver.get_screenshot_as_png())
 
+@mark.fixture_test()
+def test_8_SetupOs():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()      
 
-
-
-# @mark.fixture_test()
-# def test_7_TglTerjadi():
-
-
-
+@mark.fixture_test()
+def test_9_LoginSPV():
+    Log.info('Setup Os')
+    SpvRutanBdg(driver)
+    Log.info('Login Op Laporan Kamtib 7 B')
 
 
 @mark.fixture_test()
-def test_29_exit():
+def test_10_AksesMenuSpv():
+    sleep(driver)
+    try:
+        menulaporan7d(driver)
+        Log.info('Akses halaman Laporan 7 B')
+        attach(data=driver.get_screenshot_as_png())
+    except:
+        Log.info('Gagal Akses halaman Laporan 7 B')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_11_KirimLaporanSpv():
+    sleep(driver)
+    try:
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonVerifikasiLaporan')))
+        time.sleep(2)
+        driver.find_element(By.ID, "buttonVerifikasiLaporan").click()
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'kirimLaporan')))
+        time.sleep(3)
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#kirimLaporan > span')))
+        driver.find_element(By.CSS_SELECTOR, "#kirimLaporan > span").click()
+        Log.info('Kirim laporan')
+    except:
+        Log.info('Gagal Kirim laporan')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+
+@mark.fixture_test()
+def test_12_loginPusat():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+    pusat(driver)
+    Log.info('Login Spv Laporan Kamtib 6D')
+
+@mark.fixture_test()
+def test_13_AksesMenuPusat():
+    sleep(driver)
+    try:
+        menulaporan7d(driver)
+        Log.info('Akses halaman Laporan 6D')
+        attach(data=driver.get_screenshot_as_png())
+        assert True
+    except:
+        Log.info('Gagal Akses halaman Laporan 6D')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_14_PilihKanwil():
+    sleep(driver)
+    try:
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'formfilterKanwil')))
+        driver.find_element(By.ID, "formfilterKanwil").send_keys("jawa barat")
+        driver.find_element(By.XPATH, "//li[contains(.,\'Jawa Barat\')]").click()
+        Log.info('Pilih Kanwil')
+        attach(data=driver.get_screenshot_as_png())
+        assert True
+    except:
+        Log.info('Gagal Pilih Kanwil')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_15_PilihUPT():
+    sleep(driver)
+    try:
+        driver.find_element(By.ID, "formfilterUpt").click()
+        time.sleep(1)
+        driver.find_element(By.ID, "formfilterUpt").send_keys("rutan kelas")
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
+        driver.find_element(By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]").click()
+        Log.info('PilihUPT')
+        attach(data=driver.get_screenshot_as_png())
+        assert True
+    except:
+        Log.info('Gagal PilihUPT')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_16_ClickButtonSearch():
+    sleep(driver)
+    try:
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+        driver.find_element(By.CSS_SELECTOR, "#searchButton > span").click()
+        Log.info('Click Button Search')
+        attach(data=driver.get_screenshot_as_png())
+    except:
+        Log.info('Gagal Click Button Search')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_17_ClickButtonVerifikasi():
+    sleep(driver)
+    try:
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonVerifikasi')))
+        driver.find_element(By.ID, "buttonVerifikasi").click()
+        Log.info('Click Button Verifikasi')
+        attach(data=driver.get_screenshot_as_png())
+    except:
+        Log.info('Gagal Click Button Verifikasi')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+
+@mark.fixture_test()
+def test_18_StatusVerifikasiModal():
+    sleep(driver)
+    try:
+        WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'simpanVerifikasi')))
+        time.sleep(3)
+        driver.find_element(By.ID, "statusVerifikasiModal").click()
+        Log.info('Click Verifikasi Modal')
+        assert True
+    except:
+        Log.info('Gagal Click Verifikasi Modal')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_19_UbahStatus():
+    sleep(driver)
+    try:
+        driver.find_element(By.ID, "diizinkan").click()
+        Log.info('Ubah Status Verifikasi')
+        assert True
+    except:
+        Log.info('Gagal Ubah Status Verifikasi')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_20_Inputketerangan():
+    sleep(driver)
+    try:
+        driver.find_element(By.ID, "keterangan").send_keys("keterangan")
+        Log.info('Input Keterangan')
+        assert True
+    except:
+        Log.info('Gagal Input Keterangan')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_21_SimpanVerifikasi():
+    sleep(driver)
+    try:
+        driver.find_element(By.ID, "simpanVerifikasi").click()
+        Log.info('Click Button Simpan Verifikasi')
+        assert True
+    except:
+        Log.info('Gagal Click Button Simpan Verifikasi')
+        attach(data=driver.get_screenshot_as_png())
+        quit(driver)
+        assert False
+
+@mark.fixture_test()
+def test_22_exit():
     quit(driver)
     Log.info('Exit')
-
 
 
 

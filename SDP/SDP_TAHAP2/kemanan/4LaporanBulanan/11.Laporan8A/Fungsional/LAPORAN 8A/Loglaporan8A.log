@@ -1,0 +1,34 @@
+[2023-04-26 11:51:20,861 test_Laporan8A.py->test_2_Login()]==>INFO: Setup Os
+[2023-04-26 11:51:29,170 test_Laporan8A.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 8 A
+[2023-04-26 11:51:32,538 test_Laporan8A.py->test_3_AksesMenu()]==>INFO: Akses halaman Laporan 8 A
+[2023-04-26 11:51:36,681 test_Laporan8A.py->test_4_ClickButtonTambah()]==>INFO: Klik Button Tambah
+[2023-04-26 11:51:39,248 test_Laporan8A.py->test_5_NamaInput()]==>INFO: Input Nama
+[2023-04-26 11:51:39,918 test_Laporan8A.py->test_6_KronologisKejadianFkr()]==>INFO: Input Kronologis Kejadian 
+[2023-04-26 11:51:40,207 test_Laporan8A.py->test_7_TanggalPemberianBantuanHukumFkr()]==>INFO: Input Tanggal Pemberian Bantuan Hukum 
+[2023-04-26 11:51:40,906 test_Laporan8A.py->test_8_MelanggarPeraturanPerundangundanganFkr()]==>INFO: Input Melanggar Peraturan Perundangundangan
+[2023-04-26 11:51:41,074 test_Laporan8A.py->test_9_PemberiBantuanHukumFkr()]==>INFO: Input Pemberi Bantuan Hukum 
+[2023-04-26 11:51:41,328 test_Laporan8A.py->test_10_PertimbanganHukumFkr()]==>INFO: Pertimbangan Hukum Ditemukan
+[2023-04-26 11:51:41,712 test_Laporan8A.py->test_11_PutusanPengadilanFkr()]==>INFO: Input Putusan Pengadilan
+[2023-04-26 11:51:41,954 test_Laporan8A.py->test_12_KeteranganFkr()]==>INFO: Input Keterangan
+[2023-04-26 11:51:44,561 test_Laporan8A.py->test_13_ClickButtonSimpan()]==>INFO: Click Button Simpan
+[2023-04-26 11:51:53,234 test_Laporan8A.py->test_15_LoginSPV()]==>INFO: Setup Os
+[2023-04-26 11:52:00,970 test_Laporan8A.py->test_15_LoginSPV()]==>INFO: Login Op Laporan Kamtib 8 A
+[2023-04-26 11:52:04,719 test_Laporan8A.py->test_16_AksesMenuSpv()]==>INFO: Akses halaman Laporan 8 A
+[2023-04-26 11:52:22,462 test_Laporan8A.py->test_17_KirimLaporanSpv()]==>INFO: Kirim laporan
+[2023-04-26 11:52:30,726 test_Laporan8A.py->test_18_loginKanwil()]==>INFO: Setup Os
+[2023-04-26 11:52:38,528 test_Laporan8A.py->test_18_loginKanwil()]==>INFO: Login Kanwil Laporan Kamtib 8 A
+[2023-04-26 11:52:44,351 test_Laporan8A.py->test_19_AksesMenuKanwil()]==>INFO: Akses halaman Laporan 8 A
+[2023-04-26 11:52:49,516 test_Laporan8A.py->test_20_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-04-26 11:52:49,689 test_Laporan8A.py->test_21_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-26 11:52:52,165 test_Laporan8A.py->test_22_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-04-26 11:52:57,400 test_Laporan8A.py->test_23_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-04-26 11:52:57,578 test_Laporan8A.py->test_24_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-04-26 11:52:57,748 test_Laporan8A.py->test_25_Inputketerangan()]==>INFO: Input Keterangan
+[2023-04-26 11:52:57,909 test_Laporan8A.py->test_26_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-04-26 11:53:07,821 test_Laporan8A.py->test_27_loginPusat()]==>INFO: Setup Os
+[2023-04-26 11:53:15,670 test_Laporan8A.py->test_27_loginPusat()]==>INFO: Login Pusat Laporan Kamtib 8 A
+[2023-04-26 11:53:21,182 test_Laporan8A.py->test_28_AksesMenuPusat()]==>INFO: Akses halaman Laporan 8 A
+[2023-04-26 11:53:23,957 test_Laporan8A.py->test_29_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-04-26 11:53:25,634 test_Laporan8A.py->test_30_PilihUPT()]==>INFO: PilihUPT
+[2023-04-26 11:53:26,123 test_Laporan8A.py->test_31_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-04-26 11:53:27,646 test_Laporan8A.py->test_32_exit()]==>INFO: Exit
