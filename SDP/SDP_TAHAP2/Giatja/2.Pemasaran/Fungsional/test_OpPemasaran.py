@@ -40,7 +40,7 @@ import random
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('LogGiatja.log', mode="w")
+fh = logging.FileHandler('LogOpPemasaran.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -74,13 +74,18 @@ for i in range(5):
     produkFaker                                         = random.choice(produk)
     JumlahBarangFaker                                   = fake.random_int(min=1, max=10)
     satuanFaker                                         = random.choice(satuan)
+    NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
     worksheet.append([
         JenisPemasaranFaker,
         NamaKegiatanFaker,
         TanggalKegiatanFaker,
         MitraFaker,
         UraianFaker,
-        LokasiFaker
+        LokasiFaker,
+        produkFaker,
+        JumlahBarangFaker,
+        satuanFaker,
+        NilaiFaker
         ])
 workbook.save(file_path)
 
@@ -93,6 +98,11 @@ for row in worksheet.iter_rows(min_row=2, values_only=True):
     MitraExcell                                  = row[3]
     UraianExcell                                 = row[4]
     LokasiExcell                                 = row[5]
+    produkExcell                                 = row[6]
+    JumlahBarangExcell                           = row[7]
+    satuanExcell                                 = row[8]
+    NilaiExcell                                  = row[9]
+
 
 
 @pytest.mark.webtest
@@ -160,15 +170,26 @@ def test_TC_GIATJA_009():
     driver.find_element(By.ID, "uraianKegiatan").click()
     driver.find_element(By.ID, "uraianKegiatan").send_keys(UraianFaker)
 
+
+    driver.find_element(By.CSS_SELECTOR, ".h-5").click()
+
     driver.find_element(By.ID, "produk0").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ produkFaker +"')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ produkFaker +"')]").click()
 
     driver.find_element(By.ID, "jumlah0").send_keys(JumlahBarangFaker)
 
     driver.find_element(By.ID, "satuan0").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]")))
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]").click()
-    
+
+    driver.find_element(By.XPATH, "(//input[@type=\'text\'])[10]").send_keys(NilaiFaker)
+    driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
+
     Log.info('Operator mengisi form Pemasaran')
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "createButton")))
+    attach(data=driver.get_screenshot_as_png())
+   
 
 @pytest.mark.webtest
 def test_TC_GIATJA_010():
@@ -180,7 +201,7 @@ def test_TC_GIATJA_010():
 def test_TC_GIATJA_011():
     sleep(driver)
 
-    Log.info('"Operator mengakses halaman Detail Pemasaran"')
+    Log.info("Operator mengakses halaman Detail Pemasaran")
 
 @pytest.mark.webtest
 def test_TC_GIATJA_012():

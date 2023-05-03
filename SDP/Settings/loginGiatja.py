@@ -11,7 +11,7 @@ def Op_Giatja(driver):
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("op-GiatjaProduksi")
+    driver.find_element(By.ID, "username").send_keys("Fuad Zaidan")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
