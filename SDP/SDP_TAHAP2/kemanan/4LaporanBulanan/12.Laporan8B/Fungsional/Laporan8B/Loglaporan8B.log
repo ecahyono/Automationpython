@@ -1,0 +1,33 @@
+[2023-05-02 11:04:49,726 test_laporan8B.py->test_2_Login()]==>INFO: Setup Os
+[2023-05-02 11:04:57,897 test_laporan8B.py->test_2_Login()]==>INFO: Login Op Laporan Kamtib 8 B
+[2023-05-02 11:05:02,129 test_laporan8B.py->test_3_AksesMenu()]==>INFO: Akses halaman Laporan 8 B
+[2023-05-02 11:05:06,546 test_laporan8B.py->test_4_ClickButtonTambah()]==>INFO: Klik Button Tambah
+[2023-05-02 11:05:08,326 test_laporan8B.py->test_5_penanggungJawab()]==>INFO: Input Penanggung Jawab
+[2023-05-02 11:05:08,581 test_laporan8B.py->test_6_jumlahAnggota()]==>INFO: Input Jumlah Anggota
+[2023-05-02 11:05:08,754 test_laporan8B.py->test_7_pembagianTugas()]==>INFO: Input Pembagian Tugas
+[2023-05-02 11:05:09,422 test_laporan8B.py->test_11_keterangan()]==>INFO: Input Keterangan
+[2023-05-02 11:05:09,696 test_laporan8B.py->test_9_permasalahan()]==>INFO: Input Permasalahan
+[2023-05-02 11:05:10,024 test_laporan8B.py->test_8_rekapitulasiKehadiran()]==>INFO: Input Rekapitulasi Kehadiran
+[2023-05-02 11:05:10,366 test_laporan8B.py->test_10_alternatifPenyelesaian()]==>INFO: Input Alternatif Penyelesaian
+[2023-05-02 11:05:14,112 test_laporan8B.py->test_12_simpan()]==>INFO: Klik Button Simpan
+[2023-05-02 11:05:27,915 test_laporan8B.py->test_14_LoginSPV()]==>INFO: Setup Os
+[2023-05-02 11:05:35,278 test_laporan8B.py->test_14_LoginSPV()]==>INFO: Login Op Laporan Kamtib 8 B
+[2023-05-02 11:05:39,684 test_laporan8B.py->test_15_AksesMenuSpv()]==>INFO: Akses halaman Laporan 8 B
+[2023-05-02 11:05:59,027 test_laporan8B.py->test_16_KirimLaporanSpv()]==>INFO: Kirim laporan
+[2023-05-02 11:06:11,648 test_laporan8B.py->test_17_loginKanwil()]==>INFO: Setup Os
+[2023-05-02 11:06:18,930 test_laporan8B.py->test_17_loginKanwil()]==>INFO: Login Spv Laporan Kamtib 8 B
+[2023-05-02 11:06:25,229 test_laporan8B.py->test_18_AksesMenuKanwil()]==>INFO: Akses halaman Laporan 8 B
+[2023-05-02 11:06:29,306 test_laporan8B.py->test_19_VerifikasiLaporanKanwil()]==>INFO: Input UPT
+[2023-05-02 11:06:29,446 test_laporan8B.py->test_20_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-05-02 11:06:31,998 test_laporan8B.py->test_21_ClickButtonVerifikasi()]==>INFO: Click Button Verifikasi
+[2023-05-02 11:06:37,106 test_laporan8B.py->test_22_StatusVerifikasiModal()]==>INFO: Click Verifikasi Modal
+[2023-05-02 11:06:37,215 test_laporan8B.py->test_23_UbahStatus()]==>INFO: Ubah Status Verifikasi
+[2023-05-02 11:06:37,278 test_laporan8B.py->test_24_Inputketerangan()]==>INFO: Input Keterangan
+[2023-05-02 11:06:37,376 test_laporan8B.py->test_25_SimpanVerifikasi()]==>INFO: Click Button Simpan Verifikasi
+[2023-05-02 11:06:50,698 test_laporan8B.py->test_26_loginPusat()]==>INFO: Setup Os
+[2023-05-02 11:06:58,546 test_laporan8B.py->test_26_loginPusat()]==>INFO: Login Spv Laporan Kamtib 8 B
+[2023-05-02 11:07:05,187 test_laporan8B.py->test_27_AksesMenuPusat()]==>INFO: Akses halaman Laporan 8 B
+[2023-05-02 11:07:07,276 test_laporan8B.py->test_28_PilihKanwil()]==>INFO: Pilih Kanwil
+[2023-05-02 11:07:08,685 test_laporan8B.py->test_29_PilihUPT()]==>INFO: PilihUPT
+[2023-05-02 11:07:08,850 test_laporan8B.py->test_30_ClickButtonSearch()]==>INFO: Click Button Search
+[2023-05-02 11:07:13,094 test_laporan8B.py->test_31_exit()]==>INFO: Exit
