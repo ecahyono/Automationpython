@@ -1,0 +1,10 @@
+[2023-05-04 11:41:57,749 test_OpPNBP.py->test_1_SetupOs()]==>INFO: Setup Os
+[2023-05-04 11:42:10,117 test_OpPNBP.py->test_TC_GIATJA_015()]==>INFO: Operator mengakses halaman PNBP
+[2023-05-04 11:43:14,343 test_OpPNBP.py->test_TC_GIATJA_016()]==>INFO: Operator menambahkan data PNPB
+[2023-05-04 11:43:23,625 test_OpPNBP.py->test_TC_GIATJA_017()]==>INFO: Operator melihat bukti setor yang telah di upload
+[2023-05-04 11:43:23,862 test_OpPNBP.py->test_TC_GIATJA_017()]==>INFO: Operator melihat bukti setor yang telah di upload
+[2023-05-04 11:43:34,470 test_OpPNBP.py->test_TC_GIATJA_018()]==>INFO: Operator mengakses halaman Detail PNPB
+[2023-05-04 11:43:43,723 test_OpPNBP.py->test_TC_GIATJA_019()]==>INFO: Operator mengakses halaman Ubah PNPB
+[2023-05-04 11:44:19,524 test_OpPNBP.py->test_TC_GIATJA_020()]==>INFO: Operator mengubah data PNPB
+[2023-05-04 11:44:30,883 test_OpPNBP.py->test_TC_GIATJA_021()]==>INFO: Operator menghapus data PNPB
+[2023-05-04 11:44:35,076 test_OpPNBP.py->test_exit()]==>INFO: Exit

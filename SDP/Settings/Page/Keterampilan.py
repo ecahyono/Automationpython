@@ -7,31 +7,40 @@ import logging
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-def MenuGiatja(driver):
+def MenuKegiatanPelatihan(driver):
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.CSS_SELECTOR, ".el-sub-menu__title > #pembinaan-10")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
-    nav2 = driver.find_element(By.ID, "kegiatan-kerja-dan-produksi-2")
+    nav2 = driver.find_element(By.ID, "pembinaan-pelatihan-keterampilan")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "Kegiatan Kerja").click()
+    driver.find_element(By.LINK_TEXT, "Kegiatan Pelatihan").click()
 
-def MenuPemasaran(driver):
+def MenuPresensiKegiatan(driver):
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.CSS_SELECTOR, ".el-sub-menu__title > #pembinaan-10")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
-    nav2 = driver.find_element(By.ID, "kegiatan-kerja-dan-produksi-2")
+    nav2 = driver.find_element(By.ID, "pembinaan-pelatihan-keterampilan")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "Pemasaran").click()
+    driver.find_element(By.LINK_TEXT, "Presensi Kegiatan").click()
 
 
 
-def MenuPNBP(driver):
+def MenuLaporanPelatihanKeterampilan(driver):
     driver.implicitly_wait(10)
     nav1 = driver.find_element(By.CSS_SELECTOR, ".el-sub-menu__title > #pembinaan-10")
     ActionChains(driver).move_to_element(nav1).perform()
     time.sleep(0.5)
-    nav2 = driver.find_element(By.ID, "kegiatan-kerja-dan-produksi-2")
+    nav2 = driver.find_element(By.ID, "pembinaan-pelatihan-keterampilan")
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.LINK_TEXT, "PNBP").click()
+    driver.find_element(By.LINK_TEXT, "Laporan Pelatihan Keterampilan").click()
+
+def MenuPersetujuanPesertaKegiatan(driver):
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.CSS_SELECTOR, ".el-sub-menu__title > #pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "pembinaan-pelatihan-keterampilan")
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Persetujuan Peserta Kegiatan").click()
