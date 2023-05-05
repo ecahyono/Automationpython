@@ -2,3 +2,4 @@
 [2023-05-05 17:16:36,318 test_1_OpKegiatanPelatihan.py->test_TC_KTR_001()]==>INFO: Login aplikasi menggunakan akun dengan role operator
 [2023-05-05 17:16:50,168 test_1_OpKegiatanPelatihan.py->test_TC_KTR_002()]==>INFO: Operator mengakses halaman Program Pelatihan Keterampilan
 [2023-05-05 17:17:04,626 test_1_OpKegiatanPelatihan.py->test_TC_KTR_005()]==>INFO: Operator mengakses halaman Ubah Program Pelatihan Keterampilan
+[2023-05-05 17:18:39,040 test_1_OpKegiatanPelatihan.py->test1_exit_OpKegiatanPelatihan()]==>INFO: Exit
