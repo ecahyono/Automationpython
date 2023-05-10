@@ -1,9 +1,0 @@
-[2023-04-03 16:03:59,161 test_SuratMutasiFungsi.py->test_1loginSPV()]==>INFO: Setup Os
-[2023-04-03 16:04:07,905 test_SuratMutasiFungsi.py->test_1loginSPV()]==>INFO: Login Spv Manajemen Penempatan
-[2023-04-03 16:04:11,401 test_SuratMutasiFungsi.py->test_2_AksesMenu()]==>INFO: Akses halaman Manajemen Penghuni Baru
-[2023-04-03 16:04:12,592 test_SuratMutasiFungsi.py->test_2_AksesMenu()]==>INFO: Akses Menu Manajemen Kamar
-[2023-04-03 16:04:16,865 test_SuratMutasiFungsi.py->test_3_SearchNama()]==>INFO: input nama wbp
-[2023-04-03 16:04:18,920 test_SuratMutasiFungsi.py->test_4_ClickButtonSearch()]==>INFO: cari data wbp
-[2023-04-03 16:04:20,993 test_SuratMutasiFungsi.py->test_5_ClickCetakSurat()]==>INFO: Click Cetak Surat
-[2023-04-03 16:04:23,116 test_SuratMutasiFungsi.py->test_6_InputNoSurat_()]==>INFO: Input Nomor Surat
-[2023-04-03 16:04:25,184 test_SuratMutasiFungsi.py->test_7_Click_ButtonSubmit()]==>INFO: Click Button Submit

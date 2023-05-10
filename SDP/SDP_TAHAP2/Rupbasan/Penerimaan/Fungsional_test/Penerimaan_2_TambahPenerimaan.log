@@ -1,8 +1,0 @@
-[2022-12-29 13:24:51,621 Test_Penerimaan_2_TambahPenerimaan.py->test_00()]==>INFO: Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)
-[2022-12-29 13:25:02,596 Test_Penerimaan_2_TambahPenerimaan.py->test_00_loggin()]==>INFO: Memasukan User name dan Password di halaman Login)
-[2022-12-29 13:25:10,041 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_001()]==>INFO: Mengakses menu Penerimaan dengan memilih modul Rupbasan kemudian pilih menu Penerimaan
-[2022-12-29 13:25:14,002 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM_002()]==>INFO: Melakukan pengecekan filtering data berdasarkan kategori
-[2022-12-29 13:25:16,805 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_1()]==>INFO: Membuka halaman tambah penerimaan dengan klik button tambah
-[2022-12-29 13:25:18,987 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_2()]==>INFO: Memeilih Dropdown Jenis Registrasi
-[2022-12-29 13:25:22,920 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_9()]==>INFO: Memilih Opsi Pengadilan Penyita
-[2022-12-29 13:27:24,689 Test_Penerimaan_2_TambahPenerimaan.py->test_PNM003_17()]==>INFO: Pengecekan jumlah data identitas yang akan di inputkan
