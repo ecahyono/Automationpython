@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.service import Service
 import time
 from selenium.webdriver.chrome.options import Options
 import pyautogui
+import requests
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -72,20 +73,26 @@ def selectKategoriTamuDinas(driver):
 
 def sleep(driver):
     driver.implicitly_wait(60)
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    #time.sleep(5)
-    print("-")
-    time.sleep(0.1)
-    #input("")
-    print('wait . . . . . . . . . . . . . . . . . . . . . ')
-    
+    options = webdriver.ChromeOptions()
+    options.page_load_strategy = 'normal'
+
+    print('=')
+    print(driver.current_url)
+    status_code = requests.get(driver.current_url).status_code
+    status = True
+    while status:
+        if status_code != 200:
+            print("Status code is not 200")
+            quit(driver)
+        else:
+            print("status code is 200")
+            status = False
+
+            #time.sleep(5)
+            print("-")
+            time.sleep(0.1)
+            #input("")
+            print('wait . . . . . . . . . . . . . . . . . . . . . ')
 
 def waituntill(driver):
     driver.implicitly_wait(60)

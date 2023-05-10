@@ -1,3 +1,5 @@
-[2023-05-10 11:14:24,758 test_2_PerbaikanLaporan6A.py-><module>()]==>INFO: Setup Os
-[2023-05-10 11:14:36,628 test_2_PerbaikanLaporan6A.py->test_1loginOperator()]==>INFO: Login Op Laporan Kamtib 6A
-[2023-05-10 11:14:45,786 test_2_PerbaikanLaporan6A.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6A
+[2023-05-10 13:41:08,409 test_2_PerbaikanLaporan6A.py->test_4_loginKanwilVerifikasiPerbaikan()]==>INFO: Setup Os
+[2023-05-10 13:41:19,400 test_2_PerbaikanLaporan6A.py->test_4_loginKanwilVerifikasiPerbaikan()]==>INFO: Login Spv Laporan Kamtib 6A
+[2023-05-10 13:41:33,574 test_2_PerbaikanLaporan6A.py->test_5_AksesMenu()]==>INFO: Akses halaman Laporan 6A
+[2023-05-10 13:41:42,871 test_2_PerbaikanLaporan6A.py->test_6_PilihUpt()]==>INFO: Klik tombol search
+[2023-05-10 13:41:42,871 test_2_PerbaikanLaporan6A.py->test_6_PilihUpt()]==>INFO: Input UPT

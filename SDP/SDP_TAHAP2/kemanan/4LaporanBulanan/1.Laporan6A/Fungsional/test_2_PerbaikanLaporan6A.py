@@ -14,6 +14,7 @@ from pytest import mark
 import time
 from pytest_html_reporter import attach
 import pyautogui
+import requests
 
 import sys
 from os import environ, path
@@ -70,10 +71,6 @@ fake = Faker('id_ID')
 for i in range(5):
     tanggalSkAsimilasiFaker                             = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
     tanggalAsimilasiFaker                               = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
-    rekapitulasiKehadiranFaker                          = fake.text(max_nb_chars=255)
-    permasalahanFaker                                   = fake.text(max_nb_chars=255)
-    alternatifPenyelesaianFaker                         = fake.text(max_nb_chars=255)
-    keteranganFaker                                     = fake.text(max_nb_chars=255)
 
 
     worksheet.append([
@@ -81,37 +78,39 @@ for i in range(5):
         ])
 workbook.save(file_path)
 
-global driver, pathData
-driver = initDriver()
-pathData = loadDataPath()
-Log.info('Setup Os')
+# @pytest.mark.webtest
+# def test_1loginOperator():
+    # global driver, pathData
+    # driver = initDriver()
+    # pathData = loadDataPath()
+    # Log.info('Setup Os')
+
+# @pytest.mark.webtest
+# def test_1loginOperator():
+#     oplapkamtibwaru(driver)
+#     Log.info('Login Op Laporan Kamtib 6A')
+
+
+# @pytest.mark.webtest
+# def test_2_AksesMenu():
+#     sleep(driver)
+#     menulaporan6a(driver)
+#     Log.info('Akses halaman Laporan 6A')
+#     attach(data=driver.get_screenshot_as_png())
+
+
+# @pytest.mark.webtest
+# def test_3_CreateButton():
+#     sleep(driver)
+#     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonPerbaikan')))
+#     driver.find_element(By.ID, "buttonPerbaikan").click()
+#     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//div[3]/button[2]")))
+#     driver.find_element(By.XPATH, "//div[3]/button[2]").click()
+#     Log.info('Klik tombol Permohonan Perbaikan Laporan 6A')
+#     quit(driver)
 
 @pytest.mark.webtest
-def test_1loginOperator():
-    oplapkamtibwaru(driver)
-    Log.info('Login Op Laporan Kamtib 6A')
-
-
-@pytest.mark.webtest
-def test_2_AksesMenu():
-    sleep(driver)
-    menulaporan6a(driver)
-    Log.info('Akses halaman Laporan 6A')
-    attach(data=driver.get_screenshot_as_png())
-
-
-@pytest.mark.webtest
-def test_3_CreateButton():
-    sleep(driver)
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonPerbaikan')))
-    driver.find_element(By.ID, "buttonPerbaikan").click()
-    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//div[3]/button[2]")))
-    driver.find_element(By.XPATH, "//div[3]/button[2]").click()
-    Log.info('Klik tombol Permohonan Perbaikan Laporan 6A')
-    quit(driver)
-
-@pytest.mark.webtest
-def test_20_loginKanwilVerifikasiPerbaikan():
+def test_4_loginKanwilVerifikasiPerbaikan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -119,6 +118,56 @@ def test_20_loginKanwilVerifikasiPerbaikan():
     kanwiljabar(driver)
     Log.info('Login Spv Laporan Kamtib 6A')
 
+@pytest.mark.webtest
+def test_5_AksesMenu():
+    sleep(driver)
+    menulaporan6a(driver)
+    Log.info('Akses halaman Laporan 6A')
+    attach(data=driver.get_screenshot_as_png())
+
+
+@pytest.mark.webtest
+def test_6_PilihUpt():
+    sleep(driver)
+    time.sleep(2)
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'formfilterUpt2')))
+    driver.find_element(By.ID, "formfilterUpt2").click()
+    time.sleep(1)
+    driver.find_element(By.ID, "formfilterUpt2").send_keys("Rutan Kelas I Bandung")
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'Rutan Kelas I Bandung\')]")))
+    driver.find_element(By.XPATH, "//span[contains(.,\'Rutan Kelas I Bandung\')]").click()
+
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    driver.find_element(By.ID, "searchButton").click()
+    Log.info('Klik tombol search')
+    
+    Log.info('Input UPT')
+
+@pytest.mark.webtest
+def test_7_ClickButtonPermohonanPerbaikan():
+    sleep(driver)
+    
+    WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonVerifikasi')))
+    driver.find_element(By.ID, "buttonVerifikasi").click()
+    driver.find_element(By.ID, "semua").click()
+    Log.info('Filter Column Semua')
+
+    sleep(driver)
+    driver.find_element(By.ID, "statusVerifikasiModal").click()
+    Log.info('Click Verifikasi Modal')
+
+    sleep(driver)
+    driver.find_element(By.ID, "perbaikanLaporan").click()
+    Log.info('Ubah Status Verifikasi')
+
+    sleep(driver)
+    driver.find_element(By.ID, "keterangan").send_keys("keterangan")
+    Log.info('Input Keterangan')
+
+    sleep(driver)
+    driver.find_element(By.ID, "simpanVerifikasi").click()
+    
+    Log.info('Click Button Simpan Verifikasi')
 
 
 

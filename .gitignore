@@ -128,7 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 SDP/SDP_TAHAP2/kemanan/1DaftarLaluLintas/1AksesP2UInternal/fungsional/.DS_Store
-.gitignore
 SDP/SDP_TAHAP2/PEMBINAAN/Giatja/2.Pemasaran/Fungsional/OpPemasaran/archive/
 SDP/SDP_TAHAP2/PEMBINAAN/Giatja/1.KegiatanKerja/Fungsional/OpGiatja/archive/
 SDP/SDP_TAHAP2/kemanan/4LaporanBulanan/11.Laporan8A/.DS_Store
