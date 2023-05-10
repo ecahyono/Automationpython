@@ -30,7 +30,7 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setupbrowser import initDriver, loadDataPath
-from Settings.login import login, bapasbdg
+from Settings.login import login, bapasbdg, kasiebpsbdg
 from Settings.Page.bapas import daftarklien
 
 Log = logging.getLogger(__name__)
