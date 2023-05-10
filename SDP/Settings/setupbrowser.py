@@ -19,6 +19,7 @@ load_dotenv()
 def initDriver():
     if platform.system() == 'Darwin':
         driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+        
     elif platform.system() == 'Windows':
         options = webdriver.ChromeOptions()
         options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan

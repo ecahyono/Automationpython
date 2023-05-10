@@ -99,7 +99,7 @@ def test_TC_KTR_022():
     driver.find_element(By.CSS_SELECTOR, ".el-textarea__inner").send_keys("Verifikasi")
     driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
 
-    Log.info("Kasie melakukan verifikasi pada presensi peserta kegiatan")
+    Log.info("Kasie melakukan v erifikasi pada presensi peserta kegiatan")
 
 @pytest.mark.webtest
 def test_TC_KTR_023():

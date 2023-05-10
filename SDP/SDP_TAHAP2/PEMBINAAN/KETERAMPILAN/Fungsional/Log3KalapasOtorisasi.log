@@ -1,10 +1,10 @@
-[2023-05-09 10:18:08,192 test_3_KalapasOtorisasi.py->test3_KalapasOtorisasi_SetupOs()]==>INFO: Setup Os
-[2023-05-09 10:18:24,301 test_3_KalapasOtorisasi.py->test_TC_KTR_012()]==>INFO: Login aplikasi menggunakan akundengan role kalapas
-[2023-05-09 10:18:36,360 test_3_KalapasOtorisasi.py->test_TC_KTR_013()]==>INFO: Kalapas mengakses halaman Persetujuan Peserta Kegiatan
-[2023-05-09 10:19:20,755 test_3_KalapasOtorisasi.py->test_TC_KTR_014()]==>INFO: Kalapas mengakses halaman Detail Program Pelatihan Keterampilan
-[2023-05-09 10:19:37,646 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Action Verifikasi
-[2023-05-09 10:19:38,732 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Verifikasi
-[2023-05-09 10:19:39,120 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Input Keterangan
-[2023-05-09 10:19:39,271 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Submit
-[2023-05-09 10:19:49,273 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Kasie melakukan verifikasi peserta kegiatan pada kegiatan yang telah ditambahkan oleh operator
-[2023-05-09 10:19:52,498 test_3_KalapasOtorisasi.py->test3_exit_KalapasOtorisasi()]==>INFO: Exit
+[2023-05-10 09:57:15,784 test_3_KalapasOtorisasi.py->test3_KalapasOtorisasi_SetupOs()]==>INFO: Setup Os
+[2023-05-10 09:57:28,696 test_3_KalapasOtorisasi.py->test_TC_KTR_012()]==>INFO: Login aplikasi menggunakan akundengan role kalapas
+[2023-05-10 09:57:38,975 test_3_KalapasOtorisasi.py->test_TC_KTR_013()]==>INFO: Kalapas mengakses halaman Persetujuan Peserta Kegiatan
+[2023-05-10 09:59:08,613 test_3_KalapasOtorisasi.py->test_TC_KTR_014()]==>INFO: Kalapas mengakses halaman Detail Program Pelatihan Keterampilan
+[2023-05-10 09:59:26,540 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Action Verifikasi
+[2023-05-10 09:59:28,126 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Verifikasi
+[2023-05-10 09:59:28,480 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Input Keterangan
+[2023-05-10 09:59:28,650 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Click Submit
+[2023-05-10 09:59:38,651 test_3_KalapasOtorisasi.py->test_TC_KTR_015()]==>INFO: Kasie melakukan verifikasi peserta kegiatan pada kegiatan yang telah ditambahkan oleh operator
+[2023-05-10 09:59:41,924 test_3_KalapasOtorisasi.py->test3_exit_KalapasOtorisasi()]==>INFO: Exit

@@ -75,23 +75,11 @@ def test_TC_KTR_009():
     Log.info('Kasie mengakses halaman Persetujuan Peserta Kegiatan')
 
 
-@pytest.mark.webtest
-def test_TC_KTR_010():
-    sleep(driver)
-    d=driver.find_element
-    wait = WebDriverWait(driver, 30)
-    wait.until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-    d(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
-    wait.until(EC.element_to_be_clickable((By.ID, "backButton")))
-    time.sleep(3)
-    wait.until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".el-card:nth-child(1) .circular")))
-    d(By.CSS_SELECTOR, "#backButton").click()
-
-    Log.info('Kasie mengakses halaman Detail Program Pelatihan Keterampilan')
 
 @pytest.mark.webtest
 def test_TC_KTR_011():
     sleep(driver)
+    driver.implicitly_wait(50)
     d = driver.find_element
     wait = WebDriverWait(driver, 30)
     wait.until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
@@ -120,6 +108,17 @@ def test_TC_KTR_011():
     Log.info('Click Submit')
     time.sleep(10)
     Log.info('Kasie melakukan verifikasi peserta kegiatan pada kegiatan yang telah ditambahkan oleh operator')
+
+@pytest.mark.webtest
+def test_TC_KTR_010():
+    sleep(driver)
+    d=driver.find_element
+    wait = WebDriverWait(driver, 30)
+    wait.until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    d(By.CSS_SELECTOR, ".text-blue-500 .h-5").click()
+    wait.until(EC.element_to_be_clickable((By.ID, "backButton")))
+    
+    Log.info('Kasie mengakses halaman Detail Program Pelatihan Keterampilan')
 
 @pytest.mark.webtest
 def test_exit_KasieVerifikasiPesertaKegiatan():

@@ -1,4 +1,7 @@
-[2023-05-09 14:16:24,292 test_6_OpkelulusanPeserta.py->test1_OpKegiatanPelatihan_SetupOs()]==>INFO: Setup Os
-[2023-05-09 14:16:39,091 test_6_OpkelulusanPeserta.py->test_TC_KTR_024()]==>INFO: Login aplikasi menggunakan akun dengan role operator
-[2023-05-09 14:16:48,481 test_6_OpkelulusanPeserta.py->test_TC_KTR_025()]==>INFO: Operator mengakses halaman Program Pelatihan Keterampilan
-[2023-05-09 14:17:07,453 test_6_OpkelulusanPeserta.py->test_TC_KTR_026()]==>INFO: Operator mengklik tab Kegiatan Pelatihan
+[2023-05-10 10:03:13,413 test_6_OpkelulusanPeserta.py->test1_OpKegiatanPelatihan_SetupOs()]==>INFO: Setup Os
+[2023-05-10 10:05:36,064 test_6_OpkelulusanPeserta.py->test_exit_1()]==>INFO: Operator mengklik tombol Keluar
+ogin aplikasi menggunakan akun dengan role kasie"
+[2023-05-10 10:01:44,909 test_5_KasiePersetujuanPesertaKegiatan.py->test_TC_KTR_021()]==>INFO: Kasie mengakses halaman Persetujuan Presensi Peserta Kegiatan
+[2023-05-10 10:03:04,167 test_5_KasiePersetujuanPesertaKegiatan.py->test1_exit_OpKegiatanPelatihan()]==>INFO: Exit
+sensiKegiatan.py->test_TC_KTR_019()]==>INFO: Operator mengakses halaman Detail Absensi Kegiatan
+[2023-05-10 10:01:13,520 test_4_OpAbsensiKegiatan.py->test1_exit_OpKegiatanPelatihan()]==>INFO: Exit

@@ -16,6 +16,8 @@ load_dotenv()
 def initDriver():
     
     if platform.system() == 'Darwin':
+        options = webdriver.ChromeOptions()
+        options.page_load_strategy = 'normal'
         driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
         
     elif platform.system() == 'Windows':

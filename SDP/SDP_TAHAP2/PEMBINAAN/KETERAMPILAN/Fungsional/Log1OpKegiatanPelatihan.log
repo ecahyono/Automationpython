@@ -1,26 +1,26 @@
-[2023-05-09 10:13:08,358 test_1_OpKegiatanPelatihan.py->test1_OpKegiatanPelatihan_SetupOs()]==>INFO: Setup Os
-[2023-05-09 10:13:23,849 test_1_OpKegiatanPelatihan.py->test_TC_KTR_001()]==>INFO: Login aplikasi menggunakan akun dengan role operator
-[2023-05-09 10:13:39,430 test_1_OpKegiatanPelatihan.py->test_TC_KTR_002()]==>INFO: Operator mengakses halaman Program Pelatihan Keterampilan
-[2023-05-09 10:13:40,021 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengklik tombol Tambah Program Pelatihan Keterampilan
-[2023-05-09 10:13:47,061 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih jenis pelatihan keterampilan Manufaktur
-[2023-05-09 10:13:48,066 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih tingkat pelatihan keterampilan 
-[2023-05-09 10:13:49,891 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi nama program pelatihan keterampilan 
-[2023-05-09 10:13:50,483 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi tempat pelatihan keterampilan 
-[2023-05-09 10:13:53,455 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi waktu pelatihan keterampilan 
-[2023-05-09 10:13:55,651 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi jam pelatihan keterampilan 
-[2023-05-09 10:14:15,537 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih sarana pelatihan keterampilan 
-[2023-05-09 10:14:26,254 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih prasarana pelatihan keterampilan 
-[2023-05-09 10:14:31,873 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih mitra pelatihan keterampilan 
-[2023-05-09 10:14:34,273 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih instruktur pelatihan keterampilan 
-[2023-05-09 10:14:36,711 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih instruktur pelatihan keterampilan 
-[2023-05-09 10:14:38,279 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih penanggung jawab pelatihan keterampilan 
-[2023-05-09 10:14:38,677 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi materi pelatihan keterampilan 
-[2023-05-09 10:14:38,894 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi keterangan pelatihan keterampilan 
-[2023-05-09 10:14:43,679 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih 4 peserta pelatihan keterampilan 
-[2023-05-09 10:14:45,918 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator menekan tombol simpan pelatihan keterampilan 
-[2023-05-09 10:14:56,116 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator menambahkan Program Pelatihan Keterampilan
-[2023-05-09 10:15:02,788 test_1_OpKegiatanPelatihan.py->test_TC_KTR_004()]==>INFO: Operator mengakses halaman Detail Program Pelatihan Keterampilan
-[2023-05-09 10:15:04,385 test_1_OpKegiatanPelatihan.py->test_TC_KTR_005()]==>INFO: Operator mengakses halaman Ubah Program Pelatihan Keterampilan
-[2023-05-09 10:15:54,832 test_1_OpKegiatanPelatihan.py->test_TC_KTR_006()]==>INFO: Operator mengubah data Program Pelatihan Keterampilan
-[2023-05-09 10:15:54,940 test_1_OpKegiatanPelatihan.py->test_TC_KTR_007()]==>INFO: Operator menghapus data Program Pelatihan Keterampilan
-[2023-05-09 10:15:58,120 test_1_OpKegiatanPelatihan.py->test1_exit_OpKegiatanPelatihan()]==>INFO: Exit
+[2023-05-10 09:53:37,738 test_1_OpKegiatanPelatihan.py->test1_OpKegiatanPelatihan_SetupOs()]==>INFO: Setup Os
+[2023-05-10 09:53:50,792 test_1_OpKegiatanPelatihan.py->test_TC_KTR_001()]==>INFO: Login aplikasi menggunakan akun dengan role operator
+[2023-05-10 09:54:01,324 test_1_OpKegiatanPelatihan.py->test_TC_KTR_002()]==>INFO: Operator mengakses halaman Program Pelatihan Keterampilan
+[2023-05-10 09:54:05,043 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengklik tombol Tambah Program Pelatihan Keterampilan
+[2023-05-10 09:54:10,764 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih jenis pelatihan keterampilan Jasa
+[2023-05-10 09:54:11,741 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih tingkat pelatihan keterampilan 
+[2023-05-10 09:54:13,745 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi nama program pelatihan keterampilan 
+[2023-05-10 09:54:14,210 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi tempat pelatihan keterampilan 
+[2023-05-10 09:54:16,046 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi waktu pelatihan keterampilan 
+[2023-05-10 09:54:19,236 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi jam pelatihan keterampilan 
+[2023-05-10 09:54:25,798 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih sarana pelatihan keterampilan 
+[2023-05-10 09:54:35,124 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih prasarana pelatihan keterampilan 
+[2023-05-10 09:54:39,622 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih mitra pelatihan keterampilan 
+[2023-05-10 09:54:42,015 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih instruktur pelatihan keterampilan 
+[2023-05-10 09:54:44,449 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih instruktur pelatihan keterampilan 
+[2023-05-10 09:54:45,321 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih penanggung jawab pelatihan keterampilan 
+[2023-05-10 09:54:45,730 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi materi pelatihan keterampilan 
+[2023-05-10 09:54:46,026 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator mengisi keterangan pelatihan keterampilan 
+[2023-05-10 09:54:50,527 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator memilih 3 peserta pelatihan keterampilan 
+[2023-05-10 09:54:52,943 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator menekan tombol simpan pelatihan keterampilan 
+[2023-05-10 09:55:01,247 test_1_OpKegiatanPelatihan.py->test_TC_KTR_003()]==>INFO: Operator menambahkan Program Pelatihan Keterampilan
+[2023-05-10 09:55:09,021 test_1_OpKegiatanPelatihan.py->test_TC_KTR_004()]==>INFO: Operator mengakses halaman Detail Program Pelatihan Keterampilan
+[2023-05-10 09:55:10,763 test_1_OpKegiatanPelatihan.py->test_TC_KTR_005()]==>INFO: Operator mengakses halaman Ubah Program Pelatihan Keterampilan
+[2023-05-10 09:55:53,865 test_1_OpKegiatanPelatihan.py->test_TC_KTR_006()]==>INFO: Operator mengubah data Program Pelatihan Keterampilan
+[2023-05-10 09:55:53,975 test_1_OpKegiatanPelatihan.py->test_TC_KTR_007()]==>INFO: Operator menghapus data Program Pelatihan Keterampilan
+[2023-05-10 09:55:58,212 test_1_OpKegiatanPelatihan.py->test1_exit_OpKegiatanPelatihan()]==>INFO: Exit

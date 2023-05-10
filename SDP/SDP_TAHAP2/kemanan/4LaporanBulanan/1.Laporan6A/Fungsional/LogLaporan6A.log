@@ -1,1 +1,3 @@
-[2023-04-06 13:32:03,036 test_Laporan6A.py->test_1loginOperatir()]==>INFO: Setup Os
+[2023-05-10 11:14:24,758 test_2_PerbaikanLaporan6A.py-><module>()]==>INFO: Setup Os
+[2023-05-10 11:14:36,628 test_2_PerbaikanLaporan6A.py->test_1loginOperator()]==>INFO: Login Op Laporan Kamtib 6A
+[2023-05-10 11:14:45,786 test_2_PerbaikanLaporan6A.py->test_2_AksesMenu()]==>INFO: Akses halaman Laporan 6A

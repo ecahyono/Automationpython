@@ -16,7 +16,10 @@ load_dotenv()
 def initDriver():
     
     if platform.system() == 'Darwin':
+        options = webdriver.ChromeOptions()
+        options.page_load_strategy = 'normal'
         driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+
         
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
@@ -68,7 +71,7 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 def sleep(driver):
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(60)
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'

@@ -16,13 +16,15 @@ load_dotenv()
 def initDriver():
     
     if platform.system() == 'Darwin':
+        options = webdriver.ChromeOptions()
+        options.page_load_strategy = 'normal'
         driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
         
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
         driver = webdriver.Chrome(service=swin)
 
-    driver.get(environ.get("HOSTDO"))
+    driver.get(environ.get("HOSTKUMBANG"))
     #driver.get(environ.get("HOST"))
     driver.maximize_window()
     driver.implicitly_wait(60)
