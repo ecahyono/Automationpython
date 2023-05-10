@@ -93,7 +93,7 @@ def testformtambahpengawasan():
     Log.info('Upload SuratDasarPembimbingan')
     driver.find_element(By.ID, 'pilihFoto0').click()
     time.sleep(3)
-    pyautogui.write(SuratDasarPembimbingan)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     driver.close()

@@ -142,7 +142,7 @@ def testformtambahpendampingan():
     Log.info('Upload SuratDasarPembimbingan')
     driver.find_element(By.ID, 'pilihFoto0').click()
     time.sleep(3)
-    pyautogui.write(SuratDasarPembimbingan)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     driver.close()
@@ -172,7 +172,7 @@ def testformtambahpendampingan():
     Log.info('Upload SuratPengantarPenyerahan')
     driver.find_element(By.ID, 'pilihFoto1').click()
     time.sleep(3)
-    pyautogui.write(SuratPengantarPenyerahan)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     driver.close()
@@ -183,7 +183,7 @@ def testformtambahpendampingan():
     Log.info('Upload SuratPengantarPenyerahan')
     driver.find_element(By.ID, 'pilihFoto2').click()
     time.sleep(3)
-    pyautogui.write(BeritaAcaraSerahTerimaKlien)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     driver.close()
@@ -194,7 +194,7 @@ def testformtambahpendampingan():
     Log.info('Upload SuratPengantarPenyerahan')
     driver.find_element(By.ID, 'pilihFoto3').click()
     time.sleep(3)
-    pyautogui.write(SuratPerintah)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     driver.close()

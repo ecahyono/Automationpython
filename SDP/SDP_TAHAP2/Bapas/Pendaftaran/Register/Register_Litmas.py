@@ -14,7 +14,6 @@ A = wb['Register Litmas']
 g = 3  # barisexel
 UPTO            = A['A'+str(g)].value
 Namanoinduk     = A['B'+str(g)].value
-
 JenisPNP        = A['C'+str(g)].value
 # Kelusia         = A['D'+str(g)].value
 Petpk           = A['E'+str(g)].value
@@ -97,7 +96,7 @@ def testformtambahpendampingan():
     Log.info('UPload surat Perintah')
     driver.find_element(By.ID, 'pilihFoto0').click()
     time.sleep(3)
-    pyautogui.write(suratperintah)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     Log.info('Tidak ada elemen tersedia')
@@ -127,7 +126,7 @@ def testformtambahpendampingan():
     Log.info('Upload surat permintaan pendampingan')
     driver.find_element(By.ID, 'pilihFoto1').click()
     time.sleep(3)
-    pyautogui.write(permintaanpenp)
+    pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
     Log.info('Tidak ada elemen tersedia')
