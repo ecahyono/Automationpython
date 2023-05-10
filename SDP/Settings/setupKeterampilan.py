@@ -68,8 +68,7 @@ def selectKategoriTamuDinas(driver):
     print('.')
 
 def sleep(driver):
-    driver.implicitly_wait(10)
-    WebDriverWait(driver, 10)
+    driver.implicitly_wait(60)
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'

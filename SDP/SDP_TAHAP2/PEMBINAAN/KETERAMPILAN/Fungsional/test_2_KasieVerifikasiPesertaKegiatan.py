@@ -118,7 +118,7 @@ def test_TC_KTR_011():
 
     d(By.ID, "submitButton").click()
     Log.info('Click Submit')
-    time.sleep(3)
+    time.sleep(10)
     Log.info('Kasie melakukan verifikasi peserta kegiatan pada kegiatan yang telah ditambahkan oleh operator')
 
 @pytest.mark.webtest

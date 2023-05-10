@@ -1,5 +1,0 @@
-[2023-05-04 10:38:22,815 test_OpPemasaran.py->test_1_SetupOs()]==>INFO: Setup Os
-[2023-05-04 10:38:34,027 test_OpPemasaran.py->test_TC_GIATJA_008()]==>INFO: Operator mengakses halaman Pemasaran
-[2023-05-04 10:38:41,050 test_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Klik Button Tambah
-[2023-05-04 10:39:07,493 test_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator mengisi form Pemasaran
-[2023-05-04 10:39:29,897 test_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator berhasil mengisi form Pemasaran

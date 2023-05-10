@@ -1,9 +1,0 @@
-[2023-05-04 11:38:47,237 test_OpGiatja.py->test_TC_GIATJA_001()]==>INFO: Setup Os
-[2023-05-04 11:38:58,462 test_OpGiatja.py->test_TC_GIATJA_001()]==>INFO: Login Op Giatja
-[2023-05-04 11:39:09,505 test_OpGiatja.py->test_TC_GIATJA_002()]==>INFO: Operator mengakses halaman Kegiatan Kerja dan Produksi
-[2023-05-04 11:39:22,270 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Klik Button Tambah
-[2023-05-04 11:39:22,973 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Bidang Kegiatan
-[2023-05-04 11:39:23,832 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Jenis Kegiatan
-[2023-05-04 11:39:24,250 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Nama Kegiatan
-[2023-05-04 11:39:24,833 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Skala Kegiatan
-[2023-05-04 11:39:25,670 test_OpGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Tanggal Awal Kegiatan

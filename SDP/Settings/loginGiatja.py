@@ -22,3 +22,34 @@ def Op_Giatja(driver):
     
     attach(data=driver.get_screenshot_as_png())
 
+def KasieGiatja(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("Rehan Ardian")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+    
+    attach(data=driver.get_screenshot_as_png())
+
+def KalapasGiatja(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("miftahul-huda")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+    
+    attach(data=driver.get_screenshot_as_png())

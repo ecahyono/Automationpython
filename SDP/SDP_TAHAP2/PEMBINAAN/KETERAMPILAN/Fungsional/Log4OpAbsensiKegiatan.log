@@ -1,0 +1,4 @@
+[2023-05-09 14:16:24,292 test_6_OpkelulusanPeserta.py->test1_OpKegiatanPelatihan_SetupOs()]==>INFO: Setup Os
+[2023-05-09 14:16:39,091 test_6_OpkelulusanPeserta.py->test_TC_KTR_024()]==>INFO: Login aplikasi menggunakan akun dengan role operator
+[2023-05-09 14:16:48,481 test_6_OpkelulusanPeserta.py->test_TC_KTR_025()]==>INFO: Operator mengakses halaman Program Pelatihan Keterampilan
+[2023-05-09 14:17:07,453 test_6_OpkelulusanPeserta.py->test_TC_KTR_026()]==>INFO: Operator mengklik tab Kegiatan Pelatihan
