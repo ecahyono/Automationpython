@@ -105,7 +105,8 @@ for i in range(5):
     penanggungJawabOptionFaker                      = random.choice(penanggungJawabOption)
     materiPelatihanFaker                            = fake.text(max_nb_chars=20)
     keteranganFaker                                 = fake.text(max_nb_chars=20)
-    jumlahpesertaFaker                              = random.randint(1,6)
+    # jumlahpesertaFaker                              = random.randint(1,6)
+    jumlahpesertaFaker                              = 1
 
 
     worksheet.append([

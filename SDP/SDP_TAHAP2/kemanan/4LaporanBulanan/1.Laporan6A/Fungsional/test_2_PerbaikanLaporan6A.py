@@ -149,12 +149,15 @@ def test_7_ClickButtonPermohonanPerbaikan():
     
     WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'buttonVerifikasi')))
     driver.find_element(By.ID, "buttonVerifikasi").click()
-    driver.find_element(By.ID, "semua").click()
     Log.info('Filter Column Semua')
 
+    resp = requests.get('http://keamanan.torche.id/kamtib-asimilasi/print?upt_id=162&bulan=05&tahun=2023')
+    print(resp)
+    
     sleep(driver)
     driver.find_element(By.ID, "statusVerifikasiModal").click()
     Log.info('Click Verifikasi Modal')
+    
 
     sleep(driver)
     driver.find_element(By.ID, "perbaikanLaporan").click()
