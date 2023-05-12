@@ -35,12 +35,12 @@ import random
 
 from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
 from Settings.loginKeterampilan import kasieKeterampilan
-from Settings.Page.Keterampilan import MenuPersetujuanPresensiPesertaKegiatan
+from Settings.Page.Keterampilan import menuVerifikasiKelulusanPesertaKegiatan
 import random
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log5KasiePersetujuanPesertaKegiatan.log', mode="w")
+fh = logging.FileHandler('Log6OpkelulusanPeserta.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -54,30 +54,46 @@ JumlahPeserta                                 = sheetrangeIndex['N'+str(i)].valu
 print(NamaKegiatan)
 
 
+
+workbook = Workbook()
+worksheet = workbook.active
+worksheet.title = 'Keterampilan'
+
+fake = Faker('id_ID')
+Predikat = ['Sangat Baik', 'Baik', 'Cukup', 'Kurang']
+       
+
+
+
+for i in range(5):
+    no_sertifikatFaker0                    = fake.license_plate()
+ 
+
+
+    
 @pytest.mark.webtest
-def test1_OpKegiatanPelatihan_SetupOs():
+def test1_KasieVerifikasiKelulusanPeserta():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
 
 @pytest.mark.webtest
-def test_TC_KTR_020():
-    attach(data=driver.get_screenshot_as_png())      
+def test_TC_KTR_027():      
     kasieKeterampilan(driver)
     attach(data=driver.get_screenshot_as_png())
-    Log.info('"Login aplikasi menggunakan akun dengan role kasie"')
+    Log.info('Login aplikasi menggunakan akun dengan role operator')
 
 @pytest.mark.webtest
-def test_TC_KTR_021():
+def test_TC_KTR_028():
     sleep(driver)
-    MenuPersetujuanPresensiPesertaKegiatan(driver)
+    menuVerifikasiKelulusanPesertaKegiatan(driver)
     attach(data=driver.get_screenshot_as_png())
-    Log.info('Kasie mengakses halaman Persetujuan Presensi Peserta Kegiatan')
+    Log.info('Operator mengakses halaman Program Pelatihan Keterampilan')
 
 
 @pytest.mark.webtest
-def test_TC_KTR_022():
+def test_TC_KTR_029():
     attach(data=driver.get_screenshot_as_png())
     driver.implicitly_wait(60)
     sleep(driver)
@@ -106,23 +122,9 @@ def test_TC_KTR_022():
 
     Log.info("Kasie melakukan v erifikasi pada presensi peserta kegiatan")
 
-@pytest.mark.webtest
-def test_TC_KTR_023():
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-    driver.find_element(By.CSS_SELECTOR, "#detail-0 .h-5").click()
-    
-    Log.info('Kasie mengakses halaman Detail Absensi Kegiatan')
 
 @pytest.mark.webtest
-def test1_exit_OpKegiatanPelatihan():
+def test_exit_1():
+    sleep(driver)
     quit(driver)
-    Log.info('Exit')
-
-
-
-
-
-
-
-    
-    
+    Log.info('Operator mengklik tombol Keluar')

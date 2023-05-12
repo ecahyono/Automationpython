@@ -53,3 +53,16 @@ def MenuPersetujuanPresensiPesertaKegiatan(driver):
     ActionChains(driver).move_to_element(nav2).perform()
     time.sleep(0.5)
     driver.find_element(By.LINK_TEXT, "Persetujuan Presensi Peserta Kegiatan").click()
+
+def VerifikasiKelulusanPesertaKegiatan(driver):
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.CSS_SELECTOR, ".el-sub-menu__title > #pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "pembinaan-pelatihan-keterampilan")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    time.sleep(0.5)
+    driver.find_element(By.LINK_TEXT, "Verifikasi Kelulusan Peserta Kegiatan").click()
+
+    

@@ -40,7 +40,7 @@ import random
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log4OpAbsensiKegiatan.log', mode="w")
+fh = logging.FileHandler('Log6OpkelulusanPeserta.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
