@@ -64,7 +64,7 @@ worksheet.title = 'GiatjaTambah'
 
 fake = Faker('id_ID')
 KegiatanKerja   = ['Manufaktur','Jasa','Agribisnis']
-Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3','jenisKegiatan4']
+Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3']
 Skalakegiatan   = ['skala0','skala1','skala2']
 area            = ['area0','area1','area2']
 sarana          = ['sarana0','sarana1','sarana2']
@@ -80,7 +80,7 @@ for i in range(1):
     JeniskegiatanFaker                = random.choice(Jeniskegiatan)
     namaKegiatanFaker                 = fake.text(max_nb_chars=7)
     SkalakegiatanFaker                = random.choice(Skalakegiatan)
-    tanggalAwalKegiatanFaker          = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
+    tanggalAwalKegiatanFaker          = fake.date_between(start_date='-30d', end_date='-1d').strftime('%d/%m/%Y')
     tanggalAkhirKegiatanFaker         = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
     areaFaker                         = random.choice(area)
     lokasiKegiatanFaker               = fake.address()
@@ -99,7 +99,7 @@ for i in range(1):
     jumlahprodukFaker                 = fake.random_int(min=1, max=3)
     satuanFaker                       = random.choice(satuan)
     HargaFaker                        = fake.random_int(min=10000, max=1000000)
-    lamaPengerjaanFaker               = fake.random_int(min=1, max=10)
+    lamaPengerjaanFaker               = fake.random_int(min=1, max=7)
 
 
 
@@ -255,7 +255,7 @@ def test_TC_GIATJA_003():
 
     sleep(driver)
     try:
-        driver.find_element(By.ID, "tanggalAwalKegiatan").send_keys(tanggalAkhirKegiatanFaker)
+        driver.find_element(By.ID, "tanggalAwalKegiatan").send_keys(tanggalAwalKegiatanFaker)
         Log.info('Input Tanggal Awal Kegiatan')
     except Exception as e:
         Log.info('Input Tanggal Awal Kegiatan Tidak Ditemukan' )
@@ -433,6 +433,7 @@ def test_TC_GIATJA_003():
     sleep(driver)
     driver.find_element(By.ID, "namaProduk").click()
     driver.find_element(By.ID, "namaProduk").send_keys(namaProdukFaker)
+    driver.find_element(By.XPATH, "//li[contains(.,\'"+ namaProdukFaker +"')]").click()
     Log.info('Input Nama Produk')
 
     sleep(driver)
@@ -453,6 +454,7 @@ def test_TC_GIATJA_003():
 
     sleep(driver)
     driver.find_element(By.ID, "lamaPengerjaan").click()
+    pyautogui.press('backspace')
     driver.find_element(By.ID, "lamaPengerjaan").send_keys(lamaPengerjaanFaker)
     Log.info('Input Lama Pengerjaan Produk')
 
@@ -501,8 +503,8 @@ def test_TC_GIATJA_005():
     driver.find_element(By.CSS_SELECTOR, "#edit0 .h-5").click()
     Log.info('Click Button Edit')
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "keterangan")))
-    WebDriverWait(driver, 100).until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".el-loading-mask:nth-child(2)")))
-    
+    driver.find_element(By.ID, "keterangan").send_keys(ketereranganFaker)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
 
 @pytest.mark.webtest
 def test_TC_GIATJA_006():
@@ -517,9 +519,9 @@ def test_TC_GIATJA_006():
 
         driver.execute_script("window.scrollTo(0,1160)")
         time.sleep(2)
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#submitButton > span")))
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "submitButton")))
         time.sleep(2)
-        driver.find_element(By.ID, "submitButton").click()
+        driver.find_element(By.CSS_SELECTOR, "#submitButton svg").click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "createButton")))
         Log.info("2.Klik button Ubah")
     except Exception as e:
