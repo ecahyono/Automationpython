@@ -119,12 +119,11 @@ def test_TC_KTR_029():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     driver.find_element(By.ID, "submitButton").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Memverifikasi Data')]")))
-
     Log.info("Kasie melakukan v erifikasi pada presensi peserta kegiatan")
 
 
 @pytest.mark.webtest
-def test_exit_1():
+def test_exit_KasieVerifikasiKelulusanPeserta():
     sleep(driver)
     quit(driver)
     Log.info('Operator mengklik tombol Keluar')
