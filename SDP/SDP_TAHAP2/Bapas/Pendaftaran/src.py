@@ -30,15 +30,15 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setupbrowser import initDriver, loadDataPath
-from Settings.login import login, bapasbdg, kasiebpsbdg
+from Settings.login import login, bapasbdg , kasiebpsbdg
 from Settings.Page.bapas import daftarklien
 from Settings.Browser import webfirefox
-
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
 fh = logging.FileHandler('Newrecod.log', mode="w")
 fh.setLevel(logging.INFO)
+Log.setLevel(logging.WARNING)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
