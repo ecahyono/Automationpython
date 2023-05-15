@@ -34,8 +34,8 @@ elif platform.system() == 'Windows':
 import random
 
 from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
-from Settings.loginKeterampilan import KalapasKeterampilan
-from Settings.Page.Keterampilan import VerifikasiKelulusanPesertaKegiatan
+from Settings.loginKeterampilan import Op_Keterampilan
+from Settings.Page.Keterampilan import LaporanPelatihanKeterampilan
 import random
 import logging
 Log = logging.getLogger(__name__)
@@ -69,66 +69,31 @@ for i in range(5):
 
     
 @pytest.mark.webtest
-def test8_SetupOs_KalapasVerifikasiKelulusanPeserta():
+def test9_SetupOs_OpetarorLaporanPelatihanKeterampilan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
 
 @pytest.mark.webtest
-def test_TC_KTR_031():      
-    KalapasKeterampilan(driver)
+def test_TC_KTR_035():      
+    Op_Keterampilan(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Login aplikasi menggunakan akun dengan role Kalapas')
 
 @pytest.mark.webtest
-def test_TC_KTR_032():
+def test_TC_KTR_036():
     sleep(driver)
-    VerifikasiKelulusanPesertaKegiatan(driver)
+    LaporanPelatihanKeterampilan(driver)
     attach(data=driver.get_screenshot_as_png())
-    Log.info('Kalapas mengakses halaman Verifikasi Kelulusan Peserta Kegiatan')
+    Log.info('Operator mengakses halaman Laporan Pelatihan Keterampilan')
 
 @pytest.mark.webtest
-def test_TC_KTR_033():
+def test_TC_KTR_037():
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-    driver.find_element(By.ID, "filterColumn").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "nama_program")))
-    driver.find_element(By.ID, "nama_program").click()
-
-    driver.find_element(By.ID, "kataKunci").send_keys(NamaKegiatan)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-    driver.find_element(By.ID, "buttonSearch").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-
-    time.sleep(5)
-    driver.find_element(By.CSS_SELECTOR, "#verifikasi-0 .h-5").click()
-
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
-    driver.find_element(By.ID, "chooseVerifikasi").click()
-    driver.find_element(By.ID, "verifikasi").click()
-
-    driver.find_element(By.ID, "keterangan").send_keys(PredikatFaker0)
-
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
-    driver.find_element(By.ID, "submitButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Memverifikasi Data')]")))
-
-    Log.info('Kalapas melakukan otorisasi kelulusan untuk peserta kegiatan')
-
-@pytest.mark.webtest
-def test_TC_KTR_034():
     attach(data=driver.get_screenshot_as_png())
-    driver.implicitly_wait(60)
-    sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
-    time.sleep(8)
-    driver.find_element(By.ID, "detail-0").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
+    
+    
 
-    Log.info('Kalapas melihat detail peserta yang telah diverifikasi kelulusannya')
+    Log.info('"Operator membuat Laporan Pelatihan Keterampilan"')
 
-@pytest.mark.webtest
-def test_Exit8_KalapasVerifikasiKelulusanpeserta():
-    quit(driver)
-    Log.info('Keluar dari aplikasi')

@@ -73,7 +73,7 @@ for i in range(5):
 
     
 @pytest.mark.webtest
-def test1_KasieVerifikasiKelulusanPeserta():
+def test7_SetupOs_KasieVerifikasiKelulusanPeserta():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -119,6 +119,8 @@ def test_TC_KTR_029():
 
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Memverifikasi Data')]")))
+
 
     
 

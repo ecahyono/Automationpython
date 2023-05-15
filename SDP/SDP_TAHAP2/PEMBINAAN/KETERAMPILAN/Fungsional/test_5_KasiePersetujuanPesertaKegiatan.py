@@ -55,7 +55,7 @@ print(NamaKegiatan)
 
 
 @pytest.mark.webtest
-def test1_OpKegiatanPelatihan_SetupOs():
+def test5_SetupOs_KasiePersetujuanPesertaKegiatan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -114,7 +114,7 @@ def test_TC_KTR_023():
     Log.info('Kasie mengakses halaman Detail Absensi Kegiatan')
 
 @pytest.mark.webtest
-def test1_exit_OpKegiatanPelatihan():
+def test_5_exit_OpPersetujuanPesertaKegiatan():
     quit(driver)
     Log.info('Exit')
 

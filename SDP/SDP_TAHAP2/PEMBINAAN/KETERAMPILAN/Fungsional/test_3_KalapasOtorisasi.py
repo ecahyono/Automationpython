@@ -55,7 +55,7 @@ NamaKegiatan                                  = sheetrangeIndex['C'+str(i)].valu
 print(NamaKegiatan)
 
 @pytest.mark.webtest
-def test3_KalapasOtorisasi_SetupOs():
+def test3_SetupOs_KalapasOtorisasi_():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()

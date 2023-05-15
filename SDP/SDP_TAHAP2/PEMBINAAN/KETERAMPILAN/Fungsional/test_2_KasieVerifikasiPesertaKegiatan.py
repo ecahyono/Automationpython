@@ -55,7 +55,7 @@ NamaKegiatan                                  = sheetrangeIndex['C'+str(i)].valu
 print(NamaKegiatan)
 
 @pytest.mark.webtest
-def test2_KasieVerifikasiPesertaKegiatan_SetupOs():
+def test7_SetupOs_KasieVerifikasiPesertaKegiatan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -120,7 +120,7 @@ def test_TC_KTR_010():
     Log.info('Kasie mengakses halaman Detail Program Pelatihan Keterampilan')
 
 @pytest.mark.webtest
-def test_exit_KasieVerifikasiPesertaKegiatan():
+def test_exit2__KasieVerifikasiPesertaKegiatan():
     quit(driver)
     Log.info('Exit')
 

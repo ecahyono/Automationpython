@@ -85,7 +85,7 @@ for i in range(5):
 
     
 @pytest.mark.webtest
-def test1_OpKegiatanPelatihan_SetupOs():
+def test6_SetupOs_OpKegiatanPelatihan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -369,7 +369,7 @@ def test_TC_KTR_026():
     Log.info('Operator mengklik tab Kegiatan Pelatihan')
 
 @pytest.mark.webtest
-def test_exit_1():
+def test_exit_6_OpKelulusanPeserta():
     sleep(driver)
     quit(driver)
     Log.info('Operator mengklik tombol Keluar')

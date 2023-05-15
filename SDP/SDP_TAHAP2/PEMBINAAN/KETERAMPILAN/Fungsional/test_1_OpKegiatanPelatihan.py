@@ -151,7 +151,7 @@ for row in worksheet.iter_rows(min_row=2, values_only=True):
 
 
 @pytest.mark.webtest
-def test1_OpKegiatanPelatihan_SetupOs():
+def test7_SetupOs_OpKegiatanPelatihan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()

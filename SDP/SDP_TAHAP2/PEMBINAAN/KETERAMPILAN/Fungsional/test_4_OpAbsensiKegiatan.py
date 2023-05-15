@@ -54,7 +54,7 @@ JumlahPeserta                                 = sheetrangeIndex['N'+str(i)].valu
 print(NamaKegiatan)
 
 @pytest.mark.webtest
-def test1_OpKegiatanPelatihan_SetupOs():
+def test4_SetupOs__OpAbsensiKegiatan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -151,7 +151,7 @@ def test_TC_KTR_019():
 
     Log.info('Operator mengakses halaman Detail Absensi Kegiatan')
 @pytest.mark.webtest
-def test1_exit_OpKegiatanPelatihan():
+def test_4_exit_OpAbsensiKegiatan():
     quit(driver)
     Log.info('Exit')
 
