@@ -119,7 +119,7 @@ def test_TC_KTR_026():
 
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".h-5")))
-    time.sleep(5)
+    time.sleep(9)
     driver.find_element(By.CSS_SELECTOR, ".h-5").click()
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, "//span[contains(.,'Catat Kelulusan')]")))
 

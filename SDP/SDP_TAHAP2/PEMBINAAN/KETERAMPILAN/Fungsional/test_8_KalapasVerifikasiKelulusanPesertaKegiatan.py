@@ -34,13 +34,13 @@ elif platform.system() == 'Windows':
 import random
 
 from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
-from Settings.loginKeterampilan import kasieKeterampilan
-from Settings.Page.Keterampilan import menuVerifikasiKelulusanPesertaKegiatan
+from Settings.loginKeterampilan import KalapasKeterampilan
+from Settings.Page.Keterampilan import VerifikasiKelulusanPesertaKegiatan
 import random
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log6OpkelulusanPeserta.log', mode="w")
+fh = logging.FileHandler('Log7KasieVerifikasiKelulusanPeserta.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -61,3 +61,31 @@ worksheet.title = 'Keterampilan'
 
 fake = Faker('id_ID')
 Predikat = ['Sangat Baik', 'Baik', 'Cukup', 'Kurang']
+       
+
+for i in range(5):
+    no_sertifikatFaker0                    = fake.license_plate()
+    PredikatFaker0                         = random.choice(Predikat)
+
+    
+@pytest.mark.webtest
+def test1_KasieVerifikasiKelulusanPeserta():
+    global driver, pathData
+    driver = initDriver()
+    pathData = loadDataPath()
+    Log.info('Setup Os')
+
+@pytest.mark.webtest
+def test_TC_KTR_027():      
+    KalapasKeterampilan(driver)
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Login aplikasi menggunakan akun dengan role Kalapas')
+
+@pytest.mark.webtest
+def test_TC_KTR_028():
+    sleep(driver)
+    VerifikasiKelulusanPesertaKegiatan(driver)
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Kalapas mengakses halaman Verifikasi Kelulusan Peserta Kegiatan')
+
+    

@@ -35,12 +35,12 @@ import random
 
 from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
 from Settings.loginKeterampilan import kasieKeterampilan
-from Settings.Page.Keterampilan import menuVerifikasiKelulusanPesertaKegiatan
+from Settings.Page.Keterampilan import VerifikasiKelulusanPesertaKegiatan
 import random
 import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log6OpkelulusanPeserta.log', mode="w")
+fh = logging.FileHandler('Log7KasieVerifikasiKelulusanPeserta.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -67,6 +67,7 @@ Predikat = ['Sangat Baik', 'Baik', 'Cukup', 'Kurang']
 
 for i in range(5):
     no_sertifikatFaker0                    = fake.license_plate()
+    PredikatFaker0                         = random.choice(Predikat)
  
 
 
@@ -87,7 +88,7 @@ def test_TC_KTR_027():
 @pytest.mark.webtest
 def test_TC_KTR_028():
     sleep(driver)
-    menuVerifikasiKelulusanPesertaKegiatan(driver)
+    VerifikasiKelulusanPesertaKegiatan(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Operator mengakses halaman Program Pelatihan Keterampilan')
 
@@ -107,23 +108,34 @@ def test_TC_KTR_029():
     driver.find_element(By.ID, "buttonSearch").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
 
-    
+    time.sleep(5)
     driver.find_element(By.CSS_SELECTOR, "#verifikasi-0 .h-5").click()
 
-    driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(1) > .el-form-item__content > .el-select .el-input__inner").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#submitButton > span")))
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "chooseVerifikasi")))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
+    driver.find_element(By.ID, "chooseVerifikasi").click()
     driver.find_element(By.ID, "verifikasi").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "keterangan")))
-    driver.find_element(By.ID, "keterangan").send_keys("Verifikasi")
+
+    driver.find_element(By.ID, "keterangan").send_keys(PredikatFaker0)
+
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     driver.find_element(By.ID, "submitButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Memverifikasi Data')]")))
+
+    
+
     Log.info("Kasie melakukan v erifikasi pada presensi peserta kegiatan")
 
+@pytest.mark.webtest
+def test_TC_KTR_030():
+    attach(data=driver.get_screenshot_as_png())
+    driver.implicitly_wait(60)
+    sleep(driver)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    time.sleep(8)
+    driver.find_element(By.ID, "detail-0").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
 
 @pytest.mark.webtest
-def test_exit_KasieVerifikasiKelulusanPeserta():
+def test_exit_7_KasieVerifikasiKelulusanPeserta():
     sleep(driver)
     quit(driver)
-    Log.info('Operator mengklik tombol Keluar')
+    Log.info('exit session')
