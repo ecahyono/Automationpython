@@ -11,7 +11,7 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Litmas']
-g = 3  # barisexel
+g = 7  # barisexel
 UPTO            = A['A'+str(g)].value
 Namanoinduk     = A['B'+str(g)].value
 JenisPNP        = A['C'+str(g)].value
@@ -29,22 +29,25 @@ perihalsurat2   = A['N'+str(g)].value
 
 
 @mark.fixture_pendampingan
-def testpendampingan():
+def testlitmas():
   Log.info('Menambah Data Register Pendampingan')
-  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-litmas/create')
+  registerlitmas(driver)
+  # driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-litmas/create')
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
+  driver.find_element(By.ID, 'createButton').click()
 
 @mark.fixture_pendampingan
 def testcaridatawbp():
   try:
     Log.info('Memilih UPT')
-    elem = driver.find_element(By. XPATH, "//input[@placeholder='Pilih upt']")
+    elem = driver.find_element(By. ID, "upt")
     elem.click()
     time.sleep(2)
     elem.send_keys(UPTO)
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
     driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
+    Log.getloger
     driver.close()
     driver.quit()
 
@@ -53,19 +56,25 @@ def testcaridatawbp():
     elem1 = driver.find_element(By. XPATH, "//input[@placeholder='Cari berdasarkan Nama / No Induk']")
     elem1.click()
     elem1.send_keys(Namanoinduk)
+    awal = time.time()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*")))
+    akhir = time.time()
+    lamatunggu = awal - akhir
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
     driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*").click()
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
   try:  
     Log.info('Melakukan pencarian data WBP')
     driver.find_element(By.ID, 'findButton').click()
-    time.sleep(4)
+    kop = time.time()
+    WebDriverWait(driver, 25).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+Namanoinduk+"']")))
+    kip = time.time()
+    tungguload = kop - kip
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(tungguload)))
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
@@ -76,7 +85,6 @@ def testformtambahpendampingan():
     driver.find_element(By.ID, 'dropdownJenisRegistrasi').click()
     driver.find_element(By.XPATH, "//li[contains(.,'"+ JenisPNP+"')]").click()
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
@@ -88,7 +96,6 @@ def testformtambahpendampingan():
     petg = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     petg .click()
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
@@ -99,26 +106,22 @@ def testformtambahpendampingan():
     pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
   try:
     Log.info('deskripsi surat Perintah')
     driver.find_element(By.ID, 'dropdownSurat').click()
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+asalsurat1+"']/parent::*").click()
     Log.info('input Nomer surat')
-    driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(nosurat1)
+    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+asalsurat1+"']/parent::*").click()
+    driver.find_element(By.ID, "noSurat0").send_keys(nosurat1)
     Log.info('pilih tanggal surat')
-    # tglsuratpernth = driver.find_element(By.XPATH, "//input[@placeholder='Tgl Surat ']")
-    # tglsuratpernth.click()
-    # time.sleep(2)
-    # tglsuratpernth.send_keys(tglsurat1)
-    # tglsuratpernth.send_keys(Keys.ENTER)
-    # Log.info('input Perihal surat')
+    tglsuratpernth = driver.find_element(By.ID, "tglSurat0")
+    tglsuratpernth.send_keys(tglsurat1)
+    tglsuratpernth.send_keys(Keys.ENTER)
+    Log.info('input Perihal surat')
     driver.find_element(By.ID, 'keterangann0').send_keys(perihalsurat1)
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
@@ -129,18 +132,24 @@ def testformtambahpendampingan():
     pyautogui.write(environ.get(r'FILEPDF'))
     pyautogui.press('enter')
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
   try:
     Log.info('deskripsi spermintaan pendampingan')
-  #   driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(nosurat1)
-  #   driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(tglsurat1)
+    driver.find_element(By.ID, "noSurat1").send_keys(nosurat1)
+    tgl2 = driver.find_element(By.ID, "tglSurat1")
+    tgl2.send_keys(tglsurat1)
+    tgl2.send_keys(Keys.ENTER)
     driver.find_element(By.ID, 'keterangann1').send_keys(perihalsurat2)
-  
   except NoSuchElementException:
-    Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
 
+  Log.info('Buton simmpan di tekan')
+  driver.find_element(By.ID,'submitButton').click()
+  pendingstart = time.time()
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
+  pendingend = time.time()
+  lamatunggu = pendingstart - pendingend
+  Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
