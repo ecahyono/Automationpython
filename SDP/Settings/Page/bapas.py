@@ -16,3 +16,16 @@ def daftarklien(driver):
     ActionChains(driver).move_to_element(nav2).perform()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.LINK_TEXT, "Daftar Klien")))
     driver.find_element(By.LINK_TEXT, "Daftar Klien").click()
+
+def registerlitmas(driver):
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, '15')))
+    nav1 = driver.find_element(By.ID, "15")
+    ActionChains(driver).move_to_element(nav1).perform()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'bp-01')))
+    nav2 = driver.find_element(By.ID, "bp-01")
+    ActionChains(driver).move_to_element(nav2).perform()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'REG01')))
+    nav3 = driver.find_element(By.ID, "REG01")
+    ActionChains(driver).move_to_element(nav3).perform()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.LINK_TEXT, "Register Litmas")))
+    driver.find_element(By.LINK_TEXT, "Register Litmas").click()

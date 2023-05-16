@@ -11,7 +11,7 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Pendampingan']
-g = 3  # barisexel
+g = 5  # barisexel
 UPTO            = A['A'+str(g)].value
 Namanoinduk     = A['B'+str(g)].value
 
@@ -84,6 +84,10 @@ def testformtambahpendampingan():
 
   try:
     Log.info('memelihi Kelompok usia')
+    if Kelusia == 'Anak':
+      driver.find_element(By.ID, 'anak').click()
+    elif Kelusia == 'Dewasa':
+      driver.find_element(By.ID, 'dewasa').click()
   except NoSuchElementException:
     Log.info('Tidak ada elemen tersedia')
     driver.close()
@@ -94,7 +98,7 @@ def testformtambahpendampingan():
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.click()
     pk.send_keys(Petpk)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*/text()[normalize-space(.)='"+Petpk+"']/parent::*")))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Petpk+"']/parent::*").click()
   except NoSuchElementException:
     Log.info('Tidak ada elemen tersedia')
@@ -115,7 +119,8 @@ def testformtambahpendampingan():
   try:
     Log.info('deskripsi surat Perintah')
     driver.find_element(By.ID, 'dropdownSurat').click()
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+asalsurat1+"']/parent::*").click()
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By. ID, 'surat0')))
+    driver.find_element(By.XPATH, "//li[contains(.,'"+ asalsurat1+"')]").click()
     Log.info('input Nomer surat')
     driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(nosurat1)
     Log.info('pilih tanggal surat')

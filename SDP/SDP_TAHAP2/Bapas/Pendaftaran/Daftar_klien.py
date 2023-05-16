@@ -12,7 +12,7 @@ def testconfigandlogin():
 @mark.fixture_penerimaan
 def test_daftarklien():
     tambah = wb['KlienAPH']
-    for row in tambah.iter_rows(min_row=2, values_only=True):
+    for row in tambah.iter_rows(min_row=7, values_only=True):
         NamaKlien           = row[0]
         NIK                 = row[1]
         Residivis           = row[2]
@@ -116,7 +116,7 @@ def test_daftarklien():
             driver.find_element(By.ID, 'nik').send_keys(NIK) 
             #----------------------------------------------------------------
             if Residivis == 'Iya':
-                driver.find_element(By.ID, 'residivis').click()
+                driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='Residivis']/parent::*").click()
             elif Residivis == 'Tidak':
                 pass
             #----------------------------------------------------------------
@@ -131,7 +131,7 @@ def test_daftarklien():
                 print ('default')
             elif WBPBeresikoTinggi == 'Iya':
                 driver.find_element(By.ID, 'wbpBeresikoTinggiMenarikPerhatianMasyarakat').click()
-            elif MemilikiPengaruh == 'Iya':
+            if MemilikiPengaruh == 'Iya':
                 driver.find_element(By.ID, 'memilikiPengaruhTerhadapMasyarakat').click()
             elif MemilikiPengaruh == 'Tidak':
                 print('default')
@@ -167,9 +167,9 @@ def test_daftarklien():
             driver.find_element(By.ID, 'agama').click()
             WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'agama0'))) 
             driver.find_element(By.XPATH, "//li[contains(.,'"+ Agama+"')]").click() 
-            if Agama == 'Lain-lain':
+            if Agama == 'Lain-Lainn':
                 driver.find_element(By.ID, 'agamaLain').send_keys(Agamalain)
-            elif Agama == Agama:
+            else:
                 pass
             #--------------------------------------------------------------
             sukpu = driver.find_element(By.ID, 'suku')
@@ -301,13 +301,15 @@ def test_daftarklien():
             driver.find_element(By.ID, 'nm_ibu').send_keys(NamaIbu)
             driver.find_element(By.ID, 'tmp_tgl_ibu').send_keys(AlamatIbu)
             # ------------------------------------------------------------------------------
-            driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input').click()
+            keanak = driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input')
+            keanak.click()
             pyautogui.hotkey('backspace')       
-            driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input').send_keys(AnakKe)
+            keanak.send_keys(AnakKe)
             pyautogui.press('enter')
-            driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input').click()
+            saudarajumlh = driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input')
+            saudarajumlh.click()
             pyautogui.hotkey('backspace')       
-            driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input').send_keys(Dari)
+            saudarajumlh.send_keys(Dari)
             pyautogui.press('enter')
             if Dari == 2:	
                 driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
@@ -328,18 +330,19 @@ def test_daftarklien():
 
             if StatusPerkawinan == 'Belum Kawin':
                 print('default')
-            elif StatusPerkawinan == 'Duda':
+            elif (StatusPerkawinan == 'Duda' or StatusPerkawinan == 'Janda' or  StatusPerkawinan == 'Kawin'):
                 driver.find_element(By.ID, 'jml_istri_suami').click()
                 pyautogui.hotkey('backspace')
                 driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
                 pyautogui.press('enter')
                 driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
                 driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
-                driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input').click()
+                anaknya = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input')
+                anaknya.click()
                 pyautogui.hotkey('backspace')
-                jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(JumlahAnak) 
-                pyautogui.press('enter')
-                if JumlahAnak == 1:   
+                anaknya.send_keys(JumlahAnak) 
+                pyautogui.press('enter')	
+                if JumlahAnak == 1:  
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
                 elif JumlahAnak == 2:	
                     driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	 
@@ -349,56 +352,9 @@ def test_daftarklien():
                     driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)  
                     driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
                 elif  JumlahAnak == 0: 
+                    pass
                     print('masa ga punya anak')
                 #--------------------------------------------------------------
-                driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
-            elif StatusPerkawinan == 'Janda':
-                driver.find_element(By.ID, 'jml_istri_suami').click()
-                pyautogui.hotkey('backspace')
-                driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
-                pyautogui.press('enter')
-                driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
-                driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
-                driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input').click()
-                pyautogui.hotkey('backspace')
-                jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(JumlahAnak) 
-                pyautogui.press('enter')
-                if JumlahAnak == 1:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
-                elif JumlahAnak == 2:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)       
-                    driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-                elif JumlahAnak == 3:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)       
-                    driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-                    driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
-                elif  JumlahAnak == 0: 
-                    print('masa ga punya anak')
-                #--------------------------------------------------------------
-                driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
-            elif StatusPerkawinan == 'Kawin':
-                driver.find_element(By.ID, 'jml_istri_suami').click()
-                pyautogui.hotkey('backspace')
-                driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
-                pyautogui.press('enter')
-                driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
-                driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
-                driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input').click()
-                pyautogui.hotkey('backspace')
-                jumlah = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input' ).send_keys(JumlahAnak) 
-                pyautogui.press('enter')
-                if JumlahAnak == 1:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
-                elif JumlahAnak == 2:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)       
-                    driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-                elif JumlahAnak == 3:
-                    driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)       
-                    driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-                    driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
-                elif  JumlahAnak == 0: 
-                    print('masa ga punya anak')
-                # --------------------------------------------------------------
                 driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
                 #=====================================================================
         except NoSuchElementException:
@@ -407,144 +363,159 @@ def test_daftarklien():
             Log.info('Tidak ada elemen tersedia')
         #========================Input Tab Data Fisik========================== 
         driver.find_element(By.ID, 'tab-5').click()
-        #========================Input Tab Data Fisik========================== 
-        driver.find_element(By.XPATH, '//*[@id="tinggi"]/div/input').click()
-        pyautogui.hotkey('backspace')
-        driver.find_element(By.XPATH, '//*[@id="tinggi"]/div/input' ).send_keys(Tinggi) 
-        #--------------------------------------------------------------
-        driver.find_element(By.XPATH, '//*[@id="berat"]/div/input').click()
-        pyautogui.hotkey('backspace')
-        driver.find_element(By.XPATH, '//*[@id="berat"]/div/input').send_keys(Berat)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_bentukrambut').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukRambut-0'))) 
-        driver.find_element(By.ID, 'id_bentukrambut').send_keys(BentukRambut)
-        driver.find_element(By.ID, 'id_bentukrambut').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_bentukrambut').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_rambut').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisRambut-0'))) 
-        driver.find_element(By.ID, 'id_jenis_rambut').send_keys(WarnaRambut)
-        driver.find_element(By.ID, 'id_jenis_rambut').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_rambut').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_bentukbibir').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukBibir-0'))) 
-        driver.find_element(By.ID, 'id_bentukbibir').send_keys(BentukBibir)
-        driver.find_element(By.ID, 'id_bentukbibir').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_bentukbibir').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_kacamata').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'kacamata-0'))) 
-        driver.find_element(By.ID, 'id_kacamata').send_keys(Berkacamata)
-        driver.find_element(By.ID, 'id_kacamata').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_kacamata').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_bentuk_mata').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukMata-0'))) 
-        driver.find_element(By.ID, 'id_bentuk_mata').send_keys(BentukMata)
-        driver.find_element(By.ID, 'id_bentuk_mata').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_bentuk_mata').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_warna_mata').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'warnaMata-0'))) 
-        driver.find_element(By.ID, 'id_warna_mata').send_keys(WarnaMata)
-        driver.find_element(By.ID, 'id_warna_mata').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_warna_mata').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_hidung').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisHidung-0'))) 
-        driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Hidung)
-        driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_muka').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisMuka-0'))) 
-        driver.find_element(By.ID, 'id_jenis_muka').send_keys(RautMuka)
-        driver.find_element(By.ID, 'id_jenis_muka').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_muka').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_telinga').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'telinga-0'))) 
-        driver.find_element(By.ID, 'id_telinga').send_keys(Telinga)
-        driver.find_element(By.ID, 'id_telinga').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_telinga').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_mulut').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisMulut-0'))) 
-        driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Mulut)
-        driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_lengan').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'lengan-0'))) 
-        driver.find_element(By.ID, 'id_lengan').send_keys(Lengan)
-        driver.find_element(By.ID, 'id_lengan').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_lengan').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_tangan').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisTangan-0'))) 
-        driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Tangan)
-        driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_jenis_kaki').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisKaki-0'))) 
-        driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Kaki)
-        driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'id_warnakulit').click()
-        WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'warnaKulit-0'))) 
-        driver.find_element(By.ID, 'id_warnakulit').send_keys(WarnaKulit)
-        driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.DOWN)
-        driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.ENTER)
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'cacat').send_keys(normalTubuh)
-        #--------------------------------------------------------------
-        driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
-        time.sleep(3)
-        driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
-        time.sleep(3)
-        driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
-        #--------------------------------------------------------------
-        driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)  
-        driver.find_element(By.ID, 'ciri2').send_keys(CiriKhusus2) 
-        driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3)
+        #========================Input Tab Data Fisik==========================
+        try: 
+            driver.find_element(By.XPATH, '//*[@id="tinggi"]/div/input').click()
+            pyautogui.hotkey('backspace')
+            driver.find_element(By.XPATH, '//*[@id="tinggi"]/div/input' ).send_keys(Tinggi) 
+            #--------------------------------------------------------------
+            driver.find_element(By.XPATH, '//*[@id="berat"]/div/input').click()
+            pyautogui.hotkey('backspace')
+            driver.find_element(By.XPATH, '//*[@id="berat"]/div/input').send_keys(Berat)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_bentukrambut').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukRambut-0'))) 
+            driver.find_element(By.ID, 'id_bentukrambut').send_keys(BentukRambut)
+            driver.find_element(By.ID, 'id_bentukrambut').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_bentukrambut').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_rambut').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisRambut-0'))) 
+            driver.find_element(By.ID, 'id_jenis_rambut').send_keys(WarnaRambut)
+            driver.find_element(By.ID, 'id_jenis_rambut').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_rambut').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_bentukbibir').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukBibir-0'))) 
+            driver.find_element(By.ID, 'id_bentukbibir').send_keys(BentukBibir)
+            driver.find_element(By.ID, 'id_bentukbibir').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_bentukbibir').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_kacamata').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'kacamata-0'))) 
+            driver.find_element(By.ID, 'id_kacamata').send_keys(Berkacamata)
+            driver.find_element(By.ID, 'id_kacamata').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_kacamata').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_bentuk_mata').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'bentukMata-0'))) 
+            driver.find_element(By.ID, 'id_bentuk_mata').send_keys(BentukMata)
+            driver.find_element(By.ID, 'id_bentuk_mata').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_bentuk_mata').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_warna_mata').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'warnaMata-0'))) 
+            driver.find_element(By.ID, 'id_warna_mata').send_keys(WarnaMata)
+            driver.find_element(By.ID, 'id_warna_mata').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_warna_mata').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_hidung').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisHidung-0'))) 
+            driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Hidung)
+            driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_hidung').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_muka').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisMuka-0'))) 
+            driver.find_element(By.ID, 'id_jenis_muka').send_keys(RautMuka)
+            driver.find_element(By.ID, 'id_jenis_muka').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_muka').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_telinga').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'telinga-0'))) 
+            driver.find_element(By.ID, 'id_telinga').send_keys(Telinga)
+            driver.find_element(By.ID, 'id_telinga').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_telinga').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_mulut').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisMulut-0'))) 
+            driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Mulut)
+            driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_mulut').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_lengan').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'lengan-0'))) 
+            driver.find_element(By.ID, 'id_lengan').send_keys(Lengan)
+            driver.find_element(By.ID, 'id_lengan').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_lengan').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_tangan').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisTangan-0'))) 
+            driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Tangan)
+            driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_tangan').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_jenis_kaki').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisKaki-0'))) 
+            driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Kaki)
+            driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_jenis_kaki').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'id_warnakulit').click()
+            WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'warnaKulit-0'))) 
+            driver.find_element(By.ID, 'id_warnakulit').send_keys(WarnaKulit)
+            driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.DOWN)
+            driver.find_element(By.ID, 'id_warnakulit').send_keys(Keys.ENTER)
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'cacat').send_keys(normalTubuh)
+            #--------------------------------------------------------------
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+            time.sleep(3)
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+            time.sleep(3)
+            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+            #--------------------------------------------------------------
+            driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)  
+            driver.find_element(By.ID, 'ciri2').send_keys(CiriKhusus2) 
+            driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3)
+        except NoSuchElementException:
+            driver.close()
+            driver.quit()
+            Log.info('Tidak ada elemen tersedia')
         # ======================================================================
         driver.find_element(By.ID, 'tab-6').click()
         # # ========================Input Tab Sidik Jari==========================
-        driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
-        driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
-        driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
-        sjambil = driver.find_element(By.ID, 'pengambil_sj')
-        sjambil.send_keys(PengambilanSJ)
-        sjambil.send_keys(Keys.ENTER)
-        driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
+        try:
+            driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
+            driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
+            driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
+            sjambil = driver.find_element(By.ID, 'pengambil_sj')
+            sjambil.send_keys(PengambilanSJ)
+            sjambil.send_keys(Keys.ENTER)
+            driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
+        except NoSuchElementException:
+            driver.close()
+            driver.quit()
+        Log.info('Tidak ada elemen tersedia')
         #======================================================================
         driver.find_element(By.ID, 'tab-7').click()
         #========================Input Tab Foto========================== 
-        driver.find_element(By.ID, 'uploadFotoKiri').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
-        driver.find_element(By.ID, 'uploadFotoDepan').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
-        driver.find_element(By.ID, 'uploadFotoKanan').click()
-        time.sleep(3)
-        pyautogui.write(environ.get(r'Gambar'))
-        pyautogui.press('enter')
+        try:
+            driver.find_element(By.ID, 'uploadFotoKiri').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+            driver.find_element(By.ID, 'uploadFotoDepan').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+            driver.find_element(By.ID, 'uploadFotoKanan').click()
+            time.sleep(3)
+            pyautogui.write(environ.get(r'Gambar'))
+            pyautogui.press('enter')
+        except NoSuchElementException:
+            driver.close()
+            driver.quit()
+        Log.info('Tidak ada elemen tersedia')
         #========================Input Tab Foto========================== 
         #Submit
         driver.find_element(By.ID, 'submitButton').click() 
