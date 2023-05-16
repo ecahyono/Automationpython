@@ -1,46 +1,8 @@
-from openpyxl import Workbook
-from faker import Faker
-from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.select import Select
-import platform
-from pytest import mark
-import time
-from pytest_html_reporter import attach
-import pyautogui
-from datetime import datetime
-import pytest
+from source import *
 
-import sys
-from os import environ, path
-from dotenv import load_dotenv
-load_dotenv()
-from openpyxl import load_workbook
-
-if platform.system() == 'Darwin':
-    sys.path.append(environ.get("MACPARENTDIR"))
-    wb = load_workbook(environ.get("data"))
-    file_path = environ.get("fakerKTR")
-
-elif platform.system() == 'Windows':
-    sys.path.append(environ.get("WINPARENTDIR"))
-    wb = load_workbook(environ.get("KeamananUATWin"))
-import random
-
-from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
-from Settings.loginKeterampilan import Op_Keterampilan
-from Settings.Page.Keterampilan import MenuKegiatanPelatihan,MenuLaporanPelatihanKeterampilan,MenuPresensiKegiatan
-import random
-import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('Log1OpKegiatanPelatihan.log', mode="w")
+fh = logging.FileHandler('./Log/Log1OpKegiatanPelatihan.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -48,7 +10,7 @@ Log.addHandler(fh)
 
 
 
-sheetrangeIndex = wb['KeterampilanData']
+sheetrangeIndex = wbd['KeterampilanData']
 
 random1 = random.randint(1,9)
 random2= random.randint(1,6)
@@ -68,90 +30,13 @@ peserta2                                    = sheetrangeIndex['F'+str(peserta3)]
 peserta3                                    = sheetrangeIndex['G'+str(peserta4)].value
 peserta4                                    = sheetrangeIndex['H'+str(peserta5)].value
 peserta5                                    = sheetrangeIndex['I'+str(peserta5)].value
-
-print('nama input WBP adalah', Manufaktur, jasa, Agribisnis)
 time.sleep(3)
-
-
-workbook = Workbook()
-worksheet = workbook.active
-worksheet.title = 'Keterampilan'
-
-fake = Faker('id_ID')
-
-PelatihanKeterampilan   = ['Manufaktur','Jasa','Agribisnis']
-tingkatPelatihan        = ['Pemula','Mahir','Lanjutan']
-sarana                  = ['saranaOption-0','saranaOption-1','saranaOption-2','saranaOption-3']
-prasarana               = ['prasaranaOption-0','prasaranaOption-1','prasaranaOption-2','prasaranaOption-3','prasaranaOption-4']
-mitra                   = ['mitra-0','mitra-1','mitra-2','mitra-3','mitra-4']
-instruktur              = ['#petugas-0','#instansiLain-0','#mitra-0']
-InstrukturOption        = ['instrukturOption-0','instrukturOption-1']
-penanggungJawabOption   = ['penanggungJawabOption-0','penanggungJawabOption-1','penanggungJawabOption-2']
-       
-
-
-
-for i in range(5):
-    PelatihanKeterampilanFaker                      = random.choice(PelatihanKeterampilan)
-    tingkatPelatihanFaker                           = random.choice(tingkatPelatihan)
-    NamaProgramPelatihanFaker                       = fake.text(max_nb_chars=20)
-    tempatPelatihanFaker                            = fake.address()
-    tanggalPelatihanFaker                           = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
-    saranaFaker                                     = random.choice(sarana)
-    prasaranaFaker                                  = random.choice(prasarana)
-    mitraFaker                                      = random.choice(mitra)
-    instrukturFaker                                 = random.choice(instruktur)
-    InstrukturOptionFaker                           = random.choice(InstrukturOption)
-    penanggungJawabOptionFaker                      = random.choice(penanggungJawabOption)
-    materiPelatihanFaker                            = fake.text(max_nb_chars=20)
-    keteranganFaker                                 = fake.text(max_nb_chars=20)
-    # jumlahpesertaFaker                              = random.randint(1,6)
-    jumlahpesertaFaker                              = 2
-
-
-    worksheet.append([
-        
-        PelatihanKeterampilanFaker,
-        tingkatPelatihanFaker,
-        NamaProgramPelatihanFaker,
-        tempatPelatihanFaker,
-        tanggalPelatihanFaker,
-        saranaFaker,
-        prasaranaFaker,
-        mitraFaker,
-        instrukturFaker,
-        InstrukturOptionFaker,
-        penanggungJawabOptionFaker,
-        materiPelatihanFaker,
-        keteranganFaker,
-        jumlahpesertaFaker
-
-
-        
-        ])
-workbook.save(file_path)
-
-workbook = load_workbook(filename=file_path)
-worksheet = workbook.active
-for row in worksheet.iter_rows(min_row=2, values_only=True):
-    PelatihanKeterampilanExcel                                   = row[0]
-    tingkatPelatihanExcel                                        = row[1]
-    NamaProgramPelatihanExcel                                    = row[2]
-    tempatPelatihanExcel                                         = row[3]
-    tanggalPelatihanExcel                                        = row[4]
-    saranaExcel                                                  = row[5]
-    prasaranaExcel                                               = row[6]
-    mitraExcel                                                   = row[7]
-    instrukturExcel                                              = row[8]
-    InstrukturOptionExcel                                        = row[9]
-    penanggungJawabOptionExcel                                   = row[10]
-    materiPelatihanExcel                                         = row[11]
 
 
 
 
 @pytest.mark.webtest
-def test7_SetupOs_OpKegiatanPelatihan():
+def test1_SetupOs_OpKegiatanPelatihan():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
@@ -342,10 +227,10 @@ def test_TC_KTR_006():
     sleep(driver)
     d = driver.find_element
     wait = WebDriverWait(driver, 60)
+    wait.until(EC.element_to_be_clickable((By.ID, "submitButton")))
     wait.until(EC.element_to_be_clickable((By.ID, "keterangan")))
     driver.execute_script("window.scrollTo(0,972)")
     d(By.CSS_SELECTOR, '#keterangan').send_keys(keteranganFaker)
-    wait.until(EC.element_to_be_clickable((By.ID, "submitButton")))
     d(By.ID, "submitButton").click()
     wait.until(EC.element_to_be_clickable((By.ID, "createButton"))) 
     Log.info('Operator mengubah data Program Pelatihan Keterampilan')
@@ -363,8 +248,10 @@ def test_TC_KTR_007():
 
 
 
-@pytest.mark.webtest
+    
+
 def test1_exit_OpKegiatanPelatihan():
+    LogOut(driver)
     quit(driver)
     Log.info('Exit')
 
