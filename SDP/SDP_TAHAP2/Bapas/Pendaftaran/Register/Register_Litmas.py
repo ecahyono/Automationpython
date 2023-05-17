@@ -11,7 +11,7 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Litmas']
-g = 7  # barisexel
+g = 9 # barisexel
 UPTO            = A['A'+str(g)].value
 Namanoinduk     = A['B'+str(g)].value
 JenisPNP        = A['C'+str(g)].value
@@ -31,8 +31,8 @@ perihalsurat2   = A['N'+str(g)].value
 @mark.fixture_pendampingan
 def testlitmas():
   Log.info('Menambah Data Register Pendampingan')
-  registerlitmas(driver)
-  # driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-litmas/create')
+  # register_litmas(driver)
+  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-litmas')
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
   driver.find_element(By.ID, 'createButton').click()
 
@@ -42,10 +42,11 @@ def testcaridatawbp():
     Log.info('Memilih UPT')
     elem = driver.find_element(By. ID, "upt")
     elem.click()
-    time.sleep(2)
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
     elem.send_keys(UPTO)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
-    driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
+    klikupt.click()
+    # driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
   except NoSuchElementException:
     Log.getloger
     driver.close()
@@ -53,15 +54,16 @@ def testcaridatawbp():
 
   try:
     Log.info('Memilih WBP')
-    elem1 = driver.find_element(By. XPATH, "//input[@placeholder='Cari berdasarkan Nama / No Induk']")
+    elem1 = driver.find_element(By. ID, "nama")
     elem1.click()
     elem1.send_keys(Namanoinduk)
     awal = time.time()
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*")))
+    wbpnya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "nama0")))
     akhir = time.time()
     lamatunggu = awal - akhir
     Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*").click()
+    wbpnya.click()
+    # driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*").click()
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -111,9 +113,11 @@ def testformtambahpendampingan():
 
   try:
     Log.info('deskripsi surat Perintah')
-    driver.find_element(By.ID, 'dropdownSurat').click()
+    asalsuratnya = driver.find_element(By.ID, 'dropdownSurat')
+    asalsuratnya.click()
+    klikasalsurat = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By. ID, 'surat0')))
+    klikasalsurat.click()
     Log.info('input Nomer surat')
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+asalsurat1+"']/parent::*").click()
     driver.find_element(By.ID, "noSurat0").send_keys(nosurat1)
     Log.info('pilih tanggal surat')
     tglsuratpernth = driver.find_element(By.ID, "tglSurat0")
@@ -145,11 +149,3 @@ def testformtambahpendampingan():
   except NoSuchElementException:
     driver.close()
     driver.quit()
-
-  Log.info('Buton simmpan di tekan')
-  driver.find_element(By.ID,'submitButton').click()
-  pendingstart = time.time()
-  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
-  pendingend = time.time()
-  lamatunggu = pendingstart - pendingend
-  Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
