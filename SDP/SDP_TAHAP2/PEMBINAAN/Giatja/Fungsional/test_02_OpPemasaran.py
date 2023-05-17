@@ -2,7 +2,7 @@ from source import *
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('LogOpPemasaran.log', mode="w")
+fh = logging.FileHandler('./Log/Log_2_OpPemasaran.log', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -24,7 +24,7 @@ worksheet.title = 'Pemasaran'
 fake = Faker('id_ID')
 JenisPemasaran                                          = ['jenis0','jenis1','jenis2','jenis3','jenis4']
 mitra                                                   = ['mitra0','mitra1','mitra2','mitra3','mitra4']
-produk                                                  = ['Meja Kayu','Sablon Baju','Kursi Kayu','mobil mini','Sweater Anak']
+produk                                                  = ['produk0-opt7','produk0-opt2','produk0-opt3','produk0-opt4']
 satuan                                                  = ['pasang','Buah','Lusin','Kotak','Kotak','Unit']
 for i in range(5):
     JenisPemasaranFaker                                 = random.choice(JenisPemasaran)
@@ -123,6 +123,7 @@ def test_TC_GIATJA_009():
         driver.find_element(By.ID, "kota").send_keys(Keys.ENTER)
 
         driver.find_element(By.ID, "lokasi").click()
+
         driver.find_element(By.ID, "lokasi").send_keys(LokasiFaker)
 
     driver.find_element(By.ID, "uploadButton").click()
@@ -132,17 +133,15 @@ def test_TC_GIATJA_009():
     driver.find_element(By.ID, "uraianKegiatan").click()
     driver.find_element(By.ID, "uraianKegiatan").send_keys(UraianFaker)
 
-
-    driver.find_element(By.CSS_SELECTOR, ".h-5").click()
-
     driver.find_element(By.ID, "produk0").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ produkFaker +"')]")))
-    driver.find_element(By.XPATH, "//li[contains(.,\'"+ produkFaker +"')]").click()
+    time.sleep(1)
+    driver.find_element(By.ID, ""+produkFaker+"").click()
 
     driver.find_element(By.ID, "jumlah0").send_keys(JumlahBarangFaker)
 
     driver.find_element(By.ID, "satuan0").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]")))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+satuanFaker+"')]")))
+    time.sleep(1)
     driver.find_element(By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]").click()
 
     driver.find_element(By.XPATH, "(//input[@type=\'text\'])[10]").send_keys(NilaiFaker)
