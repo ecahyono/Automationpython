@@ -9,8 +9,6 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-
-
 @pytest.mark.fixture
 def test_TC_GIATJA_001():
     Op_Giatja(driver)
@@ -180,10 +178,10 @@ def test_TC_GIATJA_003():
     # driver.find_element(By.ID, "harga").send_keys(HargaFaker)
     # Log.info('Input Harga Produk')
 
-    # sleep(driver)
-    # driver.find_element(By.CSS_SELECTOR, "#uploadButtonProduk").click()
-    # uploadGambar(driver)
-    # Log.info('Input Gambar Produk')
+    sleep(driver)
+    driver.find_element(By.CSS_SELECTOR, "#uploadButtonProduk").click()
+    uploadGambar(driver)
+    Log.info('Input Gambar Produk')
 
     # sleep(driver)
     # driver.find_element(By.ID, "keteranganProduk").click()
@@ -208,6 +206,7 @@ def test_TC_GIATJA_003():
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#submitButton > span")))
 
     driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.ID, "submitButton")))
 
 
 @pytest.mark.webtest
