@@ -16,6 +16,7 @@ from pytest_html_reporter import attach
 import pyautogui
 from datetime import datetime
 import pytest
+from selenium import webdriver
 
 import sys
 from os import environ, path
@@ -48,7 +49,6 @@ random3 = random.randint(1,170)
 NamaInput1                                 = sheetrangeIndex['A'+str(random1)].value
 NamaInput2                                 = sheetrangeIndex['B'+str(random2)].value
 NamaInput3                                 = sheetrangeIndex['C'+str(random3)].value
-print('nama input WBP adalah', NamaInput1, NamaInput2, NamaInput3)
 time.sleep(3)
 
 workbook = Workbook()
@@ -56,13 +56,13 @@ worksheet = workbook.active
 worksheet.title = 'GiatjaTambah'
 
 fake = Faker('id_ID')
-KegiatanKerja   = ['Manufaktur','Jasa','Agribisnis']
+KegiatanKerja   = ['Manufaktur','Jasa']
 Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3']
 Skalakegiatan   = ['skala0','skala1','skala2']
 area            = ['area0','area1','area2']
 sarana          = ['sarana0','sarana1','sarana2']
 prasarana       = ['prasaranaundefined-0','prasaranaundefined-1','prasaranaundefined-2','prasaranaundefined-3']
-mitra           = ['mitra0','mitra1','mitra2']
+mitra           = ['mitra0']
 checkbox        = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner','.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner','.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner','.el-table__row:nth-child(10) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner']
 idjenis         = ['#jenis0 > span','#jenis1 > span']
 satuan          = ['satuan0','satuan1','satuan3','satuan4','satuan5']
@@ -165,3 +165,15 @@ for row in worksheet.iter_rows(min_row=1, values_only=True):
     satuanFkr                                   = row[21]
     HargaFkr                                    = row[22]
     lamaPengerjaanFkr                           = row[23]
+
+global driver, pathData
+driver = initDriver()
+pathData = loadDataPath()      
+
+    # revisi 
+    # jika sudah sampai otorisasi seharusnya itu tidak mungkin
+    # tengah bulan itu udah sampai otorisasi kalapas
+    # jika ada tambahan status laporanya menjeadi merah lagi harus generate ulang
+    # sampai akhir bulan masih bisa update di bulan tersebut
+    # data bulan laporan sebelumnya menjadi dihapus dan harus generate ulang ( menjadi merah kembali ) 
+    # jika bulan sudah lewat berati status menjadi revisi ( operator masih bisa merubah tersebut )

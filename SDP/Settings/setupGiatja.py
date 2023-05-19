@@ -13,14 +13,19 @@ import pyautogui
 from dotenv import load_dotenv
 load_dotenv()
 import requests
-
 def initDriver():
-    
+    options = Options()
+    print('.')
+    X = int(input("1. Headless, 2. Not Headless")) 
+    print('.')
+    if X == 1:
+        options.headless = True
+    elif X == 2:
+        options.headless = False
     if platform.system() == 'Darwin':
-        options = webdriver.ChromeOptions()
-        options.page_load_strategy = 'normal'
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
-        
+        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"), options=options)
+        WebDriverWait(driver, 10)
+
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
         driver = webdriver.Chrome(service=swin)

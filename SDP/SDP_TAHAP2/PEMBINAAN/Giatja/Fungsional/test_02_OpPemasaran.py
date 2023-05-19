@@ -2,7 +2,7 @@ from source import *
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('./Log/Log_2_OpPemasaran.log', mode="w")
+fh = logging.FileHandler('./Log/Log_2_OpPemasaran.txt', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
@@ -107,6 +107,7 @@ def test_TC_GIATJA_009():
     driver.find_element(By.ID, ""+MitraFaker+"").click()
 
     if JenisPemasaran == 'jenis4':
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "negaraTujuan")))
         driver.find_element(By.ID, "negaraTujuan").click()
         driver.find_element(By.ID, ""+NamaNegara+"").click()
         driver.find_element(By.ID, "negaraTujuan").send_keys(Keys.ENTER)

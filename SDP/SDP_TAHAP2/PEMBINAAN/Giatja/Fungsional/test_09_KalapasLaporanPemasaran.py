@@ -1,7 +1,7 @@
 from source import *
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
-fh = logging.FileHandler('./Log/test_9_KalapasLaporanGiatja.log', mode="w")
+fh = logging.FileHandler('./Log/test_9_KalapasLaporanGiatja.txt', mode="w")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
