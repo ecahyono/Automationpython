@@ -10,12 +10,6 @@ Log.addHandler(fh)
 
 
 @pytest.mark.webtest
-def test_1_SetupOs():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()   
-
-@pytest.mark.webtest
 def test_TC_GIATJA_048():
     Op_Giatja(driver)
     attach(data=driver.get_screenshot_as_png())
@@ -108,11 +102,8 @@ def test_TC_GIATJA_050():
      
     Log.info('membuat Laporan Sarana Dan Prasaran')
 
-@pytest.mark.webtest
-def test_exit_Operator():
-    sleep(driver)
     quit(driver)
-    Log.info('Exit')
+
 
 
 

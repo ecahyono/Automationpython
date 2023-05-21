@@ -166,9 +166,11 @@ for row in worksheet.iter_rows(min_row=1, values_only=True):
     HargaFkr                                    = row[22]
     lamaPengerjaanFkr                           = row[23]
 
+
 global driver, pathData
 driver = initDriver()
 pathData = loadDataPath()      
+
 
     # revisi 
     # jika sudah sampai otorisasi seharusnya itu tidak mungkin

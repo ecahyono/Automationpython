@@ -8,12 +8,6 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-@pytest.mark.webtest
-def test_SetupOs_Kasie():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()  
-    Log.info('Setup Os Akses aplikasi SDP')
 
 
 @pytest.mark.webtest
@@ -130,8 +124,6 @@ def test_TC_GIATJA_026():
     time.sleep(2)
     Log.info('Kasie melakukan verifikasi pada Laporan Kegiatan Kerja dan Produksi yang telah di generate oleh operator')
 
-@pytest.mark.webtest
-def test_Exit_Kasie():
     Log.info('Close Browser')
-    driver.close()
+    quit(driver)
     

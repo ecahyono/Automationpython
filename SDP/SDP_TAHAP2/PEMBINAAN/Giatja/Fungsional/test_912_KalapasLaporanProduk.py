@@ -8,12 +8,7 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtest
-def test_SetupOsKalapas():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()  
-    Log.info('Setup Os Akses aplikasi SDP')
+
 
 @pytest.mark.webtest
 def test_TC_GIATJA_045():

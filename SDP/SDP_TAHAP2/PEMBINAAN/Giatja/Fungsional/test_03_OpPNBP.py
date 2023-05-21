@@ -41,17 +41,13 @@ for row in worksheet.iter_rows(min_row=2, values_only=True):
     pemasaranFaker                                      = row[3]
     NilaiFaker                                          = row[4]
 
-@pytest.mark.webtest
-def test_1_SetupOs():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()      
-    Op_Giatja(driver)
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Setup Os')
+
 
 @pytest.mark.webtest
 def test_TC_GIATJA_015():
+    Op_Giatja(driver)
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Setup Os')
     sleep(driver)
     MenuPNBP(driver)
     attach(data=driver.get_screenshot_as_png())
@@ -155,10 +151,8 @@ def test_TC_GIATJA_021():
 
     Log.info('Operator menghapus data PNPB')
 
-@pytest.mark.webtest
-def test_exit():
     quit(driver)
-    Log.info('Exit')
+
 
 
 

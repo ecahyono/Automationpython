@@ -8,11 +8,6 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-@pytest.mark.webtest
-def test_1_SetupOs():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()   
 
 @pytest.mark.webtest
 def test_TC_GIATJA_033():
@@ -125,12 +120,8 @@ def test_TC_GIATJA_035():
     Log.info('Kasie membuat Laporan Pemasaran PNBPsi')
      
 
-   
 
-@pytest.mark.webtest
-def test_exit():
     quit(driver)
-    Log.info('Exit')
 
 
 

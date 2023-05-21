@@ -9,17 +9,14 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtest
-def test_1_SetupOs():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()      
-    Op_Giatja(driver)
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Setup Os Akses aplikasi SDP')
+
+   
 
 @pytest.mark.webtest
 def test_TC_GIATJA_022():
+    Op_Giatja(driver)
+    attach(data=driver.get_screenshot_as_png())
+    Log.info('Setup Os Akses aplikasi SDP')
     sleep(driver)
     MenuLaporan(driver)
     attach(data=driver.get_screenshot_as_png())
@@ -105,12 +102,8 @@ def test_TC_GIATJA_023():
      
     Log.info('membuat Laporan Kegiatan Kerja dan Produksi')
 
-@pytest.mark.webtest
-def test_exit_Operator():
     sleep(driver)
     quit(driver)
-    Log.info('Exit')
-
 
 
 
