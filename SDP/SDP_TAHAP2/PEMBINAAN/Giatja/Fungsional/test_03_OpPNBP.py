@@ -15,35 +15,12 @@ worksheet.title = 'Pemasaran'
 
 fake = Faker('id_ID')
 akunSetor                                               = ['pendapatan','nihil']
-pemasaran                                               = ['pemasaran0opt1']
-
-for i in range(5):
-    TanggalSetorFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
-    akunSetorFaker                                      = random.choice(akunSetor)
-    keteranganFaker                                     = fake.text(max_nb_chars=255)
-    pemasaranFaker                                      = random.choice(pemasaran)
-    NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
-    worksheet.append([
-        TanggalSetorFaker,
-        akunSetorFaker,
-        keteranganFaker,
-        pemasaranFaker,
-        NilaiFaker
-        ])
-workbook.save(file_path)
-
-workbook = load_workbook(filename=file_path)
-worksheet = workbook.active
-for row in worksheet.iter_rows(min_row=2, values_only=True):
-    TanggalSetorFaker                                   = row[0]
-    akunSetorFaker                                      = row[1]
-    keteranganFaker                                     = row[2]
-    pemasaranFaker                                      = row[3]
-    NilaiFaker                                          = row[4]
+pemasaran                                               = ['#pemasaran0']
 
 
 
-@pytest.mark.webtest
+
+@pytest.mark.webtestX
 def test_TC_GIATJA_015():
     Op_Giatja(driver)
     attach(data=driver.get_screenshot_as_png())
@@ -53,36 +30,54 @@ def test_TC_GIATJA_015():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Operator mengakses halaman PNBP')
 
-@pytest.mark.webtest
+@pytest.mark.webtestX
 def test_TC_GIATJA_016():
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
-    driver.find_element(By.ID, "createButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
-    attach(data=driver.get_screenshot_as_png())
+    vars = {}
+    vars["x"] = driver.execute_script("return 1")
+    condition = True
+    while condition:
+            
+        fake = Faker('id_ID')
+        for i in range(1):
+            TanggalSetorFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
+            akunSetorFaker                                      = random.choice(akunSetor)
+            keteranganFaker                                     = fake.text(max_nb_chars=255)
+            pemasaranFaker                                      = random.choice(pemasaran)
+            NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
+        
 
-    WebDriverWait(driver, 30).until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".circular")))
-    
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
-    driver.find_element(By.ID, "tanggalSetor").send_keys(TanggalSetorFaker)
-    driver.find_element(By.ID, "tanggalSetor").send_keys(Keys.ENTER)
 
-    driver.find_element(By.ID, "akunSetor").click()
-    driver.find_element(By.ID, ""+akunSetorFaker+"").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+            driver.find_element(By.ID, "createButton").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
+            attach(data=driver.get_screenshot_as_png())
+            
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
+            driver.find_element(By.ID, "tanggalSetor").send_keys(TanggalSetorFaker)
+            driver.find_element(By.ID, "tanggalSetor").send_keys(Keys.ENTER)
 
-    driver.find_element(By.ID, "uploadButton").click()
-    uploadGambar(driver)
-    driver.find_element(By.ID, "keterangan").send_keys(keteranganFaker)
+            driver.find_element(By.ID, "akunSetor").click()
+            driver.find_element(By.ID, ""+akunSetorFaker+"").click()
 
-    driver.find_element(By.ID, "pemasaran0").click()
-    driver.find_element(By.ID, ""+pemasaranFaker+"").click()
+            driver.find_element(By.ID, "uploadButton").click()
+            time.sleep(1)
+            uploadGambar(driver)
+            driver.find_element(By.ID, "keterangan").send_keys(keteranganFaker)
 
-    driver.find_element(By.ID, "jumlah0").send_keys(NilaiFaker)
+            driver.find_element(By.ID, "pemasaran0").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ""+pemasaranFaker+"")))
+            driver.find_element(By.CSS_SELECTOR, ""+pemasaranFaker+"").click()
 
-    driver.find_element(By.ID, "submitButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+            driver.find_element(By.ID, "jumlah0").send_keys(NilaiFaker)
 
-    Log.info('Operator menambahkan data PNPB')
+            driver.find_element(By.ID, "submitButton").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+            attach(data=driver.get_screenshot_as_png())
+            Log.info('Operator menambahkan data PNPB')
+
+            vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
+            condition = driver.execute_script("return (arguments[0]<1)", vars["x"])
 
 @pytest.mark.webtest
 def test_TC_GIATJA_017():

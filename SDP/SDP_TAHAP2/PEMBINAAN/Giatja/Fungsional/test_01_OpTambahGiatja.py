@@ -10,20 +10,20 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_001():
     Op_Giatja(driver)
     Log.info('Login Op Giatja')
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_002():
     sleep(driver)
     MenuGiatja(driver)
     Log.info('Operator mengakses halaman Kegiatan Kerja dan Produksi')
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_003():
     sleep(driver)
     vars = {}
@@ -35,6 +35,7 @@ def test_TC_GIATJA_003():
         for i in range(1):
             namaKegiatanFakerX                 = fake.text(max_nb_chars=10)
 
+        print('Click Create Button')
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
         driver.find_element(By.ID, "createButton").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
@@ -42,6 +43,7 @@ def test_TC_GIATJA_003():
         Log.info('Klik Button Tambah')
 
         sleep(driver)
+        print('Input Bidang Kegiatan')
         driver.find_element(By.ID, "bidangKegiatan").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ KegiatanKerjaFaker +"')]/span")))
         driver.find_element(By.XPATH, "//li[contains(.,\'"+ KegiatanKerjaFaker +"')]").click()
@@ -50,6 +52,7 @@ def test_TC_GIATJA_003():
 
 
         sleep(driver)
+        print('Input Jenis Kegiatan')
         driver.find_element(By.ID, "jenisKegiatan").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+JeniskegiatanFaker+"")))
         driver.find_element(By.ID, ""+JeniskegiatanFaker+"").click()
@@ -61,46 +64,48 @@ def test_TC_GIATJA_003():
         Log.info('Input Nama Kegiatan')
 
 
+        print('Input Skala Kegiatan')
         sleep(driver)
-
         driver.find_element(By.ID, "skalaKegiatan").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+SkalakegiatanFaker+"")))
         driver.find_element(By.ID, ""+SkalakegiatanFaker+"").click()
         Log.info('Input Skala Kegiatan')
 
 
+        print('Input Tanggal Awal Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "tanggalAwalKegiatan").send_keys(tanggalAwalKegiatanFaker)
         Log.info('Input Tanggal Awal Kegiatan')
 
 
+        print('Input Tanggal Akhir Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "tanggalAkhirKegiatan").send_keys(tanggalAkhirKegiatanFaker)
         Log.info('Input Tanggal Akhir Kegiatan')
 
+        print('Input Lokasi Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "lokasiKegiatan").send_keys(lokasiKegiatanFaker)
         Log.info('Input Lokasi Kegiatan')
 
-
+        print('Input Alamat Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "areaKegiatan").click()
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+ areaFaker+"")))
         driver.find_element(By.ID, ""+ areaFaker+"").click()
         Log.info('Input Area Kegiatan')
 
-
+        print('Input Luas')
         sleep(driver)
         driver.find_element(By.ID, "luas").send_keys(luasLokasiKegiatanFaker)
         Log.info('Input Luas')
 
-
+        print('Input jumlahRuang')
         sleep(driver)
-
         driver.find_element(By.ID, "jumlahRuang").send_keys(jumlahRuangKegiatanFaker)
         Log.info('Input Jumlah Ruang')
         
-
+        print('Input  Sarana')
         sleep(driver)
         driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(7) .el-select__input").click()
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+saranaFaker+"")))
@@ -108,30 +113,33 @@ def test_TC_GIATJA_003():
         driver.find_element(By.CSS_SELECTOR, " .el-form-item:nth-child(7) > .el-form-item__label").click()
         Log.info('Input Sarana')
 
+        print('Input Prasarana')
         sleep(driver)
         driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(8) .el-select__input").click()
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+prasaranaFaker+"")))
         driver.find_element(By.ID, ""+prasaranaFaker+"").click()
         Log.info('Input Prasarana')
         
-
+        print('Input Mitra')
         sleep(driver)
-
         driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(9) .el-select__input").click()
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+mitraFaker+"")))
         driver.find_element(By.ID, ""+mitraFaker+"").click()
         Log.info('Input Mitra')
         
+        print('Input Kegiatan')
         sleep(driver)
         driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(9) .el-select__input").click()
         driver.find_element(By.ID, "uploadButton").click()
+        time.sleep(1)
         uploadGambar(driver)
-    
+
+        print('Input Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "keterangan").send_keys(ketereranganFaker)
         Log.info('Input Keterangan')
     
-
+        print('Input Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "createPeserta").click()
         Log.info('Button Tambah Peserta')
@@ -148,30 +156,44 @@ def test_TC_GIATJA_003():
         driver.find_element(By.ID, "buttonDaftarkan").click()
         Log.info('Click Button Daftarkan')
 
+        print('Click Button createProduk')
         sleep(driver)
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "createProduk")))
         driver.find_element(By.ID, "createProduk").click()
         Log.info('Click Button Create Produk')
-
+        
+        print('Input idJenisProduk')
         sleep(driver)
-        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "idJenisProduk")))
+        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "submitButtonProduk")))
+
+        print('Input idJenisProduk')
+        sleep(driver)
         driver.find_element(By.ID, "idJenisProduk").click()
-        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ""+idjenisFaker+"")))
-        driver.find_element(By.CSS_SELECTOR, ""+idjenisFaker+"").click()
+        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+idjenisFaker+"")))
+        driver.find_element(By.ID, ""+idjenisFaker+"").click()
+
         Log.info('Click Button Jenis Produk')
 
+        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "submitButtonProduk")))
+        print('Input Nama Produk')
+      
         sleep(driver)
-        driver.find_element(By.ID, "jumlah").click()
-        driver.find_element(By.ID, "jumlah").send_keys(jumlahprodukFaker)
-        Log.info('Input Jumlah Produk')
-
-        sleep(driver)
+        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "namaProduk")))
         driver.find_element(By.ID, "namaProduk").click()
-        driver.find_element(By.ID, "namaProduk").send_keys(namaProdukFaker)
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "produk0")))
         driver.find_element(By.ID, "produk0").click()
+        
+
         Log.info('Input Nama Produk')
         sleep(driver)
+
+        print('Input jumlah')
+        sleep(driver)
+        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#jumlah .el-input__inner")))
+        driver.find_element(By.CSS_SELECTOR, "#jumlah .el-input__inner").click()
+        driver.find_element(By.CSS_SELECTOR, "#jumlah .el-input__inner").send_keys(jumlahprodukFaker)
+        Log.info('Input Jumlah Produk')
+
 
         # driver.find_element(By.ID, "jenisSatuan").click()
         # time.sleep(1)
@@ -187,6 +209,7 @@ def test_TC_GIATJA_003():
         # driver.find_element(By.ID, "harga").send_keys(HargaFaker)
         # Log.info('Input Harga Produk')
 
+        print('Input Gambar Produk')
         sleep(driver)
         driver.find_element(By.CSS_SELECTOR, "#uploadButtonProduk").click()
         uploadGambar(driver)
@@ -203,11 +226,12 @@ def test_TC_GIATJA_003():
         # driver.find_element(By.ID, "lamaPengerjaan").send_keys(lamaPengerjaanFaker)
         # Log.info('Input Lama Pengerjaan Produk')
 
-        
+        print('Click Button Submit Produk')
         sleep(driver)
         driver.find_element(By.CSS_SELECTOR, "#submitButtonProduk > span").click()
         Log.info('Click Button Submit Produk')
 
+        print('Click Button Submit Kegiatan')
         sleep(driver)
         driver.execute_script("window.scrollTo(0,1160)")
 
@@ -215,7 +239,7 @@ def test_TC_GIATJA_003():
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#submitButton > span")))
 
         driver.find_element(By.ID, "submitButton").click()
-        WebDriverWait(driver, 30).until(EC.invisibility_of_element_located((By.ID, "submitButton")))
+        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
         condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
 
@@ -242,14 +266,17 @@ def test_TC_GIATJA_005():
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#edit0 .h-5")))
     driver.find_element(By.CSS_SELECTOR, "#edit0 .h-5").click()
     Log.info('Click Button Edit')
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "keterangan")))
-    driver.find_element(By.ID, "keterangan").send_keys(ketereranganFaker)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
 
 @pytest.mark.webtest
 def test_TC_GIATJA_006():
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(7) .el-select__input").click()
+    kegiatan = driver.find_element(By.ID, "namaKegiatan")
+    kegiatan.clear()
+    kegiatan.send_keys(namaKegiatanFaker) 
+    
+    driver.find_element(By.ID, "keterangan").send_keys(keteranganFaker)
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+saranaFaker+"")))
     driver.find_element(By.ID, ""+saranaFaker+"").click()
     driver.find_element(By.CSS_SELECTOR, " .el-form-item:nth-child(7) > .el-form-item__label").click()

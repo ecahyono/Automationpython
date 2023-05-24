@@ -64,11 +64,10 @@ sarana          = ['sarana0','sarana1','sarana2']
 prasarana       = ['prasaranaundefined-0','prasaranaundefined-1','prasaranaundefined-2','prasaranaundefined-3']
 mitra           = ['mitra0']
 checkbox        = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner','.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner','.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner','.el-table__row:nth-child(10) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner']
-idjenis         = ['#jenis0 > span','#jenis1 > span']
+idjenis         = ['jenis0','jenis1']
 satuan          = ['satuan0','satuan1','satuan3','satuan4','satuan5']
 fakeMonth       = ['05']
 akunSetor                                               = ['pendapatan','nihil']
-pemasaran                                               = ['pemasaran0opt1']
 
 
 for i in range(1):
@@ -104,7 +103,6 @@ for i in range(1):
     # TanggalSetorFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%m')
     akunSetorFaker                                      = random.choice(akunSetor)
     keteranganFaker                                     = fake.text(max_nb_chars=255)
-    pemasaranFaker                                      = random.choice(pemasaran)
     
 
 

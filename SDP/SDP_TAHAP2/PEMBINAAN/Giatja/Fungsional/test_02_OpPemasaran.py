@@ -17,55 +17,6 @@ KotaTujuan                                   = sheetrangeIndex['B'+str(i)].value
 print('input Negara adalah', NamaNegara,KotaTujuan)
 time.sleep(3)
 
-workbook = Workbook()
-worksheet = workbook.active
-worksheet.title = 'Pemasaran'
-
-fake = Faker('id_ID')
-JenisPemasaran                                          = ['jenis0','jenis1','jenis2','jenis3','jenis4']
-mitra                                                   = ['mitra0','mitra1','mitra2','mitra3','mitra4']
-produk                                                  = ['produk0-opt7','produk0-opt2','produk0-opt3','produk0-opt4']
-satuan                                                  = ['pasang','Buah','Lusin','Kotak','Kotak','Unit']
-for i in range(5):
-    JenisPemasaranFaker                                 = random.choice(JenisPemasaran)
-    NamaKegiatanFaker                                   = fake.text(max_nb_chars=7)
-    TanggalKegiatanFaker                                = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
-    MitraFaker                                          = random.choice(mitra)
-    UraianFaker                                         = fake.text(max_nb_chars=255)
-    LokasiFaker                                         = fake.address()
-    produkFaker                                         = random.choice(produk)
-    JumlahBarangFaker                                   = fake.random_int(min=1, max=10)
-    satuanFaker                                         = random.choice(satuan)
-    NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
-    worksheet.append([
-        JenisPemasaranFaker,
-        NamaKegiatanFaker,
-        TanggalKegiatanFaker,
-        MitraFaker,
-        UraianFaker,
-        LokasiFaker,
-        produkFaker,
-        JumlahBarangFaker,
-        satuanFaker,
-        NilaiFaker
-        ])
-workbook.save(file_path)
-
-workbook = load_workbook(filename=file_path)
-worksheet = workbook.active
-for row in worksheet.iter_rows(min_row=2, values_only=True):
-    JenisPemasaranExcell                         = row[0]
-    NamaKegiatanExcell                           = row[1]
-    TanggalKegiatanExcell                        = row[2]
-    MitraExcell                                  = row[3]
-    UraianExcell                                 = row[4]
-    LokasiExcell                                 = row[5]
-    produkExcell                                 = row[6]
-    JumlahBarangExcell                           = row[7]
-    satuanExcell                                 = row[8]
-    NilaiExcell                                  = row[9]
-
-
 
 @pytest.mark.webtest
 def test_TC_GIATJA_008():
@@ -80,73 +31,109 @@ def test_TC_GIATJA_008():
 @pytest.mark.webtest
 def test_TC_GIATJA_009():
     sleep(driver)
+    vars = {}
+    vars["x"] = driver.execute_script("return 1")
+    condition = True
+    while condition:
+        fake = Faker('id_ID')
+        JenisPemasaran                                          = ['jenis3']
+        # JenisPemasaran                                          = ['jenis0','jenis1','jenis2','jenis3','jenis4']
+        # mitra                                                   = ['mitra0','mitra1','mitra2','mitra3','mitra4']
+        mitra                                                   = ['mitra0']
+        produk                                                  = ['produk0-opt7','produk0-opt2','produk0-opt3','produk0-opt4']
+        satuan                                                  = ['pasang','Buah','Lusin','Kotak','Kotak','Unit']
+        for i in range(1):
+            JenisPemasaranFaker                                 = random.choice(JenisPemasaran)
+            NamaKegiatanFaker                                   = fake.text(max_nb_chars=7)
+            TanggalKegiatanFaker                                = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
+            MitraFaker                                          = random.choice(mitra)
+            UraianFaker                                         = fake.text(max_nb_chars=255)
+            LokasiFaker                                         = fake.address()
+            produkFaker                                         = random.choice(produk)
+            JumlahBarangFaker                                   = fake.random_int(min=1, max=7)
+            satuanFaker                                         = random.choice(satuan)
+            NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
+            worksheet.append([
+                JenisPemasaranFaker,
+                NamaKegiatanFaker,
+                TanggalKegiatanFaker,
+                MitraFaker,
+                UraianFaker,
+                LokasiFaker,
+                produkFaker,
+                JumlahBarangFaker,
+                satuanFaker,
+                NilaiFaker
+                ])
+       
 
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
-    driver.find_element(By.ID, "createButton").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
-    attach(data=driver.get_screenshot_as_png())
-    Log.info('Klik Button Tambah')
+            sleep(driver)
 
-    driver.find_element(By.ID, "jenisPemasaran").click()
-    driver.find_element(By.ID, ""+JenisPemasaranFaker+"").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+            driver.find_element(By.ID, "createButton").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
+            attach(data=driver.get_screenshot_as_png())
+            Log.info('Klik Button Tambah')
 
-    driver.find_element(By.ID, "namaKegiatan").click()
-    driver.find_element(By.ID, "namaKegiatan").send_keys(NamaKegiatanFaker)
+            driver.find_element(By.ID, "jenisPemasaran").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+JenisPemasaranFaker+"")))
+            driver.find_element(By.ID, ""+JenisPemasaranFaker+"").click()
 
-    driver.find_element(By.ID, "tanggalPemasaran").send_keys(TanggalKegiatanFaker)
-    driver.find_element(By.ID, "tanggalPemasaran").send_keys(Keys.ENTER)
-    
+            driver.find_element(By.ID, "namaKegiatan").click()
+            driver.find_element(By.ID, "namaKegiatan").send_keys(NamaKegiatanFaker)
 
-    driver.find_element(By.ID, "mitra").click()
-    driver.find_element(By.ID, ""+MitraFaker+"").click()
+            driver.find_element(By.ID, "tanggalPemasaran").send_keys(TanggalKegiatanFaker)
+            driver.find_element(By.ID, "tanggalPemasaran").send_keys(Keys.ENTER)
+            
 
-    if JenisPemasaran == 'jenis4':
-        WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "negaraTujuan")))
-        driver.find_element(By.ID, "negaraTujuan").click()
-        driver.find_element(By.ID, ""+NamaNegara+"").click()
-        driver.find_element(By.ID, "negaraTujuan").send_keys(Keys.ENTER)
+            driver.find_element(By.ID, "mitra").click()
+            WebDriverWait(driver, 0).until(EC.element_to_be_clickable((By.ID, ""+MitraFaker+"")))
+            driver.find_element(By.ID, ""+MitraFaker+"").click()
+            time.sleep(2)
 
-        driver.find_element(By.ID, "kotaTujuan").send_keys(KotaTujuan)
-        driver.find_element(By.XPATH, "//li[contains(.,\'"+ KotaTujuan +"')]").click()
-        driver.find_element(By.ID, "kotaTujuan").send_keys(Keys.ENTER)
+          
 
-    else:
 
-        driver.find_element(By.ID, "kota").send_keys(KotaTujuan)
-    
-        driver.find_element(By.XPATH, "//li[contains(.,\'"+ KotaTujuan +"')]").click()
-        driver.find_element(By.ID, "kota").send_keys(Keys.ENTER)
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "kota")))
+            driver.find_element(By.ID, "kota").send_keys(KotaTujuan)
+        
+            driver.find_element(By.XPATH, "//li[contains(.,\'"+ KotaTujuan +"')]").click()
+            driver.find_element(By.ID, "kota").send_keys(Keys.ENTER)
 
-        driver.find_element(By.ID, "lokasi").click()
+            driver.find_element(By.ID, "lokasi").click()
 
-        driver.find_element(By.ID, "lokasi").send_keys(LokasiFaker)
+            driver.find_element(By.ID, "lokasi").send_keys(LokasiFaker)
 
-    driver.find_element(By.ID, "uploadButton").click()
-    uploadGambar(pathData)
+            driver.find_element(By.ID, "uploadButton").click()
+            time.sleep(1)
+            uploadGambar(pathData)
 
-    driver.execute_script("window.scrollTo(0,432)")
-    driver.find_element(By.ID, "uraianKegiatan").click()
-    driver.find_element(By.ID, "uraianKegiatan").send_keys(UraianFaker)
+            driver.execute_script("window.scrollTo(0,432)")
+            driver.find_element(By.ID, "uraianKegiatan").click()
+            driver.find_element(By.ID, "uraianKegiatan").send_keys(UraianFaker)
 
-    driver.find_element(By.ID, "produk0").click()
-    time.sleep(1)
-    driver.find_element(By.ID, ""+produkFaker+"").click()
+            driver.find_element(By.ID, "produk0").click()
+            time.sleep(1)
+            WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+produkFaker+"")))
+            driver.find_element(By.ID, ""+produkFaker+"").click()
 
-    driver.find_element(By.ID, "jumlah0").send_keys(JumlahBarangFaker)
+            # driver.find_element(By.ID, "jumlah0").send_keys(JumlahBarangFaker)
 
-    driver.find_element(By.ID, "satuan0").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+satuanFaker+"')]")))
-    time.sleep(1)
-    driver.find_element(By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]").click()
+            # driver.find_element(By.ID, "satuan0").click()
+            # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+satuanFaker+"')]")))
+            # time.sleep(1)
+            # driver.find_element(By.XPATH, "//li[contains(.,\'"+ satuanFaker +"')]").click()
 
-    driver.find_element(By.XPATH, "(//input[@type=\'text\'])[10]").send_keys(NilaiFaker)
-    driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
+            driver.find_element(By.XPATH, "(//input[@type=\'text\'])[10]").send_keys(NilaiFaker)
+            driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
 
-    Log.info('Operator mengisi form Pemasaran')
-    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "createButton")))
-    Log.info('Operator berhasil mengisi form Pemasaran')
-    attach(data=driver.get_screenshot_as_png())
-   
+            Log.info('Operator mengisi form Pemasaran')
+            WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "createButton")))
+            Log.info('Operator berhasil mengisi form Pemasaran')
+            attach(data=driver.get_screenshot_as_png())
+            vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
+            condition = driver.execute_script("return (arguments[0]<3)", vars["x"])
+        
 
 @pytest.mark.webtest
 def test_TC_GIATJA_010():
@@ -192,10 +179,9 @@ def test_TC_GIATJA_012():
 @pytest.mark.webtest
 def test_TC_GIATJA_013():
     sleep(driver)
-    WebDriverWait(driver, 30).until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".el-loading-spinner")))
-    WebDriverWait(driver, 30).until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".circular")))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "uraianKegiatan")))
-    driver.find_element(By.ID, "uraianKegiatan").send_keys(UraianFaker)
+    driver.find_element(By.ID, "uraianKegiatan").send_keys(fake.text(max_nb_chars=255))
     driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
 

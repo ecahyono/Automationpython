@@ -48,3 +48,12 @@ def MenuLaporan(driver):
     time.sleep(0.5)
     driver.find_element(By.LINK_TEXT, "Laporan Kegiatan Kerja dan Produksi").click()
 
+def LogOut(driver):
+    driver.implicitly_wait(10)
+    nav1 = driver.find_element(By.ID, "avatar")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.3)
+    nav2 = driver.find_element(By.XPATH, "//li[contains(.,'Logout')]")
+    time.sleep(0.3)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.XPATH, "//li[contains(.,'Logout')]").click()

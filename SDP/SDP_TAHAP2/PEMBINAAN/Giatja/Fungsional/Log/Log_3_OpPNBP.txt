@@ -1,0 +1,2 @@
+[2023-05-24 16:46:46,117 test_03_OpPNBP.py->test_TC_GIATJA_015()]==>INFO: Setup Os
+[2023-05-24 16:46:57,376 test_03_OpPNBP.py->test_TC_GIATJA_015()]==>INFO: Operator mengakses halaman PNBP

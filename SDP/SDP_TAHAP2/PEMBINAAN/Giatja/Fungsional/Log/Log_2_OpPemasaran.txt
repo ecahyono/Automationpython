@@ -1,0 +1,13 @@
+[2023-05-24 14:21:19,033 test_02_OpPemasaran.py->test_TC_GIATJA_008()]==>INFO: Setup Os
+[2023-05-24 14:21:30,734 test_02_OpPemasaran.py->test_TC_GIATJA_008()]==>INFO: Operator mengakses halaman Pemasaran
+[2023-05-24 14:21:54,150 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Klik Button Tambah
+[2023-05-24 14:22:16,287 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator mengisi form Pemasaran
+[2023-05-24 14:22:41,153 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator berhasil mengisi form Pemasaran
+[2023-05-24 14:22:44,664 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Klik Button Tambah
+[2023-05-24 14:23:06,236 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator mengisi form Pemasaran
+[2023-05-24 14:23:25,413 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Operator berhasil mengisi form Pemasaran
+[2023-05-24 14:23:27,261 test_02_OpPemasaran.py->test_TC_GIATJA_010()]==>INFO: Operator melihat bukti setor yang telah di upload
+[2023-05-24 14:23:36,364 test_02_OpPemasaran.py->test_TC_GIATJA_011()]==>INFO: Operator mengakses halaman Detail Pemasaran
+[2023-05-24 14:23:48,088 test_02_OpPemasaran.py->test_TC_GIATJA_012()]==>INFO: Operator mengakses halaman Edit Pemasaran
+[2023-05-24 14:24:20,397 test_02_OpPemasaran.py->test_TC_GIATJA_013()]==>INFO: Operator mengubah data Pemasaran
+[2023-05-24 14:24:22,310 test_02_OpPemasaran.py->test_TC_GIATJA_014()]==>INFO: Operator menghapus data Pemasaran
