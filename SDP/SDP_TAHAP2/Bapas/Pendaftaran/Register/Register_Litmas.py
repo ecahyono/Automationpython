@@ -1,4 +1,5 @@
 from src import *
+from regisdanverif import *
 
 # init driver by os
 @mark.fixture_pendampingan
@@ -11,21 +12,19 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Litmas']
-g = 9 # barisexel
-UPTO            = A['A'+str(g)].value
-Namanoinduk     = A['B'+str(g)].value
-JenisPNP        = A['C'+str(g)].value
-# Kelusia         = A['D'+str(g)].value
-Petpk           = A['E'+str(g)].value
-suratperintah   = A['F'+str(g)].value
-asalsurat1      = A['G'+str(g)].value
-nosurat1        = A['H'+str(g)].value
-tglsurat1       = A['I'+str(g)].value
-perihalsurat1   = A['J'+str(g)].value
-permintaanpenp  = A['K'+str(g)].value
-nosurat2        = A['L'+str(g)].value
-tglsurat2       = A['M'+str(g)].value
-perihalsurat2   = A['N'+str(g)].value
+UPTO            = A['A'+str(litmas)].value
+Namanoinduk     = A['B'+str(litmas)].value
+JenisPNP        = A['C'+str(litmas)].value
+Petpk           = A['E'+str(litmas)].value
+suratperintah   = A['F'+str(litmas)].value
+asalsurat1      = A['G'+str(litmas)].value
+nosurat1        = A['H'+str(litmas)].value
+tglsurat1       = A['I'+str(litmas)].value
+perihalsurat1   = A['J'+str(litmas)].value
+permintaanpenp  = A['K'+str(litmas)].value
+nosurat2        = A['L'+str(litmas)].value
+tglsurat2       = A['M'+str(litmas)].value
+perihalsurat2   = A['N'+str(litmas)].value
 
 
 @mark.fixture_pendampingan

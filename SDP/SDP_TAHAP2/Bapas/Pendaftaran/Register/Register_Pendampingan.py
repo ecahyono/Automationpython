@@ -1,4 +1,5 @@
 from src import *
+from regisdanverif import *
 
 # init driver by os
 @mark.fixture_pendampingan
@@ -11,22 +12,20 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Pendampingan']
-g = 2  # barisexel
-UPTO            = A['A'+str(g)].value
-Namanoinduk     = A['B'+str(g)].value
-
-JenisPNP        = A['C'+str(g)].value
-Kelusia         = A['D'+str(g)].value
-Petpk           = A['E'+str(g)].value
-suratperintah   = A['F'+str(g)].value
-asalsurat1      = A['G'+str(g)].value
-nosurat1        = A['H'+str(g)].value
-tglsurat1       = A['I'+str(g)].value
-perihalsurat1   = A['J'+str(g)].value
-permintaanpenp  = A['K'+str(g)].value
-nosurat2        = A['L'+str(g)].value
-tglsurat2       = A['M'+str(g)].value
-perihalsurat2   = A['N'+str(g)].value
+UPTO            = A['A'+str(pendampingan)].value
+Namanoinduk     = A['B'+str(pendampingan)].value
+JenisPNP        = A['C'+str(pendampingan)].value
+Kelusia         = A['D'+str(pendampingan)].value
+Petpk           = A['E'+str(pendampingan)].value
+suratperintah   = A['F'+str(pendampingan)].value
+asalsurat1      = A['G'+str(pendampingan)].value
+nosurat1        = A['H'+str(pendampingan)].value
+tglsurat1       = A['I'+str(pendampingan)].value
+perihalsurat1   = A['J'+str(pendampingan)].value
+permintaanpenp  = A['K'+str(pendampingan)].value
+nosurat2        = A['L'+str(pendampingan)].value
+tglsurat2       = A['M'+str(pendampingan)].value
+perihalsurat2   = A['N'+str(pendampingan)].value
 
 
 @mark.fixture_pendampingan
@@ -173,6 +172,8 @@ def testformtambahpendampingan():
     
   try:
     Log.info('Buton simmpan di tekan')
+    time.sleep(2)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     driver.find_element(By.ID,'submitButton').click()
     Log.info('menunggu Index Me-Load Data')
     pendingstart = time.time()

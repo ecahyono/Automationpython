@@ -8,16 +8,17 @@ def testconfigandlogin():
 	pathData = loadDataPath()
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
+	daftar_klien(driver)
 
 @mark.fixture_penerimaan
-def test_daftarklien():
+def test_Tambahdaftarklien():
     tambah = wb['KlienAPH']
-    for row in tambah.iter_rows(min_row=7, values_only=True):
+    for row in tambah.iter_rows(min_row=5, values_only=True):
         NamaKlien           = row[0]
         NIK                 = row[1]
         Residivis           = row[2]
         NamaAlias1          = row[3]
-        NamaAlias2          = row[4]
+        NamaAlias2          = row[4]    
         NamaAlias3          = row[5]
         NamaKecil1          = row[6]
         NamaKecil2          = row[7]
@@ -26,10 +27,10 @@ def test_daftarklien():
         MemilikiPengaruh    = row[10]
         TempatAsal          = row[11]
         TempatLahir         = row[12]
-        JenisKelamin        = row[13]
-        Kewarganegaraan     = row[14]
-        Negara              = row[15]
-        TanggalLahir        = row[16]
+        TanggalLahir        = row[13]
+        JenisKelamin        = row[14]
+        Kewarganegaraan     = row[15]
+        Negara              = row[16]
         Agama               = row[17]
         Agamalain           = row[18]
         Suku                = row[19]
@@ -107,7 +108,6 @@ def test_daftarklien():
         TanggalAmbil        = row[91]
  
         Log.info('Membuka Halaman Penerimaan Klien APH')
-        daftarklien(driver)
         driver.find_element(By.ID, 'createButton').click()
         #========================Input Tab Biodata ============================
         try :
@@ -120,12 +120,12 @@ def test_daftarklien():
             elif Residivis == 'Tidak':
                 pass
             #----------------------------------------------------------------
-            driver.find_element(By.ID, 'namaAlias1').send_keys(NamaAlias1)
-            driver.find_element(By.ID, 'namaAlias2').send_keys(NamaAlias2)
-            driver.find_element(By.ID, 'namaAlias3').send_keys(NamaAlias3)
-            driver.find_element(By.ID, 'namaKecil1').send_keys(NamaKecil1)
-            driver.find_element(By.ID, 'namaKecil2').send_keys(NamaKecil2)
-            driver.find_element(By.ID, 'namaKecil3').send_keys(NamaKecil3)
+            # driver.find_element(By.ID, 'namaAlias1').send_keys(NamaAlias1)
+            # driver.find_element(By.ID, 'namaAlias2').send_keys(NamaAlias2)
+            # driver.find_element(By.ID, 'namaAlias3').send_keys(NamaAlias3)
+            # driver.find_element(By.ID, 'namaKecil1').send_keys(NamaKecil1)
+            # driver.find_element(By.ID, 'namaKecil2').send_keys(NamaKecil2)
+            # driver.find_element(By.ID, 'namaKecil3').send_keys(NamaKecil3)
             # --------------------------------------------------------------
             if WBPBeresikoTinggi == 'Tidak':
                 print ('default')
@@ -459,44 +459,44 @@ def test_daftarklien():
             #--------------------------------------------------------------
             driver.find_element(By.ID, 'cacat').send_keys(normalTubuh)
             #--------------------------------------------------------------
-            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
-            time.sleep(3)
-            pyautogui.write(environ.get(r'Gambar'))
-            pyautogui.press('enter')
-            time.sleep(3)
-            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
-            time.sleep(3)
-            pyautogui.write(environ.get(r'Gambar'))
-            pyautogui.press('enter')
-            time.sleep(3)
-            driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
-            time.sleep(3)
-            pyautogui.write(environ.get(r'Gambar'))
-            pyautogui.press('enter')
-            #--------------------------------------------------------------
-            driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)  
-            driver.find_element(By.ID, 'ciri2').send_keys(CiriKhusus2) 
-            driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3)
+            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_1"]').click()
+            # time.sleep(3)
+            # pyautogui.write(environ.get(r'Gambar'))
+            # pyautogui.press('enter')
+            # time.sleep(3)
+            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_2"]').click()
+            # time.sleep(3)
+            # pyautogui.write(environ.get(r'Gambar'))
+            # pyautogui.press('enter')
+            # time.sleep(3)
+            # driver.find_element(By.XPATH, '//*[@id="upload_foto_ciri_3"]').click()
+            # time.sleep(3)
+            # pyautogui.write(environ.get(r'Gambar'))
+            # pyautogui.press('enter')
+            # #--------------------------------------------------------------
+            # driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)  
+            # driver.find_element(By.ID, 'ciri2').send_keys(CiriKhusus2) 
+            # driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3)
         except NoSuchElementException:
             driver.close()
             driver.quit()
             Log.info('Tidak ada elemen tersedia')
-        # ======================================================================
-        driver.find_element(By.ID, 'tab-6').click()
-        # # ========================Input Tab Sidik Jari==========================
-        try:
-            driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
-            driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
-            driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
-            sjambil = driver.find_element(By.ID, 'pengambil_sj')
-            sjambil.send_keys(PengambilanSJ)
-            sjambil.send_keys(Keys.ENTER)
-            driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
-        except NoSuchElementException:
-            driver.close()
-            driver.quit()
-        Log.info('Tidak ada elemen tersedia')
-        #======================================================================
+        # # ======================================================================
+        # driver.find_element(By.ID, 'tab-6').click()
+        # # # ========================Input Tab Sidik Jari==========================
+        # try:
+        #     driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
+        #     driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
+        #     driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
+        #     sjambil = driver.find_element(By.ID, 'pengambil_sj')
+        #     sjambil.send_keys(PengambilanSJ)
+        #     sjambil.send_keys(Keys.ENTER)
+        #     driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
+        # except NoSuchElementException:
+        #     driver.close()
+        #     driver.quit()
+        # Log.info('Tidak ada elemen tersedia')
+        # #======================================================================
         driver.find_element(By.ID, 'tab-7').click()
         #========================Input Tab Foto========================== 
         try:

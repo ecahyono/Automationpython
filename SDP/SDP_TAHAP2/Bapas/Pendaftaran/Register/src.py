@@ -30,14 +30,14 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 from Settings.setupbrowser import initDriver, loadDataPath, secondaryinit
-from Settings.login import login, bapasbdg , kasiebpsbdg
+from Settings.login import login, bapasbdg , kasiebpsbdg, PKbapas
 from Settings.Page.bapas import *
 from Settings.Browser import webfirefox
 
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
 timestamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
-fh = logging.FileHandler(f'pendaftaran_{timestamp}.log', mode="a")
+fh = logging.FileHandler(f'registrasi_{timestamp}.log', mode="a")
 fh.setLevel(logging.INFO)
 formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)

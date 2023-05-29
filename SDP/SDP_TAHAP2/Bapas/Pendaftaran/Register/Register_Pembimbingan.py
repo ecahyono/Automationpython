@@ -1,4 +1,5 @@
 from src import *
+from regisdanverif import *
 
 # init driver by os
 @mark.fixture_pendampingan
@@ -11,64 +12,71 @@ def testconfigandlogin():
 	bapasbdg(driver) #Operator BPS
 
 A = wb['Register Pembimbingan']
-g = 2  # barisexel
-UPTO                        = A['A'+str(g)].value
-NoregNama                   = A['B'+str(g)].value
-jenisKlien                  = A['C'+str(g)].value
-JenisPembimbingan           = A['D'+str(g)].value
-DasarPembimbingan           = A['E'+str(g)].value
-TglAwalBimbingan            = A['F'+str(g)].value
-TglAkhirBimbignan           = A['G'+str(g)].value
-CariPetugas                 = A['H'+str(g)].value
-SuratDasarPembimbingan      = A['I'+str(g)].value
-Asalsurat                   = A['J'+str(g)].value
-Nosurat1                    = A['K'+str(g)].value
-Nosurat1                    = A['L'+str(g)].value   
-Perihalsurat1               = A['M'+str(g)].value   
-SuratPengantarPenyerahan    = A['N'+str(g)].value   
-BeritaAcaraSerahTerimaKlien = A['R'+str(g)].value
-SuratPerintah               = A['V'+str(g)].value
+UPTO                        = A['A'+str(pembimbingan)].value
+NoregNama                   = A['B'+str(pembimbingan)].value
+jenisKlien                  = A['C'+str(pembimbingan)].value
+JenisPembimbingan           = A['D'+str(pembimbingan)].value
+DasarPembimbingan           = A['E'+str(pembimbingan)].value
+TglAwalBimbingan            = A['F'+str(pembimbingan)].value
+TglAkhirBimbignan           = A['G'+str(pembimbingan)].value
+CariPetugas                 = A['H'+str(pembimbingan)].value
+SuratDasarPembimbingan      = A['I'+str(pembimbingan)].value
+Asalsurat                   = A['J'+str(pembimbingan)].value
+Nosurat1                    = A['K'+str(pembimbingan)].value
+tglsurat                    = A['L'+str(pembimbingan)].value   
+Perihalsurat1               = A['M'+str(pembimbingan)].value   
+SuratPengantarPenyerahan    = A['N'+str(pembimbingan)].value   
+BeritaAcaraSerahTerimaKlien = A['R'+str(pembimbingan)].value
+SuratPerintah               = A['V'+str(pembimbingan)].value
 
 @mark.fixture_pendampingan
 def testpendampingan():
   Log.info('Menambah Data Register Pendampingan')
-  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pembimbingan/create')
+  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pembimbingan')
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
+  driver.find_element(By.ID, 'createButton').click()
 
 @mark.fixture_pendampingan
 def testcaridatawbp():
   try:
     Log.info('Memilih UPT')
-    elem = driver.find_element(By. XPATH, "//input[@placeholder='Pilih upt']")
+    elem = driver.find_element(By. ID, "upt")
     elem.click()
-    time.sleep(2)
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
     elem.send_keys(UPTO)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
-    driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
+    klikupt.click()
   except NoSuchElementException:
+    Log.getloger
     driver.close()
     driver.quit()
-    Log.info('Tidak ada elemen tersedia')
 
   try:
     Log.info('Memilih WBP')
-    elem1 = driver.find_element(By. XPATH, "//input[@placeholder='Cari berdasarkan Nama / No Induk']")
+    elem1 = driver.find_element(By. ID, "nama")
     elem1.click()
     elem1.send_keys(NoregNama)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*/text()[normalize-space(.)='"+NoregNama+"']/parent::*")))
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+NoregNama+"']/parent::*").click()
+    awal = time.time()
+    wbpnya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "nama0")))
+    akhir = time.time()
+    lamatunggu = awal - akhir
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
+    wbpnya.click()
   except NoSuchElementException:
     driver.close()
     driver.quit()
-    Log.info('Tidak ada elemen tersedia')
 
   try:  
-    Log.info('Melakukan pencarian data WBP')
+    Log.info('Melakukan pencarian data WBP, menunggu loading detail WBP')
     driver.find_element(By.ID, 'findButton').click()
-    time.sleep(4)
+    kop = time.time()
+    WebDriverWait(driver, 35).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+NoregNama+"']")))
+    kip = time.time()
+    tungguload = kop - kip
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(tungguload)))
   except NoSuchElementException:
     driver.close()
     driver.quit()
-    Log.info('Tidak ada elemen tersedia')
 
 @mark.fixture_pendampingan
 def testformtambahpendampingan():
@@ -79,17 +87,6 @@ def testformtambahpendampingan():
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "jenisRegistrasi0")))
     jereg.send_keys(jenisKlien)
     driver.find_element(By.XPATH, "//li[contains(.,'"+jenisKlien+"')]").click()
-  except NoSuchElementException:
-    driver.close()
-    driver.quit()
-    Log.info('Tidak ada elemen tersedia')
-
-  try:
-    Log.info('memelihi Jenis Pembimbingan')
-    jenpembi = driver.find_element(By.ID, 'dropdownJenisPembimbingan')
-    jenpembi.send_keys(JenisPembimbingan)
-    jenpembi.send_keys(Keys.DOWN)
-    jenpembi.send_keys(Keys.ENTER)
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -107,7 +104,7 @@ def testformtambahpendampingan():
 
   try:
     Log.info('Tgl awal Bimbingan')
-    tglaawal = driver.find_element(By. XPATH, "//input[@placeholder='Pilih Tgl Awal Bimbingan']")
+    tglaawal = driver.find_element(By. ID, "tglAwalBimbingan")
     tglaawal.click()
     tglaawal.send_keys(TglAwalBimbingan)
     tglaawal.send_keys(Keys.ENTER)
@@ -118,7 +115,7 @@ def testformtambahpendampingan():
 
   try:
     Log.info('Tgl Akir nimbingan')
-    tglakhir = driver.find_element(By. XPATH, "//input[@placeholder='Pilih Tgl Akhir Bimbingan']")
+    tglakhir = driver.find_element(By. ID, "tglAkhirBimbingan")
     tglakhir.click()
     tglakhir.send_keys(TglAkhirBimbignan)
     tglakhir.send_keys(Keys.ENTER)
@@ -152,14 +149,13 @@ def testformtambahpendampingan():
   try:
     Log.info('deskripsi SuratDasarPembimbingan')
     driver.find_element(By.ID, 'dropdownSurat').click()
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Asalsurat+"']/parent::*").click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'surat0')))
+    driver.find_element(By.XPATH, "//li[contains(.,'"+ Asalsurat+"')]").click()
     Log.info('input Nomer surat')
-    driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(Nosurat1)
+    driver.find_element(By.ID, "noSurat0").send_keys(Nosurat1)
     Log.info('pilih tanggal surat')
-    tglsuratpernth = driver.find_element(By.XPATH, "//input[@placeholder='Tgl Surat ']")
-    tglsuratpernth.click()
-    time.sleep(1)
-    tglsuratpernth.send_keys(Nosurat1)
+    tglsuratpernth = driver.find_element(By.ID, "TglSurat0")
+    tglsuratpernth.send_keys(tglsurat)
     tglsuratpernth.send_keys(Keys.ENTER)
     Log.info('input Perihal surat')
     driver.find_element(By.ID, 'keterangann0').send_keys(Perihalsurat1)
@@ -203,10 +199,22 @@ def testformtambahpendampingan():
 
   try:
     Log.info('deskripsi SuratPengantarPenyerahan')
-  #   driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(nosurat1)
-  #   driver.find_element(By.XPATH, "//input[@placeholder='Masukkan No Surat Permintaann Pendampingan']").send_keys(tglsurat1)
+    driver.find_element(By.ID, "noSurat1").send_keys(Nosurat1)
+    ltg1 = driver.find_element(By.ID, "TglSurat1")
+    ltg1.send_keys(tglsurat)
+    ltg1.send_keys(Keys.ENTER)
     driver.find_element(By.ID, 'keterangann1').send_keys(Perihalsurat1)
+    
+    driver.find_element(By.ID, "noSurat2").send_keys(Nosurat1)
+    ltg2 = driver.find_element(By.ID, "TglSurat2")
+    ltg2.send_keys(tglsurat)
+    ltg2.send_keys(Keys.ENTER)
     driver.find_element(By.ID, 'keterangann2').send_keys(Perihalsurat1)
+    
+    driver.find_element(By.ID, "noSurat3").send_keys(Nosurat1)
+    ltg3 = driver.find_element(By.ID, "TglSurat3")
+    ltg3.send_keys(tglsurat)
+    ltg3.send_keys(Keys.ENTER)
     driver.find_element(By.ID, 'keterangann3').send_keys(Perihalsurat1)
   except NoSuchElementException:
     driver.close()
