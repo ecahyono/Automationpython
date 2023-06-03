@@ -11,23 +11,6 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-A = wb['Register Pendampingan']
-UPTO            = A['A'+str(pendampingan)].value
-Namanoinduk     = A['B'+str(pendampingan)].value
-JenisPNP        = A['C'+str(pendampingan)].value
-Kelusia         = A['D'+str(pendampingan)].value
-Petpk           = A['E'+str(pendampingan)].value
-suratperintah   = A['F'+str(pendampingan)].value
-asalsurat1      = A['G'+str(pendampingan)].value
-nosurat1        = A['H'+str(pendampingan)].value
-tglsurat1       = A['I'+str(pendampingan)].value
-perihalsurat1   = A['J'+str(pendampingan)].value
-permintaanpenp  = A['K'+str(pendampingan)].value
-nosurat2        = A['L'+str(pendampingan)].value
-tglsurat2       = A['M'+str(pendampingan)].value
-perihalsurat2   = A['N'+str(pendampingan)].value
-
-
 @mark.fixture_pendampingan
 def testpendampingan():
   Log.info('Menambah Data Register Pendampingan')
@@ -81,7 +64,7 @@ def testcaridatawbp():
     driver.quit()
 
 @mark.fixture_pendampingan
-def testformtambahpendampingan():
+def testformtambahpendampingan1():
   try:
     Log.info('memelihi Jenis Pendampingan')
     fildjenreg = driver.find_element(By.ID, 'dropdownJenisRegistrasi')
@@ -92,7 +75,8 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-
+@mark.fixture_pendampingan
+def testformtambahpendampingan2():
   try:
     Log.info('memelihi Kelompok usia')
     if Kelusia == 'Anak':
@@ -103,7 +87,8 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-
+@mark.fixture_pendampingan
+def testformtambahpendampingan3():
   try:
     Log.info('memelihi Petugas Pendamping')
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
@@ -115,7 +100,8 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-
+@mark.fixture_pendampingan
+def testformtambahpendampingan4():
   try:
     Log.info('UPload surat Perintah')
     driver.find_element(By.ID, 'pilihFoto0').click()
@@ -126,7 +112,8 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-
+@mark.fixture_pendampingan
+def testformtambahpendampingan5():
   try:
     Log.info('deskripsi surat Perintah')
     driver.find_element(By.ID, 'dropdownSurat').click()
@@ -145,7 +132,8 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-
+@mark.fixture_pendampingan
+def testformtambahpendampingan6():
   try:
     Log.info('Upload surat permintaan pendampingan')
     driver.find_element(By.ID, 'pilihFoto1').click()

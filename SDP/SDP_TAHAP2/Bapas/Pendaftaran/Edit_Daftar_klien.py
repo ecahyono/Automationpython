@@ -1,36 +1,118 @@
 from src import *
+# from Register.regisdanverif import *
 from data import *
 # init driver by os
 @mark.fixture_penerimaan
-def testconfig():
+def testconfigandlogin():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
 	driver = initDriver()
 	pathData = loadDataPath()
-
-@mark.fixture_penerimaan
-def testLogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
+	daftar_klien(driver)
+
+# aph = wb['KlienAPH']
+# NamaKlien         = aph['A'+str(curd)].value
+# NIK            = aph['B'+str(curd)].value
+# Residivis         = aph['C'+str(curd)].value
+# NamaAlias1              = aph['D'+str(curd)].value
+# NamaAlias2              = aph['E'+str(curd)].value
+# NamaAlias3              = aph['F'+str(curd)].value
+# NamaKecil1              = aph['G'+str(curd)].value
+# NamaKecil2              = aph['H'+str(curd)].value
+# NamaKecil3              = aph['I'+str(curd)].value
+# WBPBeresikoTinggi      = aph['J'+str(curd)].value
+# MemilikiPengaruh        = aph['K'+str(curd)].value
+# TempatAsal              = aph['L'+str(curd)].value
+# TempatLahir          = aph['M'+str(curd)].value
+# TanggalLahir              = aph['N'+str(curd)].value
+# JenisKelamin              = aph['O'+str(curd)].value
+# Kewarganegaraan         = aph['P'+str(curd)].value
+# Negara                    = aph['Q'+str(curd)].value
+# Agama             = aph['R'+str(curd)].value
+# Agamalain         = aph['S'+str(curd)].value
+# Suku                  = aph['T'+str(curd)].value
+# SukuLain                  = aph['U'+str(curd)].value
+# StatusPerkawinan        = aph['v'+str(curd)].value
+# Provinsi                  = aph['W'+str(curd)].value
+# Kota                  = aph['X'+str(curd)].value
+# AlamatRumah          = aph['Y'+str(curd)].value
+# AlamatLain              = aph['Z'+str(curd)].value
+# Telepon              = aph['AA'+str(curd)].value
+# KodePOS              = aph['AB'+str(curd)].value
+# AsalInstansi              = aph['AC'+str(curd)].value
+# JenisKejahatan              = aph['AD'+str(curd)].value
+# UraianKejahatan         = aph['AE'+str(curd)].value
+# pasalutama              = aph['AF'+str(curd)].value
+# pasaltambahan     = aph['AG'+str(curd)].value
+# Ditahan              = aph['AH'+str(curd)].value
+# TanggalDitahan              = aph['AI'+str(curd)].value
+# NoSuratPenahanan        = aph['AJ'+str(curd)].value
+# JenisPekerjaan              = aph['AK'+str(curd)].value
+# JenisPekerjaanLain        = aph['AL'+str(curd)].value
+# TempatBekerja     = aph['AM'+str(curd)].value
+# KeteranganKerja         = aph['AN'+str(curd)].value
+# Pendidikan              = aph['AO'+str(curd)].value
+# TingkatPendidikanLain  = aph['AP'+str(curd)].value
+# Keahlian1         = aph['AQ'+str(curd)].value
+# Keahlian1Lain     = aph['AR'+str(curd)].value
+# LevelKeahlian1              = aph['AS'+str(curd)].value
+# Keahlian2         = aph['AT'+str(curd)].value
+# Keahlian2Lain     = aph['AU'+str(curd)].value
+# LevelKeahlian2              = aph['AV'+str(curd)].value
+# Minat             = aph['AW'+str(curd)].value
+# NamaAyah                  = aph['AX'+str(curd)].value
+# AlamatAyah              = aph['AY'+str(curd)].value
+# NamaIbu              = aph['AZ'+str(curd)].value
+# AlamatIbu         = aph['BA'+str(curd)].value
+# AnakKe                    = aph['BB'+str(curd)].value
+# Dari                  = aph['BC'+str(curd)].value
+# NamaSudara1          = aph['BD'+str(curd)].value
+# NamaSudara2          = aph['BE'+str(curd)].value
+# NamaSudara3          = aph['BF'+str(curd)].value
+# NamaSudara4          = aph['BG'+str(curd)].value
+# JumlahIstriSuami        = aph['BH'+str(curd)].value
+# NamaIstriSuami1         = aph['BI'+str(curd)].value
+# AlamatIstriSuami        = aph['BJ'+str(curd)].value
+# JumlahAnak              = aph['BK'+str(curd)].value
+# NamaAnak1         = aph['BL'+str(curd)].value
+# NamaAnak2         = aph['BM'+str(curd)].value
+# NmAnak3              = aph['BN'+str(curd)].value
+# TeleponKeluarga         = aph['BO'+str(curd)].value
+# Tinggi                    = aph['BP'+str(curd)].value
+# Berat             = aph['BQ'+str(curd)].value
+# BentukRambut              = aph['BR'+str(curd)].value
+# WarnaRambut          = aph['BS'+str(curd)].value
+# BentukBibir          = aph['BT'+str(curd)].value
+# Berkacamata          = aph['BU'+str(curd)].value
+# BentukMata              = aph['BV'+str(curd)].value
+# WarnaMata         = aph['BW'+str(curd)].value
+# Hidung                    = aph['BX'+str(curd)].value
+# RautMuka                  = aph['BY'+str(curd)].value
+# Telinga              = aph['BZ'+str(curd)].value
+# Mulut             = aph['CA'+str(curd)].value
+# Lengan                    = aph['CB'+str(curd)].value
+# Tangan                    = aph['CC'+str(curd)].value
+# Kaki                  = aph['CD'+str(curd)].value
+# WarnaKulit              = aph['CE'+str(curd)].value
+# CacatTubuh              = aph['CF'+str(curd)].value
+# CiriKhusus1          = aph['CG'+str(curd)].value
+# CiriKhusus2          = aph['CH'+str(curd)].value
+# CiriKhusus3          = aph['CI'+str(curd)].value        
+# NoPaspor                  = aph['CJ'+str(curd)].value        
+# RumusD                    = aph['CK'+str(curd)].value        
+# NomorD                    = aph['CL'+str(curd)].value        
+# TempatPengambilanSJ     = aph['CM'+str(curd)].value        
+# TanggalAmbil              = aph['CN'+str(curd)].value       
+
 
 @mark.fixture_penerimaan
-def testaksesmenu():
-    Log.info('Mengakses Menu Daftar Klien APH')
-    daftar_klien(driver)
-
-@mark.fixture_penerimaan
-def test_Masukhalamantambah():
+def test_Tambahdaftarklien():
     Log.info('Membuka Halaman Penerimaan Klien APH')
     driver.find_element(By.ID, 'createButton').click()
-
-@mark.fixture_penerimaan
-def test_isiFormdatatab1():
     #========================Input Tab Biodata ============================
-    # Log.Info('Membuka tab Identitas Klien APH')
-    WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'tab-1')))
-    time.sleep(2)
-    # driver.find_element(By.ID, 'tab-1').click()
-    #========================Input Tab Biodata ============================
+    driver.find_element(By.ID, 'tab-1').click()
     driver.find_element(By.ID, 'namKlien').send_keys(NamaKlien)
     driver.find_element(By.ID, 'nik').send_keys(NIK) 
     #----------------------------------------------------------------
@@ -39,12 +121,12 @@ def test_isiFormdatatab1():
     elif Residivis == 'Tidak':
         pass
     #----------------------------------------------------------------
-    driver.find_element(By.ID, 'namaAlias1').send_keys(NamaAlias1)
-    driver.find_element(By.ID, 'namaAlias2').send_keys(NamaAlias2)
-    driver.find_element(By.ID, 'namaAlias3').send_keys(NamaAlias3)
-    driver.find_element(By.ID, 'namaKecil1').send_keys(NamaKecil1)
-    driver.find_element(By.ID, 'namaKecil2').send_keys(NamaKecil2)
-    driver.find_element(By.ID, 'namaKecil3').send_keys(NamaKecil3)
+    # driver.find_element(By.ID, 'namaAlias1').send_keys(NamaAlias1)
+    # driver.find_element(By.ID, 'namaAlias2').send_keys(NamaAlias2)
+    # driver.find_element(By.ID, 'namaAlias3').send_keys(NamaAlias3)
+    # driver.find_element(By.ID, 'namaKecil1').send_keys(NamaKecil1)
+    # driver.find_element(By.ID, 'namaKecil2').send_keys(NamaKecil2)
+    # driver.find_element(By.ID, 'namaKecil3').send_keys(NamaKecil3)
     # --------------------------------------------------------------
     if WBPBeresikoTinggi == 'Tidak':
         print ('default')
@@ -119,18 +201,17 @@ def test_isiFormdatatab1():
     kotkab.send_keys(Kota) 
     kotkab.send_keys(Keys.DOWN) 
     kotkab.send_keys(Keys.ENTER) 
-    #------------------------------------------------------------------------------	  
+    #------------------------------------------------------------------------------	    
     driver.find_element(By.ID, 'alamatLain').send_keys(AlamatRumah)	 
     lainalamat = driver.find_element(By.XPATH, "//textarea[@placeholder='Masukan alamat lain']")
     lainalamat.send_keys(AlamatLain)  
         #tidak ada bedanya sama seka
     driver.find_element(By.ID, 'telepon').send_keys(Telepon)
     driver.find_element(By.ID, 'kodepos').send_keys(KodePOS)
-@mark.fixture_penerimaan
-def test_isiFormdatatab2():
     # ========================Informasi Penahanan===========================
     driver.find_element(By.ID, 'tab-2').click()
-    #------------------------------------------------------------------------------ 
+    #------------------------------------------------------------------------------
+
     driver.find_element(By.ID, 'instansi').click()
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'instansi0'))) 
     driver.find_element(By.XPATH, "//li[contains(.,'"+ AsalInstansi+"')]").click() 
@@ -151,9 +232,7 @@ def test_isiFormdatatab2():
         driver.find_element(By.ID, 'noSuratPenahanan').send_keys(NoSuratPenahanan)
     elif Ditahan == 'Tidak':
         pass
-@mark.fixture_penerimaan
-def test_isiFormdatatab3():
-    # ========================Informasi===========================
+    # ========================Informasi Penahanan===========================
     driver.find_element(By.ID, 'tab-3').click()
     # --------------------------------------------------------------
     if JenisPekerjaan == 'Lain-lain':
@@ -198,9 +277,8 @@ def test_isiFormdatatab3():
     level2.send_keys(Keys.DOWN)
     level2.send_keys(Keys.ENTER)
     # #----------------------------------------------------------------------
-    driver.find_element(By.ID, 'minat').send_keys(Minat) 
-@mark.fixture_penerimaan
-def test_isiFormdatatab4():   
+    driver.find_element(By.ID, 'minat').send_keys(Minat)
+
     #========================Input Tab Keluarga============================ 
     driver.find_element(By.ID, 'tab-4').click()
     #========================Input Tab Keluarga============================ 
@@ -211,60 +289,60 @@ def test_isiFormdatatab4():
     # ------------------------------------------------------------------------------
     keanak = driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input')
     keanak.click()
-    pyautogui.hotkey('backspace')        
+    pyautogui.hotkey('backspace')      
     keanak.send_keys(AnakKe)
     pyautogui.press('enter')
     saudarajumlh = driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input')
     saudarajumlh.click()
-    pyautogui.hotkey('backspace')        
+    pyautogui.hotkey('backspace')      
     saudarajumlh.send_keys(Dari)
     pyautogui.press('enter')
     if Dari == 2:	
-        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
+      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
     elif Dari == 3:	
-        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
-        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
-    elif Dari == 4:   
-        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)	
-        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2) 
-        driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
-    elif Dari == 5:   
-        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1) 
-        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
-        driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
-        driver.find_element(By.ID, 'nm_saudara_4').send_keys(NamaSudara4)
+      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
+      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
+    elif Dari == 4:    
+      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)	
+      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2) 
+      driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
+    elif Dari == 5:    
+      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1) 
+      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
+      driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
+      driver.find_element(By.ID, 'nm_saudara_4').send_keys(NamaSudara4)
     elif Dari == 1 :
-        print ('anak satu satunya')   
+      print ('anak satu satunya')
+
     if StatusPerkawinan == 'Belum Kawin':
-        print('default')
-    elif (StatusPerkawinan == 'Duda' or StatusPerkawinan == 'Janda' or  StatusPerkawinan == 'Kawin'):
-        driver.find_element(By.ID, 'jml_istri_suami').click()
-        pyautogui.hotkey('backspace')
-        driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
-        pyautogui.press('enter')
-        driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
-        driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
-        anaknya = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input')
-        anaknya.click()
-        pyautogui.hotkey('backspace')
-        anaknya.send_keys(JumlahAnak) 
-        pyautogui.press('enter')	
-        if JumlahAnak == 1:  
-            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
-        elif JumlahAnak == 2:	
-            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	 
-            driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-        elif JumlahAnak == 3:	
-            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	
-            driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)  
-            driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
-        elif  JumlahAnak == 0: 
-            pass
-            print('masa ga punya anak')
-        #--------------------------------------------------------------
-        driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
-@mark.fixture_penerimaan
-def test_isiFormdatatab5():
+      print('default')
+    elif (StatusPerkawinan == 'Duda' or StatusPerkawinan == 'Janda' or    StatusPerkawinan == 'Kawin'):
+      driver.find_element(By.ID, 'jml_istri_suami').click()
+      pyautogui.hotkey('backspace')
+      driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
+      pyautogui.press('enter')
+      driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
+      driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
+      anaknya = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input')
+      anaknya.click()
+      pyautogui.hotkey('backspace')
+      anaknya.send_keys(JumlahAnak) 
+      pyautogui.press('enter')	
+      if JumlahAnak == 1: 
+          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
+      elif JumlahAnak == 2:	
+          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	 
+          driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
+      elif JumlahAnak == 3:	
+          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	
+          driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)    
+          driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
+      elif    JumlahAnak == 0: 
+          pass
+          print('masa ga punya anak')
+    #--------------------------------------------------------------
+    driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
+    #=====================================================================
     #========================Input Tab Data Fisik========================== 
     driver.find_element(By.ID, 'tab-5').click()
     #========================Input Tab Data Fisik==========================
@@ -377,11 +455,10 @@ def test_isiFormdatatab5():
     # pyautogui.write(environ.get(r'Gambar'))
     # pyautogui.press('enter')
     # #--------------------------------------------------------------
-    # driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)  
+    # driver.find_element(By.ID, 'ciri').send_keys(CiriKhusus1)   
     # driver.find_element(By.ID, 'ciri2').send_keys(CiriKhusus2) 
-    # driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3) 
-# @mark.fixture_penerimaan
-# def test_isiFormdatatab6():   
+    # driver.find_element(By.ID, 'ciri3').send_keys(CiriKhusus3)
+
     # # ======================================================================
     # driver.find_element(By.ID, 'tab-6').click()
     # # # ========================Input Tab Sidik Jari==========================
@@ -398,10 +475,9 @@ def test_isiFormdatatab5():
     #     driver.quit()
     # Log.info('Tidak ada elemen tersedia')
     # #======================================================================
-@mark.fixture_penerimaan
-def test_isiFormdatata7():
     driver.find_element(By.ID, 'tab-7').click()
-    #========================Input Tab Foto==========================   
+    #========================Input Tab Foto========================== 
+
     driver.find_element(By.ID, 'uploadFotoKiri').click()
     time.sleep(3)
     pyautogui.write(environ.get(r'Gambar'))
@@ -414,9 +490,7 @@ def test_isiFormdatata7():
     time.sleep(3)
     pyautogui.write(environ.get(r'Gambar'))
     pyautogui.press('enter')
-    #========================Input Tab Foto==========================
-@mark.fixture_penerimaan
-def test_simpanData(): 
+    #========================Input Tab Foto========================== 
     #Submit
     driver.find_element(By.ID, 'submitButton').click() 
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'createButton')))

@@ -11,18 +11,6 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-A = wb['Register pengawasan']
-UPTO                        = A['A'+str(pengawsan)].value
-NoregNama                   = A['B'+str(pengawsan)].value
-jenispengawasn              = A['C'+str(pengawsan)].value
-CariPetugas                 = A['D'+str(pengawsan)].value
-SuratDasarPembimbingan      = A['E'+str(pengawsan)].value
-Asalsurat                   = A['F'+str(pengawsan)].value
-nosurat1                    = A['G'+str(pengawsan)].value
-tglsurat1                   = A['H'+str(pengawsan)].value
-perihalsurat1               = A['I'+str(pengawsan)].value
-
-
 @mark.fixture_pengawasan
 def testpengawasan():
   Log.info('Menambah Data Register pengawasan')

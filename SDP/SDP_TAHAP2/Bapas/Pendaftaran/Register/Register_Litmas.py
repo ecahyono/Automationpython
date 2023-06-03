@@ -11,21 +11,6 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-A = wb['Register Litmas']
-UPTO            = A['A'+str(litmas)].value
-Namanoinduk     = A['B'+str(litmas)].value
-JenisPNP        = A['C'+str(litmas)].value
-Petpk           = A['E'+str(litmas)].value
-suratperintah   = A['F'+str(litmas)].value
-asalsurat1      = A['G'+str(litmas)].value
-nosurat1        = A['H'+str(litmas)].value
-tglsurat1       = A['I'+str(litmas)].value
-perihalsurat1   = A['J'+str(litmas)].value
-permintaanpenp  = A['K'+str(litmas)].value
-nosurat2        = A['L'+str(litmas)].value
-tglsurat2       = A['M'+str(litmas)].value
-perihalsurat2   = A['N'+str(litmas)].value
-
 
 @mark.fixture_pendampingan
 def testlitmas():

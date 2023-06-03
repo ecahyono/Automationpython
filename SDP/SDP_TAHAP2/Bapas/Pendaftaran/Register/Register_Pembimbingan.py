@@ -11,23 +11,6 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-A = wb['Register Pembimbingan']
-UPTO                        = A['A'+str(pembimbingan)].value
-NoregNama                   = A['B'+str(pembimbingan)].value
-jenisKlien                  = A['C'+str(pembimbingan)].value
-JenisPembimbingan           = A['D'+str(pembimbingan)].value
-DasarPembimbingan           = A['E'+str(pembimbingan)].value
-TglAwalBimbingan            = A['F'+str(pembimbingan)].value
-TglAkhirBimbignan           = A['G'+str(pembimbingan)].value
-CariPetugas                 = A['H'+str(pembimbingan)].value
-SuratDasarPembimbingan      = A['I'+str(pembimbingan)].value
-Asalsurat                   = A['J'+str(pembimbingan)].value
-Nosurat1                    = A['K'+str(pembimbingan)].value
-tglsurat                    = A['L'+str(pembimbingan)].value   
-Perihalsurat1               = A['M'+str(pembimbingan)].value   
-SuratPengantarPenyerahan    = A['N'+str(pembimbingan)].value   
-BeritaAcaraSerahTerimaKlien = A['R'+str(pembimbingan)].value
-SuratPerintah               = A['V'+str(pembimbingan)].value
 
 @mark.fixture_pendampingan
 def testpendampingan():

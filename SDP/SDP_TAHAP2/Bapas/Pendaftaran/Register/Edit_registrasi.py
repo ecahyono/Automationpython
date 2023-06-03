@@ -1,5 +1,5 @@
 from src import *
-from regisdanverif import*
+from fakeoption import *
 # init driver by os
 @mark.fixture_penerimaan
 def testconfigandlogin():
@@ -10,17 +10,9 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
 
-A = wb['Verifikasi']
-g = 2  # barisexel
-statusverif     = A['D'+str(g)].value
-deskripsi       = A['E'+str(g)].value
-
-D = wb['Register Pendampingan']
-j = 3  # barisexel
-JenisPNP        = D['C'+str(j)].value
-
 @mark.fixture_verifikasi
 def testverifikasi():
+  global Pilih
   Pilih = input('Pilih Data Yang akan di Edit \n'
                 '1. Register Pendampingan \n'
                 '2. Register Litmas \n'
@@ -54,10 +46,24 @@ def testfilterindx():
 
 @mark.fixture_verifikasi
 def testVerifikasinya():
-  Log.info('Menekan tombol Detail')
-  driver.find_element(By.XPATH, '//div[2]/a/button').click()
+  Log.info('Menekan tombol Ubah')  
+  if (Pilih == '2' or Pilih == '4'):
+    driver.find_element(By.ID, 'updateButton0').click()
+  else:
+    driver.find_element(By.ID, 'UpdateButton0').click()
+  loli = time.time()
   WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
   WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
-  time.sleep(2)
+  popi = time.time()
+  waktulit = loli-popi
+  Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(waktulit)))
+  time.sleep(1)
   driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-	
+
+@mark.fixture_verifikasi
+def ubahdatanya():
+  try:
+    if Pilih == '1':
+      driver.find_element(By. XPATH, '')
+  except NoSuchElementException:
+    pass 
