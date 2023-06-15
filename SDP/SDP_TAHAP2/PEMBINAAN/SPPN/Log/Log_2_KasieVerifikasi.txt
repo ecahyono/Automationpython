@@ -1,0 +1,2 @@
+[2023-06-07 15:35:49,115 test_2_SppnKasieVerifikasi.py_>test_TC_SPPN_008()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-06-07 15:36:13,389 test_2_SppnKasieVerifikasi.py_>test_TC_SPPN_009()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai

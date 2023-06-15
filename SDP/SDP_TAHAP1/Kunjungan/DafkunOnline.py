@@ -21,13 +21,12 @@ def test_setup():
     global driver
     global wb
     swin = Service(r'C:/Users/user/Documents/TRCH/chromedriver.exe')
-    smac = Service('/Users/will/Downloads/chromedriver')
+    smac = Service('/Users/wildanwijaksana/Documents/chromedriver')
 
     if platform.system() == 'Darwin':
         driver = webdriver.Chrome(service=smac)
-        # url = "http://kumbang.torche.id:32400/"
-        url = "http://192.168.2.11:32400/"
-        
+        url = "http://kumbang.torche.id:32400/"
+       
         driver.get(url)
         # seting windows nya jadi max
         wb = load_workbook(filename=r"/Users/will/Documents/work/Automationpython/Filexel/Kunjungan.xlsx")   

@@ -20,9 +20,9 @@ pemasaran                                               = ['#pemasaran0']
 
 
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_015():
-    Op_Giatja(driver)
+    OpKemandirian(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Setup Os')
     sleep(driver)
@@ -30,7 +30,7 @@ def test_TC_GIATJA_015():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Operator mengakses halaman PNBP')
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_016():
     sleep(driver)
     vars = {}
@@ -39,12 +39,15 @@ def test_TC_GIATJA_016():
     while condition:
             
         fake = Faker('id_ID')
+        JeniskegiatanPemasaran                                  = ['jenisPemasaran0-opt0','jenisPemasaran0-opt1','jenisPemasaran0-opt2','jenisPemasaran0-opt3']
+        pemasaranProdak                                         =  ['#pemasaran0opt0 > span','#pemasaran0opt1 > span']
         for i in range(1):
             TanggalSetorFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
             akunSetorFaker                                      = random.choice(akunSetor)
             keteranganFaker                                     = fake.text(max_nb_chars=255)
-            pemasaranFaker                                      = random.choice(pemasaran)
+            pemasaranProdakFaker                                      = random.choice(pemasaranProdak)
             NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
+            JeniskegiatanPemasaranFaker                         = random.choice(JeniskegiatanPemasaran)
         
 
 
@@ -54,7 +57,8 @@ def test_TC_GIATJA_016():
             attach(data=driver.get_screenshot_as_png())
             
             WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
-            driver.find_element(By.ID, "tanggalSetor").send_keys(TanggalSetorFaker)
+            driver.find_element(By.ID, "tanggalSetor").click()
+            driver.find_element(By.CSS_SELECTOR, "#tanggalSetor").send_keys(TanggalSetorFaker)
             driver.find_element(By.ID, "tanggalSetor").send_keys(Keys.ENTER)
 
             driver.find_element(By.ID, "akunSetor").click()
@@ -65,9 +69,18 @@ def test_TC_GIATJA_016():
             uploadGambar(driver)
             driver.find_element(By.ID, "keterangan").send_keys(keteranganFaker)
 
+
+            driver.find_element(By.ID, "jenisPemasaran0").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+JeniskegiatanPemasaranFaker+"")))
+            driver.find_element(By.ID, ""+JeniskegiatanPemasaranFaker+"").click()
+            Log.info('Operator menambahkan data JenisPemasaran')
+
             driver.find_element(By.ID, "pemasaran0").click()
-            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ""+pemasaranFaker+"")))
-            driver.find_element(By.CSS_SELECTOR, ""+pemasaranFaker+"").click()
+            driver.find_element(By.XPATH, "//td[1]/div/div/div/div/div/div/input").click()
+
+            
+            # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ""+pemasaranProdakFaker+"")))
+            # driver.find_element(By.CSS_SELECTOR, ""+pemasaranProdakFaker+"").click()
 
             driver.find_element(By.ID, "jumlah0").send_keys(NilaiFaker)
 

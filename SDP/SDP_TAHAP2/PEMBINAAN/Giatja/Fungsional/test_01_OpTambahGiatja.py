@@ -12,9 +12,10 @@ Log.addHandler(fh)
 
 @pytest.mark.webtest
 def test_TC_GIATJA_001():
-    Op_Giatja(driver)
+    OpKemandirian(driver)
     Log.info('Login Op Giatja')
     attach(data=driver.get_screenshot_as_png())
+    
 
 @pytest.mark.webtest
 def test_TC_GIATJA_002():
@@ -22,7 +23,7 @@ def test_TC_GIATJA_002():
     MenuGiatja(driver)
     Log.info('Operator mengakses halaman Kegiatan Kerja dan Produksi')
     attach(data=driver.get_screenshot_as_png())
-
+    
 @pytest.mark.webtest
 def test_TC_GIATJA_003():
     sleep(driver)
@@ -36,6 +37,13 @@ def test_TC_GIATJA_003():
             namaKegiatanFakerX                 = fake.text(max_nb_chars=10)
 
         print('Click Create Button')
+        #========= bulan sebelumnya
+        # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+        # driver.find_element(By.ID, "filterBulanTahun").click()
+        # driver.find_element(By.ID, "filterBulanTahun").send_keys("April 2023")
+        # driver.find_element(By.ID, "buttonSearch").click()
+        #========= bulan sebelumnya
+
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
         driver.find_element(By.ID, "createButton").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "backButton")))
@@ -50,7 +58,6 @@ def test_TC_GIATJA_003():
         Log.info('Input Bidang Kegiatan')
         attach(data=driver.get_screenshot_as_png())
 
-
         sleep(driver)
         print('Input Jenis Kegiatan')
         driver.find_element(By.ID, "jenisKegiatan").click()
@@ -63,14 +70,12 @@ def test_TC_GIATJA_003():
         driver.find_element(By.ID, "namaKegiatan").send_keys(namaKegiatanFakerX)
         Log.info('Input Nama Kegiatan')
 
-
         print('Input Skala Kegiatan')
         sleep(driver)
         driver.find_element(By.ID, "skalaKegiatan").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+SkalakegiatanFaker+"")))
         driver.find_element(By.ID, ""+SkalakegiatanFaker+"").click()
         Log.info('Input Skala Kegiatan')
-
 
         print('Input Tanggal Awal Kegiatan')
         sleep(driver)
@@ -118,6 +123,7 @@ def test_TC_GIATJA_003():
         driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(8) .el-select__input").click()
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+prasaranaFaker+"")))
         driver.find_element(By.ID, ""+prasaranaFaker+"").click()
+        driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(8) .el-select__input").click()
         Log.info('Input Prasarana')
         
         print('Input Mitra')
@@ -272,9 +278,9 @@ def test_TC_GIATJA_005():
 def test_TC_GIATJA_006():
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(7) .el-select__input").click()
-    kegiatan = driver.find_element(By.ID, "namaKegiatan")
-    kegiatan.clear()
-    kegiatan.send_keys(namaKegiatanFaker) 
+    # kegiatan = driver.find_element(By.ID, "namaKegiatan")
+    # kegiatan.clear()
+    # kegiatan.send_keys(namaKegiatanFaker) 
     
     driver.find_element(By.ID, "keterangan").send_keys(keteranganFaker)
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, ""+saranaFaker+"")))
@@ -286,7 +292,7 @@ def test_TC_GIATJA_006():
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     time.sleep(2)
     driver.find_element(By.CSS_SELECTOR, "#submitButton svg").click()
-    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
+    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.ID, "createButton")))
     Log.info("2.Klik button Ubah")
 
 

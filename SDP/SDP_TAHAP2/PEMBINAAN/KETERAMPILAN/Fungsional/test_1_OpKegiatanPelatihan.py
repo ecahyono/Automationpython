@@ -44,7 +44,7 @@ def test1_SetupOs_OpKegiatanPelatihan():
 
 @pytest.mark.webtest
 def test_TC_KTR_001():      
-    Op_Keterampilan(driver)
+    OpKemandirian(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Login aplikasi menggunakan akun dengan role operator')
 
@@ -248,7 +248,7 @@ def test_TC_KTR_007():
 
 
 
-    
+
 
 def test1_exit_OpKegiatanPelatihan():
     LogOut(driver)

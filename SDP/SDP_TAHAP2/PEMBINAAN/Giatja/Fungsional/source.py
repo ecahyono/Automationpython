@@ -34,9 +34,9 @@ elif platform.system() == 'Windows':
     wb = load_workbook(environ.get("KeamananUATWin"))
 import random
 
-from Settings.setupGiatja import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
-from Settings.loginGiatja import *
-from Settings.Page.Giatja import *
+from Settings.setupPembinaan import *
+from Settings.loginPembinaan import *
+from Settings.Page.Pembinaan import *
 import random
 import logging
 
@@ -56,22 +56,33 @@ worksheet = workbook.active
 worksheet.title = 'GiatjaTambah'
 
 fake = Faker('id_ID')
+
 KegiatanKerja   = ['Manufaktur','Jasa']
+KegiatanKerja1   = ['bidang1-opt0','bidang1-opt1','bidang1-opt2']
+KegiatanKerja2   = ['bidang1-opt0','bidang1-opt1','bidang1-opt2']
+
 Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3']
-Skalakegiatan   = ['skala0','skala1','skala2']
-area            = ['area0','area1','area2']
-sarana          = ['sarana0','sarana1','sarana2']
-prasarana       = ['prasaranaundefined-0','prasaranaundefined-1','prasaranaundefined-2','prasaranaundefined-3']
-mitra           = ['mitra0']
-checkbox        = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner','.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner','.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner','.el-table__row:nth-child(10) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner']
-idjenis         = ['jenis0','jenis1']
-satuan          = ['satuan0','satuan1','satuan3','satuan4','satuan5']
-fakeMonth       = ['05']
+
+
+Skalakegiatan           = ['skala0','skala1','skala2']
+area                    = ['area0','area1','area2']
+sarana                  = ['sarana0','sarana1','sarana2']
+prasarana               = ['prasaranaundefined-0','prasaranaundefined-1','prasaranaundefined-2','prasaranaundefined-3']
+mitra                   = ['mitra0']
+checkbox                = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner','.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner','.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner','.el-table__row:nth-child(10) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner']
+idjenis                 = ['jenis0','jenis1']
+satuan                  = ['satuan0','satuan1','satuan3','satuan4','satuan5']
+fakeMonth               = ['04']
+fakeMonthRevisi         = ['04']
 akunSetor                                               = ['pendapatan','nihil']
+
 
 
 for i in range(1):
     KegiatanKerjaFaker                = random.choice(KegiatanKerja)
+    KegiatanKerjaFaker1               = random.choice(KegiatanKerja1)
+    KegiatanKerjaFaker2               = random.choice(KegiatanKerja2)
+    
     JeniskegiatanFaker                = random.choice(Jeniskegiatan)
     namaKegiatanFaker                 = fake.text(max_nb_chars=7)
     SkalakegiatanFaker                = random.choice(Skalakegiatan)
@@ -97,12 +108,14 @@ for i in range(1):
     lamaPengerjaanFaker               = fake.random_int(min=1, max=7)
 
     TanggalSetorFaker                                   = random.choice(fakeMonth)
+    TanggalSetorFakerRevisi                                   = random.choice(fakeMonthRevisi)
 
     NilaiFaker                                          = fake.random_int(min=100000, max=1000000)
 
     # TanggalSetorFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%m')
     akunSetorFaker                                      = random.choice(akunSetor)
     keteranganFaker                                     = fake.text(max_nb_chars=255)
+    
     
 
 

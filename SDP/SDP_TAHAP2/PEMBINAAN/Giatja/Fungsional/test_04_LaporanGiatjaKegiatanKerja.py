@@ -8,13 +8,9 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-
-
-   
-
 @pytest.mark.webtest
 def test_TC_GIATJA_022():
-    Op_Giatja(driver)
+    OpKemandirian(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Setup Os Akses aplikasi SDP')
     sleep(driver)
@@ -110,7 +106,7 @@ def test_TC_GIATJA_023():
 
 @pytest.mark.webtest
 def test_TC_GIATJA_024():    
-    Op_Giatja(driver)
+    KasieGiatja(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Login Kasie')
 
@@ -227,7 +223,7 @@ def test_TC_GIATJA_026():
 
 @pytest.mark.webtest
 def test_TC_GIATJA_027():
-    Op_Giatja(driver)
+    KalapasGiatja(driver)
     attach(data=driver.get_screenshot_as_png())
     Log.info('Login Kalapas')
 

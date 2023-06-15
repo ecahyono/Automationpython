@@ -16,6 +16,7 @@ from pytest_html_reporter import attach
 import pyautogui
 from datetime import datetime
 import pytest
+from selenium import webdriver
 
 import sys
 from os import environ, path
@@ -32,9 +33,9 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
     wb = load_workbook(environ.get("KeamananUATWin"))
-from Settings.setupKeterampilan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
-from Settings.loginKeterampilan import * 
-from Settings.Page.Keterampilan import *
+from Settings.setupPembinaan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
+from Settings.loginPembinaan import * 
+from Settings.Page.Pembinaan import *
 import random
 import logging
 

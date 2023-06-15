@@ -1,0 +1,2 @@
+[2023-06-07 15:45:55,404 test_1_SppnPerwalian.py_>test_TC_SPPN_001()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-06-07 15:46:24,168 test_1_SppnPerwalian.py_>test_TC_SPPN_002()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai

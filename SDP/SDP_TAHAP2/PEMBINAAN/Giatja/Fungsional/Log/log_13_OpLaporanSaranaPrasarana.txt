@@ -1,0 +1,4 @@
+[2023-05-29 10:08:59,899 test_07_OpLaporanSaranaPrasarana.py->test_TC_GIATJA_051()]==>INFO: Setup Os
+[2023-05-29 10:09:14,850 test_07_OpLaporanSaranaPrasarana.py->test_TC_GIATJA_052()]==>INFO: Kasie mengakses halaman Laporan Pemasaran PNBPsi
+[2023-05-29 10:09:36,221 test_07_OpLaporanSaranaPrasarana.py->test_TC_GIATJA_053()]==>INFO: Mei Sarana
+[2023-05-29 10:09:36,222 test_07_OpLaporanSaranaPrasarana.py->test_TC_GIATJA_053()]==>INFO: 1. Klik status pada bulan / tahun yang akan di verifikasi

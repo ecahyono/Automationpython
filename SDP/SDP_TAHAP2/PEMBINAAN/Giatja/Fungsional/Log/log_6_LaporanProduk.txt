@@ -1,0 +1,3 @@
+[2023-05-30 12:04:44,565 test_06_LaporanProduk.py->test_TC_GIATJA_039()]==>INFO: Setup Os Akses aplikasi SDP
+[2023-05-30 12:04:58,783 test_06_LaporanProduk.py->test_TC_GIATJA_039()]==>INFO: Operator mengakses halaman Laporan Produk
+[2023-05-30 12:05:38,330 test_06_LaporanProduk.py->test_TC_GIATJA_040()]==>INFO: April Kegiatan Kerja

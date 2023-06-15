@@ -1,6 +1,0 @@
-[2023-05-10 19:45:22,920 test_2_PerbaikanLaporan6A.py->test_4_loginKanwilVerifikasiPerbaikan()]==>INFO: Setup Os
-[2023-05-10 19:45:36,573 test_2_PerbaikanLaporan6A.py->test_4_loginKanwilVerifikasiPerbaikan()]==>INFO: Login Spv Laporan Kamtib 6A
-[2023-05-10 19:45:51,611 test_2_PerbaikanLaporan6A.py->test_5_AksesMenu()]==>INFO: Akses halaman Laporan 6A
-[2023-05-10 19:46:00,056 test_2_PerbaikanLaporan6A.py->test_6_PilihUpt()]==>INFO: Klik tombol search
-[2023-05-10 19:46:00,056 test_2_PerbaikanLaporan6A.py->test_6_PilihUpt()]==>INFO: Input UPT
-[2023-05-10 19:46:05,720 test_2_PerbaikanLaporan6A.py->test_7_ClickButtonPermohonanPerbaikan()]==>INFO: Filter Column Semua

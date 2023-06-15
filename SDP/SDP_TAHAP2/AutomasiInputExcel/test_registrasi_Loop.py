@@ -22,6 +22,7 @@ from openpyxl import load_workbook
 
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
+    wb = load_workbook(environ.get("RegSelenium"))
 
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
@@ -39,23 +40,23 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-wb = load_workbook(environ.get("RegSelenium"))
+
 sheetrange = wb['RegSelenium']
 
-@mark.fixture_test()
+@mark.webtest()
 def test_1_setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
 
-@mark.fixture_test()
+@mark.webtest()
 def test_2_login():
     loginwaru(driver)
     Log.info('Login')
 
 
-@mark.fixture_test()
+@mark.webtest()
 def test_Input_Registrasi():
     driver.implicitly_wait(60)
     driver.implicitly_wait(30)
@@ -353,7 +354,7 @@ def test_Input_Registrasi():
   
         
 
-@mark.fixture_test()
+@mark.webtest()
 def test_exit():
     quit(driver)
 

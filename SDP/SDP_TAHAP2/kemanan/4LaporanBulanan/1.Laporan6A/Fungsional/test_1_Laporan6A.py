@@ -31,7 +31,7 @@ elif platform.system() == 'Windows':
     wb = load_workbook(environ.get("KeamananUATWin"))
 
 
-from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
+from Settings.setupPembinaan import *
 from Settings.loginkeamanan import SpvRutanBdg, oplapkamtibwaru,kanwiljabar,pusat
 from Settings.Page.keamanan import menulaporan6a
 import pytest
