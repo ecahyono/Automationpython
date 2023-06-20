@@ -6,7 +6,7 @@ import random
 from src import *
 
 ################-> input urutan Baris Di Exel yang akan di eksekusi
-pendampingan = 4
+pendampingan = 13
 litmas = 25
 pembimbingan = 2
 pengawsan = 12
@@ -27,39 +27,8 @@ JenisLayananBerikutnya        = fake.random.choice(opsiJenisLayananBerikutnya)
 Switchfield                   = fake.random_element(elements=('Iya', 'Tidak'))
 TipeLampiran                  = fake.random_element(elements=('Pendampingan Diversi', 'Pendampingan Pelaksanaan Kesepakatan Diversi'))
 TingkatPengadilan             = fake.random_element(elements=('Negeri', 'Tinggi','Mahkamah'))
+verifikasilaporan             = fake.random_element(elements=('Laporan Disetujui Kasie', 'Laporan Revisi Kasie'))
 
-A = wb['Register Pembimbingan']
-UPTObimbingan                           = 'Lapas Kelas II A Bogor'
-NoregNamabimbingan                      = A['B'+str(pembimbingan)].value
-jenisKlienPembimbingan                  = A['C'+str(pembimbingan)].value
-JenisPembimbingan                       = A['D'+str(pembimbingan)].value
-DasarPembimbingan                       = A['E'+str(pembimbingan)].value
-TglAwalBimbingan                        = A['F'+str(pembimbingan)].value
-TglAkhirBimbignan                       = A['G'+str(pembimbingan)].value
-CariPetugasPembimbingan                 = A['H'+str(pembimbingan)].value
-SuratDasarPembimbingan                  = A['I'+str(pembimbingan)].value
-AsalsuratPembimbingan                   = A['J'+str(pembimbingan)].value
-Nosurat1Pembimbingan                    = A['K'+str(pembimbingan)].value
-tglsuratPembimbingan                    = A['L'+str(pembimbingan)].value   
-Perihalsurat1Pembimbingan               = A['M'+str(pembimbingan)].value   
-SuratPengantarPenyerahanPembimbingan    = A['N'+str(pembimbingan)].value   
-BeritaAcaraSerahTerimaKlienPembimbingan = A['R'+str(pembimbingan)].value
-SuratPerintahPembimbingan               = A['V'+str(pembimbingan)].value
-
-B = wb['Register Litmas']
-UPTOlitmas      = B['A'+str(litmas)].value
-Namanoinduk     = B['B'+str(litmas)].value
-Jenislitmas     = B['C'+str(litmas)].value
-Petpk           = B['E'+str(litmas)].value
-suratperintah   = B['F'+str(litmas)].value
-asalsurat1      = B['G'+str(litmas)].value
-nosurat1        = B['H'+str(litmas)].value
-tglsurat1       = B['I'+str(litmas)].value
-perihalsurat1   = B['J'+str(litmas)].value
-permintaanpenp  = B['K'+str(litmas)].value
-nosurat2        = B['L'+str(litmas)].value
-tglsurat2       = B['M'+str(litmas)].value
-perihalsurat2   = B['N'+str(litmas)].value
 
 C = wb['Register Pendampingan']
 opsiJenisPendampingan    = [cell.value for cell in C['C'] if cell.value is not None]
@@ -67,8 +36,8 @@ opsiasalsurat            = [cell.value for cell in C['G'] if cell.value is not N
 
 UPTOdamping     = C['A'+str(pendampingan)].value
 Namanoinduk     = C['B'+str(pendampingan)].value
-JenisPNP        = C['C'+str(pendampingan)].value
-Kelusia         = C['D'+str(pendampingan)].value
+JenisPNP        = fake.random.choice(opsiJenisPendampingan)
+Kelusia         = fake.random_element(elements=('Anak - Anak', 'Dewasa'))
 Petpk           = C['E'+str(pendampingan)].value
 suratperintah   = C['F'+str(pendampingan)].value
 asalsurat1      = fake.random.choice(opsiasalsurat)

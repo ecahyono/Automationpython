@@ -1,5 +1,5 @@
 from src import *
-from regisdanverif  import *
+from fakeoption  import *
 
 # init driver by os
 @mark.fixture_pengawasan
@@ -25,8 +25,8 @@ def testcaridatawbp():
     elem = driver.find_element(By. ID, "upt")
     elem.click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
-    elem.send_keys(UPTO)
-    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
+    elem.send_keys(UPTOawas)
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTOawas+"')]")))
     klikupt.click()
   except NoSuchElementException:
     Log.getloger
@@ -37,7 +37,7 @@ def testcaridatawbp():
     Log.info('Memilih WBP')
     elem1 = driver.find_element(By. ID, "nama")
     elem1.click()
-    elem1.send_keys(NoregNama)
+    elem1.send_keys(NoregNamapengawasan)
     awal = time.time()
     wbpnya = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, "nama0")))
     akhir = time.time()
@@ -52,7 +52,7 @@ def testcaridatawbp():
     Log.info('Melakukan pencarian data WBP, menunggu loading detail WBP')
     driver.find_element(By.ID, 'findButton').click()
     kop = time.time()
-    WebDriverWait(driver, 55).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+NoregNama+"']")))
+    WebDriverWait(driver, 55).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+NoregNamapengawasan+"']")))
     kip = time.time()
     tungguload = kop - kip
     Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(tungguload)))
@@ -77,7 +77,7 @@ def testformtambahpengawasan():
   try:
     Log.info('memelihi Petugas Pendamping')
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
-    pk.send_keys(CariPetugas)
+    pk.send_keys(CariPetugaspengawsan)
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     driver.find_element(By.ID, 'searchPetugasPenerima0').click()
   except NoSuchElementException:

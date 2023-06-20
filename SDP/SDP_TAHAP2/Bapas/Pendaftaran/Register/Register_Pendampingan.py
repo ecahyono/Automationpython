@@ -1,5 +1,5 @@
 from src import *
-from regisdanverif import *
+from fakeoption import *
 
 # init driver by os
 @mark.fixture_pendampingan
@@ -25,8 +25,8 @@ def testcaridatawbp():
     elem = driver.find_element(By. ID, "upt")
     elem.click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
-    elem.send_keys(UPTO)
-    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
+    elem.send_keys(UPTOdamping)
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTOdamping+"')]")))
     klikupt.click()
     # driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
   except NoSuchElementException:
@@ -157,7 +157,39 @@ def testformtambahpendampingan6():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-    
+@mark.fixture_pendampingan
+def testformtambahpendampingan7():
+  Log.info('Menambah Dokumen')
+  driver.find_element(By.ID, 'tambah_foto').click()
+  namafotonya = driver.find_element(By.ID, 'namaFoto2')
+  namafotonya.click()
+  namafotonya.send_keys(Keys.DOWN)
+  namafotonya.send_keys(Keys.ENTER)
+  try:
+    Log.info('Upload surat permintaan pendampingan')
+    driver.find_element(By.ID, 'pilihFoto2').click()
+    time.sleep(3)
+    pyautogui.write(environ.get(r'FILEPDF'))
+    pyautogui.press('enter')
+  except NoSuchElementException:
+    Log.info('Tidak ada elemen tersedia')
+    driver.close()
+    driver.quit()
+
+  try:
+    Log.info('deskripsi spermintaan pendampingan')
+    driver.find_element(By.ID, 'noSurat2').send_keys(nosurat1)
+    tgl2 = driver.find_element(By.ID, 'TglSurat2')
+    tgl2.send_keys(tglsurat1)
+    tgl2.send_keys(Keys.ENTER)
+    driver.find_element(By.ID, 'keterangann2').send_keys(perihalsurat2)
+  
+  except NoSuchElementException:
+    Log.info('Tidak ada elemen tersedia')
+    driver.close()
+    driver.quit()
+@mark.fixture_pendampingan
+def testformtambahpendampingan8():
   try:
     Log.info('Buton simmpan di tekan')
     time.sleep(2)

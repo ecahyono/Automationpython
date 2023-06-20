@@ -13,14 +13,16 @@ def testLogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
 
-@mark.fixture_penerimaan
-def testaksesmenu():
-    Log.info('Mengakses Menu Daftar Klien APH')
-    daftar_klien(driver)
+# @mark.fixture_penerimaan
+# def testaksesmenu():
+#     Log.info('Mengakses Menu Daftar Klien APH')
+#     daftar_klien(driver)
 
 @mark.fixture_penerimaan
 def test_Masukhalamantambah():
     Log.info('Membuka Halaman Penerimaan Klien APH')
+    driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/daftar-calon-klien/create')
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
     driver.find_element(By.ID, 'createButton').click()
 
 @mark.fixture_penerimaan
@@ -116,7 +118,7 @@ def test_isiFormdatatab1():
     kotkab = driver.find_element(By.ID, 'kotaKabupaten')
     kotkab.click()
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'kotaKabupaten0')))
-    kotkab.send_keys(Kota) 
+    # kotkab.send_keys(Kota) 
     kotkab.send_keys(Keys.DOWN) 
     kotkab.send_keys(Keys.ENTER) 
     #------------------------------------------------------------------------------	  

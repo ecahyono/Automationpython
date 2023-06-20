@@ -30,7 +30,7 @@ elif platform.system() == 'Windows':
 
 from Settings.setup import initDriver, loadDataPath, hold
 from Settings.login import login, loginBanjar
-from Settings.Page.Registrasi import Registrasi_identitas
+from Settings.Page.accessmenu import Registrasi_identitas
 
 @mark.fixture_test
 # init driver by os
@@ -51,7 +51,7 @@ def test_aksesmenu():
 def test_eksekusi():
 	wb = load_workbook(environ.get("REGEXCEL"))
 	sheetrange = wb['Identitas']
-	i = 71
+	i = 2
 	while i <= len(sheetrange['A']):
 		#deklarasi per colom pada sheet
 		#------------------------------------------------------
@@ -609,17 +609,17 @@ def test_eksekusi():
 			#========================Input Tab Foto========================== 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[1]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+			pyautogui.write(environ.get(r'Gambar'))
 			pyautogui.press('enter')
 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[2]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+			pyautogui.write(environ.get(r'Gambar'))
 			pyautogui.press('enter')
 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[3]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(r'C:\Users\user\Documents\TRCH\Automationpython\assets\Filefoto\Gambar.jpg')
+			pyautogui.write(environ.get(r'Gambar'))
 			pyautogui.press('enter')
 			#======================================================================
 			# driver.find_element(By.ID, 'tab-7').click()

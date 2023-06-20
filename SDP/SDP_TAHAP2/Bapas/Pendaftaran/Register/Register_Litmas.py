@@ -1,5 +1,5 @@
 from src import *
-from regisdanverif import *
+from fakeoption import *
 
 # init driver by os
 @mark.fixture_pendampingan
@@ -27,8 +27,8 @@ def testcaridatawbp():
     elem = driver.find_element(By. ID, "upt")
     elem.click()
     WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
-    elem.send_keys(UPTO)
-    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTO+"')]")))
+    elem.send_keys(UPTOlitmas)
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTOlitmas+"')]")))
     klikupt.click()
     # driver.find_element(By.XPATH, "//li[contains(.,'"+UPTO+"')]").click()
   except NoSuchElementException:
@@ -69,7 +69,7 @@ def testformtambahpendampingan():
   try:
     Log.info('memelihi Jenis Litmas')
     driver.find_element(By.ID, 'dropdownJenisRegistrasi').click()
-    driver.find_element(By.XPATH, "//li[contains(.,'"+ JenisPNP+"')]").click()
+    driver.find_element(By.XPATH, "//li[contains(.,'"+ Jenislitmas+"')]").click()
   except NoSuchElementException:
     driver.close()
     driver.quit()

@@ -1,5 +1,4 @@
 from src import *
-from regisdanverif import*
 # init driver by os
 @mark.fixture_penerimaan
 def testconfigandlogin():
@@ -17,7 +16,7 @@ def testverifikasi():
                 '2. Register Litmas \n'
                 '3. Register Pembimbingan \n'
                 '4. Register Pengawasan \n'
-                'Masukan Nomor : '
+                'Masukan Nomor :-> '
   )
   if Pilih == '1':
     Log.info('Akses Menu Register Pendampingan')
@@ -31,6 +30,9 @@ def testverifikasi():
   elif Pilih == '4':
     Log.info('Akses Menu Register Pengawasan')
     driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pengawasan')
+  elif Pilih == '5':
+    Log.info('Akses Menu Pendampingan')
+    driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pendampingan')
 
 @mark.fixture_verifikasi
 def testfilterindx():
@@ -50,7 +52,7 @@ def testfilterindx():
 @mark.fixture_verifikasi
 def testVerifikasinya():
   Log.info('Menekan tombol Detail')
-  driver.find_element(By.CSS_SELECTOR, ".h-5.w-5").click()
+  driver.find_element(By.ID, "detailButton0").click()
   awal = time.time()
   WebDriverWait(driver, 25).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
   WebDriverWait(driver, 25).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
@@ -75,7 +77,7 @@ def testVerifikasinya():
     Nose7 = WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, "RevisiDrop")))
     Nose7.click()
     Log.info('memberikan deskripsi Hasil verifikasi')
-    driver.find_element(By. XPATH, "//textarea[@placeholder='Masukkan Keterangan']").send_keys(deskripsi)
+    driver.find_element(By. XPATH, "//textarea[@placeholder='Masukkan Keterangan']").send_keys('Direvisi Oleh Kasie Yang Bersangkutan!!!!')
   elif verif == '1':
     print('Permohonan')
 

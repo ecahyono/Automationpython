@@ -28,7 +28,7 @@ def bapasbdg(driver):
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
     driver.find_element(By.ID, "username").click()
-    driver.find_element(By.ID, "username").send_keys("bpsbdg")
+    driver.find_element(By.ID, "username").send_keys("op-bapas")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login

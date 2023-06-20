@@ -1,110 +1,35 @@
 from src import *
-# from Register.regisdanverif import *
 from data import *
 # init driver by os
+
 @mark.fixture_penerimaan
-def testconfigandlogin():
+def testconfig():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
 	driver = initDriver()
 	pathData = loadDataPath()
-	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
-	daftar_klien(driver)
 
-# aph = wb['KlienAPH']
-# NamaKlien         = aph['A'+str(curd)].value
-# NIK            = aph['B'+str(curd)].value
-# Residivis         = aph['C'+str(curd)].value
-# NamaAlias1              = aph['D'+str(curd)].value
-# NamaAlias2              = aph['E'+str(curd)].value
-# NamaAlias3              = aph['F'+str(curd)].value
-# NamaKecil1              = aph['G'+str(curd)].value
-# NamaKecil2              = aph['H'+str(curd)].value
-# NamaKecil3              = aph['I'+str(curd)].value
-# WBPBeresikoTinggi      = aph['J'+str(curd)].value
-# MemilikiPengaruh        = aph['K'+str(curd)].value
-# TempatAsal              = aph['L'+str(curd)].value
-# TempatLahir          = aph['M'+str(curd)].value
-# TanggalLahir              = aph['N'+str(curd)].value
-# JenisKelamin              = aph['O'+str(curd)].value
-# Kewarganegaraan         = aph['P'+str(curd)].value
-# Negara                    = aph['Q'+str(curd)].value
-# Agama             = aph['R'+str(curd)].value
-# Agamalain         = aph['S'+str(curd)].value
-# Suku                  = aph['T'+str(curd)].value
-# SukuLain                  = aph['U'+str(curd)].value
-# StatusPerkawinan        = aph['v'+str(curd)].value
-# Provinsi                  = aph['W'+str(curd)].value
-# Kota                  = aph['X'+str(curd)].value
-# AlamatRumah          = aph['Y'+str(curd)].value
-# AlamatLain              = aph['Z'+str(curd)].value
-# Telepon              = aph['AA'+str(curd)].value
-# KodePOS              = aph['AB'+str(curd)].value
-# AsalInstansi              = aph['AC'+str(curd)].value
-# JenisKejahatan              = aph['AD'+str(curd)].value
-# UraianKejahatan         = aph['AE'+str(curd)].value
-# pasalutama              = aph['AF'+str(curd)].value
-# pasaltambahan     = aph['AG'+str(curd)].value
-# Ditahan              = aph['AH'+str(curd)].value
-# TanggalDitahan              = aph['AI'+str(curd)].value
-# NoSuratPenahanan        = aph['AJ'+str(curd)].value
-# JenisPekerjaan              = aph['AK'+str(curd)].value
-# JenisPekerjaanLain        = aph['AL'+str(curd)].value
-# TempatBekerja     = aph['AM'+str(curd)].value
-# KeteranganKerja         = aph['AN'+str(curd)].value
-# Pendidikan              = aph['AO'+str(curd)].value
-# TingkatPendidikanLain  = aph['AP'+str(curd)].value
-# Keahlian1         = aph['AQ'+str(curd)].value
-# Keahlian1Lain     = aph['AR'+str(curd)].value
-# LevelKeahlian1              = aph['AS'+str(curd)].value
-# Keahlian2         = aph['AT'+str(curd)].value
-# Keahlian2Lain     = aph['AU'+str(curd)].value
-# LevelKeahlian2              = aph['AV'+str(curd)].value
-# Minat             = aph['AW'+str(curd)].value
-# NamaAyah                  = aph['AX'+str(curd)].value
-# AlamatAyah              = aph['AY'+str(curd)].value
-# NamaIbu              = aph['AZ'+str(curd)].value
-# AlamatIbu         = aph['BA'+str(curd)].value
-# AnakKe                    = aph['BB'+str(curd)].value
-# Dari                  = aph['BC'+str(curd)].value
-# NamaSudara1          = aph['BD'+str(curd)].value
-# NamaSudara2          = aph['BE'+str(curd)].value
-# NamaSudara3          = aph['BF'+str(curd)].value
-# NamaSudara4          = aph['BG'+str(curd)].value
-# JumlahIstriSuami        = aph['BH'+str(curd)].value
-# NamaIstriSuami1         = aph['BI'+str(curd)].value
-# AlamatIstriSuami        = aph['BJ'+str(curd)].value
-# JumlahAnak              = aph['BK'+str(curd)].value
-# NamaAnak1         = aph['BL'+str(curd)].value
-# NamaAnak2         = aph['BM'+str(curd)].value
-# NmAnak3              = aph['BN'+str(curd)].value
-# TeleponKeluarga         = aph['BO'+str(curd)].value
-# Tinggi                    = aph['BP'+str(curd)].value
-# Berat             = aph['BQ'+str(curd)].value
-# BentukRambut              = aph['BR'+str(curd)].value
-# WarnaRambut          = aph['BS'+str(curd)].value
-# BentukBibir          = aph['BT'+str(curd)].value
-# Berkacamata          = aph['BU'+str(curd)].value
-# BentukMata              = aph['BV'+str(curd)].value
-# WarnaMata         = aph['BW'+str(curd)].value
-# Hidung                    = aph['BX'+str(curd)].value
-# RautMuka                  = aph['BY'+str(curd)].value
-# Telinga              = aph['BZ'+str(curd)].value
-# Mulut             = aph['CA'+str(curd)].value
-# Lengan                    = aph['CB'+str(curd)].value
-# Tangan                    = aph['CC'+str(curd)].value
-# Kaki                  = aph['CD'+str(curd)].value
-# WarnaKulit              = aph['CE'+str(curd)].value
-# CacatTubuh              = aph['CF'+str(curd)].value
-# CiriKhusus1          = aph['CG'+str(curd)].value
-# CiriKhusus2          = aph['CH'+str(curd)].value
-# CiriKhusus3          = aph['CI'+str(curd)].value        
-# NoPaspor                  = aph['CJ'+str(curd)].value        
-# RumusD                    = aph['CK'+str(curd)].value        
-# NomorD                    = aph['CL'+str(curd)].value        
-# TempatPengambilanSJ     = aph['CM'+str(curd)].value        
-# TanggalAmbil              = aph['CN'+str(curd)].value       
+@mark.fixture_penerimaan
+def testpendampingan():
+    Log.info('Menambah Data Register Pendampingan')
+    driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/daftar-calon-klien')
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+
+@mark.fixture_penerimaan
+def testupdatedataklien():
+    driver.find_element(By.ID, 'keyword').send_keys('Andika')
+    driver.find_element(By.ID, 'searchButton').click()
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'searchButton')))
+    Log.info('Membuka halaman tambah')
+    driver.find_element(By.ID, 'DetailButton0').click()
+    time.sleep(2)
+    loli = time.time()
+    WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+    WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+    popi = time.time()
+    waktulit = loli-popi
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(waktulit)))
 
 
 @mark.fixture_penerimaan
@@ -113,20 +38,36 @@ def test_Tambahdaftarklien():
     driver.find_element(By.ID, 'createButton').click()
     #========================Input Tab Biodata ============================
     driver.find_element(By.ID, 'tab-1').click()
-    driver.find_element(By.ID, 'namKlien').send_keys(NamaKlien)
-    driver.find_element(By.ID, 'nik').send_keys(NIK) 
+    t1_nama = driver.find_element(By.ID, 'namKlien')
+    t1_nama.clear()
+    t1_nama.send_keys(NamaKlien)
+    ti_nik = driver.find_element(By.ID, 'nik')
+    ti_nik.clear()
+    ti_nik.send_keys(NIK) 
     #----------------------------------------------------------------
     if Residivis == 'Iya':
         driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='Residivis']/parent::*").click()
     elif Residivis == 'Tidak':
         pass
     #----------------------------------------------------------------
-    # driver.find_element(By.ID, 'namaAlias1').send_keys(NamaAlias1)
-    # driver.find_element(By.ID, 'namaAlias2').send_keys(NamaAlias2)
-    # driver.find_element(By.ID, 'namaAlias3').send_keys(NamaAlias3)
-    # driver.find_element(By.ID, 'namaKecil1').send_keys(NamaKecil1)
-    # driver.find_element(By.ID, 'namaKecil2').send_keys(NamaKecil2)
-    # driver.find_element(By.ID, 'namaKecil3').send_keys(NamaKecil3)
+    t1_nama1 = driver.find_element(By.ID, 'namaAlias1')
+    t1_nama1.clear()
+    t1_nama1.send_keys(NamaAlias1)
+    t1_nama2 = driver.find_element(By.ID, 'namaAlias2')
+    t1_nama2.clear()
+    t1_nama2.send_keys(NamaAlias2)
+    t1_nama3 = driver.find_element(By.ID, 'namaAlias3')
+    t1_nama3.clear()
+    t1_nama3.send_keys(NamaAlias3)
+    t1_nama4 = driver.find_element(By.ID, 'namaKecil1')
+    t1_nama4.clear()
+    t1_nama4.send_keys(NamaKecil1)
+    t1_nama5 = driver.find_element(By.ID, 'namaKecil2')
+    t1_nama5.clear()
+    t1_nama5.send_keys(NamaKecil2)
+    t1_nama6 = driver.find_element(By.ID, 'namaKecil3')
+    t1_nama6.clear()
+    t1_nama6.send_keys(NamaKecil3)
     # --------------------------------------------------------------
     if WBPBeresikoTinggi == 'Tidak':
         print ('default')
@@ -149,6 +90,7 @@ def test_Tambahdaftarklien():
     t4lahir.send_keys(Keys.ENTER)
     #-------------------------------------------------------------- 
     tgllahir = driver.find_element(By.ID, 'tanggalLahir')
+    tgllahir.clear()
     tgllahir.send_keys(TanggalLahir)
     tgllahir.send_keys(Keys.ENTER)
     # #-------------------------------------------------------------- 
@@ -198,16 +140,23 @@ def test_Tambahdaftarklien():
     kotkab = driver.find_element(By.ID, 'kotaKabupaten')
     kotkab.click()
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'kotaKabupaten0')))
-    kotkab.send_keys(Kota) 
+    # kotkab.send_keys(Kota) 
     kotkab.send_keys(Keys.DOWN) 
     kotkab.send_keys(Keys.ENTER) 
-    #------------------------------------------------------------------------------	    
-    driver.find_element(By.ID, 'alamatLain').send_keys(AlamatRumah)	 
+    #------------------------------------------------------------------------------  
+    tb_almtrumah = driver.find_element(By.ID, 'alamatLain')
+    tb_almtrumah.clear()
+    tb_almtrumah.send_keys(AlamatRumah)  
     lainalamat = driver.find_element(By.XPATH, "//textarea[@placeholder='Masukan alamat lain']")
+    lainalamat.clear()
     lainalamat.send_keys(AlamatLain)  
-        #tidak ada bedanya sama seka
-    driver.find_element(By.ID, 'telepon').send_keys(Telepon)
-    driver.find_element(By.ID, 'kodepos').send_keys(KodePOS)
+    #tidak ada bedanya sama seka
+    tb_telpo = driver.find_element(By.ID, 'telepon')
+    tb_telpo.clear()
+    tb_telpo.send_keys(Telepon)
+    tb_kodepo = driver.find_element(By.ID, 'kodepos')
+    kodepo.clear()
+    kodepo.send_keys(KodePOS)
     # ========================Informasi Penahanan===========================
     driver.find_element(By.ID, 'tab-2').click()
     #------------------------------------------------------------------------------
@@ -220,13 +169,20 @@ def test_Tambahdaftarklien():
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'kejahatan0'))) 
     driver.find_element(By.XPATH, "//li[contains(.,'"+ JenisKejahatan+"')]").click() 
     # --------------------------------------------------------------
-    driver.find_element(By.ID, 'uraianKegiatan').send_keys(UraianKejahatan)
-    driver.find_element(By.ID, 'pasalUtama').send_keys('Pasal Utama Kejahatan')
-    driver.find_element(By.ID, 'pasalTambahan').send_keys('Pasal Tambahan Kejahatan')
+    tb_infp1 = driver.find_element(By.ID, 'uraianKegiatan')
+    tb_infp1.clear()
+    tb_infp1.send_keys(UraianKejahatan)
+    tb_infp2 = driver.find_element(By.ID, 'pasalUtama')
+    tb_infp2.clear()
+    tb_infp2.send_keys('Pasal Utama Kejahatan')
+    tb_infp3 = driver.find_element(By.ID, 'pasalTambahan')
+    tb_infp3.clear()
+    tb_infp3.send_keys('Pasal Tambahan Kejahatan')
     # --------------------------------------------------------------
     if Ditahan == 'Iya':
         driver.find_element(By.XPATH, '//*[@id="pane-2"]/form/div/div[2]/div[2]/div/div/div').click()
         tglditghan = driver.find_element(By.ID, 'tanggalDitahan')
+        tglditghan.clear()
         tglditghan.send_keys(TanggalDitahan)
         tglditghan.send_keys(Keys.ENTER)
         driver.find_element(By.ID, 'noSuratPenahanan').send_keys(NoSuratPenahanan)
@@ -258,7 +214,7 @@ def test_Tambahdaftarklien():
         driver.find_element(By.ID, 'id_jenis_keahlian_1').click()
         WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'idjenisKeahlian-0'))) 
         driver.find_element(By.XPATH, "//li[contains(.,'"+ Keahlian1+"')]").click
-    driver.find_element(By.ID, 'id_jenis_level_1').click()      
+    driver.find_element(By.ID, 'id_jenis_level_1').click()    
     WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'idJenisLevel-0'))) 
     driver.find_element(By.XPATH, "//li[contains(.,'"+ LevelKeahlian1+"')]").click()
     #--------------------------------------------------------------
@@ -289,57 +245,57 @@ def test_Tambahdaftarklien():
     # ------------------------------------------------------------------------------
     keanak = driver.find_element(By.XPATH, '//*[@id="anakke"]/div/input')
     keanak.click()
-    pyautogui.hotkey('backspace')      
+    pyautogui.hotkey('backspace')     
     keanak.send_keys(AnakKe)
     pyautogui.press('enter')
     saudarajumlh = driver.find_element(By.XPATH, '//*[@id="jml_saudara"]/div/input')
     saudarajumlh.click()
-    pyautogui.hotkey('backspace')      
+    pyautogui.hotkey('backspace')     
     saudarajumlh.send_keys(Dari)
     pyautogui.press('enter')
-    if Dari == 2:	
-      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
-    elif Dari == 3:	
-      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
-      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
-    elif Dari == 4:    
-      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)	
-      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2) 
-      driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
-    elif Dari == 5:    
-      driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1) 
-      driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
-      driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
-      driver.find_element(By.ID, 'nm_saudara_4').send_keys(NamaSudara4)
+    if Dari == 2:   
+        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
+    elif Dari == 3: 
+        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1)
+        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
+    elif Dari == 4: 
+        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1) 
+        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2) 
+        driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
+    elif Dari == 5: 
+        driver.find_element(By.ID, 'nm_saudara_1').send_keys(NamaSudara1) 
+        driver.find_element(By.ID, 'nm_saudara_2').send_keys(NamaSudara2)
+        driver.find_element(By.ID, 'nm_saudara_3').send_keys(NamaSudara3)
+        driver.find_element(By.ID, 'nm_saudara_4').send_keys(NamaSudara4)
     elif Dari == 1 :
-      print ('anak satu satunya')
+        print ('anak satu satunya')
 
     if StatusPerkawinan == 'Belum Kawin':
-      print('default')
-    elif (StatusPerkawinan == 'Duda' or StatusPerkawinan == 'Janda' or    StatusPerkawinan == 'Kawin'):
-      driver.find_element(By.ID, 'jml_istri_suami').click()
-      pyautogui.hotkey('backspace')
-      driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
-      pyautogui.press('enter')
-      driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
-      driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
-      anaknya = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input')
-      anaknya.click()
-      pyautogui.hotkey('backspace')
-      anaknya.send_keys(JumlahAnak) 
-      pyautogui.press('enter')	
-      if JumlahAnak == 1: 
-          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
-      elif JumlahAnak == 2:	
-          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	 
-          driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
-      elif JumlahAnak == 3:	
-          driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)	
-          driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)    
-          driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
-      elif    JumlahAnak == 0: 
-          pass
-          print('masa ga punya anak')
+        print('default')
+    elif (StatusPerkawinan == 'Duda' or StatusPerkawinan == 'Janda' or  StatusPerkawinan == 'Kawin'):
+        driver.find_element(By.ID, 'jml_istri_suami').click()
+        pyautogui.hotkey('backspace')
+        driver.find_element(By.XPATH, '//*[@id="jml_istri_suami"]/div/input' ).send_keys(JumlahIstriSuami) 
+        pyautogui.press('enter')
+        driver.find_element(By.ID, 'nm_istri_suami_1').send_keys(NamaIstriSuami1)
+        driver.find_element(By.ID, 'tmp_tgl_istri_suami').send_keys(AlamatIstriSuami)
+        anaknya = driver.find_element(By.XPATH, '//*[@id="jml_anak"]/div/input')
+        anaknya.click()
+        pyautogui.hotkey('backspace')
+        anaknya.send_keys(JumlahAnak) 
+        pyautogui.press('enter')  
+        if JumlahAnak == 1: 
+            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)
+        elif JumlahAnak == 2: 
+            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)   
+            driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)
+        elif JumlahAnak == 3: 
+            driver.find_element(By.ID, 'nm_anak_1').send_keys(NamaAnak1)  
+            driver.find_element(By.ID, 'nm_anak_2').send_keys(NamaAnak2)  
+            driver.find_element(By.ID, 'nm_anak_3').send_keys(NamaAnak3)
+        elif  JumlahAnak == 0: 
+            pass
+            print('masa ga punya anak')
     #--------------------------------------------------------------
     driver.find_element(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(TeleponKeluarga)
     #=====================================================================
@@ -463,16 +419,16 @@ def test_Tambahdaftarklien():
     # driver.find_element(By.ID, 'tab-6').click()
     # # # ========================Input Tab Sidik Jari==========================
     # try:
-    #     driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
-    #     driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
-    #     driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
-    #     sjambil = driver.find_element(By.ID, 'pengambil_sj')
-    #     sjambil.send_keys(PengambilanSJ)
-    #     sjambil.send_keys(Keys.ENTER)
-    #     driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
+    #    driver.find_element(By.ID, 'no_paspor').send_keys(NoPaspor)
+    #    driver.find_element(By.ID, 'rumus_daktil').send_keys(RumusD)
+    #    driver.find_element(By.ID, 'nomor_daktil').send_keys(NomorD)
+    #    sjambil = driver.find_element(By.ID, 'pengambil_sj')
+    #    sjambil.send_keys(PengambilanSJ)
+    #    sjambil.send_keys(Keys.ENTER)
+    #    driver.find_element(By.ID, 'tanggalPengambilan').send_keys(TanggalAmbil)
     # except NoSuchElementException:
-    #     driver.close()
-    #     driver.quit()
+    #    driver.close()
+    #    driver.quit()
     # Log.info('Tidak ada elemen tersedia')
     # #======================================================================
     driver.find_element(By.ID, 'tab-7').click()
