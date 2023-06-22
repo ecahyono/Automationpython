@@ -19,7 +19,7 @@ def testpengawasan():
   driver.find_element(By.ID, 'createButton').click()
 
 @mark.fixture_pengawasan
-def testcaridatawbp():
+def testcaridatapengawsan():
   try:
     Log.info('Memilih UPT')
     elem = driver.find_element(By. ID, "upt")
@@ -107,10 +107,10 @@ def testformtambahpengawasan():
   except NoSuchElementException:
     print('eror')
 
-@mark.fixture_pendampingan
-def testmenyimpanhasilinput():
-  try: 
-    Log.info('menuimpan Register Pengawasan')
-    driver.find_element(By.ID, 'submitButton').click()
-  except NoSuchElementException:
-    print ('gagal simpan')
+# @mark.fixture_pendampingan
+# def testmenyimpanhasilinput():
+#   try: 
+#     Log.info('menuimpan Register Pengawasan')
+#     driver.find_element(By.ID, 'submitButton').click()
+#   except NoSuchElementException:
+#     print ('gagal simpan')

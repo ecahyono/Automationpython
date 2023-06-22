@@ -2,7 +2,7 @@ from src import *
 from fakeoption import *
 
 # init driver by os
-@mark.fixture_pendampingan
+@mark.fixture_Litmas
 def testconfigandlogin():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
@@ -11,8 +11,7 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-
-@mark.fixture_pendampingan
+@mark.fixture_Litmas
 def testlitmas():
   Log.info('Menambah Data Register Pendampingan')
   # register_litmas(driver)
@@ -20,8 +19,8 @@ def testlitmas():
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
   driver.find_element(By.ID, 'createButton').click()
 
-@mark.fixture_pendampingan
-def testcaridatawbp():
+@mark.fixture_Litmas
+def testdatawbplitmas():
   try:
     Log.info('Memilih UPT')
     elem = driver.find_element(By. ID, "upt")
@@ -40,14 +39,14 @@ def testcaridatawbp():
     Log.info('Memilih WBP')
     elem1 = driver.find_element(By. ID, "nama")
     elem1.click()
-    elem1.send_keys(Namanoinduk)
+    elem1.send_keys(Namanoinduklitmas)
     awal = time.time()
     wbpnya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "nama0")))
     akhir = time.time()
     lamatunggu = awal - akhir
     Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
     wbpnya.click()
-    # driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*").click()
+    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduklitmas+"']/parent::*").click()
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -56,7 +55,7 @@ def testcaridatawbp():
     Log.info('Melakukan pencarian data WBP')
     driver.find_element(By.ID, 'findButton').click()
     kop = time.time()
-    WebDriverWait(driver, 25).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+Namanoinduk+"']")))
+    WebDriverWait(driver, 25).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='el-descriptions__cell el-descriptions__content is-bordered-content' and text()='"+Namanoinduklitmas+"']")))
     kip = time.time()
     tungguload = kop - kip
     Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(tungguload)))
@@ -64,8 +63,8 @@ def testcaridatawbp():
     driver.close()
     driver.quit()
 
-@mark.fixture_pendampingan
-def testformtambahpendampingan():
+@mark.fixture_Litmas
+def testformtambahlitmas():
   try:
     Log.info('memelihi Jenis Litmas')
     driver.find_element(By.ID, 'dropdownJenisRegistrasi').click()
@@ -78,7 +77,7 @@ def testformtambahpendampingan():
     Log.info('memelihi Petugas Pendamping')
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.click()
-    pk.send_keys(Petpk)
+    pk.send_keys(Petpklitmas)
     petg = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     petg .click()
   except NoSuchElementException:

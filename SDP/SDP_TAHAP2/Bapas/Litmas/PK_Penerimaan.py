@@ -1,9 +1,14 @@
-from src import *
-from fakeoption import *
-from index import *
+from jenis_Litmas.src import *
+from jenis_Litmas.fakeoption import *
+from sesilitmas import sesilitmas, Penjamin
+from jenis_Litmas.litmasdiversi import *
+from jenis_Litmas.litmasprosesperadilananak import *
+from jenis_Litmas.litmasprogrampelayanananakLPAS import *
+from jenis_Litmas.litmasprogrampembinaanawalanak import *
+from jenis_Litmas.litmasprogramasimilasianak import *
 
 # init driver by os
-@mark.fixture_pendampingan
+@mark.fixture_Litmas
 def testconfigandlogin():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
@@ -12,86 +17,206 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	PKbapas(driver) #Operator BPS
 
-@mark.fixture_pendampingan
-def testpendampingan():
+@mark.fixture_Litmas
+def testlitmas():
   Log.info('Menambah Data Register Pendampingan')
   driver.get('http://kumbang.torche.id:32400/bapas/litmas/penerimaan')
-  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[2]/form/div/div/div/button')))
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
 
-@mark.fixture_pendampingan
+# I    Litmas Anak
+# I.A    Litmas Diversi ----done
+# I.B    Litmas Proses Peradilan Anak ----done
+# I.C    Litmas Program Pelayanan Anak(LPAS) ----done
+# I.D    Litmas Program Pembinaan Awal Anak ----done
+# I.E    Litmas Program Asimilasi Anak ----done
+# I.F    Litmas Program Re-Integrasi (CB) Anak ----done
+# I.G    Litmas Program Re-Integrasi (CMB) Anak ----done
+# I.H    Litmas Program Re-Integrasi (PB) Anak ----done
+# I.I    Litmas Pembimbingan
+# VIII    Litmas Dewasa
+# VIII.A    Litmas Proses Peradilan Dewasa  ----done
+# VIII.B    Litmas untuk Program Pelayanan di RUTAN ----done
+# VIII.C    Litmas Pembinaan Awal ----done
+# VIII.D    Litmas Program Asimilasi ----done
+# VIII.E    Litmas Program Re-Integrasi (CB) ----done
+# VIII.F    Litmas Program Re-Integrasi (CMB) ----done
+# VIII.G    Litmas Program Re-Integrasi (PB) ----done
+
+@mark.fixture_Litmas
 def testfiltertable():
-  filtertable(driver)
-  driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div/div/div[3]/div[1]/div[3]/div/div[1]/div/table/tbody/tr/td[6]/div/button').click()
+  global forkatkun
+  kolom = driver.find_element(By.ID, "column")
+  kolom.click()
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'JenLit')))
+  driver.find_element(By.ID, "JenLit").click()
+
+  forkatkun = input('Pilih Jenis Litmas yang akan DItambah instrumen \n'
+        '1. Litmas Diversi \n'
+        '2. Litmas Proses Peradilan Anak \n'
+        '3. Litmas Program Pelayanan Anak(LPAS) \n'
+        '4. Litmas Program Pembinaan Awal Anak \n'
+        '5. Litmas Program Asimilasi Anak \n'
+        '6. Litmas Program Re-Integrasi (CB) Anak \n'
+        '7. Litmas Program Re-Integrasi (CMB) Anak \n'
+        '8. Litmas Program Re-Integrasi (PB) Anak \n'
+        '9. Litmas Pembimbingan \n'
+        '10. Litmas Proses Peradilan Dewasa \n'
+        '11. Litmas untuk Program Pelayanan di RUTAN \n'
+        '12. Litmas Pembinaan Awal \n'
+        '13. Litmas Program Asimilasi \n'
+        '14. Litmas Program Re-Integrasi (CB) \n'
+        '15. Litmas Program Re-Integrasi (CMB) \n'
+        '16. Litmas Program Re-Integrasi (PB) \n'
+        'Masukan Nomer yang tersedia =>: '
+  )
+  katkunci = driver.find_element(By.ID, 'KataKunci')
+  if forkatkun == '1':
+    Log.info('Memilih Jenis Litmas=' +Lit1)
+    katkunci.send_keys(Lit1)
+  elif forkatkun == '2':
+    Log.info('Memilih Jenis Litmas=' +Lit2)
+    katkunci.send_keys(Lit2)
+  elif forkatkun == '3':
+    Log.info('Memilih Jenis Litmas=' +Lit3)
+    katkunci.send_keys(Lit3)
+  elif forkatkun == '4':
+    Log.info('Memilih Jenis Litmas=' +Lit4)
+    katkunci.send_keys(Lit4)
+  elif forkatkun == '5':
+    Log.info('Memilih Jenis Litmas=' +Lit5)
+    katkunci.send_keys(Lit5)
+  elif forkatkun == '6':
+    Log.info('Memilih Jenis Litmas=' +Lit6)
+    katkunci.send_keys(Lit6)
+  elif forkatkun == '7':
+    Log.info('Memilih Jenis Litmas=' +Lit7)
+    katkunci.send_keys(Lit7)
+  elif forkatkun == '8':
+    Log.info('Memilih Jenis Litmas=' +Lit8)
+    katkunci.send_keys(Lit8)
+  elif forkatkun == '9':
+    Log.info('Memilih Jenis Litmas=' +Lit9)
+    katkunci.send_keys(Lit9)
+  elif forkatkun == '10':
+    Log.info('Memilih Jenis Litmas=' +Lit10)
+    katkunci.send_keys(Lit10)
+  elif forkatkun == '11':
+    Log.info('Memilih Jenis Litmas=' +Lit11)
+    katkunci.send_keys(Lit11)
+  elif forkatkun == '12':
+    Log.info('Memilih Jenis Litmas=' +Lit12)
+    katkunci.send_keys(Lit12)
+  elif forkatkun == '13':
+    Log.info('Memilih Jenis Litmas=' +Lit13)
+    katkunci.send_keys(Lit13)
+  elif forkatkun == '14':
+    Log.info('Memilih Jenis Litmas=' +Lit14)
+    katkunci.send_keys(Lit14)
+  elif forkatkun == '15':
+    Log.info('Memilih Jenis Litmas=' +Lit15)
+    katkunci.send_keys(Lit15)
+  elif forkatkun == '16':
+    Log.info('Memilih Jenis Litmas=' +Lit16)
+    katkunci.send_keys(Lit16)
   
-  WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
-  WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
-	
+  driver.find_element(By.ID, 'CariFilter').click()
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
+  time.sleep(5)
 
-
-
-# def contoh():
+@mark.fixture_Litmas
+def testmemilihjenislitmas():
+  time.sleep(3)
+  driver.find_element(By.XPATH,"//td[6]/div/button").click() #diganti
   
-#   driver.find_element(By. ID, "tab-2").click()
-#   driver.find_element(By. ID, "tab-3").click()
-#   driver.find_element(By. ID, "tab-4").click()
-#   driver.find_element(By. ID, "tab-5").click()
-#   driver.find_element(By. ID, "tab-6").click()
-#   driver.find_element(By. ID, "tempat").click()
-#   driver.find_element(By. ID, "tempat").send_keys("tempat sesi litmas")
-#   driver.find_element(By. ID, "waktuPelaksanaan").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[4]/div/div/div/div[2]/table/tbody/tr[4]/td[3]/div/span").click()
-#   driver.find_element(By. ID, "waktuPelaksanaan").click()
-#   driver.find_element(By. ID, "metode").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[5]/div/div/div/ul/li").click()
-#   driver.find_element(By. XPATH, "//div[@id='sesiLitmasButton']/form/div/div[2]/div[2]/div/div/div/span/div").click()
-#   driver.find_element(By. XPATH, "//div[@id='prosesLitmas']/label/span[2]").click()
-#   driver.find_element(By. XPATH, "//div[@id='prosesLitmas']/label[2]/span[2]").click()
-#   driver.find_element(By. ID, "jenisPenolakan").click()
-#   driver.find_element(By. ID, "jenisPenolakan").clear()
-#   driver.find_element(By. ID, "jenisPenolakan").send_keys("jenispenolakan litmas sesi")
-#   driver.find_element(By. ID, "alasanPenolakan").click()
-#   driver.find_element(By. ID, "alasanPenolakan").clear()
-#   driver.find_element(By. ID, "alasanPenolakan").send_keys("alasan penolakan")
-#   driver.find_element(By. ID, "informan").click()
-#   driver.find_element(By. ID, "informan").clear()
-#   driver.find_element(By. ID, "informan").send_keys("informasn sesi litmas")
-#   driver.find_element(By. ID, "nmaa").click()
-#   driver.find_element(By. ID, "nmaa").clear()
-#   driver.find_element(By. ID, "nmaa").send_keys("cahyotescahyo")
-#   driver.find_element(By. ID, "jenisKelamin").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[6]/div/div/div/ul/li").click()
-#   driver.find_element(By. ID, "tempatLahir").click()
-#   driver.find_element(By. ID, "tempatLahir").clear()
-#   driver.find_element(By. ID, "tempatLahir").send_keys("tempatlahir")
-#   driver.find_element(By. ID, "tanggalLahir").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[7]/div/div/div/div[2]/table/tbody/tr[4]/td[3]/div/span").click()
-#   driver.find_element(By. ID, "statusPerkawinan").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[8]/div/div/div/ul/li").click()
-#   driver.find_element(By. ID, "hubunganDenganNarapidana").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[9]/div/div/div/ul/li[4]").click()
-#   driver.find_element(By. ID, "pekerjaan").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[10]/div/div/div/ul/li[3]").click()
-#   driver.find_element(By. ID, "agama").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[11]/div/div/div/ul/li[2]").click()
-#   driver.find_element(By. ID, "suku").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[12]/div/div/div/ul/li").click()
-#   driver.find_element(By. ID, "pendidikan").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[13]/div/div/div/ul/li").click()
-#   driver.find_element(By. ID, "alamatPenjamin").click()
-#   driver.find_element(By. ID, "alamatPenjamin").clear()
-#   driver.find_element(By. ID, "alamatPenjamin").send_keys("alamat penjamin")
-#   driver.find_element(By. ID, "provinsi").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[14]/div/div/div/ul/li[7]").click()
-#   driver.find_element(By. ID, "kotaAtauKabupaten").click()
-#   driver.find_element(By. XPATH, "//div[@id='el-popper-container-7325']/div[15]/div/div/div/ul/li[8]").click()
-#   driver.find_element(By. ID, "tab-hasil_diversi").click()
-#   driver.find_element(By. XPATH, "//html").click()
-#   driver.find_element(By. ID, "tab-riwayat_tindak_pidana").click()
-#   driver.find_element(By. XPATH, "//html").click()
-#   driver.find_element(By. XPATH, "//html").click()
-#   driver.find_element(By. XPATH, "//body[@id='tinymce']/p").click()
-#   driver.find_element(By. XPATH, "//html").click()
-#   driver.find_element(By. XPATH, "//body[@id='tinymce']/p").click()
-#   driver.find_element(By. ID, "tab-akibat_perbuatan_klien").click()
-#   driver.find_element_by_css_selector("div.tox-icon > svg > path").click()
-#   driver.find_element(By. XPATH, "//div[@id='akibatPerbuatanKlienButton']/form/div/div").click()
+  # WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+  # WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+
+  WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "tempat")))
+
+@mark.fixture_Litmas
+def testmengisiinstrumenlitmas():
+  sesilitmas(driver)
+  Penjamin(driver)
+  if forkatkun == '1':
+    RiwayatTindakPidana(driver)
+    RiwayatTindakPidana1(driver)
+    RiwayatTindakPidana2(driver)
+    RiwayatHidupKlien(driver)
+    RiwayatPendidikan(driver)
+    HarapanRencanaKlien(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)
+  elif (forkatkun == '2'or forkatkun == '11'):
+    Hasildiversi(driver)
+    RiwayatTindakPidana(driver)
+    RiwayatTindakPidana1(driver)
+    AkibatygdibuatKlien(driver)
+    RiwayatHidupKlien(driver)
+    KeadankeluargadiLapasRutanTujuan(driver)
+    KeadaanLingkunganMasyarakat(driver)
+    Tanggapan(driver)
+    Tanggapan1(driver)
+    Tanggapan2(driver)
+    Tanggapan3(driver)
+    Tanggapan4(driver)
+    HarapanRencanaKlien(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)
+  elif (forkatkun == '3'or forkatkun == '12'):
+    RiwayatTindakPidana(driver)
+    RiwayatTindakPidana1(driver)
+    RiwayatPendidikan(driver)
+    MinatdanBakat(driver)
+    RiwayatHidupKlien(driver)
+    HarapanRencanaKlien(driver)
+    TanggapanPihakKetiga(driver)
+    TanggapanPihakKetiga1(driver)
+    TanggapanPihakKetiga2(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)
+  elif (forkatkun == '4' or forkatkun == '13'):
+    RiwayatTindkPidana(driver)
+    RiwayatTindkPidana1(driver)
+    RiwayatHidupKlien(driver)
+    RiwayatPendidikan(driver)
+    MinatdanBakat(driver)
+    rencanaKlien(driver)
+    potensiKeluargaDanLingkunganTempatTinggalKlien(driver)
+    programPerawatanYangDiterimaKlienDiLpas(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)
+  elif (forkatkun == '5' or forkatkun == '14'):
+    RiwayatTindkPidana(driver)
+    RiwayatTindkPidana1(driver)
+    RiwayatHidupKlien(driver)
+    perkembanganPembinaanKlienDiLapasAtauRutan(driver)
+    keadaanPenangungJawabAtauPenjamin(driver)
+    KeadaanLingkunganMasyarakat(driver)
+    tanggapankorban(driver)
+    tanggapanKeluargaKoraban(driver)
+    Tanggapan3(driver)
+    tanggapanPemerintah(driver)
+    HarapanRencanaKlien(driver)
+    keadaanPihakKetiga(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)
+  elif (forkatkun == '6'or forkatkun == '7' or forkatkun == '8' or forkatkun == '15' or forkatkun == '16'or forkatkun == '17'):
+    RiwayatTindkPidana(driver)
+    RiwayatTindkPidana1(driver)
+    RiwayatHidupKlien(driver)
+    perkembanganPembinaanKlienDiLapasAtauRutan(driver)
+    keadaanPenangungJawabAtauPenjamin(driver)
+    KeadaanLingkunganMasyarakat(driver)
+    tanggapankorban(driver)
+    tanggapanKeluargaKoraban(driver)
+    Tanggapan3(driver)
+    tanggapanPemerintah(driver)
+    HarapanRencanaKlien(driver)
+    AnalisaHasilPengamatan(driver)
+    AnalisaHasilPengamatan1(driver)
+    Rekomendasi(driver)

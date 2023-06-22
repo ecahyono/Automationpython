@@ -19,7 +19,7 @@ def testpendampingan():
   driver.find_element(By.ID, 'createButton').click()
 
 @mark.fixture_pendampingan
-def testcaridatawbp():
+def testdatawbppendampingan():
   try:
     Log.info('Memilih UPT')
     elem = driver.find_element(By. ID, "upt")

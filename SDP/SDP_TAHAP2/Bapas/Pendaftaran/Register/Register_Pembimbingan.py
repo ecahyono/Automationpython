@@ -2,7 +2,7 @@ from src import *
 from fakeoption import *
 
 # init driver by os
-@mark.fixture_pendampingan
+@mark.fixture_pembimbingan
 def testconfigandlogin():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
@@ -11,25 +11,24 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver) #Operator BPS
 
-@mark.fixture_pendampingan
-def testpendampingan():
+@mark.fixture_pembimbingan
+def testpembimbingan():
   Log.info('Menambah Data Register Pendampingan')
   driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pembimbingan')
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
   driver.find_element(By.ID, 'createButton').click()
 
-@mark.fixture_pendampingan
-def testcaridatawbp():
+@mark.fixture_pembimbingan
+def testdatapembimbingan():
   try:
     Log.info('Memilih UPT')
     elem = driver.find_element(By. ID, "upt")
     elem.click()
-    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
     elem.send_keys(UPTObimbingan)
+    # WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
     klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTObimbingan+"')]")))
     klikupt.click()
   except NoSuchElementException:
-    Log.getloger
     driver.close()
     driver.quit()
 
@@ -39,6 +38,7 @@ def testcaridatawbp():
     elem1.click()
     elem1.send_keys(NoregNamabimbingan)
     awal = time.time()
+    # driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+NoregNamabimbingan+"']/parent::*").click()
     wbpnya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "nama0")))
     akhir = time.time()
     lamatunggu = awal - akhir
@@ -60,8 +60,8 @@ def testcaridatawbp():
     driver.close()
     driver.quit()
 
-@mark.fixture_pendampingan
-def testformtambahpendampingan():
+@mark.fixture_pembimbingan
+def testformtambahpembimbingan():
   try:
     Log.info('memelihi Jenis Klien')
     jereg = driver.find_element(By.ID, 'dropdownJenisRegistrasi')
@@ -76,9 +76,11 @@ def testformtambahpendampingan():
 
   try:
     Log.info('memelihi Dasar Pembimbingan')
-    driver.find_element(By.ID, 'dropdownDasarPembimbingan').click()
-    WebDriverWait(driver, 10)
-    driver.find_element(By.XPATH, "//li[contains(.,'"+ DasarPembimbingan+"')]").click()
+    daspembim = driver.find_element(By.ID, 'dropdownDasarPembimbingan')
+    daspembim.click()
+    daspembim.send_keys(DasarPembimbingan)
+    daspembim.send_keys(Keys.DOWN)
+    daspembim.send_keys(Keys.ENTER)
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -107,11 +109,13 @@ def testformtambahpendampingan():
     Log.info('Tidak ada elemen tersedia')
 
   try:
-    Log.info('memelihi Petugas Pendamping')
+    Log.info('memelihi Petugas Pembimbingan')
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.send_keys(CariPetugasPembimbingan)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
-    driver.find_element(By.ID, 'searchPetugasPenerima0').click()
+    pknama = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
+    pknama.click()
+    # pk.send_keys(Keys.DOWN)
+    # pk.send_keys(Keys.ENTER)
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -215,7 +219,7 @@ def testformtambahpendampingan():
     ltg3 = driver.find_element(By.ID, "TglSurat4")
     ltg3.send_keys(tglsuratPembimbingan)
     ltg3.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann3').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann4').send_keys(Perihalsurat1Pembimbingan)
   except NoSuchElementException:
     driver.close()
     driver.quit()
