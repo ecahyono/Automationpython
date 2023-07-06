@@ -6,6 +6,7 @@ from jenis_Litmas.litmasprosesperadilananak import *
 from jenis_Litmas.litmasprogrampelayanananakLPAS import *
 from jenis_Litmas.litmasprogrampembinaanawalanak import *
 from jenis_Litmas.litmasprogramasimilasianak import *
+from jenis_Litmas.indikator import *
 
 # init driver by os
 @mark.fixture_Litmas
@@ -49,6 +50,8 @@ def testfiltertable():
   kolom.click()
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'JenLit')))
   driver.find_element(By.ID, "JenLit").click()
+  jenlitmasnya = driver.find_element(By.ID, "dropdownJenisRegistrasi")
+  jenlitmasnya.click()
 
   forkatkun = input('Pilih Jenis Litmas yang akan DItambah instrumen \n'
         '1. Litmas Diversi \n'
@@ -69,55 +72,86 @@ def testfiltertable():
         '16. Litmas Program Re-Integrasi (PB) \n'
         'Masukan Nomer yang tersedia =>: '
   )
-  katkunci = driver.find_element(By.ID, 'KataKunci')
   if forkatkun == '1':
     Log.info('Memilih Jenis Litmas=' +Lit1)
-    katkunci.send_keys(Lit1)
+    jenlitmasnya.send_keys(Lit1)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas0").click()
   elif forkatkun == '2':
     Log.info('Memilih Jenis Litmas=' +Lit2)
-    katkunci.send_keys(Lit2)
+    jenlitmasnya.send_keys(Lit2)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas1").click()
   elif forkatkun == '3':
     Log.info('Memilih Jenis Litmas=' +Lit3)
-    katkunci.send_keys(Lit3)
+    jenlitmasnya.send_keys(Lit3)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas2").click()
   elif forkatkun == '4':
     Log.info('Memilih Jenis Litmas=' +Lit4)
-    katkunci.send_keys(Lit4)
+    jenlitmasnya.send_keys(Lit4)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas3").click()
   elif forkatkun == '5':
     Log.info('Memilih Jenis Litmas=' +Lit5)
-    katkunci.send_keys(Lit5)
+    jenlitmasnya.send_keys(Lit5)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas4").click()
   elif forkatkun == '6':
     Log.info('Memilih Jenis Litmas=' +Lit6)
-    katkunci.send_keys(Lit6)
+    jenlitmasnya.send_keys(Lit6)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas5").click()
   elif forkatkun == '7':
     Log.info('Memilih Jenis Litmas=' +Lit7)
-    katkunci.send_keys(Lit7)
+    jenlitmasnya.send_keys(Lit7)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas6").click()
   elif forkatkun == '8':
     Log.info('Memilih Jenis Litmas=' +Lit8)
-    katkunci.send_keys(Lit8)
+    jenlitmasnya.send_keys(Lit8)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas7").click()
   elif forkatkun == '9':
     Log.info('Memilih Jenis Litmas=' +Lit9)
-    katkunci.send_keys(Lit9)
+    jenlitmasnya.send_keys(Lit9)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas8").click()
   elif forkatkun == '10':
     Log.info('Memilih Jenis Litmas=' +Lit10)
-    katkunci.send_keys(Lit10)
+    jenlitmasnya.send_keys(Lit10)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas9").click()
   elif forkatkun == '11':
     Log.info('Memilih Jenis Litmas=' +Lit11)
-    katkunci.send_keys(Lit11)
+    jenlitmasnya.send_keys(Lit11)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas10").click()
   elif forkatkun == '12':
     Log.info('Memilih Jenis Litmas=' +Lit12)
-    katkunci.send_keys(Lit12)
+    jenlitmasnya.send_keys(Lit12)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas11").click()
   elif forkatkun == '13':
     Log.info('Memilih Jenis Litmas=' +Lit13)
-    katkunci.send_keys(Lit13)
+    jenlitmasnya.send_keys(Lit13)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas12").click()
   elif forkatkun == '14':
     Log.info('Memilih Jenis Litmas=' +Lit14)
-    katkunci.send_keys(Lit14)
+    jenlitmasnya.send_keys(Lit14)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas13").click()
   elif forkatkun == '15':
     Log.info('Memilih Jenis Litmas=' +Lit15)
-    katkunci.send_keys(Lit15)
+    jenlitmasnya.send_keys(Lit15)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas14").click()
   elif forkatkun == '16':
     Log.info('Memilih Jenis Litmas=' +Lit16)
-    katkunci.send_keys(Lit16)
+    jenlitmasnya.send_keys(Lit16)
+    turu(driver)
+    driver.find_element(By.ID, "jenisLItmas15").click()
   
   driver.find_element(By.ID, 'CariFilter').click()
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
@@ -141,16 +175,16 @@ def testmengisiinstrumenlitmas():
     RiwayatTindakPidana(driver)
     RiwayatTindakPidana1(driver)
     RiwayatTindakPidana2(driver)
+  else:
+    RiwayatTindkPidana(driver)
+    RiwayatTindkPidana1(driver)
+  
+  if forkatkun == '1':
     RiwayatHidupKlien(driver)
     RiwayatPendidikan(driver)
     HarapanRencanaKlien(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
-  elif (forkatkun == '2'or forkatkun == '11'):
+  elif (forkatkun == '2'or forkatkun == '10'):
     Hasildiversi(driver)
-    RiwayatTindakPidana(driver)
-    RiwayatTindakPidana1(driver)
     AkibatygdibuatKlien(driver)
     RiwayatHidupKlien(driver)
     KeadankeluargadiLapasRutanTujuan(driver)
@@ -161,37 +195,22 @@ def testmengisiinstrumenlitmas():
     Tanggapan3(driver)
     Tanggapan4(driver)
     HarapanRencanaKlien(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
-  elif (forkatkun == '3'or forkatkun == '12'):
-    RiwayatTindakPidana(driver)
-    RiwayatTindakPidana1(driver)
+  elif (forkatkun == '3'or forkatkun == '11'):
     RiwayatPendidikan(driver)
     MinatdanBakat(driver)
-    RiwayatHidupKlien(driver)
-    HarapanRencanaKlien(driver)
+    # RiwayatHidupKlien(driver)
+    harapanklien(driver)
     TanggapanPihakKetiga(driver)
     TanggapanPihakKetiga1(driver)
     TanggapanPihakKetiga2(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
-  elif (forkatkun == '4' or forkatkun == '13'):
-    RiwayatTindkPidana(driver)
-    RiwayatTindkPidana1(driver)
+  elif (forkatkun == '4' or forkatkun == '12'):
     RiwayatHidupKlien(driver)
     RiwayatPendidikan(driver)
     MinatdanBakat(driver)
     rencanaKlien(driver)
     potensiKeluargaDanLingkunganTempatTinggalKlien(driver)
     programPerawatanYangDiterimaKlienDiLpas(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
-  elif (forkatkun == '5' or forkatkun == '14'):
-    RiwayatTindkPidana(driver)
-    RiwayatTindkPidana1(driver)
+  elif (forkatkun == '5' or forkatkun == '13'):
     RiwayatHidupKlien(driver)
     perkembanganPembinaanKlienDiLapasAtauRutan(driver)
     keadaanPenangungJawabAtauPenjamin(driver)
@@ -202,12 +221,7 @@ def testmengisiinstrumenlitmas():
     tanggapanPemerintah(driver)
     HarapanRencanaKlien(driver)
     keadaanPihakKetiga(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
-  elif (forkatkun == '6'or forkatkun == '7' or forkatkun == '8' or forkatkun == '15' or forkatkun == '16'or forkatkun == '17'):
-    RiwayatTindkPidana(driver)
-    RiwayatTindkPidana1(driver)
+  elif (forkatkun == '6'or forkatkun == '7' or forkatkun == '8' or forkatkun == '14' or forkatkun == '15'or forkatkun == '16'):
     RiwayatHidupKlien(driver)
     perkembanganPembinaanKlienDiLapasAtauRutan(driver)
     keadaanPenangungJawabAtauPenjamin(driver)
@@ -217,6 +231,6 @@ def testmengisiinstrumenlitmas():
     Tanggapan3(driver)
     tanggapanPemerintah(driver)
     HarapanRencanaKlien(driver)
-    AnalisaHasilPengamatan(driver)
-    AnalisaHasilPengamatan1(driver)
-    Rekomendasi(driver)
+  AnalisaHasilPengamatan(driver)
+  AnalisaHasilPengamatan1(driver)
+  Rekomendasi(driver)

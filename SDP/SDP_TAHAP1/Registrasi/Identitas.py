@@ -609,17 +609,17 @@ def test_eksekusi():
 			#========================Input Tab Foto========================== 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[1]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(environ.get(r'Gambar'))
+			pyautogui.write(environ.get(r'FOTBRG1'))
 			pyautogui.press('enter')
 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[2]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(environ.get(r'Gambar'))
+			pyautogui.write(environ.get(r'FOTBRG1'))
 			pyautogui.press('enter')
 
 			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[3]/div/div/div/div/div[1]/button').click()
 			time.sleep(3)
-			pyautogui.write(environ.get(r'Gambar'))
+			pyautogui.write(environ.get(r'FOTBRG1'))
 			pyautogui.press('enter')
 			#======================================================================
 			# driver.find_element(By.ID, 'tab-7').click()

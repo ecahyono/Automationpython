@@ -1,5 +1,6 @@
 from src import *
 from fakeoption import *
+from Register_Pendampingan import SimpanRegister
 
 # init driver by os
 @mark.fixture_pembimbingan
@@ -112,6 +113,7 @@ def testformtambahpembimbingan():
     Log.info('memelihi Petugas Pembimbingan')
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.send_keys(CariPetugasPembimbingan)
+    time.sleep(1)
     pknama = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     pknama.click()
     # pk.send_keys(Keys.DOWN)
@@ -131,6 +133,12 @@ def testformtambahpembimbingan():
     driver.close()
     driver.quit()
     Log.info('Tidak ada elemen tersedia')
+
+  driver.find_element(By.ID, 'tambah_foto').click()
+  namafotonya = driver.find_element(By.ID, 'namaFoto5')
+  namafotonya.click()
+  namafotonya.send_keys(Keys.DOWN)
+  namafotonya.send_keys(Keys.ENTER)
 
   try:
     Log.info('deskripsi SuratDasarPembimbingan')
@@ -196,6 +204,17 @@ def testformtambahpembimbingan():
     Log.info('Tidak ada elemen tersedia')
 
   try:
+    Log.info('Upload SuratPengantarPenyerahan')
+    driver.find_element(By.ID, 'pilihFoto5').click()
+    time.sleep(3)
+    pyautogui.write(environ.get(r'FILEPDF'))
+    pyautogui.press('enter')
+  except NoSuchElementException:
+    driver.close()
+    driver.quit()
+    Log.info('Tidak ada elemen tersedia')
+
+  try:
     Log.info('deskripsi SuratPengantarPenyerahan')
     driver.find_element(By.ID, "noSurat1").send_keys(Nosurat1Pembimbingan)
     ltg1 = driver.find_element(By.ID, "TglSurat1")
@@ -220,8 +239,17 @@ def testformtambahpembimbingan():
     ltg3.send_keys(tglsuratPembimbingan)
     ltg3.send_keys(Keys.ENTER)
     driver.find_element(By.ID, 'keterangann4').send_keys(Perihalsurat1Pembimbingan)
+    
+    driver.find_element(By.ID, "noSurat5").send_keys(Nosurat1Pembimbingan)
+    ltg3 = driver.find_element(By.ID, "TglSurat5")
+    ltg3.send_keys(tglsuratPembimbingan)
+    ltg3.send_keys(Keys.ENTER)
+    driver.find_element(By.ID, 'keterangann5').send_keys(Perihalsurat1Pembimbingan)
   except NoSuchElementException:
     driver.close()
     driver.quit()
     Log.info('Tidak ada elemen tersedia')
+  
+  SimpanRegister(driver)
+
 

@@ -7,8 +7,8 @@ import random
 from src import *
 
 ################-> input urutan Baris Di Exel yang akan di eksekusi
-pendampingan = 4
-litmas = 17
+pendampingan = 6
+litmas = 5
 pembimbingan = 3
 pengawsan = 12
 curd = 2
@@ -31,6 +31,7 @@ TingkatPengadilan             = fake.random_element(elements=('Negeri', 'Tinggi'
 
 tanggal_sekarang = datetime.now()
 tanggal_sebelumnya = tanggal_sekarang - timedelta(days=30)
+tgl_sebulan_berikutnya = tanggal_sekarang + timedelta(days=30)
 
 A = wb['Register Pembimbingan']
 UPTObimbingan                           = A['A'+str(pembimbingan)].value
@@ -39,31 +40,31 @@ jenisKlienPembimbingan                  = A['C'+str(pembimbingan)].value
 JenisPembimbingan                       = A['D'+str(pembimbingan)].value
 DasarPembimbingan                       = A['E'+str(pembimbingan)].value
 TglAwalBimbingan                        = tanggal_sebelumnya.strftime('%d/%m/%Y')
-TglAkhirBimbignan                       = datetime.now().strftime('%d/%m/%Y')
+TglAkhirBimbignan                       = tgl_sebulan_berikutnya.strftime('%d/%m/%Y')
 CariPetugasPembimbingan                 = A['H'+str(pembimbingan)].value
 SuratDasarPembimbingan                  = A['I'+str(pembimbingan)].value
 AsalsuratPembimbingan                   = A['J'+str(pembimbingan)].value
 Nosurat1Pembimbingan                    = A['K'+str(pembimbingan)].value
-tglsuratPembimbingan                    = A['L'+str(pembimbingan)].value   
+tglsuratPembimbingan                    = tanggal_sekarang.strftime('%d/%m/%Y %H:%M')   
 Perihalsurat1Pembimbingan               = A['M'+str(pembimbingan)].value   
 SuratPengantarPenyerahanPembimbingan    = A['N'+str(pembimbingan)].value   
 BeritaAcaraSerahTerimaKlienPembimbingan = A['R'+str(pembimbingan)].value
 SuratPerintahPembimbingan               = A['V'+str(pembimbingan)].value
 
 B = wb['Register Litmas']
-UPTOlitmas      = B['A'+str(litmas)].value
-Namanoinduklitmas     = B['B'+str(litmas)].value
-Jenislitmas     = B['C'+str(litmas)].value
-Petpklitmas           = B['E'+str(litmas)].value
-suratperintah   = B['F'+str(litmas)].value
-asalsurat1      = B['G'+str(litmas)].value
-nosurat1        = B['H'+str(litmas)].value
-tglsurat1       = B['I'+str(litmas)].value
-perihalsurat1   = B['J'+str(litmas)].value
-permintaanpenp  = B['K'+str(litmas)].value
-nosurat2        = B['L'+str(litmas)].value
-tglsurat2       = B['M'+str(litmas)].value
-perihalsurat2   = B['N'+str(litmas)].value
+UPTOlitmas         = B['A'+str(litmas)].value
+Namanoinduklitmas  = B['B'+str(litmas)].value
+Jenislitmas        = B['C'+str(litmas)].value
+Petpklitmas        = B['E'+str(litmas)].value
+suratperintah      = B['F'+str(litmas)].value
+asalsurat1         = B['G'+str(litmas)].value
+nosurat1           = B['H'+str(litmas)].value
+tglsurat1          = B['I'+str(litmas)].value
+perihalsurat1      = B['J'+str(litmas)].value
+permintaanpenp     = B['K'+str(litmas)].value
+nosurat2           = B['L'+str(litmas)].value
+tglsurat2          = B['M'+str(litmas)].value
+perihalsurat2      = B['N'+str(litmas)].value
 
 C = wb['Register Pendampingan']
 opsiJenisPendampingan    = [cell.value for cell in C['C'] if cell.value is not None]
@@ -85,12 +86,12 @@ tglsurat2       = datetime.strptime(fake.date(), '%Y-%m-%d').strftime('%d/%m/%Y'
 perihalsurat2   = C['N'+str(pendampingan)].value
 
 D = wb['Register pengawasan']
-UPTOawas                    = D['A'+str(pengawsan)].value
-NoregNamapengawasan         = D['B'+str(pengawsan)].value
-jenispengawasn              = D['C'+str(pengawsan)].value
-CariPetugaspengawsan        = D['D'+str(pengawsan)].value
-SuratDasarPembimbingan      = D['E'+str(pengawsan)].value
-Asalsurat                   = D['F'+str(pengawsan)].value
-nosurat1                    = D['G'+str(pengawsan)].value
-tglsurat1                   = D['H'+str(pengawsan)].value
-perihalsurat1               = D['I'+str(pengawsan)].value
+UPTOawas               = D['A'+str(pengawsan)].value
+NoregNamapengawasan    = D['B'+str(pengawsan)].value
+jenispengawasn         = D['C'+str(pengawsan)].value
+CariPetugaspengawsan   = D['D'+str(pengawsan)].value
+SuratDasarPembimbingan = D['E'+str(pengawsan)].value
+Asalsurat              = D['F'+str(pengawsan)].value
+nosurat1               = D['G'+str(pengawsan)].value
+tglsurat1              = D['H'+str(pengawsan)].value
+perihalsurat1          = D['I'+str(pengawsan)].value

@@ -1,4 +1,4 @@
-from src import *
+from Register.src import *
 from data import *
 # init driver by os
 @mark.fixture_penerimaan

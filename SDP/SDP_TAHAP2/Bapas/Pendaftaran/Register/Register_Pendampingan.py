@@ -94,6 +94,7 @@ def testformtambahpendampingan3():
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.click()
     pk.send_keys(Petpk)
+    time.sleep(2)
     petpknya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     petpknya.click()
   except NoSuchElementException:
@@ -188,8 +189,8 @@ def testformtambahpendampingan7():
     Log.info('Tidak ada elemen tersedia')
     driver.close()
     driver.quit()
-@mark.fixture_pendampingan
-def testformtambahpendampingan8():
+
+def SimpanRegister(driver):
   try:
     Log.info('Buton simmpan di tekan')
     time.sleep(2)

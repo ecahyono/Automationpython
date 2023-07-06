@@ -1,5 +1,6 @@
 from src import *
 from fakeoption import *
+from Register_Pendampingan import SimpanRegister
 
 # init driver by os
 @mark.fixture_Litmas
@@ -78,11 +79,18 @@ def testformtambahlitmas():
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.click()
     pk.send_keys(Petpklitmas)
+    time.sleep(2)
     petg = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     petg .click()
   except NoSuchElementException:
     driver.close()
     driver.quit()
+
+  driver.find_element(By.ID, 'tambah_foto').click()
+  namafotonya = driver.find_element(By.ID, 'namaFoto2')
+  namafotonya.click()
+  namafotonya.send_keys(Keys.DOWN)
+  namafotonya.send_keys(Keys.ENTER)
 
   try:
     Log.info('UPload surat Perintah')
@@ -132,3 +140,26 @@ def testformtambahlitmas():
   except NoSuchElementException:
     driver.close()
     driver.quit()
+
+  try:
+    Log.info('Upload surat permintaan pendampingan')
+    driver.find_element(By.ID, 'pilihFoto2').click()
+    time.sleep(3)
+    pyautogui.write(environ.get(r'FILEPDF'))
+    pyautogui.press('enter')
+  except NoSuchElementException:
+    driver.close()
+    driver.quit()
+
+  try:
+    Log.info('deskripsi spermintaan pendampingan')
+    driver.find_element(By.ID, "noSurat2").send_keys(nosurat1)
+    tgl2 = driver.find_element(By.ID, "tglSurat2")
+    tgl2.send_keys(tglsurat1)
+    tgl2.send_keys(Keys.ENTER)
+    driver.find_element(By.ID, 'keterangann2').send_keys(perihalsurat2)
+  except NoSuchElementException:
+    driver.close()
+    driver.quit()
+
+  SimpanRegister(driver)
