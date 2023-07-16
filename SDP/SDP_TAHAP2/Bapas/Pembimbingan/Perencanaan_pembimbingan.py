@@ -1,0 +1,65 @@
+from src import *
+from fakeoption import *
+from indikator import *
+
+def rencaanpembimbingan(driver):
+  driver.find_element(By.ID, 'tambahIdentitas').click()
+
+  driver.find_element(By.ID, 'jenisProgramKemandirian0').click()
+  driver.find_element(By.ID, 'bentukKegiatanKelompok0').click() 
+  driver.find_element(By.ID, 'uraianKegiatan').send_keys('uraianKegiatanrencana pembimbingan')  
+  tgl_awl = driver.find_element(By.ID, 'tanggalAwalProgram0')
+  tgl_awl.click()
+  tgl_awl.send_keys(TglAwalBimbingan)
+  tgl_awl.send_keys(Keys.ENTER)
+  tgl_akh = driver.find_element(By.ID, 'tanggalAkhirProgram0')
+  tgl_akh.click()
+  tgl_akh.send_keys(TglAkhirBimbignan)
+  tgl_akh.send_keys(Keys.ENTER) 
+  mitra = driver.find_element(By.ID, 'dropdownMitra')
+  mitra.click()
+  WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By. ID, 'mitra0')))
+  mitra.send_keys(Keys.DOWN)
+  mitra.send_keys(Keys.ENTER) 
+  driver.find_element(By.ID, 'modeAbsensiSatuKali0').click() 
+  driver.find_element(By.ID, 'keterangan').send_keys(AlamatRumah)
+
+  driver.find_element(By.ID, 'jenisProgramKepribadian1').click()  
+  driver.find_element(By.ID, 'bentukKegiatanKelompok1').click() 
+  driver.find_element(By.ID, 'jenisProgramKepribadian1').click() 
+  driver.find_element(By.ID, 'bentukKegiatanIndividu1').click()
+  driver.find_element(By.ID, 'uraianKegiatan').send_keys('uraianKegiatanrencana pembimbingan2')  
+  tgl_awl = driver.find_element(By.ID, 'tanggalAwalProgram1')
+  tgl_awl.click()
+  tgl_awl.send_keys(TglAwalBimbingan)
+  tgl_awl.send_keys(Keys.ENTER)
+  tgl_akh = driver.find_element(By.ID, 'tanggalAkhirProgram1')
+  tgl_akh.click()
+  tgl_akh.send_keys(TglAkhirBimbignan)
+  tgl_akh.send_keys(Keys.ENTER) 
+
+  mitra = driver.find_element(By.ID, 'dropdownMitra')
+  mitra.click()
+  WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By. ID, 'mitra0')))
+  mitra.send_keys(Keys.DOWN)
+  mitra.send_keys(Keys.ENTER) 
+
+  driver.find_element(By.ID, 'modeAbsensiDuaKali1').click() 
+  driver.find_element(By.ID, 'keterangan').send_keys(AlamatRumah)
+
+  klicki(driver)
+  driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div[3]/div/button').click()
+  klicki(driver)
+  driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div[3]/div/button[1]').click()
+
+  Log.info('menunggu loading cetak laporan perencanaa pembimbingan')
+  WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+  WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
+  turu(driver)
+  driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[1]/div[2]/div[2]/div/div[3]/div/button[2]').click()
+  driver.find_element(By.ID, 'pilihFoto').click()
+  lamaturu(driver)
+  pyautogui.write(environ.get(r'FILEPDF'))
+  pyautogui.press('enter')
+  driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[2]/div/div[3]/div/button').click()
+

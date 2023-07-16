@@ -1,6 +1,7 @@
-from src import *
+from Register.src import *
+from Register.indikator import *
 # init driver by os
-@mark.fixture_penerimaan
+@mark.fixture_penolakan
 def testconfigandlogin():
 	Log.info('Konfigurasi agar berjalan di setiap sistem operasi (mac dan Windos)')
 	global driver, pathData
@@ -9,40 +10,68 @@ def testconfigandlogin():
 	Log.info('Memasukan User name dan Password di halaman Login')
 	bapasbdg(driver)
 
-A = wb['Register Pembimbingan']
-g = 2  # barisexel
-Namanoinduk                  = A['A'+str(g)].value
-NomorSurat                   = A['B'+str(g)].value
-TanggalSuratPenolakan       = A['C'+str(g)].value
-JenisAlasanPenolakan        = A['D'+str(g)].value
-DetilAlasanPenolakan        = A['E'+str(g)].value
-
-@mark.fixture_pendampingan
+@mark.fixture_penolakan
 def testpendampingan():
   Log.info('Menambah Data Register Penolakan')
-  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/penolakan/create')
+  driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/penolakan')
+  turu(driver)
+  # WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
+  driver.find_element(By.ID, 'createButton').click()
 
-@mark.fixture_pengawasan
+@mark.fixture_penolakan
 def testcaridatawbp():
   try:
     Log.info('Memilih WBP')
-    elem1 = driver.find_element(By. XPATH, "//input[@placeholder='Cari berdasarkan Nama / No Induk']")
+    elem1 = driver.find_element(By. ID, "upt")
     elem1.click()
-    elem1.send_keys(Namanoinduk)
-    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*")))
-    driver.find_element(By.XPATH, "//*/text()[normalize-space(.)='"+Namanoinduk+"']/parent::*").click()
+    WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
+    textupt ='Lapas Kelas II A Bogor'
+    elem1.send_keys(textupt)
+    klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+textupt+"')]")))
+    klikupt.click()
   except NoSuchElementException:
     driver.close()
     driver.quit()
     Log.info('Tidak ada elemen tersedia')
+
+  try:
+    Log.info('Memilih WBP')
+    elem1 = driver.find_element(By. ID, "nama")
+    elem1.click()
+    awal = time.time()
+    wbpnya = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "nama0")))
+    akhir = time.time()
+    lamatunggu = awal - akhir
+    Log.info("Waktu yang dibutuhkan: {:.2f} detik".format(abs(lamatunggu)))
+    wbpnya.click()
+  except NoSuchElementException:
+    driver.close()
+    driver.quit()
 
   try:  
     Log.info('Melakukan pencarian data WBP')
     driver.find_element(By.ID, 'findButton').click()
-    time.sleep(4)
+    lagiloading(driver)
   except NoSuchElementException:
     driver.close()
     driver.quit()
-    Log.info('Tidak ada elemen tersedia')
 
-  
+@mark.fixture_penolakan
+def testformtambahpenolakan():
+  driver.find_element(By.ID, 'noPenolakan').send_keys('No-PNL/00')
+  driver.find_element(By.ID, 'asalSurat').send_keys('Bandung')
+  driver.find_element(By.ID, 'noSurat').send_keys('SRT-No-PNL/00')
+  tglsur = driver.find_element(By.ID, 'tglSurat')
+  tglsur.click()
+  tglsur.send_keys('01/07/2023')
+  tglsur.send_keys(Keys.ENTER)
+  tgltolak = driver.find_element(By.ID, 'tglPendampingan')
+  tgltolak.click()
+  tgltolak.send_keys('06/07/2023')
+  tgltolak.send_keys(Keys.ENTER)
+
+  alasan = driver.find_element(By.ID, 'alasanPenolakan')
+  alasan.click()
+  driver.find_element(By.ID, '=tidakMemenuhi').click()
+  driver.find_element(By.ID, 'detailPenolakan').send_keys('Ditolak Karena Data WBP/APH tidak Memenuhi syarat')
+  simpandatanya(driver)

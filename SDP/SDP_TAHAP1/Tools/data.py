@@ -2,7 +2,7 @@ from faker import Faker
 from datetime import datetime
 import openpyxl
 import random
-from Register.src import *
+from src import *
 
 sheet = wb['KlienAPH']
 opsiResidivis           = [cell.value for cell in sheet['C'] if cell.value is not None]
@@ -137,14 +137,9 @@ RumusD                = fake.word()
 NomorD                = fake.random_number(digits=8)
 TempatPengambilanSJ   = fake.city_name()
 TanggalAmbil          = datetime.strptime(fake.date(), '%Y-%m-%d').strftime('%d/%m/%Y')
+jenis_mitra           = fake.random_element(['Mitra A', 'Mitra B', 'Mitra C', 'Mitra D'])
+inputEmail            = fake.email()
 
-A = wb['Register Pembimbingan']
-g = 2  # barisexel
-Namanoinduk                 = A['A'+str(g)].value
-NomorSurat                  = A['B'+str(g)].value
-TanggalSuratPenolakan       = A['C'+str(g)].value
-JenisAlasanPenolakan        = A['D'+str(g)].value
-DetilAlasanPenolakan        = A['E'+str(g)].value
 # print(NamaKlien)
 # print(NIK)
 # print(Residivis)
