@@ -34,7 +34,7 @@ def initDriver():
     driver.get(environ.get("HOSTDO"))
     #driver.get(environ.get("HOST"))
     driver.maximize_window()
-    # pyautogui.press('f12')
+    pyautogui.press('f12')
     
     return driver
 

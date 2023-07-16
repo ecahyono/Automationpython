@@ -1,2 +1,11 @@
-[2023-06-07 15:45:55,404 test_1_SppnPerwalian.py_>test_TC_SPPN_001()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
-[2023-06-07 15:46:24,168 test_1_SppnPerwalian.py_>test_TC_SPPN_002()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-11 14:39:19,281 test_2_SppnPerwalian.py_>test_TC_SPPN_009_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-07-11 14:39:47,335 test_2_SppnPerwalian.py_>test_TC_SPPN_010_AksesMenuTimPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-11 14:40:37,948 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:41:20,335 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:41:53,683 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:42:26,567 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:43:03,601 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:43:31,979 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:43:58,200 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:44:42,674 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-07-11 14:45:25,004 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan

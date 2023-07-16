@@ -1,0 +1,4 @@
+[2023-07-10 18:17:17,299 test_2_SyaratRemisi.py_>test_TC_REM_009_loginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Pusat
+[2023-07-10 18:17:36,545 test_2_SyaratRemisi.py_>test_TC_REM_010_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-10 18:18:04,788 test_2_SyaratRemisi.py_>test_TC_REM_011_InputData()]==>INFO: Berhasil input data Syarat Remisi
+[2023-07-10 18:18:16,751 test_2_SyaratRemisi.py_>test_TC_REM_012_FilterData()]==>INFO: Menampilkan data sesuai filter yang diinputkan

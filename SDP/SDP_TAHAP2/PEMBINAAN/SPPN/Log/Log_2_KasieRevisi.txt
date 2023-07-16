@@ -1,0 +1,8 @@
+[2023-07-11 14:01:09,265 test_3_RevisiKasie.py_>test_TC_SPPN_016_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-07-11 14:01:55,779 test_3_RevisiKasie.py_>test_TC_SPPN_017_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-11 14:02:41,887 test_3_RevisiKasie.py_>test_TC_SPPN_018_KasieMelakukanRevisi()]==>INFO: Revisi berhasil dilakukan oleh Kasie
+[2023-07-11 14:03:25,143 test_3_RevisiKasie.py_>test_TC_SPPN_019_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-07-11 14:03:49,897 test_3_RevisiKasie.py_>test_TC_SPPN_020_AksesMenuTimPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-11 14:04:04,941 test_3_RevisiKasie.py_>test_TC_SPPN_020_AksesMenuTimPerwalian()]==>INFO: Operator berhasil Search Data status Tim Perwalian
+[2023-07-11 14:04:05,591 test_3_RevisiKasie.py_>test_TC_SPPN_020_AksesMenuTimPerwalian()]==>INFO: Operator berhasil mengakses halaman Ubah Tim Perwalian
+[2023-07-11 14:04:29,315 test_3_RevisiKasie.py_>test_TC_SPPN_021_UbahTimPerwalian()]==>INFO: Operator berhasil mengubah data Tim Perwalian

@@ -189,3 +189,26 @@ def LogOut(driver):
     time.sleep(0.3)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.XPATH, "//li[contains(.,'Logout')]").click()
+
+def MenuSkPerwalian(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//div[@id='90']")))
+    nav1 = driver.find_element(By.XPATH, "//div[@id='90']")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.3)
+    nav2 = driver.find_element(By.ID, "tools-konfigurasi-01")
+    time.sleep(0.3)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "SK Perwalian").click()
+
+
+def MenuPenilaian(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.3)
+    nav2 = driver.find_element(By.ID, "SPPN-11")
+    time.sleep(0.3)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.ID, "/sppn/penilaian-pembinaan-narapidana").click()

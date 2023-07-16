@@ -1,0 +1,4 @@
+[2023-06-22 10:18:16,948 test_1_JenisRemisi.py_>test_TC_REM_001()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Pusat
+[2023-06-22 10:18:37,031 test_1_JenisRemisi.py_>test_TC_REM_002()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-06-22 10:18:53,132 test_1_JenisRemisi.py_>test_TC_REM_007()]==>INFO: Berhasil mengubah data Jenis Remisi
+[2023-06-22 10:18:55,426 test_1_JenisRemisi.py_>test_TC_REM_008()]==>INFO: Berhasil menghapus data Jenis Remisi

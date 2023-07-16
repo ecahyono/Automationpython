@@ -1,0 +1,5 @@
+[2023-06-27 15:04:29,773 test_1_JenisRemisi.py_>test_TC_REM_001()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Pusat
+[2023-06-27 15:04:49,662 test_1_JenisRemisi.py_>test_TC_REM_002()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-06-27 15:05:06,502 test_1_JenisRemisi.py_>test_TC_REM_003()]==>INFO: Berhasil mengisi form tambah jenis remisi
+[2023-06-27 15:05:13,718 test_1_JenisRemisi.py_>test_TC_REM_003()]==>INFO: Berhasil mengisi form tambah jenis remisi
+[2023-06-27 15:05:20,785 test_1_JenisRemisi.py_>test_TC_REM_003()]==>INFO: Berhasil mengisi form tambah jenis remisi

@@ -68,12 +68,9 @@ def KalapasGiatja(driver):
 def Op_Keterampilan(driver):
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
-    # ini masuk ke form input username
-   
     driver.find_element(By.ID, "username").send_keys("Alya Zaen")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
-    # click button login
     driver.find_element(By.ID, "kc-login").click()
     WebDriverWait(driver, 30)
     print('.')
@@ -199,6 +196,33 @@ def Kalapas_SPPN(driver):
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 30)
+    print('.')
+    print('========== Login ==========')
+    
+    attach(data=driver.get_screenshot_as_png())
+
+def sumedang(driver): 
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, "login").click()
+    driver.find_element(By.ID, "username").send_keys("test-sumedang")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 30)
+    print('.')
+    print('========== Login ==========')
+    
+    attach(data=driver.get_screenshot_as_png())
+
+
+def wali_SURIYAH(driver): 
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, "login").click()
+    driver.find_element(By.ID, "username").send_keys("SURIYAH")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
     driver.find_element(By.ID, "kc-login").click()
     WebDriverWait(driver, 30)
     print('.')

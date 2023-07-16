@@ -1,0 +1,2 @@
+[2023-07-11 11:28:03,841 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_018()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-07-11 11:28:17,740 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_019()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai

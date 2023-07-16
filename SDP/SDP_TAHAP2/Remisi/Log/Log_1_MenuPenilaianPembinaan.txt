@@ -1,0 +1,2 @@
+[2023-06-16 14:21:45,834 test_1_JenisRemisi.py_>test_TC_REM_001()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Pusat
+[2023-06-16 14:22:03,983 test_1_JenisRemisi.py_>test_TC_REM_002()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai

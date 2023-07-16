@@ -1,0 +1,18 @@
+[2023-07-11 16:30:18,756 test_1_SkPerwalian.py_>test_TC_SPPN_001_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-07-11 16:30:33,799 test_1_SkPerwalian.py_>test_TC_SPPN_002_AksesMenuSKPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-11 16:31:00,904 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:31:17,940 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:31:30,489 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:31:41,890 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:31:53,910 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:03,812 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:17,218 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:27,554 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:38,017 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:49,721 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:32:59,463 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:33:09,302 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:33:19,910 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:33:30,517 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:33:40,241 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-07-11 16:33:52,574 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data

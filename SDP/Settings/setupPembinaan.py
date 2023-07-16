@@ -123,18 +123,10 @@ def quit(driver):
 
 def upload(driver):
     sleep(driver)
-    pyautogui.press('return')
     time.sleep(1)
-    pyautogui.write("///////users/will/test.pdf")
-    pyautogui.press('return')
+    pyautogui.press('e')
     time.sleep(1)
-    pyautogui.press('return')
-    time.sleep(1)
-    pyautogui.write("///////users/will/test.pdf")
-    time.sleep(1)
-    pyautogui.press('return')
-    time.sleep(1)
-    pyautogui.press('return')
+    pyautogui.press('enter')
     
 def uploadGambar(driver):
     time.sleep(1)

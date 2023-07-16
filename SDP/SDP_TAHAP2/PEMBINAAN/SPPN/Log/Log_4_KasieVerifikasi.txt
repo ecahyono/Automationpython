@@ -1,0 +1,11 @@
+[2023-07-13 15:43:34,969 test_4_VerifikasiKasie.py_>test_TC_SPPN_022_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-07-13 15:43:53,763 test_4_VerifikasiKasie.py_>test_TC_SPPN_023_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-07-13 15:44:23,372 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:44:56,668 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:06,619 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:18,736 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:28,998 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:37,646 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:45,048 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:45:52,796 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-07-13 15:46:00,050 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie

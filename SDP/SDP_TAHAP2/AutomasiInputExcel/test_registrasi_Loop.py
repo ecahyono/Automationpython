@@ -29,7 +29,7 @@ elif platform.system() == 'Windows':
 
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
-from Settings.loginkeamanan import LapasPerempuan, testsukamiskin,loginwaru
+from Settings.loginkeamanan import *
 
 import logging
 Log = logging.getLogger(__name__)
@@ -52,8 +52,9 @@ def test_1_setupOS():
 
 @mark.webtest()
 def test_2_login():
-    loginwaru(driver)
+    (driver)
     Log.info('Login')
+    Raft(driver)
 
 
 @mark.webtest()
@@ -242,6 +243,7 @@ def test_Input_Registrasi():
 
             driver.find_element(By.CSS_SELECTOR, "div:nth-child(5) > .el-form-item:nth-child(1) > .el-form-item__content:nth-child(2)").click()
 
+            time.sleep(2)
             driver.find_element(By.ID, "nmr_putusan-0").click()
             driver.find_element(By.ID, "nmr_putusan-0").send_keys(nomorputusan)
             Log.info('input nomor putusan ')
@@ -251,15 +253,17 @@ def test_Input_Registrasi():
             driver.find_element(By.ID, "pasal-0").send_keys(pasal)
             Log.info('input pasal')
 
-
+            time.sleep(2)
             driver.find_element(By.ID, "hakim_ketua-0").click()
             driver.find_element(By.ID, "hakim_ketua-0").send_keys(namahakimketua)
             Log.info('Input nama hakim ketua')
 
+            time.sleep(2)
             driver.find_element(By.CSS_SELECTOR, ".px-2").click()
             driver.find_element(By.ID, "hakim_anggota1-0").send_keys(HakimAnggota1)
             Log.info('input hakim anggota 1')
 
+            time.sleep(2)
             driver.find_element(By.ID, "hakim_anggota2-0").click()
             driver.find_element(By.ID, "hakim_anggota2-0").send_keys(HakimAnggota2)
             Log.info('input hakim anggota 2')
