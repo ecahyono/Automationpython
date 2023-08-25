@@ -2,6 +2,7 @@ from jenis_Litmas.src import *
 from jenis_Litmas.fakeoption import *
 from sesilitmas import *
 from jenis_Litmas.litmasdiversi import *
+from jenis_Litmas.indikator import *
 
 def perkembanganPembinaanKlienDiLapasAtauRutan(driver):
   Log.info('Instrumen Litmas Litmas Program Asimilasi Anak')

@@ -17,7 +17,7 @@ fake = Faker('id_ID')
 ############################## PK->Litmas
 # Tanggal sebulan
 tanggal_sekarang = datetime.now()
-tanggal_awal = tanggal_sekarang - timedelta(days=30)
+tanggal_awal = tanggal_sekarang - timedelta(days=3)
 tanggal_akhir = tanggal_sekarang
 # Menghasilkan tanggal acak dalam rentang waktu sebulan
 tanggal_acak = fake.date_between_dates(date_start=tanggal_awal, date_end=tanggal_akhir)
@@ -27,12 +27,14 @@ Tanggalbaisa                  = fake.date_time().strftime('%d/%m/%Y %H:%M')
 Namapalsu                     = fake.first_name()
 dateandtime                   = datetime.strptime(fake.date(), '%Y-%m-%d').strftime('%d/%m/%Y')
 JenisLayananBerikutnya        = fake.random.choice(opsiJenisLayananBerikutnya)
-Switchfield                   = fake.random_element(elements=('Iya','Tidak'))
+Switchfield                   = fake.random_element(elements=('Tidak'))#,'Iya'
 jeniskel                      = fake.random_element(elements=('Laki-laki', 'Perempuan'))
 metode                        = fake.random_element(elements=('wawancara', 'kunjungan','kuesioner'))
 AlamatRumah                   = fake.address()
 Radio                         = fake.random_element(elements=('Penolakan', 'Penyelesaian'))
 tanggal_hasil                 = tanggal_acak.strftime('%d/%m/%Y')
+taggldanwaktu                 = tanggal_awal.strftime("%d %B %Y %H:%M:%S")
+
 
 B = wb['Register Litmas']
 UPTOlitmas      = B['A'+str(litmas)].value

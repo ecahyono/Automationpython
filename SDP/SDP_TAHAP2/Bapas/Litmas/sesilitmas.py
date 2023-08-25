@@ -1,12 +1,15 @@
 from jenis_Litmas.src import *
 from jenis_Litmas.fakeoption import *
+from jenis_Litmas.indikator import *
 
 def sesilitmas(driver):
-  time.sleep(2)
+  WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "tempat")))
   driver.find_element(By.ID, 'tempat').send_keys(AlamatRumah)
-  tglpelak = driver.find_element(By.ID, 'waktuPelaksanaan')
-  tglpelak.send_keys(tanggal_hasil)
-  tglpelak.send_keys(Keys.ENTER)
+  tglwaktu = driver.find_element(By.ID, 'waktuPelaksanaan')
+  tglwaktu.click()
+  print(taggldanwaktu)
+  sekarangwaktu = WebDriverWait(driver, 45).until(EC.visibility_of_element_located((By.XPATH, '//div[5]/div/div[2]/button/span')))
+  sekarangwaktu.click()
   metod = driver.find_element(By.ID, 'metode')
   metod.click()
   metod.send_keys(metode)
@@ -15,6 +18,7 @@ def sesilitmas(driver):
   
   print('Apakah Klien ini Melakukan Litmas Terakhir? =' +Switchfield)
   if Switchfield == 'Iya':
+    # driver.find_element(By.ID, 'litmasTerakhir').click()
     driver.find_element(By.XPATH, '//span/div').click()
   else:
     pass
@@ -24,19 +28,19 @@ def sesilitmas(driver):
     if Radio == 'Penyelesaian': #nanti dibalik
       WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By.ID, 'Selesaian')))
       driver.find_element(By.ID, 'Selesaian').click()
-      tglend = driver.find_element(By.ID, 'tanggalPenyelesaian')
-      tglend.send_keys(tanggal_hasil)
-      tglend.send_keys(Keys.ENTER)
     elif Radio == 'Penolakan':
       WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By.ID, 'Tolakan')))
       driver.find_element(By.ID, 'Tolakan').click()
       driver.find_element(By.ID, 'jenisPenolakan').send_keys('Contoh jenis penolakan')
-      driver.find_element(By.ID, 'Tolakan').click()
+      driver.find_element(By.ID, 'alasanPenolakan').send_keys('Contoh alasanPenolakan penolakan')
   elif Switchfield == 'Tidak':
     pass
   driver.find_element(By.ID, 'informan').send_keys('Orang yang memberikan informasi lebih lanjut')
+  simpansesi(driver)
+  turu(driver)
 
 def Penjamin(driver):
+  WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "nmaa")))
   driver.find_element(By.ID, 'nmaa').send_keys(Namapalsu)
   Jenk = driver.find_element(By.ID, 'jenisKelamin')
   Jenk.click()
@@ -99,11 +103,3 @@ def Penjamin(driver):
   city.send_keys('Bandung')
   city.send_keys(Keys.DOWN)
   city.send_keys(Keys.ENTER)
-
-def tutuppopup(driver):
-  WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div.tox-icon > svg')))
-  popuptutup1 = driver.find_element(By.CSS_SELECTOR, 'div.tox-icon > svg')
-  popuptutup1.click()
-
-def simpansesi(driver):
-  driver.find_element(By.ID, 'buttonSimpan').click()

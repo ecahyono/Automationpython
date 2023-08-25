@@ -24,28 +24,33 @@ def testlitmas():
   driver.get('http://kumbang.torche.id:32400/bapas/litmas/penerimaan')
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
 
-# I    Litmas Anak
-# I.A    Litmas Diversi ----done
-# I.B    Litmas Proses Peradilan Anak ----done
-# I.C    Litmas Program Pelayanan Anak(LPAS) ----done
-# I.D    Litmas Program Pembinaan Awal Anak ----done
-# I.E    Litmas Program Asimilasi Anak ----done
-# I.F    Litmas Program Re-Integrasi (CB) Anak ----done
-# I.G    Litmas Program Re-Integrasi (CMB) Anak ----done
-# I.H    Litmas Program Re-Integrasi (PB) Anak ----done
-# I.I    Litmas Pembimbingan
-# VIII    Litmas Dewasa
-# VIII.A    Litmas Proses Peradilan Dewasa  ----done
-# VIII.B    Litmas untuk Program Pelayanan di RUTAN ----done
-# VIII.C    Litmas Pembinaan Awal ----done
-# VIII.D    Litmas Program Asimilasi ----done
-# VIII.E    Litmas Program Re-Integrasi (CB) ----done
-# VIII.F    Litmas Program Re-Integrasi (CMB) ----done
-# VIII.G    Litmas Program Re-Integrasi (PB) ----done
+# {
+  # I    Litmas Anak
+  # I.A    Litmas Diversi ----done
+  # I.B    Litmas Proses Peradilan Anak ----done
+  # I.C    Litmas Program Pelayanan Anak(LPAS) ----done
+  # I.D    Litmas Program Pembinaan Awal Anak ----done
+  # I.E    Litmas Program Asimilasi Anak ----done
+  # I.F    Litmas Program Re-Integrasi (CB) Anak ----done
+  # I.G    Litmas Program Re-Integrasi (CMB) Anak ----done
+  # I.H    Litmas Program Re-Integrasi (PB) Anak ----done
+  # I.I    Litmas Pembimbingan
+  # VIII    Litmas Dewasa
+  # VIII.A    Litmas Proses Peradilan Dewasa  ----done
+  # VIII.B    Litmas untuk Program Pelayanan di RUTAN ----done
+  # VIII.C    Litmas Pembinaan Awal ----done
+  # VIII.D    Litmas Program Asimilasi ----done
+  # VIII.E    Litmas Program Re-Integrasi (CB) ----done
+  # VIII.F    Litmas Program Re-Integrasi (CMB) ----done
+  # VIII.G    Litmas Program Re-Integrasi (PB) ----done
+  # }
 
 @mark.fixture_Litmas
 def testfiltertable():
   global forkatkun
+  driver.find_element(By.ID, "dropdownStatusBapas").click()
+  statusnya = WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'diproses')))
+  statusnya.click()
   kolom = driver.find_element(By.ID, "column")
   kolom.click()
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'JenLit')))
@@ -152,19 +157,16 @@ def testfiltertable():
     jenlitmasnya.send_keys(Lit16)
     turu(driver)
     driver.find_element(By.ID, "jenisLItmas15").click()
-  
-  driver.find_element(By.ID, 'CariFilter').click()
-  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
-  time.sleep(5)
 
 @mark.fixture_Litmas
 def testmemilihjenislitmas():
-  time.sleep(3)
-  driver.find_element(By.XPATH,"//td[6]/div/button").click() #diganti
-  
-  # WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
-  # WebDriverWait(driver, 60).until(EC.invisibility_of_element_located((By.CLASS_NAME, "el-loading-spinner")))
-
+  driver.find_element(By.ID, 'CariFilter').click()
+  WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'CariFilter')))
+  turu5detik(driver)
+  WebDriverWait(driver, 50).until(EC.visibility_of_element_located((By.ID, 'buttonJenisLitmas0')))
+  turu5detik(driver)
+  driver.find_element(By.ID, 'buttonJenisLitmas0').click() 
+  lagiloading(driver)
   WebDriverWait(driver, 60).until(EC.visibility_of_element_located((By.ID, "tempat")))
 
 @mark.fixture_Litmas
@@ -234,3 +236,5 @@ def testmengisiinstrumenlitmas():
   AnalisaHasilPengamatan(driver)
   AnalisaHasilPengamatan1(driver)
   Rekomendasi(driver)
+
+  simpansesipenjamininstrumen(driver)

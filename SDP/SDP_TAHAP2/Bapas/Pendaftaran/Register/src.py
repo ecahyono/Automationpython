@@ -43,7 +43,7 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-#fileexcel
+#fileexcel``
 if platform.system() == 'Darwin':
     wb = load_workbook(environ.get("excelsatker"))
 elif platform.system() == 'Windows':

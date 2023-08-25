@@ -22,7 +22,7 @@ def initDriver():
         
     elif platform.system() == 'Windows':
         options = webdriver.ChromeOptions()
-        options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
+        # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
         # tentukan path ke driver Chrome
         path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
         # jalankan Chrome dengan opsi dan path yang ditentukan

@@ -1,6 +1,7 @@
 from src import *
 from fakeoption import *
 from Register_Pendampingan import SimpanRegister
+from indikator import *
 
 # init driver by os
 @mark.fixture_pembimbingan
@@ -18,6 +19,7 @@ def testpembimbingan():
   driver.get('http://kumbang.torche.id:32400/bapas/pendaftaran/register-pembimbingan')
   WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonCari')))
   driver.find_element(By.ID, 'createButton').click()
+  turu(driver)
 
 @mark.fixture_pembimbingan
 def testdatapembimbingan():
@@ -26,6 +28,7 @@ def testdatapembimbingan():
     elem = driver.find_element(By. ID, "upt")
     elem.click()
     elem.send_keys(UPTObimbingan)
+    turu(driver)
     # WebDriverWait(driver, 25).until(EC.element_to_be_clickable((By.ID, 'upt0')))
     klikupt = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'"+UPTObimbingan+"')]")))
     klikupt.click()
@@ -114,10 +117,8 @@ def testformtambahpembimbingan():
     pk = driver.find_element(By.ID, 'searchPetugasPenerima')
     pk.send_keys(CariPetugasPembimbingan)
     time.sleep(1)
-    pknama = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
+    pknama = WebDriverWait(driver, 0).until(EC.element_to_be_clickable((By.ID, "searchPetugasPenerima0")))
     pknama.click()
-    # pk.send_keys(Keys.DOWN)
-    # pk.send_keys(Keys.ENTER)
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -147,13 +148,13 @@ def testformtambahpembimbingan():
     driver.find_element(By.ID, 'dropdownSurat').send_keys(AsalsuratPembimbingan)
     driver.find_element(By.XPATH, "//li[contains(.,'"+ AsalsuratPembimbingan+"')]").click()
     Log.info('input Nomer surat')
-    driver.find_element(By.ID, "noSurat0").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat0").send_keys("NO",Nosurat1Pembimbingan)
     Log.info('pilih tanggal surat')
     tglsuratpernth = driver.find_element(By.ID, "TglSurat0")
     tglsuratpernth.send_keys(tglsuratPembimbingan)
     tglsuratpernth.send_keys(Keys.ENTER)
     Log.info('input Perihal surat')
-    driver.find_element(By.ID, 'keterangann0').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann0').send_keys("KeteranganNO",Nosurat1Pembimbingan)
   except NoSuchElementException:
     driver.close()
     driver.quit()
@@ -216,35 +217,35 @@ def testformtambahpembimbingan():
 
   try:
     Log.info('deskripsi SuratPengantarPenyerahan')
-    driver.find_element(By.ID, "noSurat1").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat1").send_keys("NO",Nosurat1Pembimbingan)
     ltg1 = driver.find_element(By.ID, "TglSurat1")
     ltg1.send_keys(tglsuratPembimbingan)
     ltg1.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann1').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann1').send_keys("KeteranganNO",Nosurat1Pembimbingan)
     
-    driver.find_element(By.ID, "noSurat2").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat2").send_keys("NO",Nosurat1Pembimbingan)
     ltg2 = driver.find_element(By.ID, "TglSurat2")
     ltg2.send_keys(tglsuratPembimbingan)
     ltg2.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann2').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann2').send_keys("KeteranganNO",Nosurat1Pembimbingan)
     
-    driver.find_element(By.ID, "noSurat3").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat3").send_keys("NO",Nosurat1Pembimbingan)
     ltg3 = driver.find_element(By.ID, "TglSurat3")
     ltg3.send_keys(tglsuratPembimbingan)
     ltg3.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann3').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann3').send_keys("KeteranganNO",Nosurat1Pembimbingan)
     
-    driver.find_element(By.ID, "noSurat4").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat4").send_keys("NO",Nosurat1Pembimbingan)
     ltg3 = driver.find_element(By.ID, "TglSurat4")
     ltg3.send_keys(tglsuratPembimbingan)
     ltg3.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann4').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann4').send_keys("KeteranganNO",Nosurat1Pembimbingan)
     
-    driver.find_element(By.ID, "noSurat5").send_keys(Nosurat1Pembimbingan)
+    driver.find_element(By.ID, "noSurat5").send_keys("NO",Nosurat1Pembimbingan)
     ltg3 = driver.find_element(By.ID, "TglSurat5")
     ltg3.send_keys(tglsuratPembimbingan)
     ltg3.send_keys(Keys.ENTER)
-    driver.find_element(By.ID, 'keterangann5').send_keys(Perihalsurat1Pembimbingan)
+    driver.find_element(By.ID, 'keterangann5').send_keys("KeteranganNO",Nosurat1Pembimbingan)
   except NoSuchElementException:
     driver.close()
     driver.quit()

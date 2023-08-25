@@ -1,6 +1,7 @@
 from jenis_Litmas.src import *
 from jenis_Litmas.fakeoption import *
 from sesilitmas import *
+from jenis_Litmas.indikator import *
 
 def RiwayatTindakPidana(driver):
   Log.info('Instrumen Litmas Diversi Riwayat Tindak Pidana')

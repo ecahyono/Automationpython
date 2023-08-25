@@ -1,4 +1,4 @@
-from Register.src import *
+from src import *
 
 def turu(driver):
   time.sleep(2)

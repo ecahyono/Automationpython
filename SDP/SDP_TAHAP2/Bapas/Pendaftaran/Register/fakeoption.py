@@ -9,7 +9,7 @@ from src import *
 ################-> input urutan Baris Di Exel yang akan di eksekusi
 pendampingan = 6
 litmas = 5
-pembimbingan = 3
+pembimbingan = 11
 pengawsan = 12
 curd = 2
 
@@ -30,26 +30,23 @@ TipeLampiran                  = fake.random_element(elements=('Pendampingan Dive
 TingkatPengadilan             = fake.random_element(elements=('Negeri', 'Tinggi','Mahkamah'))
 
 tanggal_sekarang = datetime.now()
-tanggal_sebelumnya = tanggal_sekarang - timedelta(days=30)
-tgl_sebulan_berikutnya = tanggal_sekarang + timedelta(days=30)
+tanggal_sebelumnya = tanggal_sekarang - timedelta(days=7)
+tgl_sebulan_berikutnya = tanggal_sekarang + timedelta(days=7)
 
 A = wb['Register Pembimbingan']
+opsiAsalsurat   = [cell.value for cell in A['J'] if cell.value is not None]
+opsijenisKlienPembimbingan  = [cell.value for cell in A['C'] if cell.value is not None]
 UPTObimbingan                           = A['A'+str(pembimbingan)].value
 NoregNamabimbingan                      = A['B'+str(pembimbingan)].value
-jenisKlienPembimbingan                  = A['C'+str(pembimbingan)].value
-JenisPembimbingan                       = A['D'+str(pembimbingan)].value
-DasarPembimbingan                       = A['E'+str(pembimbingan)].value
+jenisKlienPembimbingan                  = fake.random.choice(opsijenisKlienPembimbingan)
+DasarPembimbingan                       = fake.random_element(elements=('Putusan Pengadilan', 'Penetapan Pengadilan','SK Menkumham','SK Kabapas'))
 TglAwalBimbingan                        = tanggal_sebelumnya.strftime('%d/%m/%Y')
 TglAkhirBimbignan                       = tgl_sebulan_berikutnya.strftime('%d/%m/%Y')
 CariPetugasPembimbingan                 = A['H'+str(pembimbingan)].value
 SuratDasarPembimbingan                  = A['I'+str(pembimbingan)].value
-AsalsuratPembimbingan                   = A['J'+str(pembimbingan)].value
-Nosurat1Pembimbingan                    = A['K'+str(pembimbingan)].value
-tglsuratPembimbingan                    = tanggal_sekarang.strftime('%d/%m/%Y %H:%M')   
-Perihalsurat1Pembimbingan               = A['M'+str(pembimbingan)].value   
-SuratPengantarPenyerahanPembimbingan    = A['N'+str(pembimbingan)].value   
-BeritaAcaraSerahTerimaKlienPembimbingan = A['R'+str(pembimbingan)].value
-SuratPerintahPembimbingan               = A['V'+str(pembimbingan)].value
+AsalsuratPembimbingan                   = fake.random.choice(opsiAsalsurat)
+Nosurat1Pembimbingan                    = fake.random_number(digits=5)
+tglsuratPembimbingan                    = tanggal_sebelumnya.strftime('%d/%m/%Y')   
 
 B = wb['Register Litmas']
 UPTOlitmas         = B['A'+str(litmas)].value
