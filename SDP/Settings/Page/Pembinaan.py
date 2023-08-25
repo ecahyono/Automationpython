@@ -207,8 +207,20 @@ def MenuPenilaian(driver):
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
     nav1 = driver.find_element(By.ID, "pembinaan-10")
     ActionChains(driver).move_to_element(nav1).perform()
-    time.sleep(0.3)
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "SPPN-11")
-    time.sleep(0.3)
+    time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
-    driver.find_element(By.ID, "/sppn/penilaian-pembinaan-narapidana").click()
+    driver.find_element(By.LINK_TEXT, "Penilaian Pembinaan Narapidana").click()
+
+
+def LaporanBulananWali(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "SPPN-11")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Laporan SPPN").click()
