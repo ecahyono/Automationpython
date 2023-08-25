@@ -10,8 +10,8 @@ Log.addHandler(fh)
 
 
 @pytest.mark.webtestx
-def test_TC_SPPN_009_LoginPusat():
-    print('Login aplikasi menggunakan akun dengan role pusat')
+def test_TC_SPPN_009_LoginOperator():
+    print('Login aplikasi menggunakan akun dengan role Operator')
     Op_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())

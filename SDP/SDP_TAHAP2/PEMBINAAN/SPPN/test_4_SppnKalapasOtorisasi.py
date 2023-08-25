@@ -9,20 +9,20 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 @pytest.mark.webtest
-def test_TC_SPPN_018():
+def test_TC_SPPN_036():
     print('Login aplikasi menggunakan akun dengan role Kasie')
     Kalapas_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie")
 
 @pytest.mark.webtest
-def test_TC_SPPN_019():
+def test_TC_SPPN_037():
     print('Kasie mengakses submenu Persetujuan Perwalian')
     sleep(driver)
     MenuSPPNPerwalianPersetujuan(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
 
 @pytest.mark.webtest
-def test_TC_SPPN_020():
+def test_TC_SPPN_038():
     
     vars = {}
     vars["x"] = driver.execute_script("return 1")

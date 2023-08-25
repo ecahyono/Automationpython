@@ -9,14 +9,14 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_001_LoginPusat():
     print('Login aplikasi menggunakan akun dengan role pusat')
     Op_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_002_AksesMenuSKPerwalian():
     print('Operator mengakses Operator mengakses submenu SK Perwalian')
     sleep(driver)
@@ -25,7 +25,7 @@ def test_TC_SPPN_002_AksesMenuSKPerwalian():
     attach(data=driver.get_screenshot_as_png())
 
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_003_InputSK():
     vars = {}
     vars["x"] = driver.execute_script("return 1")
@@ -91,7 +91,7 @@ def test_TC_SPPN_003_InputSK():
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "filterButton")))
         Log.info("Berhasil menambahkan data")
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
-        condition = driver.execute_script("return (arguments[0]<20)", vars["x"])
+        condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
 
 @pytest.mark.webtest
 def test_TC_SPPN_004_FilterData():

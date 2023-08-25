@@ -9,20 +9,20 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 @pytest.mark.webtestx
-def test_TC_SPPN_022_LoginKasie():
+def test_TC_SPPN_016_LoginKasie():
     print('Login aplikasi menggunakan akun dengan role Kasie')
     kasie_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie")
 
 @pytest.mark.webtestx
-def test_TC_SPPN_023_AksesMenu():
+def test_TC_SPPN_017_AksesMenu():
     print('Kasie mengakses submenu Persetujuan Perwalian')
     sleep(driver)
     MenuSPPNPerwalianPersetujuan(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
 
 @pytest.mark.webtestx
-def test_TC_SPPN_024_KasieMelakukanVerifikasi():
+def test_TC_SPPN_018_KasieMelakukanVerifikasi():
     sleep(driver)
     vars = {}
     vars["x"] = driver.execute_script("return 1")
@@ -56,7 +56,7 @@ def test_TC_SPPN_024_KasieMelakukanVerifikasi():
 
 
 @pytest.mark.webtest
-def test_TC_SPPN_025_FilterData():
+def test_TC_SPPN_019_FilterData():
     print('Kasie melakukan filter data')
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonSearch')))
     driver.find_element(By.ID, "filterKeyword").send_keys("W")
@@ -120,7 +120,7 @@ def test_TC_SPPN_025_FilterData():
     Log.info ('Filter data Jumlah Narapidana berhasil dilakukan oleh Kasie')
 
 @pytest.mark.webtest
-def test_TC_SPPN_026_HalamanDetail():
+def test_TC_SPPN_020_HalamanDetail():
     sleep(driver)
     print('Kasie melakukan akses halaman detail')
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonSearch')))

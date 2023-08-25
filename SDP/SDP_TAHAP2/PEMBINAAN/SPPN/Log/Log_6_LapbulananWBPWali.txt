@@ -1,0 +1,8 @@
+[2023-08-23 11:04:34,651 test_6_LapbulWbpWali.py_>test_TC_SPPN_030_AksesMenuGenerateLaporan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-08-23 11:04:38,715 test_6_LapbulWbpWali.py_>test_TC_SPPN_031_GenerateLaporan()]==>INFO: Agustus Generate Penilaian Wbp
+[2023-08-23 11:04:43,143 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Catatan Skor Pembinaan Kepribadian
+[2023-08-23 11:04:43,196 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Catatan Skor Pembinaan Kemandirian
+[2023-08-23 11:04:43,261 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Catatan Skor Sikap Narapidana
+[2023-08-23 11:04:43,299 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Catatan Skor Kondisi Mental Narapidana
+[2023-08-23 11:04:43,447 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Berhasil Tambah Catatan
+[2023-08-23 11:04:43,584 test_6_LapbulWbpWali.py_>test_TC_SPPN_32_InputRekomendasi()]==>INFO: Input Rekomendasi

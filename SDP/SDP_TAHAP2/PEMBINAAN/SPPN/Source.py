@@ -61,7 +61,7 @@ nums = '01234567891011121415161716'
 SkPerwalian = ['opt0','opt2','opt3','opt4','opt5','opt6']
 checkboxPeseeta1 = ['#check0 .el-checkbox__inner','#check1 .el-checkbox__inner','#check2 .el-checkbox__inner','#check3 .el-checkbox__inner','#check4 .el-checkbox__inner','#check5 .el-checkbox__inner']
 checkboxPeseeta2 = ['#check6 .el-checkbox__inner','#check7 .el-checkbox__inner','#check8 .el-checkbox__inner','#check9 .el-checkbox__inner']
-
+fakeMonth               = ['04']
 
 
 
@@ -75,6 +75,9 @@ for i in range(1):
     TanggalPenetapanFaker    = fake.date_between(start_date='-30d', end_date='today').strftime('%d.%m.%Y')
     checkboxPeseeta1Faker    = random.choice(checkboxPeseeta1)
     checkboxPeseeta2Faker    = random.choice(checkboxPeseeta2)
+    # BulanWbpWaliFaker      = random.choice(fakeMonth)
+    BulanWbpWaliFaker                                   = fake.date_between(start_date='today', end_date='today').strftime('%m')
+    rekomendasiFaker        = fake.text()
 
     worksheet.append([
         NoSkFaker,
@@ -84,7 +87,9 @@ for i in range(1):
         TempatPenetapanFaker,
         TanggalPenetapanFaker,
         checkboxPeseeta1Faker,
-        checkboxPeseeta2Faker
+        checkboxPeseeta2Faker,
+        BulanWbpWaliFaker,
+        rekomendasiFaker
 
        
      
@@ -103,6 +108,8 @@ for row in worksheet.iter_rows(min_row=1, values_only=True):
     TanggalPenetapanExcell                = row[5]
     checkboxPeseeta1Excell                = row[6]
     checkboxPeseeta2Excell                = row[7]
+    BulanWbpWaliExcell                    = row[8]
+    rekomendasiExcell                     = row[9]
 
     
 

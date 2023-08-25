@@ -17,7 +17,7 @@ KotaTujuan                                   = sheetrangeIndex['B'+str(i)].value
 
 
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_008():
     OpKemandirian(driver)
     attach(data=driver.get_screenshot_as_png())
@@ -27,7 +27,7 @@ def test_TC_GIATJA_008():
     attach(data=driver.get_screenshot_as_png())
     Log.info('Operator mengakses halaman Pemasaran')
 
-@pytest.mark.webtestX
+@pytest.mark.webtest
 def test_TC_GIATJA_009():
     sleep(driver)
     vars = {}
