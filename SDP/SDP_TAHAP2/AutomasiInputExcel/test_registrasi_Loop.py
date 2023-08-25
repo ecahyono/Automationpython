@@ -386,7 +386,7 @@ def test_Input_Registrasi():
             
 
             driver.find_element(By.ID, "submitButton").click()
-            Log.info('Klik Button Submit')
+
 
             
         except TimeoutException:
