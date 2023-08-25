@@ -31,6 +31,7 @@ elif platform.system() == 'Windows':
 
 from Settings.setupkeamanan import initDriver, loadDataPath, quit, sleep
 from Settings.loginkeamanan import *
+from Settings.setupPembinaan import *
 
 import logging
 Log = logging.getLogger(__name__)
@@ -55,7 +56,7 @@ def test_1_setupOS():
 def test_2_login():
     (driver)
     Log.info('Login')
-    Raft(driver)
+    loginSumedang(driver)
 
 
 @mark.webtest()
@@ -344,6 +345,45 @@ def test_Input_Registrasi():
             driver.find_element(By.ID, "tgl_msk_lapas").send_keys(Keys.ENTER)
             time.sleep(4)
             Log.info('Input tanggal masuk lapas')
+
+            driver.find_element(By.ID, "tab-file_dokumen").click()
+
+
+
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "chooseFile-0")))
+            driver.find_element(By.ID, "chooseFile-0").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-1").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-3").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-5").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-6").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-15").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-8").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-16").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-17").click()
+            upload(driver)
+
+            driver.find_element(By.ID, "chooseFile-20").click()
+            upload(driver)
+
+            
+
+            
 
             driver.find_element(By.ID, "submitButton").click()
             Log.info('Klik Button Submit')
