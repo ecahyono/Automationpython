@@ -1,0 +1,3 @@
+[2023-08-22 09:56:50,916 test_1_WaktuRemisi.py_>test_TC_REM_001_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Pusat
+[2023-08-22 09:56:53,747 test_1_WaktuRemisi.py_>test_TC_REM_002_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-08-22 09:56:58,139 test_1_WaktuRemisi.py_>test_TC_REM_003_TambahPemberianRemisi()]==>INFO: Berhasil mengisi form tambah Pemberian Remisi
