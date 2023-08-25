@@ -112,7 +112,6 @@ def test_TC_SPPN_32_InputRekomendasi():
 
     driver.find_element(By.ID, "rekomendasi").send_keys(rekomendasiFaker)
     Log.info('Input Rekomendasi')
-
     # driver.find_element(By.ID, "submitButton").click()
     # Log.info('Berhasil Input Rekomendasi')
 

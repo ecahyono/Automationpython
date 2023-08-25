@@ -1,2 +1,2 @@
-[2023-08-22 10:22:23,842 test_1_SkPerwalian.py_>test_TC_SPPN_001_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
-[2023-08-22 10:22:26,996 test_1_SkPerwalian.py_>test_TC_SPPN_002_AksesMenuSKPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-08-25 15:01:37,346 test_1_SkPerwalian.py_>test_TC_SPPN_001_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-08-25 15:01:39,305 test_1_SkPerwalian.py_>test_TC_SPPN_002_AksesMenuSKPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
