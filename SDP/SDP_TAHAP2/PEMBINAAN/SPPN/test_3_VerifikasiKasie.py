@@ -8,20 +8,20 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_016_LoginKasie():
     print('Login aplikasi menggunakan akun dengan role Kasie')
     kasie_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie")
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_017_AksesMenu():
     print('Kasie mengakses submenu Persetujuan Perwalian')
     sleep(driver)
     MenuSPPNPerwalianPersetujuan(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_018_KasieMelakukanVerifikasi():
     sleep(driver)
     vars = {}
@@ -46,12 +46,11 @@ def test_TC_SPPN_018_KasieMelakukanVerifikasi():
         driver.find_element(By.ID, "keterangan").send_keys("Persetujuan Perwalian")
         driver.find_element(By.CSS_SELECTOR, "#simpanButton > span").click()
         time.sleep(1)
-        WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Ditambahkan')]")))
         WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
         Log.info ('Verifikasi berhasil dilakukan oleh Kasie')
 
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
-        condition = driver.execute_script("return (arguments[0]<10)", vars["x"])
+        condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
     
 
 

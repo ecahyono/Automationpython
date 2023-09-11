@@ -34,7 +34,7 @@ def KasieGiatja(driver):
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "username")))
     
     # driver.find_element(By.ID, "username").send_keys("Rehan Ardian")
-    driver.find_element(By.ID, "username").send_keys("riksa-paradila")
+    driver.find_element(By.ID, "username").send_keys("nasya-putri-ryani")
     
     
     driver.find_element(By.ID, "password").send_keys("password")
@@ -220,7 +220,7 @@ def sumedang(driver):
 def wali_SURIYAH(driver): 
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
-    driver.find_element(By.ID, "username").send_keys("SURIYAH")
+    driver.find_element(By.ID, "username").send_keys("DOMO")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     driver.find_element(By.ID, "kc-login").click()
@@ -228,4 +228,20 @@ def wali_SURIYAH(driver):
     print('.')
     print('========== Login ==========')
     
+    attach(data=driver.get_screenshot_as_png())
+
+def loginSumedang(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-sumedang")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
     attach(data=driver.get_screenshot_as_png())

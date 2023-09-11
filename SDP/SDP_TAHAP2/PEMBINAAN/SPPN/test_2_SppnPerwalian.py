@@ -9,14 +9,14 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_009_LoginOperator():
     print('Login aplikasi menggunakan akun dengan role Operator')
     Op_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_010_AksesMenuTimPerwalian():
     print('Operator mengakses Operator mengakses submenu Tim Perwalian')
     sleep(driver)
@@ -25,7 +25,7 @@ def test_TC_SPPN_010_AksesMenuTimPerwalian():
 
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_011_InputTimPerwalian():
     driver.implicitly_wait(20)
     sleep(driver)

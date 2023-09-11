@@ -176,7 +176,8 @@ def MenuSPPNPerwalianPersetujuan(driver):
     nav3 = driver.find_element(By.ID, "perwalian-11")
     time.sleep(0.2)
     ActionChains(driver).move_to_element(nav3).perform()
-    driver.find_element(By.LINK_TEXT, "Persetujuan").click()
+    time.sleep(0.2)
+    driver.find_element(By.LINK_TEXT, "Persetujuan Tim Perwalian").click()
    
 
 def LogOut(driver):
@@ -215,6 +216,17 @@ def MenuPenilaian(driver):
 
 
 def LaporanBulananWali(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "SPPN-11")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Laporan SPPN").click()
+
+def laporanSPPN(driver):
     driver.implicitly_wait(100)
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
     nav1 = driver.find_element(By.ID, "pembinaan-10")

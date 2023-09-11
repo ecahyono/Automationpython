@@ -1,11 +1,8 @@
-[2023-07-13 15:43:34,969 test_4_VerifikasiKasie.py_>test_TC_SPPN_022_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
-[2023-07-13 15:43:53,763 test_4_VerifikasiKasie.py_>test_TC_SPPN_023_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-07-13 15:44:23,372 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:44:56,668 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:06,619 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:18,736 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:28,998 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:37,646 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:45,048 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:45:52,796 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-07-13 15:46:00,050 test_4_VerifikasiKasie.py_>test_TC_SPPN_024_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-08-29 09:18:46,317 test_3_VerifikasiKasie.py_>test_TC_SPPN_016_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-08-29 09:18:48,706 test_3_VerifikasiKasie.py_>test_TC_SPPN_017_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-08-29 09:18:56,502 test_3_VerifikasiKasie.py_>test_TC_SPPN_018_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
+[2023-08-29 09:18:58,141 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Semua berhasil dilakukan oleh Kasie
+[2023-08-29 09:18:59,922 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Nomor SK berhasil dilakukan oleh Kasie
+[2023-08-29 09:19:01,701 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Penandatangan SK berhasil dilakukan oleh Kasie
+[2023-08-29 09:19:02,950 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Nama Wali berhasil dilakukan oleh Kasie
+[2023-08-29 09:19:04,193 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Jumlah Narapidana berhasil dilakukan oleh Kasie

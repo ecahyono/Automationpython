@@ -44,7 +44,7 @@ def test_TC_GIATJA_009():
         JeniskegiatanPemasaran                                  = ['jenisBidang0-opt0','jenisBidang0-opt1','jenisBidang0-opt2']
         JeniskegiatanPemasaran1                                 = ['#jenisBidang1-opt1 > span','#jenisBidang1-opt0 > span','#jenisBidang1-opt2 > span']
     
-        JenisProdukPemasaran                                    = ['jenisProduk0-opt0','jenisProduk0-opt1','jenisProduk0-opt2']
+        JenisProdukPemasaran                                    = ['jenisProduk0-opt0','jenisProduk0-opt1']
         JenisProdukPemasaran1                                  = ['jenisProduk1-opt0','jenisProduk1-opt1']
        
 
@@ -106,7 +106,7 @@ def test_TC_GIATJA_009():
             
 
             driver.find_element(By.ID, "mitra").click()
-            WebDriverWait(driver, 0).until(EC.element_to_be_clickable((By.ID, ""+MitraFaker+"")))
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, ""+MitraFaker+"")))
             driver.find_element(By.ID, ""+MitraFaker+"").click()
             time.sleep(2)
 
@@ -279,6 +279,7 @@ def test_TC_GIATJA_013():
     sleep(driver)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "submitButton")))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "uraianKegiatan")))
+    time.sleep(3)
     driver.find_element(By.ID, "uraianKegiatan").send_keys(fake.text(max_nb_chars=255))
     driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))

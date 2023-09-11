@@ -123,10 +123,11 @@ def quit(driver):
 
 def upload(driver):
     sleep(driver)
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('e')
-    time.sleep(1)
+    time.sleep(0.5)
     pyautogui.press('enter')
+    print('upload pembinaan')
     
 def uploadGambar(driver):
     time.sleep(1)

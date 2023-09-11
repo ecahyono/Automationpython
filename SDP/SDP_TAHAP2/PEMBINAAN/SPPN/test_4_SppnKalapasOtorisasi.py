@@ -48,12 +48,13 @@ def test_TC_SPPN_038():
             driver.find_element(By.CSS_SELECTOR, ".text-yellow-500").click()
             WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "simpanButton")))
             driver.find_element(By.ID, "status").click()
-            driver.find_element(By.ID, "verifikasi").click()
+            driver.find_element(By.ID, "diSetujui").click()
             driver.find_element(By.ID, "keterangan").send_keys("Persetujuan Perwalian kalapas otorisasi")
             driver.find_element(By.CSS_SELECTOR, "#simpanButton > span").click()
-            WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Ditambahkan')]")))
+            WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Memperbarui data')]")))
             WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
             Log.info ('Verifikasi berhasil dilakukan oleh Kasie')
+            input('Press ENTER to continue')
     
       
 

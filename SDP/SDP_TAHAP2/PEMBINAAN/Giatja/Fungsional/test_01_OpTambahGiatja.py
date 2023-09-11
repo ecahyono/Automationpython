@@ -244,6 +244,17 @@ def test_TC_GIATJA_003():
         # driver.find_element(By.CSS_SELECTOR, ".el-form").click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#submitButton > span")))
 
+
+        print('Input insentif')
+        driver.find_element(By.ID, "insentif10").send_keys(NilaiFaker)
+
+        driver.find_element(By.ID, "insentif11").send_keys(NilaiFaker)
+
+        driver.find_element(By.ID, "insentif12").send_keys(NilaiFaker)
+
+
+        Log.info('insentif')
+
         driver.find_element(By.ID, "submitButton").click()
         WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "createButton")))
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])

@@ -67,9 +67,11 @@ Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3']
 Skalakegiatan           = ['skala0','skala1','skala2']
 area                    = ['area0','area1','area2']
 sarana                  = ['sarana0','sarana1','sarana2']
-prasarana               = ['prasaranaundefined-0','prasaranaundefined-1','prasaranaundefined-2','prasaranaundefined-3']
+prasarana               = ['prasaranaundefined-0','prasaranaundefined-1']
 mitra                   = ['mitra0']
-checkbox                = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner','.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner','.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner','.el-table__row:nth-child(10) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner']
+checkbox                = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner']
+checkbox1               = ['.el-table__row:nth-child(4) .el-checkbox__inner','.el-table__row:nth-child(5) .el-checkbox__inner','.el-table__row:nth-child(6) .el-checkbox__inner']
+checkbox2               = ['.el-table__row:nth-child(7) .el-checkbox__inner','.el-table__row:nth-child(8) .el-checkbox__inner','.el-table__row:nth-child(9) .el-checkbox__inner']
 idjenis                 = ['jenis0','jenis1']
 satuan                  = ['satuan0','satuan1','satuan3','satuan4','satuan5']
 fakeMonth               = ['04']
@@ -98,8 +100,8 @@ for i in range(1):
     ketereranganFaker                 = fake.text(max_nb_chars=100)
     jumlahPesertaFaker                = fake.random_int(min=1, max=3)
     PesertaRandomFaker1               = random.choice(checkbox)
-    PesertaRandomFaker2               = random.choice(checkbox)
-    PesertaRandomFaker3               = random.choice(checkbox)
+    PesertaRandomFaker2               = random.choice(checkbox1)
+    PesertaRandomFaker3               = random.choice(checkbox2)
     idjenisFaker                      = random.choice(idjenis)
     namaProdukFaker                   = fake.text(max_nb_chars=7)
     jumlahprodukFaker                 = fake.random_int(min=1, max=3)

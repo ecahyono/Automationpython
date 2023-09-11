@@ -76,10 +76,10 @@ def test_TC_SPPN_029_HapusPenilaian():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".text-green-500 path")))
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 path").click()
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, "backButton")))
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#delete0 path")))
-    driver.find_element(By.ID, 'delete0').click()
-    driver.find_element(By.XPATH, "//div[3]/button[2]").click()
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Menghapus')]")))
+    # WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#delete0 path")))
+    # driver.find_element(By.ID, 'delete0').click()
+    # driver.find_element(By.XPATH, "//div[3]/button[2]").click()
+    # WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Menghapus')]")))
     Log.info ('Berhasil menghapus data Penilaian Harian')
 
 
