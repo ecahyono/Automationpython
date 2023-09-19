@@ -108,9 +108,9 @@ def test_Input_Registrasi():
     
             input('enter')
             
-            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.el-dialog__headerbtn')))
-            driver.find_element(By.CSS_SELECTOR, ".el-dialog__headerbtn").click()
-            Log.info('close Pop Up')
+            # WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.el-dialog__headerbtn')))
+            # driver.find_element(By.CSS_SELECTOR, ".el-dialog__headerbtn").click()
+            # Log.info('close Pop Up')
 
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, "tgl_srt_thn")))
 

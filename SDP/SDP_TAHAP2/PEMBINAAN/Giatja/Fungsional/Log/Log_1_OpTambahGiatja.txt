@@ -1,0 +1,28 @@
+[2023-09-19 16:57:03,828 test_01_OpTambahGiatja.py->test_TC_GIATJA_001()]==>INFO: Login Op Giatja
+[2023-09-19 16:57:05,531 test_01_OpTambahGiatja.py->test_TC_GIATJA_002()]==>INFO: Operator mengakses halaman Kegiatan Kerja dan Produksi
+[2023-09-19 16:57:09,630 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Klik Button Tambah
+[2023-09-19 16:57:10,380 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Bidang Kegiatan
+[2023-09-19 16:57:11,154 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Jenis Kegiatan
+[2023-09-19 16:57:11,335 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Nama Kegiatan
+[2023-09-19 16:57:12,066 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Skala Kegiatan
+[2023-09-19 16:57:12,249 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Tanggal Awal Kegiatan
+[2023-09-19 16:57:12,442 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Lokasi Kegiatan
+[2023-09-19 16:57:13,649 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Tanggal Akhir Kegiatan
+[2023-09-19 16:57:14,369 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Area Kegiatan
+[2023-09-19 16:57:14,575 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Luas
+[2023-09-19 16:57:14,730 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Jumlah Ruang
+[2023-09-19 16:57:18,512 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Sarana
+[2023-09-19 16:57:25,850 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Prasarana
+[2023-09-19 16:57:26,613 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Mitra
+[2023-09-19 16:57:31,561 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Keterangan
+[2023-09-19 16:57:31,757 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Button Tambah Peserta
+[2023-09-19 16:58:00,833 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Tambah Peserta 1
+[2023-09-19 16:58:00,868 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Tambah Peserta 2
+[2023-09-19 16:58:00,893 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Tambah Peserta 3
+[2023-09-19 16:58:00,925 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Click Button Daftarkan
+[2023-09-19 16:58:01,291 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Click Button Create Produk
+[2023-09-19 16:58:02,208 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Click Button Jenis Produk
+[2023-09-19 16:58:04,120 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Nama Produk
+[2023-09-19 16:58:04,504 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Jumlah Produk
+[2023-09-19 16:58:07,326 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Input Gambar Produk
+[2023-09-19 16:58:07,611 test_01_OpTambahGiatja.py->test_TC_GIATJA_003()]==>INFO: Click Button Submit Produk

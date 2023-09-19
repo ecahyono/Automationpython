@@ -24,6 +24,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from openpyxl import load_workbook
 
+
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
     wb = load_workbook(environ.get("data"))
@@ -61,12 +62,12 @@ KegiatanKerja   = ['Manufaktur','Jasa']
 KegiatanKerja1   = ['bidang1-opt0','bidang1-opt1','bidang1-opt2']
 KegiatanKerja2   = ['bidang1-opt0','bidang1-opt1','bidang1-opt2']
 
-Jeniskegiatan   = ['jenisKegiatan1','jenisKegiatan2','jenisKegiatan3']
+Jeniskegiatan   = ['jenisKegiatan0','jenisKegiatan1','jenisKegiatan2']
 
 
 Skalakegiatan           = ['skala0','skala1','skala2']
 area                    = ['area0','area1','area2']
-sarana                  = ['sarana0','sarana1','sarana2']
+sarana                  = ['sarana0']
 prasarana               = ['prasaranaundefined-0','prasaranaundefined-1']
 mitra                   = ['mitra0']
 checkbox                = ['.el-table__row:nth-child(1) .el-checkbox__inner','.el-table__row:nth-child(2) .el-checkbox__inner','.el-table__row:nth-child(3) .el-checkbox__inner']
@@ -88,7 +89,7 @@ for i in range(1):
     JeniskegiatanFaker                = random.choice(Jeniskegiatan)
     namaKegiatanFaker                 = fake.text(max_nb_chars=7)
     SkalakegiatanFaker                = random.choice(Skalakegiatan)
-    tanggalAwalKegiatanFaker          = fake.date_between(start_date='-10d', end_date='-1d').strftime('%d/%m/%Y')
+    tanggalAwalKegiatanFaker          = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
     tanggalAkhirKegiatanFaker         = fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y')
     areaFaker                         = random.choice(area)
     lokasiKegiatanFaker               = fake.address()
@@ -184,11 +185,3 @@ global driver, pathData
 driver = initDriver()
 pathData = loadDataPath()      
 
-
-    # revisi 
-    # jika sudah sampai otorisasi seharusnya itu tidak mungkin
-    # tengah bulan itu udah sampai otorisasi kalapas
-    # jika ada tambahan status laporanya menjeadi merah lagi harus generate ulang
-    # sampai akhir bulan masih bisa update di bulan tersebut
-    # data bulan laporan sebelumnya menjadi dihapus dan harus generate ulang ( menjadi merah kembali ) 
-    # jika bulan sudah lewat berati status menjadi revisi ( operator masih bisa merubah tersebut )
