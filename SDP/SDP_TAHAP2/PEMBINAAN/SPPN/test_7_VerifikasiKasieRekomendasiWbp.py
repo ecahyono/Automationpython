@@ -10,7 +10,7 @@ Log.addHandler(fh)
 
 
 
-KasieGiatja(driver)
+kasie_SPPN(driver)
 
 @pytest.mark.webtest
 def test_TC_SPPN_033_AksesMenuGenerateLaporan():

@@ -118,3 +118,4 @@ def test_TC_SPPN_32_InputRekomendasi():
     WebDriverWait(driver, 70).until(EC.element_to_be_clickable((By.ID, "searchButton")))
 
 
+        

@@ -14,7 +14,7 @@ kasie_SPPN(driver)
 
 @pytest.mark.webtest
 def test_TC_SPPN_033_AksesMenuGenerateLaporan():
-    print('Operator mengakses submenu Penilaian ')
+    print('Kasie mengakses submenu Penilaian ')
     sleep(driver)
     laporanSPPN(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
@@ -22,7 +22,7 @@ def test_TC_SPPN_033_AksesMenuGenerateLaporan():
    
 @pytest.mark.webtest
 def test_TC_SPPN_034_OpGenerateLaporanUPT():
-    print('Operator mengakses submenu Laporan Bulanan ')
+    print('Kasie mengakses submenu Laporan Bulanan ')
     sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver, 70).until(EC.element_to_be_clickable((By.ID, "searchButton")))
@@ -100,8 +100,9 @@ def test_TC_SPPN_034_OpGenerateLaporanUPT():
     driver.find_element(By.ID, "selectStatus").click()
     driver.find_element(By.ID, "verifikasi").click()
     driver.find_element(By.ID, "keterangan").send_keys(rekomendasiFaker)
-    time.sleep(2)
-    # driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
+    time.sleep(3)
+    input("enter")
+    driver.find_element(By.CSS_SELECTOR, "#submitButton > span").click()
     
     WebDriverWait(driver, 70).until(EC.element_to_be_clickable((By.ID, "searchButton")))
     Log.info ('Verifikasi kasie laporan bulanan upt')

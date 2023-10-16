@@ -54,7 +54,7 @@ def test_TC_SPPN_018_KasieMelakukanVerifikasi():
     
 
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_019_FilterData():
     print('Kasie melakukan filter data')
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonSearch')))
@@ -118,7 +118,7 @@ def test_TC_SPPN_019_FilterData():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonSearch')))
     Log.info ('Filter data Jumlah Narapidana berhasil dilakukan oleh Kasie')
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_020_HalamanDetail():
     sleep(driver)
     print('Kasie melakukan akses halaman detail')

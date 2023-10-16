@@ -1,4 +1,0 @@
-[2023-05-29 19:35:08,451 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_030()]==>INFO: Setup Os
-[2023-05-29 19:35:31,948 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_031()]==>INFO: Operator mengakses halaman Laporan Kegiatan Kerja dan pemasaran-pnbpsi
-[2023-05-29 19:36:02,842 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_032()]==>INFO: Mei Sarana
-[2023-05-29 19:36:03,192 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_032()]==>INFO: Operator mengklik button OK

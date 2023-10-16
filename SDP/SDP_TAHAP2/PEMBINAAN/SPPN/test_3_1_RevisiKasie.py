@@ -45,7 +45,7 @@ def test_TC_SPPN_018_KasieMelakukanRevisi():
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID, 'buttonSearch')))
     LogOut(driver)
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_019_LoginOperator():
     sleep(driver)
     print('Login aplikasi menggunakan akun dengan role operator')
@@ -53,7 +53,7 @@ def test_TC_SPPN_019_LoginOperator():
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
 
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_020_AksesMenuTimPerwalian():
     sleep(driver)
     print('Operator mengakses Operator mengakses submenu Tim Perwalian')
@@ -75,7 +75,7 @@ def test_TC_SPPN_020_AksesMenuTimPerwalian():
     driver.find_element(By.CSS_SELECTOR, ".text-green-500 .h-5").click()
     Log.info('Operator berhasil mengakses halaman Ubah Tim Perwalian')
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_021_UbahTimPerwalian():
     sleep(driver)
     print('Operator mengubah data Tim Perwalian')

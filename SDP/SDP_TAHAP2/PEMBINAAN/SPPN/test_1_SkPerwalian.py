@@ -10,8 +10,8 @@ Log.addHandler(fh)
 
 
 @pytest.mark.webtest
-def test_TC_SPPN_001_LoginPusat():
-    print('Login aplikasi menggunakan akun dengan role pusat')
+def test_TC_SPPN_001_LoginOperator():
+    print('Login aplikasi menggunakan akun dengan role Operator')
     Op_SPPN(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())
@@ -93,7 +93,7 @@ def test_TC_SPPN_003_InputSK():
         vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
         condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_004_FilterData():
     print('Operator Filter Data Berdasarkan No SK')
     sleep(driver)
@@ -144,7 +144,7 @@ def test_TC_SPPN_004_FilterData():
     WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#detail0 .h-5")))
 
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_005_AksesHalamanDetail():
     print('Operator Klik Button Detile')
     sleep(driver)
@@ -155,14 +155,14 @@ def test_TC_SPPN_005_AksesHalamanDetail():
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "filterButton")))
     Log.info("Berhasil menampilkan detail data")
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_006_AksesHalamanUbah():
     print('Operator Klik Button Ubah')
     sleep(driver)
     driver.find_element(By.CSS_SELECTOR, "#edit0 path").click()
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "submitButton")))
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_007_EditData():
     print('Operator Ubah Data')
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "submitButton")))
@@ -181,7 +181,7 @@ def test_TC_SPPN_007_EditData():
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "filterButton")))
     Log.info("Berhasil mengubah data")
     
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test_TC_SPPN_008_DeleteData():
     print('Operator Hapus data')
     sleep(driver)

@@ -1,0 +1,3 @@
+[2023-10-01 23:02:47,796 test_02_OpPemasaran.py->test_TC_GIATJA_008()]==>INFO: Setup Os
+[2023-10-01 23:02:50,548 test_02_OpPemasaran.py->test_TC_GIATJA_008()]==>INFO: Operator mengakses halaman Pemasaran
+[2023-10-01 23:02:58,267 test_02_OpPemasaran.py->test_TC_GIATJA_009()]==>INFO: Klik Button Tambah

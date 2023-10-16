@@ -1,0 +1,6 @@
+[2023-09-26 21:38:11,549 test_1_SkPerwalian.py_>test_TC_SPPN_001_LoginPusat()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-09-26 21:38:14,062 test_1_SkPerwalian.py_>test_TC_SPPN_002_AksesMenuSKPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-09-26 21:38:24,735 test_1_SkPerwalian.py_>test_TC_SPPN_003_InputSK()]==>INFO: Berhasil menambahkan data
+[2023-09-26 21:38:38,857 test_1_SkPerwalian.py_>test_TC_SPPN_005_AksesHalamanDetail()]==>INFO: Berhasil menampilkan detail data
+[2023-09-26 21:38:46,079 test_1_SkPerwalian.py_>test_TC_SPPN_007_EditData()]==>INFO: Berhasil mengubah data
+[2023-09-26 21:38:46,533 test_1_SkPerwalian.py_>test_TC_SPPN_008_DeleteData()]==>INFO: Berhasil menghapus data

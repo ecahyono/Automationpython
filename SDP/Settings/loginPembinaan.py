@@ -34,7 +34,7 @@ def KasieGiatja(driver):
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "username")))
     
     # driver.find_element(By.ID, "username").send_keys("Rehan Ardian")
-    driver.find_element(By.ID, "username").send_keys("nasya-putri-ryani")
+    driver.find_element(By.ID, "username").send_keys("riksa-paradila")
     
     
     driver.find_element(By.ID, "password").send_keys("password")
@@ -113,7 +113,7 @@ def kanwilPembinaan(driver):
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
-    driver.find_element(By.ID, "username").send_keys("Wildan Khaus")
+    driver.find_element(By.ID, "username").send_keys("Wildan-Khaus")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login

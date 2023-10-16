@@ -24,9 +24,15 @@ def initDriver():
     # elif X == 2:
     #     options.headless = False
     if platform.system() == 'Darwin':
-        driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
-        driver.implicitly_wait(60)
-        WebDriverWait(driver, 10)
+        # driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+        # driver.implicitly_wait(60)
+        # WebDriverWait(driver, 10)
+        options = webdriver.ChromeOptions()
+        # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
+        # tentukan path ke driver Chrome
+        path_to_chromedriver = environ.get("CHROMEDRIVERMAC")
+        # jalankan Chrome dengan opsi dan path yang ditentukan
+        driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
 
     elif platform.system() == 'Windows':
         swin = Service(environ.get("CHROMEDRIVERWIN"))
@@ -34,7 +40,7 @@ def initDriver():
     driver.get(environ.get("HOSTDO"))
     #driver.get(environ.get("HOST"))
     driver.maximize_window()
-    # pyautogui.press('f12')
+    pyautogui.press('f12')
     
     return driver
 
@@ -123,9 +129,9 @@ def quit(driver):
 
 def upload(driver):
     sleep(driver)
-    time.sleep(0.5)
-    pyautogui.press('e')
-    time.sleep(0.5)
+    time.sleep(1)
+    pyautogui.press('x')
+    time.sleep(1)
     pyautogui.press('enter')
     print('upload pembinaan')
     

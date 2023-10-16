@@ -14,7 +14,7 @@ Kalapas_SPPN(driver)
 
 @pytest.mark.webtest
 def test_TC_SPPN_033_AksesMenuGenerateLaporan():
-    print('Operator mengakses submenu Penilaian ')
+    print('Kalapas mengakses submenu Penilaian ')
     sleep(driver)
     laporanSPPN(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
@@ -22,7 +22,7 @@ def test_TC_SPPN_033_AksesMenuGenerateLaporan():
    
 @pytest.mark.webtest
 def test_TC_SPPN_034_OpGenerateLaporanUPT():
-    print('Operator mengakses submenu Laporan Bulanan ')
+    print('Kalapas mengakses submenu Laporan Bulanan ')
     sleep(driver)
     driver.implicitly_wait(60)
     WebDriverWait(driver, 70).until(EC.element_to_be_clickable((By.ID, "searchButton")))

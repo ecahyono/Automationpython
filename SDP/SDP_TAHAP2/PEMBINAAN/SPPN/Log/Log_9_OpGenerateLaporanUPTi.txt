@@ -1,3 +1,2 @@
-[2023-08-29 09:47:40,640 test_11_KalapasOtorisasiLaporanUPT.py_>test_TC_SPPN_033_AksesMenuGenerateLaporan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-08-29 09:47:43,337 test_11_KalapasOtorisasiLaporanUPT.py_>test_TC_SPPN_034_OpGenerateLaporanUPT()]==>INFO: Agustus Generate Laporan UPT
-[2023-08-29 09:47:47,580 test_11_KalapasOtorisasiLaporanUPT.py_>test_TC_SPPN_034_OpGenerateLaporanUPT()]==>INFO: Verifikasi kasie laporan bulanan upt
+[2023-10-16 10:45:00,865 test_13_PusatGenerateLaporanUPT.py_>test_TC_SPPN_033_AksesMenuGenerateLaporan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-10-16 10:45:03,978 test_13_PusatGenerateLaporanUPT.py_>test_TC_SPPN_034_OpGenerateLaporanUPT()]==>INFO: Oktober Generate Laporan UPT

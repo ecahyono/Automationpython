@@ -236,3 +236,15 @@ def laporanSPPN(driver):
     time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.LINK_TEXT, "Laporan SPPN").click()
+
+def KepribadianKegiatanPembinaan(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Kegiatan Pembinaan").click()
+    

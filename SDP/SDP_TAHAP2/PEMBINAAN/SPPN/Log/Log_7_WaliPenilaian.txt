@@ -1,8 +1,3 @@
-[2023-08-29 09:37:32,714 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_023_LoginWali()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
-[2023-08-29 09:37:35,098 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_024_AksesMenuPenilaian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-08-29 09:37:43,540 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_025_TambahPenilaian()]==>INFO: Berhasil melakukan penilaian
-[2023-08-29 09:37:46,541 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_026_DetailPenilaian()]==>INFO: Berhasil Melihat Halaman Detail Penilaian
-[2023-08-29 09:37:53,496 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_027_AksesHalamanUbah()]==>INFO: Wali mengakses halaman Ubah Penilaian Harian
-[2023-08-29 09:37:53,500 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_028_UbahPenilaian()]==>INFO: Wali mengubah data Penilaian Harian
-[2023-08-29 09:37:56,779 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_028_UbahPenilaian()]==>INFO: Berhasil mengubah data Penilaian Harian
-[2023-08-29 09:37:59,156 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_029_HapusPenilaian()]==>INFO: Berhasil menghapus data Penilaian Harian
+[2023-10-16 10:26:31,267 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_023_LoginWali()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-10-16 10:26:33,714 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_024_AksesMenuPenilaian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-10-16 10:26:43,411 test_5_SppnPenilaianNapi.py_>test_TC_SPPN_025_TambahPenilaian()]==>INFO: Berhasil melakukan penilaian

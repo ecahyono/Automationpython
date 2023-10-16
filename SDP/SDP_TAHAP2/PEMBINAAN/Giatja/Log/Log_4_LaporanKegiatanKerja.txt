@@ -1,0 +1,7 @@
+[2023-10-02 15:49:30,833 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_027()]==>INFO: Login Kalapas
+[2023-10-02 15:49:35,181 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_028()]==>INFO: Kalapas mengakses halaman Laporan Kegiatan Kerja dan Produksi
+[2023-10-02 15:49:40,755 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_029()]==>INFO: Oktober Kegiatan Kerja
+[2023-10-02 15:49:40,756 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_029()]==>INFO: 1. Klik status pada bulan / tahun yang akan di verifikasi
+[2023-10-02 15:49:54,047 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_029()]==>INFO: Pilih status verifikasi"
+[2023-10-02 15:49:54,220 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_029()]==>INFO: input Keterangan 
+[2023-10-02 15:49:55,997 test_04_GenerateLaporanKegitanKerja.py->test_TC_GIATJA_029()]==>INFO: Kalapas melakukan otorisasi pada Laporan Kegiatan Kerja dan Produksi yang telah di verifikasi oleh kasie

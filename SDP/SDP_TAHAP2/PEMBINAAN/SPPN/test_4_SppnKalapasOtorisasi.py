@@ -54,7 +54,7 @@ def test_TC_SPPN_038():
             WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.XPATH, "//div[contains(.,'Berhasil Memperbarui data')]")))
             WebDriverWait(driver, 40).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
             Log.info ('Verifikasi berhasil dilakukan oleh Kasie')
-            input('Press ENTER to continue')
+            # input('Press ENTER to continue')
     
       
 

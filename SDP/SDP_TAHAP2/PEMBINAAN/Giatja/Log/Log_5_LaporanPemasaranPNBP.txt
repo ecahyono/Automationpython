@@ -1,0 +1,9 @@
+[2023-10-02 16:45:56,637 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_033()]==>INFO: Setup Os
+[2023-10-02 16:45:59,801 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_034()]==>INFO: Kasie mengakses halaman Laporan Pemasaran PNBPsi
+[2023-10-02 16:46:03,478 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: Oktober Sarana
+[2023-10-02 16:46:03,478 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: 1. Klik status pada bulan / tahun yang akan di verifikasi
+[2023-10-02 16:46:10,477 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: 2. Pada halaman Laporan Pemasaran PNBP, klik button "Verifikasi"
+[2023-10-02 16:46:20,699 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: Pilih status verifikasi"
+[2023-10-02 16:46:20,827 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: input Keterangan 
+[2023-10-02 16:46:22,473 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: 4. Klik button Simpan
+[2023-10-02 16:46:24,475 test_05_LaporanPemasaranPNBP.py->test_TC_GIATJA_035()]==>INFO: Kasie membuat Laporan Pemasaran PNBPsi

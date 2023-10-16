@@ -1,2 +1,0 @@
-[2023-05-30 10:10:07,619 test_08_RevisiLaporanGiatja.py->test_TC_GIATJA_022()]==>INFO: Setup Os Akses aplikasi SDP
-[2023-05-30 10:10:21,819 test_08_RevisiLaporanGiatja.py->test_TC_GIATJA_022()]==>INFO: Operator mengakses halaman Laporan Kegiatan Kerja dan Produksi
