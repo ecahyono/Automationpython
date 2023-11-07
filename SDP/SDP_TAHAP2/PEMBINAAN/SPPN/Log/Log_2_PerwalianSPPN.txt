@@ -1,14 +1,14 @@
-[2023-10-16 10:15:49,118 test_2_SppnPerwalian.py_>test_TC_SPPN_009_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
-[2023-10-16 10:15:51,613 test_2_SppnPerwalian.py_>test_TC_SPPN_010_AksesMenuTimPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-10-16 10:16:08,932 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
-[2023-10-16 10:16:12,746 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data Tim Perwalian
-[2023-10-16 10:16:14,585 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data SK Tim Perwalian
-[2023-10-16 10:16:16,414 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data penandatanganSk Tim Perwalian
-[2023-10-16 10:16:18,243 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data namaWali Tim Perwalian
-[2023-10-16 10:16:19,454 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status sudahVerifikasi Tim Perwalian
-[2023-10-16 10:16:21,214 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status sudahOtorisasi Tim Perwalian
-[2023-10-16 10:16:22,988 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status revisi Tim Perwalian
-[2023-10-16 10:16:24,246 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status Tim Perwalian
-[2023-10-16 10:16:35,127 test_2_SppnPerwalian.py_>test_TC_SPPN_013_AksesHalamanDetail()]==>INFO: Operator berhasil mengakses halaman Detail Tim Perwalian
-[2023-10-16 10:16:38,123 test_2_SppnPerwalian.py_>test_TC_SPPN_014_AksesHalamanUbah()]==>INFO: Operator berhasil mengakses halaman Ubah Tim Perwalian
-[2023-10-16 10:16:43,085 test_2_SppnPerwalian.py_>test_TC_SPPN_015_EditData()]==>INFO: Operator berhasil mengubah data Tim Perwalian
+[2023-10-17 10:09:01,230 test_2_SppnPerwalian.py_>test_TC_SPPN_009_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-10-17 10:09:03,740 test_2_SppnPerwalian.py_>test_TC_SPPN_010_AksesMenuTimPerwalian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-10-17 10:09:20,716 test_2_SppnPerwalian.py_>test_TC_SPPN_011_InputTimPerwalian()]==>INFO: SK Perwalian Berhasil Ditambahkan
+[2023-10-17 10:09:24,027 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data Tim Perwalian
+[2023-10-17 10:09:25,855 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data SK Tim Perwalian
+[2023-10-17 10:09:28,198 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data penandatanganSk Tim Perwalian
+[2023-10-17 10:09:30,036 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data namaWali Tim Perwalian
+[2023-10-17 10:09:31,767 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status sudahVerifikasi Tim Perwalian
+[2023-10-17 10:09:34,043 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status sudahOtorisasi Tim Perwalian
+[2023-10-17 10:09:35,253 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status revisi Tim Perwalian
+[2023-10-17 10:09:37,016 test_2_SppnPerwalian.py_>test_TC_SPPN_012_FilterData()]==>INFO: Operator berhasil Search Data status Tim Perwalian
+[2023-10-17 10:09:58,867 test_2_SppnPerwalian.py_>test_TC_SPPN_013_AksesHalamanDetail()]==>INFO: Operator berhasil mengakses halaman Detail Tim Perwalian
+[2023-10-17 10:10:14,655 test_2_SppnPerwalian.py_>test_TC_SPPN_014_AksesHalamanUbah()]==>INFO: Operator berhasil mengakses halaman Ubah Tim Perwalian
+[2023-10-17 10:10:19,433 test_2_SppnPerwalian.py_>test_TC_SPPN_015_EditData()]==>INFO: Operator berhasil mengubah data Tim Perwalian

@@ -37,25 +37,26 @@ elif platform.system() == 'Windows':
 	
 
 from Settings.setup import initDriver, loadDataPath, hold
-from Settings.login import login, loginBanjar
+from Settings.login import *
 from Settings.Page.accessmenu import Registrasi_identitas
+from Settings.setupPembinaan import uploadGambar
 
-@mark.fixture_test
+@mark.webtest
 # init driver by os
 def test_setup():
 	global driver, pathData
 	driver = initDriver()
 	pathData = loadDataPath()
-@mark.fixture_test
+@mark.webtest
 def test_loggin():
 	# login(driver)
-	loginBanjar(driver)
+	Testing(driver)
 
-@mark.fixture_test
+@mark.webtest
 def test_aksesmenu():
 	Registrasi_identitas(driver)
 
-@mark.fixture_test
+@mark.webtest
 def test_eksekusi():
 	# wb = load_workbook(environ.get("REGEXCEL"))
 	# sheetrange = wb['Identitas']
@@ -119,9 +120,9 @@ def test_eksekusi():
 		#--------------------------------------------------------
 		#Tab Keluarga--------------------------------------------
 		#--------------------------------------------------------
-		Nama_ayah			   	= "Remin"
+		Nama_ayah			   	= fake.first_name()
 		# Alamat_ayah			 = sheetrange['AR'+str(i)].value
-		Nama_ibu					= "Remin"
+		Nama_ibu					= fake.first_name()
 		# Alamat_ibu			  	= sheetrange['AT'+str(i)].value
 		# Anak_ke				 			= sheetrange['AU'+str(i)].value
 		# Dari								= sheetrange['AV'+str(i)].value
@@ -185,7 +186,7 @@ def test_eksekusi():
 				driver.find_element(By.ID, 'residivisOption-1').click()
 				resike = driver.find_element(By.XPATH, '//*[@id="btn_residivis_counter"]/div/input')
 				resike.clear()
-				resike.send_keys(Rke)
+				resike.send_keys("Rke")
 				
 			#--------------------------------------------------------------									  
 			driver.find_element(By.ID, 'btn_nama_lengkap').send_keys(Nama_Lengkap)
@@ -618,26 +619,42 @@ def test_eksekusi():
 			# #--------------------------------------------------------------
 			# driver.find_element(By.XPATH, '//*[@id="pane-5"]/div/form/div/div[2]/div[2]/div/div/input').send_keys(Tanggalpengambilan)
 			#======================================================================
-			driver.find_element(By.ID, 'tab-6').click()
-			#========================Input Tab Foto========================== 
-			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[1]/div/div/div/div/div[1]/button').click()
-			time.sleep(3)
-			pyautogui.write(environ.get(r'FOTBRG1'))
-			pyautogui.press('enter')
+			if platform.system() == 'Darwin':
+				driver.find_element(By.ID, 'tab-6').click()
+				#========================Input Tab Foto========================== 
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[1]/div/div/div/div/div[1]/button').click()
+				uploadGambar(driver)
 
-			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[2]/div/div/div/div/div[1]/button').click()
-			time.sleep(3)
-			pyautogui.write(environ.get(r'FOTBRG1'))
-			pyautogui.press('enter')
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[2]/div/div/div/div/div[1]/button').click()
+				uploadGambar(driver)
 
-			driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[3]/div/div/div/div/div[1]/button').click()
-			time.sleep(3)
-			pyautogui.write(environ.get(r'FOTBRG1'))
-			pyautogui.press('enter')
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[3]/div/div/div/div/div[1]/button').click()
+				uploadGambar(driver)
+				
+			
+			elif platform.system() == 'Windows':
+			#======================================================================
+				driver.find_element(By.ID, 'tab-6').click()
+				#========================Input Tab Foto========================== 
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[1]/div/div/div/div/div[1]/button').click()
+				time.sleep(3)
+				pyautogui.write(environ.get(r'FOTBRG1'))
+				pyautogui.press('enter')
+
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[2]/div/div/div/div/div[1]/button').click()
+				time.sleep(3)
+				pyautogui.write(environ.get(r'FOTBRG1'))
+				pyautogui.press('enter')
+
+				driver.find_element(By.XPATH,   '//*[@id="pane-6"]/form/div/div[3]/div/div/div/div/div[1]/button').click()
+				time.sleep(3)
+				pyautogui.write(environ.get(r'FOTBRG1'))
+				pyautogui.press('enter')
 			#======================================================================
 			# driver.find_element(By.ID, 'tab-7').click()
 			#========================Input Tab Identitas lama========================== 
 			#Submit
+			time.sleep(3)
 			driver.find_element(By.ID, 'submitButton').click() 
 			WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'createButton')))
 

@@ -1,8 +1,3 @@
-[2023-10-16 10:17:31,561 test_3_VerifikasiKasie.py_>test_TC_SPPN_016_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
-[2023-10-16 10:17:34,543 test_3_VerifikasiKasie.py_>test_TC_SPPN_017_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-10-16 10:17:45,347 test_3_VerifikasiKasie.py_>test_TC_SPPN_018_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie
-[2023-10-16 10:17:47,010 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Semua berhasil dilakukan oleh Kasie
-[2023-10-16 10:17:48,284 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Nomor SK berhasil dilakukan oleh Kasie
-[2023-10-16 10:17:49,588 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Penandatangan SK berhasil dilakukan oleh Kasie
-[2023-10-16 10:17:51,407 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Nama Wali berhasil dilakukan oleh Kasie
-[2023-10-16 10:17:52,682 test_3_VerifikasiKasie.py_>test_TC_SPPN_019_FilterData()]==>INFO: Filter data Jumlah Narapidana berhasil dilakukan oleh Kasie
+[2023-10-17 10:11:16,705 test_3_VerifikasiKasie.py_>test_TC_SPPN_016_LoginKasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role Kasie
+[2023-10-17 10:11:18,902 test_3_VerifikasiKasie.py_>test_TC_SPPN_017_AksesMenu()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-10-17 10:11:26,834 test_3_VerifikasiKasie.py_>test_TC_SPPN_018_KasieMelakukanVerifikasi()]==>INFO: Verifikasi berhasil dilakukan oleh Kasie

@@ -38,19 +38,20 @@ def test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan():
         OptionSarana                                            = ['optionSarana-0','optionSarana-1','optionSarana-2','optionSarana-3']
         OptionPrasarana                                         = ['optionPrasarana-0','optionPrasarana-1','optionPrasarana-2','optionPrasarana-3']
         OptionMitra                                             = ['optionMitra-0','optionMitra-1','optionMitra-2','optionMitra-3']
+        PerluKelulusan                                          = ['Ya','Tidak']
 
         for i in range(1):
             JenisPembinaanFaker                                 = random.choice(JenisPembinaan)
             OptionSaranaFaker                                   = random.choice(OptionSarana)
             OptionPrasaranaFaker                                = random.choice(OptionPrasarana)
             OptionMitraFaker                                    = random.choice(OptionMitra)
+            PerluKelulusanFaker                                 = random.choice(PerluKelulusan)
             
 
-        
-            print('Operator menambahkan Program Pembinaan Kepribadian')
+            # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonSearch > span")))
+            # print('Operator menambahkan Program Pembinaan Kepribadian')
             sleep(driver)
-            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch"))).click()
-            driver.find_element(By.ID, "createButton").click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "createButton"))).click()
 
             print('Operator memilih Jenis Pembinaan')
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "selectJenisPembinaan")))
@@ -99,13 +100,56 @@ def test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan():
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, ""+OptionMitraFaker+""))).click()
             Log.info ('Input Mitra')
 
+            print('input insruktur')
 
+            driver.find_element(By.ID, "selectJenisInstruktur").click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "optionJenisInstruktur-0"))).click()
+            Log.info ('Input Jenis Instruktur')
 
+            print('Operator Input Nama Instruktur')
+            driver.find_element(By.ID, "selectInstruktur").click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "optionInstruktur-0"))).click()
+            Log.info ('Input Nama Instruktur')
+
+            print(' Input Penanggung jawab ')
+            driver.find_element(By.ID, "selectPenanggungJawab").click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "optionPenanggungJawab-0"))).click()
+            Log.info ('Input Penanggung jawab')
+            print('Perlu Kelulusan')
+
+            if PerluKelulusanFaker == "Ya":
+                driver.find_element(By.CSS_SELECTOR, ".el-form-item:nth-child(12) .el-switch__action").click()
+                Log.info ('Perlu Kelulusan')
+
+                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "createButtonPeserta"))).click()
+                Log.info ('Tambah Peserta')
+
+                print('Input Nama Peserta')
+                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-0"))).click()
+                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-1"))).click()
+                Log.info ('Input Nama Peserta')
+
+                print('Pilih Peserta')
+                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(.,'Pilih')]"))).click()
+                Log.info ('Pilih Peserta')
+
+            elif PerluKelulusanFaker == "Tidak":
+                pass
+
+            print('Input Materi')
+            driver.find_element(By.ID, "inputMateri").send_keys(fake.text(100))
+            Log.info ('Input Materi')
+
+            print('Input Keterangan')
+            driver.find_element(By.ID, "inputKeterangan").send_keys(fake.text(100))
+            Log.info ('Input Keterangan')  
+
+            driver.find_element(By.ID, "submitButton").click()
+            WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonSearch > span")))
+            # input('Press Enter to continue...')
 
             vars["x"] = driver.execute_script("return arguments[0]+1", vars["x"])
             condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
-
-
 
             Log.info ('Operator menambahkan Program Pembinaan Kepribadian')
 

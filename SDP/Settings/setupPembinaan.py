@@ -144,5 +144,5 @@ def uploadGambar(driver):
 def hold(driver):
     WARNING = '\033[93m'
     print(WARNING +"================================================================= Press Enter to continue")
-    input("")
+    # input("")
 

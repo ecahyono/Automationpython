@@ -119,7 +119,8 @@ def test_Input_Registrasi():
             Log.info('Click Button Jenis Registrasi B1')
 
             driver.find_element(By.ID, "noRegistrasi").click()
-            driver.find_element(By.ID, "noRegistrasi").send_keys(NamaWBP)
+            input('Tekan Enter Untuk Melanjutkan')
+            # driver.find_element(By.ID, "noRegistrasi").send_keys(NamaWBP)
             Log.info('Input nomor registrasi wbp')
             
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.XPATH, "//li[@id='noRegistrasiOption-0']/div/div/table/tbody/tr[2]/td")))

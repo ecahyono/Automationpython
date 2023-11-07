@@ -8,8 +8,6 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-
-
 kasie_SPPN(driver)
 
 @pytest.mark.webtest
@@ -18,7 +16,6 @@ def test_TC_SPPN_033_AksesMenuGenerateLaporan():
     sleep(driver)
     laporanSPPN(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
-
    
 @pytest.mark.webtest
 def test_TC_SPPN_034_VerifikasiRekomendasiKasie():

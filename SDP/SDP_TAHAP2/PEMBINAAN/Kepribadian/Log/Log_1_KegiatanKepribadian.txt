@@ -1,9 +1,15 @@
-[2023-10-05 13:42:06,753 test_1_KegiatanKepribadian.py_>test_TC_SPPN_001_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
-[2023-10-05 13:42:09,654 test_1_KegiatanKepribadian.py_>test_TC_SPPN_002_AksesMenuKepribadian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-10-05 13:42:21,008 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Pilih Jenis Pembinaan
-[2023-10-05 13:42:21,047 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Nama Program Pembinaan
-[2023-10-05 13:42:21,091 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Tempat Pelaksanaan
-[2023-10-05 13:42:26,418 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Tanggal Pelaksanaan
-[2023-10-05 13:42:33,126 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input sarana
-[2023-10-05 13:42:43,042 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input prasarana
-[2023-10-05 13:42:46,929 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Operator menambahkan Program Pembinaan Kepribadian
+[2023-10-17 10:06:52,047 test_1_KegiatanKepribadian.py_>test_TC_SPPN_001_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-10-17 10:06:54,859 test_1_KegiatanKepribadian.py_>test_TC_SPPN_002_AksesMenuKepribadian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-10-17 10:06:58,162 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Pilih Jenis Pembinaan
+[2023-10-17 10:06:58,224 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Nama Program Pembinaan
+[2023-10-17 10:06:58,266 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Tempat Pelaksanaan
+[2023-10-17 10:07:03,564 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Tanggal Pelaksanaan
+[2023-10-17 10:07:06,322 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input sarana
+[2023-10-17 10:07:07,351 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input prasarana
+[2023-10-17 10:07:07,981 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Mitra
+[2023-10-17 10:07:08,596 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Jenis Instruktur
+[2023-10-17 10:07:09,203 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Nama Instruktur
+[2023-10-17 10:07:09,395 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Penanggung jawab
+[2023-10-17 10:07:09,500 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Materi
+[2023-10-17 10:07:09,557 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Input Keterangan
+[2023-10-17 10:07:11,646 test_1_KegiatanKepribadian.py_>test_TC_SPPN_003_AksesHalamanTambahKegiatanPembinaan()]==>INFO: Operator menambahkan Program Pembinaan Kepribadian

@@ -19,11 +19,14 @@ def Registrasi_penolakan(driver):
     nav2 = driver.find_element(By.ID, 'PP0')
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.ID, "/registrasi/penolakan").click()
+
 def registrasitahanannarapidana(driver):
     nav1 = driver.find_element(By.ID, '01')
     ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
     nav2 = driver.find_element(By.ID, "20")
     ActionChains(driver).move_to_element(nav2).perform()
+    time.sleep(0.5)
     driver.find_element(By.ID, "/registrasi/registrasi-tahanan-narapidana").click()
 def Registrasi_MHP(driver):
     nav1 = driver.find_element(By.ID, '01')
