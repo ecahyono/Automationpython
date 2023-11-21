@@ -181,6 +181,7 @@ def MenuSPPNPerwalianPersetujuan(driver):
    
 
 def LogOut(driver):
+    input("Press Enter to continue...")
     driver.implicitly_wait(100)
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, 'pembinaan-10')))
     nav1 = driver.find_element(By.ID, "avatar")
@@ -189,6 +190,9 @@ def LogOut(driver):
     nav2 = driver.find_element(By.XPATH, "//li[contains(.,'Logout')]")
     time.sleep(0.3)
     ActionChains(driver).move_to_element(nav2).perform()
+    time.sleep(0.5)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'Logout')]")))
+    time.sleep(0.5)
     driver.find_element(By.XPATH, "//li[contains(.,'Logout')]").click()
 
 def MenuSkPerwalian(driver):
@@ -247,4 +251,15 @@ def KepribadianKegiatanPembinaan(driver):
     time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
     driver.find_element(By.LINK_TEXT, "Kegiatan Pembinaan").click()
+
+def PersetujuanProgramDanPesertaKegiatan(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Persetujuan Program Dan Peserta Kegiatan").click()
     

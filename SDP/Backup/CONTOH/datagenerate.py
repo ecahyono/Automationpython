@@ -28,7 +28,7 @@ def datagenerate(records, headers):
                     "Email Id" : userId,
                     "Prefix" : fake.prefix(),
                     "Name": fake.name(),
-                    "Birth Date" : fake.date(pattern="%Y-%d-%m", end_datetime=datetime.date(2000, 1,1)),
+                    "Birth Date" : fake.date(pattern="%Y-%d-%m", end_datetime=datetime.date(2012, 1,1)),
                     "gender": "L",
                     "Phone Number" : fake1.phone_number(),
                     "Additional Email Id": fake.email(),

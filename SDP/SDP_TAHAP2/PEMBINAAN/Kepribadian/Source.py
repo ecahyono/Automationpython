@@ -67,6 +67,7 @@ fakeMonth               = ['04']
 
 
 
+
 for i in range(1):
     NoSkFaker                = "Wi"+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".PK." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
     

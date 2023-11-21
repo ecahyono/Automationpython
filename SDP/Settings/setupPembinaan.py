@@ -40,7 +40,7 @@ def initDriver():
     driver.get(environ.get("HOSTDO"))
     #driver.get(environ.get("HOST"))
     driver.maximize_window()
-    pyautogui.press('f12')
+    # pyautogui.press('f12')
     
     return driver
 
@@ -134,6 +134,7 @@ def upload(driver):
     time.sleep(1)
     pyautogui.press('enter')
     print('upload pembinaan')
+    time.sleep(1)
     
 def uploadGambar(driver):
     time.sleep(1)
@@ -141,8 +142,46 @@ def uploadGambar(driver):
     time.sleep(1)
     pyautogui.press('enter')
 
+def uploadGambarDepanL(driver):
+    time.sleep(1)
+    pyautogui.press('D')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+def uploadGambarKiriL(driver):
+    time.sleep(1)
+    pyautogui.press('K')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+def uploadGambarKananL(driver):
+    time.sleep(1)
+    pyautogui.press('N')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+
+def uploadGambarDepanP(driver):
+    time.sleep(1)
+    pyautogui.press('z')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+def uploadGambarKiriP(driver):
+    time.sleep(1)
+    pyautogui.press('v')
+    time.sleep(1)
+    pyautogui.press('enter')
+
+def uploadGambarKananP(driver):
+    time.sleep(1)
+    pyautogui.press('p')
+    time.sleep(1)
+    pyautogui.press('enter')
+
 def hold(driver):
     WARNING = '\033[93m'
-    print(WARNING +"================================================================= Press Enter to continue")
+    time.sleep(0.2)
+    # print(WARNING +"================================================================= Press Enter to continue")
     # input("")
 

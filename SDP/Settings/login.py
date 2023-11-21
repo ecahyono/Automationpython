@@ -315,6 +315,55 @@ def lapastesting(driver):
     # click button login
     driver.find_element(By.ID, "kc-login").click()
     attach(data=driver.get_screenshot_as_png())
+
+def testSumedang(driver):
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'login')))
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-sumedang")
+    time.sleep(1)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    attach(data=driver.get_screenshot_as_png())
+
+def upttorche(driver):
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'login')))
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-torche")
+    time.sleep(1)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    attach(data=driver.get_screenshot_as_png())
+
+def sorong(driver):
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'login')))
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-sorong")
+    time.sleep(1)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    attach(data=driver.get_screenshot_as_png())
+
+def manokwari(driver):
+    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'login')))
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("test-manokwari")
+    time.sleep(1)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    attach(data=driver.get_screenshot_as_png())
+
 def bpstesting(driver):
     WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.ID , 'login')))
     driver.find_element(By.ID, "login").click()

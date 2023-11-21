@@ -55,7 +55,7 @@ def test_1_setupOS():
 def test_2_login():
     (driver)
     Log.info('Login')
-    loginSumedang(driver)
+    sumedang(driver)
 
 
 @mark.webtest()
