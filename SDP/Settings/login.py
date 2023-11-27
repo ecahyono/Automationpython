@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from pytest_html_reporter import attach
 from selenium.webdriver.support import expected_conditions as EC
 
-def login(driver):
+def test_user(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username

@@ -25,7 +25,7 @@ def initDriver():
     #     options.headless = False
     if platform.system() == 'Darwin':
         # driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
-        # driver.implicitly_wait(60)
+        # driver.implicitly_wait(20)
         # WebDriverWait(driver, 10)
         options = webdriver.ChromeOptions()
         # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
@@ -54,31 +54,31 @@ def loadDataPath():
     return data
 
 def buttonTambah(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
+    driver.implicitly_wait(20)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="createButton"]')))
     driver.find_element(By.XPATH, '//*[@id="createButton"]').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="submitButton"]')))
     print('.')
 
 def buttonSubmit(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
+    driver.implicitly_wait(20)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'submitButton')))
     driver.find_element(By.ID, 'submitButton').click()
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(.,\'Berhasil Ditambahkan\')]')))
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchButton"]')))
     print('.')
 
 def selectKategoriPegawai(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.implicitly_wait(20)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "pegawai").click()
     print('.')
 
 def selectKategoriTamuDinas(driver):
-    driver.implicitly_wait(60)
-    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
+    driver.implicitly_wait(20)
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="inputKategori"]')))
     driver.find_element(By.XPATH, '//*[@id="inputKategori"]').click()
     driver.find_element(By.ID, "tamuDinas").click()
     print('.')
@@ -109,7 +109,7 @@ def sleep(driver):
     
 
 def waituntill(driver):
-    driver.implicitly_wait(60)
+    driver.implicitly_wait(20)
     
 def quit(driver):
     time.sleep(3)
@@ -180,8 +180,9 @@ def uploadGambarKananP(driver):
     pyautogui.press('enter')
 
 def hold(driver):
+    driver.implicitly_wait(20)
     WARNING = '\033[93m'
-    time.sleep(0.2)
+    # time.sleep(0.5)
     # print(WARNING +"================================================================= Press Enter to continue")
     # input("")
 

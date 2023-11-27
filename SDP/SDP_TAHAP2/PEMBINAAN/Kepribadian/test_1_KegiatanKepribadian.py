@@ -76,21 +76,21 @@ def test_createProgramPembinaanKepribadian():
             driver.find_element(By.ID, "inputWaktuPelaksanaan").click()
 
 
-            print('Operator Input Tanggal Pelaksanaan')
-            driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").click()
-            time.sleep(3)
+            # print('Operator Input Tanggal Pelaksanaan')
+            # driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").click()
+            # time.sleep(3)
 
-            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(.,'"+tanggal+"')]")))
-            driver.find_element(By.XPATH, "//span[contains(.,'"+tanggal+"')]").click()
+            # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(.,'"+tanggal+"')]")))
+            # driver.find_element(By.XPATH, "//span[contains(.,'"+tanggal+"')]").click()
 
-            nav1 = driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input")
-            ActionChains(driver).move_to_element(nav1).perform()
-            # waktu pelaksanaan\
-            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").click()
-            Log.info('Operator mengisi jam pelatihan keterampilan ')
+            # nav1 = driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input")
+            # ActionChains(driver).move_to_element(nav1).perform()
+            # # waktu pelaksanaan\
+            # driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").click()
+            # Log.info('Operator mengisi jam pelatihan keterampilan ')
 
-            driver.find_element(By.CSS_SELECTOR, ".flex:nth-child(5) > #submitButton > span").click()
-
+            # driver.find_element(By.CSS_SELECTOR, ".flex:nth-child(5) > #submitButton > span").click()
+            input('Press Enter to continue...')
             print('Operator Input sarana')
             time.sleep(2)
             driver.find_element(By.XPATH,"//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[6]/div/div/div/div/input").click()
