@@ -405,7 +405,6 @@ def test_Registrasi():
 					find(By.ID, "nmr_reg_gol").send_keys(NoRegistrasiBIIA)
 				#Log.info('input no registrasi ')
 				hold(driver)
-
 				find(By.ID, "tgl_srt_thn").click()
 				find(By.ID, "tgl_srt_thn").send_keys(tgl_Surat_Penahanan)
 				find(By.ID, "tgl_srt_thn").send_keys(Keys.ENTER)
