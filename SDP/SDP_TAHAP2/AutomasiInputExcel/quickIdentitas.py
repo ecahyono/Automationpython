@@ -49,7 +49,7 @@ def test_setup():
 @mark.webtest
 def test_loggin():
 	# login(driver)
-	manokwari(driver)
+	sorong(driver)
 
 @mark.webtest
 def test_aksesmenu():
