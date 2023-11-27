@@ -8,8 +8,8 @@ from src import *
 
 ################-> input urutan Baris Di Exel yang akan di eksekusi
 pendampingan = 6
-litmas = 5
-pembimbingan = 11
+litmas = 2
+pembimbingan = 15
 pengawsan = 12
 curd = 2
 
@@ -30,15 +30,15 @@ TipeLampiran                  = fake.random_element(elements=('Pendampingan Dive
 TingkatPengadilan             = fake.random_element(elements=('Negeri', 'Tinggi','Mahkamah'))
 
 tanggal_sekarang = datetime.now()
-tanggal_sebelumnya = tanggal_sekarang - timedelta(days=7)
-tgl_sebulan_berikutnya = tanggal_sekarang + timedelta(days=7)
+tanggal_sebelumnya = tanggal_sekarang - timedelta(days=30)
+tgl_sebulan_berikutnya = tanggal_sekarang + timedelta(days=30)
 
 A = wb['Register Pembimbingan']
 opsiAsalsurat   = [cell.value for cell in A['J'] if cell.value is not None]
 opsijenisKlienPembimbingan  = [cell.value for cell in A['C'] if cell.value is not None]
 UPTObimbingan                           = A['A'+str(pembimbingan)].value
 NoregNamabimbingan                      = A['B'+str(pembimbingan)].value
-jenisKlienPembimbingan                  = fake.random.choice(opsijenisKlienPembimbingan)
+jenisKlienPembimbingan                  = A['C'+str(pembimbingan)].value
 DasarPembimbingan                       = fake.random_element(elements=('Putusan Pengadilan', 'Penetapan Pengadilan','SK Menkumham','SK Kabapas'))
 TglAwalBimbingan                        = tanggal_sebelumnya.strftime('%d/%m/%Y')
 TglAkhirBimbignan                       = tgl_sebulan_berikutnya.strftime('%d/%m/%Y')
@@ -57,7 +57,7 @@ suratperintah      = B['F'+str(litmas)].value
 asalsurat1         = B['G'+str(litmas)].value
 nosurat1           = B['H'+str(litmas)].value
 tglsurat1          = B['I'+str(litmas)].value
-perihalsurat1      = B['J'+str(litmas)].value
+perihalsuratlitmas = B['J'+str(litmas)].value
 permintaanpenp     = B['K'+str(litmas)].value
 nosurat2           = B['L'+str(litmas)].value
 tglsurat2          = B['M'+str(litmas)].value
