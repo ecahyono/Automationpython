@@ -26,7 +26,7 @@ def initDriver():
         # tentukan path ke driver Chrome
         path_to_chromedriver = environ.get("CHROMEDRIVERWIN")
         # jalankan Chrome dengan opsi dan path yang ditentukan
-        driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
+        driver = webdriver.Chrome(service=Service(path_to_chromedriver), options=options)
 
     driver.get(environ.get("HOSTKUMBANG"))
     #driver.get(environ.get("HOST"))
