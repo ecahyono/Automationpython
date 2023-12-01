@@ -184,6 +184,19 @@ def Op_SPPN(driver):
     print('.')
     print('========== Login ==========')
 
+def sorong(driver): 
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").send_keys("test-sorong")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 30)
+    print('.')
+    print('========== Login ==========')
+
 def Op_SPPN_Sorong(driver): 
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
@@ -198,6 +211,18 @@ def Op_SPPN_Sorong(driver):
     print('========== Login ==========')
     
     attach(data=driver.get_screenshot_as_png())
+
+
+def Op_LubukBasung_Kepribadian(driver):
+    driver.implicitly_wait(30)
+    driver.find_element(By.ID, "login").click()
+    driver.find_element(By.ID, "username").send_keys("Op-LubukBasung-Kepribadian")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 30)
+    print('.')
+    print('========== Login ==========')
 
 def kasie_SPPN(driver): 
     driver.implicitly_wait(30)

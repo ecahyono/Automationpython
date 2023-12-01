@@ -9,15 +9,15 @@ fh.setFormatter(formatter)
 Log.addHandler(fh)
 
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_001_LoginOperator():
     print('Login aplikasi menggunakan akun dengan role Operator')
-    Op_SPPN_Sorong(driver)
+    sorong(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())
     # input('Press Enter to continue...')
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_TC_SPPN_002_AksesMenuKepribadianOperator():
     print('Operator mengakses Operator mengakses submenu Kegiatan Pembinaan')
     sleep(driver)
@@ -26,7 +26,7 @@ def test_TC_SPPN_002_AksesMenuKepribadianOperator():
     attach(data=driver.get_screenshot_as_png())
 
 
-@pytest.mark.webtestx
+@pytest.mark.webtest
 def test_createProgramPembinaanKepribadian():
 
     sleep(driver)
@@ -76,29 +76,31 @@ def test_createProgramPembinaanKepribadian():
             driver.find_element(By.ID, "inputWaktuPelaksanaan").click()
 
 
-            # print('Operator Input Tanggal Pelaksanaan')
-            # driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").click()
-            # time.sleep(3)
+            print('Operator Input Tanggal Pelaksanaan')
+            driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").send_keys(fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y'))
+            driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").send_keys(Keys.ENTER)
 
-            # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(.,'"+tanggal+"')]")))
-            # driver.find_element(By.XPATH, "//span[contains(.,'"+tanggal+"')]").click()
+           
 
-            # nav1 = driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input")
-            # ActionChains(driver).move_to_element(nav1).perform()
-            # # waktu pelaksanaan\
-            # driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").click()
-            # Log.info('Operator mengisi jam pelatihan keterampilan ')
+            nav1 = driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input")
+            ActionChains(driver).move_to_element(nav1).perform()      
+            # waktu pelaksanaan\
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").click()
 
-            # driver.find_element(By.CSS_SELECTOR, ".flex:nth-child(5) > #submitButton > span").click()
-            input('Press Enter to continue...')
+            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").send_keys(Keys.ENTER)
+
+            Log.info('Operator mengisi jam pelatihan keterampilan ')
+
+            driver.find_element(By.CSS_SELECTOR, ".flex:nth-child(5) > #submitButton > span").click()
+
             print('Operator Input sarana')
-            time.sleep(2)
+            time.sleep(5)
             driver.find_element(By.XPATH,"//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[6]/div/div/div/div/input").click()
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, ""+OptionSaranaFaker+""))).click()
             driver.find_element(By.XPATH,"//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[6]/div/div/div/div/input").send_keys(Keys.TAB)
             Log.info ('Input sarana')
 
-            time.sleep(2)
+            time.sleep(3)
             print('Operator Input prasarana')
             driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/form/div[7]/div/div/div/div[1]/input').click()
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, ""+OptionPrasaranaFaker+""))).click()
@@ -142,7 +144,7 @@ def test_createProgramPembinaanKepribadian():
                 input('Press Enter to continue...')
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(.,'Pilih')]")))
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-0")))
-                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
+                # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
                 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-1"))).click()
                 Log.info ('Input Nama Peserta')
 

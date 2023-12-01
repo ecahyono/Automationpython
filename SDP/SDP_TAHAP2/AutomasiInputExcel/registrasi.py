@@ -54,6 +54,7 @@ fh.setFormatter(formatter)
 #Log.addHandler(fh)
 
 sheetrange = wb['RegSelenium']
+baris = int(input('Mulai dari baris ke : '))
 
 
 @mark.webtest()
@@ -75,23 +76,22 @@ def test_aksesmenu():
 
 @mark.webtest
 def test_Registrasi():
-	i = 7
+	
+	i = baris
 	while i <= len(sheetrange['A']):
 		NamaWBP                             = sheetrange['A'+str(i)].value
 		print(i)
-
-
 		#faker Random Input
 		nums 						= '01234567891011121415161716'
 		# jenis_registrasi 			= ['A I','A II','B I']
 		# jenis_registrasi 			= random.choice(['A II Terorisme'])
-		jenis_registrasi 			= random.choice(['A III'])
+		# jenis_registrasi 			= random.choice(['A III'])
 		# jenis_registrasi 			= random.choice(['A II'])
 		# jenis_registrasi 			= random.choice(['A I'])
-		# jenis_registrasi 			= random.choice(['B I'])
+		jenis_registrasi 			= random.choice(['B I'])
 		# jenis_registrasi 			= random.choice(['B II A'])
-
-
+		# jenis_registrasi 			= random.choice(['B II B'])
+		# jenis_registrasi 			= random.choice(['B I','B II B','A I','A II','A III'])
 
 		NoRegistrasiBI					= "B.I-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		NoRegistrasiBIIA				= "B.II.A-/"				+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
@@ -103,7 +103,7 @@ def test_Registrasi():
 		NoRegistrasiAIITeroris			= "A.II Terorisme-/"		+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		
 		tgl_BA8							= fake.date_between(start_date='-600d', end_date='-400d').strftime('%d.%m.%Y') #masih belum tau tanggal ba8 itu di dapat dari mana, rulesnya seperti apa
-		tgl_BA8GolonganA				= fake.date_between(start_date='-20d', end_date='today').strftime('%d.%m.%Y') #masih belum tau tanggal ba8 itu di dapat dari mana, rulesnya seperti apa
+		tgl_BA8GolonganA				= fake.date_between(start_date='-10d', end_date='today').strftime('%d.%m.%Y') #masih belum tau tanggal ba8 itu di dapat dari mana, rulesnya seperti apa
 		tgl_Surat_Penahanan				= tgl_BA8
 		tgl_Surat_PenahananGolonganA	= tgl_BA8GolonganA
 
@@ -126,31 +126,31 @@ def test_Registrasi():
 		tgl_menjalani_cabutpb			= tgl_BA8 
 
 		#TAB PERKARA
-		KejahatanUtama				= random.choice(['Cyber Crime','Organized Crime','Victimless Crime ','White Collar Crime'])
-		terminologi 				= random.choice(['kejahatan.0.id_terminologi-0','kejahatan.0.id_terminologi-1','kejahatan.0.id_terminologi-2','kejahatan.0.id_terminologi-3','kejahatan.0.id_terminologi-4','kejahatan.0.id_terminologi-5'])
-		tempatKejahatan				= fake.administrative_unit()
-		Tanggal_Putusan				= tgl_BA8
+		KejahatanUtama					= random.choice(['Cyber Crime','Organized Crime','Victimless Crime ','White Collar Crime'])
+		terminologi 					= random.choice(['kejahatan.0.id_terminologi-0','kejahatan.0.id_terminologi-1','kejahatan.0.id_terminologi-2','kejahatan.0.id_terminologi-3','kejahatan.0.id_terminologi-4','kejahatan.0.id_terminologi-5'])
+		tempatKejahatan					= fake.administrative_unit()
+		Tanggal_Putusan					= tgl_BA8
 
 		#TAB PUTUSAN
-		NomorPutusan				= "PTS"+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + tgl_BA8 + "-" + random.choice(nums)
-		namahakimketua				= fake.name()
-		HakimAnggota1				= fake.name()
-		HakimAnggota2				= fake.name()
-		panitera					= fake.name()
-		NamaJaksa					= fake.name()
+		NomorPutusan					= "PTS"+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + tgl_BA8 + "-" + random.choice(nums)
+		namahakimketua					= fake.name()
+		HakimAnggota1					= fake.name()
+		HakimAnggota2					= fake.name()
+		panitera						= fake.name()
+		NamaJaksa						= fake.name()
 
-		# jenis_hukuman				=random.choice(['id_jenis_hukuman-0-0','id_jenis_hukuman-0-1','id_jenis_hukuman-0-2'])
-		jenis_hukuman				= random.choice(['id_jenis_hukuman-0-1','id_jenis_hukuman-0-2'])
-		PidanaTahun					= fake.random_int(min=2, max=3)
-		# jenisRemisi				= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2','jenis_remisi-0-3','jenis_remisi-0-4'])
-		jenisRemisi					= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2'])
+		# jenis_hukuman					=random.choice(['id_jenis_hukuman-0-0','id_jenis_hukuman-0-1','id_jenis_hukuman-0-2'])
+		jenis_hukuman					= random.choice(['id_jenis_hukuman-0-1','id_jenis_hukuman-0-2'])
+		PidanaTahun						= fake.random_int(min=2, max=3)
+		# jenisRemisi					= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2','jenis_remisi-0-3','jenis_remisi-0-4'])
+		jenisRemisi						= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2'])
 		
 		wait=WebDriverWait
 		find=driver.find_element
 		
 
-		# wait(driver,50).until(EC.element_to_be_clickable((By.ID, 'cari')))
-		#Log.info('Click Button Cari')
+		wait(driver,50).until(EC.element_to_be_clickable((By.ID, 'cari')))
+		Log.info('Click Button Cari')
 
 		wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,\'Registrasi Baru\')]')))
 		find(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()
@@ -264,7 +264,8 @@ def test_Registrasi():
 					find(By.ID, "tab-perkara").click()
 					wait(driver,20).until(EC.element_to_be_clickable((By.ID, "undangUndang0")))
 
-					# find(By.CSS_SELECTOR, "div:nth-child(3) > .el-form-item .el-switch .el-icon:nth-child(2) path").click()
+					find(By.CSS_SELECTOR, "div:nth-child(3) > .el-form-item .el-switch .el-icon:nth-child(2) path").click()
+
 					#Log.info('tanggal kejadian')
 					hold(driver)
 
@@ -273,6 +274,7 @@ def test_Registrasi():
 					find(By.ID, "uraianKejahatan0").send_keys(KejahatanUtama)
 					#Log.info('uraian kejahatan utama')
 					hold(driver)
+				
 
 					find(By.ID, "undangUndang0").send_keys(KejahatanUtama)
 					#Log.info('undang undang')
@@ -394,15 +396,15 @@ def test_Registrasi():
 
 		
 
-			elif jenis_registrasi == 'B I' or jenis_registrasi == 'B II A':
+			elif jenis_registrasi == 'B I' or jenis_registrasi == 'B II A' or jenis_registrasi == 'B II B':
 
 				find(By.ID, "nmr_reg_gol").click()
 				if jenis_registrasi == 'B I':
-
 					find(By.ID, "nmr_reg_gol").send_keys(NoRegistrasiBI)
 				elif jenis_registrasi == 'B II A':
-					
 					find(By.ID, "nmr_reg_gol").send_keys(NoRegistrasiBIIA)
+				elif jenis_registrasi == 'B II B':
+					find(By.ID, "nmr_reg_gol").send_keys(NoRegistrasiBIIIB)
 				#Log.info('input no registrasi ')
 				hold(driver)
 				find(By.ID, "tgl_srt_thn").click()
@@ -500,11 +502,31 @@ def test_Registrasi():
 				hold(driver)
             
 				find(By.ID, "tab-perkara").click()
-				# find(By.CSS_SELECTOR, "div:nth-child(4) > .el-form-item .el-switch__action").click()
-				find(By.CSS_SELECTOR, ".is-required .el-switch__action").click()
-				#Log.info('pilih TAB perkara')
+				# Log.info('pilih TAB perkara')
+				hold(driver)
+
+				if jenis_registrasi == 'B I':
+					find(By.CSS_SELECTOR, "div:nth-child(4) > .el-form-item .el-switch__action").click()
+				else:
+					pass
+
+				find(By.ID, "tgl_kejadian").send_keys(tgl_BA8)
+				#Log.info('input tanggal kejadian')
+				hold(driver)
+
+				find(By.ID, "jam_kejadian").click()
+				find(By.ID, "tempat_kejadian").send_keys(tempatKejahatan)
+				#Log.info('input tempat kejadian')
+				hold(driver)
+
+				find(By.ID, "risalah_kejadian_perkara").send_keys(fake.text())
+				#Log.info('input risalah kejadian perkara')
 				hold(driver)
 				
+
+				find(By.CSS_SELECTOR, ".is-required .el-switch__action").click()
+
+				hold(driver)
 
 				find(By.ID, "kejahatan.0.deskripsi").click()
 				find(By.ID, "kejahatan.0.deskripsi").send_keys(KejahatanUtama)
@@ -689,6 +711,10 @@ def test_Registrasi():
 				find(By.ID, "tgl_msk_lapas").send_keys(tgl_BA8)
 				find(By.ID, "tgl_msk_lapas").send_keys(Keys.ENTER)
 
+				find(By.ID, "tgl_menjalani_putusan_akhir").click()
+				find(By.ID, "tgl_menjalani_putusan_akhir").send_keys(tgl_putusan_akhir)
+				find(By.ID, "tgl_menjalani_putusan_akhir").send_keys(Keys.ENTER)
+
 				time.sleep(4)
 				#Log.info('Input tanggal masuk lapas')
 				hold(driver)
@@ -748,7 +774,7 @@ def test_Registrasi():
 				
 
 	
-			input('Tekan Enter Untuk Melanjutkan')
+			# input('Tekan Enter Untuk Melanjutkan')
 			find(By.ID, 'submitButton').click() 
 			wait(driver,50).until(EC.element_to_be_clickable((By.ID, 'cari')))
 
