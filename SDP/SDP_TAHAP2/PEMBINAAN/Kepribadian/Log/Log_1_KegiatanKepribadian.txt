@@ -1,4 +1,14 @@
-[2023-12-01 10:39:45,733 test_1_KegiatanKepribadian.py_>test_Verifikasi_Kasie()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
-[2023-12-01 10:39:49,166 test_1_KegiatanKepribadian.py_>test_AksesMenuPersetujuan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-12-01 10:40:06,555 test_1_KegiatanKepribadian.py_>test_Verifikasi_Kalapas()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
-[2023-12-01 10:40:10,232 test_1_KegiatanKepribadian.py_>test_AksesMenuPersetujuanKalapas()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-05 09:24:48,359 test_1_KegiatanKepribadian.py_>test_TC_SPPN_001_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-12-05 09:24:51,195 test_1_KegiatanKepribadian.py_>test_TC_SPPN_002_AksesMenuKepribadianOperator()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-05 09:24:54,011 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Pilih Jenis Pembinaan
+[2023-12-05 09:24:54,051 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Nama Program Pembinaan
+[2023-12-05 09:24:54,082 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Tempat Pelaksanaan
+[2023-12-05 09:24:54,545 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Operator mengisi jam pelatihan keterampilan 
+[2023-12-05 09:25:00,329 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input sarana
+[2023-12-05 09:25:03,431 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input prasarana
+[2023-12-05 09:25:04,140 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Mitra
+[2023-12-05 09:25:04,742 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Jenis Instruktur
+[2023-12-05 09:25:05,342 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Nama Instruktur
+[2023-12-05 09:25:05,518 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Penanggung jawab
+[2023-12-05 09:25:05,548 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Perlu Kelulusan
+[2023-12-05 09:25:07,743 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Tambah Peserta

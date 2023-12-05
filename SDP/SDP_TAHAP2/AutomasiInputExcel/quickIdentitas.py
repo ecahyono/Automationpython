@@ -42,22 +42,22 @@ from Settings.setupPembinaan import *
 
 @mark.webtest
 # init driver by os
-def test_setup():
+def test_1setup():
 	global driver, pathData
 	driver = initDriver()
 	pathData = loadDataPath()
 @mark.webtest
-def test_loggin():
+def test_2loggin():
 	# login(driver)
 	sorong(driver)
 
 @mark.webtest
-def test_aksesmenu():
+def test_3aksesmenu():
 	driver.implicitly_wait(60)
 	Registrasi_identitas(driver)
 
 @mark.webtest
-def test_eksekusi():
+def test_4eksekusi():
 	# wb = load_workbook(environ.get("REGEXCEL"))
 	# sheetrange = wb['Identitas']
 	# i = 2
@@ -226,6 +226,7 @@ def test_eksekusi():
 			# # # ------------------------------------------------------------------------------
 			# find(By.ID, 'btn_alamat_alternatif').send_keys(Alamat_lain)
 			# # ======================================================================
+			time.sleep(2)
 			find(By.ID, 'tab-2').click()
 			# ========================Input Tab Pekerjaan===========================
 			find(By.ID, 'id_jenis_pekerjaan').click()
@@ -271,7 +272,7 @@ def test_eksekusi():
 			# 	find(By.ID, 'idJenisLevel-2').click()
 			#--------------------------------------------------------------
 			find(By.ID, 'id_jenis_keahlian_2').click()
-			time.sleep(2) 
+			time.sleep(1) 
 			find(By.ID, 'id_jenis_keahlian_2').send_keys(Keahlian2)
 			find(By.ID, 'id_jenis_keahlian_2').send_keys(Keys.DOWN)
 			find(By.ID, 'id_jenis_keahlian_2').send_keys(Keys.ENTER)
@@ -297,13 +298,16 @@ def test_eksekusi():
 			# find(By.ID, 'minat').send_keys(Minat)
 			#======================================================================
 			find(By.ID, 'tab-3').click()
+	
 			#========================Input Tab Keluarga============================ 
 			#------------------------------------------------------------------------------
 			find(By.ID, 'nm_ayah').send_keys(Nama_ayah)
+	
 			#------------------------------------------------------------------------------
 			# find(By.ID, 'tmp_tgl_ayah').send_keys(Alamat_ayah)
 			#------------------------------------------------------------------------------
 			find(By.ID, 'nm_ibu').send_keys(Nama_ibu)
+		
 			#------------------------------------------------------------------------------	  
 			# find(By.ID, 'tmp_tgl_ibu').send_keys(Alamat_ibu)
 			#------------------------------------------------------------------------------
@@ -406,8 +410,10 @@ def test_eksekusi():
 				#--------------------------------------------------------------
 				# find(By.XPATH, '//*[@id="telephone_keluarga"]').send_keys(Telepon_keluarga)
 				#======================================================================
+		
 			find(By.ID, 'tab-4').click()
 			#========================Input Tab Data Fisik========================== 
+			wait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'tinggi')))
 			find(By.XPATH, '//*[@id="tinggi"]/div/input').click()
 			pyautogui.hotkey('backspace')
 			find(By.XPATH, '//*[@id="tinggi"]/div/input' ).send_keys(Tinggi_badan) 
@@ -599,4 +605,4 @@ def test_eksekusi():
 				print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!LOADING TERLALU LAMA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 				pass
 		# i = i + 1
-	print ('Success Created')
+		print ('Success Created')

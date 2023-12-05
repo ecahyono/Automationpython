@@ -58,37 +58,39 @@ baris = int(input('Mulai dari baris ke : '))
 
 
 @mark.webtest()
-def test_setupOS():
+def test_1setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
 	
 @mark.webtest()
-def test_loggin():
+def test_2loggin():
 	# login(driver)
 	sorong(driver)
 
 @mark.webtest
-def test_aksesmenu():
+def test_3aksesmenu():
 	driver.implicitly_wait(20)
 	registrasitahanannarapidana(driver)
 
 @mark.webtest
-def test_Registrasi():
+def test_4Registrasi():
 	
 	i = baris
 	while i <= len(sheetrange['A']):
 		NamaWBP                             = sheetrange['A'+str(i)].value
+		print("nomor urut :")
 		print(i)
-		#faker Random Input
+		#faker Random Inputx
 		nums 						= '01234567891011121415161716'
 		# jenis_registrasi 			= ['A I','A II','B I']
 		# jenis_registrasi 			= random.choice(['A II Terorisme'])
 		# jenis_registrasi 			= random.choice(['A III'])
 		# jenis_registrasi 			= random.choice(['A II'])
 		# jenis_registrasi 			= random.choice(['A I'])
-		jenis_registrasi 			= random.choice(['B I'])
+		# jenis_registrasi 			= random.choice(['B I'])
+		jenis_registrasi 			= random.choice(['C'])
 		# jenis_registrasi 			= random.choice(['B II A'])
 		# jenis_registrasi 			= random.choice(['B II B'])
 		# jenis_registrasi 			= random.choice(['B I','B II B','A I','A II','A III'])
@@ -98,6 +100,8 @@ def test_Registrasi():
 		NoRegistrasiBIIIB				= "B.II.B-/"				+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		NoRegistrasiBI					= "B.I-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		NoRegistrasiAI					= "A.I-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
+		NoRegistrasiC					= "C.-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
+		
 		NoRegistrasiAII					= "A.II-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		NoRegistrasiAIII				= "A.III-/"					+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
 		NoRegistrasiAIITeroris			= "A.II Terorisme-/"		+ fake.isbn10() + ".PASS" + ".PASS" + random.choice(nums) +".WL." + fake.date_between(start_date='today', end_date='today').strftime('%d.%m.%Y') + "-" + random.choice(nums)
@@ -143,8 +147,8 @@ def test_Registrasi():
 		jenis_hukuman					= random.choice(['id_jenis_hukuman-0-1','id_jenis_hukuman-0-2'])
 		PidanaTahun						= fake.random_int(min=2, max=3)
 		# jenisRemisi					= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2','jenis_remisi-0-3','jenis_remisi-0-4'])
-		jenisRemisi						= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2'])
-		
+		# jenisRemisi						= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2'])
+		jenisRemisi						= random.choice(['jenis_remisi-0-1','jenis_remisi-0-2'])
 		wait=WebDriverWait
 		find=driver.find_element
 		
@@ -160,8 +164,14 @@ def test_Registrasi():
 		try:
 			wait(driver,20).until(EC.element_to_be_clickable((By.ID, 'findButton')))
 			find(By.ID, "jenisRegistrasi").send_keys(jenis_registrasi)
-			wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+ jenis_registrasi +"')]"))).click()
-			time.sleep(0.5)
+			
+			if jenis_registrasi == 'A I' or jenis_registrasi == 'A II' or jenis_registrasi == 'A III' or jenis_registrasi == 'B I' or jenis_registrasi == 'B II A' or jenis_registrasi == 'B II B' or jenis_registrasi == 'B III':
+
+				wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,\'"+jenis_registrasi+"')]"))).click()
+				time.sleep(0.5)
+			elif jenis_registrasi == 'C':
+				wait(driver,20).until(EC.element_to_be_clickable((By.ID, "jenisRegistrasiOption-12"))).click()
+				time.sleep(0.5)
 			#Log.info("Click Button Jenis Registrasi '"+ jenis_registrasi +"' ")
 			hold(driver)
 
@@ -186,7 +196,7 @@ def test_Registrasi():
 			#Log.info('close Pop Up')
 			hold(driver)
 			
-			if jenis_registrasi == 'A I' or jenis_registrasi == 'A II' or jenis_registrasi == 'A III':
+			if jenis_registrasi == 'A I' or jenis_registrasi == 'A II' or jenis_registrasi == 'A III' or jenis_registrasi == 'C':
 
 				if jenis_registrasi == 'A I':
 					find(By.ID, "noRegGol").send_keys(NoRegistrasiAI)
@@ -194,6 +204,8 @@ def test_Registrasi():
 					find(By.ID, "noRegGol").send_keys(NoRegistrasiAII)
 				elif jenis_registrasi == 'A III':
 					find(By.ID, "noRegGol").send_keys(NoRegistrasiAIII)
+				elif jenis_registrasi == 'C':
+					find(By.ID, "noRegGol").send_keys(NoRegistrasiC)
 
 				find(By.ID, "tglSuratPenahanan").click()
 				find(By.ID, "tglSuratPenahanan").send_keys(tgl_Surat_PenahananGolonganA)
@@ -233,7 +245,9 @@ def test_Registrasi():
 
 				find(By.ID, "kepolisian").send_keys(AsalTahanan)
 
-				if jenis_registrasi == 'A I':
+				
+
+				if jenis_registrasi == 'A I' or jenis_registrasi == 'C':
 					#Log.info('input kepolisian')
 					hold(driver)
 					find(By.ID, "tglPertamaDitahan").click()
@@ -261,31 +275,6 @@ def test_Registrasi():
 					#Log.info('input tanggal pertama ditahan AI')
 					hold(driver)
 
-					find(By.ID, "tab-perkara").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.ID, "undangUndang0")))
-
-					find(By.CSS_SELECTOR, "div:nth-child(3) > .el-form-item .el-switch .el-icon:nth-child(2) path").click()
-
-					#Log.info('tanggal kejadian')
-					hold(driver)
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item .el-icon:nth-child(2) > svg").click()
-
-					find(By.ID, "uraianKejahatan0").send_keys(KejahatanUtama)
-					#Log.info('uraian kejahatan utama')
-					hold(driver)
-				
-
-					find(By.ID, "undangUndang0").send_keys(KejahatanUtama)
-					#Log.info('undang undang')
-					hold(driver)
-
-					find(By.ID, "pasalUtama0").send_keys(KejahatanUtama)
-
-					find(By.ID, "jenisKejahatan0").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.ID, JenisKejahatanAI))).click()
-
-					find(By.ID, "tempatPenangkapan0").send_keys(KejahatanUtama)
 				elif jenis_registrasi == 'A II':
 					# find(By.CSS_SELECTOR, "#tahunHukuman .el-input__inner").send_keys(fake.random_int(min=1, max=2))
 					#Log.info('input tahun hukuman')
@@ -297,6 +286,7 @@ def test_Registrasi():
 					#Log.info('input tanggal pertama ditahan')
 					hold(driver)
 
+					time.sleep(1)
 					find(By.ID, "tglMasukRutan").click()
 					find(By.ID, "tglMasukRutan").send_keys(tgl_PenangkapanGolonganA)
 					find(By.ID, "tglMasukRutan").send_keys(Keys.ENTER)
@@ -314,32 +304,8 @@ def test_Registrasi():
 					find(By.ID, "tglPertamaDitahanGolongan").send_keys(Keys.ENTER)
 					#Log.info('input tanggal pertama ditahan AI')
 					hold(driver)
-
-					find(By.ID, "tab-perkara").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.ID, "undangUndang0")))
-
-					#switch
-					# find(By.CSS_SELECTOR, "div:nth-child(3) > .el-form-item .el-switch .el-icon:nth-child(2) path").click()
-					#Log.info('tanggal kejadian')
-					hold(driver)
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item .el-icon:nth-child(2) > svg").click()
-
-					find(By.ID, "uraianKejahatan0").send_keys(KejahatanUtama)
-					#Log.info('uraian kejahatan utama')
-					hold(driver)
-
-					find(By.ID, "undangUndang0").send_keys(KejahatanUtama)
-					#Log.info('undang undang')
-					hold(driver)
-
-					find(By.ID, "pasalUtama0").send_keys(KejahatanUtama)
-
-					find(By.ID, "jenisKejahatan0").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.ID, JenisKejahatanAI))).click()
-
-					find(By.ID, "tempatPenangkapan0").send_keys(KejahatanUtama)
-
+					time.sleep(3)
+					
 				elif jenis_registrasi == 'A III':
 					# find(By.CSS_SELECTOR, "#tahunHukuman .el-input__inner").send_keys(fake.random_int(min=1, max=2))
 					#Log.info('input tahun hukuman')
@@ -374,25 +340,55 @@ def test_Registrasi():
 					#Log.info('input tanggal pertama ditahan AI')
 					hold(driver)
 
-					find(By.ID, "tab-perkara").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".flex > .el-form-item .el-icon:nth-child(2) > svg")))
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item .el-icon:nth-child(2) > svg").click()
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(2) .el-input__inner").send_keys(KejahatanUtama)
-					#Log.info('uraian kejahatan utama')
-					hold(driver)
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(3) .el-input__inner").send_keys(KejahatanUtama)
-					#Log.info('undang undang')
-					hold(driver)
-
-					find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(4) .el-input__inner").send_keys(KejahatanUtama)
-
-					find(By.CSS_SELECTOR, ".flex .el-select .el-input__inner").click()
-					wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'Terhadap Kepala Negara')]"))).click()
 				
-					find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(7) .el-input__inner").send_keys(tempatKejahatan)
+				#TAB PERKARA SEMUA GOLONGAN A
+				time.sleep(3)
+				print('pilih TAB perkara Golongan A')
+				find(By.ID, "tab-perkara").click()
+				time.sleep(1)
+				wait(driver,20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".flex > .el-form-item .el-icon:nth-child(2) > svg")))
+				Log.info('pilih TAB perkara Golongan A')
+				
+
+				find(By.ID, "tanggalKejadian").send_keys(tgl_BA8)
+				find(By.ID, "tanggalKejadian").send_keys(Keys.ENTER)
+				Log.info('input tanggal kejadian')
+				hold(driver)
+				find(By.ID, "jamKejadian").click()
+				find(By.ID, "tempatKejadian").send_keys(tempatKejahatan)
+				#Log.info('input tempat kejadian')
+				hold(driver)
+
+				find(By.ID, "risalahKejadian").send_keys(fake.text())
+				#Log.info('input risalah kejadian')
+				hold(driver)
+			
+				
+				
+
+				find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(2) .el-input__inner").send_keys(KejahatanUtama)
+				#Log.info('uraian kejahatan utama')
+				hold(driver)
+
+				find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(3) .el-input__inner").send_keys(KejahatanUtama)
+				#Log.info('undang undang')
+				hold(driver)
+
+				find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(4) .el-input__inner").send_keys(KejahatanUtama)
+
+				find(By.CSS_SELECTOR, ".flex .el-select .el-input__inner").click()
+				wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'Terhadap Kepala Negara')]"))).click()
+			
+				find(By.CSS_SELECTOR, ".flex > .el-form-item:nth-child(7) .el-input__inner").send_keys(tempatKejahatan)
+
+				
+
+
+
+					
+
+
+
 
 		
 
@@ -495,26 +491,27 @@ def test_Registrasi():
 				#Log.info('input eksekusi jaksa')
 				hold(driver)
 
-
+			
 				find(By.CSS_SELECTOR, ".el-form-item:nth-child(22) > .el-form-item__content").click()
 
 				find(By.CSS_SELECTOR, ".el-row:nth-child(2) > .el-col-xs-24:nth-child(2)").click()
 				hold(driver)
-            
+
+				#TAB PERKARA
+				print('pilih TAB perkara Golongan B')
 				find(By.ID, "tab-perkara").click()
-				# Log.info('pilih TAB perkara')
+				Log.info('pilih TAB perkara GOLONGAN B')
 				hold(driver)
 
-				if jenis_registrasi == 'B I':
-					find(By.CSS_SELECTOR, "div:nth-child(4) > .el-form-item .el-switch__action").click()
-				else:
-					pass
+				# find(By.CSS_SELECTOR, "div:nth-child(4) > .el-form-item .el-switch__action").click()
+			
+				time.sleep(1)
+				wait(driver,20).until(EC.element_to_be_clickable((By.ID, "jam_kejadian"))).click()
 
 				find(By.ID, "tgl_kejadian").send_keys(tgl_BA8)
 				#Log.info('input tanggal kejadian')
 				hold(driver)
 
-				find(By.ID, "jam_kejadian").click()
 				find(By.ID, "tempat_kejadian").send_keys(tempatKejahatan)
 				#Log.info('input tempat kejadian')
 				hold(driver)
@@ -682,6 +679,15 @@ def test_Registrasi():
 				# driver.find_element(By.ID, "tab-registrasi").click()
 				find(By.CSS_SELECTOR, ".is-always-shadow > .el-card__body > .el-form").click()
 				find(By.ID, "tab-registrasi").click()
+				
+
+
+				find(By.ID, "tgl_akhir_ditahan").click()
+				find(By.ID, "tgl_akhir_ditahan").send_keys(tgl_BA8)
+				find(By.ID, "tgl_akhir_ditahan").send_keys(Keys.ENTER)
+				#Log.info('input tanggal pertama ditahan')
+				hold(driver)
+				
 
 				find(By.ID, "tgl_pertama_ditahan").click()
 				find(By.ID, "tgl_pertama_ditahan").send_keys(tgl_BA8)
@@ -689,14 +695,8 @@ def test_Registrasi():
 				#Log.info('input tanggal pertama ditahan')
 				hold(driver)
 
-				time.sleep(2)
-				find(By.ID, "tgl_akhir_ditahan").click()
-				find(By.ID, "tgl_akhir_ditahan").send_keys(tgl_BA8)
-				find(By.ID, "tgl_akhir_ditahan").send_keys(Keys.ENTER)
-				#Log.info('Input tanggal akhir ditahan')
-				hold(driver)
-
-				find(By.CSS_SELECTOR, ".el-row:nth-child(4) .el-form-item__content").click()
+			
+				# find(By.CSS_SELECTOR, ".el-row:nth-child(4) .el-form-item__content").click()
 
 				find(By.ID, "tgl_awal_tahan_golongan").click()
 				find(By.ID, "tgl_awal_tahan_golongan").send_keys(tgl_BA8)
@@ -704,8 +704,8 @@ def test_Registrasi():
 				#Log.info('Input tanggal awal ditahan golongan')
 				hold(driver)
 
-				find(By.CSS_SELECTOR, ".el-row:nth-child(4) .el-form-item__content").click()
-				find(By.CSS_SELECTOR, ".el-row:nth-child(3) > .el-col:nth-child(2) svg").click()
+				# find(By.CSS_SELECTOR, ".el-row:nth-child(4) .el-form-item__content").click()
+				# find(By.CSS_SELECTOR, ".el-row:nth-child(3) > .el-col:nth-child(2) svg").click()
 
 				find(By.ID, "tgl_msk_lapas").click()
 				find(By.ID, "tgl_msk_lapas").send_keys(tgl_BA8)
@@ -767,13 +767,7 @@ def test_Registrasi():
 				upload(driver)
 			
 		
-			
 
-
-
-				
-
-	
 			# input('Tekan Enter Untuk Melanjutkan')
 			find(By.ID, 'submitButton').click() 
 			wait(driver,50).until(EC.element_to_be_clickable((By.ID, 'cari')))
