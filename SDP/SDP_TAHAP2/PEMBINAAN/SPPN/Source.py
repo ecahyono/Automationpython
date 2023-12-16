@@ -34,7 +34,7 @@ elif platform.system() == 'Windows':
     wb = load_workbook(environ.get("KeamananUATWin"))
 import random
 
-from Settings.setupPembinaan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
+from Settings.SetupAll import *
 from Settings.loginPembinaan import *
 from Settings.Page.Pembinaan import *
 import random

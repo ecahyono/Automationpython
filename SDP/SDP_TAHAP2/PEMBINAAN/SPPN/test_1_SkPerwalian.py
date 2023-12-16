@@ -12,7 +12,7 @@ Log.addHandler(fh)
 @pytest.mark.webtest
 def test_TC_SPPN_001_LoginOperator():
     print('Login aplikasi menggunakan akun dengan role Operator')
-    Op_SPPN(driver)
+    Op_SPPN_Sorong(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
     attach(data=driver.get_screenshot_as_png())
 
@@ -68,10 +68,10 @@ def test_TC_SPPN_003_InputSK():
         WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "list0-opt0")))
         driver.find_element(By.ID, "list0-opt0").click()
 
-        driver.find_element(By.ID, "namaPegawai1").click()
-        driver.find_element(By.ID, "namaPegawai1").send_keys("")
-        WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "list1-opt1")))
-        driver.find_element(By.ID, "list1-opt2").click()
+        # driver.find_element(By.ID, "namaPegawai1").click()
+        # driver.find_element(By.ID, "namaPegawai1").send_keys("")
+        # WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "list1-opt1")))
+        # driver.find_element(By.ID, "list1-opt2").click()
 
         # driver.find_element(By.ID, "namaPegawai2").send_keys("a")
         # WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "list2-opt6")))

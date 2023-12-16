@@ -38,7 +38,7 @@ elif platform.system() == 'Windows':
 from Settings.setup import initDriver, loadDataPath, hold
 from Settings.login import *
 from Settings.Page.accessmenu import Registrasi_identitas
-from Settings.setupPembinaan import *
+from Settings.SetupAll import *
 
 @mark.webtest
 # init driver by os
@@ -67,7 +67,7 @@ def test_4eksekusi():
 		#Tab Biodata-------------------------------------------
 		#------------------------------------------------------
 		Residivis			   				= "Tidak"
-		Nama_Lengkap						= fake.first_name() + " " + fake.last_name()
+		Nama_Lengkap						= fake.first_name() + " " + fake.last_name() + " 982"
 		Kewarganegaraan						= "WNI"
 		nik					 				= fake.msisdn()+"5"f"{1:09}"
 		Tempat_Asal			 				= "Bandung"
@@ -79,7 +79,8 @@ def test_4eksekusi():
 		Tanggal_lahir		   				= tanggal_lahir_acak.strftime('%d/%m/%Y')
 		Jenis_kelamin		   				= fake.random_element(elements=('Laki-laki','Perempuan'))
 		Negara				  				= "Indonesia"
-		Agama				   				= fake.random_element(elements=('Budha','Hindu','Islam','Katholik','Kong hu chu','Protestan'))
+		# Agama				   				= fake.random_element(elements=('Budha','Hindu','Islam','Katholik','Kong hu chu','Protestan'))
+		Agama				   				= random.choice(['Protestan'])
 		Agama_lain			  				= "Agnostik"
 		Status_perkawinan	  				= "Belum Kawin"
 		Provinsi							= "Jawa Barat"
@@ -91,7 +92,7 @@ def test_4eksekusi():
 		Tingkat_pendidikan	  				= random.choice(["idJenisPendidikan-0","idJenisPendidikan-1","idJenisPendidikan-2","idJenisPendidikan-3","idJenisPendidikan-4"])
 		Keahlian1			   				= "Tidak Memiliki Keahlian"
 		Keahlian2			   				= "Tidak Memiliki Keahlian"
-		Nama_ayah			   				= fake.first_name() + " "+fake.last_name()
+		Nama_ayah			   				= fake.first_name() + " "+fake.last_name() 
 		Nama_ibu							= fake.first_name() + " " +fake.last_name()
 		Tinggi_badan						= "170"
 		Berat_badan				 			= "70"
@@ -177,11 +178,24 @@ def test_4eksekusi():
 			find(By.ID, 'btn_id_negara_asing').send_keys(Keys.DOWN)
 			find(By.ID, 'btn_id_negara_asing').send_keys(Keys.ENTER)
 			#--------------------------------------------------------------
+			# find(By.ID, 'btn_id_jenis_agama').click()
+			# wait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisAgama-0'))) 
+			# find(By.ID, 'btn_id_jenis_agama').send_keys(Agama)
+			# find(By.ID, 'btn_id_jenis_agama').send_keys(Keys.DOWN)
+			# find(By.ID, 'btn_id_jenis_agama').send_keys(Keys.ENTER)\\\
+
+
 			find(By.ID, 'btn_id_jenis_agama').click()
-			wait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'jenisAgama-0'))) 
-			find(By.ID, 'btn_id_jenis_agama').send_keys(Agama)
-			find(By.ID, 'btn_id_jenis_agama').send_keys(Keys.DOWN)
-			find(By.ID, 'btn_id_jenis_agama').send_keys(Keys.ENTER)
+			wait(driver, 90).until(EC.element_to_be_clickable((By.XPATH, "//li[contains(.,'Protestan')]")))
+			time.sleep(0.5)
+			find(By.XPATH, "//li[contains(.,'Protestan')]").click()
+			
+			
+
+
+
+
+
 			#--------------------------------------------------------------
 			# if Agama == 'Lain-lain':
 			# 	find(By.ID, 'btn_id_jenis_agama_lain').send_keys(Agama_lain)
@@ -598,6 +612,7 @@ def test_4eksekusi():
 			#========================Input Tab Identitas lama========================== 
 			#Submit
 			time.sleep(3)
+			# input('agama')
 			find(By.ID, 'submitButton').click() 
 			wait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'createButton')))
 

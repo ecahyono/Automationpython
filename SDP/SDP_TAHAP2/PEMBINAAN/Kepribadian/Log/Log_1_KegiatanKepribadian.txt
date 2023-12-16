@@ -1,14 +1,31 @@
-[2023-12-05 09:24:48,359 test_1_KegiatanKepribadian.py_>test_TC_SPPN_001_LoginOperator()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
-[2023-12-05 09:24:51,195 test_1_KegiatanKepribadian.py_>test_TC_SPPN_002_AksesMenuKepribadianOperator()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
-[2023-12-05 09:24:54,011 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Pilih Jenis Pembinaan
-[2023-12-05 09:24:54,051 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Nama Program Pembinaan
-[2023-12-05 09:24:54,082 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Tempat Pelaksanaan
-[2023-12-05 09:24:54,545 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Operator mengisi jam pelatihan keterampilan 
-[2023-12-05 09:25:00,329 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input sarana
-[2023-12-05 09:25:03,431 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input prasarana
-[2023-12-05 09:25:04,140 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Mitra
-[2023-12-05 09:25:04,742 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Jenis Instruktur
-[2023-12-05 09:25:05,342 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Nama Instruktur
-[2023-12-05 09:25:05,518 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Input Penanggung jawab
-[2023-12-05 09:25:05,548 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Perlu Kelulusan
-[2023-12-05 09:25:07,743 test_1_KegiatanKepribadian.py_>test_createProgramPembinaanKepribadian()]==>INFO: Tambah Peserta
+[2023-12-16 15:26:01,241 test_1_KegiatanKepribadian.py_>test1_LoginOperatorKepribadian()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role operator
+[2023-12-16 15:26:04,132 test_1_KegiatanKepribadian.py_>test2_AksesMenuKepribadianOperator()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:26:06,866 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Pilih Jenis Pembinaan
+[2023-12-16 15:26:06,908 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Nama Program Pembinaan
+[2023-12-16 15:26:06,937 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Tempat Pelaksanaan
+[2023-12-16 15:26:08,115 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Operator mengisi jam pelatihan keterampilan 
+[2023-12-16 15:26:10,962 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input sarana
+[2023-12-16 15:26:14,093 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input prasarana
+[2023-12-16 15:26:14,882 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Mitra
+[2023-12-16 15:26:15,467 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Jenis Instruktur
+[2023-12-16 15:26:16,068 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Nama Instruktur
+[2023-12-16 15:26:16,311 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Penanggung jawab
+[2023-12-16 15:26:16,344 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Perlu Kelulusan
+[2023-12-16 15:26:19,597 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Tambah Peserta
+[2023-12-16 15:26:20,172 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Nama Peserta
+[2023-12-16 15:26:20,196 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Pilih Peserta
+[2023-12-16 15:26:20,261 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Materi
+[2023-12-16 15:26:20,329 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Input Keterangan
+[2023-12-16 15:26:23,892 test_1_KegiatanKepribadian.py_>test3_createProgramPembinaanKepribadian()]==>INFO: Operator menambahkan Program Pembinaan Kepribadian
+[2023-12-16 15:26:29,228 test_1_KegiatanKepribadian.py_>test4_LoginKasieVerifikasi_KasieProgram()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:26:32,465 test_1_KegiatanKepribadian.py_>test4_LoginKasieVerifikasi_KasieProgram()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:26:42,500 test_1_KegiatanKepribadian.py_>test6_Login_KalapasOtorisasiProgramKepribadian()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:26:45,097 test_1_KegiatanKepribadian.py_>test6_Login_KalapasOtorisasiProgramKepribadian()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:27:15,702 test_1_KegiatanKepribadian.py_>test10_Login_Kasie_VerifikasiPresensi()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:27:18,056 test_1_KegiatanKepribadian.py_>test11_Kasie_VerifikasiPresensi()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:27:31,682 test_1_KegiatanKepribadian.py_>test12_Login_Operator_tambahKelulusan()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:27:34,326 test_1_KegiatanKepribadian.py_>test13_Operator_tambahKelulusan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:28:50,925 test_1_KegiatanKepribadian.py_>test14_LoginKasie_VerifikasiKelulusan()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:28:53,717 test_1_KegiatanKepribadian.py_>test15_Kasie_VerifikasiKelulusan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai
+[2023-12-16 15:29:03,196 test_1_KegiatanKepribadian.py_>test16_Login_Kalapas_otorisasiKelulusan()]==>INFO: Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie
+[2023-12-16 15:29:05,678 test_1_KegiatanKepribadian.py_>test16_Login_Kalapas_otorisasiKelulusan()]==>INFO: Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai

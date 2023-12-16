@@ -1,52 +1,5 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.keys import Keys
-from openpyxl import load_workbook
-import os, sys
-from os import environ, path
-import pyautogui
-from pytest import mark
-import pytest
-import time
-import platform
-from pathlib import Path
-import logging
-from faker import Faker
-from datetime import datetime
-import openpyxl
-from faker.providers import date_time
-from datetime import datetime, timedelta
-import random
-from pytest_html_reporter import attach
-import pyautogui
+from Source import *
 
-import sys
-from os import environ, path
-from dotenv import load_dotenv
-load_dotenv()
-from openpyxl import load_workbook
-
-
-fake = Faker('id_ID')
-from dotenv import load_dotenv
-load_dotenv()
-
-if platform.system() == 'Darwin':
-    sys.path.append(environ.get("MACPARENTDIR"))
-    wb = load_workbook(environ.get("KeamananUAT"))
-
-elif platform.system() == 'Windows':
-    sys.path.append(environ.get("WINPARENTDIR"))
-    wb = load_workbook(environ.get("KeamananUATWin"))
-
-
-from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import op_keamanan_mp
-
-import logging
 Log = logging.getLogger(__name__)
 log_format = '[%(asctime)s %(filename)s->%(funcName)s()]==>%(levelname)s: %(message)s'
 fh = logging.FileHandler('Log1BlokTambah.log', mode="w")
@@ -57,12 +10,6 @@ Log.addHandler(fh)
 
 sheetrange = wb['tambahBlokdanKamar']
 
-@mark.webtest()
-def test_1_setupOS():
-    global driver, pathData
-    driver = initDriver()
-    pathData = loadDataPath()
-    Log.info('Setup Os')
 
 @mark.webtest()
 def test_2_login():
@@ -73,18 +20,7 @@ def test_2_login():
 @mark.webtest()
 def test_3_Input():
 
-    driver.implicitly_wait(10)
-    nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['MainText'])
-    ActionChains(driver).move_to_element(nav1).perform()
-    element2 = driver.find_element(By.XPATH, pathData['AksesMenu']['Keamanan']['child']['ManajemenPenempatan']['MainText'])
-    time.sleep(1)
-    ActionChains(driver).move_to_element(element2).perform()
-    time.sleep(1)
-    driver.find_element(By.LINK_TEXT, 'Manajemen Blok dan Kamar').click()
-    sleep(driver)
-    print('.')
-    Log.info('Akses halaman Manajemen Blok dan Kamar')
-    attach(data=driver.get_screenshot_as_png())
+    ManajemenBlokDanKamar(driver)
 
 
     i = 2

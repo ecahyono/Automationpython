@@ -8,9 +8,8 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-
 @pytest.mark.webtest
-def test_TC_SPPN_001_LoginOperator():
+def test1_LoginOperatorKepribadian():
     print('Login aplikasi menggunakan akun dengan role Operator')
     sorong(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role operator")
@@ -18,7 +17,7 @@ def test_TC_SPPN_001_LoginOperator():
     # input('Press Enter to continue...')
 
 @pytest.mark.webtest
-def test_TC_SPPN_002_AksesMenuKepribadianOperator():
+def test2_AksesMenuKepribadianOperator():
     print('Operator mengakses Operator mengakses submenu Kegiatan Pembinaan')
     sleep(driver)
     KepribadianKegiatanPembinaan(driver)
@@ -27,7 +26,7 @@ def test_TC_SPPN_002_AksesMenuKepribadianOperator():
 
 
 @pytest.mark.webtest
-def test_createProgramPembinaanKepribadian():
+def test3_createProgramPembinaanKepribadian():
 
     sleep(driver)
     vars = {}
@@ -43,7 +42,7 @@ def test_createProgramPembinaanKepribadian():
         # OptionMitra                                             = ['optionMitra-0','optionMitra-1','optionMitra-2','optionMitra-3']
         OptionMitra                                             = ['optionMitra-0']
         PerluKelulusan                                          = ['Ya']
-        tanggal                                   = fake.date_between(start_date='today', end_date='today').strftime('%d')
+        tanggal                                                 = fake.date_between(start_date='today', end_date='today').strftime('%d')
 
         for i in range(1):
             JenisPembinaanFaker                                 = random.choice(JenisPembinaan)
@@ -65,7 +64,7 @@ def test_createProgramPembinaanKepribadian():
             Log.info ('Pilih Jenis Pembinaan')
 
             print('Operator Input Nama Program Pembinaan')
-            driver.find_element(By.ID, "inputNamaProgram").send_keys(fake.text(10))
+            driver.find_element(By.ID, "inputNamaProgram").send_keys(fake.text(10) + " WL")
             Log.info ('Input Nama Program Pembinaan')
 
             print('Operator Input Tempat Pelaksanaan')
@@ -78,26 +77,19 @@ def test_createProgramPembinaanKepribadian():
 
             print('Operator Input Tanggal Pelaksanaan')
             driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").send_keys(fake.date_between(start_date='today', end_date='today').strftime('%d/%m/%Y'))
+            # input('Press Enter to continue...')
+            driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").send_keys(Keys.TAB)
+            time.sleep(1)
             driver.find_element(By.CSS_SELECTOR, ".w-full > .el-input__inner").send_keys(Keys.ENTER)
-
-           
-
-            nav1 = driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input")
-            ActionChains(driver).move_to_element(nav1).perform()      
-            # waktu pelaksanaan\
-            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").click()
-
-            driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div[3]/div/div/div[2]/form/div/div[2]/div/div/div/input").send_keys(Keys.ENTER)
-
             Log.info('Operator mengisi jam pelatihan keterampilan ')
-
+            
             driver.find_element(By.CSS_SELECTOR, ".flex:nth-child(5) > #submitButton > span").click()
 
             print('Operator Input sarana')
-            time.sleep(5)
-            driver.find_element(By.XPATH,"//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[6]/div/div/div/div/input").click()
+            time.sleep(2)
+            driver.find_element(By.XPATH,"(//input[@type='text'])[5]").click()
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, ""+OptionSaranaFaker+""))).click()
-            driver.find_element(By.XPATH,"//div[@id='app']/div/div[2]/div/div[2]/div/div/form/div[6]/div/div/div/div/input").send_keys(Keys.TAB)
+            driver.find_element(By.XPATH,"(//input[@type='text'])[5]").send_keys(Keys.TAB)
             Log.info ('Input sarana')
 
             time.sleep(3)
@@ -141,11 +133,12 @@ def test_createProgramPembinaanKepribadian():
                 print('Input Nama Peserta')
                 # driver.find_element(By.CSS_SELECTOR, ".el-input--default > .el-input__inner").click()
                 # driver.find_element(By.XPATH, "//span[contains(.,'200/halaman')]").click()
-                input('Press Enter to continue...')
+                # input('Press Enter to continue...')
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(.,'Pilih')]")))
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-0")))
-                # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
+                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
                 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-1"))).click()
+                # input('Press Enter to continue input peserta...')
                 Log.info ('Input Nama Peserta')
 
                 print('Pilih Peserta')
@@ -158,11 +151,11 @@ def test_createProgramPembinaanKepribadian():
             print('Input Materi')
             driver.find_element(By.ID, "inputMateri").send_keys(fake.text(100))
             Log.info ('Input Materi')
-
-            print('Input Keterangan')
             driver.find_element(By.ID, "inputKeterangan").send_keys(fake.text(100))
             Log.info ('Input Keterangan')  
 
+
+            print('Input Keterangan')
             driver.find_element(By.ID, "submitButton").click()
             WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonSearch > span")))
             # input('Press Enter to continue...')
@@ -171,74 +164,201 @@ def test_createProgramPembinaanKepribadian():
             condition = driver.execute_script("return (arguments[0]<2)", vars["x"])
 
             Log.info ('Operator menambahkan Program Pembinaan Kepribadian')
-            input('Press Enter to continue...')
+            # input('Press Enter to continue...')
+
+            WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Ditambahkan')]")))
+       
             LogOut(driver)
 
 
 @pytest.mark.webtest
-def test_Verifikasi_Kasie():
+def test4_LoginKasieVerifikasi_KasieProgram():
+    print('Login aplikasi menggunakan akun dengan role kasie')
+    kasie_SPPN_Sorong(driver)
+    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
+    attach(data=driver.get_screenshot_as_png())
+
+    sleep(driver)
+    PersetujuanProgramDanPesertaKegiatan(driver)
+    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
+    attach(data=driver.get_screenshot_as_png())
+    sleep(driver)
+
+@pytest.mark.webtest
+def test5_KasieVerifikasi_KasieProgram():
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0 .h-5"))).click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.DOWN)
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.ENTER)
+    driver.find_element(By.ID, "submitButton").click()
+    time.sleep(2)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Memverifikasi Data')]")))
+    LogOut(driver)
+
+
+@pytest.mark.webtest
+def test6_Login_KalapasOtorisasiProgramKepribadian():
+    print('Login aplikasi menggunakan akun dengan role kalapas')
+    Kalapas_SPPN_sorong(driver)
+    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
+
+    PersetujuanProgramDanPesertaKegiatan(driver)
+    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+@pytest.mark.webtest
+def test7_KalapasOtorisasiProgramKepribadian():
+    time.sleep(2)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0 .h-5"))).click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.DOWN)
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.ENTER)
+    time.sleep(1)
+    driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Memverifikasi Data')]")))
+    time.sleep(1)
+    LogOut(driver)
+
+
+
+@pytest.mark.webtest
+def test8_Login_Operator_CatatAbsensiOperator():
+    print('Login aplikasi menggunakan akun dengan role Operator')
+    sorong(driver)
+    CatatAbsensi(driver)
+
+@pytest.mark.webtest
+def test9_Operator_CatatAbsensiOperator():
+    driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/div[4]/div/div[3]/div/div/div/table/tbody/tr/td/div/div").click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonCatatAbsensi-0-0 > span"))).click()
+    # input('Press Enter to continue...')
+    time.sleep(5)
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".el-input--large .el-input__suffix-inner svg"))).click()
+    # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="selectPeserta"]'))).click()
+    
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".el-select-group__title"))).click()
+    driver.find_element(By.CSS_SELECTOR, ".el-select__input").click()
+    
+    driver.find_element(By.CSS_SELECTOR, ".el-select-group__title").click()
+    driver.find_element(By.ID, "submitButton").click()
+    time.sleep(2)
+    driver.find_element(By.CSS_SELECTOR, ".mt-6 > #submitButton > span").click()
+
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Ditambahkan')]")))
+
+    LogOut(driver)
+
+@pytest.mark.webtest
+def test10_Login_Kasie_VerifikasiPresensi():
+    print('Login aplikasi menggunakan akun dengan role kalapas')
+    kasie_SPPN_Sorong(driver)
+    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
+
+@pytest.mark.webtest
+def test11_Kasie_VerifikasiPresensi():
+    sleep(driver)
+    VerifikasiPresensi(driver)
+    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div').click()
+    time.sleep(2)
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0-0 path:nth-child(2)"))).click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.DOWN)
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.ENTER)
+    time.sleep(1)
+    driver.find_element(By.ID, "submitButton").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Memverifikasi Data')]")))
+    time.sleep(1)
+    LogOut(driver)
+
+@pytest.mark.webtest
+def test12_Login_Operator_tambahKelulusan():
+    print('Login aplikasi menggunakan akun dengan role kalapas')
+    sorong(driver)
+    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
+
+@pytest.mark.webtest
+def test13_Operator_tambahKelulusan():
+    sleep(driver)
+    KelulusanPeserta(driver)
+    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    driver.find_element(By.ID, "catatKelulusan-0").click()
+    i = 1
+    for i in range(10):
+        print(i)
+        try:
+            yoga = "#catatKelulusan" + str(i) + " .h-5"
+        
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, yoga))).click()
+            print(yoga)
+            driver.find_element(By.ID, "no_sertifikat").send_keys(fake.isbn10())
+            driver.find_element(By.ID, "pilihFile").click()
+            Sertifikat(driver)
+            driver.find_element(By.ID, "nilai").click()
+            driver.find_element(By.ID, "nilai").send_keys("90")
+            driver.find_element(By.ID, "nilai").send_keys("90")
+            driver.find_element(By.ID, "predikat").click()
+            driver.find_element(By.ID, "opt-baik").click()
+            driver.find_element(By.XPATH, '//*[@id="submitButton"]').click()  
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Ditambahkan')]")))
+            time.sleep(2)
+        except TimeoutException:
+            print('No More Pages')
+            
+        i = i + 1
+    LogOut(driver)
+            
+@pytest.mark.webtest
+def test14_LoginKasie_VerifikasiKelulusan():
+
     print('Login aplikasi menggunakan akun dengan role kasie')
     kasie_SPPN_Sorong(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
     attach(data=driver.get_screenshot_as_png())
 
 @pytest.mark.webtest
-def test_AksesMenuPersetujuan():
+def test15_Kasie_VerifikasiKelulusan():
     sleep(driver)
-    PersetujuanProgramDanPesertaKegiatan(driver)
+    VerifikasiKelulusanPesertaKepribadian(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
     attach(data=driver.get_screenshot_as_png())
+   
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0 .h-5"))).click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.DOWN)
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.ENTER)
+    driver.find_element(By.ID, "submitButton").click()
+    time.sleep(2)
+    LogOut(driver)
 
 @pytest.mark.webtest
-def test_VerifikasiProgramPembinaan():
-    sleep(driver)
-    print('Kasie memilih filter belum verifikasi')
+def test16_Login_Kalapas_otorisasiKelulusan():
+    print('Login aplikasi menggunakan akun dengan role kalapas')
+    Kalapas_SPPN_sorong(driver)
+    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
 
-    # driver.find_element(By.XPATH, "(//input[@type='text'])[5]").click()
-    # driver.find_element(By.XPATH, "//div[7]/div/div/div/ul/li[3]/span").click()
-    # Log.info ('Kasie memilih filter belum verifikasi')
-    # nav1 = driver.find_element(By.ID, "buttonSearch")
-    # ActionChains(driver).move_to_element(nav1).perform()
-    # driver.find_element(By.ID, "buttonSearch").click()
+    VerifikasiKelulusanPesertaKepribadian(driver)
+    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
 
+@pytest.mark.webtest
+def test17_Kalapas_otorisasiKelulusan():
     time.sleep(2)
-    driver.find_element(By.CSS_SELECTOR, ".el-table__row:nth-child(1) .el-space__item > .el-button .h-5").click()
-    # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "WebDriverWait()el-table__row:nth-child(1) .el-space__item > .el-button .h-5"))).click()
-    # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonSearch > span"))).click()   
-    driver.find_element(By.CSS_SELECTOR, ".w-full > .select-trigger .el-input__inner").click()
-    driver.find_element(By.XPATH, "//div[9]/div/div/div/ul/li").click()
+    WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0 .h-5"))).click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").click()
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.DOWN)
+    driver.find_element(By.CSS_SELECTOR, "#selectStatus").send_keys(Keys.ENTER)
+    time.sleep(1)
     driver.find_element(By.ID, "submitButton").click()
     time.sleep(1)
-    input('Press Enter to continue...')
     LogOut(driver)
 
 
-@pytest.mark.webtest
-def test_Verifikasi_Kalapas():
-    print('Login aplikasi menggunakan akun dengan role kasie')
-    Kalapas_SPPN_sorong(driver)
-    Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
-    attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtest
-def test_AksesMenuPersetujuanKalapas():
-    sleep(driver)
-    PersetujuanProgramDanPesertaKegiatan(driver)
-    Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
-    attach(data=driver.get_screenshot_as_png())
-
-    time.sleep(2)
-    driver.find_element(By.CSS_SELECTOR, ".el-table__row:nth-child(1) .el-space__item > .el-button .h-5").click()
-    # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "WebDriverWait()el-table__row:nth-child(1) .el-space__item > .el-button .h-5"))).click()
-    # WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonSearch > span"))).click()   
-    driver.find_element(By.CSS_SELECTOR, ".w-full > .select-trigger .el-input__inner").click()
-    driver.find_element(By.XPATH, "//div[9]/div/div/div/ul/li").click()
-    driver.find_element(By.ID, "submitButton").click()
-
-    input('Press Enter to continue...')
-
-
-
-
-    quit(driver)
-
+      
+    
+       
+      
+         

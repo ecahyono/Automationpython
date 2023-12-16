@@ -1,4 +1,4 @@
-from distutils.archive_util import make_archive
+from turtle import rt
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,11 +6,24 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+from openpyxl import load_workbook
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.select import Select
-import platform
+from selenium.webdriver.support.ui import Select
+import os, sys
+from os import environ, path
+import pyautogui
 from pytest import mark
+import pytest
 import time
+import platform
+from pathlib import Path
+import logging
+from faker import Faker
+from datetime import datetime
+import openpyxl
+from faker.providers import date_time
+from datetime import datetime, timedelta
+import random
 from pytest_html_reporter import attach
 import pyautogui
 
@@ -20,6 +33,11 @@ from dotenv import load_dotenv
 load_dotenv()
 from openpyxl import load_workbook
 
+
+fake = Faker('id_ID')
+from dotenv import load_dotenv
+load_dotenv()
+
 if platform.system() == 'Darwin':
     sys.path.append(environ.get("MACPARENTDIR"))
 
@@ -27,8 +45,9 @@ elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
 
 
-from Settings.setup import initDriver, loadDataPath, quit, sleep
-from Settings.login import loginSumedang, loginBanjar, loginwaru
+from Settings.SetupAll import *
+from Settings.login import *
+from Settings.Page.accessmenu import *
 
 import logging
 Log = logging.getLogger(__name__)
@@ -39,23 +58,21 @@ formatter = logging.Formatter(log_format)
 fh.setFormatter(formatter)
 Log.addHandler(fh)
 
-wb = load_workbook(environ.get("Lainlain"))
-sheetrange = wb['Pegawai']
 
-@mark.fixture_test()
+@mark.webtest()
 def test_1_setupOS():
     global driver, pathData
     driver = initDriver()
     pathData = loadDataPath()
     Log.info('Setup Os')
 
-@mark.fixture_test()
+@mark.webtest()
 def test_2_login():
-    loginwaru(driver)
+    sorong(driver)
     Log.info('Login')
 
 
-@mark.fixture_test()
+@mark.webtest()
 def test_Input():
     driver.implicitly_wait(30)
     nav1 = driver.find_element(By.XPATH, pathData['AksesMenu']['Lainlain']['MainText'])
@@ -65,23 +82,23 @@ def test_Input():
     print('.')
     Log.info('Akses halaman Lainlian Daftar Pegawai')
     attach(data=driver.get_screenshot_as_png())
-
-    i = 23
         # nge baca mulai dari tabel A
-    while i <= len(sheetrange['A']):
-        # deklarasi bahwa NIP itu ada di A 
-        Nip                             = sheetrange['A'+str(i)].value
-        Nama                            = sheetrange['B'+str(i)].value
-        TempatLahir                     = sheetrange['C'+str(i)].value
-        TanggalLahir                    = sheetrange['D'+str(i)].value
-        JenisKelamin                    = sheetrange['E'+str(i)].value
-        Alamat                          = sheetrange['F'+str(i)].value
-        Jabatan                         = sheetrange['G'+str(i)].value
-        Pangkat                         = sheetrange['H'+str(i)].value
-        Golongan                        = sheetrange['I'+str(i)].value
-        Bagian                          = sheetrange['J'+str(i)].value
-        Email                           = sheetrange['K'+str(i)].value
-        Telepon                         = sheetrange['L'+str(i)].value
+    while True:
+        number = fake.random_int(min=0, max=100) 
+       
+        Nip                             = fake.year()+"1"f"{number+1:05}"
+        Nama                            = fake.name()
+        TempatLahir                     = fake.city()
+        tanggal_lahir_acak              = fake.date_of_birth(tzinfo=None, minimum_age=23, maximum_age=50)
+        TanggalLahir                    = tanggal_lahir_acak.strftime('%d/%m/%Y')
+        JenisKelamin                    = random.choice(['L','P'])
+        Alamat                          = fake.address()
+        Jabatan                         = fake.job()
+        Pangkat                         = fake.job()
+        Golongan                        = fake.job()
+        Bagian                          = fake.job()
+        Email                           = fake.email()
+        Telepon                         = fake.phone_number()
         
         driver.implicitly_wait(30)
 
@@ -89,14 +106,17 @@ def test_Input():
         try:
             WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'createButton')))
             driver.find_element(By.ID, "createButton").click()
+            WebDriverWait(driver,10).until(EC.element_to_be_clickable((By.ID, 'Nip')))
 
             driver.find_element(By.ID, "Nip").click()
             driver.find_element(By.ID, "Nip").send_keys(Nip)
+            driver.find_element(By.ID, "Nip").send_keys(fake.random_int(min=0, max=100))
 
             driver.find_element(By.ID, "Nama").send_keys(Nama)
             driver.find_element(By.ID, "tempatLahir").send_keys(TempatLahir)
+            driver.find_element(By.ID, "tglLahir").click()
             driver.find_element(By.ID, "tglLahir").send_keys(TanggalLahir)
-
+            driver.find_element(By.ID, "tglLahir").send_keys(Keys.ENTER)
 
             driver.find_element(By.ID, "jenisKelamin").click()
             if JenisKelamin == 'P':
@@ -130,14 +150,13 @@ def test_Input():
         except TimeoutException:
             print("ERRROR")
             pass
-        time.sleep(5)
-        i = i + 1
-        print(i)
+        # time.sleep(5)
+        # i = i + 1
 
   
         
 
-@mark.fixture_test()
+@mark.webtest()
 def test_exit():
     quit(driver)
 

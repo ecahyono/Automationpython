@@ -33,7 +33,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     sys.path.append(environ.get("WINPARENTDIR"))
     wb = load_workbook(environ.get("KeamananUATWin"))
-from Settings.setupPembinaan import initDriver, loadDataPath, quit, sleep, upload, uploadGambar
+from Settings.SetupAll import *
 from Settings.loginPembinaan import * 
 from Settings.Page.Pembinaan import *
 import random

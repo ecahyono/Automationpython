@@ -35,7 +35,7 @@ elif platform.system() == 'Windows':
     wb = load_workbook(environ.get("KeamananUATWin"))
 import random
 
-from Settings.setupPembinaan import *
+from Settings.SetupAll import *
 from Settings.loginPembinaan import *
 from Settings.Page.Pembinaan import *
 import random
