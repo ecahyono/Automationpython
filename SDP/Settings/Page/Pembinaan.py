@@ -181,8 +181,8 @@ def MenuSPPNPerwalianPersetujuan(driver):
    
 
 def LogOut(driver):
-    input("Press Enter to continue...")
-    driver.implicitly_wait(100)
+    # input("Press Enter to continue...")
+    # driver.implicitly_wait(100)
     WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, 'pembinaan-10')))
     nav1 = driver.find_element(By.ID, "avatar")
     ActionChains(driver).move_to_element(nav1).perform()
@@ -261,5 +261,54 @@ def PersetujuanProgramDanPesertaKegiatan(driver):
     nav2 = driver.find_element(By.ID, "kepribadian-10")
     time.sleep(0.5)
     ActionChains(driver).move_to_element(nav2).perform()
+
     driver.find_element(By.LINK_TEXT, "Persetujuan Program Dan Peserta Kegiatan").click()
     
+
+def VerifikasiKelulusanPesertaKepribadian(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Verifikasi Kelulusan Peserta Kepribadian").click()
+    
+    
+
+def CatatAbsensi(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Presensi Kegiatan").click()
+
+def VerifikasiPresensi(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Persetujuan Presensi Peserta Kegiatan").click()
+
+def KelulusanPeserta(driver):
+    driver.implicitly_wait(100)
+    WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "pembinaan-10")))
+    nav1 = driver.find_element(By.ID, "pembinaan-10")
+    ActionChains(driver).move_to_element(nav1).perform()
+    time.sleep(0.5)
+    nav2 = driver.find_element(By.ID, "kepribadian-10")
+    time.sleep(0.5)
+    ActionChains(driver).move_to_element(nav2).perform()
+    driver.find_element(By.LINK_TEXT, "Kelulusan Peserta").click()
+
+  

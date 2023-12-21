@@ -15,21 +15,25 @@ from dotenv import load_dotenv
 load_dotenv()
 import requests
 import random
+
+
 def initDriver():
     
-    options = Options()
-    print('.')
+    options = webdriver.ChromeOptions()
+    # print('.')
     # X = int(input("1. Headless, 2. Not Headless")) 
     # print('.')
     # if X == 1:
     #     options.headless = True
+    #     options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
+    #     options.add_argument('--disable-gpu')
+    #     options.add_argument('--headless')
     # elif X == 2:
     #     options.headless = False
     if platform.system() == 'Darwin':
         # driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
         # driver.implicitly_wait(20)
-        # WebDriverWait(driver, 10)
-        options = webdriver.ChromeOptions()
+
         # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
         # tentukan path ke driver Chrome
         path_to_chromedriver = environ.get("CHROMEDRIVERMAC")
@@ -45,6 +49,30 @@ def initDriver():
     # pyautogui.press('f12')
     
     return driver
+
+# def initDriver():
+    
+#     options = Options()
+#     print('.')
+#  
+#     if platform.system() == 'Darwin':
+#         
+#         options = webdriver.ChromeOptions()
+#     
+#         # tentukan path ke driver Chrome
+#         path_to_chromedriver = environ.get("CHROMEDRIVERMAC")
+#         # jalankan Chrome dengan opsi dan path yang ditentukan
+#         driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
+
+#     elif platform.system() == 'Windows':
+#         swin = Service(environ.get("CHROMEDRIVERWIN"))
+#         driver = webdriver.Chrome(service=swin)
+#     driver.get(environ.get("HOSTDO"))
+#     #driver.get(environ.get("HOST"))
+#     driver.maximize_window()
+#     # pyautogui.press('f12')
+    
+#     return driver
 
 def loadDataPath():
     if platform.system() == 'Darwin':
@@ -151,9 +179,14 @@ def uploadGambarDepanL(driver):
     pyautogui.press('enter')
 
 def uploadGambarKiriL(driver):
-    time.sleep(1)
+    time.sleep(0.4)
     pyautogui.press('K')
-    time.sleep(1)
+    time.sleep(0.4)
+    pyautogui.press('enter')
+def Sertifikat(driver):
+    time.sleep(0.7)
+    pyautogui.press('s')
+    time.sleep(0.7)
     pyautogui.press('enter')
 
 def uploadGambarKananL(driver):
@@ -220,6 +253,7 @@ def ValuejenisRegistrasi(driver):
 
 def InputDocRegis(driver):
     find = driver.find_element
+    time.sleep(1)
     find(By.ID, "tab-file_dokumen").click()
 
     WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.ID, "chooseFile-0")))

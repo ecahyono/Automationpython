@@ -136,9 +136,9 @@ def test3_createProgramPembinaanKepribadian():
                 # input('Press Enter to continue...')
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[contains(.,'Pilih')]")))
                 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-0")))
-                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
+                # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#checkAllPeserta .el-checkbox__inner"))).click()
                 # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "checkPeserta-1"))).click()
-                # input('Press Enter to continue input peserta...')
+                input('Press Enter to continue input peserta...')
                 Log.info ('Input Nama Peserta')
 
                 print('Pilih Peserta')
@@ -228,10 +228,11 @@ def test8_Login_Operator_CatatAbsensiOperator():
 
 @pytest.mark.webtest
 def test9_Operator_CatatAbsensiOperator():
+    time.sleep(1)
     driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div/div[2]/div/div/div[4]/div/div[3]/div/div/div/table/tbody/tr/td/div/div").click()
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonCatatAbsensi-0-0 > span"))).click()
-    # input('Press Enter to continue...')
-    time.sleep(5)
+    input('Press Enter to continue...')
+    # time.sleep(5)
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".el-input--large .el-input__suffix-inner svg"))).click()
     # WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="selectPeserta"]'))).click()
     
@@ -259,6 +260,7 @@ def test11_Kasie_VerifikasiPresensi():
     VerifikasiPresensi(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
+    time.sleep(1)
     driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div/div[2]/div[1]/div/div[4]/div[1]/div[3]/div/div[1]/div/table/tbody/tr[1]/td[1]/div/div').click()
     time.sleep(2)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0-0 path:nth-child(2)"))).click()
@@ -272,24 +274,25 @@ def test11_Kasie_VerifikasiPresensi():
     time.sleep(1)
     LogOut(driver)
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test12_Login_Operator_tambahKelulusan():
     print('Login aplikasi menggunakan akun dengan role kalapas')
     sorong(driver)
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test13_Operator_tambahKelulusan():
     sleep(driver)
     KelulusanPeserta(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
     driver.find_element(By.ID, "catatKelulusan-0").click()
-    i = 1
+    i = 4
     for i in range(10):
         print(i)
         try:
             yoga = "#catatKelulusan" + str(i) + " .h-5"
+            print(yoga)
         
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, yoga))).click()
             print(yoga)
@@ -302,7 +305,7 @@ def test13_Operator_tambahKelulusan():
             driver.find_element(By.ID, "predikat").click()
             driver.find_element(By.ID, "opt-baik").click()
             driver.find_element(By.XPATH, '//*[@id="submitButton"]').click()  
-            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Ditambahkan')]")))
+            WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//p[contains(.,'Berhasil Ditambahkan')]")))
             time.sleep(2)
         except TimeoutException:
             print('No More Pages')
@@ -310,7 +313,7 @@ def test13_Operator_tambahKelulusan():
         i = i + 1
     LogOut(driver)
             
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test14_LoginKasie_VerifikasiKelulusan():
 
     print('Login aplikasi menggunakan akun dengan role kasie')
@@ -318,8 +321,9 @@ def test14_LoginKasie_VerifikasiKelulusan():
     Log.info("Berhasil login dan menu yang ditampilkan sesuai hak akses role kasie")
     attach(data=driver.get_screenshot_as_png())
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test15_Kasie_VerifikasiKelulusan():
+    input('/n click enter untuk melanjutkan')
     sleep(driver)
     VerifikasiKelulusanPesertaKepribadian(driver)
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
@@ -333,7 +337,7 @@ def test15_Kasie_VerifikasiKelulusan():
     time.sleep(2)
     LogOut(driver)
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test16_Login_Kalapas_otorisasiKelulusan():
     print('Login aplikasi menggunakan akun dengan role kalapas')
     Kalapas_SPPN_sorong(driver)
@@ -343,7 +347,7 @@ def test16_Login_Kalapas_otorisasiKelulusan():
     Log.info ('Menampilkan index halaman Tim Perwalian berikut dengan data pada tabel yang sesuai')
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.ID, "buttonSearch")))
 
-@pytest.mark.webtest
+@pytest.mark.webtestx
 def test17_Kalapas_otorisasiKelulusan():
     time.sleep(2)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#buttonVerifikasiOtorisasi0 .h-5"))).click()

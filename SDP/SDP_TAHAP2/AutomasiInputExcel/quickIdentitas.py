@@ -67,7 +67,7 @@ def test_4eksekusi():
 		#Tab Biodata-------------------------------------------
 		#------------------------------------------------------
 		Residivis			   				= "Tidak"
-		Nama_Lengkap						= fake.first_name() + " " + fake.last_name() + " 982"
+		Nama_Lengkap						= fake.first_name() + " " + fake.last_name() + " UAT INTEGRASI"
 		Kewarganegaraan						= "WNI"
 		nik					 				= fake.msisdn()+"5"f"{1:09}"
 		Tempat_Asal			 				= "Bandung"
@@ -162,7 +162,8 @@ def test_4eksekusi():
 				# find(By.ID, '').click()		  
 				find(By.ID, 'btn_id_tempat_lahir_lain').send_keys(Tempat_lahir)
 			#------untuk tanggal Data format exel di sesuaikan-----------------------------
-			find(By.XPATH, '//div[5]/div/div/div/div/div/input').send_keys(Tanggal_lahir)
+			input('tangagl')
+			# find(By.XPATH, '//div[5]/div/div/div/div/div/input').send_keys(Tanggal_lahir)
 			find(By.XPATH, '//div[5]/div/div/div/div/div/input').send_keys(Keys.ENTER)
 			#--------------------------------------------------------------
 			find(By.ID, 'btn_id_jenis_kelamin').click()
@@ -613,6 +614,9 @@ def test_4eksekusi():
 			#Submit
 			time.sleep(3)
 			# input('agama')
+			# input('STOP')
+			# input('CLICK ENTER')
+		
 			find(By.ID, 'submitButton').click() 
 			wait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'createButton')))
 

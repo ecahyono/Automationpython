@@ -158,7 +158,7 @@ def test_4Registrasi():
 		tgl_menjalani_cabutpb			= tgl_BA8 
 
 		#TAB PERKARA
-		KejahatanUtama					= random.choice(['Cyber Crime','Organized Crime','Victimless Crime ','White Collar Crime'])
+		KejahatanUtama					= random.choice(['testing '])
 		terminologi 					= random.choice(['kejahatan.0.id_terminologi-0','kejahatan.0.id_terminologi-1','kejahatan.0.id_terminologi-2','kejahatan.0.id_terminologi-3','kejahatan.0.id_terminologi-4','kejahatan.0.id_terminologi-5'])
 		tempatKejahatan					= fake.administrative_unit()
 		Tanggal_Putusan					= tgl_BA8
@@ -176,21 +176,23 @@ def test_4Registrasi():
 		PidanaTahun						= fake.random_int(min=2, max=3)
 		# jenisRemisi					= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2','jenis_remisi-0-3','jenis_remisi-0-4'])
 		# jenisRemisi						= random.choice(['jenis_remisi-0-0','jenis_remisi-0-1','jenis_remisi-0-2'])
-		jenisRemisi						= random.choice(['jenis_remisi-0-2'])
+		jenisRemisi						= random.choice(['jenis_remisi-0-0'])
 		wait=WebDriverWait
 		find=driver.find_element
-		
+		input('Tekan Enter Untuk Melanjutkan')
 
 		wait(driver,1050).until(EC.element_to_be_clickable((By.ID, 'cari')))
 		Log.info('Click Button Cari')
-
-		wait(driver,20).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,\'Registrasi Baru\')]')))
-		find(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()
+		input('Tekan Enter Untuk Melanjutkan')
+		wait(driver,120).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,\'Registrasi Baru\')]')))
+		input('Tekan Enter Untuk Melanjutkan')
+		find(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()x
 		#Log.info('Click Button Registrasi')
 		hold(driver)
 						 
 		try:
-			wait(driver,20).until(EC.element_to_be_clickable((By.ID, 'findButton')))
+			input('Tekan Enter Untuk Melanjutkan')
+			wait(driver,120).until(EC.element_to_be_clickable((By.ID, 'findButton')))
 			find(By.ID, "jenisRegistrasi").send_keys(jenis_registrasi)
 
 
@@ -509,8 +511,8 @@ def test_4Registrasi():
 			#Log.info('input risalah kejadian perkara')
 			hold(driver)
 			
-
-			find(By.CSS_SELECTOR, ".is-required .el-switch__action").click()
+			# input('Tekan Enter Untuk Melanjutkan')
+			# find(By.CSS_SELECTOR, ".is-required .el-switch__action").click()
 
 			hold(driver)
 
@@ -539,7 +541,7 @@ def test_4Registrasi():
 
 			if jenis_registrasi == 'B I' or jenis_registrasi == 'B II A' or jenis_registrasi == 'B II B' or jenis_registrasi == 'B III':
 # ============================================================================================================================================================================
-# TAB PERKARA
+# TAB PUTUSAN
 				if Jenis_putusan == 'PPN':
 					find(By.ID, "tab-putusan_pengadilan_negeri").click()
 					#Log.info('pilih jenis putusan Pengadilan Negeri')

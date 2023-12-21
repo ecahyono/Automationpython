@@ -119,6 +119,24 @@ def SpvRutanBdg(driver):
 
     attach(data=driver.get_screenshot_as_png())
 
+def Spv_KeamananSorong(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("spv-keamanan-sorong")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+
+    attach(data=driver.get_screenshot_as_png())
+
+    
+
 def op_keamanan_mp(driver):
     
     driver.implicitly_wait(10)
@@ -135,6 +153,21 @@ def op_keamanan_mp(driver):
     print('========== Login ==========')
 
     attach(data=driver.get_screenshot_as_png())
+    
+def Op_Keamanan_MP_Sorong(driver):
+    driver.implicitly_wait(10)
+    driver.find_element(By.ID, "login").click()
+    # ini masuk ke form input username
+    driver.find_element(By.ID, "username").click()
+    driver.find_element(By.ID, "username").send_keys("op-keamanan-mp-sorong")
+    time.sleep(2)
+    driver.find_element(By.ID, "password").send_keys("password")
+    # click button login
+    driver.find_element(By.ID, "kc-login").click()
+    WebDriverWait(driver, 10)
+    print('.')
+    print('========== Login ==========')
+    
 
 def Op_Keamanan_p2u(driver):
     driver.implicitly_wait(10)

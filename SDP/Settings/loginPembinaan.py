@@ -171,11 +171,11 @@ def Op_SPPN(driver):
     
     attach(data=driver.get_screenshot_as_png())
 
-def Op_SPPN(driver): 
+def Op_SPPN_Sorong(driver): 
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
-    driver.find_element(By.ID, "username").send_keys("test-sorong")
+    driver.find_element(By.ID, "username").send_keys("operator-pembinaan-sorong")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
@@ -243,7 +243,7 @@ def kasie_SPPN_Sorong(driver):
     driver.implicitly_wait(30)
     driver.find_element(By.ID, "login").click()
     # ini masuk ke form input username
-    driver.find_element(By.ID, "username").send_keys("kasie-kepribadian-sorong")
+    driver.find_element(By.ID, "username").send_keys("kasie-pembinaan-sorong")
     time.sleep(2)
     driver.find_element(By.ID, "password").send_keys("password")
     # click button login
