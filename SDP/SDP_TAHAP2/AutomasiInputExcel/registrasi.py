@@ -186,7 +186,7 @@ def test_4Registrasi():
 		input('Tekan Enter Untuk Melanjutkan')
 		wait(driver,120).until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,\'Registrasi Baru\')]')))
 		input('Tekan Enter Untuk Melanjutkan')
-		find(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()x
+		find(By.XPATH, "//span[contains(.,\'Registrasi Baru\')]").click()
 		#Log.info('Click Button Registrasi')
 		hold(driver)
 						 
@@ -227,7 +227,6 @@ def test_4Registrasi():
 			find(By.CSS_SELECTOR, ".el-dialog__headerbtn").click()
 			#Log.info('close Pop Up')
 			hold(driver)
-
 # ============================================================================================================================================================================
 #REGISTRASI UTAMA A
 			if jenis_registrasi == 'A I' or jenis_registrasi == 'A II' or jenis_registrasi == 'A III' or jenis_registrasi == 'C' or jenis_registrasi == 'A IV' or jenis_registrasi == 'A V':
