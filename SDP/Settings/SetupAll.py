@@ -17,19 +17,34 @@ import requests
 import random
 
 
+def initDriverEksisting():
+    
+    options = webdriver.ChromeOptions()
+
+    if platform.system() == 'Darwin':
+        # driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
+        # driver.implicitly_wait(20)
+
+        # options.add_argument('--remote-debugging-port=9222') # port number bisa diubah sesuai keinginan
+        # tentukan path ke driver Chrome
+        path_to_chromedriver = environ.get("CHROMEDRIVERMAC")
+        # jalankan Chrome dengan opsi dan path yang ditentukan
+        driver = webdriver.Chrome(executable_path=path_to_chromedriver, chrome_options=options)
+
+    elif platform.system() == 'Windows':
+        swin = Service(environ.get("CHROMEDRIVERWIN"))
+        driver = webdriver.Chrome(service=swin)
+    driver.get(environ.get("hostEksisting"))
+    #driver.get(environ.get("HOST"))
+    driver.maximize_window()
+    # pyautogui.press('f12')
+    
+    return driver
+
 def initDriver():
     
     options = webdriver.ChromeOptions()
-    # print('.')
-    # X = int(input("1. Headless, 2. Not Headless")) 
-    # print('.')
-    # if X == 1:
-    #     options.headless = True
-    #     options.add_experimental_option("excludeSwitches",["ignore-certificate-errors"])
-    #     options.add_argument('--disable-gpu')
-    #     options.add_argument('--headless')
-    # elif X == 2:
-    #     options.headless = False
+
     if platform.system() == 'Darwin':
         # driver = webdriver.Chrome(environ.get("CHROMEDRIVERMAC"))
         # driver.implicitly_wait(20)

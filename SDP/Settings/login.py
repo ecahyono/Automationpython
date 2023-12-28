@@ -7,6 +7,20 @@ from selenium.webdriver.common.by import By
 from pytest_html_reporter import attach
 from selenium.webdriver.support import expected_conditions as EC
 
+
+
+
+def EksistingAdministrasi(driver):
+
+    # ini masuk ke form input username
+    driver.find_element(By.NAME, "username").click()
+    driver.find_element(By.NAME, "username").send_keys("196404272023593009")
+    time.sleep(1)
+    driver.find_element(By.NAME, "password").send_keys("P3masyarakat@N")
+    input('Press ENTER to continue...')
+    # click button login
+    driver.find_element(By.NAME, "submit").click()
+
 def test_user(driver):
     driver.implicitly_wait(10)
     driver.find_element(By.ID, "login").click()
@@ -384,6 +398,8 @@ def sorong(driver):
     # click button login
     driver.find_element(By.ID, "kc-login").click()
     attach(data=driver.get_screenshot_as_png())
+
+
 
 
 def LubukBasung(driver):

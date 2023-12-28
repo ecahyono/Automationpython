@@ -251,6 +251,13 @@ def Registrasi_identitas(driver):
     ActionChains(driver).move_to_element(nav1).perform()
     WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, '/registrasi/identitas')))
     driver.find_element(By.LINK_TEXT, "Daftar Identitas").click()
+
+def Registrasi_identitasEksisting(driver):
+    nav1 = driver.find_element(By.ID, '01')
+    ActionChains(driver).move_to_element(nav1).perform()
+    WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, '/registrasi/identitas')))
+    driver.find_element(By.LINK_TEXT, "Daftar Identitas").click()
+
 def Registrasi_Barangbawaan(driver):
     nav1 = driver.find_element(By.ID, '01')
     ActionChains(driver).move_to_element(nav1).perform()
